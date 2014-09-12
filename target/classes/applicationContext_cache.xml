@@ -23,11 +23,11 @@
 		<constructor-arg index="2" type="java.lang.String" value="${memcached.server.host}" />
 	</bean>
 	
-	<bean id="scaleBaseCache" class="com.hoolai.lepao.framework.cache.BaseCacheClient">
+	<!-- <bean id="scaleBaseCache" class="com.hoolai.framework.cache.BaseCacheClient">
 		<property name="cache" ref="scaleClient"></property>
 	</bean>
 	
-	<bean id="userCache" class="com.hoolai.lepao.common.cache.UserCache" parent="scaleBaseCache"></bean>
+	<bean id="userCache" class="com.hoolai.common.cache.UserCache" parent="scaleBaseCache"></bean> -->
 	
 	<!--  
 	<bean id="airClient" class="com.hoolai.storage.proxy.memcached.JMemcacheProxy">

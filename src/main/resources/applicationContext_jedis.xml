@@ -32,9 +32,9 @@
 	<bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate"
 		p:connection-factory-ref="jedisConnectionFactory" />
 	
-	<bean id="baseRedis" class="com.hoolai.lepao.framework.cache.redis.BaseRedis">
+	<bean id="baseRedis" class="com.hoolai.framework.cache.redis.BaseRedis">
 		<property name="redisTemplate" ref="redisTemplate"></property>
 	</bean>
 	
-	<bean id="userRedis" class="com.hoolai.lepao.common.cache.UserRedis" parent="baseRedis"></bean>
+	<!-- <bean id="userRedis" class="com.hoolai.framework.cache.UserRedis" parent="baseRedis"></bean> -->
 </beans>

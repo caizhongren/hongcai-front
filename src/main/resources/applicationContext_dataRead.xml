@@ -10,7 +10,7 @@
 	<description>Spring数据访问层配置 </description>
 
 	<!-- 乐跑体脂秤从库数据访问配置  start-->
-	<bean id="scaleBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!-- 	<bean id="scaleBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="scaleReadSource" />
 		<property name="configLocation" value="classpath:sqlmap-config.xml" />
 	</bean>
@@ -22,11 +22,11 @@
 	<bean id="scaleBaseDao" class="com.hoolai.lepao.framework.datasource.DefaultBaseMybatisDao">
 		<property name="readSqlSessionTemplate" ref="scaleSession" />
 		<property name="writeSqlSessionTemplate" ref="writeSession" />
-	</bean>
+	</bean> -->
 	<!-- 乐跑体质秤从库数据访问配置  end-->
 
 	<!-- 乐跑手环从库数据访问配置 start -->
-	<bean id="huanBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+<!-- 	<bean id="huanBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="huanReadSource" />
 		<property name="configLocation" value="classpath:sqlmap-config.xml" />
 	</bean>
@@ -36,10 +36,28 @@
 	</bean>
 	
 	<bean id="huanBaseDao" class="com.hoolai.lepao.framework.datasource.DefaultBaseMybatisDao">
-		<!--注入SqlSessionTemplate实例 -->
+		注入SqlSessionTemplate实例
 		<property name="readSqlSessionTemplate" ref="huanSession" />
 		<property name="writeSqlSessionTemplate" ref="writeSession" />
+	</bean> -->
+	<!-- 乐跑手环从库数据访问配置 end-->
+	
+	
+	<!-- p2p从库数据访问配置 start -->
+	<bean id="p2pBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="huanReadSource" />
+		<property name="configLocation" value="classpath:sqlmap-config.xml" />
 	</bean>
-	<!-- 乐跑手环从库数据访问配置 start -->
+	
+	<bean id="p2pSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="p2pBean" />
+	</bean>
+	
+	<bean id="p2pBaseDao" class="com.hoolai.framework.datasource.DefaultBaseMybatisDao">
+		<!--注入SqlSessionTemplate实例 -->
+		<property name="readSqlSessionTemplate" ref="p2pSession" />
+		<property name="writeSqlSessionTemplate" ref="writeSession" />
+	</bean>
+	<!-- p2p从库数据访问配置 end-->
 
 </beans>

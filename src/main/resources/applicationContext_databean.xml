@@ -9,9 +9,6 @@
 
 	<description>Spring数据访问dao层 </description>
 
-	<bean id="userDao" class="com.hoolai.lepao.common.dao.UserDao" parent="scaleBaseDao"></bean>
+	<bean id="projectDao" class="com.hoolai.p2p.dao.ProjectDao" parent="p2pBaseDao"></bean>
 	
-	<bean id="logDao" class="com.hoolai.lepao.common.dao.LogDao" parent="scaleBaseDao"></bean>
-	
-	<bean id="deviceDao" class="com.hoolai.lepao.common.dao.DeviceDao" parent="scaleBaseDao"></bean>
 </beans>

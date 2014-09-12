@@ -76,7 +76,7 @@ public class RestfulServiceController {
 		}
 		
 		//转换参数
-		ParamsMap paramMap = null;
+		ParamsMap paramMap = WebUtil.parseParams(request);
 
 		String token = paramMap.get("token");
 		if(null != token){

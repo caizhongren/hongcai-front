@@ -10,20 +10,11 @@
 	
 	<!-- 设置于数据库对应的bean类 -->
     <typeAliases>    
-       <typeAlias alias="user" type="com.hoolai.lepao.common.entity.User" />
-       <typeAlias alias="userSettings" type="com.hoolai.lepao.common.entity.UserSettings" />
-       <typeAlias alias="longSit" type="com.hoolai.lepao.common.entity.LongSit" />
-       <typeAlias alias="alarmClock" type="com.hoolai.lepao.common.entity.AlarmClock" />
-       <typeAlias alias="errorInfo" type="com.hoolai.lepao.common.entity.ErrorInfo" />
-       <typeAlias alias="syncInfo" type="com.hoolai.lepao.common.entity.SyncInfo"/>
-       <typeAlias alias="failedDevice" type="com.hoolai.lepao.common.entity.FailedDevice"/>
-       <typeAlias alias="deviceInfo" type="com.hoolai.lepao.common.entity.DeviceInfo"/>
-       
+       <typeAlias alias="project" type="com.hoolai.p2p.entity.Project" />
     </typeAliases>
      
      <!-- 设置数据库sql语句xml文件 -->
     <mappers> 
-      	<mapper resource="com/hoolai/lepao/common/dao/conf/user.xml" />
-      	<mapper resource="com/hoolai/lepao/common/dao/conf/log.xml"/>
+      	<mapper resource="com/hoolai/p2p/dao/conf/project.xml" />
     </mappers>    
 </configuration>   
