@@ -1,0 +1,26 @@
+{
+  "name": "lepao",
+  "version": "0.0.0",
+  "authors": [
+    "laughin <jinxiao@me.com>"
+  ],
+  "dependencies": {
+    "angular-animate": "1.2.16",
+    "angular-cookies": "1.2.16",
+    "angular-bootstrap": "~0.11.0",
+    "angular-md5": "~0.1.7",
+    "angular-resource": "1.2.16",
+    "angular-mocks": "1.2.16",
+    "angular-route": "1.2.16",
+    "angular-sanitize": "1.2.16",
+    "angular-scenario": "1.2.16",
+    "bootstrap": "~3.1.1",
+    "angular-touch": "1.2.16",
+    "json3": "~3.3.1",
+    "es5-shim": "~3.1.0",
+    "jquery": "~2.1.1",
+    "headroom.js": "~0.7.0",
+    "requirejs": "~2.1.15",
+    "angularAMD": "~0.2.1"
+  }
+}
