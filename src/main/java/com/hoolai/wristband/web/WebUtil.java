@@ -1,6 +1,5 @@
 package com.hoolai.wristband.web;
 
-import java.util.Arrays;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;

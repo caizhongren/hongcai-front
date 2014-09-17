@@ -18,8 +18,10 @@
 	<import resource="applicationContext_dataRead.xml" />
 	<import resource="applicationContext_databean.xml"/>
 	<import resource="applicationContext_dataWrite.xml"/>
+	<!-- 
 	<import resource="applicationContext_cache.xml"/>
 	<import resource="applicationContext_jedis.xml"/>
+	 -->
 	<util:properties id="biConfiguration" location="classpath:profile/${prop.dir.name}/bi.properties" />
 	<util:properties id="systemConfiguration" location="classpath:profile/${prop.dir.name}/system.properties" />
 	<util:properties id="mailConfiguration" location="classpath:profile/${prop.dir.name}/mail.properties" />
