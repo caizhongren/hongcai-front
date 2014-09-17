@@ -20,6 +20,7 @@ define([ 'angularAMD', 'angular-route', 'angular-resource' ], function(angularAM
 			return input.slice(parseInt(start));
 		}
 	});
+	
 
 	return angularAMD.bootstrap(hongcaiApp);
 });
