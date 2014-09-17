@@ -21,6 +21,5 @@ define([ 'angularAMD', 'angular-route', 'angular-resource' ], function(angularAM
 		}
 	});
 
-
 	return angularAMD.bootstrap(hongcaiApp);
 });
