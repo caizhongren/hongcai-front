@@ -10,11 +10,16 @@
 	
 	<!-- 设置于数据库对应的bean类 -->
     <typeAliases>    
-       <typeAlias alias="project" type="com.hoolai.p2p.entity.Project" />
+       <typeAlias alias="project" type="com.hoolai.p2p.entity.hcm.Project" />
+       <typeAlias alias="projectInfo" type="com.hoolai.p2p.entity.hcm.ProjectInfo" />
+       <typeAlias alias="pledge" type="com.hoolai.p2p.entity.hcm.Pledge"/>
+       <typeAlias alias="adminLog" type="com.hoolai.p2p.entity.hcl.ProjectAdminLog"/>
+       
     </typeAliases>
      
      <!-- 设置数据库sql语句xml文件 -->
     <mappers> 
       	<mapper resource="com/hoolai/p2p/dao/conf/project.xml" />
+      	<mapper resource="com/hoolai/p2p/dao/conf/pledge.xml" />
     </mappers>    
 </configuration>   
