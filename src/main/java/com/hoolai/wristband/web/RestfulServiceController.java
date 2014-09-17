@@ -187,7 +187,7 @@ public class RestfulServiceController {
 						+"] is illegal. cause:" + illegalParameterException.getMessage() );
 				logger.error(illegalParameterException.getMessage());
 			}else{
-//				e.printStackTrace();
+				e.printStackTrace();
 				logger.error(e.getMessage());
 				result.put("msg", "服务器未知错误，请联系管理员！");
 			}
