@@ -1,6 +1,6 @@
 define(['scripts/app', 'scripts/factory/project/project-factory'], function(app) {
-    app.controller("ProjectListCtrl", ["$scope", "ProjectFactory", function ($scope, ProjectFactory) {
-        var projectList = ProjectFactory.projectList.get(function() {
+    app.controller("ProjectListCtrl", ["$scope", "$routeParams", "ProjectFactory", function ($scope, $routeParams, ProjectFactory) {
+        var projectList = ProjectFactory.projectList.get({status: $routeParams.status}, function() {
     		$scope.projectList = projectList.data;
     		$scope.orderProp = 'id';
     		$scope.currentPage = 0;

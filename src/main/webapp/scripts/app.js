@@ -10,7 +10,11 @@ define([ 'angularAMD', 'angular-route', 'angular-resource' ], function(angularAM
 						angularAMD.route({
 							templateUrl : 'views/project/project-list.html', 
 							controller : 'ProjectListCtrl', 
-							controllerUrl : 'scripts/controller/project/project-list-ctrl'
+							controllerUrl : 'scripts/controller/project/project-list-ctrl',
+							params: {
+								status: 'status',
+								cycle: 'cycle'
+						        }
 				}))
 				.when("/project-detail/:projectId",
 						angularAMD.route({

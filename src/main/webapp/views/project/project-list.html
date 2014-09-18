@@ -16,31 +16,31 @@
 			        <div>
 			            <label>项目期限：</label>
 			            <ul>
-			                <a href="#!/project-list" >全部</a>
-			                <a href="#!/project-list" >0 - 3个月</a>
-			                <a href="#!/project-list" >3 - 6个月</a>
-			                <a href="#!/project-list" >6 - 9个月</a>
-			                <a href="#!/project-list" >9 - 12个月</a>
-			                <a href="#!/project-list" >12 - 15个月</a>
-			                <a href="#!/project-list" >15个月以上</a>
+			                <a href="#!/project-list?rate=" >全部</a>
+			                <a href="#!/project-list?range=0to3&amp;rate=" >0 - 3个月</a>
+			                <a href="#!/project-list?range=3to6&amp;rate=" >3 - 6个月</a>
+			                <a href="#!/project-list?range=6to9&amp;rate=" >6 - 9个月</a>
+			                <a href="#!/project-list?range=9to12&amp;rate=" >9 - 12个月</a>
+			                <a href="#!/project-list?range=12to15&amp;rate=" >12 - 15个月</a>
+			                <a href="#!/project-list?range=15to&amp;rate=" >15个月以上</a>
 			            </ul>
 			        </div>
 			        <div>
 			            <label>项目收益：</label>
 			            <ul>
-			                <a href="#!/project-list" >全部</li>
-			                <a href="#!/project-list" >9%以下</a>
-			                <a href="#!/project-list" >9 - 10%</a>
-			                <a href="#!/project-list" >10 - 11%</a>
-			                <a href="#!/project-list" >11 - 12%</a>
-			                <a href="#!/project-list" >12%以上</a>
+			                <a href="#!/project-list?range=" >全部</li>
+			                <a href="#!/project-list?rate=to9&amp;range=" >9%以下</a>
+			                <a href="#!/project-list?rate=9to10&amp;range=" >9 - 10%</a>
+			                <a href="#!/project-list?rate=10to11&amp;range=" >10 - 11%</a>
+			                <a href="#!/project-list?rate=11to12&amp;range=" >11 - 12%</a>
+			                <a href="#!/project-list?rate=12to&amp;range=" >12%以上</a>
 			            </ul>
 			        </div>
 			        <div>
 			            <label>保障方式：</label>
 			            <ul>
-			                <a href="#!/project-list" >全部</a>
-			                <a href="#!/project-list" >国有担保</a>
+			                <a href="#!/project-list?rate=&amp;range=" >全部</a>
+			                <a href="#!/project-list?guarantee=0" >国有担保</a>
 			                <a href="#!/project-list?guarantee=1" >非国有担保</a>
 			                <a href="#!/project-list?guarantee=2" >企业担保</a>
 			                <a href="#!/project-list?guarantee=3" >其它保障</a>
@@ -60,7 +60,7 @@
 			                <a href="#!/project-list?category=6" >房产周转贷</a>
 			                <a href="#!/project-list?category=7" >个人经营贷</a>
 			                <a href="#!/project-list?category=8" >个人消费贷</a>
-			                <a href="#!/project-list?category=9" >融资租赁贷</a>
+			                <a href="#!/project-list?category=9&amp;rate=&amp;range=" >融资租赁贷</a>
 			            </ul>
 			        </div>
 				</div>
@@ -68,14 +68,6 @@
 			
 			
 			<div class="col-md-12" ng-controller="ProjectListCtrl">
-				<div class="span2">
-					搜索: <input ng-model="query">
-					排序:
-					<select ng-model="orderProp">
-					  <option value="id">ID</option>
-					  <option value="name">NAME</option>
-					</select>
-			    </div>
 			    <div class="table-responsive">
 					<table class="table table-hover">
 					  <thead>
@@ -87,7 +79,7 @@
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr ng-repeat="item in data | filter:query | orderBy:orderProp | startFrom:currentPage * pageSize | limitTo:pageSize">
+					    <tr ng-repeat="item in data | filter:{status: status, cycle:cycle, annualEarnings:earning} | orderBy:orderProp | startFrom:currentPage * pageSize | limitTo:pageSize">
 							<td>{{item.id}}</td>
 							<td>{{item.name}}</td>
 							<td>{{item.number}}</td>
