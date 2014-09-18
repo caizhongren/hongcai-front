@@ -1,11 +1,35 @@
 <div ng-controller="ProjectDetailCtrl">
 	<div class="container page-container">
-		<div class="row">
-			<div class="col-md-9">
-				{{projectId}}
-				
-			</div>
-		</div>
+		<h1>{{name}}</h1>
+	<div class="row">
+  		<div class="col-md-4"><img src="..." alt="..." class="img-thumbnail"></div>
+  		<div class="col-md-4">
+  			<div class="col-xs-4 col-sm-4">
+        		年化收益：<br/>{{annualEarnings}} %
+     		 </div>
+      		<div class="col-xs-4 col-sm-4">
+        		项目期限：<br/>{{cycle}} 个月
+      		</div>
+      		<div class="col-xs-4 col-sm-4">
+        		项目规模：<br/>{{total}} 万
+      		</div>
+  		</div>
+  		<div class="col-md-4"><h3>投资金额</h3></div>
+	</div>
+
+	<div class="row">
+		<h3>项目信息：</h3>
+		<p>{{description}}</p>
+
+		<h3>资金用途：</h3>
+		<p>{{financingPurpose}}</p>
+
+		<h3>还款来源：</h3>
+		<p>{{repaymentSource}}</p>
+
+		<h3>项目评估：</h3>
+		<p>TODO</p>
+	</div>
 		
 	</div>
 </div>
