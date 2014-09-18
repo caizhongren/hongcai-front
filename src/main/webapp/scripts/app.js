@@ -1,6 +1,6 @@
 define([ 'angularAMD', 'angular-route', 'angular-resource' ], function(angularAMD) {
 
-	var hongcaiApp = angular.module("hongcaiApp", [ 'ngRoute','ngResource' ]);
+	var hongcaiApp = angular.module("hongcaiApp", ['ngRoute', 'ngResource']);
 
 	hongcaiApp.config(function($routeProvider, $locationProvider) {
 				$routeProvider
