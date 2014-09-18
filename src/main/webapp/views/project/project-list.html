@@ -1,14 +1,73 @@
 <div>
 	<div class="container page-container">
 		<div class="row">
-			<div class="col-md-3">
-				<nav class="list-group">
-					<a href="#!/index" class="list-group-item ">首页</a>
-					<a href="#!/project-list" class="list-group-item user-list">用户列表</a>
-				</nav>
+			<div class="col-md-12">
+				<div class="container filter-container">
+			        <div>
+			            <label>项目状态：</label>
+			            <ul>
+			                <a href="#!/project-list" >全部</a>
+			                <a href="#!/project-list?status=1" >投标中</a>
+			                <a href="#!/project-list?status=2" >投标结束</a>
+			                <a href="#!/project-list?status=3" >还款中</a>
+			                <a href="#!/project-list?status=4" >还款完成</a>
+			            </ul>
+			        </div>
+			        <div>
+			            <label>项目期限：</label>
+			            <ul>
+			                <a href="#!/project-list" >全部</a>
+			                <a href="#!/project-list" >0 - 3个月</a>
+			                <a href="#!/project-list" >3 - 6个月</a>
+			                <a href="#!/project-list" >6 - 9个月</a>
+			                <a href="#!/project-list" >9 - 12个月</a>
+			                <a href="#!/project-list" >12 - 15个月</a>
+			                <a href="#!/project-list" >15个月以上</a>
+			            </ul>
+			        </div>
+			        <div>
+			            <label>项目收益：</label>
+			            <ul>
+			                <a href="#!/project-list" >全部</li>
+			                <a href="#!/project-list" >9%以下</a>
+			                <a href="#!/project-list" >9 - 10%</a>
+			                <a href="#!/project-list" >10 - 11%</a>
+			                <a href="#!/project-list" >11 - 12%</a>
+			                <a href="#!/project-list" >12%以上</a>
+			            </ul>
+			        </div>
+			        <div>
+			            <label>保障方式：</label>
+			            <ul>
+			                <a href="#!/project-list" >全部</a>
+			                <a href="#!/project-list" >国有担保</a>
+			                <a href="#!/project-list?guarantee=1" >非国有担保</a>
+			                <a href="#!/project-list?guarantee=2" >企业担保</a>
+			                <a href="#!/project-list?guarantee=3" >其它保障</a>
+			                <a href="#!/project-list?guarantee=4" >信用</a>
+			            </ul>
+			        </div>
+			        <div>
+			            <label>项目类型：</label>
+			            <ul>
+			                <a href="#!/project-list?rate=&amp;range=" >全部</a>
+			                <a href="#!/project-list?category=0" >企业经营贷</a>
+			                <a href="#!/project-list?category=1" >购房周转贷</a>
+			                <a href="#!/project-list?category=2" >核心商圈贷</a>
+			                <a href="#!/project-list?category=3" >房产抵押贷</a>
+			                <a href="#!/project-list?category=4" >消费周转贷</a>
+			                <a href="#!/project-list?category=5" >车辆抵押贷</a>
+			                <a href="#!/project-list?category=6" >房产周转贷</a>
+			                <a href="#!/project-list?category=7" >个人经营贷</a>
+			                <a href="#!/project-list?category=8" >个人消费贷</a>
+			                <a href="#!/project-list?category=9" >融资租赁贷</a>
+			            </ul>
+			        </div>
+				</div>
 			</div>
 			
-			<div class="col-md-9" ng-controller="ProjectListCtrl">
+			
+			<div class="col-md-12" ng-controller="ProjectListCtrl">
 				<div class="span2">
 					搜索: <input ng-model="query">
 					排序:
