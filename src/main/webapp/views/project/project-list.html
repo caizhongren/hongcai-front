@@ -5,69 +5,102 @@
 				<div class="container filter-container">
 			        <div>
 			            <label>项目状态：</label>
-			            <ul>
-			                <a href="#!/project-list" >全部</a>
-			                <a href="#!/project-list?status=1" >投标中</a>
-			                <a href="#!/project-list?status=2" >投标结束</a>
-			                <a href="#!/project-list?status=3" >还款中</a>
-			                <a href="#!/project-list?status=4" >还款完成</a>
+			            <ul class="nav nav-pills">
+			            	<li class="{{status == '3,4,5,6' ? 'active' : ''}}">
+			            		<a href="#!/project-list?status=3,4,5,6&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >全部</a>
+			            	</li>
+			            	<li class="{{status == '3' ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status ? 3 : status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >投标中</a>
+			            	</li>
+			            	<li class="{{status == '4' ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status ? 4 : status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >投标结束</a>
+			            	</li>
+			            	<li class="{{status == '5' ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status ? 5 : status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >还款中</a>
+			            	</li>
+			            	<li class="{{status == '6' ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status ? 6 : status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >还款完成</a>
+			            	</li>
 			            </ul>
 			        </div>
 			        <div>
 			            <label>项目期限：</label>
-			            <ul>
-			                <a href="#!/project-list?rate=" >全部</a>
-			                <a href="#!/project-list?range=0to3&amp;rate=" >0 - 3个月</a>
-			                <a href="#!/project-list?range=3to6&amp;rate=" >3 - 6个月</a>
-			                <a href="#!/project-list?range=6to9&amp;rate=" >6 - 9个月</a>
-			                <a href="#!/project-list?range=9to12&amp;rate=" >9 - 12个月</a>
-			                <a href="#!/project-list?range=12to15&amp;rate=" >12 - 15个月</a>
-			                <a href="#!/project-list?range=15to&amp;rate=" >15个月以上</a>
+			            <ul class="nav nav-pills">
+			            	<li class="{{(minCycle==0 && maxCycle==100) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle=0&maxCycle=100&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >全部</a>
+			            	</li>
+			            	<li class="{{(minCycle==0 && maxCycle==3) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle ? 0 : minCycle}}&maxCycle={{maxCycle ? 3 : maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >0 - 3个月</a>
+			            	</li>
+			            	<li class="{{(minCycle==3 && maxCycle==6) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle ? 3 : minCycle}}&maxCycle={{maxCycle ? 6 : maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >3 - 6个月</a>
+			            	</li>
+			            	<li class="{{(minCycle==6 && maxCycle==9) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle ? 6 : minCycle}}&maxCycle={{maxCycle ? 9 : maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >6 - 9个月</a>
+			            	</li>
+			            	<li class="{{(minCycle==9 && maxCycle==12) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle ? 9 : minCycle}}&maxCycle={{maxCycle ? 12 : maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >9 - 12个月</a>
+			            	</li>
+			            	<li class="{{(minCycle==12 && maxCycle==15) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle ? 12 : minCycle}}&maxCycle={{maxCycle ? 15 : maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >12 - 15个月</a>
+			            	</li>
+			            	<li class="{{(minCycle==15 && maxCycle==100) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle ? 15 : minCycle}}&maxCycle={{maxCycle ? 100 : maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >15个月以上</a>
+			            	</li>
 			            </ul>
 			        </div>
 			        <div>
 			            <label>项目收益：</label>
-			            <ul>
-			                <a href="#!/project-list?range=" >全部</li>
-			                <a href="#!/project-list?rate=to9&amp;range=" >9%以下</a>
-			                <a href="#!/project-list?rate=9to10&amp;range=" >9 - 10%</a>
-			                <a href="#!/project-list?rate=10to11&amp;range=" >10 - 11%</a>
-			                <a href="#!/project-list?rate=11to12&amp;range=" >11 - 12%</a>
-			                <a href="#!/project-list?rate=12to&amp;range=" >12%以上</a>
+			            <ul class="nav nav-pills">
+			            	<li class="{{(minEarning==0 && maxEarning==20) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning=0&maxEarning=20&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >全部</a>
+			            	</li>
+			            	<li class="{{(minEarning==0 && maxEarning==8) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning=0&maxEarning=8&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >8%以下</a>
+			            	</li>
+			            	<li class="{{(minEarning==8 && maxEarning==10) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning=8&maxEarning=10&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >8 - 10%</a>
+			            	</li>
+			            	<li class="{{(minEarning==10 && maxEarning==12) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning=10&maxEarning=12&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >10 - 12%</a>
+			            	</li>
+			            	<li class="{{(minEarning==12 && maxEarning==20) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning=12&maxEarning=20&minTotalAmount={{minTotalAmount}}&maxTotalAmount={{maxTotalAmount}}" >12%以上</a>
+			            	</li>
 			            </ul>
 			        </div>
 			        <div>
-			            <label>保障方式：</label>
-			            <ul>
-			                <a href="#!/project-list?rate=&amp;range=" >全部</a>
-			                <a href="#!/project-list?guarantee=0" >国有担保</a>
-			                <a href="#!/project-list?guarantee=1" >非国有担保</a>
-			                <a href="#!/project-list?guarantee=2" >企业担保</a>
-			                <a href="#!/project-list?guarantee=3" >其它保障</a>
-			                <a href="#!/project-list?guarantee=4" >信用</a>
+			            <label>项目规模：</label>
+			            <ul class="nav nav-pills">
+			            	<li class="{{(minTotalAmount==0 && maxTotalAmount==200000000) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount=0&maxTotalAmount=200000000" >全部</a>
+			            	</li>
+			            	<li class="{{(minTotalAmount==0 && maxTotalAmount==2000000) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount=0&maxTotalAmount=2000000" >200万以下</a>
+			            	</li>
+			            	<li class="{{(minTotalAmount==2000000 && maxTotalAmount==5000000) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount=2000000&maxTotalAmount=5000000" >200-500万</a>
+			            	</li>
+			            	<li class="{{(minTotalAmount==5000000 && maxTotalAmount==10000000) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount=5000000&maxTotalAmount=10000000" >500-1000万</a>
+			            	</li>
+			            	<li class="{{(minTotalAmount==10000000 && maxTotalAmount==200000000) ? 'active' : ''}}">
+			            		<a href="#!/project-list?status={{status}}&minCycle={{minCycle}}&maxCycle={{maxCycle}}&minEarning={{minEarning}}&maxEarning={{maxEarning}}&minTotalAmount=10000000&maxTotalAmount=200000000" >1000万以上</a>
+			            	</li>
 			            </ul>
 			        </div>
-			        <div>
-			            <label>项目类型：</label>
-			            <ul>
-			                <a href="#!/project-list?rate=&amp;range=" >全部</a>
-			                <a href="#!/project-list?category=0" >企业经营贷</a>
-			                <a href="#!/project-list?category=1" >购房周转贷</a>
-			                <a href="#!/project-list?category=2" >核心商圈贷</a>
-			                <a href="#!/project-list?category=3" >房产抵押贷</a>
-			                <a href="#!/project-list?category=4" >消费周转贷</a>
-			                <a href="#!/project-list?category=5" >车辆抵押贷</a>
-			                <a href="#!/project-list?category=6" >房产周转贷</a>
-			                <a href="#!/project-list?category=7" >个人经营贷</a>
-			                <a href="#!/project-list?category=8" >个人消费贷</a>
-			                <a href="#!/project-list?category=9&amp;rate=&amp;range=" >融资租赁贷</a>
-			            </ul>
-			        </div>
-				</div>
-			</div>
-			
+				</div><!-- /.container filter-container -->
+			</div><!-- /.col-md-12 -->
 			
 			<div class="col-md-12" ng-controller="ProjectListCtrl">
+				<div class="span2">
+					搜索: <input ng-model="query">
+					排序:
+					<select ng-model="orderProp">
+					  <option value="id">ID</option>
+					  <option value="name">NAME</option>
+					</select>
+			    </div>
 			    <div class="table-responsive">
 					<table class="table table-hover">
 					  <thead>
@@ -79,7 +112,7 @@
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr ng-repeat="item in data | filter:{status: status, cycle:cycle, annualEarnings:earning} | orderBy:orderProp | startFrom:currentPage * pageSize | limitTo:pageSize">
+					    <tr ng-repeat="item in data | filter: query | orderBy:orderProp | startFrom:currentPage * pageSize | limitTo:pageSize">
 							<td>{{item.id}}</td>
 							<td>{{item.name}}</td>
 							<td>{{item.number}}</td>
