@@ -1,7 +1,20 @@
 define(['scripts/app', 'scripts/factory/project/project-factory'], function(app) {
-    app.controller("ProjectListCtrl", ["$scope", "ProjectFactory", function ($scope, ProjectFactory) {
-        var projectList = ProjectFactory.projectList.get(function() {
+    app.controller("ProjectListCtrl", ["$scope", "$routeParams", "ProjectFactory", function ($scope, $routeParams, ProjectFactory) {
+        var projectList = ProjectFactory.projectList.get({status: $routeParams.status, 
+        												  minCycle: $routeParams.minCycle, 
+        												  maxCycle: $routeParams.maxCycle, 
+        												  minEarning: $routeParams.minEarning, 
+        												  maxEarning: $routeParams.maxEarning, 
+        												  minTotalAmount: $routeParams.minTotalAmount,
+        												  maxTotalAmount: $routeParams.maxTotalAmount,}, function() {
     		$scope.projectList = projectList.data;
+    		$scope.status = $routeParams.status;
+    		$scope.minCycle = $routeParams.minCycle;
+    		$scope.maxCycle = $routeParams.maxCycle;
+    		$scope.minEarning = $routeParams.minEarning;
+    		$scope.maxEarning = $routeParams.maxEarning;
+    		$scope.minTotalAmount = $routeParams.minTotalAmount;
+    		$scope.maxTotalAmount = $routeParams.maxTotalAmount;
     		$scope.orderProp = 'id';
     		$scope.currentPage = 0;
     	    $scope.pageSize = 15;

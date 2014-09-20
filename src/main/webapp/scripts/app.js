@@ -1,6 +1,8 @@
 define([ 'angularAMD', 'angular-route', 'angular-resource' ], function(angularAMD) {
 
-	var hongcaiApp = angular.module("hongcaiApp", [ 'ngRoute','ngResource' ]);
+	var hongcaiApp = angular.module("hongcaiApp", ['ngRoute', 'ngResource']);
+	
+	hongcaiApp.constant('DEFAULT_DOMAIN', "http://127.0.0.1:8080/hongcai/api/v1");
 
 	hongcaiApp.config(function($routeProvider, $locationProvider) {
 				$routeProvider
@@ -24,7 +26,7 @@ define([ 'angularAMD', 'angular-route', 'angular-resource' ], function(angularAM
 	hongcaiApp.filter('startFrom', function startFrom() {
 		return function(input, start) {
 			return input.slice(parseInt(start));
-		}
+		};
 	});
 	
 
