@@ -14,6 +14,8 @@
        <typeAlias alias="projectInfo" type="com.hoolai.p2p.entity.hcm.ProjectInfo" />
        <typeAlias alias="pledge" type="com.hoolai.p2p.entity.hcm.Pledge"/>
        <typeAlias alias="adminLog" type="com.hoolai.p2p.entity.hcl.ProjectAdminLog"/>
+       <typeAlias alias="userBankCard" type="com.hoolai.p2p.entity.hcm.UserBankCard"/>
+       <typeAlias alias="userInfo" type="com.hoolai.p2p.entity.hcm.UserInfo"/>
        
     </typeAliases>
      
