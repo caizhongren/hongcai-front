@@ -5,8 +5,10 @@ define(['scripts/app', 'scripts/factory/project/project-factory'], function(app)
         												  maxCycle: $routeParams.maxCycle, 
         												  minEarning: $routeParams.minEarning, 
         												  maxEarning: $routeParams.maxEarning, 
-        												  minTotalAmount: $routeParams.minTotalAmount,
-        												  maxTotalAmount: $routeParams.maxTotalAmount,}, function() {
+        												  minTotalAmount: $routeParams.minTotalAmount, 
+        												  maxTotalAmount: $routeParams.maxTotalAmount, 
+        												  sortCondition: $routeParams.sortCondition}, function() {
+        													  console.log($routeParams.sortCondition);
     		$scope.projectList = projectList.data;
     		$scope.status = $routeParams.status;
     		$scope.minCycle = $routeParams.minCycle;
@@ -15,11 +17,12 @@ define(['scripts/app', 'scripts/factory/project/project-factory'], function(app)
     		$scope.maxEarning = $routeParams.maxEarning;
     		$scope.minTotalAmount = $routeParams.minTotalAmount;
     		$scope.maxTotalAmount = $routeParams.maxTotalAmount;
+    		$scope.sortCondition = $routeParams.sortCondition;
     		$scope.orderProp = 'id';
     		$scope.currentPage = 0;
     	    $scope.pageSize = 15;
     	    $scope.data = [];
-    	    $scope.numberOfPages = function(){
+    	    $scope.numberOfPages = function() {
     	        return Math.ceil($scope.data.length / $scope.pageSize);
     	    }
     	    for (var i = 0; i < $scope.projectList.projectList.length; i++) {
