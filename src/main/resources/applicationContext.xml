@@ -13,7 +13,7 @@
 	</context:component-scan>
 	
 	
-	<context:property-placeholder location="classpath:profile/local/jdbc.properties,classpath:profile/local/cache.properties,classpath:profile/local/redis.properties" />
+	<context:property-placeholder location="classpath:profile/${prop.dir.name}/jdbc.properties,classpath:profile/${prop.dir.name}/cache.properties,classpath:profile/${prop.dir.name}/redis.properties" />
 	<import resource="applicationContext_datasource.xml"/>
 	<import resource="applicationContext_dataRead.xml" />
 	<import resource="applicationContext_databean.xml"/>

@@ -44,18 +44,18 @@
 	
 	
 	<!-- p2p从库数据访问配置 start -->
-	<bean id="p2pBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<bean id="mainBean" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="huanReadSource" />
 		<property name="configLocation" value="classpath:sqlmap-config.xml" />
 	</bean>
 	
-	<bean id="p2pSession" class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg index="0" ref="p2pBean" />
+	<bean id="mainSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="mainBean" />
 	</bean>
 	
-	<bean id="p2pBaseDao" class="com.hoolai.framework.datasource.DefaultBaseMybatisDao">
+	<bean id="mainBaseDao" class="com.hoolai.framework.datasource.DefaultBaseMybatisDao">
 		<!--注入SqlSessionTemplate实例 -->
-		<property name="readSqlSessionTemplate" ref="p2pSession" />
+		<property name="readSqlSessionTemplate" ref="mainSession" />
 		<property name="writeSqlSessionTemplate" ref="writeSession" />
 	</bean>
 	<!-- p2p从库数据访问配置 end-->

@@ -129,7 +129,7 @@
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr ng-repeat="item in data | filter: query | orderBy:orderProp | startFrom:currentPage * pageSize | limitTo:pageSize">
+					    <tr ng-repeat="item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize">
 							<td>{{item.id}}</td>
 							<td>{{item.name}}</td>
 							<td>{{item.number}}</td>
