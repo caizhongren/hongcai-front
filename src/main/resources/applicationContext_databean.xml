@@ -15,5 +15,6 @@
 	<bean id="adminDao" class="com.hoolai.p2p.dao.AdminDao" parent="mainBaseDao"></bean>
 	<bean id="bankDao" class="com.hoolai.p2p.dao.BankDao" parent="mainBaseDao"></bean>
 	<bean id="userDao" class="com.hoolai.p2p.dao.UserDao" parent="mainBaseDao"></bean>
+	<bean id="enterpriseDao" class="com.hoolai.p2p.dao.EnterpriseDao" parent="mainBaseDao"></bean>
 	
 </beans>
