@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[LEPAO]“乐跑手环99元抢先购”活动公告</title>
+</head>
+<body>
+<strong>
+尊敬的用户:${nickname}：您好！<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您在QQ空间“乐跑手环99元抢先购”活动中，使用“F码”购买的乐跑手环腕带不符合活动规则，即该F码仅对乐跑手环开放，不支持购买乐跑腕带。
+该不符合规则的订单已被取消。因我们的工作不到位给您带来不便，非常抱歉。<br/><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;为了弥补您的不便，乐跑官方将针对您的订单中已经使用的“F码”将返还1个“F码”，同时还将赠送1个“F码”：<br/><br/>
+　　		第一个“F码”：${coupon1}<br/>
+　　		第二个“F码”：${coupon2}<br/>
+　　		 （提示:请在活动期间2014年4月9日-4月20日使用,不可叠加使用）<br/><br/>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;针对支付实际金额的订单，我们将按照订单的实际付款金额，退还到您的订单付款账号，
+同时还额外包括实际付款的1倍金额作为致歉礼物，支付时间为2014年4月21日-4月25日。<br/><br/>
+	
+	 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;针对以上方案，请给出您的意见（请点击以下链接）：<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="${url1}">我同意你们的方案</a><br/>
+		&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<a href="${url2}">我不同意，会在活动期间跟客服联系</a><br/><br/>
+	
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如有任何问题，请在活动期间及时与客服联系，活动结束后，我方没有收到您对支付银行账号及其他事宜的异议或者您在活动期间重新使用了邮件中“F码”，
+	均将视同对我们处理方案的理解和支持。<br/><br/>
+　　
+&nbsp;&nbsp;&nbsp;&nbsp;最后，衷心感谢您参与了“乐跑手环99元抢先购”活动，感谢您对我们工作的理解与支持！<br/><br/>
+
+<br/>
+<div align="left">
+		客服电话：4000001257（接通后按1健）<br/>
+		客服QQ：4000001257<br/>
+		“乐跑手环99元抢先购”活动网址：<a href="http://v4.qzone.qq.com/">http://v4.qzone.qq.com/</a>。<br/>
+		乐跑官网<br/>
+		2014/4/11<br/>
+<div>
+<strong/>
+</body>
+</html>
