@@ -17,5 +17,16 @@
 	<bean id="writeSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="writeBean" />
 	</bean>
+	
+		<!-- 宏财网,log日志写入主库 start -->
+	<bean id="logWriteBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="logWriteSource" />
+		<property name="configLocation" value="classpath:sqlmap-config.xml" />
+	</bean>
+	
+	<bean id="logWriteSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg index="0" ref="logWriteBean" />
+	</bean>
+	<!-- 宏财网,log日志写入主库 end -->
 
 </beans>

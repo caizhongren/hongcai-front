@@ -53,17 +53,18 @@
 		<property name="password" value="${jdbc.password}" />
 	</bean>
 
-	<!-- 体脂秤  从库链接 -->
-	<bean id="scaleReadSource" parent="dbcp" class="org.apache.commons.dbcp.BasicDataSource"
+	<!-- 手环从库链接 -->
+	<bean id="mainReadSource" parent="dbcp" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${jdbc.region.driverClassName}" />
 		<property name="url" value="${jdbc.region.url}" />
 		<property name="username" value="${jdbc.region.username}" />
 		<property name="password" value="${jdbc.region.password}" />
 	</bean>
-
-	<!-- 手环从库链接 -->
-	<bean id="huanReadSource" parent="dbcp" class="org.apache.commons.dbcp.BasicDataSource"
+	
+	
+	<!-- log -->
+	<bean id="logWriteSource" parent="dbcp" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<property name="driverClassName" value="${jdbc.region.driverClassName}" />
 		<property name="url" value="${jdbc.region.url}" />
