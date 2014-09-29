@@ -1,6 +1,6 @@
-/target
-/.settings
-.classpath
-.project
-/src/main/webapp/node_modules/*
-/src/main/webapp/bower_components/*
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+Gruntfile.js
