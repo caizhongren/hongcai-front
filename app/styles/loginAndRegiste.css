@@ -1,0 +1,225 @@
+body {
+    margin: 0;
+    color: #333;
+    font: 14px/1.5"Hiragino Sans GB", "Microsoft Yahei", "SimHei", sans-serif;
+    /*   -webkit-font-smoothing: antialiased; */
+    text-rendering: optimizelegibility;
+    _background-attachment: fixed;
+    _background-image: url(about:blank);
+    cursor: default;
+}
+/*重写bootstrap部分*/
+
+.back-ground{
+    height: 455px;
+    width: 100%;
+    padding-top: 38px;
+    background-color: #fdfbfb;
+}
+
+.registe-area,
+.login-background{
+  width: 1006px;
+  height: 460px;
+  margin: 0 auto;
+}
+.login-background{
+  height:412px;
+}
+
+.way-registe,
+.login-area{
+  width: 596px;
+  height: 455px;
+  float: left;
+  border: 2px solid #d9d5d6;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0px 1px 1px #d9d5d6;
+}
+.login-area{
+  width:495px; height:380px;
+}
+
+.login-title{
+  height: 57px;
+  width: 100.8%;
+  margin-top: -2px;
+  margin-left: -2px;
+  padding-top: 18px;
+  padding-left: 30px;
+  font-size: 18px;
+  background-color: #eb5b3c;
+  color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.form-login{
+  width: 345px;
+  height: 280px;
+  margin: 40px auto 0 auto;
+}
+
+.input-area{
+  width: 100%;
+  height: 50px;
+  float: right;
+  position: relative;
+}
+
+.big-tips{
+  padding-top: 10px;
+  font-size: 14px;
+  height: 30px;
+  width: 70px;
+  text-align: right;
+  margin: 0;
+  float: left;
+  font-weight: normal;
+}
+
+.input-message{
+  height: 30px;
+  width: 239px;
+  border: 1px solid #dbdbdb;
+  padding: 8px;
+  float: left;
+  margin-top: 6px;
+}
+.input-message:focus{
+  border: 1px solid #e94828;
+  outline: none;
+}
+
+.check-img{
+  margin-top: 13px;
+  margin-left: 10px;
+}
+
+.input-tips{
+  font-size: 12px;
+  width: 165px;
+  float: left;
+  margin-left: 343px;
+  margin-top: -24px;
+  color: #b2b2b2;
+}
+
+.pic-verify{
+  margin-top: 6px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.a-verify{
+  position: absolute;
+  font-size: 12px;
+  color: #e94828;
+  top: 40px;
+  right: 45px;
+  cursor: pointer;
+}
+.a-verify:hover{
+  color: #e94828;
+}
+
+.registe-button{
+  width: 143px;
+  height: 32px;
+  border: 1px solid #f16144;
+  background-color: #f16144;
+  color: white;
+  font-size: 14px;
+  margin-left: 70px;
+  outline: none;
+}
+.registe-button:hover{
+  background-color: #f27b64;
+}
+.registe-button:active{
+  background-color: #d23d1f;
+}
+
+.right-show{
+  height: 455px;
+  width: 410px;
+  float: right;
+}
+
+.p-right-show{
+  height: 99%;
+  margin-bottom: 0px;
+  padding-top: 190px;
+  padding-left: 120px;
+  font-size: 14px;
+  background: url("/images/right_pic.png") bottom center no-repeat;
+}
+.p-right-show a{
+  color: #e94828;
+  font-weight: bold;
+}
+
+.a-registe{
+  font-size: 21px;
+  width: 299px;
+  height: 63px;
+  padding-top: 10px;
+  padding-left: 115px;
+  display: block;
+  text-decoration: none;
+  margin-left: -2px;
+  margin-top: -2px;
+}
+.a-registe:hover{
+  text-decoration: none;
+  color: inherit;
+}
+.red-registe{
+  color: white;
+  background-image: url(/images/registe_red.png);
+}
+.red-registe:hover{
+  color: white;
+}
+.grey-registe{
+  color: #817774;
+  background-image: url(/images/registe_grey.png);
+}
+.form-registe{
+  width: 355px;
+  height: 350px;
+  padding-top: 20px;
+  margin: 63px auto 0 auto;
+}
+.get-verify-button{
+  border: 1px solid #e94828;
+  border-radius: 3px;
+  height: 30px;
+  width: 105px;
+  background-color: white;
+  margin-top: 6px;
+  margin-left: 5px;
+  color: #e94828;
+  outline-style: none; 
+}
+.get-verify-button:hover{
+  background-color: #e94828;
+  color: white;
+}
+.get-verify-button:active{
+  background-color: #d23d1f;
+  outline-style: none;
+  color: white;
+}
+
+.agree-area{
+  margin-top: 10px;
+}
+
+.red{
+  color: #d8271c;
+}
+.registe-height{
+  height: 535px;
+}

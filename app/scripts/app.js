@@ -53,6 +53,14 @@ angular
           }
         }
       })
+      .state('root.registe', {
+        url: '/phone_registe',
+        views: {
+          '': {
+            templateUrl: 'views/phone_registe.html'
+          }
+        }
+      })
       ;
 
       $urlRouterProvider.otherwise('/');

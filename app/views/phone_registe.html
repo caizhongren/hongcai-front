@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="styles/loginAndRegiste.css">
+<div class="back-ground registe-height">
+    <div class="registe-area">
+      <div class="way-registe">
+        <a class="red-registe a-registe" style="float:left;border-top-left-radius: 5px;" href="http://localhost:9000/#/phone_registe">手机注册</a>
+        <a class="grey-registe a-registe" style="float:right;border-top-right-radius: 5px;margin-right:-2px;" href="http://localhost:9000/#/mail_registe">邮箱注册</a>
+        <form class="form-registe">
+        <div class="input-area">
+          <label for="phoneNumber" class="big-tips">手机号：</label>
+          <input type="text" class="input-message" ng-model="phoneNumber">
+          <div ng-if="phoneNumber.length == 0 ">
+            <img  ng-src={{phoneImage||"images/check_no.png"}} class="check-img" ng-model="phoneImage">
+            <p class="input-tips red">{{phoneTips||"手机号码不能为空"}}</p>
+          </div>
+        </div>
+        <div class="input-area">
+          <label for="phoneVerify" class="big-tips">验证码：</label>
+          <input type="text" class="input-message" style="width:130px;" ng-model="phoneVerify">
+          <input type="button" class="get-verify-button" value="获取验证码">
+          <img ng-src={{verifyImage||"images/check_no.png"}} style="margin-top:-2px;margin-left:5px;" ng-if="phoneVerify.length == 0">
+          <p class="input-tips red" ng-if="phoneVerify.length == 0">{{verifyTips||"验证码不能为空"}}</p>
+        </div>
+        <div class="input-area">
+          <label for="userName" class="big-tips">用户名：</label> 
+          <input type="text" class="input-message" ng-model="userName">
+          <div ng-if="userName.length == 0">
+            <img ng-src={{accountImages||"images/check_no.png"}} class="check-img">
+            <p class="input-tips red">{{accountTips||"用户名不能为空"}}</p>
+          </div>
+        </div>
+        <div class="input-area">
+          <label for="pwd" class="big-tips">密码：</label>
+          <input type="text" class="input-message" ng-model="pwd">
+          <div ng-if="pwd.length == 0">
+            <img ng-src={{pwdImage||"images/check_no.png"}} class="check-img">
+            <p class="input-tips red">{{pwdTips||"密码不能为空"}}</p>
+          </div>
+        </div>
+        <div class="input-area">
+          <label for="surePwd" class="big-tips">确认密码：</label>
+          <input type="text" class="input-message" ng-model="surePwd">
+          <div ng-if="surePwd.length == 0">
+            <img ng-src={{sureImages||"images/check_no.png"}} class="check-img">
+            <p class="input-tips red">{{surepwdTips||"请再次输入密码确认"}}</p>
+          </div>
+        </div>
+        <div class="input-area agree-area">
+          <img ng-src={{checkImage||"images/check_01.png"}} style="margin-left:70px;float:left;margin-top:3px;">
+          <p style="float:left; margin-left:5px;">同意<a href="">《注册协议》</a>和<a href="">《隐私协议》</a></p>
+          <input type="button" class="registe-button" value="立即注册">
+        </div>
+        </form>
+      </div>
+      <div class="right-show">
+        <p class="p-right-show">已有宏财帐号？<a href="http://localhost:9000/#/login">立即登录</a></p>
+      </div>
+    </div>
+  </div>
