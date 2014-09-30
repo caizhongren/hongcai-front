@@ -15,8 +15,28 @@ angular
     'ngResource',
     'ngSanitize',
     'ngTouch',
-    'ui.router'
+    'ui.router',
+    'restangular'
   ])
+  // .config(['RestangularProvider',function(RestangularProvider) {
+  //   var baseUrl = '/hongcai/api/v1';
+  //   RestangularProvider.setBaseUrl(baseUrl);
+  //   RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
+  //     var extractedData;
+  //     // .. to look for getList operations
+  //     if (operation === 'getList') {
+  //       // .. and handle the data and meta data
+  //       // extractedData = data.data.data;
+  //       // extractedData.meta = data.data.meta;
+  //       console.log(data);
+  //       // extractedData = data.data;
+  //     } else {
+  //       // extractedData = data.data;
+  //       console.log(data);
+  //     }
+  //     return extractedData;
+  //   });
+  // }])
   .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('root', {
@@ -38,7 +58,8 @@ angular
         url: '/',
         views: {
           '': {
-            templateUrl: 'views/main.html'
+            templateUrl: 'views/main.html',
+            controller: 'MainCtrl'
           },
           'slider': {
             templateUrl: 'views/slider.html'
