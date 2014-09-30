@@ -14,6 +14,6 @@ angular.module('p2pSiteWebApp')
       var ProjectList = $resource('/hongcai/api/v1/siteProject/getProjectList?sortType=false');
       ProjectList.get({}, function (projectList) {
         $scope.projectList = projectList.data.projectList;
-      })
+      });
       console.log($scope.projectList);
     }]);
