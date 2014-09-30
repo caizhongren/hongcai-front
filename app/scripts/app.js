@@ -29,9 +29,6 @@ angular
           'header': {
             templateUrl: 'views/header.html'
           },
-          'slider': {
-            templateUrl: 'views/slider.html'
-          },
           'footer': {
             templateUrl: 'views/footer.html'
           }
@@ -42,6 +39,17 @@ angular
         views: {
           '': {
             templateUrl: 'views/main.html'
+          },
+          'slider': {
+            templateUrl: 'views/slider.html'
+          }
+        }
+      })
+      .state('root.login', {
+        url: '/login',
+        views: {
+          '': {
+            templateUrl: 'views/login.html'
           }
         }
       })
