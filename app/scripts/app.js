@@ -70,18 +70,19 @@ angular
         url: '/login',
         views: {
           '': {
-            templateUrl: 'views/login.html'
+            templateUrl: 'views/login.html',
+            controller: 'phoneRegiste'
           }
         }
       })
-      .state('root.registe', {
+      /*.state('root.registe', {
         url: '/phone_registe',
         views: {
           '': {
             templateUrl: 'views/phone_registe.html'
           }
         }
-      })
+      })*/
       ;
 
       $urlRouterProvider.otherwise('/');

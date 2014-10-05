@@ -9,14 +9,19 @@ body {
     cursor: default;
 }
 /*重写bootstrap部分*/
-
+.form-group{
+  width: 100%;
+  height: 50px;
+  float: right;
+  position: relative;
+  margin: 0;
+}
 .back-ground{
     height: 455px;
     width: 100%;
     padding-top: 38px;
     background-color: #fdfbfb;
 }
-
 .registe-area,
 .login-background{
   width: 1006px;
@@ -26,7 +31,6 @@ body {
 .login-background{
   height:412px;
 }
-
 .way-registe,
 .login-area{
   width: 596px;
@@ -38,9 +42,9 @@ body {
   box-shadow: 0px 1px 1px #d9d5d6;
 }
 .login-area{
-  width:495px; height:380px;
+  width: 495px; 
+  height:380px;
 }
-
 .login-title{
   height: 57px;
   width: 100.8%;
@@ -54,20 +58,11 @@ body {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-
 .form-login{
   width: 345px;
   height: 280px;
   margin: 40px auto 0 auto;
 }
-
-.input-area{
-  width: 100%;
-  height: 50px;
-  float: right;
-  position: relative;
-}
-
 .big-tips{
   padding-top: 10px;
   font-size: 14px;
@@ -78,7 +73,6 @@ body {
   float: left;
   font-weight: normal;
 }
-
 .input-message{
   height: 30px;
   width: 239px;
@@ -91,12 +85,10 @@ body {
   border: 1px solid #e94828;
   outline: none;
 }
-
 .check-img{
   margin-top: 13px;
   margin-left: 10px;
 }
-
 .input-tips{
   font-size: 12px;
   width: 165px;
@@ -105,13 +97,11 @@ body {
   margin-top: -24px;
   color: #b2b2b2;
 }
-
 .pic-verify{
   margin-top: 6px;
   margin-left: 20px;
   cursor: pointer;
 }
-
 .a-verify{
   position: absolute;
   font-size: 12px;
@@ -123,7 +113,6 @@ body {
 .a-verify:hover{
   color: #e94828;
 }
-
 .registe-button{
   width: 143px;
   height: 32px;
@@ -140,13 +129,11 @@ body {
 .registe-button:active{
   background-color: #d23d1f;
 }
-
 .right-show{
   height: 455px;
   width: 410px;
   float: right;
 }
-
 .p-right-show{
   height: 99%;
   margin-bottom: 0px;
@@ -159,7 +146,6 @@ body {
   color: #e94828;
   font-weight: bold;
 }
-
 .a-registe{
   font-size: 21px;
   width: 299px;
@@ -212,14 +198,48 @@ body {
   outline-style: none;
   color: white;
 }
-
 .agree-area{
   margin-top: 10px;
 }
-
-.red{
-  color: #d8271c;
-}
 .registe-height{
   height: 535px;
+}
+.login-right{
+   height: 380px;
+}
+.p-login-right{
+  padding-top: 145px;
+  padding-left: 112px;
+}
+.a-phone-registe{
+  float: left;
+  border-top-left-radius: 5px;
+}
+.a-mail-registe{
+  float: right;
+  border-top-right-radius: 5px;
+  margin-right: -2px;
+}
+.mail-verify-width,
+.phone-verify-width{
+  width: 130px;
+}
+.phone-verify-pictips{
+  margin-top: -2px;
+  margin-left: 5px;
+}
+.pic-check{
+  margin-left: 70px;
+  float: left;
+  margin-top: 3px;
+}
+.p-agree{
+  float: left;
+  margin-left: 5px;
+}
+.p-picverify{
+  margin-top: -22px;
+}
+.red{
+  color: #d8271c;
 }
