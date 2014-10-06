@@ -1,90 +1,78 @@
 'use strict';
-
 /**
  * @ngdoc overview
- * @name p2pSiteWebApp
+ * @name hongcaiApp
  * @description
- * # p2pSiteWebApp
- *
- * Main module of the application.
+ * #
+ * 宏财JS库依赖以及程序路由主配置文件
  */
-angular
-  .module('p2pSiteWebApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngSanitize',
-    'ngTouch',
-    'ui.router',
-    'restangular'
-  ])
-  // .config(['RestangularProvider',function(RestangularProvider) {
-  //   var baseUrl = '/hongcai/api/v1';
-  //   RestangularProvider.setBaseUrl(baseUrl);
-  //   RestangularProvider.addResponseInterceptor(function(data, operation, what, url, response, deferred) {
-  //     var extractedData;
-  //     // .. to look for getList operations
-  //     if (operation === 'getList') {
-  //       // .. and handle the data and meta data
-  //       // extractedData = data.data.data;
-  //       // extractedData.meta = data.data.meta;
-  //       console.log(data);
-  //       // extractedData = data.data;
-  //     } else {
-  //       // extractedData = data.data;
-  //       console.log(data);
-  //     }
-  //     return extractedData;
-  //   });
-  // }])
-  .config(['$stateProvider', '$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state('root', {
-        abstract: true,
-        views: {
-          '': {
-            templateUrl: 'views/root.html'
-            // controller: 'DefaultCtrl'
-          },
-          'header': {
-            templateUrl: 'views/header.html'
-          },
-          'footer': {
-            templateUrl: 'views/footer.html'
-          }
-        }
-      })
-      .state('root.main', {
-        url: '/',
-        views: {
-          '': {
-            templateUrl: 'views/main.html',
-            controller: 'MainCtrl'
-          },
-          'slider': {
-            templateUrl: 'views/slider.html'
-          }
-        }
-      })
-      .state('root.login', {
-        url: '/login',
-        views: {
-          '': {
-            templateUrl: 'views/login.html',
-            controller: 'phoneRegiste'
-          }
-        }
-      })
-      /*.state('root.registe', {
-        url: '/phone_registe',
-        views: {
-          '': {
-            templateUrl: 'views/phone_registe.html'
-          }
-        }
-      })*/
-      ;
+define([ 'angularAMD', 
+         'angular-ui-router', 
+         'angular-resource', 
+         'angular-animate', 
+         'angular-sanitize', 
+         'jquery', 
+         'bootstrap', 
+         'angular-strap', 
+         'angular-strap-tpl'], function(angularAMD) {
 
-      $urlRouterProvider.otherwise('/');
-  }])
-  ;
+    var hongcaiApp = angular.module('hongcaiApp', [
+        'ngAnimate', 
+        'ngSanitize', 
+        'mgcrea.ngStrap', 
+        'ui.router',
+        'ngResource' 
+      ]);
+
+    hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+        $stateProvider
+          .state('root', {
+              abstract: true,
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/root.html'
+                }),
+                'header': angularAMD.route({
+                  templateUrl: 'views/header.html'
+                }),
+                'footer': angularAMD.route({
+                  templateUrl: 'views/footer.html'
+                })
+              }
+            })
+          .state('root.main', {
+              url: '/',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/main.html', 
+                  controller: 'MainCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main-ctrl'
+                }), 
+                'slider': angularAMD.route({
+                  templateUrl: 'views/slider.html'
+                })
+              }
+            })
+          .state('root.login', {
+              url: '/login',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/login.html', 
+                  controller: 'LoginCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/login-ctrl'
+                })
+              }
+            })
+          ;
+
+          $urlRouterProvider.otherwise('/');
+
+      }]);
+
+    hongcaiApp.constant('DEFAULT_DOMAIN', "/admin/api/v1");
+
+    angularAMD.bootstrap(hongcaiApp);
+  
+    return hongcaiApp;
+
+});
