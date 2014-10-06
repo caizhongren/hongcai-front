@@ -61,15 +61,16 @@
 </div>-->
 <!--手机注册-->
 <link rel="stylesheet" href="styles/loginAndRegiste.css">
-<div class="back-ground registe-height" ng-model="phoneRegiste">
+<div class="back-ground registe-height" ng-controller="phoneRegiste">
     <div class="registe-area">
-      <div class="way-registe">
+      <div class="way-registe" ng-controller="TooltipDemoCtrl">
         <a class="red-registe a-registe a-phone-registe" href="http://localhost:9000/#/phone_registe">手机注册</a>
         <a class="grey-registe a-registe a-mail-registe" href="http://localhost:9000/#/mail_registe">邮箱注册</a>
         <form class="form-registe">
         <div class="form-group">
           <label for="phoneNumber" class="big-tips">手机号：</label>
-          <input type="text" class="input-message" ng-model="phoneNumber">
+          <!--<input type="text" class="input-message" ng-model="phoneNumber">-->
+          <input type="text" class="input-message" data-placement="right" data-type="info" data-container="body" placeholder="Focus to toggle tooltip" data-trigger="focus" bs-tooltip="tooltip">
           <div ng-if="phoneNumber.length == 0">
             <img src="images/check_no.png" class="check-img" ng-model="phoneImage">
             <p class="input-tips red">{{phoneTips||"手机号码不能为空"}}</p>
