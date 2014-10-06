@@ -14,6 +14,13 @@
             <p class="input-tips red">{{phoneTips||"手机号码不能为空"}}</p>
           </div>
         </div>
+
+        <div class="form-group">
+          <label for="phoneNumber" class="big-tips">tooltips：</label>
+          <input type="text" class="input-message" data-content="a.4-15位字符，以字母、中文开头，支持中文、字母、数字以及下划线；" data-template="views/popover.tpl.html" data-animation="am-flip-x" bs-popover>
+        </div>
+
+
         <div class="form-group">
           <label for="phoneVerify" class="big-tips">验证码：</label>
           <input type="text" class="input-message phone-verify-width" ng-model="phoneVerify">
