@@ -46,7 +46,7 @@ define([ 'angularAMD',
                 '': angularAMD.route({
                   templateUrl: 'views/main.html', 
                   controller: 'MainCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/main-ctrl'
+                  controllerUrl: 'ngload!scripts/controller/main/main-ctrl'
                 }), 
                 'slider': angularAMD.route({
                   templateUrl: 'views/slider.html'
@@ -57,9 +57,29 @@ define([ 'angularAMD',
               url: '/login',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/login.html', 
-                  controller: 'LoginCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/login-ctrl'
+                  templateUrl: 'views/login.html'//, 
+                  /*controller: 'LoginCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/login-ctrl'*/
+                })
+              }
+            })
+          .state('root.phoneRegiste', {
+              url: '/registe',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/phone_registe.html'//, 
+                  /*controller: 'LoginCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/login-ctrl'*/
+                })
+              }
+            })
+          .state('root.mailRegiste', {
+              url: '/registe',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/mail_registe.html'//, 
+                  /*controller: 'LoginCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/login-ctrl'*/
                 })
               }
             })
