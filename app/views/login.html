@@ -16,7 +16,7 @@
   </div>
 </div> -->
 <link rel="stylesheet" href="styles/loginAndRegiste.css">
-<div class="back-ground">
+<div class="back-ground" ng-controller="loginCtrl">
 <div class="login-background">
   <div class="login-area">
 
@@ -50,12 +50,12 @@
       </div>-->
 
       <div class="form-group">
-          <input type="submit" class="registe-button" value="立即登录">
+          <input type="submit" class="registe-button" value="立即登录" ng-click="loginNow()">
       </div>
     </form>
   </div>
   <div class="right-show login-right">
-      <p class="p-right-show p-login-right">还没有宏财帐号？<a ui-sref="root.phoneRegiste">立即注册</a></p>
+      <p class="p-right-show p-login-right">还没有宏财帐号？<a ui-sref="root.phoneRegist">立即注册</a></p>
  </div>
 </div>
 </div>

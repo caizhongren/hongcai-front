@@ -3,22 +3,22 @@
 <div class="back-ground registe-height">
     <div class="registe-area">
       <div class="way-registe">
-        <a class="red-registe a-registe a-phone-registe" ui-sref="root.phoneRegiste">手机注册</a>
-        <a class="grey-registe a-registe a-mail-registe" ui-sref="root.mailRegiste">邮箱注册</a>
+        <a class="red-registe a-registe a-phone-registe" ui-sref="root.phoneRegist">手机注册</a>
+        <a class="grey-registe a-registe a-mail-registe" ui-sref="root.mailRegist">邮箱注册</a>
         <form class="form-registe">
         <div class="form-group">
           <label for="phoneNumber" class="big-tips">手机号：</label>
-          <input type="text" class="input-message" ng-model="phoneNumber">
+          <input type="text" class="input-message" ng-model="phoneNumber" data-content="请输入11位手机号码" data-template="views/popover.tpl.html" data-trigger="focus" data-animation="am-flip-x" bs-popover> 
           <div ng-if="phoneNumber.length == 0 ">
             <img  ng-src={{phoneImage||"images/check_no.png"}} class="check-img" ng-model="phoneImage">
             <p class="input-tips red">{{phoneTips||"手机号码不能为空"}}</p>
           </div>
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="phoneNumber" class="big-tips">tooltips：</label>
           <input type="text" class="input-message" data-content="a.4-15位字符，以字母、中文开头，支持中文、字母、数字以及下划线；" data-template="views/popover.tpl.html" data-animation="am-flip-x" bs-popover>
-        </div>
+        </div>-->
 
 
         <div class="form-group">

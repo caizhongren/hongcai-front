@@ -33,7 +33,7 @@ define([ 'angularAMD',
                   templateUrl: 'views/root.html'
                 }),
                 'header': angularAMD.route({
-                  templateUrl: 'views/header.html'
+                  templateUrl: 'views/header.html',
                 }),
                 'footer': angularAMD.route({
                   templateUrl: 'views/footer.html'
@@ -57,29 +57,139 @@ define([ 'angularAMD',
               url: '/login',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/login.html'//, 
+                  templateUrl: 'views/login.html', 
+                  controller: 'loginCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/login-ctrl'
+                })
+              }
+            })
+          .state('root.phoneRegist', {
+              url: '/registe',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/phone_regist.html'//, 
                   /*controller: 'LoginCtrl', 
                   controllerUrl: 'ngload!scripts/controller/login-ctrl'*/
                 })
               }
             })
-          .state('root.phoneRegiste', {
+          .state('root.mailRegist', {
               url: '/registe',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/phone_registe.html'//, 
+                  templateUrl: 'views/mail_regist.html'//, 
                   /*controller: 'LoginCtrl', 
                   controllerUrl: 'ngload!scripts/controller/login-ctrl'*/
                 })
               }
             })
-          .state('root.mailRegiste', {
-              url: '/registe',
+          .state('root.account-overview', {
+              url: '/account-overview',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/mail_registe.html'//, 
-                  /*controller: 'LoginCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/login-ctrl'*/
+                  templateUrl: 'views/user-center/account-overview.html', 
+                  controller: 'userCenterCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/user-center-ctrl'
+                })
+              }
+            })
+          .state('root.basic-information', {
+              url: '/basic-information',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/user-center/basic-information.html', 
+                  controller: 'userCenterCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/user-center-ctrl'
+                })
+              }
+            })
+          .state('root.bankcard-management', {
+              url: '/bankcard-management',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/user-center/bankcard-management.html', 
+                 controller: 'userCenterCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/user-center-ctrl'
+                })
+              }
+            })
+          .state('root.security-settings', {
+              url: '/security-settings',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/user-center/security-settings.html', 
+                  controller: 'userCenterCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/user-center-ctrl'
+                })
+              }
+            })
+          .state('root.assets-overview', {
+              url: '/assets-overview',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/user-center/assets-overview.html', 
+                  controller: 'userCenterCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/user-center-ctrl'
+                })
+              }
+            })
+          .state('root.recharge', {
+              url: '/recharge',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/user-center/recharge.html', 
+                  controller: 'userCenterCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/user-center-ctrl'
+                })
+              }
+            })
+          .state('root.withdraw', {
+              url: '/withdraw',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/user-center/withdraw.html', 
+                  controller: 'userCenterCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/user-center-ctrl'
+                })
+              }
+            })
+          .state('root.record', {
+              url: '/record',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/user-center/record.html', 
+                  controller: 'userCenterCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/user-center-ctrl'
+                })
+              }
+            })
+          .state('root.investment', {
+              url: '/investment',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/user-center/investment.html', 
+                  controller: 'userCenterCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/user-center-ctrl'
+                })
+              }
+            })
+          .state('root.news', {
+              url: '/news',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/user-center/news.html', 
+                  controller: 'userCenterCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/user-center-ctrl'
+                })
+              }
+            })
+          .state('root.realname-authentication', {
+              url: '/realname-authentication',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/user-center/realname-authentication.html', 
+                  controller: 'userCenterCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/main/user-center-ctrl'
                 })
               }
             })
@@ -89,7 +199,7 @@ define([ 'angularAMD',
 
       }]);
 
-    hongcaiApp.constant('DEFAULT_DOMAIN', "/admin/api/v1");
+    hongcaiApp.constant('DEFAULT_DOMAIN', "/hongcai/api/v1");
 
     angularAMD.bootstrap(hongcaiApp);
   
