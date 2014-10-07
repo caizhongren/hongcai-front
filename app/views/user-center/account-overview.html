@@ -1,110 +1,110 @@
 <!--账户总览-->
 <link rel="stylesheet" href="styles/person_set.css">
-<div class="back-ground assets-height" ng-controller="userCenterCtrl">
+<div class="back-ground assets-height" ng-controller="UserCenterCtrl">
     <div class="main-area">
-      <div class="left-area">
-        <div class="personal-information">
-          <!--临时头像-->
-          <div class="left-user-head"></div>
-          <p class="p-user-name">{{ username || "天天天a天天投资"}}</p>
-          <div class="safe-pic card-ok"></div>
-          <div class="safe-pic phone-no"></div>
-          <div class="safe-pic mail-no"></div>
-          <div class="security-level"></div>
-          <p class="p-security-level">安全等级：{{ Variables || "低"}}</p>
-          <a href="/#/security-settings" class="a-up-level">【提升】</a>
-        </div>
-        <p class="center-tips">我的账户</p>
-        <a ui-sref="root.account-overview" class="tips-area tips-show">
-          <div class="left-show-area"></div>
-          <div class="ico-area red-account"></div>
-          <p class="now">账户总览</p>
-        </a>
-        <a ui-sref="root.basic-information" class="tips-area">
-          <div class="ico-area grey-basic"></div>
-          <p>基本信息</p>
-        </a>
-        <a ui-sref="root.bankcard-management" class="tips-area">
-          <div class="ico-area grey-bankcard"></div>
-          <p>银行卡管理</p>
-        </a>
-        <a ui-sref="root.security-settings" class="tips-area">
-          <div class="ico-area grey-safeset"></div>
-          <p>安全设置</p>
-        </a>
-        <p class="center-tips">资产管理</p>
-        <a ui-sref="root.assets-overview" class="tips-area">
-          <div class="ico-area grey-assets"></div>
-          <p>资产总览</p>
-        </a>
-        <a ui-sref="root.recharge" class="tips-area">
-          <div class="ico-area grey-recharge"></div>
-          <p>充值</p>
-        </a>
-        <a ui-sref="root.withdraw" class="tips-area">
-          <div class="ico-area grey-withdraw"></div>
-          <p>提现</p>
-        </a>
-        <a ui-sref="root.record" class="tips-area">
-          <div class="ico-area grey-record"></div>
-          <p>支付记录</p>
-        </a>
-        <p class="center-tips">投资管理</p>
-        <a ui-sref="root.investment" class="tips-area">
-          <div class="ico-area grey-investment"></div>
-          <p>投资产品</p>
-        </a>
-        <p class="center-tips">消息管理</p>
-        <a ui-sref="root.news" class="tips-area">
-          <div class="ico-area grey-news"></div>
-          <p>站内消息</p>
-        </a>
-      </div>
-      <div class="right-area right-assets-height">
-        <div class="right-title">账户总览</div>
-        <div class="account-message">
-          <div class="account-pic"></div>
-          <div class="right-message">
-            <div class="left-message-show">
-              <!--这个图片是临时图片，应该是用控件实现饼图-->
-              <div class="assets-ico total-assets"></div>
-              <p class="asset-tips">账户总资产</p>
-              <p class="asset-money">{{ Variables || "100588.00"}}元</p>
+        <div class="left-area">
+            <div class="personal-information">
+                <!--临时头像-->
+                <div class="left-user-head"></div>
+                <p class="p-user-name">{{ username || "天天天a天天投资"}}</p>
+                <div class="safe-pic card-ok"></div>
+                <div class="safe-pic phone-no"></div>
+                <div class="safe-pic mail-no"></div>
+                <div class="security-level"></div>
+                <p class="p-security-level">安全等级：{{ Variables || "低"}}</p>
+                <a href="/#/security-settings" class="a-up-level">【提升】</a>
             </div>
-            <div class="left-message-show">
-              <div class="assets-ico net-income"></div>
-              <p class="asset-tips">累计净收益</p>
-              <p class="asset-money">{{ Variables || "88.00"}}元</p>
-            </div>
-            <div class="left-message-show last-show">
-              <div class="assets-ico account-balance"></div>
-              <p class="asset-tips">账户余额</p>
-              <p class="asset-money">{{ Variables || "588.00"}}元</p>
-            </div>
-            <input type="button" class="verify-button account-button" value="充值" />
-            <input type="button" class="get-verify-button account-button account-right-button" value="提现" />
-            <a href="" class="view-more">查看更多></a>
-          </div>
+            <p class="center-tips">我的账户</p>
+            <a ui-sref="root.account-overview" class="tips-area tips-show">
+                <div class="left-show-area"></div>
+                <div class="ico-area red-account"></div>
+                <p class="now">账户总览</p>
+            </a>
+            <a ui-sref="root.basic-information" class="tips-area">
+                <div class="ico-area grey-basic"></div>
+                <p>基本信息</p>
+            </a>
+            <a ui-sref="root.bankcard-management" class="tips-area">
+                <div class="ico-area grey-bankcard"></div>
+                <p>银行卡管理</p>
+            </a>
+            <a ui-sref="root.security-settings" class="tips-area">
+                <div class="ico-area grey-safeset"></div>
+                <p>安全设置</p>
+            </a>
+            <p class="center-tips">资产管理</p>
+            <a ui-sref="root.assets-overview" class="tips-area">
+                <div class="ico-area grey-assets"></div>
+                <p>资产总览</p>
+            </a>
+            <a ui-sref="root.recharge" class="tips-area">
+                <div class="ico-area grey-recharge"></div>
+                <p>充值</p>
+            </a>
+            <a ui-sref="root.withdraw" class="tips-area">
+                <div class="ico-area grey-withdraw"></div>
+                <p>提现</p>
+            </a>
+            <a ui-sref="root.record" class="tips-area">
+                <div class="ico-area grey-record"></div>
+                <p>支付记录</p>
+            </a>
+            <p class="center-tips">投资管理</p>
+            <a ui-sref="root.investment" class="tips-area">
+                <div class="ico-area grey-investment"></div>
+                <p>投资产品</p>
+            </a>
+            <p class="center-tips">消息管理</p>
+            <a ui-sref="root.news" class="tips-area">
+                <div class="ico-area grey-news"></div>
+                <p>站内消息</p>
+            </a>
         </div>
-        <div class="right-title">投资信息</div>
-        <div class="account-investment">
-          <div class="account-investment-show">
-            <p class="account-number">{{ Variables || "20"}}</p>
-            <p class="account-number-tips">个</p>
-            <p class="account-number-message">理财中</p>
-          </div>
-          <div class="account-investment-show">
-            <p class="account-number">{{ Variables || "12"}}</p>
-            <p class="account-number-tips">个</p>
-            <p class="account-number-message">购买成功</p>
-          </div>
-          <div class="account-investment-show">
-            <p class="account-number">{{ Variables || "20"}}</p>
-            <p class="account-number-tips">个</p>
-            <p class="account-number-message">投资共计</p>
-          </div>
-          <a href="" class="view-more investment-more">查看更多></a>
+        <div class="right-area right-assets-height">
+            <div class="right-title">账户总览</div>
+            <div class="account-message">
+                <div class="account-pic"></div>
+                <div class="right-message">
+                    <div class="left-message-show">
+                        <!--这个图片是临时图片，应该是用控件实现饼图-->
+                        <div class="assets-ico total-assets"></div>
+                        <p class="asset-tips">账户总资产</p>
+                        <p class="asset-money">{{ Variables || "100588.00"}}元</p>
+                    </div>
+                    <div class="left-message-show">
+                        <div class="assets-ico net-income"></div>
+                        <p class="asset-tips">累计净收益</p>
+                        <p class="asset-money">{{ Variables || "88.00"}}元</p>
+                    </div>
+                    <div class="left-message-show last-show">
+                        <div class="assets-ico account-balance"></div>
+                        <p class="asset-tips">账户余额</p>
+                        <p class="asset-money">{{ Variables || "588.00"}}元</p>
+                    </div>
+                    <input type="button" class="verify-button account-button" value="充值" />
+                    <input type="button" class="get-verify-button account-button account-right-button" value="提现" />
+                    <a href="" class="view-more">查看更多></a>
+                </div>
+            </div>
+            <div class="right-title">投资信息</div>
+            <div class="account-investment">
+                <div class="account-investment-show">
+                    <p class="account-number">{{ Variables || "20"}}</p>
+                    <p class="account-number-tips">个</p>
+                    <p class="account-number-message">理财中</p>
+                </div>
+                <div class="account-investment-show">
+                    <p class="account-number">{{ Variables || "12"}}</p>
+                    <p class="account-number-tips">个</p>
+                    <p class="account-number-message">购买成功</p>
+                </div>
+                <div class="account-investment-show">
+                    <p class="account-number">{{ Variables || "20"}}</p>
+                    <p class="account-number-tips">个</p>
+                    <p class="account-number-message">投资共计</p>
+                </div>
+                <a href="" class="view-more investment-more">查看更多></a>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>

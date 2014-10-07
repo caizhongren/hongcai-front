@@ -16,46 +16,45 @@
   </div>
 </div> -->
 <link rel="stylesheet" href="styles/loginAndRegiste.css">
-<div class="back-ground" ng-controller="loginCtrl">
-<div class="login-background">
-  <div class="login-area">
+<div class="back-ground" ng-controller="LoginCtrl">
+    <div class="login-background">
+        <div class="login-area">
+            <p class="login-title">登录宏财</p>
+            <form class="form-horizontal form-login" role="form" ng-submit="login(user)">
+                <div class="form-group">
+                    <label for="account" class="big-tips">账户：</label>
+                    <input type="text" class="input-message" name="user.account" ng-model="user.account">
+                    <div ng-if="account.length == 0">
+                        <img src="images/check_no.png" class="check-img" >
+                        <p class="input-tips red">{{account_wrong_tips||"账号不能为空"}}</p>
+                    </div>
+                </div>
 
-    <p class="login-title">登录宏财</p>
-    <form class="form-horizontal form-login" role="form">
-      <div class="form-group">
-        <label for="account" class="big-tips">账户：</label>
-          <input type="text" class="input-message" name="account" ng-model="account">
-          <div ng-if="account.length == 0">
-            <img src="images/check_no.png" class="check-img" >
-            <p class="input-tips red">{{account_wrong_tips||"账号不能为空"}}</p>
-          </div>
-      </div>
+                <div class="form-group">
+                    <label for="password" class="big-tips">密码：</label>
+                    <input type="password" class="input-message" name="user.password" ng-model="user.password">
+                    <div ng-if="password.length == 0">
+                        <img src="images/check_no.png" class="check-img" >
+                        <p class="input-tips red">{{pwd_wrong_tips||"密码不能为空"}}</p>
+                    </div>
+                </div>
+                <!--<div class="form-group">
+                  <label for="verify" class="col-sm-4 control-label">验证码：</label>
+                  <div class="col-sm-3">
+                    <input type="text" class="form-control" name="verify" placeholder="" ng-model="verify">
+                  </div>
+                  <div class="col-sm-3">
+                    <img src="http://192.168.80.44:8080/hongcai/images/verify_pic.png" alt="">
+                  </div>
+                </div>-->
 
-      <div class="form-group">
-        <label for="password" class="big-tips">密码：</label>
-          <input type="password" class="input-message" name="password" ng-model="password">
-        <div ng-if="password.length == 0">
-            <img src="images/check_no.png" class="check-img" >
-            <p class="input-tips red">{{pwd_wrong_tips||"密码不能为空"}}</p>
-          </div>
-      </div>
-      <!--<div class="form-group">
-        <label for="verify" class="col-sm-4 control-label">验证码：</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" name="verify" placeholder="" ng-model="verify">
+                <div class="form-group">
+                    <input type="submit" class="registe-button" value="立即登录">
+                </div>
+            </form>
         </div>
-        <div class="col-sm-3">
-          <img src="http://192.168.80.44:8080/hongcai/images/verify_pic.png" alt="">
-        </div>
-      </div>-->
-
-      <div class="form-group">
-          <input type="submit" class="registe-button" value="立即登录" ng-click="loginNow()">
-      </div>
-    </form>
-  </div>
-  <div class="right-show login-right">
-      <p class="p-right-show p-login-right">还没有宏财帐号？<a ui-sref="root.phoneRegist">立即注册</a></p>
- </div>
-</div>
+        <div class="right-show login-right">
+            <p class="p-right-show p-login-right">还没有宏财帐号？<a ui-sref="root.phoneRegist">立即注册</a></p>
+       </div>
+    </div>
 </div>
