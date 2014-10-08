@@ -308,6 +308,10 @@ hr {border-top: 1px solid #d8d8d8;}
 }
 /*project-list*/
 .project-list {
+  padding-top: 15px;
+  .container {
+    padding-left: 0;
+  }
   .filter-container label {
     float: left;
     font-weight: normal;
@@ -320,11 +324,52 @@ hr {border-top: 1px solid #d8d8d8;}
     background: none;
     padding: 0 20px;
   }
-  .sort {
-    margin-top: 15px;
+  .page-container {
     border: 1px solid #d8d8d8;
     border-radius: 3px;
+    margin-bottom: 30px;
+  }
+  .sort {
+    padding: 15px 50px;
+    border-bottom: 1px solid #d8d8d8;
     .sort-item {padding: 5px 0;}
   }
+  .table-responsive ul {
+    list-style: none;
+    padding-left: 15px;
+  }
+  .projects-list .project-item {
+    padding: 20px 10px 20px 35px;
+    height: 195px;
+    .col-md-5 {padding-left: 55px;}
+    .row .col-lg-12,
+    .row .col-lg-6 {padding: 3px 0;}
+    .row .project-name {
+      padding-bottom: 10px;
+      padding-top: 0;
+    }
+    .project-progress {padding-left: 150px;}
+  }
+  .progress-tit {float: left;}
+  .progress-bar {
+    width: 100px;
+    height: 15px;
+    line-height: 0px;
+    margin-top: 3px;
+    font-size: 0px;
+    background-color: #d5cdcd;
+    border-radius: 3px;
+    overflow: hidden;
+    .progress {
+      height: 15px;
+      line-height: 0px;
+      font-size: 0px;
+      display: block;
+      background-color: #f37474;
+    }
+  }
+  .progress-percent {margin-left: 5px;}
+  .go {width: 85%;}
+  .bg-success {background-color: #bfb2b2;}
 }
 

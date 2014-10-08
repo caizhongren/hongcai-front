@@ -428,7 +428,11 @@ hr {
 }
 /*project-list*/
 .project-list {
+  padding-top: 15px;
   color: #717071;
+}
+.project-list .container {
+  padding-left: 0;
 }
 .project-list .filter-container label {
   float: left;
@@ -441,11 +445,66 @@ hr {
   background: none;
   padding: 0 20px;
 }
-.project-list .sort {
-  margin-top: 15px;
+.project-list .page-container {
   border: 1px solid #d8d8d8;
   border-radius: 3px;
+  margin-bottom: 30px;
+}
+.project-list .sort {
+  padding: 15px 50px;
+  border-bottom: 1px solid #d8d8d8;
 }
 .project-list .sort .sort-item {
   padding: 5px 0;
+}
+.project-list .table-responsive ul {
+  list-style: none;
+  padding-left: 15px;
+}
+.project-list .projects-list .project-item {
+  padding: 20px 10px 20px 35px;
+  height: 195px;
+}
+.project-list .projects-list .project-item .col-md-5 {
+  padding-left: 55px;
+}
+.project-list .projects-list .project-item .row .col-lg-12,
+.project-list .projects-list .project-item .row .col-lg-6 {
+  padding: 3px 0;
+}
+.project-list .projects-list .project-item .row .project-name {
+  padding-bottom: 10px;
+  padding-top: 0;
+}
+.project-list .projects-list .project-item .project-progress {
+  padding-left: 150px;
+}
+.project-list .progress-tit {
+  float: left;
+}
+.project-list .progress-bar {
+  width: 100px;
+  height: 15px;
+  line-height: 0px;
+  margin-top: 3px;
+  font-size: 0px;
+  background-color: #d5cdcd;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.project-list .progress-bar .progress {
+  height: 15px;
+  line-height: 0px;
+  font-size: 0px;
+  display: block;
+  background-color: #f37474;
+}
+.project-list .progress-percent {
+  margin-left: 5px;
+}
+.project-list .go {
+  width: 85%;
+}
+.project-list .bg-success {
+  background-color: #bfb2b2;
 }
