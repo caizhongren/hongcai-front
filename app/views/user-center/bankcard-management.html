@@ -1,0 +1,67 @@
+<!--银行卡管理-->
+<link rel="stylesheet" href="styles/person_set.css">
+<div class="back-ground safeset-height" ng-controller="UserCenterCtrl">
+    <div class="main-area">
+        <div class="left-area">
+            <div class="personal-information">
+                <!--临时头像-->
+                <div class="left-user-head"></div>
+                <p class="p-user-name">{{ username || "天天天a天天投资"}}</p>
+                <div class="safe-pic card-ok"></div>
+                <div class="safe-pic phone-no"></div>
+                <div class="safe-pic mail-no"></div>
+                <div class="security-level"></div>
+                <p class="p-security-level">安全等级：{{ Variables || "低"}}</p>
+                <a href="/#/security-settings" class="a-up-level">【提升】</a>
+            </div>
+            <p class="center-tips">我的账户</p>
+            <a ui-sref="root.account-overview" class="tips-area">
+                <div class="ico-area grey-account"></div>
+                <p>账户总览</p>
+            </a>
+            <a ui-sref="root.basic-information" class="tips-area">
+                <div class="ico-area grey-basic"></div>
+                <p>基本信息</p>
+            </a>
+            <a ui-sref="root.bankcard-management" class="tips-area tips-show">
+                <div class="left-show-area"></div>
+                <div class="ico-area red-bankcard"></div>
+                <p class="now">银行卡管理</p>
+            </a>
+            <a ui-sref="root.security-settings" class="tips-area">
+                <div class="ico-area grey-safeset"></div>
+                <p>安全设置</p>
+            </a>
+            <p class="center-tips">资产管理</p>
+            <a ui-sref="root.assets-overview" class="tips-area">
+                <div class="ico-area grey-assets"></div>
+                <p>资产总览</p>
+            </a>
+            <a ui-sref="root.recharge" class="tips-area">
+                <div class="ico-area grey-recharge"></div>
+                <p>充值</p>
+            </a>
+            <a ui-sref="root.withdraw" class="tips-area">
+                <div class="ico-area grey-withdraw"></div>
+                <p>提现</p>
+            </a>
+            <a ui-sref="root.record" class="tips-area">
+                <div class="ico-area grey-record"></div>
+                <p>支付记录</p>
+            </a>
+            <p class="center-tips">投资管理</p>
+            <a ui-sref="root.investment" class="tips-area">
+                <div class="ico-area grey-investment"></div>
+                <p>投资产品</p>
+            </a>
+            <p class="center-tips">消息管理</p>
+            <a ui-sref="root.news" class="tips-area">
+                <div class="ico-area grey-news"></div>
+                <p>站内消息</p>
+            </a>
+        </div>
+        <div class="right-area">
+            <div class="right-title">银行卡管理</div>
+        </div>
+    </div>
+</div>

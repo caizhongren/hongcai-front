@@ -1,0 +1,112 @@
+<!--安全设置-->
+<link rel="stylesheet" href="styles/person_set.css">
+  <div class="back-ground assets-height" ng-controller="UserCenterCtrl">
+    <div class="main-area">
+      <div class="left-area">
+        <div class="personal-information">
+          <!--临时头像-->
+          <div class="left-user-head"></div>
+          <p class="p-user-name">{{ username || "天天天a天天投资"}}</p>
+          <div class="safe-pic card-ok"></div>
+          <div class="safe-pic phone-no"></div>
+          <div class="safe-pic mail-no"></div>
+          <div class="security-level"></div>
+          <p class="p-security-level">安全等级：{{ Variables || "低"}}</p>
+          <a href="/#/security-settings" class="a-up-level">【提升】</a>
+        </div>
+        <p class="center-tips">我的账户</p>
+        <a ui-sref="root.account-overview" class="tips-area">
+          <div class="ico-area grey-account"></div>
+          <p>账户总览</p>
+        </a>
+        <a ui-sref="root.basic-information" class="tips-area">
+          <div class="ico-area grey-basic"></div>
+          <p>基本信息</p>
+        </a>
+        <a ui-sref="root.bankcard-management" class="tips-area">
+          <div class="ico-area grey-bankcard"></div>
+          <p>银行卡管理</p>
+        </a>
+        <a ui-sref="root.security-settings" class="tips-area tips-show">
+          <div class="left-show-area"></div>
+          <div class="ico-area red-safeset"></div>
+          <p class="now">安全设置</p>
+        </a>
+        <p class="center-tips">资产管理</p>
+        <a ui-sref="root.assets-overview" class="tips-area">
+          <div class="ico-area grey-assets"></div>
+          <p>资产总览</p>
+        </a>
+        <a ui-sref="root.recharge" class="tips-area">
+          <div class="ico-area grey-recharge"></div>
+          <p>充值</p>
+        </a>
+        <a ui-sref="root.withdraw" class="tips-area">
+          <div class="ico-area grey-withdraw"></div>
+          <p>提现</p>
+        </a>
+        <a ui-sref="root.record" class="tips-area">
+          <div class="ico-area grey-record"></div>
+          <p>支付记录</p>
+        </a>
+        <p class="center-tips">投资管理</p>
+        <a ui-sref="root.investment" class="tips-area">
+          <div class="ico-area grey-investment"></div>
+          <p>投资产品</p>
+        </a>
+        <p class="center-tips">消息管理</p>
+        <a ui-sref="root.news" class="tips-area">
+          <div class="ico-area grey-news"></div>
+          <p>站内消息</p>
+        </a>
+      </div>
+      <div class="right-area right-assets-height">
+        <div class="right-title">安全设置</div>
+        <div class="safe-part">
+          <p class="tips">用户名</p>
+          <p class="message">{{ username || "test"}}</p>
+          <p class="activity hadset">{{ Variables || "已确定"}}</p>
+          <div class="check-ok"></div>
+        </div>
+        <div class="safe-part">
+          <p class="tips">邮箱</p>
+          <p class="message">{{ Variables || "未设置"}}</p>
+          <p class="activity">{{ Variables || "认证"}}</p>
+          <div></div>
+        </div>
+        <div class="safe-part">
+          <p class="tips">真实姓名</p>
+          <p class="message">{{ Variables || "未设置"}}</p>
+          <p class="activity"><a href="/#/realname-authentication">{{ Variables || "认证"}}</a></p>
+          <div></div>
+        </div>
+        <div class="safe-part">
+          <p class="tips">身份证号码</p>
+          <p class="message">{{ Variables || "未设置"}}</p>
+          <p class="activity"><a href="/#/realname-authentication">{{ Variables || "认证"}}</a></p>
+          <div></div>
+        </div>
+        <div class="safe-part">
+          <p class="tips">手机号码</p>
+          <p class="message">{{ Variables || "未设置"}}</p>
+          <p class="activity">{{ Variables || "认证"}}</p>
+          <div></div>
+        </div>
+        <div class="safe-part">
+          <p class="tips">登录密码</p>
+          <p class="message">{{ Variables || "未设置"}}</p>
+          <p class="activity">{{ Variables || "认证"}}</p>
+        </div>
+        <div class="safe-part">
+          <p class="tips">支付密码</p>
+          <p class="message">{{ Variables || "未设置"}}</p>
+          <p class="activity">{{ Variables || "认证"}}</p>
+        </div>
+        <!--<div class="safe-part">
+          <p class="tips">风险调查问卷</p>
+          <p class="message">{{ Variables || "未设置"}}</p>
+          <p class="activity">{{ Variables || "认证"}}</p>
+        </div>-->
+      </div>
+    </div>
+  </div>
