@@ -391,6 +391,7 @@ hr {
   margin-right: 3px;
   background: url('../../../images/cooperation-img.png');
 }
+/*footer*/
 #footer {
   height: 370px;
   color: #807979;
@@ -424,4 +425,27 @@ hr {
   text-align: center;
   font-size: 12px;
   margin-top: 50px;
+}
+/*project-list*/
+.project-list {
+  color: #717071;
+}
+.project-list .filter-container label {
+  float: left;
+  font-weight: normal;
+}
+.project-list .nav-pills li a,
+.project-list .nav-pills .active a,
+.project-list .nav-pills .active a:hover {
+  color: #717071;
+  background: none;
+  padding: 0 20px;
+}
+.project-list .sort {
+  margin-top: 15px;
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+}
+.project-list .sort .sort-item {
+  padding: 5px 0;
 }

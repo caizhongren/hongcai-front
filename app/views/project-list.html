@@ -1,0 +1,182 @@
+<div ng-controller="ProjectListCtrl" class="project-list ng-scope">
+	<div class="container page-container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="container filter-container sort">
+			        <div class="sort-item">
+			            <label>项目状态：</label>
+			            <ul class="nav nav-pills">
+			            	<li class="active">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">全部</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">投标中</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=4&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">投标结束</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=5&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">还款中</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">还款完成</a>
+			            	</li>
+			            </ul>
+			        </div>
+			        <div class="sort-item">
+			            <label>项目期限：</label>
+			            <ul class="nav nav-pills">
+			            	<li class="active">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">全部</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=3&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">0 - 3个月</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=3&amp;maxCycle=6&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">3 - 6个月</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=6&amp;maxCycle=9&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">6 - 9个月</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=9&amp;maxCycle=12&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">9 - 12个月</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=12&amp;maxCycle=15&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">12 - 15个月</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=15&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">15个月以上</a>
+			            	</li>
+			            </ul>
+			        </div>
+			        <div class="sort-item">
+			            <label>项目收益：</label>
+			            <ul class="nav nav-pills">
+			            	<li class="active">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">全部</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=8&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">8%以下</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=8&amp;maxEarning=10&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">8 - 10%</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=10&amp;maxEarning=12&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">10 - 12%</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=12&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">12%以上</a>
+			            	</li>
+			            </ul>
+			        </div>
+			        <div class="sort-item">
+			            <label>项目规模：</label>
+			            <ul class="nav nav-pills">
+			            	<li class="active">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">全部</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=2000000&amp;sortCondition=release_time&amp;sortType=false">200万以下</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=2000000&amp;maxTotalAmount=5000000&amp;sortCondition=release_time&amp;sortType=false">200-500万</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=5000000&amp;maxTotalAmount=10000000&amp;sortCondition=release_time&amp;sortType=false">500-1000万</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=10000000&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false">1000万以上</a>
+			            	</li>
+			            </ul>
+			        </div>
+			        <div class="sort-item">
+			            <label>排序：</label>
+			            <ul class="nav nav-pills">
+			            	<li class="active">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=release_time&amp;sortType=false" ng-click="toggleSort()">发布时间</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=total&amp;sortType=false" ng-click="toggleSort()">项目规模</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=annual_earnings&amp;sortType=false" ng-click="toggleSort()">年化收益</a>
+			            	</li>
+			            	<li class="">
+			            		<a href="#!/project-list?status=3,4,5,6&amp;minCycle=0&amp;maxCycle=100&amp;minEarning=0&amp;maxEarning=20&amp;minTotalAmount=0&amp;maxTotalAmount=200000000&amp;sortCondition=repayment_date&amp;sortType=false" ng-click="toggleSort()">还款日期</a>
+			            	</li>
+			            </ul>
+			        </div>
+				</div><!-- /.container filter-container -->
+			</div><!-- /.col-md-12 -->
+			
+			<div class="col-md-12">
+				<br>
+				<div class="span2">
+					搜索: <input ng-model="query" class="ng-pristine ng-valid">
+			    </div>
+			    <div class="table-responsive">
+					<table class="table table-hover">
+					  <thead>
+					    <tr>
+					      <th>ID</th>
+					      <th>NAME</th>
+					      <th>NUMBER</th>
+					      <th>操作</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <!-- ngRepeat: item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize --><tr ng-repeat="item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize" class="ng-scope">
+							<td class="ng-binding">13</td>
+							<td class="ng-binding">qweqwe</td>
+							<td class="ng-binding">470101214091910000</td>
+							<td>
+								<a class="btn btn-default btn-sm" href="#!/project-detail/13">详细</a> 
+							</td>
+						</tr><!-- end ngRepeat: item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize --><tr ng-repeat="item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize" class="ng-scope">
+							<td class="ng-binding">12</td>
+							<td class="ng-binding">个人消费贷 </td>
+							<td class="ng-binding">3332</td>
+							<td>
+								<a class="btn btn-default btn-sm" href="#!/project-detail/12">详细</a> 
+							</td>
+						</tr><!-- end ngRepeat: item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize --><tr ng-repeat="item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize" class="ng-scope">
+							<td class="ng-binding">3</td>
+							<td class="ng-binding">核心商圈贷</td>
+							<td class="ng-binding">34212</td>
+							<td>
+								<a class="btn btn-default btn-sm" href="#!/project-detail/3">详细</a> 
+							</td>
+						</tr><!-- end ngRepeat: item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize --><tr ng-repeat="item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize" class="ng-scope">
+							<td class="ng-binding">2</td>
+							<td class="ng-binding">车辆抵押贷</td>
+							<td class="ng-binding">12323</td>
+							<td>
+								<a class="btn btn-default btn-sm" href="#!/project-detail/2">详细</a> 
+							</td>
+						</tr><!-- end ngRepeat: item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize --><tr ng-repeat="item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize" class="ng-scope">
+							<td class="ng-binding">1</td>
+							<td class="ng-binding">餐饮企业店面扩建</td>
+							<td class="ng-binding">23423</td>
+							<td>
+								<a class="btn btn-default btn-sm" href="#!/project-detail/1">详细</a> 
+							</td>
+						</tr><!-- end ngRepeat: item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize --><tr ng-repeat="item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize" class="ng-scope">
+							<td class="ng-binding">14</td>
+							<td class="ng-binding">宏才测试</td>
+							<td class="ng-binding">130101214091910000</td>
+							<td>
+								<a class="btn btn-default btn-sm" href="#!/project-detail/14">详细</a> 
+							</td>
+						</tr><!-- end ngRepeat: item in data | filter: query | startFrom:currentPage * pageSize | limitTo:pageSize -->
+					  </tbody>
+					</table>
+				    <ul class="pager ng-binding">
+					  <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1" disabled="disabled">上一页</button></li>
+					  1 / 1 共 6 条
+					  <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1" disabled="disabled">下一页</button></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
