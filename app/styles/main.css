@@ -427,62 +427,63 @@ hr {
   margin-top: 50px;
 }
 /*project-list*/
-.project-list {
+.project-list-all {
   padding-top: 15px;
+  border-top: 1px solid #d8d8d8;
   color: #717071;
 }
-.project-list .container {
+.project-list-all .container {
   padding-left: 0;
 }
-.project-list .filter-container label {
+.project-list-all .filter-container label {
   float: left;
   font-weight: normal;
 }
-.project-list .nav-pills li a,
-.project-list .nav-pills .active a,
-.project-list .nav-pills .active a:hover {
+.project-list-all .nav-pills li a,
+.project-list-all .nav-pills .active a,
+.project-list-all .nav-pills .active a:hover {
   color: #717071;
   background: none;
   padding: 0 20px;
 }
-.project-list .page-container {
+.project-list-all .page-container {
   border: 1px solid #d8d8d8;
   border-radius: 3px;
   margin-bottom: 30px;
 }
-.project-list .sort {
+.project-list-all .sort {
   padding: 15px 50px;
   border-bottom: 1px solid #d8d8d8;
 }
-.project-list .sort .sort-item {
+.project-list-all .sort .sort-item {
   padding: 5px 0;
 }
-.project-list .table-responsive ul {
+.project-list-all .table-responsive ul {
   list-style: none;
   padding-left: 15px;
 }
-.project-list .projects-list .project-item {
+.project-list-all .projects-list .project-item {
   padding: 20px 10px 20px 35px;
   height: 195px;
 }
-.project-list .projects-list .project-item .col-md-5 {
+.project-list-all .projects-list .project-item .col-md-5 {
   padding-left: 55px;
 }
-.project-list .projects-list .project-item .row .col-lg-12,
-.project-list .projects-list .project-item .row .col-lg-6 {
+.project-list-all .projects-list .project-item .row .col-lg-12,
+.project-list-all .projects-list .project-item .row .col-lg-6 {
   padding: 3px 0;
 }
-.project-list .projects-list .project-item .row .project-name {
+.project-list-all .projects-list .project-item .row .project-name {
   padding-bottom: 10px;
   padding-top: 0;
 }
-.project-list .projects-list .project-item .project-progress {
+.project-list-all .projects-list .project-item .project-progress {
   padding-left: 150px;
 }
-.project-list .progress-tit {
+.project-list-all .progress-tit {
   float: left;
 }
-.project-list .progress-bar {
+.project-list-all .progress-bar {
   width: 100px;
   height: 15px;
   line-height: 0px;
@@ -492,23 +493,23 @@ hr {
   border-radius: 3px;
   overflow: hidden;
 }
-.project-list .progress-bar .progress {
+.project-list-all .progress-bar .progress {
   height: 15px;
   line-height: 0px;
   font-size: 0px;
   display: block;
   background-color: #f37474;
 }
-.project-list .progress-percent {
+.project-list-all .progress-percent {
   margin-left: 5px;
 }
-.project-list .go {
+.project-list-all .go {
   width: 85%;
 }
-.project-list .bg-success {
+.project-list-all .bg-success {
   background-color: #bfb2b2;
 }
-.project-list .bg-row-success {
+.project-list-all .bg-row-success {
   background-color: #f5f5f5;
 }
 .nav-pills li {
