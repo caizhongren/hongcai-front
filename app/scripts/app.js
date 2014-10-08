@@ -24,7 +24,7 @@ define([ 'angularAMD',
         'ngResource' 
       ]);
 
-    hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider, $resource) {
         $stateProvider
           .state('root', {
               abstract: true,
@@ -196,6 +196,23 @@ define([ 'angularAMD',
           $urlRouterProvider.otherwise('/');
 
       }]);
+
+    hongcaiApp.run(function($rootScope, $state, $location, $http, DEFAULT_DOMAIN) {
+      var routespermission = ['/', '/account-overview'];
+      $rootScope.$on('$stateChangeStart', function() {
+        if(routespermission.indexOf($location.path()) != -1) {
+          var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
+          $checkSessionServer.then(function(response){
+            if(response.data.data.name != '') {
+              $rootScope.isLogged = true;
+              $rootScope.loginName = sessionStorage.getItem("user");
+            } else {
+              $location.path('/login');
+            }
+          });
+        }
+      });
+    });
 
     hongcaiApp.constant('DEFAULT_DOMAIN', "/hongcai/api/v1");
 

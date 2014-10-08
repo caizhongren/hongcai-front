@@ -1,5 +1,5 @@
 define(['scripts/app'], function (hongcaiApp) {
-	hongcaiApp.register.factory('SessionService', function ($resource, $location, DEFAULT_DOMAIN) {
+	hongcaiApp.register.factory('SessionService', function ($http, $resource, $location, DEFAULT_DOMAIN) {
 		return {
 			set: function(key, value) {
 				return sessionStorage.setItem(key, value);
@@ -8,6 +8,7 @@ define(['scripts/app'], function (hongcaiApp) {
 				return sessionStorage.getItem(key);
 			}, 
 			destory: function(key) {
+				$http.post(DEFAULT_DOMAIN + '/siteUser/destorySession');
 				return sessionStorage.removeItem(key);
 			}
 		};

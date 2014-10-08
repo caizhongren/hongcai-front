@@ -24,7 +24,7 @@ require.config({
         'angular-strap': ['angular'], 
         'angular-strap-tpl': ['angular-strap'], 
         'ngload': ['angularAMD'], 
-    	'bootstrap':['jquery']
+    	'bootstrap': ['jquery']
     },
     deps: ['scripts/app']
 });
