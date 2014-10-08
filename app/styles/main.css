@@ -511,3 +511,9 @@ hr {
 .project-list .bg-row-success {
   background-color: #f5f5f5;
 }
+.nav-pills li {
+  background: url('../images/sprite.png') -95px -238px;
+}
+.nav-pills .active {
+  background: url('../images/sprite.png') -95px -275px;
+}

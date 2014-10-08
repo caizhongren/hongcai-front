@@ -1,4 +1,4 @@
-define(['scripts/app', 'scripts/service/project/project-factory'], function(hongcaiApp) {
+define(['scripts/app', 'scripts/service/project/project-factory','jquery'], function(hongcaiApp) {
     hongcaiApp.register.controller("ProjectListCtrl", ["$scope", "$stateParams", "$location", "ProjectFactory", function ($scope, $stateParams, $location, ProjectFactory) {
         var projectList = ProjectFactory.projectList.get({status: $stateParams.status, 
         												  minCycle: $stateParams.minCycle, 
@@ -36,4 +36,5 @@ define(['scripts/app', 'scripts/service/project/project-factory'], function(hong
 	    	};
     	});
     }]);
+    
 });
