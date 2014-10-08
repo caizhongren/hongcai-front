@@ -508,3 +508,6 @@ hr {
 .project-list .bg-success {
   background-color: #bfb2b2;
 }
+.project-list .bg-row-success {
+  background-color: #f5f5f5;
+}
