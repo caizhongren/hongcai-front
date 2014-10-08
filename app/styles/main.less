@@ -189,7 +189,7 @@ hr {border-top: 1px solid #d8d8d8;}
   padding: 10px 0;
 }
 .to-invest {text-align: center;}
-.go {
+.index .row .go {
   width: 96%;
   height: 55px;
   outline: none;
@@ -199,6 +199,13 @@ hr {border-top: 1px solid #d8d8d8;}
   color: #fff;
   .ft-18;
   margin-top: 20px;
+  line-height: 55px;
+  text-align: center;
+  display: block;
+}
+.go:hover {
+  text-decoration: none;
+  color: #fff;
 }
 .project-list {overflow: hidden;}
 .project-item {
@@ -371,11 +378,21 @@ hr {border-top: 1px solid #d8d8d8;}
   }
   .progress-percent {margin-left: 5px;}
   .go {width: 85%;}
-  .bg-success {background-color: #bfb2b2;}
+  .project-progress .bg-success,
+  .project-progress .bg-success:hover {background-color: #bfb2b2;}
   .bg-row-success {background-color: #f5f5f5;}
 }
 .nav-pills {
   li {background:url('../images/sprite.png') -95px -238px;}
   .active {background:url('../images/sprite.png') -95px -275px;}
 }
-
+/*project-details*/
+.project-details {
+  border-top: 1px solid #d8d8d8;
+  .recommend {border: 1px solid #dbdbdb;}
+  .recommend-details .col-lg-12 {padding-left: 25px;}
+  hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}

@@ -255,7 +255,7 @@ hr {
 .to-invest {
   text-align: center;
 }
-.go {
+.index .row .go {
   width: 96%;
   height: 55px;
   outline: none;
@@ -265,6 +265,13 @@ hr {
   color: #fff;
   font-size: 18px;
   margin-top: 20px;
+  line-height: 55px;
+  text-align: center;
+  display: block;
+}
+.go:hover {
+  text-decoration: none;
+  color: #fff;
 }
 .project-list {
   overflow: hidden;
@@ -506,7 +513,8 @@ hr {
 .project-list-all .go {
   width: 85%;
 }
-.project-list-all .bg-success {
+.project-list-all .project-progress .bg-success,
+.project-list-all .project-progress .bg-success:hover {
   background-color: #bfb2b2;
 }
 .project-list-all .bg-row-success {
@@ -517,4 +525,18 @@ hr {
 }
 .nav-pills .active {
   background: url('../images/sprite.png') -95px -275px;
+}
+/*project-details*/
+.project-details {
+  border-top: 1px solid #d8d8d8;
+}
+.project-details .recommend {
+  border: 1px solid #dbdbdb;
+}
+.project-details .recommend-details .col-lg-12 {
+  padding-left: 25px;
+}
+.project-details hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

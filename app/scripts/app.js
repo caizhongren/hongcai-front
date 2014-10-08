@@ -203,6 +203,17 @@ define([ 'angularAMD',
                 })
               }
             })
+          /*---------------------------------------------  project-details  ---------------------------------------------*/
+          .state('root.project-details', {
+              url: '/project-details',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/project-details.html', 
+                  controller: 'ProjectDetailsCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/project/project-details-ctrl'
+                })
+              }
+            })
           ;
 
           $urlRouterProvider.otherwise('/');
