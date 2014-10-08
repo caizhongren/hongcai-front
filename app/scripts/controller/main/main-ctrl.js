@@ -22,4 +22,5 @@ define(['scripts/app', 'ngload!scripts/service/main/main-service'], function(hon
         var Flag = ( x.getAttribute( "src", 2 ) == "images/check_01.png" )
         x.src = Flag ? "images/check_02.png" : "images/check_01.png";
     }
+    
 });
