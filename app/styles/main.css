@@ -540,3 +540,10 @@ hr {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.project-details .nav li {
+  padding: 0 25px;
+}
+.project-details .news {
+  height: auto;
+  margin-bottom: 20px;
+}
