@@ -1,0 +1,96 @@
+<!-- <div ng-view="" class="ng-scope"> -->
+	<div ng-controller="ProjectDetailsCtrl" class="bg-offWhite project-details">
+		<div class="container page-container">
+			<div class="row">
+		      	<div class="col-lg-8">
+		        	<div class="row mgn-top bg-white recommend">
+		          		<div class="col-lg-5 recommend-img"></div>
+		          		<div class="col-lg-7 recommend-details">
+		            		<div class="row recommend-details-top">
+		              			<div class="col-lg-12"><span class="project-name">{{ project.name }}</span></div>
+		            		</div>
+		            	<div class="row recommend-details-main">
+		              		<div class="col-lg-4 border-r"><span class="ft-24 ft-red">{{project.annualEarnings}}%</span><br><span class="ft-18">年化收益</span></div>
+		              		<div class="col-lg-4 border-r"><span class="ft-24">{{project.total}}万</span><br><span class="ft-18">项目规模</span></div>
+		              		<div class="col-lg-4"><span class="ft-24">{{project.cycle}}个月</span><br><span class="ft-18">项目期限</span></div>
+		            	</div>
+		            	<div class="row mgn-top">
+		              		<div class="col-lg-12">
+		              			发布日期：<span>{{ project.releaseTime | amDateFormat: 'yyyy年M月d日'}}</span><br>
+		              			<hr>
+		              			担保机构：<span>{{project.guaranteeName}}</span><br>
+		              			还款方式：<span>{{repayment_type.repaymentType}}</span>
+		              		</div>
+		            	</div>
+		          		</div>
+		        	</div>
+		        	<div class="row mgn-top border bg-white project-list">
+		          		<div class="row border-b project-tit">
+		            		<ul class="nav navbar-nav">
+		                  		<li>项目信息</li>
+		                  		<li>企业信息</li>
+		                  		<li>风控信息</li>
+		                  		<li>相关文件</li>
+		                  		<li>项目里程</li>
+		                	</ul>
+		          		</div>
+		          	<!-- ngRepeat: project in projectList -->
+		        	</div>
+		      	</div>
+		      	<div class="col-lg-4">
+		        	<div class="row mgn-top recommend-support-details">
+		          		<div class="col-lg-12 recommend bg-white">
+		            		<div class="row"><div class="col-lg-12 news-tit ftw-b">投资金额<br><hr></div></div>
+		            		<div class="row">
+		              			<div class="col-lg-12 padd">可投金额：<span>{{project.total - project.minInvest * project.countInvest}}</span>元</div>
+		            		</div>
+		            		<div class="row">
+		              			<div class="col-lg-12">投资进度：<span>{{project.minInvest * project.countInvest}}</span>元</div>
+		            		</div>
+		            		<div class="row">
+		              			<div class="col-lg-12"><input type='text'/>&nbsp;&nbsp;元</div>
+		            		</div>
+		            		<div class="row">
+			            		<div class="col-lg-12">
+	                				<a class="go" href="#">立即投资</a>
+	              				</div>
+              				</div>
+		          		</div>
+		        	</div>
+		        	<div class="row mgn-left-0 invest-record">
+		          		<div class="col-lg-12 mgn-top news bg-white">
+		            		<div class="row news-tit">
+		              			<div class="col-lg-6 ftw-b">投资记录</div>
+		            		</div>
+		            		<div class="row invest-record-col">
+		              			<div class="col-lg-4">成交时间<!-- 数据绑定 --></div>
+		              			<div class="col-lg-4">投资人<!-- 数据绑定 --></div>
+		              			<div class="col-lg-4">投标金额<!-- 数据绑定 --></div>
+		            		</div>
+		            		<div class="row invest-record-item">
+		              			<div class="col-lg-4">2014-09-24<!-- 数据绑定 --><br>20.01.36<!-- 数据绑定 --></div>
+		              			<div class="col-lg-4">你看认rgrg<!-- 数据绑定 --></div>
+		              			<div class="col-lg-4">40,898.84<!-- 数据绑定 --></div>
+		            		</div>
+		            		<div class="row invest-record-item">
+		              			<div class="col-lg-4">2014-09-24<!-- 数据绑定 --><br>20.01.36<!-- 数据绑定 --></div>
+		              			<div class="col-lg-4">你看认rgrg<!-- 数据绑定 --></div>
+		              			<div class="col-lg-4">40,898.84<!-- 数据绑定 --></div>
+		            		</div>
+		            		<div class="row invest-record-item">
+		              			<div class="col-lg-4">2014-09-24<!-- 数据绑定 --><br>20.01.36<!-- 数据绑定 --></div>
+		              			<div class="col-lg-4">你看认rgrg<!-- 数据绑定 --></div>
+		              			<div class="col-lg-4">40,898.84<!-- 数据绑定 --></div>
+		            		</div>
+		            		<div class="invest-record-pagination"><a href="#"><</a>|<a href="#">></a></div>
+
+		          		</div>
+		        	</div>
+
+		      	</div>
+		    </div>
+
+
+		</div>
+	</div>
+<!-- </div> -->
