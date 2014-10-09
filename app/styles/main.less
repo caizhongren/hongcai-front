@@ -1,7 +1,8 @@
-/*all*/
+/*public*/
 html,
 body {
   font-family: 'microsoft yahei';
+  cursor: default;
 }
 @media (min-width: 768px) {
   .container {
@@ -17,6 +18,11 @@ body {
   .container {
     width: 980px;
   }
+}
+a,
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
 }
 hr {border-top: 1px solid #d8d8d8;}
 .full-screen {width: 100%;}
@@ -43,6 +49,25 @@ hr {border-top: 1px solid #d8d8d8;}
 .border-r {border-right: @border;}
 .border-b {border-bottom: @border;}
 .tel-img {background: url('../../../images/sprite.png');}
+.progress-tit {float: left;}
+.progress-bar {
+  width: 100px;
+  height: 15px;
+  line-height: 0px;
+  margin-top: 3px;
+  font-size: 0px;
+  background-color: #d5cdcd;
+  border-radius: 3px;
+  overflow: hidden;
+  .progress {
+    height: 15px;
+    line-height: 0px;
+    font-size: 0px;
+    display: block;
+    background-color: #f37474;
+  }
+}
+.progress-percent {margin-left: 5px;}
 /*_header.html*/
 .top-bar {
   height: 25px;
@@ -62,7 +87,6 @@ hr {border-top: 1px solid #d8d8d8;}
 }
 #header a {
   .ft-offWhite;
-  text-decoration: none;
   padding-left:25px;
 }
 #header a:hover,
@@ -96,56 +120,6 @@ hr {border-top: 1px solid #d8d8d8;}
 
 /*index*/
 .main {padding-bottom: 20px;color: #807979;}
-#outer {
-    width:100%;
-    height:434px;
-    margin:0px auto;
-    position:relative;
-    overflow:hidden;
-    background:#CCCC99
-}
-#inner {
-    position:absolute;
-    top:0;
-    left:0;
-    width:13440px;
-    height:434px;
-}
-#inner div {
-    width:1920px;
-    float:left;
-    height:434px;
-    color:red;
-    font-size:14px;
-    ;
-    overflow:hidden;
-    font-weight:bold;
-    text-align:center;
-}
-#inner img {
-    text-align: center;
-    width:100%;
-}
-#btn li {
-    display: inline-block;
-    width:12px;
-    height: 12px;
-    margin: 0 5px;
-    float: left;
-    background: #fff;
-    border-radius: 50%;
-    cursor: pointer;
-}
-#btn {
-    position: absolute;
-    top: 65%;
-    left: 47%;
-    padding:3px 0;
-    border-radius: 50px;
-    display: inline-block;
-    margin:0;
-    padding:0;
-}
 .advertise {
   .ft-18;
   color: #3b3434;
@@ -203,10 +177,7 @@ hr {border-top: 1px solid #d8d8d8;}
   text-align: center;
   display: block;
 }
-.go:hover {
-  text-decoration: none;
-  color: #fff;
-}
+.go:hover {color: #fff;}
 .project-list {overflow: hidden;}
 .project-item {
   height: 282px;
@@ -230,7 +201,6 @@ hr {border-top: 1px solid #d8d8d8;}
 }
 .project-tit-txt {.ft-red;.ft-18;.ftw-b;line-height: 30px;}
 .check-more {float: right;}
-.check-more:hover {text-decoration: none;}
 .project-item-img {padding: 23px 45px 15px 45px;}
 .support-text {
   padding: 20px 65px;
@@ -295,7 +265,6 @@ hr {border-top: 1px solid #d8d8d8;}
   .col-lg-2 {
     text-align: center;
     a {color: #807979;}
-    a:hover {text-decoration: none;}
   }
 
 }
@@ -349,6 +318,7 @@ hr {border-top: 1px solid #d8d8d8;}
   .projects-list .project-item {
     padding: 20px 10px 20px 35px;
     height: 195px;
+    overflow: hidden;
     .col-md-5 {padding-left: 55px;}
     .row .col-lg-12,
     .row .col-lg-6 {padding: 3px 0;}
@@ -358,25 +328,6 @@ hr {border-top: 1px solid #d8d8d8;}
     }
     .project-progress {padding-left: 150px;}
   }
-  .progress-tit {float: left;}
-  .progress-bar {
-    width: 100px;
-    height: 15px;
-    line-height: 0px;
-    margin-top: 3px;
-    font-size: 0px;
-    background-color: #d5cdcd;
-    border-radius: 3px;
-    overflow: hidden;
-    .progress {
-      height: 15px;
-      line-height: 0px;
-      font-size: 0px;
-      display: block;
-      background-color: #f37474;
-    }
-  }
-  .progress-percent {margin-left: 5px;}
   .go {width: 85%;}
   .project-progress .bg-success,
   .project-progress .bg-success:hover {background-color: #bfb2b2;}
@@ -396,7 +347,13 @@ hr {border-top: 1px solid #d8d8d8;}
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  .nav li {padding: 0 25px;}
+  .nav a {
+    padding-right: 50px;
+    .ft-grey;
+  }
+  .nav a:hover {
+    .ft-red;
+  }
   .news {
     height: auto;
     margin-bottom: 20px;
@@ -420,7 +377,6 @@ hr {border-top: 1px solid #d8d8d8;}
   .invest-record-pagination a {
     font-size: 26px;
   }
-  .invest-record-pagination a:hover{text-decoration: none;}
   .recommend .news-tit {
     margin-top: 0;
   }
@@ -435,13 +391,90 @@ hr {border-top: 1px solid #d8d8d8;}
   }
   input {
     width: 80%;
-    height: 50px;
+    height: 45px;
     margin-top: 10px;
     outline: none;
+    padding-left: 10px;
   }
   .recommend .go {
     height: 40px;
     line-height: 40px;
     .ft-14;
+  }
+  .project-info-tab {margin-bottom: 50px;}
+  .project-info-tab .project-tit {padding: 20px 45px;}
+  .project-info {
+    padding: 30px 50px 50px 50px;
+    .info-item {
+      padding-top: 20px;
+      padding-bottom: 10px;
+      .border-b;
+      overflow: hidden;
+      img {margin-left: 6px;}
+    }
+    .border-none {border: none;}
+  }
+  .info-item-tips {margin-bottom: 10px;}
+  .info-item-icon {
+    width: 5px;
+    height: 15px;
+    background-color: #e94b2a;
+    float: left;
+    margin-right: 5px;
+  }
+  p {text-indent: 2em;}
+  .files-item {
+    width: 180px;
+    float: left;
+    text-align: center;
+    span {
+      display: inline-block;
+      margin-top: 5px;
+      margin-bottom: 20px;
+    }
+  }
+  .progress-icon {
+    background:url('../images/sprite.png');
+    height: 40px;
+    width: 40px;
+    float: left;
+    position: absolute;
+    left: 57px;
+  }
+  .launched .progress-icon {
+    background-position: -635px -748px;
+    top: 29px;
+  }
+  .raise .progress-icon {
+    background-position: -635px -803px;
+  }
+  .loan .progress-icon {
+    background-position: -580px -803px;
+  }
+  .repayment .progress-icon {
+    background-position: -515px -803px;
+  }
+  .project-info-tab .project-milestone .repayment {
+    border: none;
+  }
+  .project-milestone {
+    position: relative;
+    padding-left: 75px;
+  }
+  .project-milestone .info-item-tips {
+    .ft-18;
+    line-height: 40px;
+    padding-left: 35px;
+  }
+  .project-milestone .info-item {
+    height: 115px;
+    padding: 0;
+    border-bottom: none;
+    border-left: 3px solid #dbdbdb;
+    span {padding: 0 5px;}
+    .padd {padding-left: 15px;}
+  }
+  .project-milestone .already {
+    border-left: 3px solid #e94b2a;
   }
 }
