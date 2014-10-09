@@ -65,16 +65,16 @@ define([ 'angularAMD',
                 })
               }
             })
-          .state('root.phoneRegist', {
-              url: '/registe',
+          .state('root.mobileRegister', {
+              url: '/register-mobile',
               views: {
                 '': angularAMD.route({
                   templateUrl: 'views/phone_regist.html'
                 })
               }
             })
-          .state('root.mailRegist', {
-              url: '/registe',
+          .state('root.mailRegister', {
+              url: '/register-mail',
               views: {
                 '': angularAMD.route({
                   templateUrl: 'views/mail_regist.html'
