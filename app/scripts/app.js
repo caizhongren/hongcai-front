@@ -14,6 +14,8 @@ define([ 'angularAMD',
          'jquery',
          'bootstrap',
          'angular-strap',
+         'momentjs',
+         'angular-moment',
          'angular-strap-tpl'], function(angularAMD) {
 
     var hongcaiApp = angular.module('hongcaiApp', [
@@ -21,6 +23,7 @@ define([ 'angularAMD',
         'ngSanitize',
         'mgcrea.ngStrap',
         'ui.router',
+        'angularMoment',
         'ngResource'
       ]);
 
@@ -207,15 +210,15 @@ define([ 'angularAMD',
               url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/project-list.html', 
-                  controller: 'ProjectListCtrl', 
+                  templateUrl: 'views/project-list.html',
+                  controller: 'ProjectListCtrl',
                   controllerUrl: 'ngload!scripts/controller/project/project-list-ctrl'
                 })
               }
             })
           /*---------------------------------------------  project-details  ---------------------------------------------*/
           .state('root.project-details', {
-              url: '/project-details',
+              url: '/project/:projectId',
               views: {
                 '': angularAMD.route({
                   templateUrl: 'views/project-details.html',
@@ -230,7 +233,12 @@ define([ 'angularAMD',
 
       }]);
 
-    hongcaiApp.constant('DEFAULT_DOMAIN', '/hongcai/api/v1');
+    hongcaiApp
+      .constant('DEFAULT_DOMAIN', '/hongcai/api/v1')
+      // .run(function (amMoment) {
+      //   amMoment.changeLocale('zh-cn');
+      // })
+      ;
 
     angularAMD.bootstrap(hongcaiApp);
 

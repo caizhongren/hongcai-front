@@ -12,18 +12,23 @@ require.config({
         'angular-strap': 'bower_components/angular-strap/dist/angular-strap.min',
         'angular-strap-tpl': 'bower_components/angular-strap/dist/angular-strap.tpl.min',
 	    'jquery': 'bower_components/jquery/dist/jquery',
-	    'bootstrap': 'bower_components/bootstrap/dist/js/bootstrap'
+	    'bootstrap': 'bower_components/bootstrap/dist/js/bootstrap',
+      'momentjs': 'bower_components/moment/moment',
+      'moment-locale-zh': 'bower_components/moment/locale/zh-cn',
+      'angularMoment': 'bower_components/angular-moment/angular-moment'
     },
     shim: {
-    	'angularAMD': ['angular'], 
-    	'angular-ui-router': ['angular'], 
-    	'angular-resource': ['angular'], 
-        'angular-animate': ['angular'], 
-        'angular-sanitize': ['angular'], 
-        'angular-strap': ['angular'], 
-        'angular-strap-tpl': ['angular-strap'], 
-        'ngload': ['angularAMD'], 
-    	'bootstrap':['jquery']
+    	'angularAMD': ['angular'],
+    	'angular-ui-router': ['angular'],
+    	'angular-resource': ['angular'],
+        'angular-animate': ['angular'],
+        'angular-sanitize': ['angular'],
+        'angular-strap': ['angular'],
+        'angular-strap-tpl': ['angular-strap'],
+        'ngload': ['angularAMD'],
+    	'bootstrap':['jquery'],
+      'momentjs': ['jquery'],
+      'angularMoment': ['angular', 'momentjs']
     },
     deps: ['scripts/app']
 });
