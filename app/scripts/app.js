@@ -203,7 +203,7 @@ define([ 'angularAMD',
                 })
               }
             })
-          .state('root.project-list', {
+          .state('root.project-list-query', {
               url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
               views: {
                 '': angularAMD.route({
