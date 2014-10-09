@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="styles/loginAndRegiste.css">
-<div class="back-ground registe-height">
+<div class="back-ground registe-height" ng-contrlller="RegisterCtrl">
 	<div class="registe-area">
 		<div class="way-registe">
 			<a class="grey-registe a-registe a-phone-registe" ui-sref="root.registerMobile">手机注册</a>
 			<a class="red-registe a-registe a-mail-registe" ui-sref="root.registerMail">邮箱注册</a>
-			<form class="form-registe">
+			<form class="form-registe" name="registerForm" ng-submit="submitRegisterMail(user);" >
 				<div class="form-group">
 					<label for="emailAddr" class="big-tips">邮箱：</label>
-					<input type="text" class="input-message" ng-model="emailAddr">
+					<input type="email" class="input-message" ng-model="user.email" required>
 					<div ng-if="emailAddr.length == 0 ">
 						<img  ng-src={{phoneImage||"images/check_no.png"}} class="check-img" ng-model="mailImage">
 						<p class="input-tips red">{{phoneTips||"邮箱不能为空"}}</p>
@@ -15,7 +15,7 @@
 				</div>
 				<div class="form-group">
 					<label for="userName" class="big-tips">用户名：</label> 
-					<input type="text" class="input-message" ng-model="userName">
+					<input type="text" class="input-message" ng-model="user.name" ng-minlength=5 ng-maxlength=20 required>
 					<div ng-if="userName.length == 0">
 						<img ng-src={{accountImages||"images/check_no.png"}} class="check-img">
 						<p class="input-tips red">{{accountTips||"用户名不能为空"}}</p>
@@ -23,7 +23,7 @@
 				</div>
 				<div class="form-group">
 					<label for="pwd" class="big-tips">密码：</label>
-					<input type="text" class="input-message" ng-model="pwd">
+					<input type="password" class="input-message" id="password" name="password" ng-model="user.password" required>
 					<div ng-if="pwd.length == 0">
 						<img ng-src={{pwdImage||"images/check_no.png"}} class="check-img">
 						<p class="input-tips red">{{pwdTips||"密码不能为空"}}</p>
@@ -31,15 +31,21 @@
 				</div>
 				<div class="form-group">
 					<label for="surePwd" class="big-tips">确认密码：</label>
-					<input type="text" class="input-message" ng-model="surePwd">
+					<input type="password" class="input-message" name="confirmPassword" id="confirmPassword" ng-model="user.confirmPassword" password-check="password" required>
 					<div ng-if="surePwd.length == 0">
 						<img ng-src={{sureImages||"images/check_no.png"}} class="check-img">
 						<p class="input-tips red">{{surepwdTips||"请再次输入密码确认"}}</p>
 					</div>
+					<div ng-show="registerForm.$error">
+						<div ng-show="registerForm.confirmPassword.$error.passwordmatch">
+							<img ng-src={{pwdImage||"images/check_no.png"}} class="check-img">
+							<p class="input-tips red">密码不一致</p>
+						</div>
+					</div>
 				</div>
 				<div class="form-group">
 					<label for="picVerify" class="big-tips">验证码：</label>
-					<input type="text" class="input-message mail-verify-width" ng-model="picVerify">
+					<input type="text" class="input-message mail-verify-width" ng-model="picVerify" required>
 					<img src="images/verify_pic.png" class="pic-verify">
 					<a class="a-verify">看不清楚？换一张</a>
 					<img ng-src={{verifyImages||"images/check_no.png"}} class="check-img" ng-if="picVerify.length == 0">
@@ -48,7 +54,7 @@
 				<div class="form-group agree-area">
 					<img src="images/check_01.png" class="pic-check" onclick="change_agree_pic(this);">
 					<p class="p-agree">同意<a href="">《注册协议》</a>和<a href="">《隐私协议》</a></p>
-					<input type="button" class="registe-button" value="立即注册">
+					<input type="submit" class="registe-button" value="立即注册">
 				</div>
 			</form>
 		</div>

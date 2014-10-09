@@ -6,219 +6,234 @@
  * #
  * 宏财JS库依赖以及程序路由主配置文件
  */
-define([ 'angularAMD', 
-         'angular-ui-router', 
-         'angular-resource', 
-         'angular-animate', 
-         'angular-sanitize', 
-         'jquery', 
-         'bootstrap', 
-         'angular-strap', 
-         'angular-strap-tpl'], function(angularAMD) {
+ define([ 'angularAMD', 
+ 	'angular-ui-router', 
+ 	'angular-resource', 
+ 	'angular-animate', 
+ 	'angular-sanitize', 
+ 	'jquery', 
+ 	'bootstrap', 
+ 	'angular-strap', 
+ 	'angular-strap-tpl'], function(angularAMD) {
 
-    var hongcaiApp = angular.module('hongcaiApp', [
-        'ngAnimate', 
-        'ngSanitize', 
-        'mgcrea.ngStrap', 
-        'ui.router',
-        'ngResource' 
-      ]);
+	var hongcaiApp = angular.module('hongcaiApp', [
+		'ngAnimate', 
+		'ngSanitize', 
+		'mgcrea.ngStrap', 
+		'ui.router',
+		'ngResource' 
+		]);
 
-    hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider, $resource) {
-        $stateProvider
-          .state('root', {
-              abstract: true,
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/root.html'
-                }),
-                'header': angularAMD.route({
-                  templateUrl: 'views/header.html',
-                  controller: 'LoginCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/login-ctrl'
-                }),
-                'footer': angularAMD.route({
-                  templateUrl: 'views/footer.html'
-                })
-              }
-            })
-          .state('root.main', {
-              url: '/',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/main.html', 
-                  controller: 'MainCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/main/main-ctrl'
-                }), 
-                'slider': angularAMD.route({
-                  templateUrl: 'views/slider.html'
-                })
-              }
-            })
-          .state('root.login', {
-              url: '/login',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/login.html', 
-                  controller: 'LoginCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/login-ctrl'
-                })
-              }
-            })
-          .state('root.registerMobile', {
-              url: '/register-mobile',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/register-mobile.html'
-                })
-              }
-            })
-          .state('root.registerMail', {
-              url: '/register-mail',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/register-mail.html'
-                })
-              }
-            })
-          /*------------------------------------------  user-center  -----------------------------------------------*/
-          .state('root.account-overview', {
-              url: '/account-overview',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/user-center/account-overview.html', 
-                  controller: 'UserCenterCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
-                })
-              }
-            })
-          .state('root.basic-information', {
-              url: '/basic-information',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/user-center/basic-information.html', 
-                  controller: 'UserCenterCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
-                })
-              }
-            })
-          .state('root.bankcard-management', {
-              url: '/bankcard-management',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/user-center/bankcard-management.html', 
-                  controller: 'UserCenterCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
-                })
-              }
-            })
-          .state('root.security-settings', {
-              url: '/security-settings',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/user-center/security-settings.html', 
-                  controller: 'UserCenterCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
-                })
-              }
-            })
-          .state('root.assets-overview', {
-              url: '/assets-overview',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/user-center/assets-overview.html', 
-                  controller: 'UserCenterCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
-                })
-              }
-            })
-          .state('root.recharge', {
-              url: '/recharge',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/user-center/recharge.html', 
-                  controller: 'UserCenterCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
-                })
-              }
-            })
-          .state('root.withdraw', {
-              url: '/withdraw',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/user-center/withdraw.html', 
-                  controller: 'UserCenterCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
-                })
-              }
-            })
-          .state('root.record', {
-              url: '/record',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/user-center/record.html', 
-                  controller: 'UserCenterCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
-                })
-              }
-            })
-          .state('root.investment', {
-              url: '/investment',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/user-center/investment.html', 
-                  controller: 'UserCenterCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
-                })
-              }
-            })
-          .state('root.news', {
-              url: '/news',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/user-center/news.html', 
-                  controller: 'UserCenterCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
-                })
-              }
-            })
-          .state('root.realname-authentication', {
-              url: '/realname-authentication',
-              views: {
-                '': angularAMD.route({
-                  templateUrl: 'views/user-center/realname-authentication.html', 
-                  controller: 'UserCenterCtrl', 
-                  controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
-                })
-              }
-            })
-          ;
+	hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider, $resource) {
+		$stateProvider
+		.state('root', {
+			abstract: true,
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/root.html'
+				}),
+				'header': angularAMD.route({
+					templateUrl: 'views/header.html',
+					controller: 'LoginCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/login-ctrl'
+				}),
+				'footer': angularAMD.route({
+					templateUrl: 'views/footer.html'
+				})
+			}
+		})
+		.state('root.main', {
+			url: '/',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/main.html', 
+					controller: 'MainCtrl', 
+					controllerUrl: 'ngload!scripts/controller/main/main-ctrl'
+				}), 
+				'slider': angularAMD.route({
+					templateUrl: 'views/slider.html'
+				})
+			}
+		})
+		.state('root.login', {
+			url: '/login',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/login.html', 
+					controller: 'LoginCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/login-ctrl'
+				})
+			}
+		})
+		.state('root.registerMobile', {
+			url: '/register-mobile',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/register-mobile.html'
+				})
+			}
+		})
+		.state('root.registerMail', {
+			url: '/register-mail',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/register-mail.html'
+				})
+			}
+		})
+		/*------------------------------------------  user-center  -----------------------------------------------*/
+		.state('root.account-overview', {
+			url: '/account-overview',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/user-center/account-overview.html', 
+					controller: 'UserCenterCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
+				})
+			}
+		})
+		.state('root.basic-information', {
+			url: '/basic-information',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/user-center/basic-information.html', 
+					controller: 'UserCenterCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
+				})
+			}
+		})
+		.state('root.bankcard-management', {
+			url: '/bankcard-management',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/user-center/bankcard-management.html', 
+					controller: 'UserCenterCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
+				})
+			}
+		})
+		.state('root.security-settings', {
+			url: '/security-settings',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/user-center/security-settings.html', 
+					controller: 'UserCenterCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
+				})
+			}
+		})
+		.state('root.assets-overview', {
+			url: '/assets-overview',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/user-center/assets-overview.html', 
+					controller: 'UserCenterCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
+				})
+			}
+		})
+		.state('root.recharge', {
+			url: '/recharge',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/user-center/recharge.html', 
+					controller: 'UserCenterCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
+				})
+			}
+		})
+		.state('root.withdraw', {
+			url: '/withdraw',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/user-center/withdraw.html', 
+					controller: 'UserCenterCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
+				})
+			}
+		})
+		.state('root.record', {
+			url: '/record',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/user-center/record.html', 
+					controller: 'UserCenterCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
+				})
+			}
+		})
+		.state('root.investment', {
+			url: '/investment',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/user-center/investment.html', 
+					controller: 'UserCenterCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
+				})
+			}
+		})
+		.state('root.news', {
+			url: '/news',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/user-center/news.html', 
+					controller: 'UserCenterCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
+				})
+			}
+		})
+		.state('root.realname-authentication', {
+			url: '/realname-authentication',
+			views: {
+				'': angularAMD.route({
+					templateUrl: 'views/user-center/realname-authentication.html', 
+					controller: 'UserCenterCtrl', 
+					controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
+				})
+			}
+		})
+		;
 
-          $urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('/');
 
-      }]);
+	}]);
 
-    hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
-      var routespermission = ['/account-overview'];
-      $rootScope.$on('$stateChangeStart', function() {
-        if(routespermission.indexOf($location.path()) != -1) {
-          var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
-          $checkSessionServer.then(function(response){
-            if(response.data.data.name != '') {
-              $rootScope.isLogged = true;
-              $rootScope.loginName = sessionStorage.getItem("user");
-            } else {
-              $location.path('/login');
-            }
-          });
-        }
-      });
-    });
+	hongcaiApp.directive('passwordCheck', [function () {
+	    return {
+	        require: 'ngModel',
+	        link: function (scope, elem, attrs, ctrl) {
+	            var firstPassword = '#' + attrs.passwordCheck;
+	            elem.add(firstPassword).on('keyup', function () {
+	                scope.$apply(function () {
+	                    //console.info(elem.val() === $(firstPassword).val());
+	                    ctrl.$setValidity('passwordmatch', elem.val() === $(firstPassword).val());
+	                });
+	            });
+	        }
+	    }
+	}]);
 
-    hongcaiApp.constant('DEFAULT_DOMAIN', "/hongcai/api/v1");
+	hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
+		var routespermission = ['/account-overview'];
+		$rootScope.$on('$stateChangeStart', function() {
+			if(routespermission.indexOf($location.path()) != -1) {
+				var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
+				$checkSessionServer.then(function(response){
+					if(response.data.data.name != '') {
+						$rootScope.isLogged = true;
+						$rootScope.loginName = sessionStorage.getItem("user");
+					} else {
+						$location.path('/login');
+					}
+				});
+			}
+		});
+	});
 
-    angularAMD.bootstrap(hongcaiApp);
-  
-    return hongcaiApp;
+	hongcaiApp.constant('DEFAULT_DOMAIN', "/hongcai/api/v1");
+
+	angularAMD.bootstrap(hongcaiApp);
+
+	return hongcaiApp;
 
 });
