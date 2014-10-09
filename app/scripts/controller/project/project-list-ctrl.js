@@ -1,6 +1,6 @@
-define(['scripts/app', 'scripts/service/project/project-factory','jquery'], function(hongcaiApp) {
-    hongcaiApp.register.controller("ProjectListCtrl", ["$scope", "$stateParams", "$location", "ProjectFactory", function ($scope, $stateParams, $location, ProjectFactory) {
-        var projectList = ProjectFactory.projectList.get({status: $stateParams.status, 
+define(['scripts/app', 'ngload!scripts/service/project/project-service'], function(hongcaiApp) {
+    hongcaiApp.register.controller("ProjectListCtrl", ["$scope", "$stateParams", "$routeParams", "$location", "ProjectService", function ($scope, $stateParams, $routeParams, $location, ProjectService) {
+        var projectList = ProjectService.projectList.get({status: $stateParams.status, 
         												  minCycle: $stateParams.minCycle, 
         												  maxCycle: $stateParams.maxCycle, 
         												  minEarning: $stateParams.minEarning, 

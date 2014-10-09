@@ -16,7 +16,6 @@ require.config({
     },
     shim: {
     	'angularAMD': ['angular'], 
-    	'angular-route': ['angular'], 
     	'angular-ui-router': ['angular'], 
     	'angular-resource': ['angular'], 
         'angular-animate': ['angular'], 

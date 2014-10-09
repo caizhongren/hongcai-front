@@ -203,6 +203,16 @@ define([ 'angularAMD',
                 })
               }
             })
+          .state('root.project-list', {
+              url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+              views: {
+                '': angularAMD.route({
+                  templateUrl: 'views/project-list.html', 
+                  controller: 'ProjectListCtrl', 
+                  controllerUrl: 'ngload!scripts/controller/project/project-list-ctrl'
+                })
+              }
+            })
           /*---------------------------------------------  project-details  ---------------------------------------------*/
           .state('root.project-details', {
               url: '/project-details',
