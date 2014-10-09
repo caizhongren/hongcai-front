@@ -1,100 +1,100 @@
 <!--实名认证-->
 <link rel="stylesheet" href="styles/person_set.css">
-  <div class="back-ground assets-height" ng-controller="UserCenterCtrl">
-    <div class="main-area">
-      <div class="left-area">
-        <div class="personal-information">
-          <!--临时头像-->
-          <div class="left-user-head"></div>
-          <p class="p-user-name">{{ username || "天天天a天天投资"}}</p>
-          <div class="safe-pic card-ok"></div>
-          <div class="safe-pic phone-no"></div>
-          <div class="safe-pic mail-no"></div>
-          <div class="security-level"></div>
-          <p class="p-security-level">安全等级：{{ Variables || "低"}}</p>
-          <a href="/#/security-settings" class="a-up-level">【提升】</a>
-        </div>
-        <p class="center-tips">我的账户</p>
-        <a ui-sref="root.account-overview" class="tips-area">
-          <div class="ico-area grey-account"></div>
-          <p>账户总览</p>
-        </a>
-        <a ui-sref="root.basic-information" class="tips-area">
-          <div class="ico-area grey-basic"></div>
-          <p>基本信息</p>
-        </a>
-        <a ui-sref="root.bankcard-management" class="tips-area">
-          <div class="ico-area grey-bankcard"></div>
-          <p>银行卡管理</p>
-        </a>
-        <a ui-sref="root.security-settings" class="tips-area tips-show">
-          <div class="left-show-area"></div>
-          <div class="ico-area red-safeset"></div>
-          <p class="now">安全设置</p>
-        </a>
-        <p class="center-tips">资产管理</p>
-        <a ui-sref="root.assets-overview" class="tips-area">
-          <div class="ico-area grey-assets"></div>
-          <p>资产总览</p>
-        </a>
-        <a ui-sref="root.recharge" class="tips-area">
-          <div class="ico-area grey-recharge"></div>
-          <p>充值</p>
-        </a>
-        <a ui-sref="root.withdraw" class="tips-area">
-          <div class="ico-area grey-withdraw"></div>
-          <p>提现</p>
-        </a>
-        <a ui-sref="root.record" class="tips-area">
-          <div class="ico-area grey-record"></div>
-          <p>支付记录</p>
-        </a>
-        <p class="center-tips">投资管理</p>
-        <a ui-sref="root.investment" class="tips-area">
-          <div class="ico-area grey-investment"></div>
-          <p>投资产品</p>
-        </a>
-        <p class="center-tips">消息管理</p>
-        <a ui-sref="root.news" class="tips-area">
-          <div class="ico-area grey-news"></div>
-          <p>站内消息</p>
-        </a>
-      </div>
-      <div class="right-area right-assets-height">
-        <div class="right-title">实名认证</div>
-        <form class="real-name">
-          <div class="form-group">
-            <label>用户名：</label>
-            <p class="user-name">{{ username || "天天投资" }}</p>
-          </div>
-          <div class="form-group">
-            <label>真实姓名：</label>
-            <input type="text" class="verify-input" />
-          </div>
-          <div class="form-group">
-            <label>身份证号：</label>
-            <input type="text" class="verify-input" />
-          </div>
-          <div class="form-group read-area">
-            <label></label>
-            <img src="images/check_01.png" class="read-check">
-            <p class="read">我已阅读并同意签署<a href="">《服务协议》</a></p>
-          </div>
-          <div class="form-group read-area">
-            <label></label>
-            <img src="images/check_01.png" class="read-check">
-            <p class="read">我已阅读并同意签署<a href="">《委托收付资金协议》</a></p>
-          </div>
-          <input type="button" value="提交实名认证" class="verify-button" />
-        </form>
-        <div class="real-name-tips">
-          <p>温馨提示：<br>1.   请谨慎填写身份验证信息，因为调用公安局的验证接口需要支付5元费用，爱投资会为用户垫付首次验证费用。
-          <br>2.   您还可选择通过上传身份证的形式通过身份验证，通过 上传认证 完成实名认证，然后等待客服人员审核通过。
-          <br>3.   未满18周岁，实名认证无法通过。
-          <br>4.   爱投资会对用户的所有资料进行严格保密。
-          <br>5.   实名认证过程遇到问题，请联系客服，400-400-400-400
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="back-ground assets-height" ng-controller="UserCenterCtrl">
+	<div class="main-area">
+		<div class="left-area">
+			<div class="personal-information">
+				<!--临时头像-->
+				<div class="left-user-head"></div>
+				<p class="p-user-name">{{ username || "天天天a天天投资"}}</p>
+				<div class="safe-pic card-ok"></div>
+				<div class="safe-pic phone-no"></div>
+				<div class="safe-pic mail-no"></div>
+				<div class="security-level"></div>
+				<p class="p-security-level">安全等级：{{ Variables || "低"}}</p>
+				<a href="/#/security-settings" class="a-up-level">【提升】</a>
+			</div>
+			<p class="center-tips">我的账户</p>
+			<a ui-sref="root.account-overview" class="tips-area">
+				<div class="ico-area grey-account"></div>
+				<p>账户总览</p>
+			</a>
+			<a ui-sref="root.basic-information" class="tips-area">
+				<div class="ico-area grey-basic"></div>
+				<p>基本信息</p>
+			</a>
+			<a ui-sref="root.bankcard-management" class="tips-area">
+				<div class="ico-area grey-bankcard"></div>
+				<p>银行卡管理</p>
+			</a>
+			<a ui-sref="root.security-settings" class="tips-area tips-show">
+				<div class="left-show-area"></div>
+				<div class="ico-area red-safeset"></div>
+				<p class="now">安全设置</p>
+			</a>
+			<p class="center-tips">资产管理</p>
+			<a ui-sref="root.assets-overview" class="tips-area">
+				<div class="ico-area grey-assets"></div>
+				<p>资产总览</p>
+			</a>
+			<a ui-sref="root.recharge" class="tips-area">
+				<div class="ico-area grey-recharge"></div>
+				<p>充值</p>
+			</a>
+			<a ui-sref="root.withdraw" class="tips-area">
+				<div class="ico-area grey-withdraw"></div>
+				<p>提现</p>
+			</a>
+			<a ui-sref="root.record" class="tips-area">
+				<div class="ico-area grey-record"></div>
+				<p>支付记录</p>
+			</a>
+			<p class="center-tips">投资管理</p>
+			<a ui-sref="root.investment" class="tips-area">
+				<div class="ico-area grey-investment"></div>
+				<p>投资产品</p>
+			</a>
+			<p class="center-tips">消息管理</p>
+			<a ui-sref="root.news" class="tips-area">
+				<div class="ico-area grey-news"></div>
+				<p>站内消息</p>
+			</a>
+		</div>
+		<div class="right-area right-assets-height">
+			<div class="right-title">实名认证</div>
+			<form class="real-name">
+				<div class="form-group">
+					<label>用户名：</label>
+					<p class="user-name">{{ username || "天天投资" }}</p>
+				</div>
+				<div class="form-group">
+					<label>真实姓名：</label>
+					<input type="text" class="verify-input" />
+				</div>
+				<div class="form-group">
+					<label>身份证号：</label>
+					<input type="text" class="verify-input" />
+				</div>
+				<div class="form-group read-area">
+					<label></label>
+					<img src="images/check_01.png" class="read-check">
+					<p class="read">我已阅读并同意签署<a href="">《服务协议》</a></p>
+				</div>
+				<div class="form-group read-area">
+					<label></label>
+					<img src="images/check_01.png" class="read-check">
+					<p class="read">我已阅读并同意签署<a href="">《委托收付资金协议》</a></p>
+				</div>
+				<input type="button" value="提交实名认证" class="verify-button" />
+			</form>
+			<div class="real-name-tips">
+				<p>温馨提示：<br>1.   请谨慎填写身份验证信息，因为调用公安局的验证接口需要支付5元费用，爱投资会为用户垫付首次验证费用。
+					<br>2.   您还可选择通过上传身份证的形式通过身份验证，通过 上传认证 完成实名认证，然后等待客服人员审核通过。
+					<br>3.   未满18周岁，实名认证无法通过。
+					<br>4.   爱投资会对用户的所有资料进行严格保密。
+					<br>5.   实名认证过程遇到问题，请联系客服，400-400-400-400
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
