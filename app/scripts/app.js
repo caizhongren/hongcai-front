@@ -6,22 +6,22 @@
  * #
  * 宏财JS库依赖以及程序路由主配置文件
  */
-define([ 'angularAMD', 
-         'angular-ui-router', 
-         'angular-resource', 
-         'angular-animate', 
-         'angular-sanitize', 
-         'jquery', 
-         'bootstrap', 
-         'angular-strap', 
+define([ 'angularAMD',
+         'angular-ui-router',
+         'angular-resource',
+         'angular-animate',
+         'angular-sanitize',
+         'jquery',
+         'bootstrap',
+         'angular-strap',
          'angular-strap-tpl'], function(angularAMD) {
 
     var hongcaiApp = angular.module('hongcaiApp', [
-        'ngAnimate', 
-        'ngSanitize', 
-        'mgcrea.ngStrap', 
+        'ngAnimate',
+        'ngSanitize',
+        'mgcrea.ngStrap',
         'ui.router',
-        'ngResource' 
+        'ngResource'
       ]);
 
     hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -34,7 +34,7 @@ define([ 'angularAMD',
                 }),
                 'header': angularAMD.route({
                   templateUrl: 'views/header.html',
-                  controller: 'LoginCtrl', 
+                  controller: 'LoginCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/login-ctrl'
                 }),
                 'footer': angularAMD.route({
@@ -46,10 +46,10 @@ define([ 'angularAMD',
               url: '/',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/main.html', 
-                  controller: 'MainCtrl', 
+                  templateUrl: 'views/main.html',
+                  controller: 'MainCtrl',
                   controllerUrl: 'ngload!scripts/controller/main/main-ctrl'
-                }), 
+                }),
                 'slider': angularAMD.route({
                   templateUrl: 'views/slider.html'
                 })
@@ -60,8 +60,8 @@ define([ 'angularAMD',
               url: '/login',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/login.html', 
-                  controller: 'LoginCtrl', 
+                  templateUrl: 'views/login.html',
+                  controller: 'LoginCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/login-ctrl'
                 })
               }
@@ -86,8 +86,8 @@ define([ 'angularAMD',
               url: '/account-overview',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/user-center/account-overview.html', 
-                  controller: 'UserCenterCtrl', 
+                  templateUrl: 'views/user-center/account-overview.html',
+                  controller: 'UserCenterCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
                 })
               }
@@ -96,8 +96,8 @@ define([ 'angularAMD',
               url: '/basic-information',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/user-center/basic-information.html', 
-                  controller: 'UserCenterCtrl', 
+                  templateUrl: 'views/user-center/basic-information.html',
+                  controller: 'UserCenterCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
                 })
               }
@@ -106,8 +106,8 @@ define([ 'angularAMD',
               url: '/bankcard-management',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/user-center/bankcard-management.html', 
-                  controller: 'UserCenterCtrl', 
+                  templateUrl: 'views/user-center/bankcard-management.html',
+                  controller: 'UserCenterCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
                 })
               }
@@ -116,8 +116,8 @@ define([ 'angularAMD',
               url: '/security-settings',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/user-center/security-settings.html', 
-                  controller: 'UserCenterCtrl', 
+                  templateUrl: 'views/user-center/security-settings.html',
+                  controller: 'UserCenterCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
                 })
               }
@@ -126,8 +126,8 @@ define([ 'angularAMD',
               url: '/assets-overview',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/user-center/assets-overview.html', 
-                  controller: 'UserCenterCtrl', 
+                  templateUrl: 'views/user-center/assets-overview.html',
+                  controller: 'UserCenterCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
                 })
               }
@@ -136,8 +136,8 @@ define([ 'angularAMD',
               url: '/recharge',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/user-center/recharge.html', 
-                  controller: 'UserCenterCtrl', 
+                  templateUrl: 'views/user-center/recharge.html',
+                  controller: 'UserCenterCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
                 })
               }
@@ -146,8 +146,8 @@ define([ 'angularAMD',
               url: '/withdraw',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/user-center/withdraw.html', 
-                  controller: 'UserCenterCtrl', 
+                  templateUrl: 'views/user-center/withdraw.html',
+                  controller: 'UserCenterCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
                 })
               }
@@ -156,8 +156,8 @@ define([ 'angularAMD',
               url: '/record',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/user-center/record.html', 
-                  controller: 'UserCenterCtrl', 
+                  templateUrl: 'views/user-center/record.html',
+                  controller: 'UserCenterCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
                 })
               }
@@ -166,8 +166,8 @@ define([ 'angularAMD',
               url: '/investment',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/user-center/investment.html', 
-                  controller: 'UserCenterCtrl', 
+                  templateUrl: 'views/user-center/investment.html',
+                  controller: 'UserCenterCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
                 })
               }
@@ -176,8 +176,8 @@ define([ 'angularAMD',
               url: '/news',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/user-center/news.html', 
-                  controller: 'UserCenterCtrl', 
+                  templateUrl: 'views/user-center/news.html',
+                  controller: 'UserCenterCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
                 })
               }
@@ -186,8 +186,8 @@ define([ 'angularAMD',
               url: '/realname-authentication',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/user-center/realname-authentication.html', 
-                  controller: 'UserCenterCtrl', 
+                  templateUrl: 'views/user-center/realname-authentication.html',
+                  controller: 'UserCenterCtrl',
                   controllerUrl: 'ngload!scripts/controller/user-center/user-center-ctrl'
                 })
               }
@@ -197,8 +197,8 @@ define([ 'angularAMD',
               url: '/project-list',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/project-list.html', 
-                  controller: 'ProjectListCtrl', 
+                  templateUrl: 'views/project-list.html',
+                  controller: 'ProjectListCtrl',
                   controllerUrl: 'ngload!scripts/controller/project/project-list-ctrl'
                 })
               }
@@ -218,8 +218,8 @@ define([ 'angularAMD',
               url: '/project-details',
               views: {
                 '': angularAMD.route({
-                  templateUrl: 'views/project-details.html', 
-                  controller: 'ProjectDetailsCtrl', 
+                  templateUrl: 'views/project-details.html',
+                  controller: 'ProjectDetailsCtrl',
                   controllerUrl: 'ngload!scripts/controller/project/project-details-ctrl'
                 })
               }
@@ -230,10 +230,10 @@ define([ 'angularAMD',
 
       }]);
 
-    hongcaiApp.constant('DEFAULT_DOMAIN', "/hongcai/api/v1");
+    hongcaiApp.constant('DEFAULT_DOMAIN', '/hongcai/api/v1');
 
     angularAMD.bootstrap(hongcaiApp);
-  
+
     return hongcaiApp;
 
 });
