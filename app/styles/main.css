@@ -454,13 +454,13 @@ hr {
   padding: 0 20px;
 }
 .project-list-all .page-container {
-  border: 1px solid #d8d8d8;
+  border: 1px solid #dbdbdb;
   border-radius: 3px;
   margin-bottom: 30px;
 }
 .project-list-all .sort {
   padding: 15px 50px;
-  border-bottom: 1px solid #d8d8d8;
+  border-bottom: 1px solid #dbdbdb;
 }
 .project-list-all .sort .sort-item {
   padding: 5px 0;
@@ -528,6 +528,7 @@ hr {
 }
 /*project-details*/
 .project-details {
+  color: #807979;
   border-top: 1px solid #d8d8d8;
 }
 .project-details .recommend {
@@ -546,4 +547,57 @@ hr {
 .project-details .news {
   height: auto;
   margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+.project-details .invest-record {
+  padding-bottom: 20px;
+}
+.project-details .invest-record-col {
+  padding: 5px 15px;
+}
+.project-details .invest-record-item {
+  border-bottom: 1px solid #dbdbdb;
+}
+.project-details .invest-record-item .col-lg-4 {
+  font-size: 12px;
+  padding: 3px 5px 3px 15px;
+}
+.project-details .news-tit {
+  margin-top: 10px;
+  font-size: 16px;
+}
+.project-details .invest-record-pagination {
+  font-size: 18px;
+  float: right;
+}
+.project-details .invest-record-pagination a {
+  font-size: 26px;
+}
+.project-details .invest-record-pagination a:hover {
+  text-decoration: none;
+}
+.project-details .recommend .news-tit {
+  margin-top: 0;
+}
+.project-details .recommend-support-details .recommend {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.project-details .recommend-support-details .recommend hr {
+  margin-top: 0px;
+}
+.project-details .padd {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.project-details input {
+  width: 80%;
+  height: 50px;
+  margin-top: 10px;
+  outline: none;
+}
+.project-details .recommend .go {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
 }
