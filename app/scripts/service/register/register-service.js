@@ -1,5 +1,5 @@
-define(['scripts/app'], function (hongcaiApp) {
-	hongcaiApp.register.factory('RegisterService', function ($resource, DEFAULT_DOMAIN) {
+
+	hongcaiApp.factory('RegisterService', function ($resource, DEFAULT_DOMAIN) {
 		return {
 			saveRegister: $resource(DEFAULT_DOMAIN + '/siteUser/register', {}, {
 				save: {method: "POST", params: {
@@ -10,4 +10,3 @@ define(['scripts/app'], function (hongcaiApp) {
 			})
 		};
 	});
-});

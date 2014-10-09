@@ -1,6 +1,6 @@
-define(['scripts/app', 'scripts/service/project/project-service'], function(hongcaiApp) {
 
-    hongcaiApp.register.controller("ProjectDetailsCtrl", ["$scope", "$stateParams", "ProjectService", function ($scope, $stateParams, ProjectService) {
+
+    hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$stateParams", "ProjectService", function ($scope, $stateParams, ProjectService) {
         var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
             $scope.project = projectDetails.data.project;
             $scope.projectInfo = projectDetails.data.projectInfo;
@@ -22,4 +22,4 @@ define(['scripts/app', 'scripts/service/project/project-service'], function(hong
             // $scope.repaymentSource = projectInfo.repaymentSource;
         });
     }]);
-});
+

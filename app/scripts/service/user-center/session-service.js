@@ -1,5 +1,5 @@
-define(['scripts/app'], function (hongcaiApp) {
-	hongcaiApp.register.factory('SessionService', function ($http, $resource, $location, DEFAULT_DOMAIN) {
+
+	hongcaiApp.factory('SessionService', function ($http, $resource, $location, DEFAULT_DOMAIN) {
 		return {
 			set: function(key, value) {
 				return sessionStorage.setItem(key, value);
@@ -13,4 +13,3 @@ define(['scripts/app'], function (hongcaiApp) {
 			}
 		};
 	});
-});

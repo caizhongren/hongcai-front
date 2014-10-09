@@ -1,8 +1,7 @@
-define(['scripts/app'], function (hongcaiApp) {
-	hongcaiApp.register.factory('ProjectService', function ($resource, $location, DEFAULT_DOMAIN) {
+
+	hongcaiApp.factory('ProjectService', function ($resource, $location, DEFAULT_DOMAIN) {
     	return {
     		projectDetails: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectDetail', {projectId:'@projectId'}), 
     		projectList: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectList')
     	}
     });
-});

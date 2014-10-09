@@ -1,5 +1,5 @@
-define(['scripts/app', 'ngload!scripts/service/main/main-service'], function(hongcaiApp) {
-    hongcaiApp.register.controller("MainCtrl", ["$scope", "$stateParams", "MainService", function ($scope, $stateParams, MainService) {
+
+    hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "MainService", function ($scope, $stateParams, MainService) {
         var loginName;
         var logout;
         var projectList = MainService.projectList.get(function(response) {
@@ -23,4 +23,3 @@ define(['scripts/app', 'ngload!scripts/service/main/main-service'], function(hon
         x.src = Flag ? "images/check_02.png" : "images/check_01.png";
     }
     
-});

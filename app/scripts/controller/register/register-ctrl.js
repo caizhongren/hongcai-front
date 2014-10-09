@@ -1,5 +1,5 @@
-define(['scripts/app', 'ngload!scripts/service/register/register-service'], function(hongcaiApp) {
-    hongcaiApp.register.controller("RegisterCtrl", ["$scope", "$stateParams", "RegisterService", function ($scope, $stateParams, RegisterService) {
+
+    hongcaiApp.controller("RegisterCtrl", ["$scope", "$stateParams", "RegisterService", function ($scope, $stateParams, RegisterService) {
          
          $scope.submitRegisterMobile = function(user) {
             RegisterService.saveRegister.save({name: user.name, type:0, account: user.mobile, password: user.password }, function(response) {
@@ -28,4 +28,3 @@ define(['scripts/app', 'ngload!scripts/service/register/register-service'], func
 
     }]);
     
-});

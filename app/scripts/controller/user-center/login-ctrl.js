@@ -1,5 +1,5 @@
-define(['scripts/app', 'ngload!scripts/service/user-center/login-service', 'ngload!scripts/service/user-center/session-service'], function(hongcaiApp) {
-    hongcaiApp.register.controller("LoginCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "LoginService", "SessionService", function ($scope, $state, $rootScope, $stateParams, LoginService, SessionService) {
+
+    hongcaiApp.controller("LoginCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "LoginService", "SessionService", function ($scope, $state, $rootScope, $stateParams, LoginService, SessionService) {
         $scope.login = function(user){
             LoginService.userLogin.get({account: user.account, password: user.password }, function(response) {
                 if(response.msg) {
@@ -24,4 +24,3 @@ define(['scripts/app', 'ngload!scripts/service/user-center/login-service', 'nglo
         }
 
     }]);
-});

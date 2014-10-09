@@ -1,5 +1,5 @@
-define(['scripts/app', 'ngload!scripts/service/project/project-service'], function(hongcaiApp) {
-    hongcaiApp.register.controller("ProjectListCtrl", ["$scope", "$stateParams", "$location", "ProjectService", function ($scope, $stateParams, $location, ProjectService) {
+
+    hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$location", "ProjectService", function ($scope, $stateParams, $location, ProjectService) {
         $scope.sortType = $stateParams.sortType || false ;
         var projectList = ProjectService.projectList.get({status: $stateParams.status, 
         												  minCycle: $stateParams.minCycle, 
@@ -37,4 +37,4 @@ define(['scripts/app', 'ngload!scripts/service/project/project-service'], functi
     	});
     }]);
 
-});
+
