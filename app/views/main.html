@@ -49,34 +49,34 @@
                 </ul>
                 <a class="check-more" href="/">更多产品></a>
           </div>
-          <section ng-repeat="project in projectList">
-            <div class="row project-item">
+          <section>
+            <div class="row project-item" ng-repeat="project in projectList.projectList">
               <div class="col-lg-5 project-item-img"><img src="images/project-img.png" width="238" height="235" alt="{{project.name}}"></div>
               <div class="col-lg-7">
                 <div class="row">
                   <div class="col-lg-12 project-name">{{project.name}}</div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-12">担保机构：<span>北京平安信托担保有限公司<!-- 数据绑定 --></span></div>
+                  <div class="col-lg-12">担保机构：<span>{{project.guaranteeName}}</span></div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-6">还款方式：<span>{{project.repaymentType}}</span></div>
-                  <div class="col-lg-6">项目状态：<span>{{project.status}}</span></div>
+                  <div class="col-lg-6">还款方式：<span>{{project.repaymentName}}</span></div>
+                  <div class="col-lg-6">项目状态：<span>{{project.statusText}}</span></div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-12">投资进度:<span>80%<!-- 数据绑定 --></span></div>
+                  <div class="col-lg-12">投资进度:<span>{{project.progress}}%</span></div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-6">项目规模：<span>{{project.total}}万</span></div>
-                  <div class="col-lg-6">可投金额：<span>200万<!-- 数据绑定 --></span></div>
+                  <div class="col-lg-6">项目规模：<span>{{project.total/10000}}万</span></div>
+                  <div class="col-lg-6">可投金额：<span>{{project.total - project.minInvest * project.countInvest}}元</span></div>
                 </div>
                 <div class="row">
                   <div class="col-lg-6">年化收益:<span>{{project.annualEarnings}}%</span></div>
-                  <div class="col-lg-6">项目期限：<span>{{project.cycle}} 个月</span></div>
+                  <div class="col-lg-6">项目期限：<span>{{project.cycle}}个月</span></div>
                 </div>
                 <div class="row">
                   <div class="col-lg-12">
-                    <a class="go" href="#/project-details">立即投资</a>
+                    <a class="go" ui-sref="root.project-details({projectId: project.id})">立即投资</a>
                   </div>
                 </div>
               </div>
