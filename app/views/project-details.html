@@ -11,12 +11,12 @@
 		            		</div>
 		            	<div class="row recommend-details-main">
 		              		<div class="col-lg-4 border-r"><span class="ft-24 ft-red">{{project.annualEarnings}}%</span><br><span class="ft-18">年化收益</span></div>
-		              		<div class="col-lg-4 border-r"><span class="ft-24">{{project.total}}万</span><br><span class="ft-18">项目规模</span></div>
+		              		<div class="col-lg-4 border-r"><span class="ft-24">{{project.total/10000}}万</span><br><span class="ft-18">项目规模</span></div>
 		              		<div class="col-lg-4"><span class="ft-24">{{project.cycle}}个月</span><br><span class="ft-18">项目期限</span></div>
 		            	</div>
 		            	<div class="row mgn-top">
 		              		<div class="col-lg-12">
-		              			发布日期：<span>{{ project.releaseTime | amDateFormat: 'yyyy年M月d日'}}</span><br>
+		              			发布日期：<span>{{ project.releaseTime | amDateFormat: 'YYYY年M月d日'}}</span><br>
 		              			<hr>
 		              			担保机构：<span>{{project.guaranteeName}}</span><br>
 		              			还款方式：<span>{{repayment_type.repaymentType}}</span>
@@ -110,7 +110,7 @@
 		          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
 		          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
 		          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
-		          				
+
 		          			</div>
 		          			<div class="info-item border-none">
 		          				<div class="info-item-tips">
@@ -132,8 +132,8 @@
 		          						<span>操作人：kimjdfhdig<!-- 绑定数据 --></span>
 		          					</div>
 		          				</div>
-		          				
-		          				
+
+
 		          			</div>
 		          			<div class="info-item raise">
 		          				<div class="info-item-tips">
@@ -144,7 +144,7 @@
 		          						<span class="padd">结束时间：2014-09-16<!-- 绑定数据 --></span>
 		          					</div>
 		          				</div>
-		          				
+
 		          			</div>
 		          			<div class="info-item loan">
 		          				<div class="info-item-tips">
@@ -163,11 +163,11 @@
 		          						<span>待还款：169,162.71（4期）<!-- 绑定数据 --></span>
 		          					</div>
 		          				</div>
-		          				
+
 		          			</div>
 		          		</div>
 		          		<!-- end 项目里程 -->
-		          		
+
 		        	</div>
 		        	<!-- end tabs -->
 		      	</div>

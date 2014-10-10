@@ -128,10 +128,9 @@
 				                <div class="row">
 				                  <div class="col-lg-12">还款方式：<span>{{project.repaymentName}}</span></div>
 				                </div>
-
 				                <div class="row">
 				                  <div class="col-lg-6">项目规模：<span>{{project.total}}</span></div>
-				                  <div class="col-lg-6">可投金额：<span>{{project.currentStock}}</span></div>
+				                  <div class="col-lg-6">可投金额：<span>{{occupancyStock*minInvest}}</span></div>
 				                </div>
 				                <div class="row">
 				                  <div class="col-lg-6">年化收益：<span class="ft-red">{{project.annualEarnings}}%</span></div>
@@ -144,11 +143,11 @@
 			    					<div class="col-lg-12">项目状态：<span>{{ project.statusText }}</span></div>
 			    				</div>
 			    				<div class="row">
-				                  <div class="col-lg-12"><span class="progress-tit">投资进度：</span><div class="progress-bar"><span class="progress bg-red" style="width:{{project.progress}}%"></span></div><span class="progress-percent">{{project.progress}}%</span></div>
+				                  <div class="col-lg-12"><span class="progress-tit">投资进度：</span><div class="progress-bar"><span class="progress bg-red" style="width:{{project.progress}}%"></span></div><span class="progress-percent"></span></div>
 				                </div>
 			    				<div class="row">
 				                  <div class="col-lg-12">
-				                    <a class="go" href="#/project-details">立即投资</a>
+				                    <a class="go" ui-sref="root.project-details({projectId: project.id})">立即投资</a>
 				                  </div>
 				                </div>
 			    			</div>
