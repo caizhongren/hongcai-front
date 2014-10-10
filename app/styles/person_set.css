@@ -461,9 +461,15 @@ p.title{
     height: 30px;
     width: 80px;
     margin-top: -10px;
+    display: inline-block;
+    line-height: 30px;
+    text-align: center;
 }
-.account-right-button{
+.account-button:hover {color: #fff;}
+.right-area .account-right-button{
     margin-left: 15px;
+    width: 80px;
+    border-radius: 5px;
 }
 .view-more{
     color: #cecdcd;
@@ -542,3 +548,16 @@ label{
 .word-less-title{
     padding-left: 80px;
 }
+.right-area .border-none {border: none;}
+.padding-l {padding-left: 30px;}
+.form-group select {
+    background-color: #f7f5f5;
+    height: 30px;
+    border: 1px solid #dbdbdb;
+    outline: none;
+}
+.bank-list {width: 245px;}
+#Select1 {width: 120px;}
+#Select2 {width: 121px;}
+.margin-l {margin-left: 155px;}
+.verify-area .tip {margin-top: 50px;}
