@@ -561,3 +561,13 @@ label{
 #Select2 {width: 121px;}
 .margin-l {margin-left: 155px;}
 .verify-area .tip {margin-top: 50px;}
+.verify-tip {
+    width: 360px;
+    height: 35px;
+    line-height: 35px;
+    background-color: #e4e4e4;
+    margin-top: 150px;
+    padding-left: 15px;
+}
+.verify-tip a {color: #e94828;}
+.bank-img {border-radius: 3px;}
