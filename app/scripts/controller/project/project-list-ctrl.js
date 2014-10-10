@@ -1,14 +1,14 @@
 
     hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$location", "ProjectService", function ($scope, $stateParams, $location, ProjectService) {
         $scope.sortType = $stateParams.sortType || false ;
-        var projectList = ProjectService.projectList.get({status: $stateParams.status, 
-        												  minCycle: $stateParams.minCycle, 
-        												  maxCycle: $stateParams.maxCycle, 
-        												  minEarning: $stateParams.minEarning, 
-        												  maxEarning: $stateParams.maxEarning, 
-        												  minTotalAmount: $stateParams.minTotalAmount, 
-        												  maxTotalAmount: $stateParams.maxTotalAmount, 
-        												  sortCondition: $stateParams.sortCondition, 
+        var projectList = ProjectService.projectList.get({status: $stateParams.status,
+        												  minCycle: $stateParams.minCycle,
+        												  maxCycle: $stateParams.maxCycle,
+        												  minEarning: $stateParams.minEarning,
+        												  maxEarning: $stateParams.maxEarning,
+        												  minTotalAmount: $stateParams.minTotalAmount,
+        												  maxTotalAmount: $stateParams.maxTotalAmount,
+        												  sortCondition: $stateParams.sortCondition,
         												  sortType: $scope.sortType}, function() {
         $scope.status = $stateParams.status;
         $scope.minCycle = $stateParams.minCycle;
@@ -23,6 +23,8 @@
         $scope.pageSize = 15;
         $scope.data = [];
    		$scope.projectList = projectList.data;
+      console.log(projectList);
+      console.log($scope.projectList);
     	    $scope.numberOfPages = function() {
     	        return Math.ceil($scope.data.length / $scope.pageSize);
     	    }
