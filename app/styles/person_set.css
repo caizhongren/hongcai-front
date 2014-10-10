@@ -574,3 +574,27 @@ label{
 }
 .verify-tip a {color: #e94828;}
 .bank-img {border-radius: 3px;}
+.verify-code {width: 130px;}
+.recharge .pic-verify {
+    margin-top: 0;
+    margin-left: 5px;
+}
+.recharge .a-verify {
+    left: 245px;
+}
+.recharge .agree-area {
+    padding-left: 35px;
+    margin-top: 25px;
+}
+.recharge .verify-button {
+    width: 80px;
+    height: 30px;
+    margin-left: 105px;
+    border-radius: 3px;
+    margin-top: 0;
+}
+.recharge .mgn-top {margin-top: 10px;}
+.recharge .tip {
+    padding-left: 175px;
+    padding-top: 45px;
+}
