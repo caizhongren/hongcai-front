@@ -1,5 +1,5 @@
 <!--支付记录-->
-<div class="back-ground assets-height" ng-controller="UserCenterCtrl">
+<div class="back-ground assets-height record" ng-controller="UserCenterCtrl">
 	<div class="main-area">
 		<div class="left-area">
 			<div class="personal-information">
@@ -61,6 +61,45 @@
 		</div>
 		<div class="right-area right-assets-height">
 			<div class="right-title">支付记录</div>
+			<p class="row padd"><span>当前账户资产总计： <strong>80588.00<!-- 数据绑定 --></strong>元。</span><span>其中可用资产： <strong>5880.00<!-- 数据绑定 --></strong>元，</span><span>冻结资产：<strong>79500.00<!-- 数据绑定 --></strong>元。</span></p>
+			<!-- ngModel is optional -->
+			<div ng-model="tabs.activeTab" bs-tabs>
+			  <div ng-repeat="tab in tabs" title="{{ tab.title }}" ng-bind="tab.content" bs-pane></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="filter-container sort">
+					    <div class="sort-item">
+					        <label>时间：</label>
+					        <ul class="nav nav-pills">
+					            <li class="active">
+					                <a href="#">全部</a>
+					            </li>
+					            <li class="">
+					                <a href="#">最近七天</a>
+					            </li>
+					            <li class="">
+					                <a href="#">一个月</a>
+					            </li>
+					            <li class="">
+					                <a href="#">三个月</a>
+					            </li>
+					        </ul>
+					    </div>
+					    <div class="sort-item">
+					        <label>固定期限：</label>
+					        <ul class="nav nav-pills">
+					            <li class="active">
+					                开始：<a href="#">全部</a>
+					            </li>
+					            <li class="">
+					                截止：<a href="#">0 - 3个月</a>
+					            </li>
+					        </ul>
+					    </div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -645,3 +645,36 @@ hr {
 .project-details .project-milestone .already {
   border-left: 3px solid #e94b2a;
 }
+/**user-center**/
+.record .nav-tabs {
+  padding-left: 60px;
+}
+.record .nav-tabs a {
+  width: 102px;
+  height: 35px;
+  text-align: center;
+  background-color: #faf8f8;
+  margin-right: 25px;
+  border: 1px solid #ddd;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  color: #717071;
+  padding-top: 8px;
+}
+.record .padd {
+  padding-left: 75px;
+  padding-bottom: 20px;
+}
+.record .padd strong {
+  color: #ea5430;
+}
+.record .nav > li > a:hover,
+.record .nav > li > a:focus {
+  background: #fff;
+}
+.record .nav-pills > li.active > a,
+.record .nav-pills > li.active > a:hover,
+.record .nav-pills > li.active > a:focus {
+  background: none;
+  color: #717071;
+}
