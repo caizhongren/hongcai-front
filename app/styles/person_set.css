@@ -560,7 +560,10 @@ label{
 #Select1 {width: 120px;}
 #Select2 {width: 121px;}
 .margin-l {margin-left: 155px;}
-.verify-area .tip {margin-top: 50px;}
+.verify-area .tip {
+    margin-top: 50px;
+    margin-left: -40px;
+}
 .verify-tip {
     width: 360px;
     height: 35px;
