@@ -59,19 +59,45 @@
 				<p>站内消息</p>
 			</a>
 		</div>
-		<div class="right-area right-assets-height">
+		<div class="right-area right-assets-height withdraw">
 			<div class="right-title word-less-title">提现</div>
 			<form class="real-name">
 				<div class="form-group">
-					<label>可用余额：</label>
+					<label>提现方式&nbsp;&nbsp;&nbsp;</label>
+					<img src="images/recharge-bankImg.png" width="148" height="47" class="border"/>
+				</div>
+				<div class="form-group mgn-top">
+					<label>可提现金额：</label>
 					<p class="user-name">{{ Variables || "123"}}元</p>
 				</div>
 				<div class="form-group">
 					<label>提现金额：</label>
 					<input type="text" class="verify-input" />
 				</div>
-				<input type="button" value="确认充值" class="verify-button" />
+				<div class="form-group">
+					<label>手续费：</label>
+					<span>0.00<!-- 数据绑定 --></span>&nbsp;元
+				</div>
+				<div class="form-group">
+					<label>支付密码：</label>
+					<span>设置支付密码后，才可以提现哦</span><a href="#" class="verify-button set-transactionPwd">设置支付密码</a>
+				</div>
+				<div class="form-group">
+					<label>验证码：</label>
+					<input type="text" class="verify-input verify-code" />
+					<img src="images/verify_pic.png" class="pic-verify">
+					<a class="a-verify">看不清楚？换一张</a>
+				</div>
+				<input type="button" value="确认提现" class="verify-button" />
 			</form>
+			<div class="tip ft-12">
+				<p>温馨提示</p>
+				<p>1. 您的账户资金将由第三方平台托管。</p>
+				<p>2. 请注意您的银行卡充值限制，以免造成不便。</p>
+				<p>3. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用。</p>
+				<p>4. 如果提现金额没有及时到账，请联系客服，400-062-1008</p>
+				<p>5. 各大银行的网银支付限额</p>
+			</div>
 		</div>
 	</div>
 </div>

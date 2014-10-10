@@ -575,26 +575,44 @@ label{
 .verify-tip a {color: #e94828;}
 .bank-img {border-radius: 3px;}
 .verify-code {width: 130px;}
-.recharge .pic-verify {
+.recharge .pic-verify,
+.withdraw .pic-verify{
     margin-top: 0;
     margin-left: 5px;
 }
-.recharge .a-verify {
+.recharge .a-verify,
+.withdraw .a-verify {
     left: 245px;
 }
 .recharge .agree-area {
     padding-left: 35px;
     margin-top: 25px;
 }
-.recharge .verify-button {
+.recharge .verify-button,
+.withdraw .verify-button {
     width: 80px;
     height: 30px;
     margin-left: 105px;
     border-radius: 3px;
     margin-top: 0;
 }
-.recharge .mgn-top {margin-top: 10px;}
-.recharge .tip {
-    padding-left: 175px;
+.withdraw .verify-button {margin-top: 20px;}
+.recharge .mgn-top,.withdraw .mgn-top {margin-top: 10px;}
+.recharge .tip,
+.withdraw .tip {
+    padding-left: 87px;
     padding-top: 45px;
 }
+.real-name .set-transactionPwd {
+    background-color: #e94828;
+    width: 95px;
+    height: 30px;
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-top: 0;
+}
+.set-transactionPwd:hover {background-color: #f27b64;};
