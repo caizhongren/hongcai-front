@@ -205,8 +205,18 @@
  		}
  	})
  	/*---------------------------------------------  project-details  ---------------------------------------------*/
- 	.state('root.project-details', {
+ 	/*.state('root.project-details', {
  		url: '/project/:projectId',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/project-details.html',
+ 				controller: 'ProjectDetailsCtrl',
+ 				controllerUrl: 'scripts/controller/project/project-details-ctrl'
+ 			}
+ 		}
+ 	})*/
+ 	.state('root.project-details', {
+ 		url: '/project-details',
  		views: {
  			'': {
  				templateUrl: 'views/project-details.html',
