@@ -230,22 +230,22 @@ hongcaiApp.directive('passwordCheck', [function () {
 			elem.add(firstPassword).on('keyup', function () {
 				scope.$apply(function () {
 						//console.info(elem.val() === $(firstPassword).val());
-						ctrl.$setValidity('passwordmatch', elem.val() === $(firstPassword).val());
+						ctrl.$setValidity('passwordmatch', elem.val() === angular.element(firstPassword).val());
 					});
 			});
 		}
-	}
+	};
 }]);
 
 hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 	var routespermission = ['/account-overview'];
 	$rootScope.$on('$stateChangeStart', function() {
-		if(routespermission.indexOf($location.path()) != -1) {
+		if(routespermission.indexOf($location.path()) !== -1) {
 			var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
 			$checkSessionServer.then(function(response){
-				if(response.data.data.name != '') {
+				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
-					$rootScope.loginName = sessionStorage.getItem("user");
+					$rootScope.loginName = sessionStorage.getItem('user');
 				} else {
 					$location.path('/login');
 				}
@@ -254,4 +254,4 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 	});
 });
 
-hongcaiApp.constant('DEFAULT_DOMAIN', "/hongcai/api/v1");
+hongcaiApp.constant('DEFAULT_DOMAIN', '/hongcai/api/v1');
