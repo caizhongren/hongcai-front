@@ -8,11 +8,12 @@
  */
 
  var hongcaiApp = angular.module('hongcaiApp', [
- 	'ngAnimate', 
- 	'ngSanitize', 
- 	'mgcrea.ngStrap', 
+ 	'ngAnimate',
+ 	'ngSanitize',
+ 	'mgcrea.ngStrap',
  	'ui.router',
- 	'ngResource' 
+ 	'ngResource',
+  'angularMoment'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -25,7 +26,7 @@
  			},
  			'header': {
  				templateUrl: 'views/header.html',
- 				controller: 'LoginCtrl', 
+ 				controller: 'LoginCtrl',
  				controllerUrl: 'scripts/controller/user-center/login-ctrl'
  			},
  			'footer': {
@@ -37,10 +38,10 @@
  		url: '/',
  		views: {
  			'': {
- 				templateUrl: 'views/main.html', 
- 				controller: 'MainCtrl', 
+ 				templateUrl: 'views/main.html',
+ 				controller: 'MainCtrl',
  				controllerUrl: 'scripts/controller/main/main-ctrl'
- 			}, 
+ 			},
  			'slider': {
  				templateUrl: 'views/slider.html'
  			}
@@ -50,8 +51,8 @@
  		url: '/login',
  		views: {
  			'': {
- 				templateUrl: 'views/login.html', 
- 				controller: 'LoginCtrl', 
+ 				templateUrl: 'views/login.html',
+ 				controller: 'LoginCtrl',
  				controllerUrl: 'scripts/controller/user-center/login-ctrl'
  			}
  		}
@@ -77,8 +78,8 @@
  		url: '/account-overview',
  		views: {
  			'': {
- 				templateUrl: 'views/user-center/account-overview.html', 
- 				controller: 'UserCenterCtrl', 
+ 				templateUrl: 'views/user-center/account-overview.html',
+ 				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
@@ -87,8 +88,8 @@
  		url: '/basic-information',
  		views: {
  			'': {
- 				templateUrl: 'views/user-center/basic-information.html', 
- 				controller: 'UserCenterCtrl', 
+ 				templateUrl: 'views/user-center/basic-information.html',
+ 				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
@@ -97,8 +98,8 @@
  		url: '/bankcard-management',
  		views: {
  			'': {
- 				templateUrl: 'views/user-center/bankcard-management.html', 
- 				controller: 'UserCenterCtrl', 
+ 				templateUrl: 'views/user-center/bankcard-management.html',
+ 				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
@@ -107,8 +108,8 @@
  		url: '/security-settings',
  		views: {
  			'': {
- 				templateUrl: 'views/user-center/security-settings.html', 
- 				controller: 'UserCenterCtrl', 
+ 				templateUrl: 'views/user-center/security-settings.html',
+ 				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
@@ -117,8 +118,8 @@
  		url: '/assets-overview',
  		views: {
  			'': {
- 				templateUrl: 'views/user-center/assets-overview.html', 
- 				controller: 'UserCenterCtrl', 
+ 				templateUrl: 'views/user-center/assets-overview.html',
+ 				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
@@ -127,8 +128,8 @@
  		url: '/recharge',
  		views: {
  			'': {
- 				templateUrl: 'views/user-center/recharge.html', 
- 				controller: 'UserCenterCtrl', 
+ 				templateUrl: 'views/user-center/recharge.html',
+ 				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
@@ -137,8 +138,8 @@
  		url: '/withdraw',
  		views: {
  			'': {
- 				templateUrl: 'views/user-center/withdraw.html', 
- 				controller: 'UserCenterCtrl', 
+ 				templateUrl: 'views/user-center/withdraw.html',
+ 				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
@@ -147,8 +148,8 @@
  		url: '/record',
  		views: {
  			'': {
- 				templateUrl: 'views/user-center/record.html', 
- 				controller: 'UserCenterCtrl', 
+ 				templateUrl: 'views/user-center/record.html',
+ 				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
@@ -157,8 +158,8 @@
  		url: '/investment',
  		views: {
  			'': {
- 				templateUrl: 'views/user-center/investment.html', 
- 				controller: 'UserCenterCtrl', 
+ 				templateUrl: 'views/user-center/investment.html',
+ 				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
@@ -167,8 +168,8 @@
  		url: '/news',
  		views: {
  			'': {
- 				templateUrl: 'views/user-center/news.html', 
- 				controller: 'UserCenterCtrl', 
+ 				templateUrl: 'views/user-center/news.html',
+ 				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
@@ -177,8 +178,8 @@
  		url: '/realname-authentication',
  		views: {
  			'': {
- 				templateUrl: 'views/user-center/realname-authentication.html', 
- 				controller: 'UserCenterCtrl', 
+ 				templateUrl: 'views/user-center/realname-authentication.html',
+ 				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
