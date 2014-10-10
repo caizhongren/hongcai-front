@@ -95,7 +95,7 @@
 				        <label>排序：</label>
 				        <ul class="nav nav-pills">
 				            <li class="{{sortCondition=='release_time' ? 'active' : ''}}">
-				                <a href="#/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/release_time/{{sortType}}" ng-click='toggleSort()'>发布时间</a>
+				                <a href="#/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/release_start_time/{{sortType}}" ng-click='toggleSort()'>发布时间</a>
 				            </li>
 				            <li class="{{sortCondition=='total' ? 'active' : ''}}">
 				                <a href="#/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/total/{{sortType}}" ng-click='toggleSort()'>项目规模</a>
@@ -130,7 +130,7 @@
 				                </div>
 				                <div class="row">
 				                  <div class="col-lg-6">项目规模：<span>{{project.total}}</span></div>
-				                  <div class="col-lg-6">可投金额：<span>{{occupancyStock*minInvest}}</span></div>
+				                  <div class="col-lg-6">可投金额：<span>{{project.occupancyStock * project.minInvest}}</span></div>
 				                </div>
 				                <div class="row">
 				                  <div class="col-lg-6">年化收益：<span class="ft-red">{{project.annualEarnings}}%</span></div>
