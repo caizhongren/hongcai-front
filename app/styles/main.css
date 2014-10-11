@@ -82,6 +82,9 @@ hr {
 .border-b {
   border-bottom: 1px solid #dbdbdb;
 }
+.border-l {
+  border-left: 1px solid #dbdbdb;
+}
 .tel-img {
   background: url('../../../images/sprite.png');
 }
@@ -668,13 +671,50 @@ hr {
 .record .padd strong {
   color: #ea5430;
 }
-.record .nav > li > a:hover,
-.record .nav > li > a:focus {
-  background: #fff;
+.record .sort-item {
+  padding-left: 128px;
+  padding-top: 25px;
 }
-.record .nav-pills > li.active > a,
-.record .nav-pills > li.active > a:hover,
-.record .nav-pills > li.active > a:focus {
-  background: none;
+.record .sort-item label {
+  float: left;
+  line-height: 38px;
+}
+.record .sort-item .nav > li > a {
   color: #717071;
+}
+.record .sort-item .nav > li > a:hover,
+.record .sort-item .nav > li > a:focus {
+  background: none;
+}
+.record .sort-item .nav-pills > li.active > a,
+.record .sort-item .nav-pills > li.active > a:hover,
+.record .sort-item .nav-pills > li.active > a:focus {
+  background: none;
+}
+.record .sort-item .nav-pills .active {
+  background-position: -95px -264px;
+}
+.record .sort-item .nav-pills li {
+  background-position: -95px -227px;
+  margin-right: 50px;
+}
+.record .sort-item .mgn-l {
+  margin-left: 30px;
+}
+.record .record-list {
+  text-align: center;
+  width: 703px;
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  margin-left: 25px;
+  border-radius: 4px;
+}
+.record .record-list .record-list-head {
+  background-color: #eceaea;
+  height: 40px;
+  padding: 10px 0;
+}
+.record .record-list .record-item {
+  height: 50px;
+  line-height: 50px;
 }

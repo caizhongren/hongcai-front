@@ -40,5 +40,11 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$rootScope", "$stateParams",
 	  }
 	];
 	$scope.tabs.activeTab = 0;
+
+	//Datepickers 
+	$scope.selectedDate = {{selectedDate}}; // <- {{ getType('selectedDate') }}
+	$scope.selectedDateAsNumber = {{selectedDateAsNumber}}; // <- {{ getType('selectedDateAsNumber') }}
+	$scope.fromDate = {{fromDate}}; // <- {{ getType('fromDate') }}
+	$scope.untilDate = {{untilDate}}; // <- {{ getType('untilDate') }}
 }]);
 
