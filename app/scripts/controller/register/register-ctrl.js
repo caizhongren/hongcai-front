@@ -1,30 +1,38 @@
+hongcaiApp.controller("RegisterCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "RegisterService", "SessionService", "DEFAULT_DOMAIN", function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN) {
 
-    hongcaiApp.controller("RegisterCtrl", ["$scope", "$stateParams", "RegisterService", function ($scope, $stateParams, RegisterService) {
-         
-         $scope.submitRegisterMobile = function(user) {
-            RegisterService.saveRegister.save({name: user.name, type:0, account: user.mobile, password: user.password }, function(response) {
-                if(response.msg == "success") {
-                    $state.go('root.account-overview');
-                } else {
-                    alert(0);
-                }
-            });
-        }
+    $scope.getPicCaptcha = DEFAULT_DOMAIN + "/siteUser/getPicCaptcha?";
 
-         $scope.submitRegisterMail = function(user) {
-            RegisterService.saveRegister.save({name: user.name, type:1, account: user.email, password: user.password }, function(response) {
-                if(response.msg == "success") {
-                    $state.go('root.account-overview');
-                } else {
-                    alert(0);
-                }
-            });
-        }
+    $scope.submitRegisterMobile = function(user) {
+        RegisterService.saveRegister.save({name: user.name, type:0, account: user.mobile, password: user.password }, function(response) {
+            if(response.msg) {
+                SessionService.set("user", response.data.user.name);
+                $state.go('root.account-overview');
+                $rootScope.loginName = response.data.user.name;
+                $rootScope.isLogged = true;
+            } else {
+                $scope.errorMessage = response.msg;
+                $state.go('root.registerMobile');
+            }
+        });
+    };
 
-        $scope.checkPassword = function () {
-            console.info("asd");
-            $scope.registerForm.repeatPassword.$error.dontMatch = $scope.user.password !== $scope.user.repeatPassword;
-        };
+    $scope.submitRegisterMail = function(user) {
+        RegisterService.saveRegister.save({name: user.name, type: 1, account: user.email, password: user.password, captcha: user.captcha }, function(response) {
+            if(response.msg) {
+                SessionService.set("user", response.data.user.name);
+                $state.go('root.account-overview');
+                $rootScope.loginName = response.data.user.name;
+                $rootScope.isLogged = true;
+            } else {
+                $scope.errorMessage = response.msg;
+                $state.go('root.registerMail');
+            }
+        });
+    };
 
-    }]);
-    
+    $scope.refreshCode = function() {
+        $("#captcha").attr("src", $("#captcha").attr("src").substr(0, $("#captcha").attr("src").indexOf('?')) + "?code=" + Math.random());
+    };
+
+}]);
+
