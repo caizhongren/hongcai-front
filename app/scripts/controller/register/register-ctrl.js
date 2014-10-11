@@ -31,7 +31,7 @@ hongcaiApp.controller("RegisterCtrl", ["$scope", "$state", "$rootScope", "$state
     };
 
     $scope.refreshCode = function() {
-        $("#captcha").attr("src", $("#captcha").attr("src").substr(0, $("#captcha").attr("src").indexOf('?')) + "?code=" + Math.random());
+        angular.element("#captcha").attr("src", angular.element("#captcha").attr("src").substr(0, angular.element("#captcha").attr("src").indexOf('?')) + "?code=" + Math.random());
     };
 
 }]);

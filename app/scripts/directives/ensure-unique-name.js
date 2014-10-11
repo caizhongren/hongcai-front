@@ -6,7 +6,7 @@ angular.module('hongcaiApp').directive('ensureUniqueName', ['$http', 'DEFAULT_DO
 			scope.$watch(attrs.ngModel, function() {
 				$http({
 					method: 'POST',
-					url: DEFAULT_DOMAIN + '/siteUser/isUniqueName?name=' + $("#" + attrs.ensureUniqueName).val()
+					url: DEFAULT_DOMAIN + '/siteUser/isUniqueName?name=' + angular.element("#" + attrs.ensureUniqueName).val()
 				}).success(function(data, status, headers, cfg) {
 					if(data.data.isUnique == 0) {
 						ctrl.$setValidity('unique', true);

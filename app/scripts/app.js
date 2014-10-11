@@ -62,7 +62,7 @@
  		url: '/register-mobile',
  		views: {
  			'': {
- 				templateUrl: 'views/register-mobile.html'
+ 				templateUrl: 'views/register/register-mobile.html'
  			}
  		}
  	})
@@ -70,7 +70,7 @@
  		url: '/register-mail',
  		views: {
  			'': {
- 				templateUrl: 'views/register-mail.html', 
+ 				templateUrl: 'views/register/register-mail.html', 
  				controller: 'RegisterCtrl', 
  				controllerUrl: 'scripts/controller/register/register-ctrl'
  			}
