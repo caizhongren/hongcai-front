@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css" />
+    <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -45,7 +46,6 @@
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <![endif]-->
-    <!-- endbuild -->
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -75,13 +75,21 @@
     <script type="text/javascript" src="scripts/controller/register/register-ctrl.js"></script>
     <script type="text/javascript" src="scripts/controller/user-center/login-ctrl.js"></script>
     <script type="text/javascript" src="scripts/controller/user-center/user-center-ctrl.js"></script>
+
     <script type="text/javascript" src="scripts/service/main/main-service.js"></script>
     <script type="text/javascript" src="scripts/service/project/project-service.js"></script>
     <script type="text/javascript" src="scripts/service/register/register-service.js"></script>
     <script type="text/javascript" src="scripts/service/user-center/user-center-service.js"></script>
     <script type="text/javascript" src="scripts/service/user-center/session-service.js"></script>
     <script type="text/javascript" src="scripts/service/user-center/login-service.js"></script>
+
+    <script type="text/javascript" src="scripts/directives/ensure-unique-name.js"></script>
+    <script type="text/javascript" src="scripts/directives/ensure-unique-email.js"></script>
+    <script type="text/javascript" src="scripts/directives/ensure-unique-mobile.js"></script>
+    <script type="text/javascript" src="scripts/directives/password-match.js"></script>
+
     <!-- endbuild -->
+    
 
 </body>
 </html>

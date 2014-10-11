@@ -1,6 +1,5 @@
-
-	hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
-		return {
-			
-		};
-	});
+hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
+	return {
+		
+	};
+});

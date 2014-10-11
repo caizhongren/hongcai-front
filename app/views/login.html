@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!-- <div class="login-background">
   <div class="login-area">
 	<p class="login-title">登录宏财</p>
@@ -20,6 +21,7 @@
 		<div class="login-area">
 			<p class="login-title">登录宏财</p>
 			<form class="form-horizontal form-login" role="form" ng-submit="login(user)">
+				<toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
 				<div class="form-group">
 					<label for="account" class="big-tips">账户：</label>
 					<input type="text" class="input-message" name="user.account" ng-model="user.account">
@@ -27,6 +29,12 @@
 						<img src="images/check_no.png" class="check-img" >
 						<p class="input-tips red">{{account_wrong_tips||"账号不能为空"}}</p>
 					</div>
+					<!--
+					<div ng-show='warning'>
+						<img src="images/check_no.png" class="check-img" >
+						<p class="input-tips red">{{errorMessage}}</p>
+					</div>
+					-->
 				</div>
 
 				<div class="form-group">

@@ -13,7 +13,8 @@
  	'mgcrea.ngStrap',
  	'ui.router',
  	'ngResource',
-  'angularMoment'
+  	'angularMoment', 
+ 	'toaster'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -69,7 +70,9 @@
  		url: '/register-mail',
  		views: {
  			'': {
- 				templateUrl: 'views/register-mail.html'
+ 				templateUrl: 'views/register-mail.html', 
+ 				controller: 'RegisterCtrl', 
+ 				controllerUrl: 'scripts/controller/register/register-ctrl'
  			}
  		}
  	})
@@ -221,21 +224,6 @@
  	$urlRouterProvider.otherwise('/');
 
  }]);
-
-hongcaiApp.directive('passwordCheck', [function () {
-	return {
-		require: 'ngModel',
-		link: function(scope, elem, attrs, ctrl) {
-			var firstPassword = '#' + attrs.passwordCheck;
-			elem.add(firstPassword).on('keyup', function () {
-				scope.$apply(function () {
-						//console.info(elem.val() === $(firstPassword).val());
-						ctrl.$setValidity('passwordmatch', elem.val() === angular.element(firstPassword).val());
-					});
-			});
-		}
-	};
-}]);
 
 hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 	var routespermission = ['/account-overview'];
