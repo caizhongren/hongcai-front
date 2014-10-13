@@ -42,8 +42,9 @@ body {
     font-size: 14px;
     color: #888181;
     background-color: white;
-    float: right;
+    /*float: right;*/
     border-radius: 5px;
+    margin-left: 220px;
 }
 .personal-information{
     width: 170px;

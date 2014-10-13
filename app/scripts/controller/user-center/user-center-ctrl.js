@@ -80,7 +80,6 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$rootScope", "$stateParams",
             }
         });
     };
-    
 
 	//Datepickers 
 	/*$scope.selectedDate = {{selectedDate}}; 
