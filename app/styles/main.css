@@ -779,12 +779,26 @@ hr {
 }
 .news .news-list {
   padding-left: 30px;
+  padding-top: 30px;
 }
 .news .news-item {
   border-bottom: 1px solid #dbdbdb;
-  width: 646px;
-  margin-left: 40px;
+  width: 628px;
+  margin-left: 50px;
+}
+.news .news-item .col-md-6 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.news .news-item .row {
+  padding-left: 0;
+  padding-right: 0;
 }
 .news .text-agn {
   text-align: right;
+}
+.news .news-content {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: #f7f5f5;
 }
