@@ -679,6 +679,7 @@ hr {
 }
 .record .sort .nav-tabs span.active a,
 .investment .sort .nav-tabs span.active a {
+  background: #fff;
   border-bottom: transparent;
 }
 .record .padd,
