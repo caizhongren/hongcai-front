@@ -17,7 +17,7 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$rootScope", "$stateParams",
     $scope.onClickTab = function (tab) {
         $scope.currentTab = tab.url;
     }*/
-    $scope.tabs = [
+	$scope.tabs = [
 	  {
 	    'title': '全部',
 	    'content': ''
@@ -40,11 +40,12 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$rootScope", "$stateParams",
 	  }
 	];
 	$scope.tabs.activeTab = 0;
+    
 
 	//Datepickers 
-	$scope.selectedDate = {{selectedDate}}; // <- {{ getType('selectedDate') }}
-	$scope.selectedDateAsNumber = {{selectedDateAsNumber}}; // <- {{ getType('selectedDateAsNumber') }}
-	$scope.fromDate = {{fromDate}}; // <- {{ getType('fromDate') }}
-	$scope.untilDate = {{untilDate}}; // <- {{ getType('untilDate') }}
+	/*$scope.selectedDate = {{selectedDate}}; 
+	$scope.selectedDateAsNumber = {{selectedDateAsNumber}};
+	$scope.fromDate = {{fromDate}}; 
+	$scope.untilDate = {{untilDate}};*/ 
 }]);
 

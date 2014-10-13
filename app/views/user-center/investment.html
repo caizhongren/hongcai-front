@@ -1,5 +1,5 @@
 <!--投资产品-->
-<div class="back-ground assets-height" ng-controller="UserCenterCtrl">
+<div class="back-ground assets-height investment" ng-controller="UserCenterCtrl">
 	<div class="main-area">
 		<div class="left-area">
 			<div class="personal-information">
@@ -61,6 +61,114 @@
 		</div>
 		<div class="right-area right-assets-height">
 			<div class="right-title">投资产品</div>
+			<p class="row padd"><span>当前账户总计投资产品： <strong>8<!-- 数据绑定 --></strong>个。</span><span>其中还款中： <strong>5<!-- 数据绑定 --></strong>个，</span><span>投资中：<strong>1<!-- 数据绑定 --></strong>个。</span><span>已结清：<strong>2<!-- 数据绑定 --></strong>个。</span></p>
+			<p class="row padd"><span>投资总额： <strong>800000.00<!-- 数据绑定 --></strong>元，</span><span>累计收益：<strong>800.00<!-- 数据绑定 --></strong>个。</span></p>
+			<!-- ngModel is optional -->
+			<div ng-model="tabs.activeTab" bs-tabs>
+			  <div ng-repeat="tab in tabs" title="{{ tab.title }}" ng-bind="tab.content" bs-pane></div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="filter-container sort">
+					    <!-- <div class="sort-item nav-tabs tabs">
+					        <ul class="nav nav-pills">
+					            <li class="active">
+					                <a href="#">&nbsp;全部</a>
+					            </li>
+					            <li class="">
+					                <a href="#">&nbsp;充值</a>
+					            </li>
+					            <li class="">
+					                <a href="#">&nbsp;提现</a>
+					            </li>
+					            <li class="">
+					                <a href="#">&nbsp;投资</a>
+					            </li>
+					            <li class="">
+					                <a href="#">&nbsp;回款</a>
+					            </li>
+					        </ul>
+					    </div> -->
+					    <div class="sort-item">
+					        <label>时间：</label>
+					        <ul class="nav nav-pills">
+					            <li class="active mgn-l">
+					                <a href="#">&nbsp;全部</a>
+					            </li>
+					            <li class="">
+					                <a href="#">&nbsp;最近七天</a>
+					            </li>
+					            <li class="">
+					                <a href="#">&nbsp;一个月</a>
+					            </li>
+					            <li class="">
+					                <a href="#">&nbsp;三个月</a>
+					            </li>
+					        </ul>
+					    </div>
+					    <div class="row">
+					        <label>固定期限：</label>
+					        <ul>
+					            <li>
+					                开始：<a href="#">全部</a>
+					            </li>
+					            <li>
+					                截止：<a href="#">0 - 3个月</a>
+					            </li>
+					        </ul>
+					    </div>
+					    <div class="row record-list">
+					    	<div class="col-md-12">
+					    		<div class="row record-list-head">
+					    			<span class="col-md-2 border-r">项目名称</span>
+					    			<span class="col-md-2 border-r">投资/计息日</span>
+					    			<span class="col-md-2 border-r">到期日</span>
+					    			<span class="col-md-1">金额</span>
+					    			<span class="col-md-2 border-r border-l">预计年化收益</span>
+					    			<span class="col-md-2 border-r border-l">已得收益</span>
+					    			<span class="col-md-1 ">状态</span>
+					    		</div>
+					    		<div class="row record-item">
+					    			<span class="col-md-2">2014-10-10<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">收支类型<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">收支描述<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-1">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-1 ">备注<!-- 数据绑定 --></span>
+					    		</div>
+					    		<div class="row record-item bg-offWhite">
+					    			<span class="col-md-2">2014-10-10<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">收支类型<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">收支描述<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-1">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-1 ">备注<!-- 数据绑定 --></span>
+					    		</div>
+					    		<div class="row record-item">
+					    			<span class="col-md-2">2014-10-10<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">收支类型<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">收支描述<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-1">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-1 ">备注<!-- 数据绑定 --></span>
+					    		</div>
+					    		<div class="row record-item bg-offWhite">
+					    			<span class="col-md-2">2014-10-10<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">收支类型<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">收支描述<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-1">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-2">8000<!-- 数据绑定 --></span>
+					    			<span class="col-md-1 ">备注<!-- 数据绑定 --></span>
+					    		</div>
+					    	</div>
+					    </div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
