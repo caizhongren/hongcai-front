@@ -649,14 +649,19 @@ hr {
   border-left: 3px solid #e94b2a;
 }
 /**user-center**/
+.record p,
+.investment p,
+.userCenter-news p {
+  display: block;
+}
 .record .sort .nav-tabs,
 .investment .sort .nav-tabs,
-.news .sort .nav-tabs {
+.userCenter-news .sort .nav-tabs {
   padding-left: 60px;
 }
 .record .sort .nav-tabs a,
 .investment .sort .nav-tabs a,
-.news .sort .nav-tabs a {
+.userCenter-news .sort .nav-tabs a {
   display: inline-block;
   width: 102px;
   height: 35px;
@@ -672,7 +677,7 @@ hr {
 }
 .record .sort .nav-tabs span,
 .investment .sort .nav-tabs span,
-.news .sort .nav-tabs span {
+.userCenter-news .sort .nav-tabs span {
   width: 102px;
   height: 35px;
   display: inline-block;
@@ -682,77 +687,77 @@ hr {
 }
 .record .sort .nav-tabs span.active a,
 .investment .sort .nav-tabs span.active a,
-.news .sort .nav-tabs span.active a {
+.userCenter-news .sort .nav-tabs span.active a {
   background: #fff;
   border: 1px solid #ddd;
   border-bottom: transparent;
 }
 .record .padd,
 .investment .padd,
-.news .padd {
+.userCenter-news .padd {
   padding-left: 75px;
   padding-bottom: 20px;
 }
 .record .padd strong,
 .investment .padd strong,
-.news .padd strong {
+.userCenter-news .padd strong {
   color: #ea5430;
 }
 .record .sort-item,
 .investment .sort-item,
-.news .sort-item {
+.userCenter-news .sort-item {
   padding-left: 128px;
   padding-top: 25px;
 }
 .record .sort-item label,
 .investment .sort-item label,
-.news .sort-item label {
+.userCenter-news .sort-item label {
   float: left;
   line-height: 38px;
 }
 .record .sort-item .nav > li > a,
 .investment .sort-item .nav > li > a,
-.news .sort-item .nav > li > a {
+.userCenter-news .sort-item .nav > li > a {
   color: #717071;
 }
 .record .sort-item .nav > li > a:hover,
 .investment .sort-item .nav > li > a:hover,
-.news .sort-item .nav > li > a:hover,
+.userCenter-news .sort-item .nav > li > a:hover,
 .record .sort-item .nav > li > a:focus,
 .investment .sort-item .nav > li > a:focus,
-.news .sort-item .nav > li > a:focus {
+.userCenter-news .sort-item .nav > li > a:focus {
   background: none;
 }
 .record .sort-item .nav-pills > li.active > a,
 .investment .sort-item .nav-pills > li.active > a,
-.news .sort-item .nav-pills > li.active > a,
+.userCenter-news .sort-item .nav-pills > li.active > a,
 .record .sort-item .nav-pills > li.active > a:hover,
 .investment .sort-item .nav-pills > li.active > a:hover,
-.news .sort-item .nav-pills > li.active > a:hover,
+.userCenter-news .sort-item .nav-pills > li.active > a:hover,
 .record .sort-item .nav-pills > li.active > a:focus,
 .investment .sort-item .nav-pills > li.active > a:focus,
-.news .sort-item .nav-pills > li.active > a:focus {
+.userCenter-news .sort-item .nav-pills > li.active > a:focus {
   background: none;
 }
 .record .sort-item .nav-pills .active,
 .investment .sort-item .nav-pills .active,
-.news .sort-item .nav-pills .active {
+.userCenter-news .sort-item .nav-pills .active {
   background-position: -95px -264px;
 }
 .record .sort-item .nav-pills li,
 .investment .sort-item .nav-pills li,
-.news .sort-item .nav-pills li {
+.userCenter-news .sort-item .nav-pills li {
   background-position: -95px -227px;
   margin-right: 50px;
 }
 .record .sort-item .mgn-l,
 .investment .sort-item .mgn-l,
-.news .sort-item .mgn-l {
+.userCenter-news .sort-item .mgn-l {
   margin-left: 30px;
 }
 .record .record-list,
 .investment .record-list,
-.news .record-list {
+.userCenter-news .record-list {
   text-align: center;
   width: 703px;
   border: 1px solid #dbdbdb;
@@ -762,42 +767,42 @@ hr {
 }
 .record .record-list .record-list-head,
 .investment .record-list .record-list-head,
-.news .record-list .record-list-head {
+.userCenter-news .record-list .record-list-head {
   background-color: #eceaea;
   height: 40px;
   padding: 10px 0;
 }
 .record .record-list .record-item,
 .investment .record-list .record-item,
-.news .record-list .record-item {
+.userCenter-news .record-list .record-item {
   height: 50px;
   line-height: 50px;
   font-size: 12px;
 }
-.news .col-md-12 {
+.userCenter-news .col-md-12 {
   padding: 0;
 }
-.news .news-list {
+.userCenter-news .news-list {
   padding-left: 30px;
   padding-top: 30px;
 }
-.news .news-item {
+.userCenter-news .news-item {
   border-bottom: 1px solid #dbdbdb;
   width: 628px;
   margin-left: 50px;
 }
-.news .news-item .col-md-6 {
+.userCenter-news .news-item .col-md-6 {
   padding-left: 0;
   padding-right: 0;
 }
-.news .news-item .row {
+.userCenter-news .news-item .row {
   padding-left: 0;
   padding-right: 0;
 }
-.news .text-agn {
+.userCenter-news .text-agn {
   text-align: right;
 }
-.news .news-content {
+.userCenter-news .news-content {
   padding: 10px 15px;
   margin-bottom: 10px;
   background-color: #f7f5f5;
