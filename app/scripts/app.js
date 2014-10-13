@@ -239,7 +239,7 @@
  }]);
 
 hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
-	var routespermission = ['/account-overview'];
+	var routespermission = ['/account-overview', '/basic-information', '/realname-authentication'];
 	$rootScope.$on('$stateChangeStart', function() {
 		if(routespermission.indexOf($location.path()) !== -1) {
 			var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');

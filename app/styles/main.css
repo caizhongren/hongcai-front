@@ -82,6 +82,9 @@ hr {
 .border-b {
   border-bottom: 1px solid #dbdbdb;
 }
+.border-l {
+  border-left: 1px solid #dbdbdb;
+}
 .tel-img {
   background: url('../../../images/sprite.png');
 }
@@ -646,10 +649,13 @@ hr {
   border-left: 3px solid #e94b2a;
 }
 /**user-center**/
-.record .nav-tabs {
+.record .sort .nav-tabs,
+.investment .sort .nav-tabs {
   padding-left: 60px;
 }
-.record .nav-tabs a {
+.record .sort .nav-tabs a,
+.investment .sort .nav-tabs a {
+  display: inline-block;
   width: 102px;
   height: 35px;
   text-align: center;
@@ -660,21 +666,90 @@ hr {
   border-top-right-radius: 4px;
   color: #717071;
   padding-top: 8px;
+  position: relative;
 }
-.record .padd {
+.record .sort .nav-tabs span,
+.investment .sort .nav-tabs span {
+  width: 102px;
+  height: 35px;
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: -1px;
+}
+.record .sort .nav-tabs span.active a,
+.investment .sort .nav-tabs span.active a {
+  background: #fff;
+  border-bottom: transparent;
+}
+.record .padd,
+.investment .padd {
   padding-left: 75px;
   padding-bottom: 20px;
 }
-.record .padd strong {
+.record .padd strong,
+.investment .padd strong {
   color: #ea5430;
 }
-.record .nav > li > a:hover,
-.record .nav > li > a:focus {
-  background: #fff;
+.record .sort-item,
+.investment .sort-item {
+  padding-left: 128px;
+  padding-top: 25px;
 }
-.record .nav-pills > li.active > a,
-.record .nav-pills > li.active > a:hover,
-.record .nav-pills > li.active > a:focus {
-  background: none;
+.record .sort-item label,
+.investment .sort-item label {
+  float: left;
+  line-height: 38px;
+}
+.record .sort-item .nav > li > a,
+.investment .sort-item .nav > li > a {
   color: #717071;
+}
+.record .sort-item .nav > li > a:hover,
+.investment .sort-item .nav > li > a:hover,
+.record .sort-item .nav > li > a:focus,
+.investment .sort-item .nav > li > a:focus {
+  background: none;
+}
+.record .sort-item .nav-pills > li.active > a,
+.investment .sort-item .nav-pills > li.active > a,
+.record .sort-item .nav-pills > li.active > a:hover,
+.investment .sort-item .nav-pills > li.active > a:hover,
+.record .sort-item .nav-pills > li.active > a:focus,
+.investment .sort-item .nav-pills > li.active > a:focus {
+  background: none;
+}
+.record .sort-item .nav-pills .active,
+.investment .sort-item .nav-pills .active {
+  background-position: -95px -264px;
+}
+.record .sort-item .nav-pills li,
+.investment .sort-item .nav-pills li {
+  background-position: -95px -227px;
+  margin-right: 50px;
+}
+.record .sort-item .mgn-l,
+.investment .sort-item .mgn-l {
+  margin-left: 30px;
+}
+.record .record-list,
+.investment .record-list {
+  text-align: center;
+  width: 703px;
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  margin-left: 25px;
+  border-radius: 4px;
+}
+.record .record-list .record-list-head,
+.investment .record-list .record-list-head {
+  background-color: #eceaea;
+  height: 40px;
+  padding: 10px 0;
+}
+.record .record-list .record-item,
+.investment .record-list .record-item {
+  height: 50px;
+  line-height: 50px;
+  font-size: 12px;
 }

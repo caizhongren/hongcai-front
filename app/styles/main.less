@@ -48,6 +48,7 @@ hr {border-top: 1px solid #d8d8d8;}
 }
 .border-r {border-right: @border;}
 .border-b {border-bottom: @border;}
+.border-l {border-left: @border;}
 .tel-img {background: url('../../../images/sprite.png');}
 .progress-tit {float: left;}
 .progress-bar {
@@ -479,10 +480,12 @@ hr {border-top: 1px solid #d8d8d8;}
   }
 }
 /**user-center**/
-.record {
-  .nav-tabs {
+.record,
+.investment {
+  .sort .nav-tabs {
     padding-left: 60px;
     a {
+      display: inline-block;
       width: 102px;
       height: 35px;
       text-align: center;
@@ -493,6 +496,19 @@ hr {border-top: 1px solid #d8d8d8;}
       border-top-right-radius: 4px;
       color: #717071;
       padding-top: 8px;
+      position: relative;
+    }
+    span {
+      width: 102px;
+      height: 35px;
+      display: inline-block;
+      position: relative;
+      margin-right: 20px;
+      margin-bottom: -1px;
+    }
+    span.active a {
+      background: #fff;
+      border-bottom: transparent;
     }
   }
   .padd {
@@ -500,10 +516,44 @@ hr {border-top: 1px solid #d8d8d8;}
     padding-bottom: 20px;
     strong {.ft-red;}
   }
-  .nav > li > a:hover, .nav > li > a:focus {background: #fff;}
-  .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-    background: none;
-    color: #717071;
+  
+  .sort-item {
+    padding-left: 128px;
+    padding-top: 25px;
+    label {
+      float: left;
+      line-height: 38px;
+    }
+    .nav > li > a {color: #717071;}
+    .nav > li > a:hover, .nav > li > a:focus {
+      background: none;
+    }
+    .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+      background: none;
+    }
+    .nav-pills .active {background-position: -95px -264px;}
+    .nav-pills li {
+      background-position: -95px -227px;
+      margin-right: 50px;
+    }
+    .mgn-l {margin-left: 30px;}
+  }
+  .record-list {
+    text-align: center;
+    width: 703px;
+    .border;
+    margin-left: 25px;
+    border-radius: 4px;
+    .record-list-head {
+      background-color: #eceaea;
+      height: 40px;
+      padding: 10px 0;
+    }
+    .record-item {
+      height: 50px;
+      line-height: 50px;
+      .ft-12;
+    }
   }
 }
 
