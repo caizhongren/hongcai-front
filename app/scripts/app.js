@@ -14,7 +14,8 @@
  	'ui.router',
  	'ngResource',
   	'angularMoment', 
- 	'toaster'
+ 	'toaster', 
+ 	'angularFileUpload'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -216,6 +217,18 @@
  				templateUrl: 'views/project-details.html',
  				controller: 'ProjectDetailsCtrl',
  				controllerUrl: 'scripts/controller/project/project-details-ctrl'
+ 			}
+ 		}
+ 	})
+
+ 	/*---------------------------------------------  upload  ---------------------------------------------*/
+ 	.state('root.upload', {
+ 		url: '/upload',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/upload/upload.html',
+ 				controller: 'UploadCtrl',
+ 				controllerUrl: 'scripts/controller/upload/upload-ctrl'
  			}
  		}
  	})

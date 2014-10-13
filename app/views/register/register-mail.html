@@ -77,7 +77,7 @@
 						name="captcha" 
 						ng-model="user.captcha" 
 						ensure-captcha="captcha" required>
-					<img src="{{getPicCaptcha}}" id="captcha" class="pic-verify" ng-click="refreshCode()">
+					<img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify" ng-click="refreshCode()">
 					<div ng-show="registerForm.captcha.$dirty && registerForm.captcha.$invalid">
 						<div ng-show="registerForm.captcha.$error.check">
 							<img ng-src="images/check_no.png" class="check-img">
