@@ -78,11 +78,17 @@
  		}
  	})
  	/*------------------------------------------  user-center  -----------------------------------------------*/
+ 	
  	.state('root.account-overview', {
  		url: '/account-overview',
  		views: {
- 			'': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/account-overview.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 			},
+ 			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
@@ -91,8 +97,13 @@
  	.state('root.basic-information', {
  		url: '/basic-information',
  		views: {
- 			'': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/basic-information.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 			},
+			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
@@ -101,8 +112,13 @@
  	.state('root.bankcard-management', {
  		url: '/bankcard-management',
  		views: {
- 			'': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/bankcard-management.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 			},
+			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
@@ -111,8 +127,13 @@
  	.state('root.security-settings', {
  		url: '/security-settings',
  		views: {
- 			'': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/security-settings.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 			},
+			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
@@ -121,8 +142,13 @@
  	.state('root.assets-overview', {
  		url: '/assets-overview',
  		views: {
- 			'': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/assets-overview.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 			},
+			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
@@ -131,8 +157,13 @@
  	.state('root.recharge', {
  		url: '/recharge',
  		views: {
- 			'': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/recharge.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 			},
+			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
@@ -141,8 +172,13 @@
  	.state('root.withdraw', {
  		url: '/withdraw',
  		views: {
- 			'': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/withdraw.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 			},
+			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
@@ -151,8 +187,13 @@
  	.state('root.record', {
  		url: '/record',
  		views: {
- 			'': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/record.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 			},
+			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
@@ -161,8 +202,13 @@
  	.state('root.investment', {
  		url: '/investment',
  		views: {
- 			'': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/investment.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 			},
+			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
@@ -171,8 +217,13 @@
  	.state('root.news', {
  		url: '/news',
  		views: {
- 			'': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/news.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 			},
+			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
@@ -181,8 +232,13 @@
  	.state('root.realname-authentication', {
  		url: '/realname-authentication',
  		views: {
- 			'': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/realname-authentication.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 			},
+			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}

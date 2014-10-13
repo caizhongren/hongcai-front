@@ -1,103 +1,41 @@
 <!--提现-->
-<div class="back-ground assets-height" ng-controller="UserCenterCtrl">
-	<div class="main-area">
-		<div class="left-area">
-			<div class="personal-information">
-				<!--临时头像-->
-				<div class="left-user-head"></div>
-				<p class="p-user-name">{{ username || "天天天a天天投资"}}</p>
-				<div class="safe-pic card-ok"></div>
-				<div class="safe-pic phone-no"></div>
-				<div class="safe-pic mail-no"></div>
-				<div class="security-level"></div>
-				<p class="p-security-level">安全等级：{{ Variables || "低"}}</p>
-				<a href="/#/security-settings" class="a-up-level">【提升】</a>
-			</div>
-			<p class="center-tips">我的账户</p>
-			<a ui-sref="root.account-overview" class="tips-area">
-				<div class="ico-area grey-account"></div>
-				<p>账户总览</p>
-			</a>
-			<a ui-sref="root.basic-information" class="tips-area">
-				<div class="ico-area grey-basic"></div>
-				<p>基本信息</p>
-			</a>
-			<a ui-sref="root.bankcard-management" class="tips-area">
-				<div class="ico-area grey-bankcard"></div>
-				<p>银行卡管理</p>
-			</a>
-			<a ui-sref="root.security-settings" class="tips-area">
-				<div class="ico-area grey-safeset"></div>
-				<p>安全设置</p>
-			</a>
-			<p class="center-tips">资产管理</p>
-			<a ui-sref="root.assets-overview" class="tips-area">
-				<div class="ico-area grey-assets"></div>
-				<p>资产总览</p>
-			</a>
-			<a ui-sref="root.recharge" class="tips-area">
-				<div class="ico-area grey-recharge"></div>
-				<p>充值</p>
-			</a>
-			<a ui-sref="root.withdraw" class="tips-area tips-show">
-				<div class="left-show-area"></div>
-				<div class="ico-area red-withdraw"></div>
-				<p class="now">提现</p>
-			</a>
-			<a ui-sref="root.record" class="tips-area">
-				<div class="ico-area grey-record"></div>
-				<p>支付记录</p>
-			</a>
-			<p class="center-tips">投资管理</p>
-			<a ui-sref="root.investment" class="tips-area">
-				<div class="ico-area grey-investment"></div>
-				<p>投资产品</p>
-			</a>
-			<p class="center-tips">消息管理</p>
-			<a ui-sref="root.news" class="tips-area">
-				<div class="ico-area grey-news"></div>
-				<p>站内消息</p>
-			</a>
+<div class="right-area right-assets-height withdraw">
+	<div class="right-title word-less-title">提现</div>
+	<form class="real-name">
+		<div class="form-group">
+			<label>提现方式&nbsp;&nbsp;&nbsp;</label>
+			<img src="images/recharge-bankImg.png" width="148" height="47" class="border"/>
 		</div>
-		<div class="right-area right-assets-height withdraw">
-			<div class="right-title word-less-title">提现</div>
-			<form class="real-name">
-				<div class="form-group">
-					<label>提现方式&nbsp;&nbsp;&nbsp;</label>
-					<img src="images/recharge-bankImg.png" width="148" height="47" class="border"/>
-				</div>
-				<div class="form-group mgn-top">
-					<label>可提现金额：</label>
-					<p class="user-name">{{ Variables || "123"}}元</p>
-				</div>
-				<div class="form-group">
-					<label>提现金额：</label>
-					<input type="text" class="verify-input" />
-				</div>
-				<div class="form-group">
-					<label>手续费：</label>
-					<span>0.00<!-- 数据绑定 --></span>&nbsp;元
-				</div>
-				<div class="form-group">
-					<label>支付密码：</label>
-					<span>设置支付密码后，才可以提现哦</span><a href="#" class="verify-button set-transactionPwd">设置支付密码</a>
-				</div>
-				<div class="form-group">
-					<label>验证码：</label>
-					<input type="text" class="verify-input verify-code" />
-					<img src="images/verify_pic.png" class="pic-verify">
-					<a class="a-verify">看不清楚？换一张</a>
-				</div>
-				<input type="button" value="确认提现" class="verify-button" />
-			</form>
-			<div class="tip ft-12">
-				<p>温馨提示</p>
-				<p>1. 您的账户资金将由第三方平台托管。</p>
-				<p>2. 请注意您的银行卡充值限制，以免造成不便。</p>
-				<p>3. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用。</p>
-				<p>4. 如果提现金额没有及时到账，请联系客服，400-062-1008</p>
-				<p>5. 各大银行的网银支付限额</p>
-			</div>
+		<div class="form-group mgn-top">
+			<label>可提现金额：</label>
+			<p class="user-name">{{ Variables || "123"}}元</p>
 		</div>
+		<div class="form-group">
+			<label>提现金额：</label>
+			<input type="text" class="verify-input" />
+		</div>
+		<div class="form-group">
+			<label>手续费：</label>
+			<span>0.00<!-- 数据绑定 --></span>&nbsp;元
+		</div>
+		<div class="form-group">
+			<label>支付密码：</label>
+			<span>设置支付密码后，才可以提现哦</span><a href="#" class="verify-button set-transactionPwd">设置支付密码</a>
+		</div>
+		<div class="form-group">
+			<label>验证码：</label>
+			<input type="text" class="verify-input verify-code" />
+			<img src="images/verify_pic.png" class="pic-verify">
+			<a class="a-verify">看不清楚？换一张</a>
+		</div>
+		<input type="button" value="确认提现" class="verify-button" />
+	</form>
+	<div class="tip ft-12">
+		<p>温馨提示</p>
+		<p>1. 您的账户资金将由第三方平台托管。</p>
+		<p>2. 请注意您的银行卡充值限制，以免造成不便。</p>
+		<p>3. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用。</p>
+		<p>4. 如果提现金额没有及时到账，请联系客服，400-062-1008</p>
+		<p>5. 各大银行的网银支付限额</p>
 	</div>
 </div>
