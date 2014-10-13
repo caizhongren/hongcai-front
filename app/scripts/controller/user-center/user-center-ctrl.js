@@ -1,7 +1,5 @@
 hongcaiApp.controller("UserCenterCtrl", ["$scope", "$rootScope", "$stateParams", "UserCenterService", function ($scope, $rootScope, $stateParams, UserCenterService) {
-	var username;
-	$scope.username = $rootScope.loginName;
-	/*$scope.tabs = [{
+		/*$scope.tabs = [{
             title: 'One',
             url: 'one.tpl.html'
         }, {
@@ -40,6 +38,12 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$rootScope", "$stateParams",
 	  }
 	];
 	$scope.tabs.activeTab = 0;
+
+	// $scope.realNameAuth = function(realName, idNo){
+	// 	UserCenterService.yeepayRegister.get({realName:realName, idNo:idNo}, function(response){
+	// 		console.log("i am in");
+	// 	});
+	// }
     
 
 	//Datepickers 
