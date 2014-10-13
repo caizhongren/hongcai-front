@@ -187,6 +187,17 @@
  			}
  		}
  	})
+ 	/*---------------------------------------------  yeepay-service  ---------------------------------------------*/
+ 	.state('root.yeepay-callback', {
+ 		url: '/yeepay-callback/:yeepayService/:yeepayStatus',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/user-center/yeepay-callback.html',
+ 				controller: 'YeepayCtrl',
+ 				controllerUrl: 'scripts/controller/yeepay/yeepay-ctrl'
+ 			}
+ 		}
+ 	})
  	/*---------------------------------------------  project-list  ---------------------------------------------*/
  	.state('root.project-list', {
  		url: '/project-list',

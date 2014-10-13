@@ -68,11 +68,11 @@
 				</div>
 				<div class="form-group">
 					<label>真实姓名：</label>
-					<input type="text" class="verify-input" />
+					<input type="text" class="verify-input" ng-model="user.realName"/>
 				</div>
 				<div class="form-group">
 					<label>身份证号：</label>
-					<input type="text" class="verify-input" />
+					<input type="text" class="verify-input" ng-model="user.idCardNo"/>
 				</div>
 				<div class="form-group read-area">
 					<label></label>
@@ -84,7 +84,7 @@
 					<img src="images/check_01.png" class="read-check">
 					<p class="read">我已阅读并同意签署<a href="">《委托收付资金协议》</a></p>
 				</div>
-				<input type="button" value="提交实名认证" class="verify-button" />
+				<input type="button" value="提交实名认证" class="verify-button" ng-click="realNameAuth(user)"/>
 			</form>
 			<div class="real-name-tips">
 				<p>温馨提示：<br>1.   请谨慎填写身份验证信息，因为调用公安局的验证接口需要支付5元费用，爱投资会为用户垫付首次验证费用。
