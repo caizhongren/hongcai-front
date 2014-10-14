@@ -15,7 +15,8 @@
  	'ngResource',
   	'angularMoment', 
  	'toaster', 
- 	'angularFileUpload'
+ 	'angularFileUpload', 
+ 	'chartjs'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -328,7 +329,10 @@
  }]);
 
 hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
-	var routespermission = ['/account-overview', '/basic-information', '/realname-authentication'];
+	var routespermission = ['/account-overview', 
+							'/assets-overview', 
+							'/basic-information', 
+							'/realname-authentication'];
 	$rootScope.$on('$stateChangeStart', function() {
 		if(routespermission.indexOf($location.path()) !== -1) {
 			var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
