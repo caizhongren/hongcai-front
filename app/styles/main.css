@@ -649,6 +649,9 @@ hr {
   border-left: 3px solid #e94b2a;
 }
 /**user-center**/
+.user-center .container {
+  padding: 40px 0;
+}
 .record p,
 .investment p,
 .userCenter-news p {
@@ -786,16 +789,16 @@ hr {
   padding-left: 30px;
   padding-top: 30px;
 }
+.userCenter-news .row {
+  margin-left: 0;
+  margin-right: 0;
+}
 .userCenter-news .news-item {
   border-bottom: 1px solid #dbdbdb;
   width: 628px;
   margin-left: 50px;
 }
 .userCenter-news .news-item .col-md-6 {
-  padding-left: 0;
-  padding-right: 0;
-}
-.userCenter-news .news-item .row {
   padding-left: 0;
   padding-right: 0;
 }
