@@ -298,6 +298,17 @@
  			}
  		}
  	})
+ 	/*---------------------------------------------  safe  ---------------------------------------------*/
+ 	.state('root.safe', {
+ 		url: '/safe',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/safe.html',
+ 				controller: 'SafeCtrl',
+ 				controllerUrl: 'scripts/controller/project/safe-ctrl'
+ 			}
+ 		}
+ 	})
 
  	/*---------------------------------------------  upload  ---------------------------------------------*/
  	.state('root.upload', {
