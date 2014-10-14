@@ -57,6 +57,9 @@ hr {
 .ft-grey {
   color: #807979;
 }
+.ft-grey2 {
+  color: #625a5a;
+}
 .bg-grey {
   background-color: #ebebeb;
 }
@@ -411,6 +414,7 @@ hr {
 /*project-list*/
 .project-list-all {
   padding-top: 15px;
+  padding-bottom: 30px;
   border-top: 1px solid #d8d8d8;
   color: #717071;
 }
@@ -649,12 +653,24 @@ hr {
   border-left: 3px solid #e94b2a;
 }
 /**user-center**/
+.user-center .right-area,
+.left-area {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.record p,
+.investment p,
+.userCenter-news p {
+  display: block;
+}
 .record .sort .nav-tabs,
-.investment .sort .nav-tabs {
+.investment .sort .nav-tabs,
+.userCenter-news .sort .nav-tabs {
   padding-left: 60px;
 }
 .record .sort .nav-tabs a,
-.investment .sort .nav-tabs a {
+.investment .sort .nav-tabs a,
+.userCenter-news .sort .nav-tabs a {
   display: inline-block;
   width: 102px;
   height: 35px;
@@ -669,7 +685,8 @@ hr {
   position: relative;
 }
 .record .sort .nav-tabs span,
-.investment .sort .nav-tabs span {
+.investment .sort .nav-tabs span,
+.userCenter-news .sort .nav-tabs span {
   width: 102px;
   height: 35px;
   display: inline-block;
@@ -678,62 +695,78 @@ hr {
   margin-bottom: -1px;
 }
 .record .sort .nav-tabs span.active a,
-.investment .sort .nav-tabs span.active a {
+.investment .sort .nav-tabs span.active a,
+.userCenter-news .sort .nav-tabs span.active a {
   background: #fff;
+  border: 1px solid #ddd;
   border-bottom: transparent;
 }
 .record .padd,
-.investment .padd {
+.investment .padd,
+.userCenter-news .padd {
   padding-left: 75px;
   padding-bottom: 20px;
 }
 .record .padd strong,
-.investment .padd strong {
+.investment .padd strong,
+.userCenter-news .padd strong {
   color: #ea5430;
 }
 .record .sort-item,
-.investment .sort-item {
+.investment .sort-item,
+.userCenter-news .sort-item {
   padding-left: 128px;
   padding-top: 25px;
 }
 .record .sort-item label,
-.investment .sort-item label {
+.investment .sort-item label,
+.userCenter-news .sort-item label {
   float: left;
   line-height: 38px;
 }
 .record .sort-item .nav > li > a,
-.investment .sort-item .nav > li > a {
+.investment .sort-item .nav > li > a,
+.userCenter-news .sort-item .nav > li > a {
   color: #717071;
 }
 .record .sort-item .nav > li > a:hover,
 .investment .sort-item .nav > li > a:hover,
+.userCenter-news .sort-item .nav > li > a:hover,
 .record .sort-item .nav > li > a:focus,
-.investment .sort-item .nav > li > a:focus {
+.investment .sort-item .nav > li > a:focus,
+.userCenter-news .sort-item .nav > li > a:focus {
   background: none;
 }
 .record .sort-item .nav-pills > li.active > a,
 .investment .sort-item .nav-pills > li.active > a,
+.userCenter-news .sort-item .nav-pills > li.active > a,
 .record .sort-item .nav-pills > li.active > a:hover,
 .investment .sort-item .nav-pills > li.active > a:hover,
+.userCenter-news .sort-item .nav-pills > li.active > a:hover,
 .record .sort-item .nav-pills > li.active > a:focus,
-.investment .sort-item .nav-pills > li.active > a:focus {
+.investment .sort-item .nav-pills > li.active > a:focus,
+.userCenter-news .sort-item .nav-pills > li.active > a:focus {
   background: none;
 }
 .record .sort-item .nav-pills .active,
-.investment .sort-item .nav-pills .active {
+.investment .sort-item .nav-pills .active,
+.userCenter-news .sort-item .nav-pills .active {
   background-position: -95px -264px;
 }
 .record .sort-item .nav-pills li,
-.investment .sort-item .nav-pills li {
+.investment .sort-item .nav-pills li,
+.userCenter-news .sort-item .nav-pills li {
   background-position: -95px -227px;
   margin-right: 50px;
 }
 .record .sort-item .mgn-l,
-.investment .sort-item .mgn-l {
+.investment .sort-item .mgn-l,
+.userCenter-news .sort-item .mgn-l {
   margin-left: 30px;
 }
 .record .record-list,
-.investment .record-list {
+.investment .record-list,
+.userCenter-news .record-list {
   text-align: center;
   width: 703px;
   border: 1px solid #dbdbdb;
@@ -742,14 +775,89 @@ hr {
   border-radius: 4px;
 }
 .record .record-list .record-list-head,
-.investment .record-list .record-list-head {
+.investment .record-list .record-list-head,
+.userCenter-news .record-list .record-list-head {
   background-color: #eceaea;
   height: 40px;
   padding: 10px 0;
 }
 .record .record-list .record-item,
-.investment .record-list .record-item {
+.investment .record-list .record-item,
+.userCenter-news .record-list .record-item {
   height: 50px;
   line-height: 50px;
   font-size: 12px;
+}
+.userCenter-news .col-md-12 {
+  padding: 0;
+}
+.userCenter-news .news-list {
+  padding-left: 30px;
+  padding-top: 30px;
+}
+.userCenter-news .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.userCenter-news .news-item {
+  border-bottom: 1px solid #dbdbdb;
+  width: 628px;
+  margin-left: 50px;
+}
+.userCenter-news .news-item .col-md-6 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.userCenter-news .text-agn {
+  text-align: right;
+}
+.userCenter-news .news-content {
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  background-color: #f7f5f5;
+}
+/**sponsorInstitution**/
+.sponsorInstitution {
+  padding-top: 40px;
+}
+.sponsorInstitution .col-md-8 {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.sponsorInstitution .col-md-8 .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.sponsorInstitution hr {
+  margin: 10px 0 15px 0;
+}
+.sponsorInstitution label {
+  color: #625a5a;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.sponsorInstitution p {
+  text-indent: 2em;
+  padding: 0;
+}
+.sponsorInstitution img {
+  margin-right: 4px;
+}
+.sponsorInstitution .imgs {
+  margin-top: 5px;
+}
+.sponsorInstitution .projects-list {
+  padding-top: 40px;
+}
+.sponsorInstitution .data .col-md-4 {
+  text-align: center;
+}
+.sponsorInstitution .col-md-4 span {
+  font-size: 30px;
+  color: #625a5a;
+}
+.sponsorInstitution .padd {
+  padding-left: 28px;
+  padding-top: 10px;
 }

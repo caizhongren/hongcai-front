@@ -1,2 +1,10 @@
 <section ui-view="slider"></section>
-<section ui-view></section>
+<section class="user-center bg-offWhite">
+	<div class="container" ng-controller="UserCenterCtrl">
+		<div ui-view="sidebar" class="sidebar"></div>
+		<div ui-view="user-center-right" class="user-center-right"></div>
+	</div>
+</section>
+
+<section ui-view>
+</section>
