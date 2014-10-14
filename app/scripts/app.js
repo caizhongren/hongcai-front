@@ -287,6 +287,17 @@
  			}
  		}
  	})
+ 	/*---------------------------------------------  project-sponsorInstitution  ---------------------------------------------*/
+ 	.state('root.project-sponsorInstitution', {
+ 		url: '/project-sponsorInstitution',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/project-sponsorInstitution.html',
+ 				controller: 'ProjectSponsorInstitutionCtrl',
+ 				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
+ 			}
+ 		}
+ 	})
 
  	/*---------------------------------------------  upload  ---------------------------------------------*/
  	.state('root.upload', {

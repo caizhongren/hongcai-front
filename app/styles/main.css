@@ -57,6 +57,9 @@ hr {
 .ft-grey {
   color: #807979;
 }
+.ft-grey2 {
+  color: #625a5a;
+}
 .bg-grey {
   background-color: #ebebeb;
 }
@@ -411,6 +414,7 @@ hr {
 /*project-list*/
 .project-list-all {
   padding-top: 15px;
+  padding-bottom: 30px;
   border-top: 1px solid #d8d8d8;
   color: #717071;
 }
@@ -811,4 +815,49 @@ hr {
   padding: 10px 15px;
   margin-bottom: 10px;
   background-color: #f7f5f5;
+}
+/**sponsorInstitution**/
+.sponsorInstitution {
+  padding-top: 40px;
+}
+.sponsorInstitution .col-md-8 {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.sponsorInstitution .col-md-8 .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.sponsorInstitution hr {
+  margin: 10px 0 15px 0;
+}
+.sponsorInstitution label {
+  color: #625a5a;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+.sponsorInstitution p {
+  text-indent: 2em;
+  padding: 0;
+}
+.sponsorInstitution img {
+  margin-right: 4px;
+}
+.sponsorInstitution .imgs {
+  margin-top: 5px;
+}
+.sponsorInstitution .projects-list {
+  padding-top: 40px;
+}
+.sponsorInstitution .data .col-md-4 {
+  text-align: center;
+}
+.sponsorInstitution .col-md-4 span {
+  font-size: 30px;
+  color: #625a5a;
+}
+.sponsorInstitution .padd {
+  padding-left: 28px;
+  padding-top: 10px;
 }
