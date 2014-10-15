@@ -6,7 +6,7 @@ hongcaiApp.controller("RegisterCtrl", ["$scope", "$state", "$rootScope", "$state
         RegisterService.saveRegister.save({name: user.name, type:0, account: user.mobile, password: user.password }, function(response) {
             if(response.msg) {
                 SessionService.set("user", response.data.user.name);
-                $state.go('root.account-overview');
+                $state.go('root.usercenter.account-overview');
                 $rootScope.loginName = response.data.user.name;
                 $rootScope.isLogged = true;
             } else {
@@ -20,7 +20,7 @@ hongcaiApp.controller("RegisterCtrl", ["$scope", "$state", "$rootScope", "$state
         RegisterService.saveRegister.save({name: user.name, type: 1, account: user.email, password: user.password, captcha: user.captcha }, function(response) {
             if(response.msg) {
                 SessionService.set("user", response.data.user.name);
-                $state.go('root.account-overview');
+                $state.go('root.usercenter.account-overview');
                 $rootScope.loginName = response.data.user.name;
                 $rootScope.isLogged = true;
             } else {
