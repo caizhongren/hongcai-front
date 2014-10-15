@@ -1,9 +1,9 @@
 hongcaiApp.controller("LoginCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "LoginService", "SessionService", "toaster", function ($scope, $state, $rootScope, $stateParams, LoginService, SessionService, toaster) {
     $scope.login = function(user){
         LoginService.userLogin.get({account: user.account, password: user.password }, function(response) {
-            if(response.msg == 'success') {
+            if(response.ret == 1) {
                 SessionService.set("user", response.data.user.name);
-                $state.go('root.account-overview');
+                $state.go('root.usercenter.account-overview');
                 $rootScope.loginName = response.data.user.name;
                 $rootScope.isLogged = true;
             } else {

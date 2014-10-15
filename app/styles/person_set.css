@@ -1,12 +1,9 @@
 body {
     margin: 0;
     color: #333;
-    font: 14px/1.5"Hiragino Sans GB", "Microsoft Yahei", "SimHei", sans-serif;
-    /*   -webkit-font-smoothing: antialiased; */
     text-rendering: optimizelegibility;
     _background-attachment: fixed;
     _background-image: url(about:blank);
-    cursor: default;
 }
 .head{
     height: 125px;
