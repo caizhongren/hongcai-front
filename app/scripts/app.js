@@ -15,8 +15,7 @@
  	'ngResource',
   	'angularMoment', 
  	'toaster', 
- 	'angularFileUpload', 
- 	'chartjs'
+ 	'angularFileUpload'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -288,28 +287,6 @@
  			}
  		}
  	})
- 	/*---------------------------------------------  project-sponsorInstitution  ---------------------------------------------*/
- 	.state('root.project-sponsorInstitution', {
- 		url: '/project-sponsorInstitution',
- 		views: {
- 			'': {
- 				templateUrl: 'views/project-sponsorInstitution.html',
- 				controller: 'ProjectSponsorInstitutionCtrl',
- 				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
- 			}
- 		}
- 	})
- 	/*---------------------------------------------  safe  ---------------------------------------------*/
- 	.state('root.safe', {
- 		url: '/safe',
- 		views: {
- 			'': {
- 				templateUrl: 'views/safe.html',
- 				controller: 'SafeCtrl',
- 				controllerUrl: 'scripts/controller/project/safe-ctrl'
- 			}
- 		}
- 	})
 
  	/*---------------------------------------------  upload  ---------------------------------------------*/
  	.state('root.upload', {
@@ -323,11 +300,11 @@
  		}
  	})
  	/*---------------------------------------------  order  ---------------------------------------------*/
- 	.state('root.isAvailableInvest', {
- 		url: '/isAvailableInvest',
+ 	.state('root.investVerify', {//投资信息确认页面:购物车
+ 		url: '/investVerify/:projectId',
  		views: {
  			'': {
- 				templateUrl: 'views/order/shop.html',
+ 				templateUrl: 'views/order/investVerify.html',
  				controller: 'OrderCtrl',
  				controllerUrl: 'scripts/controller/order/order-ctrl'
  			}
@@ -340,10 +317,7 @@
  }]);
 
 hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
-	var routespermission = ['/account-overview', 
-							'/assets-overview', 
-							'/basic-information', 
-							'/realname-authentication'];
+	var routespermission = ['/account-overview', '/basic-information', '/realname-authentication'];
 	$rootScope.$on('$stateChangeStart', function() {
 		if(routespermission.indexOf($location.path()) !== -1) {
 			var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
