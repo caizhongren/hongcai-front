@@ -79,7 +79,7 @@
  		}
  	})
  	/*------------------------------------------  user-center  -----------------------------------------------*/
- 	.state('root.usercenter', {
+ 	.state('root.userCenter', {
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/user-center.html'
@@ -89,7 +89,7 @@
  			}
  		}
  	})
- 	.state('root.usercenter.account-overview', {
+ 	.state('root.userCenter.account-overview', {
  		url: '/account-overview',
  		views: {
  			'user-center': {
@@ -99,7 +99,7 @@
  			}
  		}
  	})
- 	.state('root.usercenter.bankcard-management', {
+ 	.state('root.userCenter.bankcard-management', {
  		url: '/bankcard-management',
  		views: {
  			'user-center': {
@@ -109,7 +109,7 @@
  			}
  		}
  	})
- 	.state('root.usercenter.security-settings', {
+ 	.state('root.userCenter.security-settings', {
  		url: '/security-settings',
  		views: {
  			'user-center': {
@@ -119,7 +119,7 @@
  			}
  		}
  	})
- 	.state('root.usercenter.assets-overview', {
+ 	.state('root.userCenter.assets-overview', {
  		url: '/assets-overview',
  		views: {
  			'user-center': {
@@ -129,7 +129,7 @@
  			}
  		}
  	})
- 	.state('root.usercenter.recharge', {
+ 	.state('root.userCenter.recharge', {
  		url: '/recharge',
  		views: {
  			'user-center': {
@@ -139,7 +139,7 @@
  			}
  		}
  	})
- 	.state('root.usercenter.withdraw', {
+ 	.state('root.userCenter.withdraw', {
  		url: '/withdraw',
  		views: {
  			'user-center': {
@@ -149,7 +149,7 @@
  			}
  		}
  	})
- 	.state('root.usercenter.record', {
+ 	.state('root.userCenter.record', {
  		url: '/record',
  		views: {
  			'user-center': {
@@ -159,7 +159,7 @@
  			}
  		}
  	})
- 	.state('root.usercenter.investment', {
+ 	.state('root.userCenter.investment', {
  		url: '/investment',
  		views: {
  			'user-center': {
@@ -169,7 +169,7 @@
  			}
  		}
  	})
- 	.state('root.usercenter.news', {
+ 	.state('root.userCenter.news', {
  		url: '/news',
  		views: {
  			'user-center': {
@@ -179,7 +179,7 @@
  			}
  		}
  	})
- 	.state('root.usercenter.realname-authentication', {
+ 	.state('root.userCenter.realname-authentication', {
  		url: '/realname-authentication',
  		views: {
  			'user-center': {
