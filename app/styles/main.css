@@ -882,22 +882,27 @@ hr {
 }
 .safe .list-item {
   border-bottom: 1px solid #dbdbdb;
+  padding-top: 40px;
+  padding-bottom: 30px;
 }
 .safe .list-item .col-md-5 {
   height: 190px;
   background: url('../images/sprite.png');
 }
-.safe .list-item .service {
+.safe .service {
+  border-top: 1px solid #dbdbdb;
+}
+.safe .service .col-md-5 {
   background-position: -750px -470px;
 }
-.safe .list-item .technique {
-  background-position: -750px -710px;
+.safe .technique .col-md-5 {
+  background-position: -750px -675px;
 }
-.safe .list-item .capital {
-  background-position: -750px -980px;
+.safe .capital .col-md-5 {
+  background-position: -750px -940px;
 }
-.safe .list-item .privacy {
-  background-position: -750px -1175px;
+.safe .privacy .col-md-5 {
+  background-position: -750px -1150px;
 }
 .safe .content-list {
   padding-left: 30px;
