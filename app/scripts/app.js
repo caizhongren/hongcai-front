@@ -99,8 +99,8 @@
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/basic-information.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'BasicInfoCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/basic-information-ctrl'
  			},
 			'sidebar': {
  				templateUrl: 'views/user-center/sidebar.html',
@@ -306,7 +306,7 @@
  }]);
 
 hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
-	var routespermission = ['/account-overview', '/basic-information', '/realname-authentication'];
+	var routespermission = ['/account-overview', '/basic-information', '/realname-authentication', '/bankcard-management', '/withdraw'];
 	$rootScope.$on('$stateChangeStart', function() {
 		if(routespermission.indexOf($location.path()) !== -1) {
 			var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
