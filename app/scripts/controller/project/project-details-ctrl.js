@@ -26,11 +26,9 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$stateParams",
         ProjectService.isAvailableInvest.get({amount: project.amount,projectId:project.id }, function(response) {
             if(response.ret == 1) {
                 if (response.data.flag) {
-                    alert( response.data.projectId);
-                    $state.go("root.investVerify", {projectId: response.data.projectId});
+                    $state.go("root.investVerify", {projectId: response.data.projectId,amount: response.data.amount});
                 }else{
-                    alert("cccc");
-                    $state.go("root.investVerify", {projectId: response.data.projectId});
+                    $state.go("root.investVerify", {projectId: response.data.projectId,amount: response.data.amount});
                 }
                 
             } else {
