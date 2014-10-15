@@ -4,39 +4,39 @@
         <div class="container" ng-controller="LoginCtrl">
           <ul class="nav navbar-nav">
               <li>您好，欢迎来到宏财！</li>
-            <li class="tel-img"></li>
-            <li>400-400-400-400</li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <div ng-if="isLogged === true" >
-                    <a href="/">新手引导</a>
-                    <p ng-if="loginResult.ret == 1">欢迎</p>
-                    <a ui-sref="root.usercenter.account-overview">{{loginName}}</a>
-                    <a ng-href="#" ng-click="logout();">退出</a>
-                    <a href="/">帮助中心</a>
-                </div>
-                <div ng-if="isLogged !== true">
-                    <a href="/">新手引导</a>
-                    <a ui-sref="root.login">登录</a>
-                    <a ui-sref="root.registerMobile">注册</a>
-                    <a href="/">帮助中心</a>
-                </div>
-            </ul>
-        </div>
+              <li class="tel-img"></li>
+              <li>400-400-400-400</li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <div ng-if="isLogged === true" >
+                <a href="/">新手引导</a>
+                <p ng-if="loginResult.ret == 1">欢迎</p>
+                <a ui-sref="root.userCenter.account-overview">{{loginName}}</a>
+                <a ng-href="#" ng-click="logout();">退出</a>
+                <a href="/">帮助中心</a>
+            </div>
+            <div ng-if="isLogged !== true">
+                <a href="/">新手引导</a>
+                <a ui-sref="root.login">登录</a>
+                <a ui-sref="root.registerMobile">注册</a>
+                <a href="/">帮助中心</a>
+            </div>
+        </ul>
     </div>
-    <div class="full-screen">
-        <div class="container logo">
-          <ul class="nav navbar-nav">
-              <li class="logo-img-1"></li>
-            <li class="logo-img-2"></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-            <a class="active" href="#/">首页</a>
-            <a href="#/project-list/3,4,5,6/0/100/0/20/0/200000000/release_start_time/false">投资产品</a>
-            <a href="#/safe">安全保障</a>
-            <a href="#/introduction-of-platform">关于我们</a>
-            </ul>
-        </div>
+</div>
+<div class="full-screen">
+    <div class="container logo">
+        <ul class="nav navbar-nav">
+            <li ui-sref="root.main" class="logo-img-1"></li>
+            <li ui-sref="root.main" class="logo-img-2"></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <a class="active" href="/">首页</a>
+            <a href="/project-list/3,4,5,6/0/100/0/20/0/200000000/release_start_time/false">投资产品</a>
+            <a href="/safe">安全保障</a>
+            <a href="/introduction-of-platform">关于我们</a>
+        </ul>
     </div>
+</div>
 </div>
 <!-- end header -->
