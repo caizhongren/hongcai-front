@@ -79,158 +79,117 @@
  		}
  	})
  	/*------------------------------------------  user-center  -----------------------------------------------*/
- 	
- 	.state('root.account-overview', {
+ 	.state('root.usercenter', {
+ 		views: {
+ 			'user-center': {
+ 				templateUrl: 'views/user-center/user-center.html'
+ 			},
+ 			'sidebar': {
+ 				templateUrl: 'views/user-center/sidebar.html'
+ 			}
+ 		}
+ 	})
+ 	.state('root.usercenter.account-overview', {
  		url: '/account-overview',
  		views: {
- 			'user-center-right': {
+ 			'user-center': {
  				templateUrl: 'views/user-center/account-overview.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			},
- 			'sidebar': {
- 				templateUrl: 'views/user-center/sidebar.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
  	})
- 	.state('root.bankcard-management', {
+ 	.state('root.usercenter.bankcard-management', {
  		url: '/bankcard-management',
  		views: {
- 			'user-center-right': {
+ 			'user-center': {
  				templateUrl: 'views/user-center/bankcard-management.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			},
-			'sidebar': {
- 				templateUrl: 'views/user-center/sidebar.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
  	})
- 	.state('root.security-settings', {
+ 	.state('root.usercenter.security-settings', {
  		url: '/security-settings',
  		views: {
- 			'user-center-right': {
+ 			'user-center': {
  				templateUrl: 'views/user-center/security-settings.html',
  				controller: 'SecuritySettingsCtrl',
  				controllerUrl: 'scripts/controller/user-center/security-settings-ctrl'
- 			},
-			'sidebar': {
- 				templateUrl: 'views/user-center/sidebar.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
  	})
- 	.state('root.assets-overview', {
+ 	.state('root.usercenter.assets-overview', {
  		url: '/assets-overview',
  		views: {
- 			'user-center-right': {
+ 			'user-center': {
  				templateUrl: 'views/user-center/assets-overview.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			},
-			'sidebar': {
- 				templateUrl: 'views/user-center/sidebar.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
  	})
- 	.state('root.recharge', {
+ 	.state('root.usercenter.recharge', {
  		url: '/recharge',
  		views: {
- 			'user-center-right': {
+ 			'user-center': {
  				templateUrl: 'views/user-center/recharge.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			},
-			'sidebar': {
- 				templateUrl: 'views/user-center/sidebar.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
  	})
- 	.state('root.withdraw', {
+ 	.state('root.usercenter.withdraw', {
  		url: '/withdraw',
  		views: {
- 			'user-center-right': {
+ 			'user-center': {
  				templateUrl: 'views/user-center/withdraw.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			},
-			'sidebar': {
- 				templateUrl: 'views/user-center/sidebar.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
  	})
- 	.state('root.record', {
+ 	.state('root.usercenter.record', {
  		url: '/record',
  		views: {
- 			'user-center-right': {
+ 			'user-center': {
  				templateUrl: 'views/user-center/record.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			},
-			'sidebar': {
- 				templateUrl: 'views/user-center/sidebar.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
  	})
- 	.state('root.investment', {
+ 	.state('root.usercenter.investment', {
  		url: '/investment',
  		views: {
- 			'user-center-right': {
+ 			'user-center': {
  				templateUrl: 'views/user-center/investment.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			},
-			'sidebar': {
- 				templateUrl: 'views/user-center/sidebar.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
  	})
- 	.state('root.news', {
+ 	.state('root.usercenter.news', {
  		url: '/news',
  		views: {
- 			'user-center-right': {
+ 			'user-center': {
  				templateUrl: 'views/user-center/news.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			},
-			'sidebar': {
- 				templateUrl: 'views/user-center/sidebar.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
  	})
- 	.state('root.realname-authentication', {
+ 	.state('root.usercenter.realname-authentication', {
  		url: '/realname-authentication',
  		views: {
- 			'user-center-right': {
+ 			'user-center': {
  				templateUrl: 'views/user-center/realname-authentication.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			},
-			'sidebar': {
- 				templateUrl: 'views/user-center/sidebar.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
  	})
- 	/*---------------------------------------------  yeepay-service  ---------------------------------------------*/
+ 	/*---------------------------------------------  yeepay  ---------------------------------------------*/
  	.state('root.yeepay-callback', {
  		url: '/yeepay-callback/:yeepayService/:yeepayStatus',
  		views: {
@@ -241,12 +200,12 @@
  			}
  		}
  	})
- 	/*---------------------------------------------  project-list  ---------------------------------------------*/
+ 	/*---------------------------------------------  project  ---------------------------------------------*/
  	.state('root.project-list', {
  		url: '/project-list',
  		views: {
  			'': {
- 				templateUrl: 'views/project-list.html',
+ 				templateUrl: 'views/project/project-list.html',
  				controller: 'ProjectListCtrl',
  				controllerUrl: 'scripts/controller/project/project-list-ctrl'
  			}
@@ -256,13 +215,12 @@
  		url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
  		views: {
  			'': {
- 				templateUrl: 'views/project-list.html',
+ 				templateUrl: 'views/project/project-list.html',
  				controller: 'ProjectListCtrl',
  				controllerUrl: 'scripts/controller/project/project-list-ctrl'
  			}
  		}
  	})
- 	/*---------------------------------------------  project-details  ---------------------------------------------*/
  	.state('root.project-details', {
  		url: '/project/:projectId',
  		views: {
@@ -273,12 +231,11 @@
  			}
  		}
  	})
- 	/*---------------------------------------------  project-sponsorInstitution  ---------------------------------------------*/
  	.state('root.project-sponsorInstitution', {
  		url: '/project-sponsorInstitution',
  		views: {
  			'': {
- 				templateUrl: 'views/project-sponsorInstitution.html',
+ 				templateUrl: 'views/project/project-sponsorInstitution.html',
  				controller: 'ProjectSponsorInstitutionCtrl',
  				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
  			}
@@ -318,6 +275,31 @@
  			}
  		}
  	})
+ 	/*------------------------------------------  about-us  -----------------------------------------------*/
+ 	.state('root.about-us', {
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/about-us.html',
+ 				controller: 'aboutUsCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			},
+ 			'about-sidebar': {
+ 				templateUrl: 'views/about-us/about-sidebar.html',
+ 				controller: 'aboutUsCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.about-us.introduction-of-platform', {
+ 		url: '/introduction-of-platform',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/introduction-of-platform.html',
+ 				controller: 'aboutUsCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
  	;
 
  	$urlRouterProvider.otherwise('/');
@@ -340,6 +322,11 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 					$location.path('/login');
 				}
 			});
+		} else {
+			if(sessionStorage.getItem('user')) {
+				$rootScope.isLogged = true;
+				$rootScope.loginName = sessionStorage.getItem('user');
+			}
 		}
 	});
 });
