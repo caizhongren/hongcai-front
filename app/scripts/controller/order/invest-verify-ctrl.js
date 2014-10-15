@@ -8,4 +8,6 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$state", "$rootScope", "$s
            $scope.orderId = investVerify.data.orderId;
         } 
     });
+
+    
 }]);
