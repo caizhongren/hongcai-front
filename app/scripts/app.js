@@ -98,16 +98,6 @@
  			}
  		}
  	})
- 	.state('root.usercenter.basic-information', {
- 		url: '/basic-information',
- 		views: {
- 			'user-center': {
- 				templateUrl: 'views/user-center/basic-information.html',
- 				controller: 'BasicInfoCtrl',
- 				controllerUrl: 'scripts/controller/user-center/basic-information-ctrl'
- 			}
- 		}
- 	})
  	.state('root.usercenter.bankcard-management', {
  		url: '/bankcard-management',
  		views: {
@@ -123,8 +113,8 @@
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/security-settings.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'SecuritySettingsCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/security-settings-ctrl'
  			}
  		}
  	})
@@ -316,7 +306,10 @@
  }]);
 
 hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
-	var routespermission = ['/account-overview', '/basic-information', '/realname-authentication'];
+	var routespermission = ['/account-overview', 
+							'/assets-overview',  
+							'/realname-authentication',
+							'/security-settings'];
 	$rootScope.$on('$stateChangeStart', function() {
 		if(routespermission.indexOf($location.path()) !== -1) {
 			var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
