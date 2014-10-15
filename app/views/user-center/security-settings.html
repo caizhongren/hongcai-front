@@ -15,25 +15,31 @@
 	<div class="safe-part">
 		<p class="tips">邮箱</p>
 		<p class="message">{{ email || "未设置"}}</p>
-		<p class="activity">{{ Variables || "设置"}}</p>
+		<p class="activity" ng-show="!email"><a href="/#/bind-email">设置</a></p>
+		<p class="activity" ng-show="email"><a href="/#/change-email">修改</a></p>
 		<div></div>
 	</div>
 	<div class="safe-part">
 		<p class="tips">手机号码</p>
 		<p class="message">{{ mobile || "未设置"}}</p>
-		<p class="activity">{{ Variables || "设置"}}</p>
+		<p class="activity" ng-show="!mobile"><a href="/#/bind-mobile">设置</a></p>
+		<p class="activity" ng-show="mobile"><a href="/#/change-mobile">修改</a></p>
 		<div></div>
 	</div>
 	<div class="safe-part">
 		<p class="tips">真实姓名</p>
 		<p class="message">{{ realName || "未认证"}}</p>
-		<p class="activity"><a href="/#/realname-authentication">{{ Variables || "认证"}}</a></p>
+		<p class="activity" ng-show="!isRealNameAuth"><a href="/#/realname-authentication">认证</a></p>
+		<p class="activity hadset" ng-show="isRealNameAuth">已认证</p>
+		<div class="check-ok" ng-show="isRealNameAuth"></div>
 		<div></div>
 	</div>
 	<div class="safe-part">
 		<p class="tips">身份证号码</p>
 		<p class="message">{{ idNo || "未认证"}}</p>
-		<p class="activity"><a href="/#/realname-authentication">{{ Variables || "认证"}}</a></p>
+		<p class="activity" ng-show="!isRealNameAuth"><a href="/#/realname-authentication">认证</a></p>
+		<p class="activity hadset" ng-show="isRealNameAuth">已认证</p>
+		<div class="check-ok" ng-show="isRealNameAuth"></div>
 		<div></div>
 	</div>
 	<div class="safe-part">
