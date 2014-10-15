@@ -299,6 +299,17 @@
  			}
  		}
  	})
+ 	/*---------------------------------------------  order  ---------------------------------------------*/
+ 	.state('root.isAvailableInvest', {
+ 		url: '/isAvailableInvest',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/order/shop.html',
+ 				controller: 'OrderCtrl',
+ 				controllerUrl: 'scripts/controller/order/order-ctrl'
+ 			}
+ 		}
+ 	})
  	;
 
  	$urlRouterProvider.otherwise('/');
