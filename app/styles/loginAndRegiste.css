@@ -1,28 +1,28 @@
 /*重写bootstrap部分*/
-.form-group{
+.login-registe .form-group {
   width: 100%;
   height: 50px;
   float: right;
   position: relative;
   margin: 0;
 }
-.login-back-ground{
-    height: 455px;
-    width: 100%;
-    padding-top: 38px;
-    background-color: #fdfbfb;
+.login-registe .login-back-ground {
+  height: 455px;
+  width: 100%;
+  padding-top: 38px;
+  background-color: #fdfbfb;
 }
-.registe-area,
-.login-background{
+.login-registe .registe-area,
+.login-registe .login-background {
   width: 1006px;
   height: 460px;
   margin: 0 auto;
 }
-.login-background{
-  height:412px;
+.login-registe .login-background {
+  height: 412px;
 }
-.way-registe,
-.login-area{
+.login-registe .way-registe,
+.login-registe .login-area {
   width: 596px;
   height: 455px;
   float: left;
@@ -31,11 +31,11 @@
   background-color: white;
   box-shadow: 0px 1px 1px #d9d5d6;
 }
-.login-area{
-  width: 495px; 
-  height:380px;
+.login-registe .login-area {
+  width: 495px;
+  height: 380px;
 }
-.login-title{
+.login-registe .login-title {
   height: 57px;
   width: 100.8%;
   margin-top: -2px;
@@ -48,12 +48,12 @@
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-.form-login{
+.login-registe .form-login {
   width: 345px;
   height: 280px;
   margin: 40px auto 0 auto;
 }
-.big-tips{
+.login-registe .big-tips {
   padding-top: 10px;
   font-size: 14px;
   height: 30px;
@@ -63,7 +63,7 @@
   float: left;
   font-weight: normal;
 }
-.input-message{
+.login-registe .input-message {
   height: 30px;
   width: 239px;
   border: 1px solid #dbdbdb;
@@ -71,15 +71,15 @@
   float: left;
   margin-top: 6px;
 }
-.input-message:focus{
+.login-registe .input-message:focus {
   border: 1px solid #e94828;
   outline: none;
 }
-.check-img{
+.login-registe .check-img {
   margin-top: 13px;
   margin-left: 10px;
 }
-.input-tips{
+.login-registe .input-tips {
   font-size: 12px;
   width: 165px;
   float: left;
@@ -87,12 +87,12 @@
   margin-top: -24px;
   color: #b2b2b2;
 }
-.pic-verify{
+.login-registe .pic-verify {
   margin-top: -3px;
   margin-left: 10px;
   cursor: pointer;
 }
-.a-verify{
+.login-registe .a-verify {
   position: absolute;
   font-size: 12px;
   color: #e94828;
@@ -100,10 +100,10 @@
   right: 45px;
   cursor: pointer;
 }
-.a-verify:hover{
+.login-registe .a-verify:hover {
   color: #e94828;
 }
-.registe-button{
+.login-registe .registe-button {
   width: 143px;
   height: 32px;
   border: 1px solid #f16144;
@@ -113,18 +113,18 @@
   margin-left: 70px;
   outline: none;
 }
-.registe-button:hover{
+.login-registe .registe-button:hover {
   background-color: #f27b64;
 }
-.registe-button:active{
+.login-registe .registe-button:active {
   background-color: #d23d1f;
 }
-.right-show{
+.login-registe .right-show {
   height: 455px;
   width: 410px;
   float: right;
 }
-.p-right-show{
+.login-registe .p-right-show {
   height: 99%;
   margin-bottom: 0px;
   padding-top: 190px;
@@ -132,11 +132,11 @@
   font-size: 14px;
   background: url("/images/right_pic.png") bottom center no-repeat;
 }
-.p-right-show a{
+.login-registe .p-right-show a {
   color: #e94828;
   font-weight: bold;
 }
-.a-registe{
+.login-registe .a-registe {
   font-size: 21px;
   width: 299px;
   height: 63px;
@@ -147,28 +147,28 @@
   margin-left: -2px;
   margin-top: -2px;
 }
-.a-registe:hover{
+.login-registe .a-registe:hover {
   text-decoration: none;
   color: inherit;
 }
-.red-registe{
+.login-registe .red-registe {
   color: white;
   background-image: url(/images/registe_red.png);
 }
-.red-registe:hover{
+.login-registe .red-registe:hover {
   color: white;
 }
-.grey-registe{
+.login-registe .grey-registe {
   color: #817774;
   background-image: url(/images/registe_grey.png);
 }
-.form-registe{
+.login-registe .form-registe {
   width: 355px;
   height: 350px;
   padding-top: 20px;
   margin: 63px auto 0 auto;
 }
-.get-verify-button{
+.login-registe .get-verify-button {
   border: 1px solid #e94828;
   border-radius: 3px;
   height: 30px;
@@ -177,63 +177,63 @@
   margin-top: 6px;
   margin-left: 5px;
   color: #e94828;
-  outline-style: none; 
+  outline-style: none;
 }
-.get-verify-button:hover{
+.login-registe .get-verify-button:hover {
   background-color: #e94828;
   color: white;
 }
-.get-verify-button:active{
+.login-registe .get-verify-button:active {
   background-color: #d23d1f;
   outline-style: none;
   color: white;
 }
-.agree-area{
+.login-registe .agree-area {
   margin-top: 10px;
 }
-.registe-height{
+.login-registe .registe-height {
   height: 535px;
 }
-.login-right{
-   height: 380px;
+.login-registe .login-right {
+  height: 380px;
 }
-.p-login-right{
+.login-registe .p-login-right {
   padding-top: 145px;
   padding-left: 112px;
 }
-.a-phone-registe{
+.login-registe .a-phone-registe {
   float: left;
   border-top-left-radius: 5px;
 }
-.a-mail-registe{
+.login-registe .a-mail-registe {
   float: right;
   border-top-right-radius: 5px;
   margin-right: -2px;
 }
-.mail-verify-width,
-.phone-verify-width{
+.login-registe .mail-verify-width,
+.login-registe .phone-verify-width {
   width: 130px;
 }
-.phone-verify-pictips{
+.login-registe .phone-verify-pictips {
   margin-top: -2px;
   margin-left: 5px;
 }
-.pic-check{
+.login-registe .pic-check {
   margin-left: 70px;
   float: left;
   margin-top: 3px;
 }
-.p-agree{
+.login-registe .p-agree {
   float: left;
   margin-left: 5px;
 }
-.p-picverify{
+.login-registe .p-picverify {
   margin-top: -22px;
 }
-.red{
+.login-registe .red {
   color: #d8271c;
 }
-.popover-content{
+.login-registe .popover-content {
   padding: 5px 8px;
   height: 30px;
 }
