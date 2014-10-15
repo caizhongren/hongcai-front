@@ -41,26 +41,6 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$state", "$rootScope", "$sta
         });
     };
     
-	UserCenterService.getUserCapital.get(function(response) {
-        if(response.msg == 'success') {
-        	$scope.capital = response.data;
-            $scope.doughnutAccountData = [{
-					value: response.data.totalAssets,
-					label: '账户总资产',
-					//highlight: '#FF5A5E',
-					color:"#e94828"
-				},
-				{
-					value : response.data.userCapital.receivedProfit,
-					label: '累计净收益',
-					color : "#f9b81e"
-				},
-				{
-					value : response.data.userCapital.balance + response.data.userCapital.freezeCapital,
-					label: '账户余额',
-					color : "#62cbc6"
-				}]
-
     $scope.recharge = function(amount) {
         UserCenterService.yeepayRecharge.get({amount:amount}, function(response) {
             if(response.ret == 1) {
@@ -112,13 +92,27 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$state", "$rootScope", "$sta
             }
         });
     };   
-    
 
-	//Datepickers 
-	/*$scope.selectedDate = {{selectedDate}}; 
-	$scope.selectedDateAsNumber = {{selectedDateAsNumber}};
-	$scope.fromDate = {{fromDate}}; 
-	$scope.untilDate = {{untilDate}};*/ 
+	UserCenterService.getUserCapital.get(function(response) {
+        if(response.ret == 1) {
+        	$scope.capital = response.data;
+            $scope.doughnutAccountData = [{
+					value: response.data.totalAssets,
+					label: '账户总资产',
+					//highlight: '#FF5A5E',
+					color:"#e94828"
+				},
+				{
+					value : response.data.userCapital.receivedProfit,
+					label: '累计净收益',
+					color : "#f9b81e"
+				},
+				{
+					value : response.data.userCapital.balance + response.data.userCapital.freezeCapital,
+					label: '账户余额',
+					color : "#62cbc6"
+				}]
+    
 			$scope.doughnutAssetsData = [{
 					value : response.data.userCapital.balance,
 					label: '可用余额',
