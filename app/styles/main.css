@@ -868,7 +868,7 @@ hr {
 .safe .row {
   margin-left: 0;
 }
-.safe ul {
+.safe .nav {
   list-style: none;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -879,4 +879,32 @@ hr {
 }
 .safe .nav li {
   padding: 0 40px;
+}
+.safe .list-item {
+  border-bottom: 1px solid #dbdbdb;
+}
+.safe .list-item .col-md-5 {
+  height: 190px;
+  background: url('../images/sprite.png');
+}
+.safe .list-item .service {
+  background-position: -750px -470px;
+}
+.safe .list-item .technique {
+  background-position: -750px -710px;
+}
+.safe .list-item .capital {
+  background-position: -750px -980px;
+}
+.safe .list-item .privacy {
+  background-position: -750px -1175px;
+}
+.safe .content-list {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-right: 0px;
+}
+.safe .tit2 {
+  margin-left: -24px;
+  font-weight: bold;
 }
