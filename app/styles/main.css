@@ -130,6 +130,7 @@ hr {
 }
 #header {
   font-size: 18px;
+  border-bottom: 1px solid #ebebeb;
 }
 #header a {
   color: #878484;
@@ -415,7 +416,6 @@ hr {
 .project-list-all {
   padding-top: 15px;
   padding-bottom: 30px;
-  border-top: 1px solid #d8d8d8;
   color: #717071;
 }
 .project-list-all .container {
