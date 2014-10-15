@@ -1,102 +1,42 @@
-<div class="back-ground assets-height" ng-controller="UserCenterCtrl">
-    <div class="main-area">
-        <div class="left-area">
-            <div class="personal-information">
-                <!--临时头像-->
-                <div class="left-user-head"></div>
-                <p class="p-user-name">{{loginName}}</p>
-                <div class="safe-pic card-ok"></div>
-                <div class="safe-pic phone-no"></div>
-                <div class="safe-pic mail-no"></div>
-                <div class="security-level"></div>
-                <p class="p-security-level">安全等级：{{ Variables || "低"}}</p>
-                <a href="/#/security-settings" class="a-up-level">【提升】</a>
-            </div>
-            <p class="center-tips">我的账户</p>
-            <a ui-sref="root.account-overview" class="tips-area">
-                <div class="ico-area grey-account"></div>
-                <p>账户总览</p>
-            </a>
-            <a ui-sref="root.basic-information" class="tips-area">
-                <div class="ico-area grey-basic"></div>
-                <p>基本信息</p>
-            </a>
-            <a ui-sref="root.bankcard-management" class="tips-area">
-                <div class="ico-area grey-bankcard"></div>
-                <p>银行卡管理</p>
-            </a>
-            <a ui-sref="root.security-settings" class="tips-area">
-                <div class="ico-area grey-safeset"></div>
-                <p>安全设置</p>
-            </a>
-            <p class="center-tips">资产管理</p>
-            <a ui-sref="root.assets-overview" class="tips-area tips-show">
-                <div class="left-show-area"></div>
-                <div class="ico-area red-assets"></div>
-                <p class="now">资产总览</p>
-            </a>
-            <a ui-sref="root.recharge" class="tips-area">
-                <div class="ico-area grey-recharge"></div>
-                <p>充值</p>
-            </a>
-            <a ui-sref="root.withdraw" class="tips-area">
-                <div class="ico-area grey-withdraw"></div>
-                <p>提现</p>
-            </a>
-            <a ui-sref="root.record" class="tips-area">
-                <div class="ico-area grey-record"></div>
-                <p>支付记录</p>
-            </a>
-            <p class="center-tips">投资管理</p>
-            <a ui-sref="root.investment" class="tips-area">
-                <div class="ico-area grey-investment"></div>
-                <p>投资产品</p>
-            </a>
-            <p class="center-tips">消息管理</p>
-            <a ui-sref="root.news" class="tips-area">
-                <div class="ico-area grey-news"></div>
-                <p>站内消息</p>
-            </a>
+<!-- 资产总览 -->
+<div class="right-area right-assets-height">
+    <div class="right-title">资产总览</div>
+    <div class="assets-pic">
+        <cjs-doughnut dataset="doughnutAssetsData" width="313" height="313"></cjs-doughnut>
+    </div>
+    <div class="left-message">
+        <div class="left-message-show">
+            <div class="assets-ico available-balance"></div>
+            <p class="asset-tips">可用余额</p>
+            <p class="asset-money">{{capital.userCapital.balance}} 元</p>
         </div>
-        <div class="right-area right-assets-height">
-            <div class="right-title">资产总览</div>
-            <div class="assets-pic">
-                <cjs-doughnut dataset="doughnutAssetsData" width="313" height="313"></cjs-doughnut>
-            </div>
-            <div class="left-message">
-                <div class="left-message-show">
-                    <div class="assets-ico available-balance"></div>
-                    <p class="asset-tips">可用余额</p>
-                    <p class="asset-money">{{capital.userCapital.balance}} 元</p>
-                </div>
-                <div class="left-message-show">
-                    <div class="assets-ico proceeds-to-be-received"></div>
-                    <p class="asset-tips">待收收益</p>
-                    <p class="asset-money">{{capital.userCapital.waitingProfit}} 元</p>
-                </div>
-                <div class="left-message-show last-show">
-                    <div class="assets-ico principal-amount-to-be-received"></div>
-                    <p class="asset-tips">待收本金</p>
-                    <p class="asset-money">{{capital.userCapital.waitingCapital}} 元</p>
-                </div>
-            </div>
-            <div class="right-message">
-                <div class="left-message-show">
-                    <div class="assets-ico freezing-of-funds"></div>
-                    <p class="asset-tips">冻结资金</p>
-                    <p class="asset-money">{{capital.userCapital.freezeCapital}} 元</p>
-                </div>
-                <div class="left-message-show">
-                    <div class="assets-ico income-received"></div>
-                    <p class="asset-tips">已收收益</p>
-                    <p class="asset-money">{{capital.userCapital.receivedProfit}} 元</p>
-                </div>
-                <div class="left-message-show last-show">
-                    <div class="assets-ico accumulated-investment"></div>
-                    <p class="asset-tips">累计投资</p>
-                    <p class="asset-money">{{capital.userCapital.amount}} 元</p>
-                </div>
-            </div>
+        <div class="left-message-show">
+            <div class="assets-ico proceeds-to-be-received"></div>
+            <p class="asset-tips">待收收益</p>
+            <p class="asset-money">{{capital.userCapital.waitingProfit}} 元</p>
+        </div>
+        <div class="left-message-show last-show">
+            <div class="assets-ico principal-amount-to-be-received"></div>
+            <p class="asset-tips">待收本金</p>
+            <p class="asset-money">{{capital.userCapital.waitingCapital}} 元</p>
+        </div>
+    </div>
+    <div class="right-message">
+        <div class="left-message-show">
+            <div class="assets-ico freezing-of-funds"></div>
+            <p class="asset-tips">冻结资金</p>
+            <p class="asset-money">{{capital.userCapital.freezeCapital}} 元</p>
+        </div>
+        <div class="left-message-show">
+            <div class="assets-ico income-received"></div>
+            <p class="asset-tips">已收收益</p>
+            <p class="asset-money">{{capital.userCapital.receivedProfit}} 元</p>
+        </div>
+        <div class="left-message-show last-show">
+            <div class="assets-ico accumulated-investment"></div>
+            <p class="asset-tips">累计投资</p>
+            <p class="asset-money">{{capital.userCapital.amount}} 元</p>
         </div>
     </div>
 </div>
+
