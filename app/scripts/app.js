@@ -225,7 +225,7 @@
  		url: '/project/:projectId',
  		views: {
  			'': {
- 				templateUrl: 'views/project-details.html',
+ 				templateUrl: 'views/project/project-details.html',
  				controller: 'ProjectDetailsCtrl',
  				controllerUrl: 'scripts/controller/project/project-details-ctrl'
  			}
