@@ -3,10 +3,10 @@
     <div class="right-title">银行卡管理</div>
 
     <!--start 添加银行卡 -->
-    <p class="title padding-l">添加银行卡</p>
+    <!-- <p class="title padding-l">添加银行卡</p> -->
     <div class="verify-area border-none">
         <form>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>持卡人：</label>
                 <input type="text" class="verify-input" />
             </div>
@@ -34,10 +34,10 @@
             <div class="form-group">
                 <label>开户行：</label>
                 <input type="text" class="verify-input" />
-            </div>
+            </div> -->
             <!-- <input type="button" value="立即认证" class="verify-button" /> -->
-            <input type="submit" class="verify-button account-button margin-l" value="添加">
-            <input type="reset" class="get-verify-button account-button account-right-button" value="取消">
+            <input type="submit" class="verify-button account-button margin-l" value="添加" ng-click="bindBankCard()">
+            <!-- <input type="reset" class="get-verify-button account-button account-right-button" value="取消"> -->
         </form>
         <p class="tip ft-12">
             温馨提示

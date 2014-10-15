@@ -2,25 +2,21 @@
 <div class="right-area right-assets-height withdraw">
 	<div class="right-title word-less-title">提现</div>
 	<form class="real-name">
-		<div class="form-group">
+<!-- 		<div class="form-group">
 			<label>提现方式&nbsp;&nbsp;&nbsp;</label>
 			<img src="images/recharge-bankImg.png" width="148" height="47" class="border"/>
-		</div>
+		</div> -->
 		<div class="form-group mgn-top">
 			<label>可提现金额：</label>
-			<p class="user-name">{{ Variables || "123"}}元</p>
+			<p class="user-name" >{{ Variables || "123"}}元</p>
 		</div>
 		<div class="form-group">
 			<label>提现金额：</label>
-			<input type="text" class="verify-input" />
+			<input type="text" class="verify-input" ng-model="amount"/>
 		</div>
 		<div class="form-group">
 			<label>手续费：</label>
 			<span>0.00<!-- 数据绑定 --></span>&nbsp;元
-		</div>
-		<div class="form-group">
-			<label>支付密码：</label>
-			<span>设置支付密码后，才可以提现哦</span><a href="#" class="verify-button set-transactionPwd">设置支付密码</a>
 		</div>
 		<div class="form-group">
 			<label>验证码：</label>
@@ -28,7 +24,7 @@
 			<img src="images/verify_pic.png" class="pic-verify">
 			<a class="a-verify">看不清楚？换一张</a>
 		</div>
-		<input type="button" value="确认提现" class="verify-button" />
+		<input type="button" value="确认提现" class="verify-button" ng-click="withdraw(amount)"/>
 	</form>
 	<div class="tip ft-12">
 		<p>温馨提示</p>

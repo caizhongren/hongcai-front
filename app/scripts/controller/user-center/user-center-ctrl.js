@@ -61,6 +61,64 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$state", "$rootScope", "$sta
 					color : "#62cbc6"
 				}]
 
+    $scope.recharge = function(amount) {
+        UserCenterService.yeepayRecharge.get({amount:amount}, function(response) {
+            if(response.ret == 1) {
+                var req = response.data.req;
+                var sign = response.data.sign;
+                var _f=new_form();//创建一个form表单
+                create_elements(_f,"req",req);//创建form中的input对象
+                create_elements(_f,"sign",sign);
+                _f.action="http://qa.yeepay.com/member/bha/toRecharge";//form提交地址
+                _f.submit();//提交
+
+            } else {
+                
+            }
+        });
+    };
+
+    $scope.bindBankCard = function() {
+        UserCenterService.bindBankCard.get({}, function(response) {
+            if(response.ret == 1) {
+                var req = response.data.req;
+                var sign = response.data.sign;
+                var _f=new_form();//创建一个form表单
+                create_elements(_f,"req",req);//创建form中的input对象
+                create_elements(_f,"sign",sign);
+                _f.action="http://qa.yeepay.com/member/bha/toBindBankCard";//form提交地址
+                _f.submit();//提交
+
+            } else {
+                
+            }
+        });
+    };
+
+
+    $scope.withdraw = function(amount) {
+        UserCenterService.yeepayWithdraw.get({amount: amount}, function(response) {
+            if(response.ret == 1) {
+                var req = response.data.req;
+                var sign = response.data.sign;
+                var _f=new_form();//创建一个form表单
+                create_elements(_f,"req",req);//创建form中的input对象
+                create_elements(_f,"sign",sign);
+                _f.action="http://qa.yeepay.com/member/bha/toWithdraw";//form提交地址
+                _f.submit();//提交
+
+            } else {
+                
+            }
+        });
+    };   
+    
+
+	//Datepickers 
+	/*$scope.selectedDate = {{selectedDate}}; 
+	$scope.selectedDateAsNumber = {{selectedDateAsNumber}};
+	$scope.fromDate = {{fromDate}}; 
+	$scope.untilDate = {{untilDate}};*/ 
 			$scope.doughnutAssetsData = [{
 					value : response.data.userCapital.balance,
 					label: '可用余额',

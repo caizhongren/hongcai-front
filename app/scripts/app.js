@@ -100,8 +100,8 @@
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/basic-information.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'BasicInfoCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/basic-information-ctrl'
  			},
 			'sidebar': {
  				templateUrl: 'views/user-center/sidebar.html',
