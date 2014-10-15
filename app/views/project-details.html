@@ -175,29 +175,36 @@
 		      	</div>
 		      	<div class="col-lg-4">
 		        	<div class="row mgn-top recommend-support-details">
-		          		<div class="col-lg-12 recommend bg-white">
-		            		<div class="row"><div class="col-lg-12 news-tit ftw-b">投资金额<br><hr></div></div>
-		            		<div class="row">
-		              			<div class="col-lg-12 padd">可投金额：<span>{{project.total - project.minInvest * project.countInvest}}</span>元</div>
-		            		</div>
-		            		<div class="row">
-		              			<div class="col-lg-12">
-		              				<span class="progress-tit">投资进度：</span>
-		              				<div class="progress-bar">
-		              					<span class="progress bg-red" style="width:{{project.progress}}%"><!-- 数据绑定 --></span>
+		        		<form class="form-horizontal form-login"  ng-submit="isAvailableInvest(project);">
+			          		<div class="col-lg-12 recommend bg-white">
+			            		<div class="row"><div class="col-lg-12 news-tit ftw-b">投资金额<br><hr></div></div>
+			            		<div class="row">
+			              			<div class="col-lg-12 padd">可投金额：<span>{{project.total - project.minInvest * project.countInvest}}</span>元</div>
+			            		</div>
+			            		<div class="row">
+			              			<div class="col-lg-12">
+			              				<span class="progress-tit">投资进度：</span>
+			              				<div class="progress-bar">
+			              					<span class="progress bg-red" style="width:{{project.progress}}%"><!-- 数据绑定 --></span>
+			              				</div>
+			              				<span class="progress-percent">{{project.progress}}%</span>
+			              			</div>
+			            		</div>
+			            		<div class="row">
+			              			<div class="col-lg-12">
+			              				<input type='text' name="project.amount" ng-model="project.amount"/>&nbsp;&nbsp;元
+			              				<input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
+
+			              			</div>
+			            		</div>
+			            		<div class="row">
+				            		<div class="col-lg-12">
+				            			<input type="submit" class="go" value="立即投资">
+		                				<a href="sdsd.?amount = "></a>
 		              				</div>
-		              				<span class="progress-percent">{{project.progress}}%</span>
-		              			</div>
-		            		</div>
-		            		<div class="row">
-		              			<div class="col-lg-12"><input type='text'/>&nbsp;&nbsp;元</div>
-		            		</div>
-		            		<div class="row">
-			            		<div class="col-lg-12">
-	                				<a class="go" href="#">立即投资</a>
 	              				</div>
-              				</div>
-		          		</div>
+			          		</div>
+		          		</form>
 		        	</div>
 		        	<div class="row mgn-left-0 invest-record">
 		          		<div class="col-lg-12 mgn-top news bg-white">
