@@ -161,19 +161,19 @@ body {
 .red-withdraw{
     background: url(/images/sprite.png) -430px -667px no-repeat;
 }
-.userCenter .back-ground {
+.back-ground {
   height: 858px;
   width: 100%;
   padding-top: 38px;
   background-color: #fdfbfb;
 }
-.userCenter .main-area {
+.main-area {
   height: 820px;
   width: 990px;
   margin: 0 auto;
   position: relative;
 }
-.userCenter .left-area {
+.left-area {
   height: 813px;
   width: 200px;
   border: 1px solid #dbdbdb;
@@ -183,7 +183,7 @@ body {
   float: left;
   border-radius: 5px;
 }
-.userCenter .right-area {
+.right-area {
   height: 1100px;
   width: 760px;
   border: 1px solid #dbdbdb;
@@ -195,65 +195,65 @@ body {
   border-radius: 5px;
   margin-left: 220px;
 }
-.userCenter .personal-information {
+.personal-information {
   width: 170px;
   height: 180px;
   margin: 0 auto;
 }
-.userCenter .left-user-head {
+.left-user-head {
   height: 71px;
   width: 71px;
   background: url(/images/sprite.png) -285px -382px no-repeat;
   float: left;
   margin-top: -18px;
 }
-.userCenter .p-user-name {
+.p-user-name {
   float: right;
   padding-top: 20px;
   margin-bottom: 15px;
   width: 91px;
 }
-.userCenter .safe-pic {
+.safe-pic {
   height: 47px;
   width: 47px;
   margin: 15px 2px 0 8px;
   float: left;
 }
-.userCenter .card-ok {
+.card-ok {
   background: url(/images/sprite.png) -82px -370px no-repeat;
 }
-.userCenter .card-no {
+.card-no {
   background: url(/images/sprite.png) -82px -424px no-repeat;
 }
-.userCenter .phone-ok {
+.phone-ok {
   background: url(/images/sprite.png) -142px -370px no-repeat;
 }
-.userCenter .phone-no {
+.phone-no {
   background: url(/images/sprite.png) -142px -424px no-repeat;
 }
-.userCenter .mail-ok {
+.mail-ok {
   margin-left: 6px;
   background: url(/images/sprite.png) -199px -370px no-repeat;
 }
-.userCenter .mail-no {
+.mail-no {
   margin-left: 6px;
   background: url(/images/sprite.png) -199px -424px no-repeat;
 }
-.userCenter .security-level {
+.security-level {
   height: 12px;
   width: 158px;
   background: url(/images/sprite.png) -83px -501px no-repeat;
   float: left;
   margin: 12px 0  10px 6px;
 }
-.userCenter .p-security-level {
+.p-security-level {
   height: 14px;
   width: 80px;
 }
-.userCenter .a-up-level {
+.a-up-level {
   float: right;
 }
-.userCenter .center-tips {
+.center-tips {
   height: 45px;
   width: 100%;
   border-top: 1px solid #f5f5f5;
@@ -261,23 +261,22 @@ body {
   padding-top: 15px;
   margin: 0;
 }
-.userCenter .tips-area {
+.tips-area {
   height: 45px;
   width: 100%;
   display: block;
   color: inherit;
   /*padding-top: 10px;*/
-
 }
-.userCenter .tips-area:hover {
+.tips-area:hover {
   color: inherit;
   background-color: #f7e9e8;
 }
-.userCenter .tips-area:active {
+.tips-area:active {
   background-color: #f7e9e8;
   box-shadow: 0 0 15px 3px #ddc8c9 inset;
 }
-.userCenter .tips-area p {
+.tips-area p {
   margin: 0;
   float: right;
   height: 100%;
@@ -286,86 +285,86 @@ body {
   padding-top: 10px;
   font-size: 14px;
 }
-.userCenter .ico-area {
+.ico-area {
   height: 30px;
   width: 30px;
   float: left;
   margin-top: 5px;
   margin-left: 15px;
 }
-.userCenter .red-account {
+.red-account {
   background: url(/images/sprite.png) -428px -457px no-repeat;
 }
-.userCenter .red-basic {
+.red-basic {
   background: url(/images/sprite.png) -428px -496px no-repeat;
 }
-.userCenter .red-bankcard {
+.red-bankcard {
   background: url(/images/sprite.png) -433px -525px no-repeat;
 }
-.userCenter .red-safeset {
+.red-safeset {
   background: url(/images/sprite.png) -428px -555px no-repeat;
 }
-.userCenter .red-assets {
+.red-assets {
   background: url(/images/sprite.png) -428px -590px no-repeat;
 }
-.userCenter .red-recharge {
+.red-recharge {
   background: url(/images/sprite.png) -428px -625px no-repeat;
 }
-.userCenter .red-withdraw {
+.red-withdraw {
   background: url(/images/sprite.png) -430px -667px no-repeat;
 }
-.userCenter .red-record {
+.red-record {
   background: url(/images/sprite.png) -428px -703px no-repeat;
 }
-.userCenter .red-investment {
+.red-investment {
   background: url(/images/sprite.png) -428px -738px no-repeat;
 }
-.userCenter .red-news {
+.red-news {
   background: url(/images/sprite.png) -428px -773px no-repeat;
 }
-.userCenter .grey-account {
+.grey-account {
   background: url(/images/sprite.png) -392px -458px no-repeat;
 }
-.userCenter .grey-basic {
+.grey-basic {
   background: url(/images/sprite.png) -392px -496px no-repeat;
 }
-.userCenter .grey-bankcard {
+.grey-bankcard {
   background: url(/images/sprite.png) -392px -525px no-repeat;
 }
-.userCenter .grey-safeset {
+.grey-safeset {
   background: url(/images/sprite.png) -392px -558px no-repeat;
 }
-.userCenter .grey-assets {
+.grey-assets {
   background: url(/images/sprite.png) -392px -590px no-repeat;
 }
-.userCenter .grey-recharge {
+.grey-recharge {
   background: url(/images/sprite.png) -392px -625px no-repeat;
 }
-.userCenter .grey-withdraw {
+.grey-withdraw {
   background: url(/images/sprite.png) -392px -665px no-repeat;
 }
-.userCenter .grey-record {
+.grey-record {
   background: url(/images/sprite.png) -392px -703px no-repeat;
 }
-.userCenter .grey-investment {
+.grey-investment {
   background: url(/images/sprite.png) -392px -738px no-repeat;
 }
-.userCenter .grey-news {
+.grey-news {
   background: url(/images/sprite.png) -392px -773px no-repeat;
 }
-.userCenter .now {
+.now {
   color: #ee7259;
 }
-.userCenter .tips-show {
+.tips-show {
   background-color: #fbeeec;
 }
-.userCenter .left-show-area {
+.left-show-area {
   height: 100%;
   width: 4px;
   background-color: #e14526;
   float: left;
 }
-.userCenter .right-title {
+.right-title {
   height: 40px;
   width: 100%;
   background: url(/images/sprite.png) -858px -130px no-repeat;
@@ -375,38 +374,38 @@ body {
   margin-top: 20px;
   margin-bottom: 30px;
 }
-.userCenter .safe-part,
-.userCenter .right-tips-area {
+.safe-part,
+.right-tips-area {
   height: 50px;
   width: 100%;
 }
-.userCenter .safe-part p,
-.userCenter .right-user-message p {
+.safe-part p,
+.right-user-message p {
   float: left;
   margin-bottom: 0;
 }
-.userCenter .tips {
+.tips {
   width: 110px;
   height: inherit;
   text-align: left;
   margin-left: 60px;
 }
-.userCenter .message {
+.message {
   width: 465px;
   height: 100%;
   text-align: center;
 }
-.userCenter .activity {
+.activity {
   width: 50px;
   height: 100%;
   text-align: right;
   cursor: pointer;
 }
-.userCenter .hadset {
+.hadset {
   color: #77d21c;
   cursor: default;
 }
-.userCenter .check-ok {
+.check-ok {
   float: left;
   height: 17px;
   width: 17px;
@@ -414,14 +413,14 @@ body {
   margin-left: 10px;
   margin-top: 4px;
 }
-.userCenter .safeset-height {
+.safeset-height {
   height: 1190px;
 }
-.userCenter .basic-area {
+.basic-area {
   height: 255px;
   width: 100%;
 }
-.userCenter .right-user-head {
+.right-user-head {
   height: 55%;
   width: 125px;
   background: url(/images/sprite.png) -512px -533px no-repeat;
@@ -429,17 +428,17 @@ body {
   margin-left: 37px;
   margin-right: 15px;
 }
-.userCenter .right-user-message {
+.right-user-message {
   height: 100%;
   width: 480px;
   float: left;
 }
-.userCenter .right-tips {
+.right-tips {
   width: 400px;
   height: inherit;
   text-align: left;
 }
-.userCenter .verify-area {
+.verify-area {
   height: 235px;
   width: 100%;
   padding: 40px 115px 0 200px;
@@ -453,7 +452,7 @@ body {
 .userCenter .form-group label {
   width: 85px;
 }
-.userCenter .verify-input {
+.verify-input {
   height: 30px;
   width: 245px;
   border: 1px solid #dbdbdb;
@@ -461,10 +460,10 @@ body {
   padding: 8px 10px;
   font-size: 12px;
 }
-.userCenter .verify-input:focus {
+.verify-input:focus {
   outline: none;
 }
-.userCenter .verify-button {
+.verify-button {
   width: 85px;
   height: 30px;
   border: 1px solid #e94828;
@@ -475,13 +474,13 @@ body {
   margin-left: 90px;
   outline: none;
 }
-.userCenter .verify-button:hover {
+.verify-button:hover {
   background-color: #f27b64;
 }
-.userCenter .verify-button:active {
+.verify-button:active {
   background-color: #d23d1f;
 }
-.userCenter .get-verify-button {
+.get-verify-button {
   border: 1px solid #e94828;
   border-radius: 3px;
   height: 30px;
@@ -492,110 +491,110 @@ body {
   color: #e94828;
   outline-style: none;
 }
-.userCenter .get-verify-button:hover {
+.get-verify-button:hover {
   background-color: #e94828;
   color: white;
 }
-.userCenter .get-verify-button:active {
+.get-verify-button:active {
   background-color: #d23d1f;
   outline-style: none;
   color: white;
 }
-.userCenter .mail-area label {
+.mail-area label {
   width: 50px;
 }
-.userCenter .mail-area {
+.mail-area {
   margin: 25px 0 15px 0;
 }
 .userCenter p.title {
   margin-left: 40px;
 }
-.userCenter .mail-button {
+.mail-button {
   margin-left: 55px;
 }
-.userCenter .assets-height {
+.assets-height {
   height: 890px;
 }
-.userCenter .right-assets-height {
+.right-assets-height {
   height: 812px;
 }
-.userCenter .account-pic,
-.userCenter .assets-pic {
+.account-pic,
+.assets-pic {
   height: 313px;
   width: 313px;
   margin: 60px auto 50px auto;
 }
-.userCenter .account-pic {
+.account-pic {
   margin: -15px 0 0 65px;
   float: left;
 }
-.userCenter .left-message {
+.left-message {
   width: 380px;
   height: 260px;
   border-right: 1px solid #f5f5f5;
   float: left;
 }
-.userCenter .left-message-show {
+.left-message-show {
   height: 90px;
   width: 215px;
   margin-left: 140px;
   padding-top: 15px;
   border-bottom: 1px solid #f5f5f5;
 }
-.userCenter .last-show {
+.last-show {
   border-bottom: 0px solid #f5f5f5;
 }
-.userCenter .assets-ico {
+.assets-ico {
   height: 14px;
   width: 14px;
   float: left;
   border-radius: 3px;
 }
-.userCenter .available-balance {
+.available-balance {
   background-color: #d2cb3f;
 }
-.userCenter .proceeds-to-be-received,
-.userCenter .account-balance {
+.proceeds-to-be-received,
+.account-balance {
   background-color: #62cbc6;
 }
-.userCenter .principal-amount-to-be-received,
-.userCenter .net-income {
+.principal-amount-to-be-received,
+.net-income {
   background-color: #f9b81e;
 }
-.userCenter .freezing-of-funds {
+.freezing-of-funds {
   background-color: #6aabe1;
 }
-.userCenter .income-received {
+.income-received {
   background-color: #913969;
 }
-.userCenter .accumulated-investment,
-.userCenter .total-assets {
+.accumulated-investment,
+.total-assets {
   background-color: #e94828;
 }
-.userCenter .asset-tips {
+.asset-tips {
   height: 20px;
   width: 130px;
   margin-left: 20px;
   line-height: 14px;
 }
-.userCenter .asset-money {
+.asset-money {
   font-size: 24px;
   font-weight: bold;
   margin: -10px 0 0 20px;
 }
-.userCenter .right-message {
+.right-message {
   float: left;
   width: 360px;
   height: 260px;
 }
-.userCenter .right-message .left-message-show {
+.right-message .left-message-show {
   margin-left: 85px;
 }
-.userCenter .account-message {
+.account-message {
   width: 100%;
   height: 325px;
 }
-.userCenter .account-button {
+.account-button {
   height: 30px;
   width: 80px;
   margin-top: -10px;
@@ -603,27 +602,27 @@ body {
   line-height: 30px;
   text-align: center;
 }
-.userCenter .account-button:hover {
+.account-button:hover {
   color: #fff;
 }
-.userCenter .right-area .account-right-button {
+.right-area .account-right-button {
   margin-left: 15px;
   width: 80px;
   border-radius: 5px;
 }
-.userCenter .view-more {
+.view-more {
   color: #cecdcd;
   float: right;
   margin-top: 20px;
   margin-right: 90px;
 }
-.userCenter .view-more:hover {
+.view-more:hover {
   color: inherit;
 }
-.userCenter .account-investment {
+.account-investment {
   padding: 20px 90px;
 }
-.userCenter .account-investment-show {
+.account-investment-show {
   height: 135px;
   width: 135px;
   margin-right: 57px;
@@ -632,19 +631,19 @@ body {
   color: white;
   float: left;
 }
-.userCenter .account-number {
+.account-number {
   font-size: 24px;
   float: left;
   margin: 12px 0 0 20px;
 }
-.userCenter .account-number-tips {
+.account-number-tips {
   padding-top: 23px;
 }
-.userCenter .account-number-message {
+.account-number-message {
   padding-left: 21px;
   margin-top: -6px;
 }
-.userCenter .investment-more {
+.investment-more {
   margin: 35px 55px 0 0;
 }
 .userCenter label {
@@ -656,42 +655,42 @@ body {
   float: left;
   margin-right: 20px;
 }
-.userCenter .real-name .user-name {
+.real-name .user-name {
   float: left;
 }
-.userCenter .real-name .verify-button {
+.real-name .verify-button {
   margin-left: 215px;
   width: 145px;
   border-radius: 0px;
   margin-top: 15px;
 }
-.userCenter .real-name {
+.real-name {
   padding-left: 70px;
 }
-.userCenter .read,
-.userCenter .read-check {
+ .read,
+ .read-check {
   float: left;
 }
-.userCenter .read {
+ .read {
   margin-top: -2px;
   margin-left: 10px;
 }
-.userCenter .read-area {
+ .read-area {
   height: 30px;
 }
-.userCenter .real-name-tips {
+ .real-name-tips {
   font-size: 12px;
   height: 160px;
   width: 480px;
   margin: 60px auto 0 auto;
 }
-.userCenter .word-less-title {
+ .word-less-title {
   padding-left: 80px;
 }
-.userCenter .right-area .border-none {
+ .right-area .border-none {
   border: none;
 }
-.userCenter .padding-l {
+ .padding-l {
   padding-left: 30px;
 }
 .userCenter .form-group select {
@@ -700,7 +699,7 @@ body {
   border: 1px solid #dbdbdb;
   outline: none;
 }
-.userCenter .bank-list {
+ .bank-list {
   width: 245px;
 }
 .userCenter #Select1 {
@@ -712,11 +711,11 @@ body {
 .userCenter .margin-l {
   margin-left: 155px;
 }
-.userCenter .verify-area .tip {
+ .verify-area .tip {
   margin-top: 50px;
   margin-left: -40px;
 }
-.userCenter .verify-tip {
+ .verify-tip {
   width: 360px;
   height: 35px;
   line-height: 35px;
@@ -724,49 +723,49 @@ body {
   margin-top: 150px;
   padding-left: 15px;
 }
-.userCenter .verify-tip a {
+ .verify-tip a {
   color: #e94828;
 }
-.userCenter .bank-img {
+ .bank-img {
   border-radius: 3px;
 }
-.userCenter .verify-code {
+ .verify-code {
   width: 130px;
 }
-.userCenter .recharge .pic-verify,
-.userCenter .withdraw .pic-verify {
+ .recharge .pic-verify,
+ .withdraw .pic-verify {
   margin-top: 0;
   margin-left: 5px;
 }
-.userCenter .recharge .a-verify,
-.userCenter .withdraw .a-verify {
+ .recharge .a-verify,
+ .withdraw .a-verify {
   left: 245px;
 }
-.userCenter .recharge .agree-area {
+ .recharge .agree-area {
   padding-left: 35px;
   margin-top: 25px;
 }
-.userCenter .recharge .verify-button,
-.userCenter .withdraw .verify-button {
+ .recharge .verify-button,
+ .withdraw .verify-button {
   width: 80px;
   height: 30px;
   margin-left: 105px;
   border-radius: 3px;
   margin-top: 0;
 }
-.userCenter .withdraw .verify-button {
+ .withdraw .verify-button {
   margin-top: 20px;
 }
-.userCenter .recharge .mgn-top,
-.userCenter .withdraw .mgn-top {
+ .recharge .mgn-top,
+ .withdraw .mgn-top {
   margin-top: 10px;
 }
-.userCenter .recharge .tip,
-.userCenter .withdraw .tip {
+ .recharge .tip,
+ .withdraw .tip {
   padding-left: 87px;
   padding-top: 45px;
 }
-.userCenter .real-name .set-transactionPwd {
+ .real-name .set-transactionPwd {
   background-color: #e94828;
   width: 95px;
   height: 30px;
@@ -778,6 +777,6 @@ body {
   margin-left: 10px;
   margin-top: 0;
 }
-.userCenter .set-transactionPwd:hover {
+ .set-transactionPwd:hover {
   background-color: #f27b64;
 }

@@ -19,7 +19,7 @@
  	'angularFileUpload'
  	]);
 
- hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+ hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider' , function($stateProvider, $urlRouterProvider, $locationProvider) {
  	$stateProvider
  	.state('root', {
  		abstract: true,
@@ -304,6 +304,7 @@
  	;
 
  	$urlRouterProvider.otherwise('/');
+ 	$locationProvider.html5Mode(true);
 
  }]);
 
