@@ -97,8 +97,8 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$state", "$rootScope", "$sta
     	if(response.ret == 1) {
     		$scope.capital = response.data;
     		$scope.doughnutAccountData = [{
-    			value: response.data.totalAssets,
-    			label: '账户总资产',
+	    			value: response.data.totalAssets,
+	    			label: '账户总资产',
 					//highlight: '#FF5A5E',
 					color:"#e94828"
 				},

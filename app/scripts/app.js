@@ -15,6 +15,7 @@
  	'ngResource',
   	'angularMoment', 
  	'toaster', 
+ 	'chartjs', 
  	'angularFileUpload'
  	]);
 
