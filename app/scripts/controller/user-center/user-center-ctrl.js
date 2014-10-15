@@ -132,3 +132,4 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$state", "$rootScope", "$sta
         }
 
     });
+}]);
