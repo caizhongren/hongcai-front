@@ -15,7 +15,8 @@
  	'ngResource',
   	'angularMoment', 
  	'toaster', 
- 	'angularFileUpload'
+ 	'angularFileUpload', 
+ 	'chartjs'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -287,6 +288,28 @@
  			}
  		}
  	})
+ 	/*---------------------------------------------  project-sponsorInstitution  ---------------------------------------------*/
+ 	.state('root.project-sponsorInstitution', {
+ 		url: '/project-sponsorInstitution',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/project-sponsorInstitution.html',
+ 				controller: 'ProjectSponsorInstitutionCtrl',
+ 				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
+ 			}
+ 		}
+ 	})
+ 	/*---------------------------------------------  safe  ---------------------------------------------*/
+ 	.state('root.safe', {
+ 		url: '/safe',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/safe.html',
+ 				controller: 'SafeCtrl',
+ 				controllerUrl: 'scripts/controller/project/safe-ctrl'
+ 			}
+ 		}
+ 	})
 
  	/*---------------------------------------------  upload  ---------------------------------------------*/
  	.state('root.upload', {
@@ -317,7 +340,10 @@
  }]);
 
 hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
-	var routespermission = ['/account-overview', '/basic-information', '/realname-authentication'];
+	var routespermission = ['/account-overview', 
+							'/assets-overview', 
+							'/basic-information', 
+							'/realname-authentication'];
 	$rootScope.$on('$stateChangeStart', function() {
 		if(routespermission.indexOf($location.path()) !== -1) {
 			var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
