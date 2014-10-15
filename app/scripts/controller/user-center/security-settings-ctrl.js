@@ -1,7 +1,7 @@
-hongcaiApp.controller("BasicInfoCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "UserCenterService", "toaster", function ($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
+hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "UserCenterService", "toaster", function ($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
         
 
-        UserCenterService.userBasicInfo.get({}, function(response) {
+        UserCenterService.userSecurityInfo.get({}, function(response) {
             if(response.ret == 1) {
                 var userVo = response.data.userVo;
                 $scope.email = userVo.email;
@@ -18,6 +18,12 @@ hongcaiApp.controller("BasicInfoCtrl", ["$scope", "$state", "$rootScope", "$stat
                 }else if(realNameAuthStatus == 3){
                     $scope.realNameAuthStatus = "认证失败";
                      $scope.isRealNameAuth = false;
+                }
+
+                if(userVo.trusteeshipAccountStatus == 1){
+                    $scope.haveTrusteeshipAccount = true;
+                } else {
+                    $scope.haveTrusteeshipAccount = false;
                 }
 
             } else {
