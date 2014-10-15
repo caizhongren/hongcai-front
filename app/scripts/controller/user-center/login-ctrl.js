@@ -2,6 +2,7 @@ hongcaiApp.controller("LoginCtrl", ["$scope", "$state", "$rootScope", "$statePar
     $scope.login = function(user){
         LoginService.userLogin.get({account: user.account, password: user.password }, function(response) {
             if(response.msg == 'success') {
+                console.info('asdasd');
                 SessionService.set("user", response.data.user.name);
                 $state.go('root.account-overview');
                 $rootScope.loginName = response.data.user.name;

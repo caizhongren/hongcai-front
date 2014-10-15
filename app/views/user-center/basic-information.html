@@ -5,33 +5,33 @@
         <div class="right-user-head"></div>
         <div class="right-user-message">
             <div class="right-tips-area">
-                <p class="right-tips">用户名：{{username}}</p>
-                <p class="activity hadset">{{ Variables || "已确定"}}</p>
+                <p class="right-tips">用户名：{{loginName}}</p>
+                <p class="activity hadset">{{ "已确定"}}</p>
                 <div class="check-ok"></div>
             </div>
             <div  class="right-tips-area">
-                <p class="right-tips">邮箱：</p>
-                <p class="activity">{{ Variables || "认证"}}</p>
+                <p class="right-tips">邮箱：{{email}}</p>
+                <p class="activity">{{ isEmailActive || "认证"}}</p>
                 <div></div>
             </div>
             <div  class="right-tips-area">
-                <p class="right-tips">真实姓名：</p>
-                <p class="activity"><a href="/#/realname-authentication">{{ Variables || "认证"}}</a></p>
+                <p class="right-tips">真实姓名：{{realName}}</p>
+                <p class="activity"><a href="/#/realname-authentication">{{ realNameAuthStatus || "认证"}}</a></p>
                 <div></div>
             </div>
             <div  class="right-tips-area">
-                <p class="right-tips">身份证号码:</p>
-                <p class="activity"><a href="/#/realname-authentication">{{ Variables || "认证"}}</a></p>
+                <p class="right-tips">身份证号码: {{idNo}}</p>
+                <p class="activity"><a href="/#/realname-authentication">{{ realNameAuthStatus || "认证"}}</a></p>
                 <div></div>
             </div>
             <div  class="right-tips-area">
-                <p class="right-tips">手机号码:</p>
+                <p class="right-tips">手机号码:{{mobile}}</p>
                 <p class="activity">{{ Variables || "认证"}}</p>
                 <div></div>
             </div>
         </div>
     </div>
-    <div class="verify-area">
+    <div class="verify-area" ng-show="!isRealNameAuth">
         <p class="title">为了保障您的资产和账号安全，请进行认证</p>
         <form>
             <div class="form-group">
@@ -46,25 +46,5 @@
         </form>
     </div>
     <div class="verify-area">
-        <!--注册必须使用手机或邮箱，所以未认证的只会出现某一个form-->
-        <!--<form>
-          <div class="form-group">
-            <label>手机号码：</label>
-            <input type="text" class="verify-input" />
-            <input type="button" value="获取短信验证码" class="get-verify-button" />
-          </div>
-          <div class="form-group">
-            <label>短信验证码：</label>
-            <input type="text" class="verify-input" />
-          </div>
-          <input type="button" value="下一步" class="verify-button" />
-        </form>
-        <form>
-          <div class="form-group mail-area">
-            <label>邮箱：</label>
-            <input type="text" class="verify-input" />
-          </div>
-          <input type="button" value="立即验证" class="verify-button mail-button" />
-      </form>-->
   </div>
 </div>
