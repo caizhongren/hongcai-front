@@ -15,8 +15,7 @@
  	'ngResource',
   	'angularMoment', 
  	'toaster', 
- 	'angularFileUpload', 
- 	'chartjs'
+ 	'angularFileUpload'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -265,11 +264,11 @@
  		}
  	})
  	/*---------------------------------------------  order  ---------------------------------------------*/
- 	.state('root.isAvailableInvest', {
- 		url: '/isAvailableInvest',
+ 	.state('root.investVerify', {//投资信息确认页面:购物车
+ 		url: '/investVerify/:projectId',
  		views: {
  			'': {
- 				templateUrl: 'views/order/shop.html',
+ 				templateUrl: 'views/order/investVerify.html',
  				controller: 'OrderCtrl',
  				controllerUrl: 'scripts/controller/order/order-ctrl'
  			}

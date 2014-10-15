@@ -1,4 +1,4 @@
-hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$stateParams", "ProjectService", function ($scope, $stateParams, ProjectService) {
+hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$stateParams", "ProjectService", function ($scope, $state, $stateParams, ProjectService) {
     var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
         $scope.project = projectDetails.data.project;
         $scope.projectInfo = projectDetails.data.projectInfo;
@@ -24,11 +24,13 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$stateParams", "ProjectS
 
         $scope.isAvailableInvest = function(project){//验证用户权限
         ProjectService.isAvailableInvest.get({amount: project.amount,projectId:project.id }, function(response) {
-            if(response.msg == 'success') {
+            if(response.ret == 1) {
                 if (response.data.flag) {
-                    state.go("root.");
+                    alert( response.data.projectId);
+                    $state.go("root.investVerify", {projectId: response.data.projectId});
                 }else{
-                    alert("cccccc");
+                    alert("cccc");
+                    $state.go("root.investVerify", {projectId: response.data.projectId});
                 }
                 
             } else {
