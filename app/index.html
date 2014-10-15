@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>宏财</title>
+    <base href="/" target="_blank">
     <meta name="description" content="Hongcai web">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -18,6 +19,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/person_set.css">
     <link rel="stylesheet" href="styles/loginAndRegiste.css">
+    <link rel="stylesheet" href="styles/about.css">
     <!-- endbuild -->
   </head>
   <body class="index">
@@ -68,6 +70,7 @@
     <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
     <script src="bower_components/Chart.js/Chart.min.js"></script>
     <script src="bower_components/ng-chartjs/dist/angular-chartjs.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -79,11 +82,12 @@
     <script src="scripts/controller/register/register-ctrl.js"></script>
     <script src="scripts/controller/user-center/login-ctrl.js"></script>
     <script src="scripts/controller/user-center/user-center-ctrl.js"></script>
-    <script src="scripts/controller/user-center/basic-information-ctrl.js"></script>
+    <script src="scripts/controller/user-center/security-settings-ctrl.js"></script>
     <script src="scripts/controller/yeepay/yeepay-ctrl.js"></script>
     <script src="scripts/controller/upload/upload-ctrl.js"></script>
     <script src="scripts/controller/order/order-ctrl.js"></script>
     <script src="scripts/controller/order/invest-verify-ctrl.js"></script>
+    <script src="scripts/controller/about-us/about-us-ctrl.js"></script>
 
     <script src="scripts/service/main/main-service.js"></script>
     <script src="scripts/service/project/project-service.js"></script>
@@ -93,12 +97,15 @@
     <script src="scripts/service/user-center/login-service.js"></script>
     <script src="scripts/service/yeepay/yeepay-service.js"></script>
     <script src="scripts/service/order/order-service.js"></script>
+    <script src="scripts/service/about-us/about-us-service.js"></script>
 
     <script src="scripts/directives/ensure-captcha.js"></script>
     <script src="scripts/directives/ensure-unique-name.js"></script>
     <script src="scripts/directives/ensure-unique-email.js"></script>
     <script src="scripts/directives/ensure-unique-mobile.js"></script>
     <script src="scripts/directives/password-match.js"></script>
+
+
 
     <!-- endbuild -->
     
