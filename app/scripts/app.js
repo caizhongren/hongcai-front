@@ -285,6 +285,22 @@
  			}
  		}
  	})
+ 	/*------------------------------------------  about-us  -----------------------------------------------*/
+ 	.state('root.introduction-of-platform', {
+ 		url: '/introduction-of-platform',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/introduction-of-platform.html',
+ 				controller: 'aboutUsCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			},
+ 			'about-sidebar': {
+ 				templateUrl: 'views/about-us/about-sidebar.html',
+ 				controller: 'aboutUsCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
  	;
 
  	$urlRouterProvider.otherwise('/');
