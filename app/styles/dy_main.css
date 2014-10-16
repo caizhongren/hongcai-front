@@ -111,7 +111,6 @@ label{
 }
 .bg{
   width: 100%;
-  padding-top: 38px;
 }
 .input-verify-width{
   width: 130px;
@@ -183,6 +182,7 @@ label{
 /*regit*/
 .regist-height{
   height: 535px;
+  padding-top: 30px;
 }
 .regist-area{
   height: 460px;
@@ -1014,6 +1014,7 @@ label{
     background-color: white;
     float: left;
     border-radius: 5px;
+    margin-left: -15px;
 }
 .about-left-area .tips-area p{
   width: 164px;
@@ -1038,7 +1039,8 @@ label{
 .introduction-height{
   height: 900px;
   margin-bottom: 45px;
-  margin-left: 205px;
+  margin-left: 176px;
+  width: 792px;
 }
 .introduction-area{
   width: 640px;
@@ -1068,7 +1070,7 @@ label{
 }
 .dynamic-show{
   height: 150px;
-  border-bottom: 2px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
@@ -1142,6 +1144,7 @@ label{
   height: 35px;
   border-bottom: 1px solid #dfdfdf;
   padding-left: 60px;
+  margin-top: -10px;
 }
 .news-nav span{
   display: block;
