@@ -1,4 +1,4 @@
-hongcaiApp.controller("UserCenterCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "UserCenterService", function ($scope, $state, $rootScope, $stateParams, UserCenterService) {
+hongcaiApp.controller("UserCenterCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "UserCenterService", "DEFAULT_DOMAIN", function ($scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
 	
 	function new_form(){
 		var f = document.createElement("form");
@@ -24,6 +24,11 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$state", "$rootScope", "$sta
     	return e;
     }
 
+    $scope.getPicCaptcha = DEFAULT_DOMAIN + "/siteUser/getPicCaptcha?";
+    $scope.refreshCode = function() {
+        angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());
+    };
+
     $scope.realNameAuth = function(user) {
     	UserCenterService.yeepayRegister.get({realName:user.realName, idCardNo:user.idCardNo}, function(response) {
     		if(response.ret == 1) {
@@ -41,8 +46,8 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$state", "$rootScope", "$sta
         });
     };
     
-    $scope.recharge = function(amount) {
-    	UserCenterService.yeepayRecharge.get({amount:amount}, function(response) {
+    $scope.recharge = function(amount, captcha) {
+    	UserCenterService.yeepayRecharge.get({amount:amount, captcha: captcha}, function(response) {
     		if(response.ret == 1) {
     			var req = response.data.req;
     			var sign = response.data.sign;
@@ -75,9 +80,8 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$state", "$rootScope", "$sta
         });
     };
 
-
-    $scope.withdraw = function(amount) {
-    	UserCenterService.yeepayWithdraw.get({amount: amount}, function(response) {
+    $scope.withdraw = function(amount, captcha) {
+    	UserCenterService.yeepayWithdraw.get({amount: amount, captcha: captcha}, function(response) {
     		if(response.ret == 1) {
     			var req = response.data.req;
     			var sign = response.data.sign;
@@ -92,6 +96,7 @@ hongcaiApp.controller("UserCenterCtrl", ["$scope", "$state", "$rootScope", "$sta
             }
         });
     };   
+
 
     UserCenterService.getUserCapital.get(function(response) {
     	if(response.ret == 1) {
