@@ -4,62 +4,73 @@
 		<!--临时头像-->
 		<div class="left-user-head"></div>
 		<p class="p-user-name">{{ loginName }}</p>
-		<div class="safe-pic card-ok"></div>
-		<div class="safe-pic phone-no"></div>
-		<div class="safe-pic mail-no"></div>
-		<div class="security-level mid-level"></div>
-		<p class="p-security-level">安全等级：{{ Variables || "低"}}</p>
-		<a href="/#/security-settings" class="a-up-level">【提升】</a>
+		<div class="safe-pic {{isRealNameAuth ? 'card-ok' : 'card-no'}}"></div>
+		<div class="safe-pic {{mobile ? 'phone-ok' : 'phone-no'}}"></div>
+		<div class="safe-pic {{email ? 'mail-ok' : 'mail-no'}}"></div>
+		<div class="security-level"></div>
+		<p class="p-security-level" >安全等级：
+			<span ng-if="securityLevel == 0">低</span>
+			<span ng-if="securityLevel == 1">中</span>
+			<span ng-if="securityLevel == 2">高</span>
+		</p>
+		<a href="/#/security-settings" class="a-up-level" ng-show="securityLevel != 2">【提升】</a>
 	</div>
 	<p class="center-tips">我的账户</p>
 	<a ui-sref="root.userCenter.account-overview" class="tips-area">
+	<div class="left-show-area" ng-show="selectSide == 'account-overview' "></div>
 		<div></div>
-		<div class="ico-area grey-account"></div>
-		<p>账户总览</p>
+		<div class="ico-area {{selectSide == 'account-overview' ? 'red-account' : 'grey-account'}}"></div>
+		<p class="{{selectSide == 'account-overview' ? 'now' : ''}}">账户总览</p>
 	</a>
 	<a ui-sref="root.userCenter.bankcard-management" class="tips-area">
+	<div class="left-show-area" ng-show="selectSide == 'bankcard-management' "></div>
 		<div></div>
-		<div class="ico-area grey-bankcard"></div>
-		<p>银行卡管理</p>
+		<div class="ico-area {{selectSide == 'bankcard-management' ? 'red-bankcard' : 'grey-bankcard'}}"></div>
+		<p class="{{selectSide == 'bankcard-management' ? 'now' : ''}}">银行卡管理</p>
 	</a>
 	<a ui-sref="root.userCenter.security-settings" class="tips-area">
+	<div class="left-show-area" ng-show="selectSide == 'security-settings' "></div>
 		<div></div>
-		<div class="ico-area grey-safeset"></div>
-		<p>安全设置</p>
+		<div class="ico-area {{selectSide == 'security-settings' ? 'red-safeset' : 'grey-safeset'}}"></div>
+		<p class="{{selectSide == 'security-settings' ? 'now' : ''}}">安全设置</p>
 	</a>
 	<p class="center-tips">资产管理</p>
 	<a ui-sref="root.userCenter.assets-overview" class="tips-area">
+	<div class="left-show-area" ng-show="selectSide == 'assets-overview' "></div>
 		<div></div>
-		<div class="ico-area grey-assets"></div>
-		<p>资产总览</p>
+		<div class="ico-area {{selectSide == 'assets-overview' ? 'red-assets' : 'grey-assets'}}"></div>
+		<p class="{{selectSide == 'assets-overview' ? 'now' : ''}}">资产总览</p>
 	</a>
 	<a ui-sref="root.userCenter.recharge" class="tips-area">
+	<div class="left-show-area" ng-show="selectSide == 'recharge' "></div>
 		<div></div>
-		<div class="ico-area grey-recharge"></div>
-		<p>充值</p>
+		<div class="ico-area {{selectSide == 'recharge' ? 'red-recharge' : 'grey-recharge'}}"></div>
+		<p class="{{selectSide == 'recharge' ? 'now' : ''}}">充值</p>
 	</a>
 	<a ui-sref="root.userCenter.withdraw" class="tips-area">
+	<div class="left-show-area" ng-show="selectSide == 'withdraw' "></div>
 		<div></div>
-		<div class="ico-area grey-withdraw"></div>
-		<p>提现</p>
+		<div class="ico-area {{selectSide == 'withdraw' ? 'red-withdraw' : 'grey-withdraw'}}"></div>
+		<p class="{{selectSide == 'withdraw' ? 'now' : ''}}">提现</p>
 	</a>
 	<a ui-sref="root.userCenter.record" class="tips-area">
+	<div class="left-show-area" ng-show="selectSide == 'record' "></div>
 		<div></div>
-		<div class="ico-area grey-record"></div>
-		<p>支付记录</p>
+		<div class="ico-area {{selectSide == 'record' ? 'red-record' : 'grey-record'}}"></div>
+		<p class="{{selectSide == 'record' ? 'now' : ''}}">支付记录</p>
 	</a>
 	<p class="center-tips">投资管理</p>
 	<a ui-sref="root.userCenter.investment" class="tips-area"> <!--tips-show">-->
-		<!--<div class="left-show-area"></div>-->
+		<div class="left-show-area" ng-show="selectSide == 'investment' "></div>
 		<div></div>
-		<div class="ico-area grey-investment"></div>
-		<p>投资产品</p>
-		<!--<p class="now">投资产品</p>-->
+		<div class="ico-area {{selectSide == 'investment' ? 'red-investment' : 'grey-investment'}}"></div>
+		<p class="{{selectSide == 'investment' ? 'now' : ''}}">投资产品</p>
 	</a>
 	<p class="center-tips">消息管理</p>
 	<a ui-sref="root.userCenter.news" class="tips-area">
+	<div class="left-show-area" ng-show="selectSide == 'news' "></div>
 		<div></div>
-		<div class="ico-area grey-news"></div>
-		<p>站内消息</p>
+		<div class="ico-area {{selectSide == 'news' ? 'red-news' : 'grey-news'}}"></div>
+		<p class="{{selectSide == 'news' ? 'now' : ''}}">站内消息</p>
 	</a>
 </div>

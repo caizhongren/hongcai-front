@@ -24,7 +24,9 @@
 			<img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify"  ng-click="refreshCode()">
 			<a class="a-verify">看不清楚？换一张</a>
 		</div>
-		<input type="button" value="确认提现" class="verify-button" ng-click="withdraw(amount, captcha)"/>
+		<div class="form-group">
+			<input type="button" value="确认提现" class="verify-button" ng-click="withdraw(amount, captcha)"/>
+		</div>
 	</form>
 	<div class="tip ft-12">
 		<p>温馨提示</p>

@@ -190,15 +190,25 @@
 			              				<span class="progress-percent">{{project.progress}}%</span>
 			              			</div>
 			            		</div>
-			            		<div class="row">
-			              			<div class="col-lg-12">
+			            		<div class="row"  ng-switch="isAvailable" >
+			              			<div class="col-lg-12" ng-switch-when="1">	
+			              			</div>
+			              			<div class="col-lg-12" ng-switch-when="2">
+			              			</div>
+			              			<div class="col-lg-12" ng-switch-default>
 			              				<input type='number' name="project.amount" ng-model="project.amount"/>&nbsp;&nbsp;元
 			              				<input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
 
 			              			</div>
 			            		</div>
-			            		<div class="row">
-				            		<div class="col-lg-12">
+			            		<div class="row" ng-switch="isAvailable">
+			            			<div class="col-lg-12" ng-switch-when="1">
+			              				<a ui-sref="root.login" class="go">请先登录</a>
+			              			</div>
+			              			<div class="col-lg-12" ng-switch-when="2">
+			              				<a ui-sref="root.userCenter.security-settings" class="go">请完善资料</a>
+			              			</div>
+				            		<div class="col-lg-12" ng-switch-default>
 				            			<input type="submit" class="go" value="立即投资">
 		                				<a href="sdsd.?amount = "></a>
 		              				</div>

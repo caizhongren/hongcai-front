@@ -509,12 +509,11 @@ hr {
   background: url('../images/sprite.png') -95px -238px;
 }
 .nav-pills .active {
-  background: url('../images/sprite.png') -95px -275px;
+  background: url('../images/sprite.png') -95px -276px;
 }
 /*project-details*/
 .project-details {
   color: #807979;
-  border-top: 1px solid #d8d8d8;
 }
 .project-details .recommend {
   border: 1px solid #dbdbdb;
@@ -679,6 +678,9 @@ hr {
 }
 .project-details .project-milestone .already {
   border-left: 3px solid #e94b2a;
+}
+.project-details .form-login {
+  margin-top: 0;
 }
 /**user-center**/
 .user-center .right-area,
@@ -971,4 +973,47 @@ hr {
 }
 #carousel-generic .carousel-indicators .active {
   background-color: red;
+}
+/**invest-verify**/
+.invest-verify {
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+.invest-verify strong {
+  border-left: 3px solid #e94828;
+}
+.invest-verify .list-item {
+  padding: 15px 20px 10px 15px;
+}
+.invest-verify .list-item .col-md-12 {
+  padding-bottom: 5px;
+}
+.invest-verify .nav-pills .active {
+  width: 20px;
+  height: 20px;
+}
+.invest-verify .password {
+  margin-top: 10px;
+  width: 300px;
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  outline: none;
+  padding: 5px;
+}
+.invest-verify .verify-button {
+  margin-left: 0;
+  margin-top: 10px;
+}
+.invest-verify .get-verify-button {
+  width: 85px;
+  border-radius: 5px;
+  margin-left: 30px;
+}
+.invest-verify a:hover {
+  color: #ea5430;
+  text-decoration: underline;
+}
+.invest-verify .container {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

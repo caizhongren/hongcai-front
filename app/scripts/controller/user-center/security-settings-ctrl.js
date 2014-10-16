@@ -1,6 +1,7 @@
 hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "UserCenterService", "toaster", function ($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
         
-
+        $rootScope.selectSide = "security-settings";
+        console.log("security-settings");
         UserCenterService.userSecurityInfo.get({}, function(response) {
             if(response.ret == 1) {
                 var userVo = response.data.userVo;
