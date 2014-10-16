@@ -369,9 +369,17 @@ label{
 .security-level{
     height: 12px;
     width: 158px;
-    background: url(/images/sprite.png) -83px -501px no-repeat;
     float: left;
     margin: 12px 0  10px 6px;
+}
+.low-level{
+  background: url(/images/sprite.png) -83px -501px no-repeat;
+}
+.mid-level{
+  background: url(/images/sprite.png) -35px -1228px no-repeat;
+}
+.high-level{
+  background: url(/images/sprite.png) -35px -1165px no-repeat;
 }
 .p-security-level{
     height: 14px;
@@ -575,7 +583,8 @@ label{
   width: 465px;
   margin: 0 auto;
 }
-.userCenter .form-group label {
+.userCenter .form-group label,
+.userCenter .safe-form-group label{
   width: 85px;
 }
 .verify-input {
@@ -788,9 +797,10 @@ label{
   margin-left: 215px;
   width: 145px;
   border-radius: 0px;
-  margin-top: 15px;
 }
-.real-name {
+.real-name{
+  padding-top: 30px;
+  padding-bottom: 30px;
   padding-left: 70px;
 }
  .read,
@@ -906,9 +916,58 @@ label{
 .set-transactionPwd:hover {
   background-color: #f27b64;
 }
+.safe-process{
+  height: 155px;
+  width: 640px;
+  background: url(/images/sprite.png) -18px -1275px no-repeat;
+  margin: 0 auto;
+  border-bottom: 1px solid #dfdfdf;
+  margin-bottom: 35px;
+}
+.process-tips{
+  float: left;
+  margin-top: 85px;
+}
+.safe-pwd{
+  margin-left: 20px;
+}
+.safe-phone{
+  margin-left: 117px;
+}
+.safe-mail{
+  margin-left: 114px;
+}
+.safe-realname{
+  margin-left: 105px;
+  width: 96px;
+}
+.change-area{
+  border: 1px solid #dfdfdf; 
+  width: 650px;
+  margin: -15px auto 10px auto;
+}
+.change-pwd-height{
+  height: 240px;
+}
+.change-mail-height{
+  height: 140px;
+}
+.change-phone-height{
+  height: 190px;
+}
+.verify-index{
+  margin-top: 0;
+  margin-right: -14px;
+  float: right;
+}
+.safe-form-group{
+  height: 50px;
+  width: 465px;
+  margin: 0 auto;
+}
 /*about-us*/
 .about-us-area{
-  padding-top: 18px;
+  margin-top: 18px;
 }
 .about-left-area{
   width: 170px;

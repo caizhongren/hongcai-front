@@ -13,8 +13,9 @@
 						name="mobile" 
 						ng-model="user.mobile" 
 						ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678]))\d{8}$/" 
-						ensure-unique-mobile="mobile" required autofocus> 
-					<div ng-show="registerForm.mobile.$dirty && registerForm.mobile.$invalid">
+						ensure-unique-mobile="mobile" 
+						required ng-focus> 
+					<div ng-show="registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused">
 						<div ng-show="registerForm.mobile.$error.unique">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
 							<p class="input-tips regist-input-tips">手机号码已被占用</p>
@@ -27,11 +28,16 @@
 				</div>
 				<div class="login-regist-form-group">
 					<label for="phoneVerify" class="big-tips">验证码：</label>
-					<input type="text" class="input-message input-verify-width" ng-model="phoneVerify">
+					<input type="text" 
+						class="input-message input-verify-width" 
+						id="phoneVerify"
+						name="phoneVerify"
+						ng-model="phoneVerify"
+						required ng-focus>
 					<input type="button" class="white-button" value="获取验证码">
-					<div ng-show="phoneVerify.length == 0">
+					<div ng-show="registerForm.phoneVerify.$dirty && registerForm.phoneVerify.$invalid && registerForm.phoneVerify.$error.check && !registerForm.phoneVerify.$focused">
 						<img ng-src="images/check_no.png" class="verify-pictips">
-						<p class="input-tips regist-input-tips verify-input-tips">{{verifyTips||"验证码不能为空"}}</p>
+						<p class="input-tips regist-input-tips verify-input-tips">验证码错误!</p>
 					</div>
 				</div>
 				<div class="login-regist-form-group">
@@ -44,8 +50,9 @@
 						ng-minlength="2" 
 						ng-maxlength="15" 
 						ng-pattern="/^[\u4e00-\u9fa5 | a-z | A-Z][\u4e00-\u9fa5 | a-z | A-Z | _ | 0-9 | \- ]{1,}$/" 
-						ensure-unique-name="name" required>
-					<div ng-show="registerForm.name.$dirty && registerForm.name.$invalid">
+						ensure-unique-name="name" 
+						required ng-focus>
+					<div ng-show="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused">
 						<div ng-show="registerForm.name.$error.unique">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
 							<p class="input-tips regist-input-tips">用户名已被占用</p>
@@ -66,12 +73,12 @@
 				</div>
 				<div class="login-regist-form-group">
 					<label for="password" class="big-tips">密码：</label>
-					<input type="password" class="input-message" id="password" name="password" ng-model="user.password" required>
+					<input type="password" class="input-message" id="password" name="password" ng-model="user.password" required ng-focus>
 				</div>
 				<div class="login-regist-form-group">
 					<label for="repeatPassword" class="big-tips">确认密码：</label>
 					<input type="password" class="input-message" name="repeatPassword" id="repeatPassword" ng-model="user.repeatPassword" password-match="password" required>
-					<div ng-show="registerForm.$error && registerForm.repeatPassword.$error.passwordmatch">
+					<div ng-show="registerForm.$error && registerForm.repeatPassword.$error.passwordmatch && !registerForm.password.$focused">
 						<img ng-src="images/check_no.png" class="check-img regist-check-img">
 						<p class="input-tips regist-input-tips">密码不一致</p>
 					</div>
