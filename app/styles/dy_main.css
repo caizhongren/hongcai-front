@@ -225,7 +225,6 @@ label{
 
 
 
-/*
 
 
 
@@ -324,7 +323,7 @@ label{
 
 
 
-/*
+
 
 
 
@@ -333,8 +332,8 @@ label{
     height: 125px;
     width: 100%;
     /*background-color: red;*/
-/*}
-/*.back-ground{
+}
+.back-ground{
     height: 858px;
     width: 100%;
     padding-top: 38px;
@@ -364,7 +363,7 @@ label{
     color: #888181;
     background-color: white;
     /*float: right;*/
-/*    border-radius: 5px;
+   border-radius: 5px;
     margin-left: 220px;
 }
 .personal-information{
@@ -439,7 +438,7 @@ label{
     display: block;
     color: inherit;
     /*padding-top: 10px;*/
-/*}
+}
 .tips-area:hover{
     color: inherit;
     background-color: #f7e9e8;
@@ -952,4 +951,3 @@ label{
  .set-transactionPwd:hover {
   background-color: #f27b64;
 }
-*/

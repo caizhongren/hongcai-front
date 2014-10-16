@@ -12,15 +12,17 @@
 		</div>
 		<div class="form-group">
 			<label>验证码：</label>
-			<input type="text" class="verify-input verify-code" />
-			<img src="images/verify_pic.png" class="pic-verify">
+			<input type="text" class="verify-input verify-code" ng-model="captcha"/>
+			<img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify"  ng-click="refreshCode()">
 			<a class="a-verify">看不清楚？换一张</a>
 		</div>
 		<div class="form-group agree-area">
 			<img src="images/check_01.png" class="pic-check" onclick="change_agree_pic(this);">
 			<p class="p-agree ft-12">我已阅读并同意签署<a href="">《服务协议》</a></p>
 		</div>
-		<input type="button" value="确认充值" class="verify-button" ng-click="recharge(amount)"/>
+		<div class="form-group">
+			<input type="button" value="确认充值" class="verify-button" ng-click="recharge(amount, captcha)"/>
+		</div>
 	</form>
 	<div class="tip ft-12">
 		<p>温馨提示</p>
