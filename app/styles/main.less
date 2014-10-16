@@ -233,7 +233,7 @@ hr {border-top: 1px solid #d8d8d8;}
 .news a {color: #b1abab;}
 .news-list {height: 472px;}
 .cooperation {
-  height: 230px;
+  height: 260px;
 }
 .news-item {
   margin-bottom: 10px;
@@ -250,11 +250,16 @@ hr {border-top: 1px solid #d8d8d8;}
   .flow-invest {background-position: -6px -235px;};
 }
 .cooperation-icon {
-  width: 105px;
+  width: 260px;
   height: 45px;
   float: left;
-  margin-right: 3px;
-  background: url('../../../images/cooperation-img.png');
+  margin-right: 35px;
+  margin-top: 10px;
+  .border;
+}
+.cooperation-list {
+  position: relative;
+  left: -30px;
 }
 /*footer*/
 #footer {
@@ -682,4 +687,30 @@ hr {border-top: 1px solid #d8d8d8;}
     .ftw-b;
   }
 
+}
+/**sponsor carousel**/
+
+#carousel-generic {
+  margin-left: 90px;
+  .carousel-control.left,
+  .carousel-control.right {
+    background: none;
+  }
+  .carousel-inner,
+  .sponsors {
+    width: 885px;
+  }
+  .carousel-control {width: 0;}
+  .left {left: -50px;}
+  .right {right: -15px;}
+  .carousel-indicators {
+    bottom: -40px;
+  }
+  .carousel-indicators li {
+    background-color: #ebebeb;
+    border: 1px solid #ebebeb;
+  }
+  .carousel-indicators .active {
+    background-color: red;
+  }
 }
