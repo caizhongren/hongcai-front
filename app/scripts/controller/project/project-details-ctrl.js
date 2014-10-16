@@ -28,7 +28,7 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$stateParams",
                 if (response.data.flag) {
                     $state.go("root.investVerify", {projectId: response.data.projectId,amount: response.data.amount});
                 }else{
-                    $state.go("root.investVerify", {projectId: response.data.projectId,amount: response.data.amount});
+                    $state.go("root.userCenter.account-overview");
                 }
                 
             } else {
