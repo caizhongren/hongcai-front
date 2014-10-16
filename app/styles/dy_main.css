@@ -427,14 +427,22 @@ label{
     margin-top: 5px;
     margin-right: 150px;
 }
+
 .red-account{
-    background: url(/images/sprite.png) -424px -463px no-repeat;
+    background: url(/images/sprite.png) -427px -463px no-repeat;
 }
+.grey-account {
+  background: url(/images/sprite.png) -394px -463px no-repeat;
+}
+.white-account{
+    background: url(/images/sprite.png) -428px -463px no-repeat;
+}
+
 .red-bankcard{
-    background: url(/images/sprite.png) -424px -525px no-repeat;
+    background: url(/images/sprite.png) -424px px no-repeat;
 }
 .red-safeset{
-    background: url(/images/sprite.png) -424px -555px no-repeat;
+    background: url(/images/sprite.png) -424px -534px no-repeat;
 }
 .red-assets{
     background: url(/images/sprite.png) -424px -590px no-repeat;
@@ -454,14 +462,11 @@ label{
 .red-news {
   background: url(/images/sprite.png) -424px -773px no-repeat;
 }
-.grey-account {
-  background: url(/images/sprite.png) -394px -463px no-repeat;
-}
 .grey-bankcard {
   background: url(/images/sprite.png) -394px -525px no-repeat;
 }
 .grey-safeset {
-  background: url(/images/sprite.png) -394px -558px no-repeat;
+  background: url(/images/sprite.png) -394px -534px no-repeat;
 }
 .grey-assets {
   background: url(/images/sprite.png) -394px -590px no-repeat;
@@ -481,14 +486,12 @@ label{
 .grey-news {
   background: url(/images/sprite.png) -394px -773px no-repeat;
 }
-.white-account{
-    background: url(/images/sprite.png) -428px -463px no-repeat;
-}
+
 .white-bankcard{
-    background: url(/images/sprite.png) -433px -525px no-repeat;
+    background: url(/images/sprite.png) -433px -534px no-repeat;
 }
 .white-safeset{
-    background: url(/images/sprite.png) -428px -555px no-repeat;
+    background: url(/images/sprite.png) -428px -534px no-repeat;
 }
 .white-assets{
     background: url(/images/sprite.png) -428px -590px no-repeat;
