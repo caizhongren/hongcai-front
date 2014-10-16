@@ -1,6 +1,12 @@
 <!--安全设置-->
 <div class="right-area right-assets-height">
 	<div class="right-title">安全设置</div>
+	<div class="safe-process">
+		<p class="process-tips safe-pwd">登录密码</p>
+		<p class="process-tips safe-phone">手机号认证</p>
+		<p class="process-tips safe-mail">邮箱绑定</p>
+		<p class="process-tips safe-realname">实名认证开通三方托管账户</p>
+	</div>
 	<div class="safe-part">
 		<p class="tips">用户名</p>
 		<p class="message">{{ loginName || "游客"}}</p>
@@ -12,12 +18,18 @@
 		<p class="message">已设置</p>
 		<p class="activity"><a href="/#/change-password">修改</a></p>
 	</div>
+	<div class="change-area change-pwd-height">
+		
+	</div>
 	<div class="safe-part">
 		<p class="tips">邮箱</p>
 		<p class="message">{{ email || "未设置"}}</p>
 		<p class="activity" ng-show="!email"><a href="/#/bind-email">设置</a></p>
 		<p class="activity" ng-show="email"><a href="/#/change-email">修改</a></p>
 		<div></div>
+	</div>
+	<div class="change-area change-mail-height">
+		
 	</div>
 	<div class="safe-part">
 		<p class="tips">手机号码</p>
@@ -26,7 +38,10 @@
 		<p class="activity" ng-show="mobile"><a href="/#/change-mobile">修改</a></p>
 		<div></div>
 	</div>
-	<div class="safe-part">
+	<div class="change-area change-phone-height">
+		
+	</div>
+	<!--<div class="safe-part">
 		<p class="tips">真实姓名</p>
 		<p class="message">{{ realName || "未认证"}}</p>
 		<p class="activity" ng-show="!isRealNameAuth"><a href="/#/realname-authentication">认证</a></p>
@@ -41,7 +56,7 @@
 		<p class="activity hadset" ng-show="isRealNameAuth">已认证</p>
 		<div class="check-ok" ng-show="isRealNameAuth"></div>
 		<div></div>
-	</div>
+	</div>-->
 	<div class="safe-part">
 		<p class="tips">第三方托管账户</p>
 		<p class="message" ng-show="!haveTrusteeshipAccount">未开通</p>
@@ -50,9 +65,17 @@
 		<p class="activity hadset" ng-show="haveTrusteeshipAccount">已开通</p>
 		<div class="check-ok" ng-show="haveTrusteeshipAccount"></div>
 	</div>
-<!--<div class="safe-part">
-  <p class="tips">风险调查问卷</p>
-  <p class="message">{{ Variables || "未设置"}}</p>
-  <p class="activity">{{ Variables || "认证"}}</p>
-</div>-->
+	<div class="change-area change-phone-height">
+		<form class="real-name">
+			<div class="form-group">
+				<label>真实姓名：</label>
+				<input type="text" class="verify-input" ng-model="user.realName"/>
+			</div>
+			<div class="form-group">
+				<label>身份证号：</label>
+				<input type="text" class="verify-input" ng-model="user.idCardNo"/>
+			</div>
+			<input type="button" value="提交实名认证" class="verify-button" ng-click="realNameAuth(user)"/>
+		</form>
+	</div>
 </div>
