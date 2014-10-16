@@ -28,6 +28,26 @@ label{
   float: left;
   margin-top: 3px;
 }
+.white-button {
+  border: 1px solid #e94828;
+  border-radius: 3px;
+  height: 30px;
+  width: 102px;
+  background-color: white;
+  margin-top: 6px;
+  margin-left: 5px;
+  color: #e94828;
+  outline-style: none;
+}
+.white-button:hover {
+  background-color: #e94828;
+  color: white;
+}
+.white-button:active {
+  background-color: #d23d1f;
+  outline-style: none;
+  color: white;
+}
 /*login-and-regist*/
 .bg-login-regist-width{
   width: 1006px;
@@ -81,19 +101,20 @@ label{
 }
 .check-img{
   margin-top: 13px;
-  /*margin-left:10px;*/
 }
 .input-tips {
   font-size: 12px;
   width: 165px;
   float: left;
-  /*margin-left: 343px;*/
   margin-top: -24px;
   color: #d8271c;
 }
 .bg{
   width: 100%;
   padding-top: 38px;
+}
+.input-verify-width{
+  width: 130px;
 }
 /*login*/
 .bg-login-height{
@@ -215,26 +236,24 @@ label{
   width: 70px;
 }
 .regist-check-img{
-  margin-left: 2px;
+  margin-left: 5px;
 }
-
-
-
-
-
-
-
-
-/*
-
-
-
-
-
-
-
-
-
+.regist-input-tips{
+  float: right;
+  margin-right: -125px;
+  margin-top: 12px;
+}
+.agree-area {
+  margin-top: 10px;
+}
+.verify-pictips{
+  margin-top: -23px;
+  margin-right: 46px;
+  float: right;
+}
+.verify-input-tips{
+  margin-top: -23px;
+}
 .pic-verify {
   margin-top: -3px;
   margin-left: 10px;
@@ -251,50 +270,10 @@ label{
 .a-verify:hover {
   color: #e94828;
 }
-
-
-
-
-
-.get-verify-button {
-  border: 1px solid #e94828;
-  border-radius: 3px;
-  height: 30px;
-  width: 105px;
-  background-color: white;
-  margin-top: 6px;
-  margin-left: 5px;
-  color: #e94828;
-  outline-style: none;
-}
-.get-verify-button:hover {
-  background-color: #e94828;
-  color: white;
-}
-.get-verify-button:active {
-  background-color: #d23d1f;
-  outline-style: none;
-  color: white;
-}
-.agree-area {
-  margin-top: 10px;
-}
-
-
 .p-login-right {
   padding-top: 145px;
   padding-left: 112px;
 }
-
-.mail-verify-width,
-.phone-verify-width {
-  width: 130px;
-}
-.phone-verify-pictips {
-  margin-top: -2px;
-  margin-left: 5px;
-}
-
 .p-agree {
   float: left;
   margin-left: 5px;
@@ -302,39 +281,16 @@ label{
 .p-picverify {
   margin-top: -22px;
 }
-
 .popover-content {
   padding: 5px 8px;
   height: 30px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-
-
-
+/*person_set*/
 .head{
     height: 125px;
     width: 100%;
-    /*background-color: red;*/
-/*}
-/*.back-ground{
+}
+.back-ground{
     height: 858px;
     width: 100%;
     padding-top: 38px;
@@ -363,8 +319,7 @@ label{
     font-size: 14px;
     color: #888181;
     background-color: white;
-    /*float: right;*/
-/*    border-radius: 5px;
+    border-radius: 5px;
     margin-left: 220px;
 }
 .personal-information{
@@ -438,8 +393,7 @@ label{
     width: 100%;
     display: block;
     color: inherit;
-    /*padding-top: 10px;*/
-/*}
+}
 .tips-area:hover{
     color: inherit;
     background-color: #f7e9e8;
@@ -949,7 +903,6 @@ label{
   margin-left: 10px;
   margin-top: 0;
 }
- .set-transactionPwd:hover {
+.set-transactionPwd:hover {
   background-color: #f27b64;
 }
-*/
