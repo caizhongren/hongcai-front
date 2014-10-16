@@ -85,7 +85,9 @@
  				templateUrl: 'views/user-center/user-center.html'
  			},
  			'sidebar': {
- 				templateUrl: 'views/user-center/sidebar.html'
+ 				templateUrl: 'views/user-center/sidebar.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center-ctrl'
  			}
  		}
  	})
