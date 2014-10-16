@@ -10,15 +10,15 @@
 	<div class="safe-part">
 		<p class="tips">用户名</p>
 		<p class="message">{{ loginName || "游客"}}</p>
-		<p class="activity hadset">{{ Variables || "已确定"}}</p>
+		<p class="activity hadset">{{"已确定"}}</p>
 		<div class="check-ok"></div>
 	</div>
 	<div class="safe-part">
 		<p class="tips">登录密码</p>
 		<p class="message">已设置</p>
-		<p class="activity"><a href="/#/change-password">修改</a></p>
+		<p class="activity"><a href="javascript::" ng-click="changPwd = true">修改</a></p>
 	</div>
-	<!--<div class="change-area change-pwd-height">
+	<div class="change-area change-pwd-height" ng-show="changPwd">
 		<form class="real-name">
 			<div class="safe-form-group">
 				<label>原始密码：</label>
@@ -34,7 +34,7 @@
 			</div>
 			<input type="button" value="下一步" class="verify-button mail-button"/>
 		</form>
-	</div>-->
+	</div>
 	<div class="safe-part">
 		<p class="tips">邮箱</p>
 		<p class="message">{{ email || "未设置"}}</p>

@@ -17,7 +17,7 @@
 	</div>
 	<p class="center-tips">我的账户</p>
 	<a ui-sref="root.userCenter.account-overview" class="tips-area {{selectSide == 'account-overview' ? 'tips-show' : ''}}">
-	<div class="left-show-area {{selectSide == 'account-overview' ? 'left-show-area-bg' : ''}}"></div>
+	<div class="left-show-area {{selectSide == 'account-overview' ? 'left-show-area-bg' : ''}}" ng-mousedown="hover=true"></div>
 		<div></div>
 		<div class="ico-area {{selectSide == 'account-overview' ? 'red-account' : 'grey-account'}}"></div>
 		<p class="{{selectSide == 'account-overview' ? 'now' : ''}}">账户总览</p>
@@ -25,7 +25,8 @@
 	<a ui-sref="root.userCenter.bankcard-management" class="tips-area {{selectSide == 'bankcard-management' ? 'tips-show' : ''}}">
 	<div class="left-show-area {{selectSide == 'bankcard-management' ? 'left-show-area-bg' : ''}}"></div>
 		<div></div>
-		<div class="ico-area {{selectSide == 'bankcard-management' ? 'red-bankcard' : 'grey-bankcard'}} ng-mousedown='white-bankcard'"></div>
+		<div class="ico-area {{selectSide == 'bankcard-management' ? 'red-bankcard' : 'grey-bankcard'}}"  ></div>
+
 		<p class="{{selectSide == 'bankcard-management' ? 'now' : ''}}">银行卡管理</p>
 	</a>
 	<a ui-sref="root.userCenter.security-settings" class="tips-area {{selectSide == 'security-settings' ? 'tips-show' : ''}}">
