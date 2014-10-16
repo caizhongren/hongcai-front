@@ -281,10 +281,14 @@
  	.state('root.about-us', {
  		views: {
  			'about-us': {
- 				templateUrl: 'views/about-us/about-us.html'
+ 				templateUrl: 'views/about-us/about-us.html',
+ 				controller: 'AboutUsCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
  			},
  			'about-sidebar': {
- 				templateUrl: 'views/about-us/about-sidebar.html'
+ 				templateUrl: 'views/about-us/about-sidebar.html',
+ 				controller: 'AboutUsCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
  			}
  		}
  	})
@@ -368,7 +372,6 @@
  			}
  		}
  	})
- 	
  	;
 
  	$urlRouterProvider.otherwise('/');
