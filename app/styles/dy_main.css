@@ -414,80 +414,105 @@ label{
     margin: 0;
     float: right;
     height: 100%;
-    width: 145px;
+    width: 139px;
     text-align: left;
     padding-top: 10px;
     font-size: 14px;
+    margin-top: -32px;
 }
 .ico-area{
     height: 30px;
     width: 30px;
-    float: left;
+    float: right;
     margin-top: 5px;
-    margin-left: 15px;
+    margin-right: 150px;
 }
 .red-account{
-    background: url(/images/sprite.png) -428px -457px no-repeat;
-}
-.red-basic{
-    background: url(/images/sprite.png) -428px -496px no-repeat;
+    background: url(/images/sprite.png) -424px -463px no-repeat;
 }
 .red-bankcard{
-    background: url(/images/sprite.png) -433px -525px no-repeat;
+    background: url(/images/sprite.png) -424px -525px no-repeat;
 }
 .red-safeset{
-    background: url(/images/sprite.png) -428px -555px no-repeat;
+    background: url(/images/sprite.png) -424px -555px no-repeat;
 }
 .red-assets{
-    background: url(/images/sprite.png) -428px -590px no-repeat;
+    background: url(/images/sprite.png) -424px -590px no-repeat;
 }
 .red-recharge{
-    background: url(/images/sprite.png) -428px -625px no-repeat;
+    background: url(/images/sprite.png) -424px -625px no-repeat;
 }
 .red-withdraw{
-    background: url(/images/sprite.png) -430px -667px no-repeat;
+    background: url(/images/sprite.png) -424px -667px no-repeat;
 }
 .red-record {
-  background: url(/images/sprite.png) -428px -703px no-repeat;
+  background: url(/images/sprite.png) -424px -703px no-repeat;
 }
 .red-investment {
-  background: url(/images/sprite.png) -428px -738px no-repeat;
+  background: url(/images/sprite.png) -424px -738px no-repeat;
 }
 .red-news {
-  background: url(/images/sprite.png) -428px -773px no-repeat;
+  background: url(/images/sprite.png) -424px -773px no-repeat;
 }
 .grey-account {
-  background: url(/images/sprite.png) -392px -458px no-repeat;
-}
-.grey-basic {
-  background: url(/images/sprite.png) -392px -496px no-repeat;
+  background: url(/images/sprite.png) -394px -463px no-repeat;
 }
 .grey-bankcard {
-  background: url(/images/sprite.png) -392px -525px no-repeat;
+  background: url(/images/sprite.png) -394px -525px no-repeat;
 }
 .grey-safeset {
-  background: url(/images/sprite.png) -392px -558px no-repeat;
+  background: url(/images/sprite.png) -394px -558px no-repeat;
 }
 .grey-assets {
-  background: url(/images/sprite.png) -392px -590px no-repeat;
+  background: url(/images/sprite.png) -394px -590px no-repeat;
 }
 .grey-recharge {
-  background: url(/images/sprite.png) -392px -625px no-repeat;
+  background: url(/images/sprite.png) -394px -625px no-repeat;
 }
 .grey-withdraw {
-  background: url(/images/sprite.png) -392px -665px no-repeat;
+  background: url(/images/sprite.png) -394px -665px no-repeat;
 }
 .grey-record {
-  background: url(/images/sprite.png) -392px -703px no-repeat;
+  background: url(/images/sprite.png) -394px -703px no-repeat;
 }
 .grey-investment {
-  background: url(/images/sprite.png) -392px -738px no-repeat;
+  background: url(/images/sprite.png) -394px -738px no-repeat;
 }
 .grey-news {
-  background: url(/images/sprite.png) -392px -773px no-repeat;
+  background: url(/images/sprite.png) -394px -773px no-repeat;
+}
+.white-account{
+    background: url(/images/sprite.png) -428px -463px no-repeat;
+}
+.white-bankcard{
+    background: url(/images/sprite.png) -433px -525px no-repeat;
+}
+.white-safeset{
+    background: url(/images/sprite.png) -428px -555px no-repeat;
+}
+.white-assets{
+    background: url(/images/sprite.png) -428px -590px no-repeat;
+}
+.white-recharge{
+    background: url(/images/sprite.png) -428px -625px no-repeat;
+}
+.white-withdraw{
+    background: url(/images/sprite.png) -430px -667px no-repeat;
+}
+.white-record {
+  background: url(/images/sprite.png) -428px -703px no-repeat;
+}
+.white-investment {
+  background: url(/images/sprite.png) -428px -738px no-repeat;
+}
+.white-news {
+  background: url(/images/sprite.png) -428px -773px no-repeat;
 }
 .now {
   color: #ee7259;
+}
+.now:active{
+  color: white;
 }
 .tips-show {
   background-color: #fbeeec;
@@ -495,8 +520,10 @@ label{
 .left-show-area {
   height: 100%;
   width: 4px;
-  background-color: #e14526;
   float: left;
+}
+.left-show-area-bg{
+  background-color: #e14526;
 }
 .right-title {
   height: 40px;
