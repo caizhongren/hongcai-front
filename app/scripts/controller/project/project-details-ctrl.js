@@ -3,6 +3,7 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$stateParams",
         $scope.project = projectDetails.data.project;
         $scope.projectInfo = projectDetails.data.projectInfo;
         $scope.pledges = projectDetails.data.pledges;
+        $scope.isAvailable = projectDetails.data.isAvailable;
 
 
     
