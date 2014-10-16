@@ -414,18 +414,17 @@ label{
     margin: 0;
     float: right;
     height: 100%;
-    width: 139px;
+    width: 145px;
     text-align: left;
-    padding-top: 10px;
+    padding-top: 12px;
     font-size: 14px;
-    margin-top: -32px;
 }
 .ico-area{
     height: 30px;
     width: 30px;
-    float: right;
+    float: left;
     margin-top: 5px;
-    margin-right: 150px;
+    margin-left: 15px;
 }
 
 .red-account{
@@ -435,82 +434,89 @@ label{
   background: url(/images/sprite.png) -394px -463px no-repeat;
 }
 .white-account{
-    background: url(/images/sprite.png) -428px -463px no-repeat;
+    background: url(/images/sprite.png) -463px -463px no-repeat;
 }
 
 .red-bankcard{
-    background: url(/images/sprite.png) -424px px no-repeat;
-}
-.red-safeset{
-    background: url(/images/sprite.png) -424px -534px no-repeat;
-}
-.red-assets{
-    background: url(/images/sprite.png) -424px -590px no-repeat;
-}
-.red-recharge{
-    background: url(/images/sprite.png) -424px -625px no-repeat;
-}
-.red-withdraw{
-    background: url(/images/sprite.png) -424px -667px no-repeat;
-}
-.red-record {
-  background: url(/images/sprite.png) -424px -703px no-repeat;
-}
-.red-investment {
-  background: url(/images/sprite.png) -424px -738px no-repeat;
-}
-.red-news {
-  background: url(/images/sprite.png) -424px -773px no-repeat;
+    background: url(/images/sprite.png) -429px -499px no-repeat;
 }
 .grey-bankcard {
-  background: url(/images/sprite.png) -394px -525px no-repeat;
+  background: url(/images/sprite.png) -395px -499px no-repeat;
 }
-.grey-safeset {
-  background: url(/images/sprite.png) -394px -534px no-repeat;
-}
-.grey-assets {
-  background: url(/images/sprite.png) -394px -590px no-repeat;
-}
-.grey-recharge {
-  background: url(/images/sprite.png) -394px -625px no-repeat;
-}
-.grey-withdraw {
-  background: url(/images/sprite.png) -394px -665px no-repeat;
-}
-.grey-record {
-  background: url(/images/sprite.png) -394px -703px no-repeat;
-}
-.grey-investment {
-  background: url(/images/sprite.png) -394px -738px no-repeat;
-}
-.grey-news {
-  background: url(/images/sprite.png) -394px -773px no-repeat;
+.white-bankcard{
+    background: url(/images/sprite.png) -463px -499px no-repeat;
 }
 
-.white-bankcard{
-    background: url(/images/sprite.png) -433px -534px no-repeat;
+.red-safeset{
+    background: url(/images/sprite.png) -429px -534px no-repeat;
+}
+.grey-safeset {
+  background: url(/images/sprite.png) -395px -534px no-repeat;
 }
 .white-safeset{
-    background: url(/images/sprite.png) -428px -534px no-repeat;
+    background: url(/images/sprite.png) -463px -534px no-repeat;
+}
+
+.red-assets{
+    background: url(/images/sprite.png) -429px -569px no-repeat;
+}
+.grey-assets {
+  background: url(/images/sprite.png) -395px -569px no-repeat;
 }
 .white-assets{
-    background: url(/images/sprite.png) -428px -590px no-repeat;
+    background: url(/images/sprite.png) -463px -569px no-repeat;
+}
+
+.red-recharge{
+    background: url(/images/sprite.png) -429px -604px no-repeat;
+}
+.grey-recharge {
+  background: url(/images/sprite.png) -395px -604px no-repeat;
 }
 .white-recharge{
-    background: url(/images/sprite.png) -428px -625px no-repeat;
+    background: url(/images/sprite.png) -463px -604px no-repeat;
+}
+
+.red-withdraw{
+    background: url(/images/sprite.png) -429px -641px no-repeat;
+}
+.grey-withdraw {
+  background: url(/images/sprite.png) -395px -641px no-repeat;
 }
 .white-withdraw{
-    background: url(/images/sprite.png) -430px -667px no-repeat;
+    background: url(/images/sprite.png) -463px -641px no-repeat;
+}
+
+.red-record {
+  background: url(/images/sprite.png) -429px -673px no-repeat;
+}
+.grey-record {
+  background: url(/images/sprite.png) -395px -673px no-repeat;
 }
 .white-record {
-  background: url(/images/sprite.png) -428px -703px no-repeat;
+  background: url(/images/sprite.png) -463px -673px no-repeat;
+}
+
+.red-investment {
+  background: url(/images/sprite.png) -429px -709px no-repeat;
+}
+.grey-investment {
+  background: url(/images/sprite.png) -395px -709px no-repeat;
 }
 .white-investment {
-  background: url(/images/sprite.png) -428px -738px no-repeat;
+  background: url(/images/sprite.png) -463px -709px no-repeat;
+}
+
+.red-news {
+  background: url(/images/sprite.png) -429px -743px no-repeat;
+}
+.grey-news {
+  background: url(/images/sprite.png) -395px -743px no-repeat;
 }
 .white-news {
-  background: url(/images/sprite.png) -428px -773px no-repeat;
+  background: url(/images/sprite.png) -463px -743px no-repeat;
 }
+
 .now {
   color: #ee7259;
 }

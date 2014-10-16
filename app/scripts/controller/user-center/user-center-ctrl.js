@@ -7,7 +7,6 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
 
     /***************************** sidebar start *************************/
     $rootScope.selectSide = $location.path().substr($location.path().indexOf("/") + 1);
-    console.log($location.path().substr($location.path().indexOf("/") + 1));
     UserCenterService.userSecurityInfo.get({}, function(response) {
             if(response.ret == 1) {
                 var securityLevel = 0;
