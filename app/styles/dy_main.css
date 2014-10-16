@@ -215,9 +215,15 @@ label{
   width: 70px;
 }
 .regist-check-img{
-  margin-left: 2px;
+  margin-left: 5px;
 }
-
+.regist-input-tips{
+  float: right;
+  margin-left: 20px;
+}
+.agree-area {
+  margin-top: 10px;
+}
 
 
 
@@ -276,9 +282,7 @@ label{
   outline-style: none;
   color: white;
 }
-.agree-area {
-  margin-top: 10px;
-}
+
 
 
 .p-login-right {
