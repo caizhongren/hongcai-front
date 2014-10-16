@@ -1,7 +1,7 @@
 <div class="back-ground registe-height login-registe" ng-contrlller="RegisterCtrl">
 	<toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
-	<div class="registe-area">
-		<div class="way-registe">
+	<div class="registe-area bg-login-regist-width">
+		<div class="way-regist form-area">
 			<a class="grey-registe a-registe a-phone-registe" ui-sref="root.registerMobile">手机注册</a>
 			<a class="red-registe a-registe a-mail-registe" ui-sref="root.registerMail">邮箱注册</a>
 			<form class="form-registe" name="registerForm" ng-submit="submitRegisterMail(user);" >
@@ -93,7 +93,7 @@
 				<div class="form-group agree-area">
 					<img src="images/check_01.png" class="pic-check" onclick="change_agree_pic(this);">
 					<p class="p-agree">同意<a href="">《注册协议》</a>和<a href="">《隐私协议》</a></p>
-					<input type="submit" class="registe-button" ng-disabled="registerForm.$invalid" value="立即注册">
+					<input type="submit" class="red-button" ng-disabled="registerForm.$invalid" value="立即注册">
 				</div>
 			</form>
 		</div>

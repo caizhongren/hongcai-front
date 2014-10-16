@@ -5,6 +5,11 @@
   {{capital}}
 
   {{distance}}
+  	<form class="real-name">
+		<div class="form-group">
+			<label>订单号：{{orderId}}</label>
+		</div>
 
-  {{orderId}}
+		<input type="button" value="确认充值" class="verify-button" ng-click="transfer(orderId)"/>
+	</form>
 </div>

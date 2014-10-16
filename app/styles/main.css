@@ -344,7 +344,7 @@ hr {
   height: 472px;
 }
 .cooperation {
-  height: 230px;
+  height: 260px;
 }
 .news-item {
   margin-bottom: 10px;
@@ -374,11 +374,17 @@ hr {
   background-position: -6px -235px;
 }
 .cooperation-icon {
-  width: 105px;
+  width: 260px;
   height: 45px;
   float: left;
-  margin-right: 3px;
-  background: url('../../../images/cooperation-img.png');
+  margin-right: 35px;
+  margin-top: 10px;
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+}
+.cooperation-list {
+  position: relative;
+  left: -30px;
 }
 /*footer*/
 #footer {
@@ -912,4 +918,35 @@ hr {
 .safe .tit2 {
   margin-left: -24px;
   font-weight: bold;
+}
+/**sponsor carousel**/
+#carousel-generic {
+  margin-left: 90px;
+}
+#carousel-generic .carousel-control.left,
+#carousel-generic .carousel-control.right {
+  background: none;
+}
+#carousel-generic .carousel-inner,
+#carousel-generic .sponsors {
+  width: 885px;
+}
+#carousel-generic .carousel-control {
+  width: 0;
+}
+#carousel-generic .left {
+  left: -50px;
+}
+#carousel-generic .right {
+  right: -15px;
+}
+#carousel-generic .carousel-indicators {
+  bottom: -40px;
+}
+#carousel-generic .carousel-indicators li {
+  background-color: #ebebeb;
+  border: 1px solid #ebebeb;
+}
+#carousel-generic .carousel-indicators .active {
+  background-color: red;
 }
