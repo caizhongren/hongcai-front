@@ -278,15 +278,11 @@
  	/*------------------------------------------  about-us  -----------------------------------------------*/
  	.state('root.about-us', {
  		views: {
- 			'about-us-right': {
- 				templateUrl: 'views/about-us/about-us.html',
- 				controller: 'aboutUsCtrl',
- 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			'about-us': {
+ 				templateUrl: 'views/about-us/about-us.html'
  			},
  			'about-sidebar': {
- 				templateUrl: 'views/about-us/about-sidebar.html',
- 				controller: 'aboutUsCtrl',
- 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 				templateUrl: 'views/about-us/about-sidebar.html'
  			}
  		}
  	})
@@ -295,7 +291,77 @@
  		views: {
  			'about-us-right': {
  				templateUrl: 'views/about-us/introduction-of-platform.html',
- 				controller: 'aboutUsCtrl',
+ 				controller: 'IntroductionCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.about-us.business-model', {
+ 		url: '/business-model',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/business-model.html',
+ 				controller: 'BusinessModelCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.about-us.company-profile', {
+ 		url: '/company-profile',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/company-profile.html',
+ 				controller: 'CompanyProfileCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.about-us.web-site-announcement', {
+ 		url: '/web-site-announcement',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/web-site-announcement.html',
+ 				controller: 'WebSiteCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.about-us.hongcaidynamic', {
+ 		url: '/hongcaidynamic',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/hongcaidynamic.html',
+ 				controller: 'HongcaiDynamicCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.about-us.media-reports', {
+ 		url: '/media-reports',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/media-reports.html',
+ 				controller: 'MediaReportsCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.about-us.link-us', {
+ 		url: '/link-us',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/link-us.html',
+ 				controller: 'LinkUsCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.about-us.news-details', {
+ 		url: '/news-details',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/news-details.html',
+ 				controller: 'NewsCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
  			}
  		}
@@ -313,7 +379,9 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 	var routespermission = ['/account-overview', 
 							'/assets-overview',  
 							'/realname-authentication',
-							'/security-settings'];
+							'/security-settings',
+							'/withdraw',
+							'/recharge'];
 	$rootScope.$on('$stateChangeStart', function() {
 		if(routespermission.indexOf($location.path()) !== -1) {
 			var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');

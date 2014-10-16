@@ -1,4 +1,4 @@
-hongcaiApp.factory('aboutUsService', function ($resource, DEFAULT_DOMAIN) {
+hongcaiApp.factory('AboutUsService', function ($resource, DEFAULT_DOMAIN) {
 	return {
 	};
 });

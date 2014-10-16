@@ -1,11 +1,11 @@
-<div class="back-ground registe-height login-registe" ng-contrlller="RegisterCtrl">
+<div class="bg-offWhite regist-height bg" ng-contrlller="RegisterCtrl">
 	<toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
-	<div class="registe-area">
-		<div class="way-registe">
-			<a class="red-registe a-registe a-phone-registe" ui-sref="root.registerMobile">手机注册</a>
-			<a class="grey-registe a-registe a-mail-registe" ui-sref="root.registerMail">邮箱注册</a>
-			<form class="form-registe" name="registerForm" ng-submit="submitRegisterMail(user);" >
-				<div class="form-group">
+	<div class="registe-area bg-login-regist-width">
+		<div class="way-regist form-area">
+			<a class="red-regist a-regist a-phone-regist" ui-sref="root.registerMobile">手机注册</a>
+			<a class="grey-regist a-regist a-mail-regist" ui-sref="root.registerMail">邮箱注册</a>
+			<form class="form-regist" name="registerForm" ng-submit="submitRegisterMail(user);" >
+				<div class="login-regist-form-group">
 					<label for="mobile" class="big-tips">手机号：</label>
 					<input type="text" 
 						class="input-message" 
@@ -16,23 +16,25 @@
 						ensure-unique-mobile="mobile" required autofocus> 
 					<div ng-show="registerForm.mobile.$dirty && registerForm.mobile.$invalid">
 						<div ng-show="registerForm.mobile.$error.unique">
-							<img ng-src="images/check_no.png" class="check-img">
-							<p class="input-tips red">手机号码已被占用</p>
+							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<p class="input-tips regist-input-tips">手机号码已被占用</p>
+						</div>
+						<div ng-show="registerForm.mobile.$error.pattern">
+							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<p class="input-tips regist-input-tips">手机号码格式不正确</p>
 						</div>
 					</div>
-					<div ng-show="registerForm.mobile.$error.pattern">
-						<img ng-src="images/check_no.png" class="check-img">
-						<p class="input-tips red">手机号码格式不正确</p>
+				</div>
+				<div class="login-regist-form-group">
+					<label for="phoneVerify" class="big-tips">验证码：</label>
+					<input type="text" class="input-message input-verify-width" ng-model="phoneVerify">
+					<input type="button" class="white-button" value="获取验证码">
+					<div ng-show="phoneVerify.length == 0">
+						<img ng-src="images/check_no.png" class="verify-pictips">
+						<p class="input-tips regist-input-tips verify-input-tips">{{verifyTips||"验证码不能为空"}}</p>
 					</div>
 				</div>
-				<div class="form-group">
-					<label for="phoneVerify" class="big-tips">验证码：</label>
-					<input type="text" class="input-message phone-verify-width" ng-model="phoneVerify">
-					<input type="button" class="get-verify-button" value="获取验证码"> 
-					<img ng-src={{verifyImage||"images/check_no.png"}} class="phone-verify-pictips" ng-if="phoneVerify.length == 0">
-					<p class="input-tips red" ng-if="phoneVerify.length == 0">{{verifyTips||"验证码不能为空"}}</p>
-				</div>
-				<div class="form-group">
+				<div class="login-regist-form-group">
 					<label for="userName" class="big-tips">用户名：</label> 
 					<input type="text" 
 						class="input-message" 
@@ -45,41 +47,40 @@
 						ensure-unique-name="name" required>
 					<div ng-show="registerForm.name.$dirty && registerForm.name.$invalid">
 						<div ng-show="registerForm.name.$error.unique">
-							<img ng-src="images/check_no.png" class="check-img">
-							<p class="input-tips red">用户名已被占用</p>
+							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<p class="input-tips regist-input-tips">用户名已被占用</p>
+						</div>
+						<div ng-show="registerForm.name.$error.minlength">
+							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<p class="input-tips regist-input-tips">不能小于3个字符</p>
+						</div>
+						<div ng-show="registerForm.name.$error.maxlength">
+							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<p class="input-tips regist-input-tips">不能大于15个字符</p>
+						</div>
+						<div ng-show="registerForm.name.$error.pattern">
+							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<p class="input-tips regist-input-tips">以字母或中文开头</p>
 						</div>
 					</div>
-					<div ng-show="registerForm.name.$error.minlength">
-						<img ng-src="images/check_no.png" class="check-img">
-						<p class="input-tips red">不能小于3个字符</p>
-					</div>
-					<div ng-show="registerForm.name.$error.maxlength">
-						<img ng-src="images/check_no.png" class="check-img">
-						<p class="input-tips red">不能大于15个字符</p>
-					</div>
-					<div ng-show="registerForm.name.$error.pattern">
-						<img ng-src="images/check_no.png" class="check-img">
-						<p class="input-tips red">以字母或中文开头</p>
-					</div>
 				</div>
-				<div class="form-group">
+				<div class="login-regist-form-group">
 					<label for="password" class="big-tips">密码：</label>
 					<input type="password" class="input-message" id="password" name="password" ng-model="user.password" required>
 				</div>
-				<div class="form-group">
+				<div class="login-regist-form-group">
 					<label for="repeatPassword" class="big-tips">确认密码：</label>
 					<input type="password" class="input-message" name="repeatPassword" id="repeatPassword" ng-model="user.repeatPassword" password-match="password" required>
-					<div ng-show="registerForm.$error">
-						<div ng-show="registerForm.repeatPassword.$error.passwordmatch">
-							<img ng-src="images/check_no.png" class="check-img">
-							<p class="input-tips red">密码不一致</p>
-						</div>
+					<div ng-show="registerForm.$error && registerForm.repeatPassword.$error.passwordmatch">
+						<img ng-src="images/check_no.png" class="check-img regist-check-img">
+						<p class="input-tips regist-input-tips">密码不一致</p>
 					</div>
 				</div>
-				<div class="form-group agree-area">
+				<div class="login-regist-form-group agree-area">
+					<label class="big-tips"></label>
 					<img ng-src={{checkImage||"images/check_01.png"}} class="pic-check">
 					<p class="p-agree">同意<a href="">《注册协议》</a>和<a href="">《隐私协议》</a></p>
-					<input type="button" class="registe-button" ng-disabled="registerForm.$invalid" value="立即注册">
+					<input type="button" class="red-button" ng-disabled="registerForm.$invalid" value="立即注册">
 				</div>
 			</form>
 		</div>

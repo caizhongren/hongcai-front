@@ -1,61 +1,49 @@
-<!-- <div class="login-background">
-  <div class="login-area">
-	<p class="login-title">登录宏财</p>
-	<form action="" class="form-login">
-	  <div class="input-area">
-		<p class="big-tips">帐户：</p>
-		<input type="text" class="input-message" ng-model="account">
-	  </div>
-	  <div>
-		<i class="fa fa-times-circle-o"></i>
-		<p class="input-tips red">
-		  {{ pwd_wrong_tips || "密码不能为空"}}
-		</p>
-	  </div>
-	</form>
-  </div>
-</div> -->
-<div class="login-back-ground login-registe bg-offWhite" ng-controller="LoginCtrl">
-	<div class="login-background">
-		<div class="login-area">
+<!--login-->
+<div class="bg bg-offWhite" ng-controller="LoginCtrl">
+	<div class="bg-login-height bg-login-regist-width">
+		<div class="login-area form-area">
 			<p class="login-title">登录宏财</p>
-			<form class="form-horizontal form-login" role="form" ng-submit="login(user)">
+			<form class="form-horizontal form-login" role="form" name="loginForm" ng-submit="login(user)">
 				<toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
-				<div class="form-group">
+				<div class="login-regist-form-group">
 					<label for="account" class="big-tips">账户：</label>
-					<input type="text" class="input-message" name="user.account" ng-model="user.account">
-					<div ng-if="account.length == 0">
-						<img src="images/check_no.png" class="check-img" >
-						<p class="input-tips red">{{account_wrong_tips||"账号不能为空"}}</p>
+					<input type="text" 
+						class="input-message" 
+						id="account" 
+						name="account" 
+						ng-model="user.account" 
+						required 
+						autofocus>
+					<div ng-show="loginForm.account.$dirty && loginForm.account.$invalid">
+						<div ng-show="loginForm.account.$error.required">
+							<img ng-src="images/check_no.png" class="check-img login-check-img">
+							<p class="input-tips login-input-tips">账号不能为空</p>
+						</div>
 					</div>
-					<!--
-					<div ng-show='warning'>
-						<img src="images/check_no.png" class="check-img" >
-						<p class="input-tips red">{{errorMessage}}</p>
-					</div>
-					-->
 				</div>
-
-				<div class="form-group">
+				<div class="login-regist-form-group">
 					<label for="password" class="big-tips">密码：</label>
-					<input type="password" class="input-message" name="user.password" ng-model="user.password">
-					<div ng-if="password.length == 0">
-						<img src="images/check_no.png" class="check-img" >
-						<p class="input-tips red">{{pwd_wrong_tips||"密码不能为空"}}</p>
+					<input type="password" 
+						class="input-message" 
+						name="password" 
+						ng-model="user.password"
+						required 
+						autofocus>
+					<div ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+						<div ng-show="loginForm.password.$error.required">
+							<img ng-src="images/check_no.png" class="check-img login-check-img">
+							<p class="input-tips login-input-tips">密码不能为空</p>
+						</div>
 					</div>
 				</div>
-				<!--<div class="form-group">
-				  <label for="verify" class="col-sm-4 control-label">验证码：</label>
-				  <div class="col-sm-3">
-					<input type="text" class="form-control" name="verify" placeholder="" ng-model="verify">
-				  </div>
-				  <div class="col-sm-3">
-					<img src="http://192.168.80.44:8080/hongcai/images/verify_pic.png" alt="">
-				  </div>
-				</div>-->
-
+				<div class="login-regist-form-group remember-height">
+					<label for="password" class="big-tips"></label>
+					<img src="images/check_01.png" class="pic-check" onclick="change_agree_pic(this);">
+					<p class="p-remember">记住用户名</p>
+					<a href="/" class="p-forget">忘记密码？</a>
+				</div>
 				<div class="form-group">
-					<input type="submit" class="registe-button" value="立即登录">
+					<input type="submit" class="red-button" ng-disabled="loginForm.$invalid" value="立即登录">
 				</div>
 			</form>
 		</div>
