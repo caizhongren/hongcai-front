@@ -265,11 +265,11 @@
  		}
  	})
  	/*---------------------------------------------  order  ---------------------------------------------*/
- 	.state('root.investVerify', {//投资信息确认页面:购物车
- 		url: '/investVerify/:projectId/:amount',
+ 	.state('root.invest-verify', {//投资信息确认页面:购物车
+ 		url: '/invest-verify/:projectId/:amount',
  		views: {
  			'': {
- 				templateUrl: 'views/order/investVerify.html',
+ 				templateUrl: 'views/order/invest-verify.html',
  				controller: 'investVerifyCtrl',
  				controllerUrl: 'scripts/controller/order/invest-verify-ctrl'
  			}
