@@ -146,8 +146,8 @@
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/withdraw.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'WithdrawCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/withdraw-ctrl'
  			}
  		}
  	})
