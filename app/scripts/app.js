@@ -356,6 +356,16 @@
  			}
  		}
  	})
+ 	.state('root.about-us.news-details', {
+ 		url: '/news-details',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/news-details.html',
+ 				controller: 'NewsCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
  	
  	;
 

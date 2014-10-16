@@ -943,6 +943,7 @@ label{
 .introduction-height{
   height: 900px;
   margin-bottom: 45px;
+  margin-left: 205px;
 }
 .introduction-area{
   width: 640px;
@@ -1066,4 +1067,11 @@ label{
 .news-nav .active{
   background-color: white;
   border-bottom: 1px solid white;
+}
+.details-title{
+  width: 280px;
+  margin: 60px auto 10px auto;
+}
+.p-details{
+  margin-top: 110px;
 }
