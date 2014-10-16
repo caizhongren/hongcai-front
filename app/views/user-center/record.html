@@ -41,16 +41,22 @@
 			            </li>
 			        </ul>
 			    </div>
-			    <div class="row">
+			    <div class="row datePicker">
 			        <label>固定期限：</label>
-			        <ul>
-			            <li>
-			                开始：<a href="#">全部</a>
-			            </li>
-			            <li>
-			                截止：<a href="#">0 - 3个月</a>
-			            </li>
-			        </ul>
+			        <form name="datepickerForm" class="form-inline" role="form">
+					  <div class="date">
+					    <label class="control-label"><i class="fa fa-calendar"></i><small>开始日期</small></label>
+					    <label class="control-label"><i class="fa fa-calendar"></i> <small>截止日期</small></label>
+					    <br>
+					    <div class="form-group mgn-l">
+					      <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker>
+					    </div>
+					    <i class="fa fa-arrows-h"></i>
+					    <div class="form-group">
+					      <input type="text" class="form-control" ng-model="untilDate" data-min-date="{{fromDate}}" placeholder="Until" bs-datepicker>
+					    </div>
+					  </div>
+					</form>
 			    </div>
 			    <div class="row record-list">
 			    	<div class="col-md-12">

@@ -818,6 +818,40 @@ hr {
   line-height: 50px;
   font-size: 12px;
 }
+.record .datePicker,
+.investment .datePicker,
+.userCenter-news .datePicker {
+  margin: 20px 125px;
+}
+.record .datePicker label,
+.investment .datePicker label,
+.userCenter-news .datePicker label {
+  float: left;
+  margin-bottom: 10px;
+}
+.record .datePicker .mgn-l,
+.investment .datePicker .mgn-l,
+.userCenter-news .datePicker .mgn-l {
+  margin-left: 75px;
+}
+.record .datePicker .form-group,
+.investment .datePicker .form-group,
+.userCenter-news .datePicker .form-group {
+  float: left;
+  width: 200px;
+}
+.record .datePicker .control-label,
+.investment .datePicker .control-label,
+.userCenter-news .datePicker .control-label {
+  width: 200px;
+  text-align: center;
+}
+.record .datePicker .fa-arrows-h,
+.investment .datePicker .fa-arrows-h,
+.userCenter-news .datePicker .fa-arrows-h {
+  float: left;
+  margin-right: 15px;
+}
 .userCenter-news .col-md-12 {
   padding: 0;
 }
