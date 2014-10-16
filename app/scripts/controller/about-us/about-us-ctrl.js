@@ -15,4 +15,6 @@ hongcaiApp
 }])
 .controller("LinkUsCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, aboutUsService) {
 }])
+.controller("NewsCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, aboutUsService) {
+}])
 ;

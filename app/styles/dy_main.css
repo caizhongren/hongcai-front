@@ -1068,3 +1068,10 @@ label{
   background-color: white;
   border-bottom: 1px solid white;
 }
+.details-title{
+  width: 280px;
+  margin: 60px auto 10px auto;
+}
+.p-details{
+  margin-top: 110px;
+}

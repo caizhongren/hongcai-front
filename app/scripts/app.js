@@ -267,11 +267,11 @@
  		}
  	})
  	/*---------------------------------------------  order  ---------------------------------------------*/
- 	.state('root.investVerify', {//投资信息确认页面:购物车
- 		url: '/investVerify/:projectId/:amount',
+ 	.state('root.invest-verify', {//投资信息确认页面:购物车
+ 		url: '/invest-verify/:projectId/:amount',
  		views: {
  			'': {
- 				templateUrl: 'views/order/investVerify.html',
+ 				templateUrl: 'views/order/invest-verify.html',
  				controller: 'investVerifyCtrl',
  				controllerUrl: 'scripts/controller/order/invest-verify-ctrl'
  			}
@@ -354,6 +354,16 @@
  			'about-us-right': {
  				templateUrl: 'views/about-us/link-us.html',
  				controller: 'LinkUsCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.about-us.news-details', {
+ 		url: '/news-details',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/news-details.html',
+ 				controller: 'NewsCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
  			}
  		}
