@@ -106,22 +106,7 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
         });
     };
 
-    $scope.withdraw = function(amount, captcha) {
-    	UserCenterService.yeepayWithdraw.get({amount: amount, captcha: captcha}, function(response) {
-    		if(response.ret == 1) {
-    			var req = response.data.req;
-    			var sign = response.data.sign;
-                var _f=new_form();
-                create_elements(_f,"req",req);
-                create_elements(_f,"sign",sign);
-                _f.action="http://qa.yeepay.com/member/bha/toWithdraw";
-                _f.submit();
 
-            } else {
-
-            }
-        });
-    };   
 
 
     UserCenterService.getUserCapital.get(function(response) {

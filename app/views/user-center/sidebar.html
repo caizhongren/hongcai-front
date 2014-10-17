@@ -7,7 +7,7 @@
 		<div class="safe-pic {{isRealNameAuth ? 'card-ok' : 'card-no'}}"></div>
 		<div class="safe-pic {{mobile ? 'phone-ok' : 'phone-no'}}"></div>
 		<div class="safe-pic {{email ? 'mail-ok' : 'mail-no'}}"></div>
-		<div class="security-level"></div>
+		<div class="security-level {{securityLevel == 0 ? 'low-level' : (securityLevel == 1 ? 'mid-level' : 'high-level')}}"></div>
 		<p class="p-security-level" >安全等级：
 			<span ng-if="securityLevel == 0">低</span>
 			<span ng-if="securityLevel == 1">中</span>
