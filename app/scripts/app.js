@@ -139,8 +139,8 @@
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/recharge.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'RechargeCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/recharge-ctrl'
  			}
  		}
  	})
