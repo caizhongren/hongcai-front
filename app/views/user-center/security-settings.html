@@ -23,14 +23,26 @@
 			<div class="safe-form-group">
 				<label>原始密码：</label>
 				<input type="text" class="verify-input" ng-model="password.oldPassword" required/>
+				<div  class="user-tips-area safe-tips-area">
+					<img ng-src="images/check_no.png" class="user-check-img">
+					<p class="input-tips user-input-tips">yeyeyey</p>
+				</div>
 			</div>
 			<div class="safe-form-group">
 				<label>新密码：</label>
 				<input type="text" class="verify-input" ng-model="password.newPassword" required/>
+				<div  class="user-tips-area safe-tips-area">
+					<img ng-src="images/check_no.png" class="user-check-img">
+					<p class="input-tips user-input-tips">yeyeyey</p>
+				</div>
 			</div>
 			<div class="safe-form-group">
 				<label>确认密码：</label>
 				<input type="text" class="verify-input" ng-model="password.repeatNewPassword" required/>
+				<div  class="user-tips-area safe-tips-area">
+					<img ng-src="images/check_no.png" class="user-check-img">
+					<p class="input-tips user-input-tips">yeyeyey</p>
+				</div>
 			</div>
 			<input type="button" value="确定" class="verify-button mail-button" ng-click="changePassword(password)" ng-disabled="changePwdForm.$invalid"/>
 		</form>
@@ -47,6 +59,10 @@
 			<div class="safe-form-group">
 				<label>邮箱：</label>
 				<input type="text" class="verify-input"/>
+				<div  class="user-tips-area safe-tips-area">
+					<img ng-src="images/check_no.png" class="user-check-img">
+					<p class="input-tips user-input-tips">yeyeyey</p>
+				</div>
 			</div>
 			<input type="button" value="确定" class="verify-button mail-button" ng-click=""/>
 		</form>
@@ -83,26 +99,20 @@
 			<div class="safe-form-group">
 				<label>短信验证码：</label>
 				<input type="text" class="verify-input" ng-model="setMobileCaptcha" required/>
+				<div  class="user-tips-area safe-tips-area">
+					<img ng-src="images/check_no.png" class="user-check-img">
+					<p class="input-tips user-input-tips">yeyeyey</p>
+				</div>
+				<input type="text" class="verify-input phone-input-width"/>
+				<input type="button" value="获取验证码" class="get-verify-button verify-index">
+				<div  class="user-tips-area safe-tips-area">
+					<img ng-src="images/check_no.png" class="user-check-img phone-verify-check-img">
+					<p class="input-tips user-input-tips phone-verify-tips-index">yeyeyey</p>
+				</div>
 			</div>
 			<input type="button" value="确定" class="verify-button" ng-click="setMobile(setMobile, setMobileCaptcha)" ng-disabled="bindMobileForm.$invalid"/>
 		</form>
 	</div>
-	<!--<div class="safe-part">
-		<p class="tips">真实姓名</p>
-		<p class="message">{{ realName || "未认证"}}</p>
-		<p class="activity" ng-show="!isRealNameAuth"><a href="/#/realname-authentication">认证</a></p>
-		<p class="activity hadset" ng-show="isRealNameAuth">已认证</p>
-		<div class="check-ok" ng-show="isRealNameAuth"></div>
-		<div></div>
-	</div>
-	<div class="safe-part">
-		<p class="tips">身份证号码</p>
-		<p class="message">{{ idNo || "未认证"}}</p>
-		<p class="activity" ng-show="!isRealNameAuth"><a href="/#/realname-authentication">认证</a></p>
-		<p class="activity hadset" ng-show="isRealNameAuth">已认证</p>
-		<div class="check-ok" ng-show="isRealNameAuth"></div>
-		<div></div>
-	</div>-->
 	<div class="safe-part">
 		<p class="tips">第三方托管账户</p>
 		<p class="message" ng-show="!haveTrusteeshipAccount">未开通</p>
@@ -116,10 +126,18 @@
 			<div class="safe-form-group">
 				<label>真实姓名：</label>
 				<input type="text" class="verify-input" ng-model="user.realName"/>
+				<div  class="user-tips-area safe-tips-area">
+					<img ng-src="images/check_no.png" class="user-check-img">
+					<p class="input-tips user-input-tips">yeyeyey</p>
+				</div>
 			</div>
 			<div class="safe-form-group">
 				<label>身份证号：</label>
 				<input type="text" class="verify-input" ng-model="user.idCardNo"/>
+				<div  class="user-tips-area safe-tips-area">
+					<img ng-src="images/check_no.png" class="user-check-img">
+					<p class="input-tips user-input-tips">yeyeyey</p>
+				</div>
 			</div>
 			<input type="button" value="提交实名认证" class="verify-button" ng-click="realNameAuth(user)"/>
 		</form>
