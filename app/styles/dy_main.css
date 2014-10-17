@@ -433,7 +433,8 @@ label{
 .grey-account {
   background: url(/images/sprite.png) -394px -463px no-repeat;
 }
-.white-account{
+.tips-area:active .grey-account,
+.tips-area:active .red-account{
     background: url(/images/sprite.png) -463px -463px no-repeat;
 }
 
@@ -443,7 +444,8 @@ label{
 .grey-bankcard {
   background: url(/images/sprite.png) -395px -499px no-repeat;
 }
-.white-bankcard{
+.tips-area:active .grey-bankcard,
+.tips-area:active .red-bankcard{
     background: url(/images/sprite.png) -463px -499px no-repeat;
 }
 
@@ -453,7 +455,8 @@ label{
 .grey-safeset {
   background: url(/images/sprite.png) -395px -534px no-repeat;
 }
-.white-safeset{
+.tips-area:active .grey-safeset,
+.tips-area:active .red-safeset{
     background: url(/images/sprite.png) -463px -534px no-repeat;
 }
 
@@ -463,7 +466,8 @@ label{
 .grey-assets {
   background: url(/images/sprite.png) -395px -569px no-repeat;
 }
-.white-assets{
+.tips-area:active .grey-assets,
+.tips-area:active .red-assets{
     background: url(/images/sprite.png) -463px -569px no-repeat;
 }
 
@@ -473,7 +477,8 @@ label{
 .grey-recharge {
   background: url(/images/sprite.png) -395px -604px no-repeat;
 }
-.white-recharge{
+.tips-area:active .grey-recharge,
+.tips-area:active .red-recharge{
     background: url(/images/sprite.png) -463px -604px no-repeat;
 }
 
@@ -483,7 +488,8 @@ label{
 .grey-withdraw {
   background: url(/images/sprite.png) -395px -641px no-repeat;
 }
-.white-withdraw{
+.tips-area:active .grey-withdraw,
+.tips-area:active .red-withdraw{
     background: url(/images/sprite.png) -463px -641px no-repeat;
 }
 
@@ -493,7 +499,8 @@ label{
 .grey-record {
   background: url(/images/sprite.png) -395px -673px no-repeat;
 }
-.white-record {
+.tips-area:active .grey-record,
+.tips-area:active .red-record {
   background: url(/images/sprite.png) -463px -673px no-repeat;
 }
 
@@ -503,7 +510,8 @@ label{
 .grey-investment {
   background: url(/images/sprite.png) -395px -709px no-repeat;
 }
-.white-investment {
+.tips-area:active .grey-investment,
+.tips-area:active .red-investment {
   background: url(/images/sprite.png) -463px -709px no-repeat;
 }
 
@@ -513,7 +521,8 @@ label{
 .grey-news {
   background: url(/images/sprite.png) -395px -743px no-repeat;
 }
-.white-news {
+.tips-area:active .grey-news,
+.tips-area:active .red-news{
   background: url(/images/sprite.png) -463px -743px no-repeat;
 }
 
