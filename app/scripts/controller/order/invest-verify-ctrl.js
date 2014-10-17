@@ -49,7 +49,7 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$state", "$rootScope", "$s
 
     }
 
-    var myOtherModal = $modal({scope: $scope, template: 'views/modal/modal-invest-verify.html', show: true});
+    var myOtherModal = $modal({scope: $scope, template: 'views/modal/modal-invest-verify.html', show: false});
     $scope.showModal = function() {
         myOtherModal.$promise.then(myOtherModal.show);
     };
