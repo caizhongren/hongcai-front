@@ -21,29 +21,4 @@ function change_agree_pic(x){
     var Flag = ( x.getAttribute( "src", 2 ) == "images/check_01.png" )
     x.src = Flag ? "images/check_02.png" : "images/check_01.png";
 }
-    var wait=60;
-    function time(o) {
-        if ( wait == 0 ) {
-            o.removeAttribute("disabled");          
-            o.value = '获取验证码';
-            if(o.className == 'get-verify-button verify-index grey'){
-                o.className = 'get-verify-button verify-index';
-            }else if(o.className == 'white-button grey'){
-                o.className = 'white-button';
-            }
-            wait = 60;
-        }else{
-            o.setAttribute("disabled", true);
-            if(o.className == 'get-verify-button verify-index'){
-                o.className = 'get-verify-button verify-index grey';
-            }else if(o.className == 'white-button'){
-                o.className = 'white-button grey';
-            }
-            o.value = wait + "s 后重新发送";
-            wait--;
-            setTimeout(function() {
-                time(o)
-            },
-            1000)
-        }
-    }    
+   
