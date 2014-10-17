@@ -56,7 +56,11 @@
 			<div class="col-md-12" ng-switch-default>
 				<div class="col-md-3">您的余额不足</div>
 				<input type="button" value="充值" class="verify-button" ng-click="transfer(orderId)"/>
-				<input type="button" value="修改投资金额" class="verify-button get-verify-button" ng-click="transfer(orderId)"/>
+				<!-- <input type="button" value="修改投资金额" class="verify-button get-verify-button" ng-click="transfer(orderId)"/> -->
+
+				<button type="button" class="verify-button get-verify-button" ng-click="showModal()">修改投资金额
+				</button>
+
 			</div>
 			<div class="col-md-12" ng-switch-when="0">
 				<strong>&nbsp;&nbsp;输入支付密码</strong>
