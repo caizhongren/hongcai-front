@@ -8,15 +8,17 @@
 		</div>
 		<div class="form-group">
 			<label>充值金额：</label>
-			<input type="text" class="verify-input"  ng-model="amount" required/>&nbsp;&nbsp;元
-			<div class="user-tips-area" ng-show="rechargeForm.$invalid">
+			<input id="amount" type="text" class="verify-input"  
+									ng-model="rechargeAmount" 
+									ng-pattern="/^\d+$/"required/>&nbsp;&nbsp;元
+			<div class="user-tips-area" ng-show="rechargeForm.amount.$error.pattern">
 				<img ng-src="images/check_no.png" class="user-check-img">
-				<p class="input-tips user-input-tips">reertrwr</p>
+				<p class="input-tips user-input-tips" >只能输入数字</p>
 			</div>
 		</div>
 
 		<div class="form-group">
-			<input type="button" value="确认充值" class="verify-button" ng-click="recharge(amount, captcha)" ng-disabled="rechargeForm.$invalid"/>
+			<input type="button" value="确认充值" class="verify-button" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid"/>
 		</div>
 	</form>
 	<div class="tip ft-12">
