@@ -9,7 +9,7 @@
 		<div class="form-group">
 			<label>充值金额：</label>
 			<input type="text" class="verify-input"  ng-model="amount" required/>&nbsp;&nbsp;元
-			<div class="user-tips-area">
+			<div class="user-tips-area" ng-show="rechargeForm.$invalid">
 				<img ng-src="images/check_no.png" class="user-check-img">
 				<p class="input-tips user-input-tips">reertrwr</p>
 			</div>
