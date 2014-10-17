@@ -6,6 +6,7 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$state", "$rootScope", "$s
            $scope.capital = investVerify.data.capital;
            $scope.distance = investVerify.data.distance;
            $scope.orderId = investVerify.data.orderId;
+           $scope.amount = investVerify.data.amount;
         } 
     });
 
