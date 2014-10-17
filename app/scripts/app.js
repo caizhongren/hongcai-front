@@ -47,6 +47,9 @@
  			},
  			'slider': {
  				templateUrl: 'views/slider.html'
+ 			},
+ 			'sponsor': {
+ 				templateUrl: 'views/project/project-sponsor-list.html'
  			}
  		}
  	})
@@ -240,6 +243,11 @@
  				templateUrl: 'views/project/project-sponsorInstitution.html',
  				controller: 'ProjectSponsorInstitutionCtrl',
  				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
+ 			},
+ 			'sponsor': {
+ 				templateUrl: 'views/project/project-sponsor-list.html',
+ 				controller: 'ProjectSponsorInstitutionCtrl',
+ 				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
  			}
  		}
  	})
@@ -251,6 +259,11 @@
  				templateUrl: 'views/safe.html',
  				controller: 'SafeCtrl',
  				controllerUrl: 'scripts/controller/project/safe-ctrl'
+ 			},
+ 			'sponsor': {
+ 				templateUrl: 'views/project/project-sponsor-list.html',
+ 				controller: 'ProjectSponsorInstitutionCtrl',
+ 				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
  			}
  		}
  	})
