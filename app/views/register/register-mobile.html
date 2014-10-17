@@ -34,7 +34,7 @@
 						name="phoneVerify"
 						ng-model="phoneVerify"
 						required ng-focus>
-					<input type="button" class="white-button" value="获取验证码">
+					<input type="button" class="white-button" value="获取验证码" id="getVerify" onclick="time(this);">
 					<div ng-show="registerForm.phoneVerify.$dirty && registerForm.phoneVerify.$invalid && registerForm.phoneVerify.$error.check && !registerForm.phoneVerify.$focused">
 						<img ng-src="images/check_no.png" class="verify-pictips">
 						<p class="input-tips regist-input-tips verify-input-tips">验证码错误!</p>

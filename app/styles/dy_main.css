@@ -32,7 +32,7 @@ label{
   border: 1px solid #e94828;
   border-radius: 3px;
   height: 30px;
-  width: 102px;
+  width: 113px;
   background-color: white;
   margin-top: 6px;
   margin-left: 5px;
@@ -113,7 +113,7 @@ label{
   width: 100%;
 }
 .input-verify-width{
-  width: 130px;
+  width: 125px;
 }
 /*login*/
 .bg-login-height{
@@ -1000,7 +1000,7 @@ label{
 .verify-index{
   margin-top: 0;
   margin-right: 116px;
-  width: 97px;
+  width: 110px;
   float: right;
 }
 .safe-form-group{
@@ -1026,13 +1026,19 @@ label{
   margin-right: -70px;
 }
 .phone-input-width{
-  width: 140px;
+  width: 130px;
 }
 .phone-verify-tips-index{
   margin-top: -26px;
 }
 .phone-verify-check-img{
   margin-top: -23px;
+}
+.grey,
+.grey:hover{
+  color: #a39f9f;
+  background-color: #e2e2e2;
+  border: 1px solid #c4c4c4;
 }
 /*about-us*/
 .about-us-area{

@@ -63,6 +63,4 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
             }
         });
     };
-    
-
 }]);
