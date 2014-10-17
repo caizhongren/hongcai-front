@@ -19,6 +19,19 @@ body {
     width: 980px;
   }
 }
+.modal-open {
+  overflow: visible;
+}
+.modal-open .btn,
+.modal-open .btn:hover {
+  border-color: #f27b64;
+}
+.modal-open .get-verify-button {
+  margin-top: 0;
+}
+.modal-open .btn-default {
+  width: 85px;
+}
 a,
 a:hover {
   text-decoration: none;
@@ -199,7 +212,7 @@ hr {
   background-position: -275px 6px;
 }
 .finance {
-  background-position: -445px 5px;
+  background-position: -445px 2px;
 }
 .security {
   background-position: -605px 6px;
