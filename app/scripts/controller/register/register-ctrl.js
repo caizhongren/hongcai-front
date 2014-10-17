@@ -33,23 +33,12 @@ hongcaiApp.controller("RegisterCtrl", ["$scope", "$state", "$rootScope", "$state
     $scope.refreshCode = function() {
         angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());
     };
+
+    $scope.sendMobileCode = function(){
+        console.log("test");
+        RegisterService.timeCount(60,this);
+    };
 }]);
-    var wait=60;
-        function time(val) {
-        if ( wait == 0 ) {
-            val.removeAttribute("disabled");          
-            val.value = '获取验证码';
-            val.className = 'white-button';
-            wait = 60;
-        }else{
-            val.setAttribute("disabled", true);
-            val.className = 'white-button grey';
-            val.value = wait + "s 后重新发送";
-            wait--;
-            setTimeout(function() {
-                time(val)
-            },
-            1000)
-        } 
-    }
+
+
  

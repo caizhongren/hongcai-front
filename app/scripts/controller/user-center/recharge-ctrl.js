@@ -46,8 +46,8 @@ hongcaiApp.controller("RechargeCtrl", [ "$location", "$scope", "$state", "$rootS
         angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());
     };
 
-    $scope.recharge = function(amount, captcha) {
-    	UserCenterService.yeepayWithdraw.get({amount: amount, captcha: captcha}, function(response) {
+    $scope.recharge = function(amount) {
+    	UserCenterService.yeepayWithdraw.get({amount: amount}, function(response) {
     		if(response.ret == 1) {
     			var req = response.data.req;
     			var sign = response.data.sign;
