@@ -30,9 +30,14 @@
 					ng-focus
 					autofocus/>
 				<div class="user-tips-area safe-tips-area" 
-						ng-show="changePwdForm.oldPwd.$dirty && changePwdForm.oldPwd.$invalid && !changePwdForm.oldPwd.$focused">
+						ng-show="!changePwdForm.oldPwd.$dirty && changePwdForm.oldPwd.$invalid && !changePwdForm.oldPwd.$focused">
 					<img ng-src="images/check_no.png" class="user-check-img">
 					<p class="input-tips user-input-tips">请输入原密码</p>
+				</div>
+				<div class="user-tips-area safe-tips-area" 
+						ng-show="changePwdForm.oldPwd.$dirty && !changePwdForm.oldPwd.$focused && !isOldPasswordTrue" ng-init="isOldPasswordTrue=true">
+					<img ng-src="images/check_no.png" class="user-check-img">
+					<p class="input-tips user-input-tips">原密码错误</p>
 				</div>
 			</div>
 			<div class="safe-form-group">
