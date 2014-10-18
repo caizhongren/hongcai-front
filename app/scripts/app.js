@@ -176,7 +176,7 @@
  			}
  		}
  	})
- 	.state('root.userCenter.investment.query', {
+ 	.state('root.userCenter.investment-query', {
  		url: '/userCenter-investment/:dateInterval',
  		views: {
  			'user-center': {
