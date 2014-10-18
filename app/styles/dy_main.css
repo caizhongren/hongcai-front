@@ -1040,6 +1040,9 @@ label{
   background-color: #e2e2e2;
   border: 1px solid #c4c4c4;
 }
+.account-pic-bg{
+  background: url(/images/sprite.png) -20px -20px no-repeat;
+}
 /*about-us*/
 .about-us-area{
   margin-top: 18px;

@@ -63,8 +63,8 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
             }
         });
     };
-}]);
- var wait=60;
+
+     var wait=60;
     function setTime(val) {
         if ( wait == 0 ) {
             val.removeAttribute("disabled");          
@@ -81,4 +81,8 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
             },
             1000)
         }
-    }    
+    }   
+}]);
+
+
+ 
