@@ -42,11 +42,26 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
         });
     }; 
 
-    $scope.bindMobile = function(mobile, captcha){
-        UserCenterService.bindMobile.get({mobile: mobile, captcha: captcha},function(response){
+    $scope.bindMobile = function(mobileNo, captcha){
+        UserCenterService.bindMobile.get({mobile: mobileNo, captcha: captcha},function(response){
             if (response.ret == 1){
-                $scope.mobile = mobile;
+                $scope.mobile = mobileNo.substr(0,3) + "****" + mobileNo.substr(7,11);
                 $scope.changeMobile = false;
+                $scope.mobileNo = null;
+                $scope.inputCaptcha = null;
+            } else {
+
+            }
+        });
+    };
+
+
+    $scope.bindEmail = function(email){
+        UserCenterService.bindEmail.get({email: email},function(response){
+            if (response.ret == 1){
+                $scope.email = email.substr(0,2) + "****" + email.substr(email.indexOf("@"));
+                $scope.changeEmail = false;
+                $scope.newEmail = null;
             } else {
 
             }
@@ -58,6 +73,48 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
             if (response.ret == 1){
                 $scope.changPwd = false;
                 $scope.password = null;
+            } else {
+
+            }
+        });
+    };
+
+
+    function new_form(){
+        var f = document.createElement("form");
+        document.body.appendChild(f);
+        f.method = "post";
+        //f.target = "_blank";
+        return f;
+    }
+
+    function create_elements(eForm,eName,eValue){
+        var e=document.createElement("input");
+        eForm.appendChild(e);
+        e.type='text';
+        e.name=eName;
+        if(!document.all){
+            e.style.display='none';
+        }else{
+            e.style.display='block';
+            e.style.width='0px';
+            e.style.height='0px';
+        }
+        e.value=eValue;
+        return e;
+    }
+
+    $scope.realNameAuth = function(user) {
+        UserCenterService.yeepayRegister.get({realName:user.realName, idCardNo:user.idCardNo}, function(response) {
+            if(response.ret == 1) {
+                var req = response.data.req;
+                var sign = response.data.sign;
+                var _f=new_form();
+                create_elements(_f,"req",req);
+                create_elements(_f,"sign",sign);
+                _f.action="http://qa.yeepay.com/member/bha/toRegister";
+                _f.submit();
+
             } else {
 
             }
