@@ -99,8 +99,18 @@
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/account-overview.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'AccountOverviewCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/account-overview-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.userCenter.assets-overview', {
+ 		url: '/assets-overview',
+ 		views: {
+ 			'user-center': {
+ 				templateUrl: 'views/user-center/assets-overview.html',
+ 				controller: 'AssetsOverviewCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/assets-overview-ctrl'
  			}
  		}
  	})
@@ -121,16 +131,6 @@
  				templateUrl: 'views/user-center/security-settings.html',
  				controller: 'SecuritySettingsCtrl',
  				controllerUrl: 'scripts/controller/user-center/security-settings-ctrl'
- 			}
- 		}
- 	})
- 	.state('root.userCenter.assets-overview', {
- 		url: '/assets-overview',
- 		views: {
- 			'user-center': {
- 				templateUrl: 'views/user-center/assets-overview.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
  	})
