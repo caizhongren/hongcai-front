@@ -8,10 +8,21 @@
 		</div>
 		<div class="form-group">
 			<label>提现金额：</label>
-			<input id="amount" type="text" class="verify-input" ng-model="amount" required/>&nbsp;&nbsp;元
-			<div ng-show="withdrawForm.amount.$error." class="user-tips-area">
+			<input name="amount" type="text" class="verify-input" ng-model="amount" 
+					ng-pattern="/^-?\d+(\.\d{1,2})?$/"
+					ng-focus
+					required autofocus/>&nbsp;&nbsp;元
+			<div class="user-tips-area"  ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">
 				<img ng-src="images/check_no.png" class="user-check-img">
 				<p class="input-tips user-input-tips">只能输入数字</p>
+			</div>
+			<div class="user-tips-area"  ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">
+				<img ng-src="images/check_no.png" class="user-check-img">
+				<p class="input-tips user-input-tips">不能大于可提现金额</p>
+			</div>
+			<div class="user-tips-area" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">
+				<img ng-src="images/check_no.png" class="user-check-img">
+				<p class="input-tips user-input-tips">提现金额不能为空</p>
 			</div>
 		</div>
 		<div class="form-group">
