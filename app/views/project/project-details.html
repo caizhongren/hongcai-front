@@ -18,7 +18,7 @@
 		              		<div class="col-lg-12">
 		              			发布日期：<span>{{ project.releaseTime | amDateFormat: 'YYYY年M月d日'}}</span><br>
 		              			<hr>
-		              			担保机构：<span>{{project.guaranteeName}}</span><br>
+		              			担保机构：<span><a ui-sref="root.project-sponsorInstitution">{{project.guaranteeName}}</a></span><br>
 		              			还款方式：<span>{{repayment_type.repaymentType}}</span>
 		              		</div>
 		            	</div>

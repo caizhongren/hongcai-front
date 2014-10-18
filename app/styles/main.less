@@ -170,11 +170,23 @@ hr {border-top: 1px solid #d8d8d8;}
       display: inline-block;
     };
   }
+  .hot-sale {
+    position: absolute;
+    right: -22px;
+    top: -16px;
+    width: 90px;
+    height: 90px;
+    background: url(../../../images/sprite.png) -280px -90px;
+  }
 }
 
 .project-name {
   font-size: 24px;
   padding: 10px 0;
+}
+.col-lg-8 .project-item .col-lg-7 {
+  a {.ft-grey}
+  .go {color: #fff;}
 }
 .to-invest {text-align: center;}
 .index .row .go {
@@ -215,10 +227,24 @@ hr {border-top: 1px solid #d8d8d8;}
 }
 .project-tit-txt {.ft-red;.ft-18;.ftw-b;line-height: 30px;}
 .check-more {float: right;}
-.project-item-img {padding: 23px 45px 15px 45px;}
+.project-item-img {
+  padding: 23px 45px 15px 45px;
+  a {
+    display: inline-block;
+    width: 238px;
+    height: 235px;
+  }
+}
 .support-text {
-  padding: 20px 65px;
+  padding: 10px 35px;
+  line-height: 25px;
   .ftw-b;
+  .support-text-img {
+    width: 35px;
+    height: 35px;
+    background: url('../../../images/sprite.png') -98px -98px;
+    float: left;
+  }
 }
 .recommend-support-details {
   margin-left: 0;
@@ -379,7 +405,10 @@ hr {border-top: 1px solid #d8d8d8;}
 /*project-details*/
 .project-details {
   .ft-grey;
-  .recommend {border: 1px solid #dbdbdb;}
+  .recommend {
+    border: 1px solid #dbdbdb;
+    a {.ft-grey;}
+  }
   .recommend-details .col-lg-12 {padding-left: 25px;}
   hr {
     margin-top: 10px;
@@ -768,6 +797,24 @@ hr {border-top: 1px solid #d8d8d8;}
     background-color: red;
   }
 }
+/**sponsorInstitution**/
+.slider-container {height: 80px;}
+.slides {padding-left: 0;}
+.sudyslider .slider-control { 
+  margin-top:5px; 
+  height:8px; 
+  background-color:#e5e5e5; 
+  border-radius:6px;
+}
+.sudyslider .slider-control .slider-widget {
+  width:65px; 
+  height:10px; 
+  top:50%; 
+  margin-top:-5px; 
+  background-color:#e94828; 
+  border-radius:8px; 
+  cursor:pointer;
+}
 /**invest-verify**/
 .invest-verify {
   padding-top: 20px;
@@ -809,8 +856,4 @@ hr {border-top: 1px solid #d8d8d8;}
   
 } 
 
-.slider-container {height: 80px;}
-.slides {padding-left: 0;}
-.sudyslider .slider-container .slides .slide{ background:url(shadow.png) repeat-x center bottom;}
-.sudyslider .slider-control { margin-top:5px; height:8px; background-color:#e5e5e5; border-radius:6px;}
-.sudyslider .slider-control .slider-widget {width:65px; height:10px; top:50%; margin-top:-5px; background-color:#e94828; border-radius:8px; cursor:pointer;}
+
