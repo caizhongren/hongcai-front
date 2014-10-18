@@ -69,7 +69,7 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
     };
 
     $scope.checkTwoPassword = function(password){
-        if(password.oldPassword != password.newPassword){
+        if(password.repeatNewPassword != password.newPassword){
             return false;
         }else{
             return true;
@@ -78,15 +78,17 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
     }
 
     $scope.changePassword = function(password){
-        if (password.oldPassword != password.newPassword) {
+        if (password.repeatNewPassword != password.newPassword) {
             return;
         };
         UserCenterService.changePassword.get({oldPassword: password.oldPassword, newPassword: password.newPassword, repeatNewPassword: password.repeatNewPassword},function(response){
             if (response.ret == 1){
                 $scope.changPwd = false;
                 $scope.password = null;
-            } else {
-                
+            } else if(response.ret == -1) {
+                if(response.code == -1021){
+                    $scope.isOldPasswordTrue = false;
+                }
             }
         });
     };

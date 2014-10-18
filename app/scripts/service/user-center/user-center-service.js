@@ -4,7 +4,7 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
 		yeepayRegister: $resource(DEFAULT_DOMAIN + '/yeepay/register', {realName: '@realName', idNo: '@idNo' }),
 		yeepayRecharge: $resource(DEFAULT_DOMAIN + '/yeepay/recharge', {amount: '@amount' }),
 		yeepayWithdraw: $resource(DEFAULT_DOMAIN + '/yeepay/withdraw', {amount: '@amount' }),
-		bindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/bindBandCard', {}),
+		bindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/bindBankCard', {}),
 		getUserCapital: $resource(DEFAULT_DOMAIN + '/siteUser/getUserCapitalById'),
 		getUserAvailableCash: $resource(DEFAULT_DOMAIN + '/siteUserCapital/getUserAvailableCash'),
 		getUserOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser'),

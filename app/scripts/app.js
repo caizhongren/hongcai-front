@@ -87,7 +87,9 @@
  	.state('root.userCenter', {
  		views: {
  			'user-center': {
- 				templateUrl: 'views/user-center/user-center.html'
+ 				templateUrl: 'views/user-center/user-center.html',
+ 				controller: 'UserCenterCtrl',
+ 				controllerUrl: 'scripts/controller/user-center-ctrl'
  			},
  			'sidebar': {
  				templateUrl: 'views/user-center/sidebar.html',
@@ -207,7 +209,7 @@
  		}
  	})
  	/*---------------------------------------------  yeepay  ---------------------------------------------*/
- 	.state('root.yeepay-callback', {
+ 	.state('root.userCenter.yeepay-callback', {
  		url: '/yeepay-callback/:yeepayService/:yeepayStatus',
  		views: {
  			'': {
