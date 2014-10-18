@@ -6,9 +6,9 @@ hongcaiApp.controller("BankCardManagementCtrl", [ "$location", "$scope", "$state
                 var card = response.data.card;
                 if(card){
                     $scope.haveCard = true;
-                    $scope.isAuth = response.data.isAuth;
                     $scope.bankName = card.openBank;
                 }
+                $scope.isAuth = response.data.isAuth;
             }
         });
 
