@@ -169,7 +169,7 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
 					segmentStrokeColor : "#fff",
 					
 					//Number - The width of each segment stroke
-					segmentStrokeWidth : 2,
+					segmentStrokeWidth : 5,
 					
 					//The percentage of the chart that we cut out of the middle.
 					percentageInnerCutout : 50,
