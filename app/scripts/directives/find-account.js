@@ -11,10 +11,8 @@ angular.module('hongcaiApp').directive('findAccount', ['$http', 'DEFAULT_DOMAIN'
 						url: DEFAULT_DOMAIN + '/siteUser/findAccount?account=' + account
 					}).success(function(data, status, headers, cfg) {
 						if(data.data.user) {
-							console.info(ctrl);
 							ctrl.$setValidity('unique', true);
 						} else if(!data.data.user) {
-							console.info(123);
 							ctrl.$setValidity('unique', false);
 						}
 					}).error(function(data, status, headers, cfg) {
