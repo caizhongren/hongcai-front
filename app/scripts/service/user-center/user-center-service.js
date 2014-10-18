@@ -8,7 +8,7 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
 		getUserCapital: $resource(DEFAULT_DOMAIN + '/siteUser/getUserCapitalById'),
 		getUserAvailableCash: $resource(DEFAULT_DOMAIN + '/siteUserCapital/getUserAvailableCash'),
 
-		getUserOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser'),
+		getOrderByUser: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser'),
 /*		getUserBalance: function(response){
 			$resource(DEFAULT_DOMAIN + 'siteUserCapital/getUserBalance').get({}, function(){
 
