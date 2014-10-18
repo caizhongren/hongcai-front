@@ -1051,6 +1051,9 @@ label{
   font-size: 30px;
   margin-left: 200px;
 }
+.safe-email-change{
+  margin-top: -29px;
+}
 /*about-us*/
 .about-us-area{
   margin-top: 18px;
@@ -1232,6 +1235,15 @@ label{
   border-radius: 3px;
   border: 1px solid #dbdbdb;
 }
+.add-card{
+  color: #cecdcd;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 90px 0 0 71px;
+}
+.out-card{
+  
+}
 /*get-pwd-back*/
 .get-pwd-area{
   margin: 0 auto;
@@ -1281,6 +1293,7 @@ label{
 .get-pwd-tips-area{
   margin-right: -2px;
   width: 130px;
+  margin-top: -30px;
 }
 .pwd-verify-pic{
   width: 76px;

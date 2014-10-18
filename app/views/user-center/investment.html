@@ -1,15 +1,15 @@
 <!-- 投资产品 -->
 <div ng-controller="UserOrderCtrl"  class="right-area right-assets-height investment" >
 	<div class="right-title">投资产品</div>
-	<div class="padd"><span>当前账户总计投资产品： <strong>8<!-- 数据绑定 --></strong>个。</span><span>其中还款中： <strong>5<!-- 数据绑定 --></strong>个，</span><span>投资中：<strong>1<!-- 数据绑定 --></strong>个。</span><span>已结清：<strong>2<!-- 数据绑定 --></strong>个。</span></div>
-	<div class="padd"><span>投资总额： <strong>800000.00<!-- 数据绑定 --></strong>元，</span><span>累计收益：<strong>800.00<!-- 数据绑定 --></strong>个。</span></div>
+	<div class="padd"><span>当前账户总计投资产品： <strong>{{orderCount.all}}</strong>个。</span><span>其中还款中： <strong>{{orderCount.returning}}</strong>个，</span><span>投资中：<strong>{{orderCount.paying}}</strong>个。</span><span>已结清：<strong>{{orderCount.returned}}</strong>个。</span></div>
+	<div class="padd"><span>投资总额： <strong>{{amount.amount}}</strong>元，</span><span>累计收益：<strong>{{amount.profit}}</strong>元。</span></div>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="filter-container sort">
 			    <div class="sort-item nav-tabs">
 			        <div class="nav nav-pills">
 			            <span class="active">
-			                <a href="#">&nbsp;还款中的投资</a>
+			                <a ui-sref="root.userCenter.investment({status: 1})">&nbsp;还款中的投资</a>
 			            </span>
 			            <span class="">
 			                <a href="#">&nbsp;投标中的投资</a>
@@ -22,19 +22,19 @@
 			    <div class="sort-item">
 			        <label>时间：</label>
 			        <ul class="nav nav-pills">
-			            <li class="active mgn-l">
-			                <a href="#">&nbsp;全部</a>
-			            </li>
-			            <li class="">
-			                <a href="#">&nbsp;最近七天</a>
-			            </li>
-			            <li class="">
-			                <a href="#">&nbsp;一个月</a>
-			            </li>
-			            <li class="">
-			                <a href="#">&nbsp;三个月</a>
-			            </li>
-			        </ul>
+						<li class="{{dateInterval == '0' ? 'active' : ''}}">
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'0'})">全部</a>
+						</li>
+						<li class="{{dateInterval == '7' ? 'active' : ''}}">
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'7'})">最近七天</a>
+						</li>
+						<li class="{{dateInterval == '30' ? 'active' : ''}}">
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'30'})">一个月</a>
+						</li>
+						<li class="{{dateInterval == '90' ? 'active' : ''}}">
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'90'})">三个月ddd</a>
+						</li>
+					</ul>
 			    </div>
 			    <div class="row datePicker">
 			        <label>固定期限：</label>
