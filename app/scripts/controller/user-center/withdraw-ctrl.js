@@ -9,10 +9,11 @@ hongcaiApp.controller("WithdrawCtrl", [ "$location", "$scope", "$state", "$rootS
             } 
     });
 
-    $scope.checkAmount = function(amount){
-        if(!angular.isNumber(amount)){
-            $scope.amountErrMsg = "只能输入数字";
-            console.log("只能输入数字");
+
+    $scope.checkLargestAmount = function(amount){
+        if(amount > $scope.availableCash){
+            return true;
+        } else {
             return false;
         }
     }
