@@ -121,8 +121,8 @@
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/bankcard-management.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'BankCardManagementCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/bankcard-management-ctrl'
  			}
  		}
  	})

@@ -14,6 +14,6 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
 		bindMobile: $resource(DEFAULT_DOMAIN + '/siteUser/bindMobile', {mobile: '@mobile', captcha: '@captcha'}),
 		bindEmail: $resource(DEFAULT_DOMAIN + '/siteUser/bindEmail', {email: '@email'}),
 		changePassword: $resource(DEFAULT_DOMAIN + '/siteUser/changePassword', {oldPassword: '@oldPassword', newPassword: '@newPassword', repeatNewPassword: '@repeatNewPassword'}),
-     
+     	getUserBankCard: $resource(DEFAULT_DOMAIN + '/bank/getUserBankCard', {}),
 	};
 });

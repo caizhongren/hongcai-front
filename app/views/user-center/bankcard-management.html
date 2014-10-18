@@ -1,12 +1,16 @@
 <!--银行卡管理-->
 <div class="right-area safeset-height">
     <div class="right-title">银行卡管理</div>
-    <div class="verify-area introduction-area border-none">
-        <a href="">
+    <div class="verify-area introduction-area border-none" >
+        <a href="javacscript:;" ng-show="isAuth" ng-init="isAuth=false">
             <div class="bank-card-show">
-                <p class="add-card">{{v||"添加银行卡"}}</p>
+                <p class="add-card" ng-click="bindBankCard()" ng-show="!haveCard">添加银行卡</p>
+                <p class="add-card" ng-show="haveCard">{{bankName}}</p>
             </div>
         </a>
+        <!--start 安全认证提示 -->
+        <p class="title verify-tip" ng-show="!isAuth">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
+        <!--end 安全认证提示 -->
         <p class="tip ft-12">
             温馨提示
             <br>
@@ -17,13 +21,5 @@
     </div>
     <!--end 添加银行卡 -->
 
-    <!--start 安全认证提示 -->
-    <p class="title verify-tip" style="display:none;">您未完成安全认证，请前往<a href="#/security-settings">【安全设置】</a>更新状态</p>
-    <!--end 安全认证提示 -->
-
-    <!--start 银行卡展示 -->
-    <p class="title" style="display:none;">
-        <img class="bank-img" src="#" width="215" height="145"/><!-- 数据绑定 -->
-    </p>
-    <!--end 银行卡展示 -->
+    
 </div>
