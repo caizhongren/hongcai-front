@@ -1,7 +1,7 @@
 hongcaiApp.controller("RegisterMobileCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "RegisterService", "SessionService", "DEFAULT_DOMAIN", "toaster", function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster) {
 
     $scope.submitRegisterMobile = function(user) {
-        RegisterService.saveRegister.save({name: user.name, type:0, account: user.mobile, password: user.password }, function(response) {
+        RegisterService.saveRegister.save({name: user.name, type:0, account: user.mobile, captcha: user.mobileCaptcha, password: user.password }, function(response) {
             if(response.ret == 1) {
                 SessionService.set("user", response.data.user.name);
                 $state.go('root.userCenter.account-overview');

@@ -63,17 +63,12 @@
 
 			</div>
 			<div class="col-md-12" ng-switch-when="0">
-				<strong>&nbsp;&nbsp;输入支付密码</strong>
-				<br>
 				<form>
 					<div class="form-group mgn-top">
 						<label>订单号：{{orderId}}</label>
 						<br>
-						您将要支付<span class="ftw-b ft-red">100.00</span>元，核实信息无误后，请输入支付密码：
-						<br>
-						<input type="text" class="password" value=''>
-						<br>
-						<a class="ft-12 ft-red">忘记支付密码？</a>
+						您将要支付<span class="ftw-b ft-red">100.00</span>元，核实信息无误后请确认
+
 					</div>
 					<input type="button" value="确认" class="verify-button" ng-click="transfer(orderId)"/>
 					<input type="button" value="取消" class="verify-button get-verify-button" ng-click="transfer(orderId)"/>

@@ -8,12 +8,18 @@
 		</div>
 		<div class="form-group">
 			<label>充值金额：</label>
-			<input id="amount" type="text" class="verify-input"  
+			<input name="amount" type="text" class="verify-input"  
 									ng-model="rechargeAmount" 
-									ng-pattern="/^\d+$/"required/>&nbsp;&nbsp;元
-			<div class="user-tips-area" ng-show="rechargeForm.amount.$error.pattern">
+									ng-pattern="/^-?\d+(\.\d{1,2})?$/"
+									ng-foucus 
+									required autofocus/>&nbsp;&nbsp;元
+			<div class="user-tips-area" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.pattern">
 				<img ng-src="images/check_no.png" class="user-check-img">
 				<p class="input-tips user-input-tips" >只能输入数字</p>
+			</div>
+			<div class="user-tips-area" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">
+				<img ng-src="images/check_no.png" class="user-check-img">
+				<p class="input-tips user-input-tips" >充值金额不能为空</p>
 			</div>
 		</div>
 
