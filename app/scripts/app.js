@@ -167,7 +167,7 @@
  		}
  	})
  	.state('root.userCenter.investment', {
- 		url: '/userCenter.investment',
+ 		url: '/userCenter-investment',
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/investment.html',

@@ -83,18 +83,18 @@
 						ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/" 
 						ensure-unique-email="newEmail" required ng-focus autofocus/>
 				<div ng-show="
-							bindEmailForm.newEmail.$dirty && 
-							bindEmailForm.newEmail.$invalid && 
-							!bindEmailForm.newEmail.$focused">
-					<div  class="user-tips-area safe-tips-area" ng-show="bindEmailForm.newEmail.$error.pattern">
+						bindEmailForm.newEmail.$dirty && 
+						bindEmailForm.newEmail.$invalid && 
+						!bindEmailForm.newEmail.$focused">
+					<div class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.pattern">
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">邮箱格式不正确</p>
 					</div>
-					<div  class="user-tips-area safe-tips-area" ng-show="bindEmailForm.newEmail.$error.unique">
+					<div  class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.unique">
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">邮箱已被占用</p>
 					</div>
-					<div  class="user-tips-area safe-tips-area" ng-show="bindEmailForm.newEmail.$error.required">
+					<div  class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.required">
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">请填写邮箱</p>
 					</div>
