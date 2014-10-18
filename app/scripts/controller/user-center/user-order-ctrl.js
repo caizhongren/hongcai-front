@@ -1,7 +1,7 @@
 hongcaiApp.controller("UserOrderCtrl", ["$scope", "$state", "$stateParams", "UserCenterService", function ($scope, $state, $stateParams, UserCenterService) {
-    var projectDetails = UserCenterService.getOrderByUser.get(function(response) {
-        console.info(projectDetails.data);
-
+    var getOrderByUser = UserCenterService.getOrderByUser.get(function(response) {
+        $scope.orderList = getOrderByUser.data.orderVoList;
+        console.info($scope.orderList);
 
     });
 }]);
