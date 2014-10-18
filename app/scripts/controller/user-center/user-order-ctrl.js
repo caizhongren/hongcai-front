@@ -3,6 +3,7 @@ hongcaiApp.controller("UserOrderCtrl", ["$scope", "$state", "$stateParams", "Use
         $scope.orderList = getOrderByUser.data.orderVoList;
         $scope.orderCount = getOrderByUser.data.orderCount;
         $scope.amount = getOrderByUser.data.amount;
+        $scope.dateInterval = getOrderByUser.data.dateInterval;
 
     });
 }]);

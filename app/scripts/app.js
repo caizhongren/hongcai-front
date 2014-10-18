@@ -16,7 +16,8 @@
   	'angularMoment', 
  	'toaster', 
  	'chartjs', 
- 	'angularFileUpload'
+ 	'angularFileUpload', 
+ 	'ngRoute'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider' , function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -178,6 +179,16 @@
  			}
  		}
  	})
+ 	.state('root.userCenter.investment-query', {
+ 		url: '/userCenter-investment/:dateInterval',
+ 		views: {
+ 			'user-center': {
+ 				templateUrl: 'views/user-center/investment.html',
+ 				controller: 'UserOrderCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
+ 			}
+ 		}
+ 	})
  	.state('root.userCenter.news', {
  		url: '/news',
  		views: {
@@ -258,6 +269,21 @@
  	/*---------------------------------------------  safe  ---------------------------------------------*/
  	.state('root.safe', {
  		url: '/safe',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/safe.html',
+ 				controller: 'SafeCtrl',
+ 				controllerUrl: 'scripts/controller/project/safe-ctrl'
+ 			},
+ 			'sponsor': {
+ 				templateUrl: 'views/project/project-sponsor-list.html',
+ 				controller: 'ProjectSponsorInstitutionCtrl',
+ 				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.safe-nav', {
+ 		url: '/safe/:anchor',
  		views: {
  			'': {
  				templateUrl: 'views/safe.html',
