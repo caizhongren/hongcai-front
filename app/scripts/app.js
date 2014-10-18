@@ -177,6 +177,16 @@
  			}
  		}
  	})
+ 	.state('root.userCenter.investment-query', {
+ 		url: '/userCenter-investment/:dateInterval',
+ 		views: {
+ 			'user-center': {
+ 				templateUrl: 'views/user-center/investment.html',
+ 				controller: 'UserOrderCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
+ 			}
+ 		}
+ 	})
  	.state('root.userCenter.news', {
  		url: '/news',
  		views: {

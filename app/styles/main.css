@@ -588,16 +588,22 @@ hr {
 .project-details .invest-record-col {
   padding: 5px 15px;
 }
+.project-details .invest-record-col .col-lg-4 {
+  padding-left: 10px;
+}
 .project-details .invest-record-item {
   border-bottom: 1px solid #dbdbdb;
 }
 .project-details .invest-record-item .col-lg-4 {
   font-size: 12px;
-  padding: 3px 5px 3px 15px;
+  padding: 3px 5px 3px 10px;
 }
 .project-details .news-tit {
   margin-top: 10px;
   font-size: 16px;
+}
+.project-details .news-tit .col-lg-6 {
+  padding-left: 10px;
 }
 .project-details .invest-record-pagination {
   font-size: 18px;

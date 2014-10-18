@@ -1293,6 +1293,7 @@ label{
 .get-pwd-tips-area{
   margin-right: -2px;
   width: 130px;
+  margin-top: -30px;
 }
 .pwd-verify-pic{
   width: 76px;
