@@ -1,11 +1,20 @@
 <!--银行卡管理-->
 <div class="right-area safeset-height">
     <div class="right-title">银行卡管理</div>
-    <div class="verify-area introduction-area border-none" >
-        <a href="javacscript:;" ng-show="isAuth" ng-init="isAuth=false">
+    <div class="verify-area introduction-area border-none"  ng-show="isAuth">
+        <a href="javacscript:;" ng-show="isVerifying" ng-init="isAuth=false">
             <div class="bank-card-show">
-                <p class="add-card" ng-click="bindBankCard()" ng-show="!haveCard">添加银行卡</p>
-                <p class="add-card" ng-show="haveCard">{{bankName}}</p>
+                <p>认证中</p>
+            </div>
+        </a>
+        <a href="javacscript:;" ng-show="isAuth && !haveCard && !isVerifying" ng-init="isAuth=false" ng-click="bindBankCard()">
+            <div class="bank-card-show">
+                <p class="add-card" >添加银行卡</p>
+            </div>
+        </a>
+        <a href="javacscript:;" ng-show="isAuth && haveCard && !isVerifying" >
+            <div class="bank-card-show">
+                <p>{{bankName}}</p>
             </div>
         </a>
         <!--start 安全认证提示 -->
