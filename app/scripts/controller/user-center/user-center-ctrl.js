@@ -72,22 +72,7 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
         angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());
     };
 
-    $scope.realNameAuth = function(user) {
-    	UserCenterService.yeepayRegister.get({realName:user.realName, idCardNo:user.idCardNo}, function(response) {
-    		if(response.ret == 1) {
-    			var req = response.data.req;
-    			var sign = response.data.sign;
-             	var _f=new_form();
-                create_elements(_f,"req",req);
-                create_elements(_f,"sign",sign);
-                _f.action="http://qa.yeepay.com/member/bha/toRegister";
-                _f.submit();
 
-            } else {
-
-            }
-        });
-    };
 
     $scope.bindBankCard = function() {
     	UserCenterService.bindBankCard.get({}, function(response) {
@@ -169,7 +154,7 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
 					segmentStrokeColor : "#fff",
 					
 					//Number - The width of each segment stroke
-					segmentStrokeWidth : 2,
+					segmentStrokeWidth : 5,
 					
 					//The percentage of the chart that we cut out of the middle.
 					percentageInnerCutout : 50,

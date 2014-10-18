@@ -47,7 +47,7 @@ hongcaiApp.controller("RechargeCtrl", [ "$location", "$scope", "$state", "$rootS
     };
 
     $scope.recharge = function(amount) {
-    	UserCenterService.yeepayWithdraw.get({amount: amount}, function(response) {
+    	UserCenterService.yeepayRecharge.get({amount: amount}, function(response) {
     		if(response.ret == 1) {
     			var req = response.data.req;
     			var sign = response.data.sign;
