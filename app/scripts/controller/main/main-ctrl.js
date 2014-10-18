@@ -21,4 +21,4 @@ function change_agree_pic(x){
     var Flag = ( x.getAttribute( "src", 2 ) == "images/check_01.png" )
     x.src = Flag ? "images/check_02.png" : "images/check_01.png";
 }
-    
+   

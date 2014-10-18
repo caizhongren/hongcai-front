@@ -35,4 +35,4 @@ hongcaiApp.controller("RegisterCtrl", ["$scope", "$state", "$rootScope", "$state
     };
 
 }]);
-
+ 

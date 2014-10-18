@@ -165,12 +165,12 @@
  		}
  	})
  	.state('root.userCenter.investment', {
- 		url: '/investment',
+ 		url: '/userCenter.investment',
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/investment.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'UserOrderCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
  			}
  		}
  	})
