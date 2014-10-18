@@ -4,7 +4,7 @@
 		<div class="way-regist form-area">
 			<a class="red-regist a-regist a-phone-regist" ui-sref="root.registerMobile">手机注册</a>
 			<a class="grey-regist a-regist a-mail-regist" ui-sref="root.registerMail">邮箱注册</a>
-			<form class="form-regist" name="registerForm" ng-submit="submitRegisterMail(user);" >
+			<form class="form-regist" name="registerForm" ng-submit="submitRegisterMobile(user);" >
 				<div class="login-regist-form-group">
 					<label for="mobile" class="big-tips">手机号：</label>
 					<input type="text" 
@@ -27,15 +27,15 @@
 					</div>
 				</div>
 				<div class="login-regist-form-group">
-					<label for="phoneVerify" class="big-tips">验证码：</label>
+					<label for="mobileCaptcha" class="big-tips">验证码：</label>
 					<input type="text" 
 						class="input-message input-verify-width" 
-						id="phoneVerify"
-						name="phoneVerify"
-						ng-model="phoneVerify"
+						id="mobileCaptcha"
+						name="mobileCaptcha"
+						ng-model="user.mobileCaptcha"
 						required ng-focus>
 					<input type="button" class="white-button" value="获取验证码" onclick="countDown(this,60);" ng-click="sendMobileCaptcha();" ng-disabled="registerForm.mobile.$invalid">
-					<div ng-show="registerForm.phoneVerify.$dirty && registerForm.phoneVerify.$invalid && registerForm.phoneVerify.$error.check && !registerForm.phoneVerify.$focused">
+					<div ng-show="registerForm.mobileCaptcha.$dirty && registerForm.mobileCaptcha.$invalid && registerForm.mobileCaptcha.$error.check && !registerForm.mobileCaptcha.$focused">
 						<img ng-src="images/check_no.png" class="verify-pictips">
 						<p class="input-tips regist-input-tips verify-input-tips">验证码错误!</p>
 					</div>
@@ -91,7 +91,7 @@
 					<label class="big-tips"></label>
 					<img ng-src={{checkImage||"images/check_01.png"}} class="pic-check">
 					<p class="p-agree">同意<a href="">《注册协议》</a>和<a href="">《隐私协议》</a></p>
-					<input type="button" class="red-button" ng-disabled="registerForm.$invalid" value="立即注册">
+					<input type="submit" class="red-button" ng-disabled="registerForm.$invalid" value="立即注册">
 				</div>
 			</form>
 		</div>
