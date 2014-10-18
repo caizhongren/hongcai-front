@@ -59,10 +59,9 @@
 			    			<span class="col-md-2 border-r">项目名称</span>
 			    			<span class="col-md-2 border-r">计息日</span>
 			    			<span class="col-md-2 border-r">到期日</span>
-			    			<span class="col-md-1">金额</span>
-			    			<span class="col-md-2 border-r border-l">预计收益</span>
-			    			<span class="col-md-2 border-r border-l">已得收益</span>
-			    			<span class="col-md-1 ">状态</span>
+			    			<span class="col-md-2 border-r">金额</span>
+			    			<span class="col-md-2 border-r">预计收益</span>
+			    			<span class="col-md-2">已得收益</span>
 			    		</div>
 			    		<div class="row record-item"  ng-repeat="order in orderList">
 			    			<span class="col-md-2">{{order.projectName}}<!-- 数据绑定 --></span>
@@ -71,7 +70,6 @@
 			    			<span class="col-md-1">{{order.orderAmount}}<!-- 数据绑定 --></span>
 			    			<span class="col-md-2">{{order.profit}}<!-- 数据绑定 --></span>
 			    			<span class="col-md-2">{{order.returnProfit}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-1">{{order.statusText}}<!-- 数据绑定 --></span>
 			    		</div>
 			    	</div>
 			    </div>
