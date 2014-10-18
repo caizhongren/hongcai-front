@@ -9,9 +9,9 @@
 		<div class="form-group">
 			<label>提现金额：</label>
 			<input id="amount" type="text" class="verify-input" ng-model="amount" required/>&nbsp;&nbsp;元
-			<div ng-show="!checkAmount(amount)" class="user-tips-area">
+			<div ng-show="withdrawForm.amount.$error." class="user-tips-area">
 				<img ng-src="images/check_no.png" class="user-check-img">
-				<p class="input-tips user-input-tips">{{amountErrMsg}}</p>
+				<p class="input-tips user-input-tips">只能输入数字</p>
 			</div>
 		</div>
 		<div class="form-group">
