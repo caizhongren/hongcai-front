@@ -7,6 +7,7 @@ hongcaiApp.controller("BankCardManagementCtrl", [ "$location", "$scope", "$state
                 if(card){
                     $scope.haveCard = true;
                     $scope.bankName = card.openBank;
+                    $scope.isVerifying = (card.status == 'VERIFYING');
                 }
                 $scope.isAuth = response.data.isAuth;
             }
