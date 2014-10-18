@@ -1232,6 +1232,15 @@ label{
   border-radius: 3px;
   border: 1px solid #dbdbdb;
 }
+.add-card{
+  color: #cecdcd;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 90px 0 0 71px;
+}
+.out-card{
+  
+}
 /*get-pwd-back*/
 .get-pwd-area{
   margin: 0 auto;
