@@ -11,5 +11,8 @@ hongcaiApp
   	$scope.refreshCode = function() {
         angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());
     };
+    $scope.verifyAccount = function(){
+      $scope.areaFlag = 2;
+    }
 }])
 ;
