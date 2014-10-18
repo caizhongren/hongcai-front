@@ -61,6 +61,11 @@
 					<img ng-src="images/check_no.png" class="user-check-img">
 					<p class="input-tips user-input-tips">请输入确认密码</p>
 				</div>
+				<div  class="user-tips-area safe-tips-area"
+						ng-show="changePwdForm.confirmPwd.$dirty && !checkTwoPassword(password) && !changePwdForm.confirmPwd.$focused" >
+					<img ng-src="images/check_no.png" class="user-check-img">
+					<p class="input-tips user-input-tips">两次输入的密码不一致</p>
+				</div>
 			</div>
 			<input type="submit" value="确定" class="verify-button mail-button"  ng-disabled="changePwdForm.$invalid"/>
 		</form>
