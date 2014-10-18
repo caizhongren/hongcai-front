@@ -8,7 +8,9 @@ hongcaiApp.factory('RegisterService', function ($resource, DEFAULT_DOMAIN) {
 				password: '@password', 
 				captcha: '@captcha'}}
 		}),
-
+        sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/sendMobileCaptcha', {}, {
+            save: {method: "POST", params: {mobile: '@mobile'}}
+        }),
 
 		timeCount: function(wait,val) {
 
