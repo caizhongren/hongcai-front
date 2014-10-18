@@ -1,4 +1,4 @@
-<div ng-controller="ProjectSponsorInstitutionCtrl" class="project-list-all bg-offWhite ng-scope">
+<div ui-view="project-sponsor-details" class="project-list-all bg-offWhite ng-scope">
 	<div class="container page-container sponsorInstitution bg-white">
 		<div class="row">
 			<div class="col-md-12">
@@ -16,14 +16,64 @@
 			    			</p>
 			    		</div>
 			    		<div class="row">
-			    			<div class="imgs">
-			    				<img src="" width="105" height="80" ><!-- 数据绑定 -->
-			    				<img src="" width="105" height="80" ><!-- 数据绑定 -->
-			    				<img src="" width="105" height="80" ><!-- 数据绑定 -->
-			    				<img src="" width="105" height="80" ><!-- 数据绑定 -->
-			    				<img src="" width="105" height="80" ><!-- 数据绑定 -->
+			    			<!-- <div class="imgs">
+			    				<img src="{{image}}" width="105" height="80" >
+			    				<img src="" width="105" height="80" >
+			    				<img src="" width="105" height="80" >
+			    				<img src="" width="105" height="80" >
+			    				<img src="" width="105" height="80" >
 			    			</div>
-			    			<div class="progress-bar"></div>
+			    			<div class="progress-bar"></div> -->
+							<div id="slider"></div>
+							<script type="text/javascript">
+				                var imgs = [
+			                    {
+			                        title:"百度",
+			                        src:'images/test/0.png'
+			                    },
+			                    {
+			                        title:"腾讯",
+			                        src:'images/test/1.png'
+			                    },
+			                    {
+			                        title:"搜狐",
+			                        src:'images/test/2.png'
+			                    },
+			                    {
+			                        title:"网易",
+			                        src:'images/test/3.png'
+			                    },
+			                    {
+			                        title:"优酷",
+			                        src:'images/test/4.png'
+			                    },
+			                    {
+			                        title:"土豆",
+			                        src:'images/test/5.png'
+			                    },
+			                    {
+			                        title:"雅虎",
+			                        src:'images/test/6.png'
+			                    },
+			                    {
+			                        title:"网易",
+			                        src:'images/test/7.png'
+			                    },
+			                    {
+			                        title:"优酷",
+			                        src:'images/test/8.png'
+			                    },
+			                    {
+			                        title:"土豆",
+			                        src:'images/test/9.png'
+			                    },
+			                    {
+			                        title:"雅虎",
+			                        src:'images/test/10.png'
+			                    }
+			                ];
+								
+							</script>
 			    		</div>
 			    	</div>
 			    	<div class="col-md-4">
@@ -146,403 +196,4 @@
 			</div>
 		</div>
 	</div>
-</div>
-<div class="full-screen cooperation">
-  <div class="container">
-    <div class="row mgn-top ftw-b">保荐机构</div>
-    <div class="row mgn-top cooperation-list">
-      <!-- start sponsor-轮播 -->
-      <div id="carousel-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-generic" data-slide-to="2"></li>
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-              <div class="sponsors">
-                <div class="cooperation-icon">
-                	<a href="/project-sponsorInstitution">
-                		<div class="sonsor-row">
-                			<img src="images/sponsor.png" width="35" height="35"/>
-                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                		</div>
-                		<div class="sonsor-row bg-grey">
-                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-                			<small class="float-r">详细&gt;</small>
-                		</div>
-                		
-                	</a>
-                </div>
-                <div class="cooperation-icon">
-                	<a href="/project-sponsorInstitution">
-                		<div class="sonsor-row">
-                			<img src="images/sponsor.png" width="35" height="35"/>
-                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                		</div>
-                		<div class="sonsor-row bg-grey">
-                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-                			<small class="float-r">详细&gt;</small>
-                		</div>
-                		
-                	</a>
-                </div>
-                <div class="cooperation-icon">
-                	<a href="/project-sponsorInstitution">
-                		<div class="sonsor-row">
-                			<img src="images/sponsor.png" width="35" height="35"/>
-                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                		</div>
-                		<div class="sonsor-row bg-grey">
-                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-                			<small class="float-r">详细&gt;</small>
-                		</div>
-                		
-                	</a>
-                </div>
-                <div class="cooperation-icon">
-                	<a href="/project-sponsorInstitution">
-                		<div class="sonsor-row">
-                			<img src="images/sponsor.png" width="35" height="35"/>
-                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                		</div>
-                		<div class="sonsor-row bg-grey">
-                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-                			<small class="float-r">详细&gt;</small>
-                		</div>
-                		
-                	</a>
-                </div>
-                <div class="cooperation-icon">
-                	<a href="/project-sponsorInstitution">
-                		<div class="sonsor-row">
-                			<img src="images/sponsor.png" width="35" height="35"/>
-                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                		</div>
-                		<div class="sonsor-row bg-grey">
-                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-                			<small class="float-r">详细&gt;</small>
-                		</div>
-                		
-                	</a>
-                </div>
-                <div class="cooperation-icon">
-                	<a href="/project-sponsorInstitution">
-                		<div class="sonsor-row">
-                			<img src="images/sponsor.png" width="35" height="35"/>
-                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                		</div>
-                		<div class="sonsor-row bg-grey">
-                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-                			<small class="float-r">详细&gt;</small>
-                		</div>
-                		
-                	</a>
-                </div>
-                <div class="cooperation-icon">
-                	<a href="/project-sponsorInstitution">
-                		<div class="sonsor-row">
-                			<img src="images/sponsor.png" width="35" height="35"/>
-                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                		</div>
-                		<div class="sonsor-row bg-grey">
-                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-                			<small class="float-r">详细&gt;</small>
-                		</div>
-                		
-                	</a>
-                </div>
-                <div class="cooperation-icon">
-                	<a href="/project-sponsorInstitution">
-                		<div class="sonsor-row">
-                			<img src="images/sponsor.png" width="35" height="35"/>
-                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                		</div>
-                		<div class="sonsor-row bg-grey">
-                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-                			<small class="float-r">详细&gt;</small>
-                		</div>
-                		
-                	</a>
-                </div>
-                <div class="cooperation-icon">
-                	<a href="/project-sponsorInstitution">
-                		<div class="sonsor-row">
-                			<img src="images/sponsor.png" width="35" height="35"/>
-                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                		</div>
-                		<div class="sonsor-row bg-grey">
-                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-                			<small class="float-r">详细&gt;</small>
-                		</div>
-                		
-                	</a>
-                </div>
-              </div>
-              
-              <div class="carousel-caption">
-              </div>
-            </div>
-            <div class="item">
-              	<div class="sponsors">
-                	<div class="cooperation-icon">
-                		<a href="/project-sponsorInstitution">
-                			<div class="sonsor-row">
-                				<img src="images/sponsor.png" width="35" height="35"/>
-                				<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                			</div>
-                			<div class="sonsor-row bg-grey">
-                				<small>注册资本：5000万<!-- 数据绑定 --></small>
-                				<small class="float-r">详细&gt;</small>
-                			</div>
-                		</a>
-                	</div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-                	<div class="cooperation-icon">
-                		<a href="/project-sponsorInstitution">
-                			<div class="sonsor-row">
-                				<img src="images/sponsor.png" width="35" height="35"/>
-                				<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                			</div>
-                			<div class="sonsor-row bg-grey">
-                				<small>注册资本：5000万<!-- 数据绑定 --></small>
-                				<small class="float-r">详细&gt;</small>
-                			</div>
-                		
-            			</a>
-            		</div>
-          		</div>
-              
-          		<div class="carousel-caption">
-          		</div>
-   		 	</div>
-     		<div class="item">
-              	<div class="sponsors">
-                	<div class="cooperation-icon">
-                		<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-                	</div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-	                		
-	                	</a>
-	                </div>
-	                <div class="cooperation-icon">
-	                	<a href="/project-sponsorInstitution">
-	                		<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：5000万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-                			</div>
-                		
-                		</a>
-                	</div>
-                	<div class="cooperation-icon">
-                		<a href="/project-sponsorInstitution">
-                			<div class="sonsor-row">
-                				<img src="images/sponsor.png" width="35" height="35"/>
-                				<span class="sponsor-name">中鸿基融资担保有限公司<!-- 数据绑定 --></span>
-                			</div>
-                			<div class="sonsor-row bg-grey">
-                				<small>注册资本：5000万<!-- 数据绑定 --></small>
-                				<small class="float-r">详细&gt;</small>
-                			</div>
-                		
-                		</a>
-                	</div>
-              	</div>
-              
-              	<div class="carousel-caption">
-              	</div>
-            </div>
-            
-        </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-      </div>
-      <!-- end sponsor-轮播 -->
-    </div>
-  </div>
 </div>

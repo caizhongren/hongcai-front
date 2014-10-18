@@ -1,4 +1,4 @@
-<div class="bg-offWhite regist-height bg" ng-contrlller="RegisterCtrl">
+<div class="bg-offWhite regist-height bg" ng-contrlller="RegisterMobileCtrl">
 	<toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
 	<div class="registe-area bg-login-regist-width">
 		<div class="way-regist form-area">
@@ -34,10 +34,14 @@
 						name="phoneVerify"
 						ng-model="phoneVerify"
 						required ng-focus>
-					<input type="button" class="white-button" value="获取验证码">
+					<input type="button" class="white-button" value="获取验证码" onclick="countDown(this,60);" ng-click="sendMobileCaptcha();" ng-disabled="registerForm.mobile.$invalid">
 					<div ng-show="registerForm.phoneVerify.$dirty && registerForm.phoneVerify.$invalid && registerForm.phoneVerify.$error.check && !registerForm.phoneVerify.$focused">
 						<img ng-src="images/check_no.png" class="verify-pictips">
 						<p class="input-tips regist-input-tips verify-input-tips">验证码错误!</p>
+					</div>
+					<div ng-show="registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused">
+						<img ng-src="images/check_no.png" class="verify-pictips">
+						<p class="input-tips regist-input-tips verify-input-tips">手机号码有误!</p>
 					</div>
 				</div>
 				<div class="login-regist-form-group">
@@ -96,3 +100,32 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	function countDown(obj, second){
+	    // 如果秒数还是大于0，则表示倒计时还没结束
+	    if(second >= 0){
+	          // 获取默认按钮上的文字
+	          if(typeof buttonDefaultValue === 'undefined' ){
+	            buttonDefaultValue =  obj.defaultValue;
+	        }
+	        // 按钮置为不可点击状态
+	        obj.disabled = true;            
+	        // 按钮里的内容呈现倒计时状态
+	        //obj.value = buttonDefaultValue + '(' + second + ')';
+	        obj.value = second + "s 后重新发送";
+	        obj.className = 'white-button grey';
+	        // 时间减一
+	        second--;
+	        // 一秒后重复执行
+	        setTimeout(function(){countDown(obj,second);},1000);
+	    // 否则，按钮重置为初始状态
+	    }else{
+	        // 按钮置未可点击状态
+	        obj.disabled = false;   
+	        // 按钮里的内容恢复初始状态
+	        obj.className = 'white-button';
+	        obj.value = buttonDefaultValue;
+	    }   
+	}
+</script>

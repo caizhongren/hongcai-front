@@ -26,8 +26,14 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$stateParams",
         $scope.isAvailableInvest = function(project){//验证用户权限
         ProjectService.isAvailableInvest.get({amount: project.amount,projectId:project.id }, function(response) {
             if(response.ret == 1) {
+                console.info(response.data.isBalance);
                 if (response.data.flag) {
-                    $state.go("root.investVerify", {projectId: response.data.projectId,amount: response.data.amount});
+                    if (response.data.isBalance) {
+                         $state.go("root.invest-verify", {projectId: response.data.projectId,amount: response.data.amount});
+                    }else{
+                         $state.go("root.invest-verify", {projectId: response.data.projectId,amount: response.data.amount});
+                    }
+                   
                 }else{
                     $state.go("root.userCenter.account-overview");
                 }

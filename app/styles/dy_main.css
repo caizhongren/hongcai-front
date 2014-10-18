@@ -32,7 +32,7 @@ label{
   border: 1px solid #e94828;
   border-radius: 3px;
   height: 30px;
-  width: 102px;
+  width: 113px;
   background-color: white;
   margin-top: 6px;
   margin-left: 5px;
@@ -113,7 +113,7 @@ label{
   width: 100%;
 }
 .input-verify-width{
-  width: 130px;
+  width: 125px;
 }
 /*login*/
 .bg-login-height{
@@ -433,7 +433,8 @@ label{
 .grey-account {
   background: url(/images/sprite.png) -394px -463px no-repeat;
 }
-.white-account{
+.tips-area:active .grey-account,
+.tips-area:active .red-account{
     background: url(/images/sprite.png) -463px -463px no-repeat;
 }
 
@@ -443,7 +444,8 @@ label{
 .grey-bankcard {
   background: url(/images/sprite.png) -395px -499px no-repeat;
 }
-.white-bankcard{
+.tips-area:active .grey-bankcard,
+.tips-area:active .red-bankcard{
     background: url(/images/sprite.png) -463px -499px no-repeat;
 }
 
@@ -453,7 +455,8 @@ label{
 .grey-safeset {
   background: url(/images/sprite.png) -395px -534px no-repeat;
 }
-.white-safeset{
+.tips-area:active .grey-safeset,
+.tips-area:active .red-safeset{
     background: url(/images/sprite.png) -463px -534px no-repeat;
 }
 
@@ -463,7 +466,8 @@ label{
 .grey-assets {
   background: url(/images/sprite.png) -395px -569px no-repeat;
 }
-.white-assets{
+.tips-area:active .grey-assets,
+.tips-area:active .red-assets{
     background: url(/images/sprite.png) -463px -569px no-repeat;
 }
 
@@ -473,7 +477,8 @@ label{
 .grey-recharge {
   background: url(/images/sprite.png) -395px -604px no-repeat;
 }
-.white-recharge{
+.tips-area:active .grey-recharge,
+.tips-area:active .red-recharge{
     background: url(/images/sprite.png) -463px -604px no-repeat;
 }
 
@@ -483,7 +488,8 @@ label{
 .grey-withdraw {
   background: url(/images/sprite.png) -395px -641px no-repeat;
 }
-.white-withdraw{
+.tips-area:active .grey-withdraw,
+.tips-area:active .red-withdraw{
     background: url(/images/sprite.png) -463px -641px no-repeat;
 }
 
@@ -493,7 +499,8 @@ label{
 .grey-record {
   background: url(/images/sprite.png) -395px -673px no-repeat;
 }
-.white-record {
+.tips-area:active .grey-record,
+.tips-area:active .red-record {
   background: url(/images/sprite.png) -463px -673px no-repeat;
 }
 
@@ -503,7 +510,8 @@ label{
 .grey-investment {
   background: url(/images/sprite.png) -395px -709px no-repeat;
 }
-.white-investment {
+.tips-area:active .grey-investment,
+.tips-area:active .red-investment {
   background: url(/images/sprite.png) -463px -709px no-repeat;
 }
 
@@ -513,7 +521,8 @@ label{
 .grey-news {
   background: url(/images/sprite.png) -395px -743px no-repeat;
 }
-.white-news {
+.tips-area:active .grey-news,
+.tips-area:active .red-news{
   background: url(/images/sprite.png) -463px -743px no-repeat;
 }
 
@@ -615,7 +624,7 @@ label{
   border-top: 1px solid #f5f5f5;
 }
 .userCenter .form-group {
-  height: 50px;
+  height: 40px;
   width: 465px;
   margin: 0 auto;
 }
@@ -751,7 +760,7 @@ label{
 .asset-money {
   font-size: 24px;
   font-weight: bold;
-  margin: -10px 0 0 20px;
+  margin: -10px 0 0 0;
 }
 .right-message {
   float: left;
@@ -925,16 +934,13 @@ label{
   border-radius: 3px;
   margin-top: 0;
 }
- .withdraw .verify-button {
-  margin-top: 20px;
-}
  .recharge .mgn-top,
  .withdraw .mgn-top {
   margin-top: 10px;
 }
  .recharge .tip,
  .withdraw .tip {
-  padding-left: 87px;
+  padding-left: 201px;
   padding-top: 45px;
 }
  .real-name .set-transactionPwd {
@@ -993,13 +999,57 @@ label{
 }
 .verify-index{
   margin-top: 0;
-  margin-right: -14px;
+  margin-right: 116px;
+  width: 110px;
   float: right;
 }
 .safe-form-group{
   height: 50px;
   width: 465px;
   margin: 0 auto;
+}
+.user-check-img{
+  float: left;
+  margin: 7px 7px 0 3px;
+}
+.user-input-tips{
+  margin-left: 26px;
+  margin-top: -17px;
+}
+.user-tips-area{
+  float: right;
+  margin-right: -96px;
+  width: 180px;
+  height: 20px;
+}
+.safe-tips-area{
+  margin-right: -70px;
+}
+.phone-input-width{
+  width: 130px;
+}
+.phone-verify-tips-index{
+  margin-top: -26px;
+}
+.phone-verify-check-img{
+  margin-top: -23px;
+}
+.grey,
+.grey:hover{
+  color: #a39f9f;
+  background-color: #e2e2e2;
+  border: 1px solid #c4c4c4;
+}
+.account-pic-bg{
+  background: url(/images/sprite.png) -1309px -304px no-repeat;
+}
+.p-assets{
+  margin-top: -200px;
+  margin-left: 105px;
+}
+.assets-money{
+  font-size: 30px;
+  margin-left: 200px;
 }
 /*about-us*/
 .about-us-area{
@@ -1172,4 +1222,85 @@ label{
 }
 .p-details{
   margin-top: 110px;
+}
+/*get-pwd-back*/
+.get-pwd-area{
+  margin: 0 auto;
+  height: 555px;
+  width: 980px;
+  border: 1px solid #dbdbdb;
+  background-color: white;
+  color: #646464;
+}
+.get-pwd{
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+.get-tips-area{
+  height: 200px;
+  width: 100%;
+  padding: 70px 190px 0 195px;
+  background-color: #e94828;
+  font-size: 14px;
+  color: white;
+}
+.get-tips-pic{
+  background: url(/images/sprite.png) -35px -1386px no-repeat;
+  height: 75px;
+  width: 100%;
+}
+.p-get-pwd-tips{
+  height: 55px;
+  width: 60px;
+  text-align: center;
+  float: left;
+  margin: 0 113px 0 4px;
+}
+.bg-get-pwd-tips{
+  background: url(/images/sprite.png) -510px -770px no-repeat;
+}
+.last-tips{
+  margin-right: 0;
+  margin-left: 0;
+}
+.get-pwd-input-area{
+  margin-top: 30px;
+}
+.get-pwd-form-group{
+  padding-left: 30px;
+}
+.get-pwd-tips-area{
+  margin-right: -2px;
+  width: 130px;
+}
+.pwd-verify-pic{
+  width: 76px;
+  height: 42px;
+  margin-left: -4px;
+}
+.refresh-pic{
+  height: 27px;
+  width: 27px;
+  background: url(/images/sprite.png) -396px -860px no-repeat;
+  float: right;
+  margin: 8px 135px 0 0;
+  cursor: pointer;
+}
+.get-pwd-verify-area{
+  margin: -33px -54px 0 0;
+}
+.get-pwd-button{
+  margin-left: 360px !important;
+}
+.get-pwd-success{
+  font-size: 24px;
+  font-weight: bold;
+  margin: 100px 0 0 410px;
+}
+.get-pwd-success-tips{
+  font-size: 14px;
+  margin: 8px 0 0 360px;
+}
+.get-pwd-success-tips span{
+  color: #e14526;
 }

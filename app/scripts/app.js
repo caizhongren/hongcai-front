@@ -47,6 +47,9 @@
  			},
  			'slider': {
  				templateUrl: 'views/slider.html'
+ 			},
+ 			'sponsor': {
+ 				templateUrl: 'views/project/project-sponsor-list.html'
  			}
  		}
  	})
@@ -64,7 +67,9 @@
  		url: '/register-mobile',
  		views: {
  			'': {
- 				templateUrl: 'views/register/register-mobile.html'
+ 				templateUrl: 'views/register/register-mobile.html', 
+ 				controller: 'RegisterMobileCtrl', 
+ 				controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
  			}
  		}
  	})
@@ -73,8 +78,8 @@
  		views: {
  			'': {
  				templateUrl: 'views/register/register-mail.html', 
- 				controller: 'RegisterCtrl', 
- 				controllerUrl: 'scripts/controller/register/register-ctrl'
+ 				controller: 'RegisterMailCtrl', 
+ 				controllerUrl: 'scripts/controller/register/register-mail-ctrl'
  			}
  		}
  	})
@@ -96,8 +101,18 @@
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/account-overview.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'AccountOverviewCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/account-overview-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.userCenter.assets-overview', {
+ 		url: '/assets-overview',
+ 		views: {
+ 			'user-center': {
+ 				templateUrl: 'views/user-center/assets-overview.html',
+ 				controller: 'AssetsOverviewCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/assets-overview-ctrl'
  			}
  		}
  	})
@@ -121,23 +136,13 @@
  			}
  		}
  	})
- 	.state('root.userCenter.assets-overview', {
- 		url: '/assets-overview',
- 		views: {
- 			'user-center': {
- 				templateUrl: 'views/user-center/assets-overview.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			}
- 		}
- 	})
  	.state('root.userCenter.recharge', {
  		url: '/recharge',
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/recharge.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'RechargeCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/recharge-ctrl'
  			}
  		}
  	})
@@ -162,12 +167,12 @@
  		}
  	})
  	.state('root.userCenter.investment', {
- 		url: '/investment',
+ 		url: '/userCenter.investment',
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/investment.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'UserOrderCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
  			}
  		}
  	})
@@ -240,6 +245,11 @@
  				templateUrl: 'views/project/project-sponsorInstitution.html',
  				controller: 'ProjectSponsorInstitutionCtrl',
  				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
+ 			},
+ 			'sponsor': {
+ 				templateUrl: 'views/project/project-sponsor-list.html',
+ 				controller: 'ProjectSponsorInstitutionCtrl',
+ 				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
  			}
  		}
  	})
@@ -251,6 +261,11 @@
  				templateUrl: 'views/safe.html',
  				controller: 'SafeCtrl',
  				controllerUrl: 'scripts/controller/project/safe-ctrl'
+ 			},
+ 			'sponsor': {
+ 				templateUrl: 'views/project/project-sponsor-list.html',
+ 				controller: 'ProjectSponsorInstitutionCtrl',
+ 				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
  			}
  		}
  	})
@@ -369,6 +384,17 @@
  				templateUrl: 'views/about-us/news-details.html',
  				controller: 'NewsCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 			}
+ 		}
+ 	})
+ 	/*------------------------------------------  get-pwd-back  -----------------------------------------------*/
+ 	.state('root.get-pwd-back', {
+ 		url: '/get-pwd-back',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/get-pwd-back.html',
+ 				controller: 'GetPwdCtrl',
+ 				controllerUrl: 'scripts/controller/get-pwd-back/get-pwd-back-ctrl'
  			}
  		}
  	})

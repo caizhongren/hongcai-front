@@ -8,19 +8,19 @@
 						<label>项目状态：</label>
 						<ul class="nav nav-pills">
 							<li class="{{status == '3,4,5,6' ? 'active' : ''}}">
-								<a href="/project-list/3,4,5,6/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}">全部</a>
+								<a ui-sref="root.project-list-query({status:'3,4,5,6', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })">全部</a>
 							</li>
 							<li class="{{status == '3' ? 'active' : ''}}">
-								<a href="/project-list/{{status ? 3 : status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >投标中</a>
+								<a ui-sref="root.project-list-query({status:'3', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })">投标中</a>
 							</li>
 							<li class="{{status == '4' ? 'active' : ''}}">
-								<a href="/project-list/{{status ? 4 : status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >投标结束</a>
+								<a ui-sref="root.project-list-query({status:'4', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })">投标结束</a>
 							</li>
 							<li class="{{status == '5' ? 'active' : ''}}">
-								<a href="/project-list/{{status ? 5 : status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >还款中</a>
+								<a ui-sref="root.project-list-query({status:'5', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })">还款中</a>
 							</li>
 							<li class="{{status == '6' ? 'active' : ''}}">
-								<a href="/project-list/{{status ? 6 : status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >还款完成</a>
+								<a ui-sref="root.project-list-query({status:'6', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })">还款完成</a>
 							</li>
 						</ul>
 					</div>
@@ -28,25 +28,25 @@
 						<label>项目期限：</label>
 						<ul class="nav nav-pills">
 							<li class="{{(minCycle==0 && maxCycle==100) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/0/100/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >全部</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: 0, maxCycle: 100, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" >全部</a>
 							</li>
 							<li class="{{(minCycle==0 && maxCycle==3) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle ? 0 : minCycle}}/{{maxCycle ? 3 : maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >0 - 3个月</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: 0, maxCycle: 3, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" >0 - 3个月</a>
 							</li>
 							<li class="{{(minCycle==3 && maxCycle==6) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle ? 3 : minCycle}}/{{maxCycle ? 6 : maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >3 - 6个月</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: 3, maxCycle: 6, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" >3 - 6个月</a>
 							</li>
 							<li class="{{(minCycle==6 && maxCycle==9) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle ? 6 : minCycle}}/{{maxCycle ? 9 : maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >6 - 9个月</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: 6, maxCycle: 9, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" >6 - 9个月</a>
 							</li>
 							<li class="{{(minCycle==9 && maxCycle==12) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle ? 9 : minCycle}}/{{maxCycle ? 12 : maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >9 - 12个月</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: 9, maxCycle: 12, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" >9 - 12个月</a>
 							</li>
 							<li class="{{(minCycle==12 && maxCycle==15) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle ? 12 : minCycle}}/{{maxCycle ? 15 : maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >12 - 15个月</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: 12, maxCycle: 15, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" >12 - 15个月</a>
 							</li>
 							<li class="{{(minCycle==15 && maxCycle==100) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle ? 15 : minCycle}}/{{maxCycle ? 100 : maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >15个月以上</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: 15, maxCycle: 100, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" >15个月以上</a>
 							</li>
 						</ul>
 					</div>
@@ -54,19 +54,19 @@
 						<label>项目收益：</label>
 						<ul class="nav nav-pills">
 							<li class="{{(minEarning==0 && maxEarning==20) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/0/20/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >全部</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 0, maxEarning: 20, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" >全部</a>
 							</li>
 							<li class="{{(minEarning==0 && maxEarning==8) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/0/8/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >8%以下</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 0, maxEarning: 8, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" >8%以下</a>
 							</li>
 							<li class="{{(minEarning==8 && maxEarning==10) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/8/10/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >8 - 10%</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 8, maxEarning: 10, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" >8 - 10%</a>
 							</li>
 							<li class="{{(minEarning==10 && maxEarning==12) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/10/12/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >10 - 12%</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 10, maxEarning: 12, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" >10 - 12%</a>
 							</li>
 							<li class="{{(minEarning==12 && maxEarning==20) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/12/20/{{minTotalAmount}}/{{maxTotalAmount}}/{{sortCondition}}/{{sortType}}" >12%以上</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 12, maxEarning: 20, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" >12%以上</a>
 							</li>
 						</ul>
 					</div>
@@ -75,19 +75,19 @@
 						<label>项目规模：</label>
 						<ul class="nav nav-pills">
 							<li class="{{(minTotalAmount==0 && maxTotalAmount==200000000) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/0/200000000/{{sortCondition}}/{{sortType}}" >全部</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:sortCondition, sortType: sortType})" >全部</a>
 							</li>
 							<li class="{{(minTotalAmount==0 && maxTotalAmount==2000000) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/0/2000000/{{sortCondition}}/{{sortType}}" >200万以下</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 0, maxTotalAmount: 2000000, sortCondition:sortCondition, sortType: sortType})" >200万以下</a>
 							</li>
 							<li class="{{(minTotalAmount==2000000 && maxTotalAmount==5000000) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/2000000/5000000/{{sortCondition}}/{{sortType}}" >200-500万</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 2000000, maxTotalAmount: 5000000, sortCondition:sortCondition, sortType: sortType})" >200-500万</a>
 							</li>
 							<li class="{{(minTotalAmount==5000000 && maxTotalAmount==10000000) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/5000000/10000000/{{sortCondition}}/{{sortType}}" >500-1000万</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 5000000, maxTotalAmount: 10000000, sortCondition:sortCondition, sortType: sortType})" >500-1000万</a>
 							</li>
 							<li class="{{(minTotalAmount==10000000 && maxTotalAmount==200000000) ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/10000000/200000000/{{sortCondition}}/{{sortType}}" >1000万以上</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 10000000, maxTotalAmount: 200000000, sortCondition:sortCondition, sortType: sortType})" >1000万以上</a>
 							</li>
 						</ul>
 					</div>
@@ -95,16 +95,16 @@
 						<label>排序：</label>
 						<ul class="nav nav-pills">
 							<li class="{{sortCondition=='release_start_time' ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/release_start_time/{{sortType}}" ng-click='toggleSort()'>发布时间</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'release_start_time', sortType: sortType})" ng-click='toggleSort()'>发布时间</a>
 							</li>
 							<li class="{{sortCondition=='total' ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/total/{{sortType}}" ng-click='toggleSort()'>项目规模</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'total', sortType: sortType})" ng-click='toggleSort()'>项目规模</a>
 							</li>
 							<li class="{{sortCondition=='annual_earnings' ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/annual_earnings/{{sortType}}" ng-click='toggleSort()'>年化收益</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'annual_earnings', sortType: sortType})" ng-click='toggleSort()'>年化收益</a>
 							</li>
 							<li class="{{sortCondition=='repayment_date' ? 'active' : ''}}">
-								<a href="/project-list/{{status}}/{{minCycle}}/{{maxCycle}}/{{minEarning}}/{{maxEarning}}/{{minTotalAmount}}/{{maxTotalAmount}}/repayment_date/{{sortType}}" ng-click='toggleSort()'>还款日期</a>
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'repayment_date', sortType: sortType})" ng-click='toggleSort()'>还款日期</a>
 							</li>
 						</ul>
 					</div>

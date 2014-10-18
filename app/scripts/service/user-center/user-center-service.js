@@ -7,11 +7,13 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
 		bindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/bindBandCard', {}),
 		getUserCapital: $resource(DEFAULT_DOMAIN + '/siteUser/getUserCapitalById'),
 		getUserAvailableCash: $resource(DEFAULT_DOMAIN + '/siteUserCapital/getUserAvailableCash'),
-/*		getUserBalance: function(response){
-			$resource(DEFAULT_DOMAIN + 'siteUserCapital/getUserBalance').get({}, function(){
-
-			});
-		};*/
-		
+		getUserOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser'),
+		getOrderByUser: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser'),
+		getUserBalance: $resource(DEFAULT_DOMAIN + '/siteUserCapital/getUserBalance'),
+		sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/sendMobileCaptcha', {mobile: '@mobile'}),
+		bindMobile: $resource(DEFAULT_DOMAIN + '/siteUser/bindMobile', {mobile: '@mobile', captcha: '@captcha'}),
+		bindEmail: $resource(DEFAULT_DOMAIN + '/siteUser/bindEmail', {email: '@email'}),
+		changePassword: $resource(DEFAULT_DOMAIN + '/siteUser/changePassword', {oldPassword: '@oldPassword', newPassword: '@newPassword', repeatNewPassword: '@repeatNewPassword'}),
+     
 	};
 });

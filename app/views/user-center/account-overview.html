@@ -1,13 +1,12 @@
 <!--账户总览-->
-<div class="right-area right-assets-height">
+<div class="right-area right-assets-height" ng-controller="AccountOverviewCtrl">
 	<div class="right-title">账户总览</div>
 	<div class="account-message">
-		<div class="account-pic">
+		<div class="account-pic account-pic-bg">
 			<cjs-doughnut dataset="doughnutAccountData" options="doughnutOptions" width="313" height="313"></cjs-doughnut>
 		</div>
 		<div class="right-message">
 			<div class="left-message-show">
-				<!--这个图片是临时图片，应该是用控件实现饼图-->
 				<div class="assets-ico total-assets"></div>
 				<p class="asset-tips">账户总资产</p>
 				<p class="asset-money">{{capital.totalAssets}} 元</p>
@@ -24,7 +23,7 @@
 			</div>
 			<a href="/recharge" class="verify-button account-button">充值</a>
 			<a href="/withdraw" class="get-verify-button account-button account-right-button">提现</a>
-			<a href="/assets-overview" class="view-more">查看更多></a>
+			<a ui-sref="root.userCenter.assets-overview" class="view-more">查看更多</a>
 		</div>
 	</div>
 	<div class="right-title">投资信息</div>

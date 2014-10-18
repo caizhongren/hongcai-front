@@ -15,7 +15,7 @@ require.config({
 	    'bootstrap': 'bower_components/bootstrap/dist/js/bootstrap',
       'momentjs': 'bower_components/moment/moment',
       'moment-locale-zh': 'bower_components/moment/locale/zh-cn',
-      'angularMoment': 'bower_components/angular-moment/angular-moment'
+      'angularMoment': 'bower_components/angular-moment/angular-moment',
     },
     shim: {
     	'angularAMD': ['angular'], 
