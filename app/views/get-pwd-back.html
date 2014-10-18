@@ -13,31 +13,15 @@
 			<div class="safe-form-group get-pwd-form-group">
 				<label>用户名：</label>
 				<input type="text" 
-						class="input-message" 
+						class="verify-input" 
 						id="account" 
 						name="account" 
 						ng-model="user.account" 
 						find-account="account" required ng-focus>
-					<div ng-show="registerForm.account.$dirty && registerForm.account.$invalid && !registerForm.account.$focused">
-						<div ng-show="registerForm.account.$error.unique">
-							<img ng-src="images/check_no.png" class="check-img regist-check-img">
-							<p class="input-tips regist-input-tips">Account asdjaj</p>
-						</div>
-					</div>
-				<!--<input type="text" 
-					class="verify-input" 
-					id="mobile" 
-					name="mobile" 
-					ng-model="user.mobile" 
-					ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678]))\d{8}$/" 
-					ensure-unique-mobile="mobile" 
-					required ng-focus> 
-				<div ng-show="getPwdUserForm.mobile.$dirty && getPwdUserForm.mobile.$invalid && !getPwdUserForm.mobile.$focused">
-					<div class="user-tips-area get-pwd-tips-area">
-						<img ng-src="images/check_no.png" class="user-check-img">
-						<p class="input-tips user-input-tips">yeyeyey</p>
-					</div>
-				</div>-->
+				<div ng-show="getPwdUserForm.account.$dirty && getPwdUserForm.account.$invalid && !getPwdUserForm.account.$focused && getPwdUserForm.account.$error.unique" class="user-tips-area get-pwd-tips-area">
+					<img ng-src="images/check_no.png" class="user-check-img">
+					<p class="input-tips user-input-tips">该账号不存在</p>
+				</div>
 			</div>
 			<div class="safe-form-group get-pwd-form-group">
 				<label>验证码：</label>
@@ -54,7 +38,7 @@
 					<p class="input-tips user-input-tips">验证码错误</p>
 				</div>
 			</div>
-			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button"/>
+			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button" ng-disabled="getPwdUserForm.$invalid" ng-click="verifyAccount()"/>
 		</form>
 	</div>
 	<!--验证身份-->
@@ -67,7 +51,7 @@
 			</div>
 			<div class="safe-form-group select-form-group">
 				<label>{{v||"绑定手机"}}：</label>
-				<span>{{v||"132*****234"}}</span>
+				<span>{{usermessage.mobile}}</span>
 			</div>
 		</div>
 		<div class="get-phone-area" ng-show="wayFlag == 1">
