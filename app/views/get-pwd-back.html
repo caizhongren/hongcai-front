@@ -12,11 +12,32 @@
 		<form class="real-name" name="getPwdUserForm">
 			<div class="safe-form-group get-pwd-form-group">
 				<label>用户名：</label>
-				<input type="text" class="verify-input" required/>
-				<div class="user-tips-area get-pwd-tips-area">
-					<img ng-src="images/check_no.png" class="user-check-img">
-					<p class="input-tips user-input-tips">yeyeyey</p>
-				</div>
+				<input type="text" 
+						class="input-message" 
+						id="account" 
+						name="account" 
+						ng-model="user.account" 
+						find-account="account" required ng-focus>
+					<div ng-show="registerForm.account.$dirty && registerForm.account.$invalid && !registerForm.account.$focused">
+						<div ng-show="registerForm.account.$error.unique">
+							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<p class="input-tips regist-input-tips">Account asdjaj</p>
+						</div>
+					</div>
+				<!--<input type="text" 
+					class="verify-input" 
+					id="mobile" 
+					name="mobile" 
+					ng-model="user.mobile" 
+					ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678]))\d{8}$/" 
+					ensure-unique-mobile="mobile" 
+					required ng-focus> 
+				<div ng-show="getPwdUserForm.mobile.$dirty && getPwdUserForm.mobile.$invalid && !getPwdUserForm.mobile.$focused">
+					<div class="user-tips-area get-pwd-tips-area">
+						<img ng-src="images/check_no.png" class="user-check-img">
+						<p class="input-tips user-input-tips">yeyeyey</p>
+					</div>
+				</div>-->
 			</div>
 			<div class="safe-form-group get-pwd-form-group">
 				<label>验证码：</label>
@@ -28,15 +49,9 @@
 					required ng-focus />
 				<img src="{{getPicCaptcha}}" class="pic-verify pwd-verify-pic" id="checkCaptcha" ng-click="refreshCode()">
 				<div class="refresh-pic" ng-click="refreshCode()"></div>
-				<div ng-show="getPwdUserForm.captcha.$dirty && getPwdUserForm.captcha.$invalid && !getPwdUserForm.captcha.$focused">
-					<div  class="user-tips-area get-pwd-verify-area" ng-show="getPwdUserForm.captcha.$error.check">
-						<img ng-src="images/check_no.png" class="user-check-img">
-						<p class="input-tips user-input-tips">验证码错误</p>
-					</div>
-					<div  class="user-tips-area get-pwd-verify-area" ng-show="getPwdUserForm.captcha.$error.required">
-						<img ng-src="images/check_no.png" class="user-check-img">
-						<p class="input-tips user-input-tips">请填写验证码</p>
-					</div>
+				<div class="user-tips-area get-pwd-verify-area" ng-show="getPwdUserForm.captcha.$dirty && getPwdUserForm.captcha.$invalid && !getPwdUserForm.captcha.$focused && getPwdUserForm.captcha.$error.check">
+					<img ng-src="images/check_no.png" class="user-check-img">
+					<p class="input-tips user-input-tips">验证码错误</p>
 				</div>
 			</div>
 			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button"/>
@@ -48,6 +63,7 @@
 			<div class="safe-form-group select-form-group">
 				<label>请选择找回方式：</label>
 				<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" bs-select placeholder="请选择找回方式"></button>
+				<span></span>
 			</div>
 			<div class="safe-form-group select-form-group">
 				<label>{{v||"绑定手机"}}：</label>
@@ -60,17 +76,21 @@
 					<label>重新输入该手机号码：</label>
 					<input type="text" class="verify-input phone-input-width"required/>
 					<input type="button" value="获取验证码" class="get-verify-button verify-index get-verify-index">
-					<div  class="user-tips-area get-pwd-tips-area get-verify-tips">
-						<img ng-src="images/check_no.png" class="user-check-img phone-verify-check-img">
-						<p class="input-tips user-input-tips phone-verify-tips-index">yeyeyey</p>
+					<div>
+						<div  class="user-tips-area get-pwd-tips-area get-verify-tips">
+							<img ng-src="images/check_no.png" class="user-check-img phone-verify-check-img">
+							<p class="input-tips user-input-tips phone-verify-tips-index">yeyeyey</p>
+						</div>
 					</div>
 				</div>
 				<div class="safe-form-group select-form-group">
 					<label>输入验证码：</label>
 					<input type="text" class="verify-input"required/>
-					<div  class="user-tips-area get-pwd-tips-area get-verify-tips">
-						<img ng-src="images/check_no.png" class="user-check-img">
-						<p class="input-tips user-input-tips">yeyeyey</p>
+					<div>
+						<div  class="user-tips-area get-pwd-tips-area get-verify-tips">
+							<img ng-src="images/check_no.png" class="user-check-img">
+							<p class="input-tips user-input-tips">yeyeyey</p>
+						</div>
 					</div>
 				</div>
 				<input type="button" value="下一步" class="verify-button get-pwd-button"/>
@@ -81,9 +101,11 @@
 				<div class="safe-form-group select-form-group">
 					<label>重新输入该邮箱：</label>
 					<input type="text" class="verify-input"/>
-					<div  class="user-tips-area get-pwd-tips-area get-verify-tips">
-						<img ng-src="images/check_no.png" class="user-check-img">
-						<p class="input-tips user-input-tips">yeyeyey</p>
+					<div>
+						<div  class="user-tips-area get-pwd-tips-area get-verify-tips">
+							<img ng-src="images/check_no.png" class="user-check-img">
+							<p class="input-tips user-input-tips">yeyeyey</p>
+						</div>
 					</div>
 				</div>
 				<input type="button" value="下一步" class="verify-button mail-button get-pwd-button"/>
@@ -96,17 +118,21 @@
 			<div class="safe-form-group">
 				<label>输入新密码：</label>
 				<input type="password" class="verify-input"required/>
-				<div class="user-tips-area get-pwd-tips-area">
-					<img ng-src="images/check_no.png" class="user-check-img">
-					<p class="input-tips user-input-tips">yeyeyey</p>
+				<div>
+					<div class="user-tips-area get-pwd-tips-area">
+						<img ng-src="images/check_no.png" class="user-check-img">
+						<p class="input-tips user-input-tips">yeyeyey</p>
+					</div>
 				</div>
 			</div>
 			<div class="safe-form-group">
 				<label>确认新密码：</label>
 				<input type="password" class="verify-input"required/>
-				<div class="user-tips-area get-pwd-tips-area">
-					<img ng-src="images/check_no.png" class="user-check-img">
-					<p class="input-tips user-input-tips">yeyeyey</p>
+				<div>
+					<div class="user-tips-area get-pwd-tips-area">
+						<img ng-src="images/check_no.png" class="user-check-img">
+						<p class="input-tips user-input-tips">yeyeyey</p>
+					</div>
 				</div>
 			</div>
 			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button"/>
