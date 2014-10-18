@@ -81,7 +81,7 @@
 						name="newEmail" 
 						ng-model="newEmail" 
 						ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/" 
-						ensure-unique-email="newEmail" required ng-focus/>
+						ensure-unique-email="newEmail" required ng-focus autofocus/>
 				<div ng-show="
 							bindEmailForm.newEmail.$dirty && 
 							bindEmailForm.newEmail.$invalid && 
