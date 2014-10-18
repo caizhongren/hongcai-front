@@ -1223,6 +1223,15 @@ label{
 .p-details{
   margin-top: 110px;
 }
+.bank-card-show{
+  height: 142px;
+  width: 214px;
+  background-color: #fdfbfb;
+  background-image: url(/images/sprite.png);
+  background-position: -795px -1380px;
+  border-radius: 3px;
+  border: 1px solid #dbdbdb;
+}
 /*get-pwd-back*/
 .get-pwd-area{
   margin: 0 auto;
