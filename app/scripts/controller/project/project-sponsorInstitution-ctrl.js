@@ -35,9 +35,8 @@ hongcaiApp.controller("ProjectSponsorInstitutionCtrl", ["$scope", "$stateParams"
 	    	$scope.sortType = !$scope.sortType;
     	};
 	});*/
-    $scope.image = "images/test/0.png";
-    console.log(5)
-    /*var imgs = [
+    // $scope.image = "images/test/0.png";
+    $scope.imgs = [
         {
             title:"百度",
             src:'images/test/0.png'
@@ -82,10 +81,10 @@ hongcaiApp.controller("ProjectSponsorInstitutionCtrl", ["$scope", "$stateParams"
             title:"雅虎",
             src:'images/test/10.png'
         }
-    ];*/
+    ];
 
     $(function(){
-        $("#slider").sudySlider();
+        $("#slider").sudySlider($scope.imgs);
     });
 
 }]);

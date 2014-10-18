@@ -2,10 +2,14 @@
 <div class="right-area safeset-height">
     <div class="right-title">银行卡管理</div>
     <div class="verify-area introduction-area border-none" >
-        <a href="javacscript:;" ng-show="isAuth" ng-init="isAuth=false">
+        <a href="javacscript:;" ng-show="isAuth && !haveCard" ng-init="isAuth=false" ng-click="bindBankCard()">
             <div class="bank-card-show">
-                <p class="add-card" ng-click="bindBankCard()" ng-show="!haveCard">添加银行卡</p>
-                <p class="add-card" ng-show="haveCard">{{bankName}}</p>
+                <p class="add-card" >添加银行卡</p>
+            </div>
+        </a>
+        <a href="javacscript:;" ng-show="isAuth && haveCard" >
+            <div class="bank-card-show">
+                <p class="add-card">{{bankName}}</p>
             </div>
         </a>
         <!--start 安全认证提示 -->
