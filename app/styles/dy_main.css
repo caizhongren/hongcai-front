@@ -1245,7 +1245,7 @@ label{
   color: white;
 }
 .get-tips-pic{
-  background: url(/images/sprite.png) -35px -1386px no-repeat;
+  background: url(/images/sprite.png) -35px -1553px no-repeat;
   height: 75px;
   width: 100%;
 }
@@ -1303,4 +1303,27 @@ label{
 }
 .get-pwd-success-tips span{
   color: #e14526;
+}
+.select-area label{
+  width: 140px;
+  text-align: right;
+}
+.select-form-group{
+  width: 455px;
+}
+.get-phone-area .real-name{
+  padding: 0;
+  margin-top: -15px;
+}
+.get-verify-index{
+  margin-right: 66px;
+}
+.get-verify-tips{
+  margin-right: -72px;
+}
+.get-phone-area .get-pwd-button{
+  margin-left: 430px !important;
+}
+.select-area{
+  padding-top: 30px;
 }
