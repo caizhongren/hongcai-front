@@ -1034,6 +1034,14 @@ hr {
 .safe #carousel-generic .left {
   left: -30px;
 }
+.safe .nav > li > a {
+  padding: 0;
+  color: #717071;
+}
+.safe .nav > li > a:hover {
+  background: none;
+  color: #ea5430;
+}
 /**sponsor carousel**/
 #carousel-generic {
   margin-left: 90px;
