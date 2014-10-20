@@ -9,17 +9,17 @@
 			<div class="left-message-show">
 				<div class="assets-ico total-assets"></div>
 				<p class="asset-tips">账户总资产</p>
-				<p class="asset-money">{{capital.totalAssets}} 元</p>
+				<p class="asset-money">{{capital.totalAssets | number:2}} 元</p>
 			</div>
 			<div class="left-message-show">
 				<div class="assets-ico net-income"></div>
 				<p class="asset-tips">累计净收益</p>
-				<p class="asset-money">{{capital.userCapital.receivedProfit}} 元</p>
+				<p class="asset-money">{{capital.userCapital.receivedProfit| number:2}} 元</p>
 			</div>
 			<div class="left-message-show last-show">
 				<div class="assets-ico account-balance"></div>
 				<p class="asset-tips">账户余额</p>
-				<p class="asset-money">{{capital.userCapital.balance + capital.userCapital.freezeCapital}} 元</p>
+				<p class="asset-money">{{(capital.userCapital.balance + capital.userCapital.freezeCapital)| number:2}} 元</p>
 			</div>
 			<a href="/recharge" class="verify-button account-button">充值</a>
 			<a href="/withdraw" class="get-verify-button account-button account-right-button">提现</a>
