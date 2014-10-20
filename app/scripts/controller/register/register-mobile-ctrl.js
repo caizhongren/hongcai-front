@@ -23,6 +23,5 @@ hongcaiApp.controller("RegisterMobileCtrl", ["$scope", "$state", "$rootScope", "
             }
         });
     };
-
 }]);
  

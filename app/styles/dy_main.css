@@ -104,7 +104,7 @@ label{
 }
 .input-tips {
   font-size: 12px;
-  width: 165px;
+  width: 145px;
   float: left;
   margin-top: -24px;
   color: #d8271c;
@@ -240,7 +240,7 @@ label{
 }
 .regist-input-tips{
   float: right;
-  margin-right: -125px;
+  margin-right: -108px;
   margin-top: 12px;
 }
 .agree-area {
@@ -258,6 +258,8 @@ label{
   margin-top: -3px;
   margin-left: 10px;
   cursor: pointer;
+  height: 42px;
+  width: 75px;
 }
 .a-verify {
   position: absolute;
@@ -284,6 +286,9 @@ label{
 .popover-content {
   padding: 5px 8px;
   height: 30px;
+}
+.regist-refresh-pic{
+  margin:8px 70px 0 0 !important;
 }
 /*person_set*/
 .head{

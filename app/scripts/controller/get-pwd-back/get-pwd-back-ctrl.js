@@ -6,7 +6,7 @@ hongcaiApp
     	{value: 'phone', label: '手机找回'},
     	{value: 'email', label: '邮箱找回'},
   	];
-  	$scope.areaFlag = 3;
+  	$scope.areaFlag = 1;
   	$scope.getPicCaptcha = DEFAULT_DOMAIN + "/siteUser/getPicCaptcha?";
   	$scope.refreshCode = function() {
         angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());

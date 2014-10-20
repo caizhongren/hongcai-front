@@ -55,7 +55,7 @@
 						</div>
 						<div ng-show="registerForm.name.$error.pattern">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
-							<p class="input-tips regist-input-tips">昵称只能为3-15位字符，以字母、中文开头，支持中英文、数字以及“-”“_”组合</p>
+							<p class="input-tips regist-input-tips">4-15位字符，以字母、中文开头，支持中文、字母、数字以及下划线</p>
 						</div>
 						<div ng-show="registerForm.name.$error.required">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
@@ -84,6 +84,7 @@
 						ng-model="user.captcha" 
 						ensure-captcha="captcha" required ng-focus>
 					<img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify" ng-click="refreshCode()">
+					<div class="refresh-pic regist-refresh-pic" ng-click="refreshCode()"></div>
 					<div ng-show="registerForm.captcha.$dirty && registerForm.captcha.$invalid && registerForm.captcha.$error.check && !registerForm.captcha.$focused">
 						<img ng-src="images/check_no.png" class="verify-pictips">
 						<p class="input-tips regist-input-tips verify-input-tips">验证码错误!</p>
