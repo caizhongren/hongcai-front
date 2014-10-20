@@ -26,7 +26,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<input type="button" value="确认提现" class="verify-button" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid"/>
+			<input type="button" value="确认提现" class="verify-button" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)"/>
 		</div>
 	</form>
 	<div class="tip ft-12">

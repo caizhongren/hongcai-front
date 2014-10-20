@@ -36,9 +36,9 @@
 			<div class="col-md-12"><strong>&nbsp;&nbsp;投资信息确认</strong></div>
 			<div class="col-md-12">
 				<div class="row">
-					<div class="col-md-3">投资金额：{{amount}}<!-- 数据绑定 -->元</div>
-					<div class="col-md-3">账户余额：{{capital.balance}}<!-- 数据绑定 --></div>
-					<div class="col-md-3">还需金额：{{distance}}<!-- 数据绑定 --></div>
+					<div class="col-md-3">投资金额：{{amount| number:2}}<!-- 数据绑定 -->元</div>
+					<div class="col-md-3">账户余额：{{capital.balance | number:2}}<!-- 数据绑定 --></div>
+					<div class="col-md-3">还需金额：{{distance | number:2}}<!-- 数据绑定 --></div>
 				</div>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 					<div class="form-group mgn-top">
 						<label>订单号：{{orderId}}</label>
 						<br>
-						您将要支付<span class="ftw-b ft-red">100.00</span>元，核实信息无误后请确认
+						您将要支付<span class="ftw-b ft-red">{{amount | number:2}}</span>元，核实信息无误后请确认
 
 					</div>
 					<input type="button" value="确认" class="verify-button" ng-click="transfer(orderId)"/>
