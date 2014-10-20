@@ -393,7 +393,7 @@ label{
 }
 .p-security-level{
     height: 14px;
-    width: 80px;
+    width: 85px;
 }
 .a-up-level{
     float: right;
@@ -705,8 +705,11 @@ label{
 .assets-height {
   height: 890px;
 }
-.right-assets-height {
-  height: 812px;
+.right-account-height {
+  height: 670px;
+}
+.right-assets-height{
+  height: 815px;
 }
 .account-pic,
 .assets-pic {
@@ -810,31 +813,31 @@ label{
   color: inherit;
 }
 .account-investment {
-  padding: 20px 90px;
+  padding: 0px 90px;
 }
 .account-investment-show {
-  height: 135px;
+  height: 74px;
   width: 135px;
   margin-right: 73px;
-  background: url(/images/sprite.png) -845px -207px no-repeat;
+  /*background: url(/images/sprite.png) -845px -207px no-repeat;*/
   padding: 25px;
-  color: white;
+  color: #717071;
   float: left;
 }
 .account-number {
   font-size: 24px;
   float: left;
-  margin: 12px 0 0 20px;
-}
-.account-number-tips {
-  padding-top: 23px;
+  margin: -14px 0 0 43px;
 }
 .account-number-message {
-  padding-left: 21px;
   margin-top: -6px;
+  text-align: center;
+  margin-left: 28px;
+  float: left;
+  width: 72px;
 }
 .investment-more {
-  margin: 35px 16px 0 0;
+  margin: 20px 16px 0 0;
 }
 .userCenter label {
   font-weight: normal;
@@ -1066,6 +1069,12 @@ label{
 }
 .safe-card-tips{
   margin: 0 0 0 -42px !important;
+}
+.mid-line{
+  height: 74px;
+  width: 1px;
+  background-color: #dbdbdb;
+  float: left;
 }
 /*about-us*/
 .about-us-area{
@@ -1369,7 +1378,7 @@ label{
   margin: 20px auto;
   background-color: white;
   border: 1px solid #dbdbdb;
-  padding: 0 45px 20px;
+  padding: 0 45px 65px;
 }
 .text-title{
   font-size: 32px;
