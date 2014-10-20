@@ -377,14 +377,14 @@ label{
     float: left;
     margin: 12px 0  10px 6px;
 }
-.low-level{
-  background: url(/images/sprite.png) -83px -501px no-repeat;
+.high-level{
+  background: url(/images/sprite.png) -35px -1165px no-repeat;
 }
 .mid-level{
   background: url(/images/sprite.png) -35px -1228px no-repeat;
 }
-.high-level{
-  background: url(/images/sprite.png) -35px -1165px no-repeat;
+.low-level{
+  background: url(/images/sprite.png) -83px -501px no-repeat;
 }
 .p-security-level{
     height: 14px;
