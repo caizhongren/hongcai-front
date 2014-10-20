@@ -705,8 +705,11 @@ label{
 .assets-height {
   height: 890px;
 }
-.right-assets-height {
+.right-account-height {
   height: 670px;
+}
+.right-assets-height{
+  height: 815px;
 }
 .account-pic,
 .assets-pic {
