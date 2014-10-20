@@ -13,7 +13,7 @@
 						name="email" 
 						ng-model="user.email" 
 						ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/" 
-						ensure-unique-email="email" required ng-focus>
+						ensure-unique-email="email" required ng-focus autofocus>
 					<div ng-show="registerForm.email.$dirty && registerForm.email.$invalid && !registerForm.email.$focused">
 						<div ng-show="registerForm.email.$error.pattern">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
