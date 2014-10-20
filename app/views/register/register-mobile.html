@@ -51,9 +51,9 @@
 						id="name" 
 						name="name" 
 						ng-model="user.name" 
-						ng-minlength="2" 
+						ng-minlength="3" 
 						ng-maxlength="15" 
-						ng-pattern="/^[\u4e00-\u9fa5 | a-z | A-Z][\u4e00-\u9fa5 | a-z | A-Z | _ | 0-9 | \- ]{1,}$/" 
+						ng-pattern="/^[\u4e00-\u9fa5|a-z|A-Z][\u4e00-\u9fa5|a-z|A-Z|_|0-9|\-]{1,}$/" 
 						ensure-unique-name="name" 
 						required ng-focus>
 					<div ng-show="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused">
@@ -71,7 +71,7 @@
 						</div>
 						<div ng-show="registerForm.name.$error.pattern">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
-							<p class="input-tips regist-input-tips">以字母或中文开头</p>
+							<p class="input-tips regist-input-tips">昵称只能为3-15位字符，以字母、中文开头，支持中英文、数字以及“-”“_”组合</p>
 						</div>
 					</div>
 				</div>
@@ -91,7 +91,12 @@
 					<label class="big-tips"></label>
 					<img ng-src={{checkImage||"images/check_01.png"}} class="pic-check">
 					<p class="p-agree">同意<a href="">《注册协议》</a>和<a href="">《隐私协议》</a></p>
-					<input type="submit" class="red-button" ng-disabled="registerForm.$invalid" value="立即注册">
+					<div ng-if="registerForm.$invalid" >
+		                <input type="submit" class="red-button grey" ng-disabled="registerForm.$invalid" value="立即注册">
+		            </div>
+		            <div ng-if="!registerForm.$invalid">
+		                <input type="submit" class="red-button" ng-disabled="registerForm.$invalid" value="立即注册">
+		            </div>
 				</div>
 			</form>
 		</div>
