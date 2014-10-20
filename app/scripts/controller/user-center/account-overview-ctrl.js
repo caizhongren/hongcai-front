@@ -37,7 +37,7 @@ hongcaiApp.controller("AccountOverviewCtrl", [ "$scope", "$state", "$rootScope",
 				color : "#f9b81e"
 			},
 			{
-				value : response.data.userCapital.balance + response.data.userCapital.freezeCapital,
+				value : response.data.userCapital.balance,
 				label: '账户余额',
 				color : "#62cbc6"
 			}]
