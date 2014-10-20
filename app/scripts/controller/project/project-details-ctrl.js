@@ -45,7 +45,25 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$stateParams",
                 $state.go('root.login');
             }
         });
+
+
     };
     });
+
+    $scope.tabs = [
+      {
+        "title": "Home",
+        "template": "/project-details-info.html"
+      },
+      {
+        "title": "Profile",
+        "template": "Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee."
+      },
+      {
+        "title": "About",
+        "template": "Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade."
+      }
+    ];
+    $scope.tabs.activeTab = 0;
 }]);
 
