@@ -4,7 +4,7 @@
 	<form class="real-name" name="rechargeForm">
 		<div class="form-group mgn-top">
 			<label>可用余额：</label>
-			<p>{{ balance || "0"}}元</p>
+			<p>{{ balance || "0" | number:2}}元</p>
 		</div>
 		<div class="form-group">
 			<label>充值金额：</label>

@@ -10,34 +10,34 @@
         <div class="left-message-show">
             <div class="assets-ico available-balance"></div>
             <p class="asset-tips">可用余额</p>
-            <p class="asset-money">{{capital.userCapital.balance}} 元</p>
+            <p class="asset-money">{{capital.userCapital.balance | number:2}} 元</p>
         </div>
         <div class="left-message-show">
             <div class="assets-ico proceeds-to-be-received"></div>
             <p class="asset-tips">待收收益</p>
-            <p class="asset-money">{{capital.userCapital.waitingProfit}} 元</p>
+            <p class="asset-money">{{capital.userCapital.waitingProfit | number:2}} 元</p>
         </div>
         <div class="left-message-show last-show">
             <div class="assets-ico principal-amount-to-be-received"></div>
             <p class="asset-tips">待收本金</p>
-            <p class="asset-money">{{capital.userCapital.waitingCapital}} 元</p>
+            <p class="asset-money">{{capital.userCapital.waitingCapital | number:2}} 元</p>
         </div>
     </div>
     <div class="right-message">
         <div class="left-message-show">
             <div class="assets-ico freezing-of-funds"></div>
             <p class="asset-tips">冻结资金</p>
-            <p class="asset-money">{{capital.userCapital.freezeCapital}} 元</p>
+            <p class="asset-money">{{capital.userCapital.freezeCapital | number:2}} 元</p>
         </div>
         <div class="left-message-show">
             <div class="assets-ico income-received"></div>
             <p class="asset-tips">已收收益</p>
-            <p class="asset-money">{{capital.userCapital.receivedProfit}} 元</p>
+            <p class="asset-money">{{capital.userCapital.receivedProfit | number:2}} 元</p>
         </div>
         <div class="left-message-show last-show">
             <div class="assets-ico accumulated-investment"></div>
             <p class="asset-tips">累计投资</p>
-            <p class="asset-money">{{capital.userCapital.amount}} 元</p>
+            <p class="asset-money">{{capital.userCapital.amount | number:2}} 元</p>
         </div>
     </div>
 </div>
