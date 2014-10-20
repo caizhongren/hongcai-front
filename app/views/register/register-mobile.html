@@ -91,12 +91,7 @@
 					<label class="big-tips"></label>
 					<img ng-src={{checkImage||"images/check_01.png"}} class="pic-check">
 					<p class="p-agree">同意<a href="">《注册协议》</a>和<a href="">《隐私协议》</a></p>
-					<div ng-if="registerForm.$invalid" >
-		                <input type="submit" class="red-button grey" ng-disabled="registerForm.$invalid" value="立即注册">
-		            </div>
-		            <div ng-if="!registerForm.$invalid">
-		                <input type="submit" class="red-button" ng-disabled="registerForm.$invalid" value="立即注册">
-		            </div>
+	                <input type="submit" class="{{registerForm.$invalid ? 'red-button grey' : 'red-button'}}" ng-disabled="registerForm.$invalid" value="立即注册">
 				</div>
 			</form>
 		</div>
