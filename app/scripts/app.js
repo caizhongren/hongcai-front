@@ -419,7 +419,7 @@
  		url: '/get-pwd-back',
  		views: {
  			'': {
- 				templateUrl: 'views/get-pwd-back.html',
+ 				templateUrl: 'views/get-pwd-back/get-pwd-back.html',
  				controller: 'GetPwdCtrl',
  				controllerUrl: 'scripts/controller/get-pwd-back/get-pwd-back-ctrl'
  			}
