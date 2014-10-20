@@ -323,7 +323,6 @@ label{
     border-radius: 5px;
 }
 .right-area{
-    height: 1100px;
     width: 760px;
     border:1px solid #dbdbdb;
     font-size: 14px;
@@ -706,10 +705,10 @@ label{
   height: 890px;
 }
 .right-account-height {
-  height: 670px;
+  height: 670px !important;
 }
 .right-assets-height{
-  height: 815px;
+  min-height: 815px;
 }
 .account-pic,
 .assets-pic {
