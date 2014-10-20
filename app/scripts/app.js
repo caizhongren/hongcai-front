@@ -441,8 +441,8 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 							'/withdraw',
 							'/recharge'];
 	$rootScope.$on('$stateChangeStart', function() {
+		var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
 		if(routespermission.indexOf($location.path()) !== -1) {
-			var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
 			$checkSessionServer.then(function(response){
 				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
@@ -452,10 +452,12 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 				}
 			});
 		} else {
-			if(sessionStorage.getItem('user')) {
-				$rootScope.isLogged = true;
-				$rootScope.loginName = sessionStorage.getItem('user');
-			}
+			$checkSessionServer.then(function(response){
+				if(response.data.data.name !== '') {
+					$rootScope.isLogged = true;
+					$rootScope.loginName = response.data.data.name;
+				}
+			});
 		}
 	});
 });
