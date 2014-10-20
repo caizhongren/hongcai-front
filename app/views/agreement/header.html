@@ -1,0 +1,37 @@
+<!-- start header -->
+<div id="header">
+    <div class="full-screen top-bar">
+        <div class="container" ng-controller="LoginCtrl">
+          <ul class="nav navbar-nav">
+              <li>您好，欢迎来到宏财！</li>
+              <li class="tel-img"></li>
+              <li>400-400-400-400</li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <div ng-if="isLogged === true" >
+                <a href="/">新手引导</a>
+                <p ng-if="loginResult.ret == 1">欢迎</p>
+                <a ui-sref="root.userCenter.account-overview">{{loginName}}</a>
+                <a ng-href="#" ng-click="logout();">退出</a>
+                <a href="/">帮助中心</a>
+            </div>
+            <div ng-if="isLogged !== true">
+                <a href="/">新手引导</a>
+                <a ui-sref="root.login">登录</a>
+                <a ui-sref="root.registerMobile">注册</a>
+                <a href="/">帮助中心</a>
+            </div>
+        </ul>
+    </div>
+</div>
+<div class="full-screen">
+    <div class="container logo">
+        <ul class="nav navbar-nav">
+            <li ui-sref="root.main" class="logo-img-1"></li>
+            <li ui-sref="root.main" class="logo-img-2"></li>
+        </ul>
+        <div class="agreement-bg"></div>
+    </div>
+</div>
+</div>
+<!-- end header -->

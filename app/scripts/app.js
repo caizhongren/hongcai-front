@@ -37,6 +37,22 @@
  			}
  		}
  	})
+ 	.state('root.privacy-agreement', {
+ 		url: '/privacy-agreement',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/agreement/privacy-agreement.html'
+ 			}
+ 			/*'header': {
+ 				templateUrl: 'views/agreement/header.html',
+ 				controller: 'LoginCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/login-ctrl'
+ 			},
+ 			'footer': {
+ 				templateUrl: 'views/footer.html'
+ 			}*/
+ 		}
+ 	})
  	.state('root.main', {
  		url: '/',
  		views: {
@@ -425,6 +441,8 @@
  			}
  		}
  	})
+ 	/*------------------------------------------  agreement -----------------------------------------------*/
+
  	;
 
  	$urlRouterProvider.otherwise('/');
