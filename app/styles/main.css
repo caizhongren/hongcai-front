@@ -924,6 +924,18 @@ hr {
   padding-left: 0;
   padding-right: 0;
 }
+.userCenter-news .news-item i {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: url('../../../images/sprite.png');
+}
+.userCenter-news .news-item .collapse-img {
+  background-position: -395px -810px;
+}
+.userCenter-news .news-item .uncollapse-img {
+  background-position: -430px -805px;
+}
 .userCenter-news .text-agn {
   text-align: right;
 }
