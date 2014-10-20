@@ -1,5 +1,5 @@
 hongcaiApp
-.controller("GetPwdCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "SessionService", "DEFAULT_DOMAIN", "toaster","GetPwdService", function ($scope, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster,GetPwdService) {
+.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope", "$stateParams", "SessionService", "DEFAULT_DOMAIN", "toaster","GetPwdService", function ($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster,GetPwdService) {
   	$scope.selectedIcon = '';
   	$scope.selectedIcons = ['Globe', 'Heart'];
   	$scope.icons = [
@@ -17,12 +17,17 @@ hongcaiApp
     $scope.setPhoneNewPwd = function(){
       $scope.areaFlag = 4;
       $scope.seconds = 5;
-      function timer(){
-        $scope.seconds--;
+      function timer($timeout){
+        console.log($scope.seconds);
+
+        var countUp = function() {
+            $scope.seconds--;
+            $timeout(countUp, 1000);
+        }
+
+        $timeout(countUp, 1000);
       }
-      while($scope.seconds>=0){
-        setInterval("timer()",1000);
-      }
+      
     }
 }])
 .controller("SetPwdCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "SessionService", "DEFAULT_DOMAIN", "toaster","GetPwdService", function ($scope, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster,GetPwdService) {
