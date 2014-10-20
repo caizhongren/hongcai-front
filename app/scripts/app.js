@@ -446,7 +446,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 			$checkSessionServer.then(function(response){
 				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
-					$rootScope.loginName = sessionStorage.getItem('user');
+					$rootScope.loginName = response.data.data.name;
 				} else {
 					$location.path('/login');
 				}
