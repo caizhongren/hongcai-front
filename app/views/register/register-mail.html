@@ -65,7 +65,29 @@
 				</div>
 				<div class="login-regist-form-group">
 					<label for="password" class="big-tips">密码：</label>
-					<input type="password" class="input-message" id="password" name="password" ng-model="user.password" required ng-focus>
+					<input type="password" 
+						class="input-message" 
+						id="password" 
+						name="password" 
+						ng-model="user.password" 
+						ng-minlength="6" 
+						ng-maxlength="22" 
+						ng-pattern="/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/"
+						required ng-focus>
+					<div ng-show="registerForm.password.$dirty && registerForm.password.$invalid && !registerForm.password.$focused">
+						<div ng-show="registerForm.password.$error.minlength">
+							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<p class="input-tips regist-input-tips">不能小于6个字符</p>
+						</div>
+						<div ng-show="registerForm.password.$error.maxlength">
+							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<p class="input-tips regist-input-tips">不能大于22个字符</p>
+						</div>
+						<div ng-show="registerForm.password.$error.pattern">
+							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<p class="input-tips regist-input-tips">数字或字母的组合，可以包含特殊字符，长度6-22</p>
+						</div>
+					</div>
 				</div>
 				<div class="login-regist-form-group">
 					<label for="repeatPassword" class="big-tips">确认密码：</label>
@@ -94,12 +116,7 @@
 					<label class="big-tips"></label>
 					<img src="images/check_01.png" class="pic-check" onclick="change_agree_pic(this);">
 					<p class="p-agree">同意<a href="">《注册协议》</a>和<a href="">《隐私协议》</a></p>
-					<div ng-if="registerForm.$invalid" >
-		                <input type="submit" class="red-button grey" ng-disabled="registerForm.$invalid" value="立即注册">
-		            </div>
-		            <div ng-if="!registerForm.$invalid">
-		                <input type="submit" class="red-button" ng-disabled="registerForm.$invalid" value="立即注册">
-		            </div>
+					<input type="submit" class="{{registerForm.$invalid ? 'red-button grey' : 'red-button'}}" ng-disabled="registerForm.$invalid" value="立即注册">
 				</div>				
 			</form>
 		</div>
