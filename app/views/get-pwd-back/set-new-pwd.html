@@ -1,0 +1,42 @@
+<div class="bg bg-offWhite get-pwd"  ng-controller = "SetPwdCtrl">
+<div class="get-pwd-area">
+	<div class="get-tips-area">
+		<div class="get-tips-pic"></div>
+		<p class="p-get-pwd-tips">输入账号</p>
+		<p class="p-get-pwd-tips">验证身份</p>
+		<p class="p-get-pwd-tips {{areaFlag == 3 ? 'bg-get-pwd-tips' : ''}}">修改密码</p>
+		<p class="p-get-pwd-tips last-tips {{areaFlag == 4 ? 'bg-get-pwd-tips' : ''}}">完成</p>
+	</div>
+	<!--修改密码-->
+	<div class="get-pwd-input-area" ng-show="areaFlag == 3">
+		<form class="real-name" name="newPwdForm">
+			<div class="safe-form-group">
+				<label>输入新密码：</label>
+				<input type="password" class="verify-input"required/>
+				<div>
+					<div class="user-tips-area get-pwd-tips-area">
+						<img ng-src="images/check_no.png" class="user-check-img">
+						<p class="input-tips user-input-tips">yeyeyey</p>
+					</div>
+				</div>
+			</div>
+			<div class="safe-form-group">
+				<label>确认新密码：</label>
+				<input type="password" class="verify-input"required/>
+				<div>
+					<div class="user-tips-area get-pwd-tips-area">
+						<img ng-src="images/check_no.png" class="user-check-img">
+						<p class="input-tips user-input-tips">yeyeyey</p>
+					</div>
+				</div>
+			</div>
+			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button" ng-disabled="newPwdForm.$invalid"/>
+		</form>
+	</div>
+	<!--完成-->
+	<div class="get-pwd-input-area"  ng-show="areaFlag == 4">
+		<p class="get-pwd-success">密码找回成功！</p>
+		<p class="get-pwd-success-tips"><span>{{ v ||"5"}}</span>秒后进入<span>登录页</span>，请使用新密码进行登录</p>
+	</div>
+</div>
+</div>
