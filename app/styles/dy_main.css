@@ -810,7 +810,7 @@ label{
 .account-investment-show {
   height: 135px;
   width: 135px;
-  margin-right: 57px;
+  margin-right: 73px;
   background: url(/images/sprite.png) -845px -207px no-repeat;
   padding: 25px;
   color: white;
@@ -829,7 +829,7 @@ label{
   margin-top: -6px;
 }
 .investment-more {
-  margin: 35px 55px 0 0;
+  margin: 35px 16px 0 0;
 }
 .userCenter label {
   font-weight: normal;
@@ -1058,6 +1058,9 @@ label{
 }
 .safe-email-change{
   margin-top: -29px;
+}
+.safe-card-tips{
+  margin: 0 0 0 -42px !important;
 }
 /*about-us*/
 .about-us-area{
