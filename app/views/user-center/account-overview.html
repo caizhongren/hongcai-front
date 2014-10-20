@@ -29,19 +29,19 @@
 	<div class="right-title">投资信息</div>
 	<div class="account-investment">
 		<div class="account-investment-show">
-			<p class="account-number">{{ investingNum}}</p>
+			<p class="account-number">{{ investingNum || "0"}}</p>
 			<p class="account-number-tips">个</p>
 			<p class="account-number-message">理财中</p>
 		</div>
 		<div class="mid-line"></div>
 		<div class="account-investment-show">
-			<p class="account-number">{{ investedNum }}</p>
+			<p class="account-number">{{ investedNum || "0" }}</p>
 			<p class="account-number-tips">个</p>
 			<p class="account-number-message">购买成功</p>
 		</div>
 		<div class="mid-line"></div>
 		<div class="account-investment-show" style="margin-right:0;">
-			<p class="account-number">{{ investNum }}</p>
+			<p class="account-number">{{ investNum || "0"}}</p>
 			<p class="account-number-tips">个</p>
 			<p class="account-number-message">投资共计</p>
 		</div>
