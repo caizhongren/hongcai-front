@@ -115,7 +115,7 @@
 				<div class="login-regist-form-group agree-area">
 					<label class="big-tips"></label>
 					<img src="images/check_01.png" class="pic-check" onclick="change_agree_pic(this);">
-					<p class="p-agree">同意<a href="">《注册协议》</a>和<a href="">《隐私协议》</a></p>
+					<p class="p-agree">同意<a ui-sref="root.registration-agreement">《注册协议》</a>和<a ui-sref="root.privacy-agreement">《隐私协议》</a></p>
 					<input type="submit" class="{{registerForm.$invalid ? 'red-button grey' : 'red-button'}}" ng-disabled="registerForm.$invalid" value="立即注册">
 				</div>				
 			</form>
