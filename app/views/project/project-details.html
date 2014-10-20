@@ -26,10 +26,10 @@
 		        	</div>
 		        	<!-- star tabs -->
 		        	<div class="row mgn-top border bg-white project-info-tab">
-		          		<div class="project-tit">
-		          			<div ng-model="tabs.activeTab" bs-tabs>
-							  	<div ng-repeat="tab in tabs" title="{{ tab.title }}" ng-bind="tab.template" bs-pane></div>
-							</div>
+		          		<div id="tabs" class="project-tit">
+		          			<!-- <div ng-model="tabs.activeTab" bs-tabs>
+							  	<div ng-repeat="tab in tabs" title="{{ tab.title }}" ng-bind="tab.content-html-url" bs-pane></div>
+							</div> -->
 		            		<!-- <span class="nav navbar-nav">
 		                  		<a href="/project-info">项目信息</a>
 		                  		<a href="/project-info">企业信息</a>
@@ -37,141 +37,160 @@
 		                  		<a href="/project-info">相关文件</a>
 		                  		<a href="/project-info">项目里程</a>
 		                	</span> -->
-		          		</div>
+					        <ul class="nav navbar-nav">
+					            <li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.url)}" ng-click="onClickTab(tab)">{{tab.title}}</li>
+					        </ul>
+					        <div id="mainView">
+					            <div ng-include="currentTab"></div>
+					        </div>
+						    <!-- start 项目信息 -->
+						    <script type="text/ng-template" id="one.tpl.html">
+								<div class="project-info">
+				          			<div class="info-item">
+				          				<div class="info-item-tips">
+				          					<div class="info-item-icon"></div>项目信息<!-- 绑定数据 -->
+				          				</div>
+				          				
+				          				<p>{{projectInfo.description}}</p>
+				          			</div>
+				          			<div class="info-item">
+				          				<div class="info-item-tips">
+				          					<div class="info-item-icon"></div>资金用途<!-- 绑定数据 -->
+				          				</div>
+				          				<p>{{projectInfo.financing_purpose}}</p>
+				          			</div>
+				          			<div class="info-item">
+				          				<div class="info-item-tips">
+				          					<div class="info-item-icon"></div>还款来源<!-- 绑定数据 -->
+				          				</div>
+				          				<p>{{projectInfo.repayment_source}}</p>
+				          			</div>
+				          			<div class="info-item project-evaluation border-none">
+				          				<div class="info-item-tips">
+				          					<div class="info-item-icon"></div>项目评估<!-- 绑定数据 -->
+				          				</div>
+				          				<p>{{projectInfo.risk_management_info}}</p>
+				          			</div>
+				          		</div>
+							</script>
+							<!-- end 项目信息 -->
 
-		          		<!-- start 项目信息 -->
-		          		<div class="project-info" style="display:none;">
-		          			<div class="info-item">
-		          				<div class="info-item-tips">
-		          					<div class="info-item-icon"></div>项目信息<!-- 绑定数据 -->
-		          				</div>
-		          				
-		          				<p>{{projectInfo.description}}</p>
-		          			</div>
-		          			<div class="info-item">
-		          				<div class="info-item-tips">
-		          					<div class="info-item-icon"></div>资金用途<!-- 绑定数据 -->
-		          				</div>
-		          				<p>{{projectInfo.financing_purpose}}</p>
-		          			</div>
-		          			<div class="info-item">
-		          				<div class="info-item-tips">
-		          					<div class="info-item-icon"></div>还款来源<!-- 绑定数据 -->
-		          				</div>
-		          				<p>{{projectInfo.repayment_source}}</p>
-		          			</div>
-		          			<div class="info-item project-evaluation border-none">
-		          				<div class="info-item-tips">
-		          					<div class="info-item-icon"></div>项目评估<!-- 绑定数据 -->
-		          				</div>
-		          				<p>{{projectInfo.risk_management_info}}</p>
-		          			</div>
-		          		</div>
-		          		<!-- end 项目信息 -->
-		          		<!-- start 企业信息 -->
-		          		<div class="project-info">
-		          			<div class="info-item">
-		          				<div class="info-item-tips">
-		          					<div class="info-item-icon"></div>企业信息<!-- 绑定数据 -->
-		          				</div>
-		          				<p>{{enterprise.background}}</p>
-		          			</div>
-		          			<div class="info-item">
-		          				<div class="info-item-tips">
-		          					<div class="info-item-icon"></div>营业范围<!-- 绑定数据 -->
-		          				</div>
-		          				<p>{{enterprise.businessScope}}</p>
-		          			</div>
-		          			<div class="info-item border-none">
-		          				<div class="info-item-tips">
-		          					<div class="info-item-icon"></div>经营状况<!-- 绑定数据 -->
-		          				</div>
-		          				<p>{{enterprise.businessState}}</p>
-		          			</div>
-		          		</div>
-		          		<!-- end 企业信息 -->
-		          		<!-- start 风控信息 -->
-		          		<div class="project-info" style="display:none;">
-		          			<div class="info-item">
-		          				<div class="info-item-tips">
-		          					<div class="info-item-icon"></div>担保方<!-- 绑定数据 -->
-		          				</div>
-		          				<p>{{projectInfo.guarantee_suggestion}}</p>
-		          			</div>
-		          			<div class="info-item border-none">
-		          				<div class="info-item-tips">
-		          					<div class="info-item-icon"></div>项目风险防控方案<!-- 绑定数据 -->
-		          				</div>
-		          				<p>{{projectInfo.risk_management_info}}<!-- 绑定数据 --></p>
-		          			</div>
-		          		</div>
-		          		<!-- end 风控信息 -->
-		          		<!-- start 相关文件 -->
-		          		<div class="project-info" style="display:none;">
-		          			<div class="info-item">
-		          				<div class="info-item-tips">
-		          					<div class="info-item-icon"></div>合同协议<!-- 绑定数据 -->
-		          				</div>
-		          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
-		          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
-		          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
+							<!-- start 企业信息 -->
+							<script type="text/ng-template" id="two.tpl.html">
+								<div class="project-info">
+				          			<div class="info-item">
+				          				<div class="info-item-tips">
+				          					<div class="info-item-icon"></div>{{con}}企业信息<!-- 绑定数据 -->
+				          				</div>
+				          				<p>{{enterprise.background}}</p>
+				          			</div>
+				          			<div class="info-item">
+				          				<div class="info-item-tips">
+				          					<div class="info-item-icon"></div>营业范围<!-- 绑定数据 -->
+				          				</div>
+				          				<p>{{enterprise.businessScope}}</p>
+				          			</div>
+				          			<div class="info-item border-none">
+				          				<div class="info-item-tips">
+				          					<div class="info-item-icon"></div>经营状况<!-- 绑定数据 -->
+				          				</div>
+				          				<p>{{enterprise.businessState}}</p>
+				          			</div>
+				          		</div>
+							</script>
+							<!-- end 企业信息 -->
 
-		          			</div>
-		          			<div class="info-item border-none">
-		          				<div class="info-item-tips">
-		          					<div class="info-item-icon"></div>企业相关照片<!-- 绑定数据 -->
-		          				</div>
-		          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>企业执照<!-- 绑定数据 --></span></div>
-		          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>办公场景<!-- 绑定数据 --></span></div>
-		          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>办公场景<!-- 绑定数据 --></span></div>
-		          			</div>
-		          		</div>
-		          		<!-- end 相关文件 -->
-		          		<!-- start 项目里程 -->
-		          		<div class="project-info project-milestone" style="display:none;">
-		          			<div class="info-item launched already">
-		          				<div class="info-item-tips">
-		          					<div class="progress-icon"></div>项目上线<br>
-		          					<div class="row ft-14">
-		          						<span class="padd">上线时间：2014-09-16<!-- 绑定数据 --></span><span>|</span>
-		          						<span>操作人：kimjdfhdig<!-- 绑定数据 --></span>
-		          					</div>
-		          				</div>
+							<!-- start 风控信息 -->
+							<script type="text/ng-template" id="three.tpl.html">
+								<div class="project-info">
+				          			<div class="info-item">
+				          				<div class="info-item-tips">
+				          					<div class="info-item-icon"></div>担保方<!-- 绑定数据 -->
+				          				</div>
+				          				<p>{{projectInfo.guarantee_suggestion}}</p>
+				          			</div>
+				          			<div class="info-item border-none">
+				          				<div class="info-item-tips">
+				          					<div class="info-item-icon"></div>项目风险防控方案<!-- 绑定数据 -->
+				          				</div>
+				          				<p>{{projectInfo.risk_management_info}}<!-- 绑定数据 --></p>
+				          			</div>
+				          		</div>
+							</script>
+							<!-- end 风控信息 -->
+
+							<!-- start 相关文件 -->
+							<script type="text/ng-template" id="four.tpl.html">
+								<div class="project-info">
+				          			<div class="info-item">
+				          				<div class="info-item-tips">
+				          					<div class="info-item-icon"></div>合同协议<!-- 绑定数据 -->
+				          				</div>
+				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
+				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
+				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
+
+				          			</div>
+				          			<div class="info-item border-none">
+				          				<div class="info-item-tips">
+				          					<div class="info-item-icon"></div>企业相关照片<!-- 绑定数据 -->
+				          				</div>
+				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>企业执照<!-- 绑定数据 --></span></div>
+				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>办公场景<!-- 绑定数据 --></span></div>
+				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>办公场景<!-- 绑定数据 --></span></div>
+				          			</div>
+				          		</div>
+							</script>
+							<!-- end 相关文件 -->
+
+							<!-- start 项目里程 -->
+							<script type="text/ng-template" id="five.tpl.html">
+								<div class="project-info project-milestone">
+				          			<div class="info-item launched already">
+				          				<div class="info-item-tips">
+				          					<div class="progress-icon"></div>项目上线<br>
+				          					<div class="row ft-14">
+				          						<span class="padd">上线时间：2014-09-16<!-- 绑定数据 --></span><span>|</span>
+				          						<span>操作人：kimjdfhdig<!-- 绑定数据 --></span>
+				          					</div>
+				          				</div>
 
 
-		          			</div>
-		          			<div class="info-item raise">
-		          				<div class="info-item-tips">
-		          					<div class="progress-icon"></div>项目募集
-		          					<div class="row ft-14">
-		          						<span class="padd">开始时间：2014-09-16<!-- 绑定数据 --></span>
-		          						<br>
-		          						<span class="padd">结束时间：2014-09-16<!-- 绑定数据 --></span>
-		          					</div>
-		          				</div>
+				          			</div>
+				          			<div class="info-item raise">
+				          				<div class="info-item-tips">
+				          					<div class="progress-icon"></div>项目募集
+				          					<div class="row ft-14">
+				          						<span class="padd">开始时间：2014-09-16<!-- 绑定数据 --></span>
+				          						<br>
+				          						<span class="padd">结束时间：2014-09-16<!-- 绑定数据 --></span>
+				          					</div>
+				          				</div>
 
-		          			</div>
-		          			<div class="info-item loan">
-		          				<div class="info-item-tips">
-		          					<div class="progress-icon"></div>项目放款<!-- 绑定数据 -->
-		          					<div class="row ft-14">
-		          						<span class="padd">上线时间：2014-09-16<!-- 绑定数据 --></span><span>|</span>
-		          						<span>操作人：kimjdfhdig<!-- 绑定数据 --></span>
-		          					</div>
-		          				</div>
-		          			</div>
-		          			<div class="info-item repayment">
-		          				<div class="info-item-tips">
-		          					<div class="progress-icon"></div>项目还款<!-- 绑定数据 -->
-		          					<div class="row ft-14">
-		          						<span class="padd">已还：0.00（0期）<!-- 绑定数据 --></span><span>|</span>
-		          						<span>待还款：169,162.71（4期）<!-- 绑定数据 --></span>
-		          					</div>
-		          				</div>
+				          			</div>
+				          			<div class="info-item loan">
+				          				<div class="info-item-tips">
+				          					<div class="progress-icon"></div>项目放款<!-- 绑定数据 -->
+				          					<div class="row ft-14">
+				          						<span class="padd">上线时间：2014-09-16<!-- 绑定数据 --></span><span>|</span>
+				          						<span>操作人：kimjdfhdig<!-- 绑定数据 --></span>
+				          					</div>
+				          				</div>
+				          			</div>
+				          			<div class="info-item repayment">
+				          				<div class="info-item-tips">
+				          					<div class="progress-icon"></div>项目还款<!-- 绑定数据 -->
+				          					<div class="row ft-14">
+				          						<span class="padd">已还：0.00（0期）<!-- 绑定数据 --></span><span>|</span>
+				          						<span>待还款：169,162.71（4期）<!-- 绑定数据 --></span>
+				          					</div>
+				          				</div>
 
-		          			</div>
+				          			</div>
+				          		</div>
+							</script>
+							<!-- end 项目里程 -->
 		          		</div>
-		          		<!-- end 项目里程 -->
 
 		        	</div>
 

@@ -570,12 +570,16 @@ hr {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.project-details .nav a {
+.project-details .nav li {
   padding-right: 50px;
   color: #807979;
 }
-.project-details .nav a:hover {
+.project-details .nav .active,
+.project-details .nav li:hover {
   color: #ea5430;
+}
+.project-details #mainView {
+  margin-top: 20px;
 }
 .project-details .news {
   height: auto;
@@ -645,7 +649,7 @@ hr {
   padding: 20px 45px;
 }
 .project-details .project-info {
-  padding: 30px 50px 50px 50px;
+  padding: 30px 0 50px 0;
 }
 .project-details .project-info .info-item {
   padding-top: 20px;
@@ -708,7 +712,7 @@ hr {
 }
 .project-details .project-milestone {
   position: relative;
-  padding-left: 75px;
+  padding-left: 35px;
 }
 .project-details .project-milestone .info-item-tips {
   font-size: 18px;
