@@ -712,12 +712,12 @@ hr {
 }
 .project-details .project-milestone {
   position: relative;
-  padding-left: 75px;
+  padding-left: 35px;
 }
 .project-details .project-milestone .info-item-tips {
   font-size: 18px;
   line-height: 40px;
-  padding-left: 45px;
+  padding-left: 35px;
 }
 .project-details .project-milestone .info-item {
   height: 115px;
