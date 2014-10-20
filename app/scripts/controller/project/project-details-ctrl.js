@@ -52,20 +52,32 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$stateParams",
     };
     });
 
-    $scope.tabs = [
-      {
-        "title": "Home",
-        "template": "/project-details-info.html"
-      },
-      {
-        "title": "Profile",
-        "template": "Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee."
-      },
-      {
-        "title": "About",
-        "template": "Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade."
-      }
+    $scope.tabs = [{
+            title: '项目信息',
+            url: 'one.tpl.html'
+        }, {
+            title: '企业信息',
+            url: 'two.tpl.html'
+        }, {
+            title: '风控信息',
+            url: 'three.tpl.html'
+        }, {
+            title: '相关文件',
+            url: 'four.tpl.html'
+        }, {
+            title: '项目里程',
+            url: 'five.tpl.html'
+        }
     ];
-    $scope.tabs.activeTab = 0;
+
+    $scope.currentTab = 'one.tpl.html';
+
+    $scope.onClickTab = function (tab) {
+        $scope.currentTab = tab.url;
+    }
+    
+    $scope.isActiveTab = function(tabUrl) {
+        return tabUrl == $scope.currentTab;
+    }
 }]);
 
