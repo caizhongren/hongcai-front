@@ -48,6 +48,11 @@ label{
   outline-style: none;
   color: white;
 }
+.agreement-bg{
+  height: 120px;
+  width: 710px;
+  background-color: black;
+}
 /*login-and-regist*/
 .bg-login-regist-width{
   width: 1006px;
@@ -1356,4 +1361,29 @@ label{
 }
 .select-area{
   padding-top: 30px;
+}
+/*agreement*/
+.agreement-area{
+  width: 1000px;
+  /*height: 800px;*/
+  margin: 20px auto;
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  padding: 0 45px 20px;
+}
+.text-title{
+  font-size: 32px;
+  line-height: 32px;
+  height: 40px;
+  border-bottom: 1px solid black;
+  margin: 20px 0;
+}
+.table-title{
+  font-size: 16px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+.table-top-title{
+  padding-top: 10px;
 }

@@ -122,14 +122,9 @@ hr {border-top: 1px solid #d8d8d8;}
   padding-left: 0;
 }
 .logo-img-1 {
-  width: 105px;
+  width: 265px;
   height: 80px;
-  background: url('../../../images/sprite.png') 0 18px;
-}
-.logo-img-2 {
-  width: 140px;
-  height: 80px;
-  background: url('../../../images/sprite.png') -109px 18px;
+  background: url('../../../images/sprite.png') -1035px 0;
 }
 
 /*index*/
@@ -414,13 +409,15 @@ hr {border-top: 1px solid #d8d8d8;}
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  .nav a {
+  .nav li {
     padding-right: 50px;
     .ft-grey;
   }
-  .nav a:hover {
+  .nav .active,
+  .nav li:hover {
     .ft-red;
   }
+  #mainView {margin-top: 20px;}
   .news {
     height: auto;
     margin-bottom: 20px;
@@ -475,7 +472,7 @@ hr {border-top: 1px solid #d8d8d8;}
   .project-info-tab {margin-bottom: 50px;}
   .project-info-tab .project-tit {padding: 20px 45px;}
   .project-info {
-    padding: 30px 50px 50px 50px;
+    padding: 30px 0 50px 0;
     .info-item {
       padding-top: 20px;
       padding-bottom: 10px;
@@ -510,27 +507,29 @@ hr {border-top: 1px solid #d8d8d8;}
     width: 40px;
     float: left;
     position: absolute;
-    left: 57px;
+    left: 20px;
   }
   .launched .progress-icon {
-    background-position: -635px -748px;
+    background-position: 0 -3px;
     top: 29px;
   }
   .raise .progress-icon {
-    background-position: -635px -803px;
+    background-position: -70px -3px;
   }
   .loan .progress-icon {
-    background-position: -580px -803px;
+    background-position: -145px -3px;
+    left: 17px;
   }
   .repayment .progress-icon {
-    background-position: -515px -803px;
+    background-position: -225px -4px;
+    left: 17px;
   }
   .project-info-tab .project-milestone .repayment {
     border: none;
   }
   .project-milestone {
     position: relative;
-    padding-left: 75px;
+    padding-left: 35px;
   }
   .project-milestone .info-item-tips {
     .ft-18;
