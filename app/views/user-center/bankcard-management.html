@@ -1,7 +1,7 @@
 <!--银行卡管理-->
 <div class="right-area safeset-height">
     <div class="right-title">银行卡管理</div>
-    <div class="verify-area introduction-area border-none"  ng-show="isAuth">
+    <div class="verify-area introduction-area border-none">
         <a href="javacscript:;" ng-show="isVerifying" ng-init="isAuth=false">
             <div class="bank-card-show">
                 <p>认证中</p>
@@ -18,7 +18,7 @@
             </div>
         </a>
         <!--start 安全认证提示 -->
-        <p class="title verify-tip" ng-show="!isAuth">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
+        <p class="title verify-tip safe-card-tips" ng-show="!isAuth">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
         <!--end 安全认证提示 -->
         <p class="tip ft-12">
             温馨提示

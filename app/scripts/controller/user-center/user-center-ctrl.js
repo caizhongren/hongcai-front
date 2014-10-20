@@ -44,7 +44,16 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
                     $scope.haveTrusteeshipAccount = false;
                 }
 
-                $scope.securityLevel = 2;
+                if (userVo.email){
+                    securityLevel = securityLevel +1;
+                }
+                if(userVo.mobile){
+                    securityLevel = securityLevel +1;
+                }
+                if($scope.isRealNameAuth){
+                    securityLevel = securityLevel +1;
+                }
+                $scope.securityLevel = securityLevel - 1;
 
             } else {
                 //toaster.pop('warning', "提示", response.msg);
