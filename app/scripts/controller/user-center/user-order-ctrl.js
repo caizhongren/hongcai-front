@@ -1,4 +1,6 @@
-hongcaiApp.controller("UserOrderCtrl", ["$scope", "$state", "$stateParams", "UserCenterService", function ($scope, $state, $stateParams, UserCenterService) {
+hongcaiApp.controller("UserOrderCtrl", ["$scope", "$rootScope", "$state", "$stateParams", "UserCenterService", function ($scope,$rootScope, $state, $stateParams, UserCenterService) {
+    
+	$rootScope.selectSide = 'userCenter-investment';
     var getOrderByUser = UserCenterService.getOrderByUser.get(function(response) {
         $scope.orderList = getOrderByUser.data.orderVoList;
         $scope.orderCount = getOrderByUser.data.orderCount;
