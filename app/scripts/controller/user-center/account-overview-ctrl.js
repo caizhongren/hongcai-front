@@ -1,16 +1,16 @@
 hongcaiApp.controller("AccountOverviewCtrl", [ "$scope", "$state", "$rootScope", "$stateParams", "UserCenterService", "DEFAULT_DOMAIN", function ($scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
 
     $rootScope.selectSide = 'account-overview';
-    var totalAssets;
-    var receivedProfit;
-    var balance;
+    var totalAssets = 0;
+    var receivedProfit = 0;
+    var balance = 0;
     UserCenterService.getUserCapital.get(function(response) {
     	if(response.ret == 1) {
     		totalAssets = response.data.totalAssets
     		receivedProfit = response.data.userCapital.receivedProfit;
     		balance = response.data.userCapital.balance;
+
 		    $scope.capital = response.data;
-		   
 		    if(totalAssets == 0 && receivedProfit == 0 && balance == 0) {
  				$scope.doughnutAccountData = [{
 	    			value: 30,
