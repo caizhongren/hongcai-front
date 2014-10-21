@@ -19,10 +19,112 @@
     </div>
   </div>
 </div>
+
+<!-- <div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 col-lg-offset-2 advertise-img investment">我要投资</div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 advertise-img investment">理财服务</div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 advertise-img investment">安全保障</div>
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 advertise-img investment">安全保障</div>
+  </div>
+</div>
+ -->
+
+<div class="container bg-offWhite main">
+  <div class="row">
+    <div class="col-sm-8">
+
+      <div class="row panel panel-default" style="border-radius: 1px;">
+        <div class="panel-body">
+          <div class="hidden-xs hidden-md col-lg-5">
+            <img src="images/bank-img.png" alt="" class="img-rounded" style="border-radius: 1px;">
+          </div>
+          <div class="col-md-12 col-lg-7">
+            <!-- <span class="project-name">光大理财产品（9月）数据绑定</span><br><span class="ft-18">项目规模：1000万</span> -->
+            <!-- <span class="project-name">光大理财产品（9月）数据绑定</span><br><span class="ft-18">项目规模：1000万</span> -->
+            <h3>光大理财产品（9月）</h3>
+            <h4>项目规模：1000万</h4>
+
+            <!-- <div class="row">
+              <div class="col-sm-12">&nbsp;</div>
+            </div> -->
+            <div class="row">
+              <div class="col-xs-12 col-sm-4 border-r">
+                <!-- <span class="ft-24 center-block">12%</span><br>
+                <span class="ft-18 center-block">年化收益</span> -->
+                <h3 class="text-center text-nowrap ft-24">12%</h3>
+                <h4 class="text-center text-nowrap ft-18">年化收益</h4>
+              </div>
+              <div class="col-xs-12 col-sm-4 border-r center-block">
+                <!-- <span class="ft-24">52%</span><br>
+                <span class="ft-18">投资进度</span> -->
+                <h3 class="text-center text-nowrap ft-24">52%</h3>
+                <h4 class="text-center text-nowrap ft-18">投资进度</h4>
+              </div>
+              <div class="col-xs-12 col-sm-4 center-block">
+                <!-- <span class="ft-24">12月</span><br>
+                <span class="ft-18">按月付息</span> -->
+                <h3 class="text-center text-nowrap ft-24">12个月</h3>
+                <h4 class="text-center text-nowrap ft-18">按月付息</h4>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <a class="btn btn-danger btn-lg btn-block" style="background-color: #ea512e;" href="/project-details">立即投资</a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- <div class="media">
+            <a href="#" class="pull-left">
+              <img src="images/bank-img.png" alt="" class="media-object">
+            </a>
+            <div class="media-body">
+              <h2 class="media-heading">光大理财产品（9月）</h2>
+              <p class="ft-18">项目规模：1000万</p>
+              <div class="row">
+                <div class="col-sm-12">&nbsp;</div>
+              </div>
+              <div class="row">
+                <div class="col-sm-4 border-r">
+                  <p class="ft-24">12%</p>
+                  <p class="ft-18">年化收益</p>
+                </div>
+                <div class="col-sm-4 border-r">
+                  <p class="ft-24">52%</p>
+                  <p class="ft-18">投资进度</p>
+                </div>
+                <div class="col-sm-4">
+                  <p class="ft-24">12%</p>
+                  <p class="ft-18">按月付息</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <a class="btn btn-danger btn-lg btn-block" href="/project-details">立即投资</a>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+
+      </div> <!-- .row -->
+
+
+    </div> <!-- .col-sm-8 -->
+    <div class="col-sm-4">
+      <div class="panel panel-default" style="height: 1200px;"></div>
+    </div> <!-- .col-sm-4 -->
+  </div> <!-- .row -->
+
+</div> <!-- .container -->
+
 <div class="full-screen bg-offWhite main">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8">
+      <div class="col-sm-8">
         <div class="row mgn-top bg-white recommend">
           <div class="col-lg-5 recommend-img"></div>
           <div class="col-lg-7 recommend-details">
@@ -48,7 +150,7 @@
                   <li class="project-tit-img"></li>
                   <li class="project-tit-txt">推荐产品</li>
                 </ul>
-                <a class="check-more" href="/project-list">更多产品></a>
+                <a class="check-more" href="/">更多产品></a>
           </div>
           <section>
             <div class="row project-item" ng-repeat="project in projectList.projectList">
@@ -61,7 +163,8 @@
                   <div class="col-lg-12">担保机构：<span><a ui-sref="root.project-sponsorInstitution">{{project.guaranteeName}}</a></span></div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-12">还款方式：<span>{{project.repaymentName}}</span>&nbsp;&nbsp;<span>100%本息担保</span></div>
+                  <div class="col-lg-6">还款方式：<span>{{project.repaymentName}}</span></div>
+                  <div class="col-lg-6"><span>100%本息担保</span></div>
                 </div>
                 <div class="row">
                   <div class="col-lg-6">投资进度:<span>{{project.progress}}%</span></div>
@@ -80,8 +183,18 @@
                     <a class="go" ui-sref="root.project-details({projectId: project.id})">立即投资</a>
                   </div>
                 </div>
+
               </div>
             </div>
+
+                <div class="row">
+                  <div class="col-lg-12">
+                    <p>Count Down</p>
+                    <timer interval="1000" countdown="60">{{countdown}}</timer>
+                  </div>
+                </div>
+
+
           </section>
         </div>
       </div>
