@@ -79,5 +79,10 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$stateParams",
     $scope.isActiveTab = function(tabUrl) {
         return tabUrl == $scope.currentTab;
     }
+    
+    if($(window).scrollTop()>100){
+        $('body,html').animate({scrollTop:0},800);
+    }
+
 }]);
 

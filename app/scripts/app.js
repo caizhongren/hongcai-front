@@ -474,7 +474,6 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 							'/withdraw',
 							'/recharge'];
 	$rootScope.$on('$stateChangeStart', function() {
-		$location.hash('#backToTop');
 		var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
 		if(routespermission.indexOf($location.path()) !== -1) {
 			$checkSessionServer.then(function(response){
