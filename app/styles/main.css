@@ -184,6 +184,7 @@ hr {
   width: 265px;
   height: 80px;
   background: url('../../../images/sprite.png') -1035px 0;
+  cursor: pointer;
 }
 /*index*/
 .main {
