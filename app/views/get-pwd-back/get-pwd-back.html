@@ -52,8 +52,7 @@
 			</div>
 			<div class="safe-form-group select-form-group">
 				<label>绑定{{findWay}}：</label>
-				<span ng-show="tipsFlag == 1">{{usermessage.mobile | limitTo:3}}*****{{usermessage.mobile | limitTo:-3}}</span>
-				<span ng-show="tipsFlag == 2">{{usermessage.email | limitTo:3}}*****{{usermessage.email | limitTo:-3}}</span>
+				<span ng-show="tipsFlag == 1">{{findWayNumber}}</span>
 			</div>
 		</div>
 		<div class="get-phone-area" ng-show="wayFlag == 1">

@@ -12,22 +12,15 @@ hongcaiApp
         angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());
     };
     $scope.verifyAccount = function(){
-      $scope.areaFlag = 2;
-    }
-    $scope.setPhoneNewPwd = function(){
-      $scope.areaFlag = 4;
-      $scope.seconds = 5;
-      function timer($timeout){
-        console.log($scope.seconds);
+      if(){
 
-        var countUp = function() {
-            $scope.seconds--;
-            $timeout(countUp, 1000);
-        }
+      }else if(){
 
-        $timeout(countUp, 1000);
+      }else if(){
+
       }
-      
+      $scope.areaFlag = 2;
+
     }
 }])
 .controller("SetPwdCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "SessionService", "DEFAULT_DOMAIN", "toaster","GetPwdService", function ($scope, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster,GetPwdService) {
