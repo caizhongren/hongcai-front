@@ -152,6 +152,9 @@ hr {
   color: #878484;
   padding-left: 25px;
 }
+#header a.active {
+  color: #ea5430;
+}
 #header a:hover,
 #header .logo a:hover {
   color: #e94828;
