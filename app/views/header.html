@@ -1,42 +1,64 @@
 <!-- start header -->
-<div id="header">
-    <div class="full-screen top-bar">
-        <div class="container" ng-controller="LoginCtrl">
-            <ul class="nav navbar-nav">
-                <li>您好，欢迎来到宏财！</li>
-                <li class="tel-img"></li>
-                <li>400-400-400-400</li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <div ng-if="isLogged === true" >
-                    <a href="/" class="active">新手引导</a>
-                    <p ng-if="loginResult.ret == 1">欢迎</p>
-                    <a ui-sref="root.userCenter.account-overview">{{loginName}}</a>
-                    <a ng-href="#" ng-click="logout();">退出</a>
-                    <a href="/">帮助中心</a>
-                </div>
-                <div ng-if="isLogged !== true">
-                    <a href="/" class="active">新手引导</a>
-                    <a ui-sref="root.login">登录</a>
-                    <a ui-sref="root.registerMobile">注册</a>
-                    <a href="/">帮助中心</a>
-                </div>
-            </ul>
+    <!-- Static navbar -->
+    <nav id="mini-bar" class="navbar navbar-default navbar-static-top hidden-xs" role="navigation" style="">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- <a class="navbar-brand" href="#">Project name</a> -->
         </div>
-    </div>
-    <div class="full-screen">
-        <div class="container logo">
-            <ul class="nav navbar-nav">
-                <li ui-sref="root.main" class="logo-img-1"></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <a href="/" class="{{selectPage == '' ? 'active' : ''}}">首页</a>
-                <!-- <a class="active" href="/">首页</a> -->
-                <a href="/project-list/6,7,8,9/0/100/0/20/0/200000000/release_start_time/false" class="{{selectPage == 'project-list' ? 'active' : ''}}">我要投资</a>
-                <a href="/safe" class="{{selectPage == 'safe' ? 'active' : ''}}">安全保障</a>
-                <a ui-sref="root.about-us.introduction-of-platform" class="{{selectPage == 'introduction-of-platform' ? 'active' : ''}}">关于我们</a>
-            </ul>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <p class="navbar-text">你好，欢迎来到宏财！<i class="fa fa-phone"></i>400-400-400-400</p>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">新手引导</a></li>
+            <li ng-if="isLogged === true">
+                欢迎，<a ui-sref="root.userCenter.account-overview">{{loginName}}</a> <a ng-href="#" ng-click="logout();">退出</a>
+            </li>
+            <li ng-if="isLogged !== true">
+                <a ui-sref="root.login">登录</a>
+            </li>
+            <li ng-if="isLogged !== true">
+                <a ui-sref="root.registerMobile">注册</a>
+            </li>
+            <li><a href="#">帮助中心</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- Static navbar -->
+<!-- <div id="major-bar"> -->
+    
+    <nav id="major-bar" class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand logo-img-1 hidden-xs" href="/">&nbsp;</a>
         </div>
-    </div>
-</div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <p>&nbsp;</p>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">首页</a></li>
+            <li><a href="/project-list/6,7,8,9/0/100/0/20/0/200000000/release_start_time/false">我要理财</a></li>
+            <li><a href="/safe">安全保障</a></li>
+            <li><a ui-sref="root.about-us.introduction-of-platform">关于我们</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+<!-- </div> -->
 <!-- end header -->
