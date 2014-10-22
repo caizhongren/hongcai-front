@@ -1,9 +1,4 @@
 /*public*/
-html,
-body {
-  font-family: 'microsoft yahei';
-  cursor: default;
-}
 @media (min-width: 768px) {
   .container {
     width: 560px;
