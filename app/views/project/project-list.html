@@ -115,7 +115,7 @@
 			<div class="col-md-12">
 				<br>
 			    <div class="table-responsive">
-			    	<ul class="projects-list" ng-repeat="project in projectList.projectList">
+			    	<ul class="projects-list" ng-repeat="project in projectList">
 			    		<li class="project-item row">
 			    			<div class="col-md-2"><a><img ng-src="{{project.image}}" width="150" height="145"/></a></div>
 			    			<div class="col-md-5">
@@ -156,7 +156,7 @@
 
 					<ul class="pager ng-binding">
 						<li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1" disabled="disabled">上一页</button></li>
-						1 / 1 共 6 条
+						1 / {{pageCount || "1"}} 共 {{pageSize || "0"}} 条
 						<li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1" disabled="disabled">下一页</button></li>
 					</ul>
 				</div>
