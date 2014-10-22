@@ -7,13 +7,25 @@ hongcaiApp.controller("LoginCtrl", ["$scope", "$state", "$rootScope", "$statePar
                 $rootScope.loginName = response.data.user.name;
                 $rootScope.isLogged = true;
             } else {
-                toaster.pop('warning', "提示", response.msg);
+                if (response.code == -1009){
+                    $scope.isPasswordError = true;
+                }
+                //toaster.pop('warning', "提示", response.msg);
                 //$scope.errorMessage = response.msg;
                 //$scope.warning = true;
-                $state.go('root.login');
+                //$state.go('root.login');
             }
         });
     };
+
+    $scope.$watch('user.password', function(){
+        $scope.isPasswordError = false;
+    });
+    
+    $scope.$watch('user.account', function(){
+        $scope.isPasswordError = false;
+    });
+
     $scope.logout = function() {
         SessionService.destory("user");
         $rootScope.loginName = '';

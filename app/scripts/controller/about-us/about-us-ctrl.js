@@ -1,6 +1,7 @@
 hongcaiApp
-.controller("AboutUsCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, AboutUsService) {
+.controller("AboutUsCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $location, $stateParams, AboutUsService) {
 	$rootScope.flag = 0;
+	$rootScope.selectPage = $location.path().split('/')[1];
 }])
 .controller("IntroductionCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, AboutUsService) {
 	$rootScope.flag = 1;

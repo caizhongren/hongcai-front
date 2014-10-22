@@ -1,4 +1,4 @@
-hongcaiApp.controller("SafeCtrl", ["$scope", "$stateParams", "$location", "ProjectService", function ($scope, $stateParams, $location, ProjectService) {
+hongcaiApp.controller("SafeCtrl", ["$scope", "$stateParams", "$rootScope", "$location", "ProjectService", function ($scope, $stateParams, $rootScope, $location, ProjectService) {
     $scope.sortType = $stateParams.sortType || false ;
     var projectList = ProjectService.projectList.get({status: $stateParams.status,
     												  minCycle: $stateParams.minCycle,
@@ -35,6 +35,7 @@ hongcaiApp.controller("SafeCtrl", ["$scope", "$stateParams", "$location", "Proje
 	    	$scope.sortType = !$scope.sortType;
     	};
 	});
+    $rootScope.selectPage = $location.path().split('/')[1];
 }]);
 
 

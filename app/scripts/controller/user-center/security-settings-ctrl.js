@@ -118,6 +118,13 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
         return e;
     }
 
+    $scope.checkEmailAndMobile = function(){
+        if(!$scope.email || !$scope.mobile){
+            $scope.openTrusteeshipAccount = false;
+            alert("请先绑定邮箱和手机号码");
+        }
+    }
+
     $scope.realNameAuth = function(user) {
         UserCenterService.yeepayRegister.get({realName:user.realName, idCardNo:user.idCardNo}, function(response) {
             if(response.ret == 1) {
