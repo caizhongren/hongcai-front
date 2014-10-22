@@ -1,4 +1,4 @@
-hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "MainService", function ($scope, $stateParams, MainService) {
+hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "$rootScope", "$location", "MainService", function ($scope, $stateParams, $rootScope, $location, MainService) {
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {
@@ -14,7 +14,7 @@ hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "MainService", func
           $scope.data.push($scope.projectList.projectList[i]);
         }
     });
-
+    $rootScope.selectPage = $location.path().split('/')[1];
 }]);
 //JQuery 操作DOM
 function change_agree_pic(x){
