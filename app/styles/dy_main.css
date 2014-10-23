@@ -1,14 +1,14 @@
-/*body{
+body{
     margin: 0;
     color: #333;
     text-rendering: optimizelegibility;
     _background-attachment: fixed;
     _background-image: url(about:blank);
-}*/
+}
 label{
   font-weight: normal;
 }
-/*.red-button {
+.red-button {
   width: 143px;
   height: 32px;
   border: 1px solid #f16144;
@@ -52,8 +52,12 @@ label{
   height: 120px;
   width: 710px;
   background-color: black;
-}*/
+}
 /*login-and-regist*/
+.bg-login-regist-width{
+  width: 1006px;
+  margin: 0 auto;
+}
 .form-area{
   float: left;
   border: 2px solid #d9d5d6;
@@ -61,7 +65,6 @@ label{
   background-color: white;
   box-shadow: 0px 1px 1px #d9d5d6;
 }
-/*
 .right-show{
   height: 455px;
   width: 410px;
@@ -111,21 +114,23 @@ label{
   margin-top: -24px;
   color: #d8271c;
 }
+.bg{
+  width: 100%;
+}
 .input-verify-width{
   width: 125px;
-}*/
+}
 /*login*/
-.bg-login{
-  padding-top: 18px;
+.bg-login-height{
   height: 412px;
 }
 .login-area{
+  width: 495px;
   height: 340px;
-  /*margin-left: 60px;
-  margin-top: 35px;*/
+  margin-left: 60px;
+  margin-top: 35px;
 }
-
-/*.login-right{
+.login-right{
   height: 380px;
 }
 .login-title {
@@ -178,9 +183,9 @@ label{
 .p-forget:hover{
   color: #d8271c;
   text-decoration: underline;
-}*/
+}
 /*regit*/
-/*.regist-height{
+.regist-height{
   height: 535px;
   padding-top: 30px;
 }
@@ -289,9 +294,9 @@ label{
 }
 .regist-refresh-pic{
   margin:8px 70px 0 0 !important;
-}*/
+}
 /*person_set*/
-/*.head{
+.head{
     height: 125px;
     width: 100%;
 }
@@ -308,7 +313,7 @@ label{
     position: relative;
 }
 .left-area{
-    height: 615px;
+    height: 425px;
     width: 200px;
     border:1px solid #dbdbdb;
     font-size: 12px;
@@ -1069,9 +1074,9 @@ label{
   width: 1px;
   background-color: #dbdbdb;
   float: left;
-}*/
+}
 /*about-us*/
-/*.about-us-area{
+.about-us-area{
   margin-top: 18px;
 }
 .about-left-area{
@@ -1259,9 +1264,9 @@ label{
 }
 .out-card{
   
-}*/
+}
 /*get-pwd-back*/
-/*.get-pwd-area{
+.get-pwd-area{
   margin: 0 auto;
   height: 555px;
   width: 980px;
@@ -1364,10 +1369,11 @@ label{
 }
 .select-area{
   padding-top: 30px;
-}*/
+}
 /*agreement*/
-/*.agreement-area{
+.agreement-area{
   width: 1000px;
+  /*height: 800px;*/
   margin: 20px auto;
   background-color: white;
   border: 1px solid #dbdbdb;
@@ -1388,4 +1394,7 @@ label{
 }
 .table-top-title{
   padding-top: 10px;
-}*/
+}
+.project-tab{
+  cursor: pointer;
+}
