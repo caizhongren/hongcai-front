@@ -53,8 +53,8 @@
 					<div class="sort-item">
 						<label>项目收益：</label>
 						<ul class="nav nav-pills">
-							<li class="{{(minEarning==0 && maxEarning==20) ? 'active' : ''}}">
-								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 0, maxEarning: 20, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" >全部</a>
+							<li class="{{(minEarning==0 && maxEarning== 100) ? 'active' : ''}}">
+								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 0, maxEarning: 100, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" >全部</a>
 							</li>
 							<li class="{{(minEarning==0 && maxEarning==8) ? 'active' : ''}}">
 								<a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 0, maxEarning: 8, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" >8%以下</a>
