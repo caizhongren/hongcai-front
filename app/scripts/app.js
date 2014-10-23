@@ -252,7 +252,7 @@
  		}
  	})
  	.state('root.project-sponsorInstitution', {
- 		url: '/project-sponsorInstitution',
+ 		url: '/project-sponsorInstitution/:guaranteeId',
  		views: {
  			'': {
  				templateUrl: 'views/project/project-sponsorInstitution.html',
@@ -262,7 +262,7 @@
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
  				controller: 'ProjectSponsorInstitutionCtrl',
- 				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
+ 				controllerUrl: 'scripts/controller/project/guarantee-sponsorInstitution-ctrl'
  			}
  		}
  	})
@@ -277,8 +277,8 @@
  			},
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
- 				controller: 'ProjectSponsorInstitutionCtrl',
- 				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
+ 				controller: 'GuaranteeListCtrl',
+ 				controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
  			}
  		}
  	})
