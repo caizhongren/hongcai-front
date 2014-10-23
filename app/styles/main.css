@@ -1,9 +1,4 @@
 /*public*/
-html,
-body {
-  font-family: 'microsoft yahei';
-  cursor: default;
-}
 @media (min-width: 768px) {
   .container {
     width: 560px;
@@ -151,6 +146,9 @@ hr {
 #header a {
   color: #878484;
   padding-left: 25px;
+}
+#header a.active {
+  color: #ea5430;
 }
 #header a:hover,
 #header .logo a:hover {
