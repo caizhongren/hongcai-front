@@ -16,7 +16,8 @@
   	'angularMoment', 
  	'toaster', 
  	'chartjs', 
- 	'angularFileUpload'
+ 	'angularFileUpload',
+ 	'placeholders'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider' , function($stateProvider, $urlRouterProvider, $locationProvider) {
