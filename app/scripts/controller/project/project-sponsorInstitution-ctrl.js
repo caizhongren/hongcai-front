@@ -6,6 +6,8 @@ hongcaiApp.controller("ProjectSponsorInstitutionCtrl", ["$scope", "$stateParams"
         $scope.guarantee = sponsorInstitution.data.guarantee;
         $scope.guaranteeProjectVo = sponsorInstitution.data.guaranteeProjectVo;
     });
+
+    
     /*var projectList = ProjectService.projectList.get({status: $stateParams.status,
     												  minCycle: $stateParams.minCycle,
     												  maxCycle: $stateParams.maxCycle,
