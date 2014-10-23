@@ -1,4 +1,4 @@
-hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", "ProjectService", function ($scope, $state, $rootScope, $location, $stateParams, ProjectService) {
+hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", "ProjectService", "$modal", function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, $modal) {
     var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
         $scope.project = projectDetails.data.project;
         $scope.projectInfo = projectDetails.data.projectInfo;
@@ -84,6 +84,13 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
     if($(window).scrollTop()>100){
         $('body,html').animate({scrollTop:0},800);
     }
+
+    $scope.image = 'images/test/0.png';
+    var myOtherModal = $modal({scope: $scope, template: 'views/modal/modal-imageEnlarge.html', show: false});
+    $scope.showModal = function(image) {
+        $scope.targetImg = image;
+        myOtherModal.$promise.then(myOtherModal.show);
+    };
 
 }]);
 
