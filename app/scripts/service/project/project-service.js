@@ -5,5 +5,6 @@ hongcaiApp.factory('ProjectService', function ($resource, $location, DEFAULT_DOM
 		isAvailableInvest: $resource(DEFAULT_DOMAIN + '/siteProject/isAvailableInvest', {amount: '@amount',projectId:'@projectId'}),
 		projectShop: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectShop', {projectId:'@projectId',amount:'@amount'}),
 		sponsorInstitution: $resource(DEFAULT_DOMAIN + '/siteProject/sponsorInstitution', {guaranteeId:'@guaranteeId'}),
+		
 	}
 });

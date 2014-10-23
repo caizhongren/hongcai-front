@@ -1,13 +1,15 @@
 hongcaiApp.controller("ProjectSponsorInstitutionCtrl", ["$scope", "$stateParams", "$location", "ProjectService" ,function ($scope, $stateParams, $location, ProjectService) {
     $scope.sortType = $stateParams.sortType || false ;
-
+    
     var sponsorInstitution = ProjectService.sponsorInstitution.get({guaranteeId: $stateParams.guaranteeId}, function() {
         $scope.projectList = sponsorInstitution.data.projectList;
         $scope.guarantee = sponsorInstitution.data.guarantee;
         $scope.guaranteeProjectVo = sponsorInstitution.data.guaranteeProjectVo;
     });
 
-    
+
+
+
     /*var projectList = ProjectService.projectList.get({status: $stateParams.status,
     												  minCycle: $stateParams.minCycle,
     												  maxCycle: $stateParams.maxCycle,
