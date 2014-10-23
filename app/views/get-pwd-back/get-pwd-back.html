@@ -22,7 +22,6 @@
 					<img ng-src="images/check_no.png" class="user-check-img">
 					<p class="input-tips user-input-tips">该账号不存在</p>
 				</div>
-				{{usermessage.mobile}}
 			</div>
 			<div class="safe-form-group get-pwd-form-group">
 				<label>验证码：</label>
@@ -43,19 +42,29 @@
 		</form>
 	</div>
 	<!--验证身份-->
-	<div class="get-pwd-input-area" ng-show="areaFlag == 2">
+	<div class="get-pwd-input-area" ng-show="areaFlag == 2" >
 		<div class="select-area">
 			<div class="safe-form-group select-form-group">
 				<label>请选择找回方式：</label>
-				<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" bs-select placeholder="{{firstFindWay}}"></button>
-
+				<!--<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" bs-select placeholder="{{firstFindWay}}"></button>-->
+				<!--<select>
+					<option value="0" ng-show=" wayFlag == 1 || wayFlag == 2 " id="phoneGet">手机找回</option>
+					<option value="1" ng-show=" wayFlag == 1 || wayFlag == 3 ">邮箱找回</option>
+				</select>-->
+				<select id="CategoryL1" runat="server" ng-model="Category1Val" ng-options="Category1Val.Name for Category1Val in Category1">
+                            <option value=''>{{wayBack}}</option>
+                        </select>
+                        <select id="CategoryL2" runat="server" ng-model="Category2Val" ng-options="Category2Val.Name for Category2Val in Category1Val.Product">
+                            <option value=''>Select</option>
+                        </select>
 			</div>
 			<div class="safe-form-group select-form-group">
 				<label>绑定{{findWay}}：</label>
-				<span ng-show="tipsFlag == 1">{{findWayNumber}}</span>
+				<span ng-show="tipsFlag == 1">{{usermessage.mobile}}</span>
+				<span ng-show="tipsFlag == 2">{{usermessage.email}}</span>
 			</div>
 		</div>
-		<div class="get-phone-area" ng-show="wayFlag == 1">
+		<div class="get-phone-area" ng-show="wayGetFlag == 1">
 			<form class="real-name" name="phoneForm">
 				<div class="safe-form-group select-form-group">
 					<label>重新输入该手机号码：</label>
@@ -81,7 +90,7 @@
 				<input type="button" value="下一步" class="verify-button get-pwd-button" ng-disabled="phoneForm.$invalid"/>
 			</form>
 		</div>
-		<div class="get-phone-area" ng-show="wayFlag == 2">
+		<div class="get-phone-area" ng-show="wayGetFlag == 2">
 			<form class="real-name" name="emailForm">
 				<div class="safe-form-group select-form-group">
 					<label>重新输入该邮箱：</label>
