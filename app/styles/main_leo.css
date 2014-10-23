@@ -25,11 +25,16 @@ body {
 .hc-text-red {
   color: #ea512e;
 }
+.hc-text-red:hover {
+  color: #ea512e;
+}
 .hc-bg-red {
+  color: #fff;
   background-color: #ea512e;
 }
 .hc-bg-red:hover {
-  background-color: #ea512e;
+  color: #fff;
+  box-shadow: 0 0 6px #FF9249;
 }
 .ft-4em {
   font-size: 4em;
