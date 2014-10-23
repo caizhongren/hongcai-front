@@ -50,7 +50,8 @@
  				controllerUrl: 'scripts/controller/main/main-ctrl'
  			},
  			'sponsor': {
- 				templateUrl: 'views/project/project-sponsor-list.html'
+ 				templateUrl: 'views/project/project-sponsor-list.html',
+ 				controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
  			}
  		}
  	})
