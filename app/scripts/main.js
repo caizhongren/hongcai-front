@@ -16,6 +16,7 @@ require.config({
       'momentjs': 'bower_components/moment/moment',
       'moment-locale-zh': 'bower_components/moment/locale/zh-cn',
       'angularMoment': 'bower_components/angular-moment/angular-moment',
+      'angular-carousel': 'bower_components/angular-carousel/dist/angular-carousel.min'
     },
     shim: {
     	'angularAMD': ['angular'], 

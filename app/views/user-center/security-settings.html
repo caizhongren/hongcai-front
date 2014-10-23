@@ -177,7 +177,7 @@
 		<p class="tips">第三方托管账户</p>
 		<p class="message" ng-show="!haveTrusteeshipAccount">未开通</p>
 		<p class="message" ng-show="haveTrusteeshipAccount">已开通</p>
-		<p class="activity" ng-show="!haveTrusteeshipAccount"><a href="javascript:;" ng-click="openTrusteeshipAccount = !openTrusteeshipAccount;changeMobile=false;changeEmail=false;changPwd =false">开通</a></p>
+		<p class="activity" ng-show="!haveTrusteeshipAccount"><a href="javascript:;" ng-click="openTrusteeshipAccount = !openTrusteeshipAccount;changeMobile=false;changeEmail=false;changPwd =false;checkEmailAndMobile()">开通</a></p>
 		<p class="activity hadset" ng-show="haveTrusteeshipAccount">已开通</p>
 		<div class="check-ok" ng-show="haveTrusteeshipAccount"></div>
 	</div>

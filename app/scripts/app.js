@@ -16,7 +16,8 @@
   	'angularMoment', 
  	'toaster', 
  	'chartjs', 
- 	'angularFileUpload'
+ 	'angularFileUpload',
+ 	'angular-carousel'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider' , function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -46,7 +47,8 @@
  				controllerUrl: 'scripts/controller/main/main-ctrl'
  			},
  			'slider': {
- 				templateUrl: 'views/slider.html'
+ 				templateUrl: 'views/slider.html',
+ 				controllerUrl: 'scripts/controller/main/main-ctrl'
  			},
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html'
