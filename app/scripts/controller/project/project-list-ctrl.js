@@ -1,6 +1,6 @@
 hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$rootScope", "$location", "ProjectService", function ($scope, $stateParams, $rootScope, $location, ProjectService) {
     $scope.sortType = $stateParams.sortType || false ;
-    var projectList = ProjectService.projectList.get({status: $stateParams.status,
+    var response = ProjectService.projectList.get({status: $stateParams.status,
     												  minCycle: $stateParams.minCycle,
     												  maxCycle: $stateParams.maxCycle,
     												  minEarning: $stateParams.minEarning,
@@ -9,6 +9,8 @@ hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$rootScope"
     												  maxTotalAmount: $stateParams.maxTotalAmount,
     												  sortCondition: $stateParams.sortCondition,
     												  sortType: $scope.sortType}, function() {
+        $scope.data = [];
+        $scope.projectList = [];
         $scope.status = $stateParams.status;
         $scope.minCycle = $stateParams.minCycle;
         $scope.maxCycle = $stateParams.maxCycle;
@@ -19,16 +21,21 @@ hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$rootScope"
         $scope.sortCondition = $stateParams.sortCondition;
         $scope.orderProp = 'id';
         $scope.currentPage = 0;
-        $scope.pageSize = 15;
+        $scope.pageSize = 1;
         $scope.data = [];
-		$scope.projectList = projectList.data;
-  
-	    $scope.numberOfPages = function() {
-	        return Math.ceil($scope.data.length / $scope.pageSize);
-	    }
-	    for (var i = 0; i < $scope.projectList.projectList.length; i++) {
-	        $scope.data.push($scope.projectList.projectList[i]);
-	    }
+         if (response.ret == 1){
+        	$scope.projectList = response.data.projectList;
+            if(response.data){
+                $scope.pageSize = response.data.projectList.length;
+            }
+
+            $scope.numberOfPages = function() {
+                return Math.ceil($scope.data.length / $scope.pageSize);
+            }
+            for (var i = 0; i < $scope.projectList.length; i++) {
+                $scope.data.push($scope.projectList[i]);
+            }
+        } 
 
 	    $scope.sortType = false;
 	    $scope.toggleSort = function() {
