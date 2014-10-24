@@ -1,16 +1,26 @@
 hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateParams", function ($scope, $state, $rootScope, $stateParams) {
     
-    $(window).scroll(function(){
-        if ($(window).scrollTop()>100){
-            $(".toTop").fadeIn(500);
-        }else{
-            $(".toTop").fadeOut(500);
-        }
+    var $bottomTools = $('.bottom_tools');
+    var $qrTools = $('.qr_tool');
+    var qrImg = $('.qr_img');
+    
+    $(window).scroll(function () {
+        var scrollHeight = $(document).height();
+        var scrollTop = $(window).scrollTop();
+        var $windowHeight = $(window).innerHeight();
+        scrollTop > 50 ? $("#scrollUp").fadeIn(200).css("display","block") : $("#scrollUp").fadeOut(200);           
+        $bottomTools.css("bottom", scrollHeight - scrollTop > $windowHeight ? 40 : $windowHeight + scrollTop + 40 - scrollHeight);
     });
-
-    $(".toTop").click(function(){
-        $('body,html').animate({scrollTop:0},800);
-        return false;
+    
+    $('#scrollUp').click(function (e) {
+        e.preventDefault();
+        $('html,body').animate({ scrollTop:0});
+    });
+    
+    $qrTools.hover(function () {
+        qrImg.fadeIn();
+    }, function(){
+         qrImg.fadeOut();
     });
 
 }]);

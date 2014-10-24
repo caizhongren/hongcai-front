@@ -6222,6 +6222,9 @@ body {
 .ft-3em {
   font-size: 3em;
 }
+#service {
+  /*right-service css*/
+}
 #service img {
   position: fixed;
 }
@@ -6237,4 +6240,59 @@ body {
   right: 0;
   bottom: 50%;
   background-color: #ebebeb;
+}
+#service .bottom_tools {
+  position: fixed;
+  z-index: 1070;
+  right: 40px;
+  bottom: 40px;
+}
+#service .bottom_tools > * {
+  font: 0/0 a;
+  display: block;
+  margin-top: 5px;
+  color: transparent;
+  border: 0;
+  background-color: transparent;
+  text-shadow: none;
+}
+#service .qr_img {
+  position: absolute;
+  top: -189px;
+  left: -183px;
+  display: none;
+}
+#service #scrollUp {
+  width: 45px;
+  height: 45px;
+  background-image: url(../images/backgrounds.32.png);
+  background-position: -54px -53px;
+  display: none;
+}
+#service #scrollUp:hover {
+  background-image: url(../images/backgrounds.32.png);
+  background-position: -100px -53px;
+}
+#service #feedback {
+  width: 45px;
+  height: 45px;
+  background-image: url(../images/backgrounds.32.png);
+  background-position: -102px 0;
+}
+#service #feedback:hover {
+  background-image: url(../images/backgrounds.32.png);
+  background-position: -146px -46px;
+}
+#service .qr_tool {
+  width: 45px;
+  height: 45px;
+  background-image: url(../images/backgrounds.32.png);
+  background-position: -148px 0;
+  cursor: pointer;
+}
+#service .qr_tool:hover {
+  width: 45px;
+  height: 45px;
+  background-image: url(../images/backgrounds.32.png);
+  background-position: -192px -46px;
 }
