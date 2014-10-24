@@ -1,7 +1,7 @@
 <div class="container bg bg-regist" ng-contrlller="RegisterMailCtrl">
 	<div class="row regist-area">
 		<toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
-		<div class="regist-left-area col-md-7 col-lg-7">
+		<div class="regist-left-area col-md-6 col-md-offset-1 col-lg-6 col-lg-offset-1 no-padding">
 			<a class="a-regist grey-regist a-phone-regist col-md-6 col-lg-6" ui-sref="root.registerMobile">手机注册</a>
 			<a class="a-regist red-regist a-mail-regist col-md-6 col-lg-6" ui-sref="root.registerMail">邮箱注册</a>
 			<form class="form-regist  col-md-12 col-lg-12" name="registerForm" ng-submit="submitRegisterMail(user);" >
@@ -100,24 +100,26 @@
 				<div class="form-group col-md-12 col-lg-12">
 					<label for="captcha" class="col-md-3 col-lg-3">验证码：</label>
 					<input type="text" 
-						class="col-md-3 col-lg-4" 
+						class="col-md-3 col-lg-3" 
 						id="captcha" 
 						name="captcha" 
 						ng-model="user.captcha" 
 						ensure-captcha="captcha" required ng-focus>
-					<img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify" ng-click="refreshCode()">
-					<div class="refresh-pic regist-refresh-pic" ng-click="refreshCode()"></div>
+					<img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify col-md-2 col-lg-2 no-padding" ng-click="refreshCode()">
+					<div class="refresh-pic regist-refresh-pic col-md-1 col-lg-1" ng-click="refreshCode()"></div>
 					<div ng-show="registerForm.captcha.$dirty && registerForm.captcha.$invalid && registerForm.captcha.$error.check && !registerForm.captcha.$focused">
 						<img ng-src="images/check_no.png" class="verify-pictips">
 						<p class="input-tips regist-input-tips verify-input-tips">验证码错误!</p>
 					</div>
 				</div>
 				<div class="form-group col-md-12 col-lg-12">
-					<label class="big-tips"></label>
-					<img src="images/check_01.png" class="pic-check" onclick="change_agree_pic(this);">
-					<p class="p-agree">同意<a ui-sref="root.registration-agreement">《注册协议》</a>和<a ui-sref="root.privacy-agreement">《隐私协议》</a></p>
-					<input type="submit" class="{{registerForm.$invalid ? 'red-button grey' : 'red-button'}}" ng-disabled="registerForm.$invalid" value="立即注册">
-				</div>				
+					<label class="col-md-3 col-lg-3"></label>
+					<div class="col-md-6 col-lg-6 no-padding">
+						<input type="checkbox" class="p-checkbox" checked="false">
+						<p class="p-remember">同意<a ui-sref="root.registration-agreement">《注册协议》</a></p>
+					</div>
+	                <input type="submit" class="col-md-6 col-lg-6 {{registerForm.$invalid ? 'red-button grey' : 'red-button'}}" ng-disabled="registerForm.$invalid" value="立即注册">
+				</div>			
 			</form>
 		</div>
 		<div class="regist-right-area col-md-5 col-lg-5">

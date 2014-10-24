@@ -6,7 +6,7 @@ body{
     _background-image: url(about:blank);
 }
 label{
-  font-weight: normal;
+  font-weight: normal !important;
   padding: 5px 8px 0 !important;
   height: 100%;
   text-align: right;
@@ -68,6 +68,11 @@ input:focus{
 .p-regist-right a{
   color: #e94828;
   font-weight: bold;
+}
+.p-login-right a:hover,
+.p-regist-right a:hover{
+  color: #e94828;
+  text-decoration: underline;
 }
 .login-title{
   height: 55px;
@@ -174,7 +179,15 @@ input:focus{
   outline-style: none;
   color: white;
 }
-
+.pic-verify {
+  height: 100%;
+  cursor: pointer;
+}
+.refresh-pic{
+  height: 100%;
+  background: url(/images/sprite.png) -392px -857px no-repeat;
+  cursor: pointer;
+}
 
 
 
@@ -279,13 +292,7 @@ input:focus{
 .verify-input-tips{
   margin-top: -23px;
 }
-.pic-verify {
-  margin-top: -3px;
-  margin-left: 10px;
-  cursor: pointer;
-  height: 42px;
-  width: 75px;
-}
+
 .a-verify {
   position: absolute;
   font-size: 12px;
@@ -1332,14 +1339,7 @@ input:focus{
   height: 42px;
   margin-left: -4px;
 }
-.refresh-pic{
-  height: 27px;
-  width: 27px;
-  background: url(/images/sprite.png) -396px -860px no-repeat;
-  float: right;
-  margin: 8px 135px 0 0;
-  cursor: pointer;
-}
+
 .get-pwd-verify-area{
   margin: -33px -54px 0 0;
 }

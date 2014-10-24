@@ -2,7 +2,7 @@
 <div class="container bg bg-regist" ng-contrlller="RegisterMobileCtrl">
 	<div class="row regist-area">
 		<toaster-container toaster-options="{'time-out': 3000, 'close-button':true}"></toaster-container>
-		<div class="regist-left-area col-md-7 col-lg-7">
+		<div class="regist-left-area col-md-6 col-md-offset-1 col-lg-6 col-lg-offset-1 no-padding">
 			<a class="a-regist red-regist a-phone-regist col-md-6 col-lg-6" ui-sref="root.registerMobile">手机注册</a>
 			<a class="a-regist grey-regist a-mail-regist col-md-6 col-lg-6" ui-sref="root.registerMail">邮箱注册</a>
 			<form class="form-regist col-md-12 col-lg-12" name="registerForm" ng-submit="submitRegisterMobile(user);" >
