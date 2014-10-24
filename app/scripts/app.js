@@ -35,6 +35,11 @@
  			},
  			'footer': {
  				templateUrl: 'views/footer.html'
+ 			},
+ 			'service': {
+ 				templateUrl: 'views/service.html',
+ 				controller: 'ServiceCtrl',
+ 				controllerUrl: 'scripts/controller/main/service-ctrl'
  			}
  		}
  	})
