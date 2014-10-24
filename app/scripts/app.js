@@ -52,6 +52,7 @@
  			},
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
+ 				controller: 'GuaranteeListCtrl',
  				controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
  			}
  		}
@@ -294,8 +295,8 @@
  			},
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
- 				controller: 'ProjectSponsorInstitutionCtrl',
- 				controllerUrl: 'scripts/controller/project/project-sponsorInstitution-ctrl'
+ 				controller: 'GuaranteeListCtrl',
+ 				controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
  			}
  		}
  	})

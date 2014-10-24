@@ -2,8 +2,11 @@ hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "$rootScope", "$loc
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {
-        $scope.projectList = projectList.data;
-        $scope.orderProp = 'id';
+        $scope.projectList = projectList.data.recommend;
+        $scope.projectVo = projectList.data.specialRecommend[0];
+
+
+       /* $scope.orderProp = 'id';
         $scope.currentPage = 0;
         $scope.pageSize = 15;
         $scope.data = [];
@@ -12,8 +15,14 @@ hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "$rootScope", "$loc
         };
         for (var i = 0; i < $scope.projectList.projectList.length; i++) {
           $scope.data.push($scope.projectList.projectList[i]);
-        }
+        }*/
     });
+
+    var indexStatistics = MainService.indexStatistics.get(function(response) {
+        $scope.indexStatic = indexStatistics.data.indexStatic;
+    });
+
+
     $rootScope.selectPage = $location.path().split('/')[1];
 }]);
 //JQuery 操作DOM
