@@ -27,16 +27,6 @@
 		        	<!-- star tabs -->
 		        	<div class="row mgn-top border bg-white project-info-tab">
 		          		<div id="tabs" class="project-tit">
-		          			<!-- <div ng-model="tabs.activeTab" bs-tabs>
-							  	<div ng-repeat="tab in tabs" title="{{ tab.title }}" ng-bind="tab.content-html-url" bs-pane></div>
-							</div> -->
-		            		<!-- <span class="nav navbar-nav">
-		                  		<a href="/project-info">项目信息</a>
-		                  		<a href="/project-info">企业信息</a>
-		                  		<a href="/project-info">风控信息</a>
-		                  		<a href="/project-info">相关文件</a>
-		                  		<a href="/project-info">项目里程</a>
-		                	</span> -->
 					        <ul class="nav navbar-nav">
 					            <li ng-repeat="tab in tabs" ng-class="{active:isActiveTab(tab.url)}" ng-click="onClickTab(tab)">{{tab.title}}</li>
 					        </ul>
@@ -126,18 +116,18 @@
 				          				<div class="info-item-tips">
 				          					<div class="info-item-icon"></div>合同协议<!-- 绑定数据 -->
 				          				</div>
-				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
-				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
-				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
+				          				<div class="files-item"><img src="{{image}}" width="170" height="125" ng-click="showModal(image)"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
+				          				<div class="files-item"><img src="#" width="170" height="125" ng-click="showModal()"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
+				          				<div class="files-item"><img src="#" width="170" height="125" ng-click="showModal()"/><!-- 绑定数据 --><br><span>合作协议<!-- 绑定数据 --></span></div>
 
 				          			</div>
 				          			<div class="info-item border-none">
 				          				<div class="info-item-tips">
 				          					<div class="info-item-icon"></div>企业相关照片<!-- 绑定数据 -->
 				          				</div>
-				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>企业执照<!-- 绑定数据 --></span></div>
-				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>办公场景<!-- 绑定数据 --></span></div>
-				          				<div class="files-item"><img src="#" width="170" height="125"/><!-- 绑定数据 --><br><span>办公场景<!-- 绑定数据 --></span></div>
+				          				<div class="files-item"><img src="#" width="170" height="125" ng-click="showModal()"/><!-- 绑定数据 --><br><span>企业执照<!-- 绑定数据 --></span></div>
+				          				<div class="files-item"><img src="#" width="170" height="125" ng-click="showModal()"/><!-- 绑定数据 --><br><span>办公场景<!-- 绑定数据 --></span></div>
+				          				<div class="files-item"><img src="#" width="170" height="125" ng-click="showModal()"/><!-- 绑定数据 --><br><span>办公场景<!-- 绑定数据 --></span></div>
 				          			</div>
 				          		</div>
 							</script>

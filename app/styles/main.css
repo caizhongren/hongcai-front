@@ -102,29 +102,6 @@ hr {
 .tel-img {
   background: url('../../../images/sprite.png');
 }
-.progress-tit {
-  float: left;
-}
-.progress-bar {
-  width: 100px;
-  height: 15px;
-  line-height: 0px;
-  margin-top: 3px;
-  font-size: 0px;
-  background-color: #d5cdcd;
-  border-radius: 3px;
-  overflow: hidden;
-}
-.progress-bar .progress {
-  height: 15px;
-  line-height: 0px;
-  font-size: 0px;
-  display: block;
-  background-color: #f37474;
-}
-.progress-percent {
-  margin-left: 5px;
-}
 /*_header.html*/
 .top-bar {
   height: 25px;

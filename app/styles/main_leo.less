@@ -1,9 +1,14 @@
+@import 'bootstrap_overwrite.less';
+// variables
+
 html,
 body {
+  color: @gray-light;
   /*padding-bottom: 0px;*/
   /*font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "冬青黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;*/
   font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
 }
+
 
 #mini-bar {
 	height: 25px;
@@ -14,7 +19,7 @@ body {
 	}
 
 	ul > li > a {
-		padding-top: 3px;
+		padding-top: 2px;
 	}
 }
 
@@ -22,26 +27,36 @@ body {
 	background-color: #fff;
 	height: 100px;
 	margin-bottom: 0px;
+
+	ul > li > a {
+		font-size: 1.3em;
+	}
 }
 
-.flat-corner {
-	border-radius: 1px;
+.projects-filter {
+  ul > li > a {
+    color: @gray-light;
+
+    .fa-check-square-o {
+      color: @brand-danger;
+    }
+  }
 }
 
 .hc-text-red {
-	color: #ea512e;
+	color: @brand-danger;
 	&:hover {
-		color: #ea512e;
+		color: @brand-primary;
 	}
 }
 
 .hc-bg-red {
 	color: #fff;
-	background-color: #ea512e;
+	background-color: @brand-danger;
 	&:hover {
 		color: #fff;
 		// background-color: #ea702e;
-		box-shadow: 0 0 6px #FF9249;
+		box-shadow: 0 0 2px #FF9249;
 	}
 }
 

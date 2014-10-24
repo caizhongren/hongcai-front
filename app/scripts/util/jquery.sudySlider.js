@@ -179,11 +179,22 @@
 					return false
 				})
 			}
+			/*点击放大图片*/
+			function imgEnlarge(index){
+				var imgSrc = $('#slider img').eq(index).attr('src');
+				$('body').append('<div class="modal-backdrop am-fade"></div><div class="modal top am-fade-and-slide-top am-fade" tabindex="-1" role="dialog" style="display: block;"><div class="modal-dialog"><div class="modal-content"><div class="modal-header" style="border-bottom:none;"><button type="button" class="close">×</button></div><div class="modal-body" style="text-align: center;"><img src="' + imgSrc + '"></div><div class="modal-footer hidden"></div></div></div></div>')
+				$('.close').on('click',function(){
+					$('.modal-backdrop').remove();
+					$('.modal').remove();
+				})
+			}
 			$.each(l, function(i, e) {
 				$(e).find(".slide-link").click(function() {
 					index = i;
 					showIndex(index);
-					showBar(index)
+					showBar(index);
+					imgEnlarge(index);
+
 				})
 			});
 			showIndex(index);
