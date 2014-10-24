@@ -23,7 +23,7 @@ input:focus{
   background-color: #fdfbfb;
 }
 .no-padding{
-  padding: 0;
+  padding: 0 !important;
 }
 .bg{
   padding-top: 18px;
@@ -174,8 +174,50 @@ input:focus{
   outline-style: none;
   color: white;
 }
-/*
-.pic-check {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*.pic-check {
   float: left;
   margin-top: 3px;
 }
@@ -184,8 +226,7 @@ input:focus{
   height: 120px;
   width: 710px;
   background-color: black;
-}*/
-/*
+}
 .check-img{
   margin-top: 13px;
 }
@@ -201,8 +242,8 @@ input:focus{
 }
 .input-verify-width{
   width: 125px;
-}*/
-/*
+}
+
 .login-check-img{
   float: right;
   margin-right: 20px;
@@ -213,9 +254,6 @@ input:focus{
 .remember-height{
   height: 35px;
 }
-*/
-
-/*
 .regist-area{
   height: 460px;
 }
@@ -513,7 +551,6 @@ input:focus{
 .tips-area:active .red-news{
   background: url(/images/sprite.png) -463px -743px no-repeat;
 }
-
 .now {
   color: #ee7259;
 }
@@ -1055,19 +1092,14 @@ input:focus{
   float: left;
 }*/
 /*about-us*/
-/*.about-us-area{
-  margin-top: 18px;
-}
-.about-left-area{
-  width: 170px;
+
+/*.about-left-area{
   height: 317px;
     border:1px solid #dbdbdb;
     font-size: 14px;
     color: #888181;
     background-color: white;
-    float: left;
     border-radius: 5px;
-    margin-left: -15px;
 }
 .about-left-area .tips-area p{
   width: 164px;

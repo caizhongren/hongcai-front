@@ -10,6 +10,20 @@ body {
 }
 
 
+@opacity: 0.8;
+
+.hc-opacity {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
+.hc-opacity:hover {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
 #mini-bar {
 	height: 25px;
 	min-height: 25px;
@@ -67,3 +81,14 @@ body {
 .ft-3em {
 	font-size: 3em;
 }
+
+#service {
+	img {
+		position: fixed;
+	}
+	.toTop {
+		right: 20px;
+		bottom: 80px;
+	}
+}
+

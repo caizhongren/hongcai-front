@@ -35,6 +35,11 @@
  			},
  			'footer': {
  				templateUrl: 'views/footer.html'
+ 			},
+ 			'service': {
+ 				templateUrl: 'views/service.html',
+ 				controller: 'ServiceCtrl',
+ 				controllerUrl: 'scripts/controller/main/service-ctrl'
  			}
  		}
  	})
@@ -325,7 +330,7 @@
  	/*------------------------------------------  about-us  -----------------------------------------------*/
  	.state('root.about-us', {
  		views: {
- 			'about-us': {
+ 			'about-us-right': {
  				templateUrl: 'views/about-us/about-us.html',
  				controller: 'AboutUsCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
@@ -340,7 +345,7 @@
  	.state('root.about-us.introduction-of-platform', {
  		url: '/introduction-of-platform',
  		views: {
- 			'about-us-right': {
+ 			'about-us-right-show': {
  				templateUrl: 'views/about-us/introduction-of-platform.html',
  				controller: 'IntroductionCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
@@ -350,7 +355,7 @@
  	.state('root.about-us.business-model', {
  		url: '/business-model',
  		views: {
- 			'about-us-right': {
+ 			'about-us-right-show': {
  				templateUrl: 'views/about-us/business-model.html',
  				controller: 'BusinessModelCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
@@ -360,7 +365,7 @@
  	.state('root.about-us.company-profile', {
  		url: '/company-profile',
  		views: {
- 			'about-us-right': {
+ 			'about-us-right-show': {
  				templateUrl: 'views/about-us/company-profile.html',
  				controller: 'CompanyProfileCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
@@ -370,7 +375,7 @@
  	.state('root.about-us.web-site-announcement', {
  		url: '/web-site-announcement',
  		views: {
- 			'about-us-right': {
+ 			'about-us-right-show': {
  				templateUrl: 'views/about-us/web-site-announcement.html',
  				controller: 'WebSiteCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
@@ -380,7 +385,7 @@
  	.state('root.about-us.hongcaidynamic', {
  		url: '/hongcaidynamic',
  		views: {
- 			'about-us-right': {
+ 			'about-us-right-show': {
  				templateUrl: 'views/about-us/hongcaidynamic.html',
  				controller: 'HongcaiDynamicCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
@@ -390,7 +395,7 @@
  	.state('root.about-us.media-reports', {
  		url: '/media-reports',
  		views: {
- 			'about-us-right': {
+ 			'about-us-right-show': {
  				templateUrl: 'views/about-us/media-reports.html',
  				controller: 'MediaReportsCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
@@ -400,7 +405,7 @@
  	.state('root.about-us.link-us', {
  		url: '/link-us',
  		views: {
- 			'about-us-right': {
+ 			'about-us-right-show': {
  				templateUrl: 'views/about-us/link-us.html',
  				controller: 'LinkUsCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
@@ -410,7 +415,7 @@
  	.state('root.about-us.news-details', {
  		url: '/news-details',
  		views: {
- 			'about-us-right': {
+ 			'about-us-right-show': {
  				templateUrl: 'views/about-us/news-details.html',
  				controller: 'NewsCtrl',
  				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
