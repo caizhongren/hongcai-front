@@ -6179,10 +6179,12 @@ body {
   min-height: 25px;
 }
 #mini-bar .navbar-text {
-  margin-top: 0px;
+  margin-top: 2px;
 }
-#mini-bar ul > li > a {
+#mini-bar ul > li > a,
+#mini-bar ul > li > span {
   padding-top: 2px;
+  display: inline-block;
 }
 #major-bar {
   background-color: #fff;
