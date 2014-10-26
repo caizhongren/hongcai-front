@@ -5,7 +5,6 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.pledges = projectDetails.data.pledges;
         $scope.isAvailable = projectDetails.data.isAvailable;
         $scope.enterprise = projectDetails.data.enterprise;
-    
 
         // var project = projectDetails.data.project;
         // var projectInfo = projectDetails.data.projectInfo;
@@ -32,13 +31,13 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
                         }else{
                              $state.go("root.invest-verify", {projectId: response.data.projectId,amount: response.data.amount});
                         }
-                       
+
                     }else{
                         $state.go("root.userCenter.account-overview");
                     }
-                    
+
                 } else {
-                    
+
                     //$scope.errorMessage = response.msg;
                     //$scope.warning = true;
                     $state.go('root.login');
@@ -68,12 +67,17 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         }
     ];
 
+    $scope.switchTab = function (tabIndex) {
+      $scope.activeTab = tabIndex;
+      // $scope.currentTab = tab.url;
+    }
+
     $scope.currentTab = 'one.tpl.html';
 
     $scope.onClickTab = function (tab) {
         $scope.currentTab = tab.url;
     }
-    
+
     $scope.isActiveTab = function(tabUrl) {
         return tabUrl == $scope.currentTab;
     }
