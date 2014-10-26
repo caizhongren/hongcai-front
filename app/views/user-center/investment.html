@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="filter-container sort">
-			    <div class="sort-item nav-tabs">
+			    <!-- <div class="sort-item nav-tabs">
 			        <div class="nav nav-pills">
 			            <span class="active">
 			                <a ui-sref="root.userCenter.investment({status: 1})">&nbsp;还款中的投资</a>
@@ -18,6 +18,26 @@
 			                <a href="#">&nbsp;已结清的投资</a>
 			            </span>
 			        </div>
+			    </div> -->
+			    <div class="sort-item">
+			        <label>投资状态：</label>
+			        <ul class="nav nav-pills">
+						<li class="{{dateInterval == '0' ? 'active' : ''}}">
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'0'})">全部</a>
+						</li>
+						<li class="{{dateInterval == '7' ? 'active' : ''}}">
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'7'})">还款中</a>
+						</li>
+						<li class="{{dateInterval == '30' ? 'active' : ''}}">
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'30'})">投资中的</a>
+						</li>
+						<li class="{{dateInterval == '90' ? 'active' : ''}}">
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'90'})">已结清</a>
+						</li>
+						<li class="{{dateInterval == '90' ? 'active' : ''}}">
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'90'})">未支付</a>
+						</li>
+					</ul>
 			    </div>
 			    <div class="sort-item">
 			        <label>时间：</label>
@@ -32,7 +52,7 @@
 							<a ui-sref="root.userCenter.investment-query({dateInterval:'30'})">一个月</a>
 						</li>
 						<li class="{{dateInterval == '90' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'90'})">三个月ddd</a>
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'90'})">三个月</a>
 						</li>
 					</ul>
 			    </div>

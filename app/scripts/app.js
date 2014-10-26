@@ -17,7 +17,8 @@
  	'toaster', 
  	'chartjs', 
  	'angularFileUpload',
- 	'placeholders'
+ 	'placeholders',
+ 	'textAngular'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider' , function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -393,13 +394,45 @@
  			}
  		}
  	})
+ 	/*------------------------------------------  media-reports  -----------------------------------------------*/
  	.state('root.about-us.media-reports', {
  		url: '/media-reports',
  		views: {
  			'about-us-right-show': {
- 				templateUrl: 'views/about-us/media-reports.html',
+ 				templateUrl: 'views/about-us/media-reports-list.html',
  				controller: 'MediaReportsCtrl',
- 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 				controllerUrl: 'scripts/controller/about-us/media-report-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.about-us.media-reports-detail', {
+ 		url: '/media-reports-detail/:textId',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/media-reports-detail.html',
+ 				controller: 'MediaReportsDetailCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/media-report-detail-ctrl'
+ 			}
+ 		}
+ 	})
+ 	/*------------------------------------------  web-site-notice  -----------------------------------------------*/
+ 	.state('root.about-us.web-site-notice', {
+ 		url: '/web-site-notice',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/web-site-notice-list.html',
+ 				controller: 'WebSiteNoticeCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/web-site-notice-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.about-us.web-site-notice-detail', {
+ 		url: '/web-site-notice-detail/:textId',
+ 		views: {
+ 			'about-us-right': {
+ 				templateUrl: 'views/about-us/web-site-notice-detail.html',
+ 				controller: 'WebSiteNoticeDetailCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/web-site-notice-detail-ctrl'
  			}
  		}
  	})

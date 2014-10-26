@@ -6170,13 +6170,9 @@ body {
   /*font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "冬青黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;*/
   font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
 }
-.hc-opacity {
-  opacity: 0.8;
-  filter: alpha(opacity=80);
-}
-.hc-opacity:hover {
-  opacity: 1;
-  filter: alpha(opacity=100);
+.logo-img-1 {
+  display: block;
+  height: 78px;
 }
 #mini-bar {
   height: 25px;
@@ -6295,4 +6291,21 @@ body {
   height: 45px;
   background-image: url(../images/backgrounds.32.png);
   background-position: -192px -46px;
+}
+.safe .nav {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 0 auto;
+  float: none;
+}
+.safe .nav li {
+  text-align: center;
+}
+.safe .nav li a {
+  padding: 0;
+  color: #717071;
+}
+.safe .nav li a:hover {
+  background: none;
+  color: #ea5430;
 }
