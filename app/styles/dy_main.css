@@ -25,6 +25,9 @@ input:focus{
 .no-padding{
   padding: 0 !important;
 }
+.no-margin{
+  margin: 0 !important;
+}
 .bg{
   padding-top: 18px;
 }
@@ -53,10 +56,10 @@ input:focus{
 .login-right-area,
 .regist-right-area{
   height: 100%;
-  background: url("/images/sprite1.png") 15px 45px no-repeat;
+  background: url(/images/sprite1.png) 15px 45px no-repeat;
 }
 .regist-right-area{
-  background: url("/images/sprite1.png") 0px 130px no-repeat;
+  background: url(/images/sprite1.png) 0px 130px no-repeat;
 }
 .p-login-right,
 .p-regist-right{
@@ -146,14 +149,14 @@ input:focus{
 }
 .red-regist{
   color: white;
-  background-color: #e14526;
+  background-color: #e94929;
 }
 .red-regist:hover{
   color: white;
 }
 .grey-regist{
   color: #817774;
-  background-color: #dbdbdb;
+  background-color: #dfceca;
 }
 .a-phone-regist{
   border-top-left-radius: 5px;
@@ -188,8 +191,35 @@ input:focus{
   background: url(/images/sprite.png) -392px -857px no-repeat;
   cursor: pointer;
 }
-
-
+.triangle-container{
+  padding-left: 25px;
+}
+.triangle{
+  height: 12px;
+  background: url(/images/sprite1.png) 0px -361px no-repeat;
+}
+/*agreement*/
+.agreement-area{
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  padding: 35px 45px 65px;
+  margin-bottom: 70px;
+}
+.text-title{
+  font-size: 32px;
+  line-height: 32px;
+  height: 40px;
+  border-bottom: 1px solid black;
+}
+.table-title{
+  font-size: 16px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  font-weight: bold;
+}
+.table-top-title{
+  padding-top: 10px;
+}
 
 
 
@@ -1381,30 +1411,4 @@ input:focus{
 .select-area{
   padding-top: 30px;
 }*/
-/*agreement*/
-/*.agreement-area{
-  width: 1000px;
-  margin: 20px auto;
-  background-color: white;
-  border: 1px solid #dbdbdb;
-  padding: 0 45px 65px;
-}
-.text-title{
-  font-size: 32px;
-  line-height: 32px;
-  height: 40px;
-  border-bottom: 1px solid black;
-  margin: 20px 0;
-}
-.table-title{
-  font-size: 16px;
-  padding-top: 30px;
-  padding-bottom: 10px;
-  font-weight: bold;
-}
-.table-top-title{
-  padding-top: 10px;
-}
-.project-tab{
-  cursor: pointer;
-}*/
+
