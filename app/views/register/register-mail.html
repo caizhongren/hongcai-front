@@ -114,7 +114,7 @@
 						ng-model="user.captcha" 
 						ensure-captcha="captcha" required ng-focus>
 					<img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify col-md-2 col-lg-2 no-padding" ng-click="refreshCode()">
-					<div class="refresh-pic regist-refresh-pic col-md-1 col-lg-1" ng-click="refreshCode()"></div>
+					<div class="refresh-pic col-md-1 col-lg-1" ng-click="refreshCode()"></div>
 					<div ng-show="registerForm.captcha.$dirty && registerForm.captcha.$invalid && registerForm.captcha.$error.check && !registerForm.captcha.$focused">
 						<img ng-src="images/check_no.png" class="verify-pictips">
 						<p class="input-tips regist-input-tips verify-input-tips">验证码错误!</p>

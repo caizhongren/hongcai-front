@@ -1,8 +1,10 @@
 <section ui-view="slider"></section>
 <section class="user-center">
-	<div class="container userCenter">
-		<div ui-view="sidebar"></div>
-		<div ui-view="user-center" class="user-center-right"></div>
+	<div class="container">
+		<div class="row">
+			<div ui-view="sidebar"></div>
+			<div ui-view="user-center"></div>
+		</div>
 	</div>
 </section>
 <section class="about-us">

@@ -348,9 +348,7 @@
  		url: '/introduction-of-platform',
  		views: {
  			'about-us-right-show': {
- 				templateUrl: 'views/about-us/introduction-of-platform.html',
- 				controller: 'IntroductionCtrl',
- 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 				templateUrl: 'views/about-us/introduction-of-platform.html'
  			}
  		}
  	})
@@ -358,9 +356,7 @@
  		url: '/business-model',
  		views: {
  			'about-us-right-show': {
- 				templateUrl: 'views/about-us/business-model.html',
- 				controller: 'BusinessModelCtrl',
- 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 				templateUrl: 'views/about-us/business-model.html'
  			}
  		}
  	})
@@ -368,9 +364,7 @@
  		url: '/company-profile',
  		views: {
  			'about-us-right-show': {
- 				templateUrl: 'views/about-us/company-profile.html',
- 				controller: 'CompanyProfileCtrl',
- 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 				templateUrl: 'views/about-us/company-profile.html'
  			}
  		}
  	})
@@ -378,9 +372,7 @@
  		url: '/web-site-announcement',
  		views: {
  			'about-us-right-show': {
- 				templateUrl: 'views/about-us/web-site-announcement.html',
- 				controller: 'WebSiteCtrl',
- 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 				templateUrl: 'views/about-us/web-site-announcement.html'
  			}
  		}
  	})
@@ -388,9 +380,7 @@
  		url: '/hongcaidynamic',
  		views: {
  			'about-us-right-show': {
- 				templateUrl: 'views/about-us/hongcaidynamic.html',
- 				controller: 'HongcaiDynamicCtrl',
- 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 				templateUrl: 'views/about-us/hongcaidynamic.html'
  			}
  		}
  	})
@@ -408,7 +398,7 @@
  	.state('root.about-us.media-reports-detail', {
  		url: '/media-reports-detail/:textId',
  		views: {
- 			'about-us-right': {
+ 			'about-us-right-show': {
  				templateUrl: 'views/about-us/media-reports-detail.html',
  				controller: 'MediaReportsDetailCtrl',
  				controllerUrl: 'scripts/controller/about-us/media-report-detail-ctrl'
@@ -419,7 +409,7 @@
  	.state('root.about-us.web-site-notice', {
  		url: '/web-site-notice',
  		views: {
- 			'about-us-right': {
+ 			'about-us-right-show': {
  				templateUrl: 'views/about-us/web-site-notice-list.html',
  				controller: 'WebSiteNoticeCtrl',
  				controllerUrl: 'scripts/controller/about-us/web-site-notice-ctrl'
@@ -429,7 +419,7 @@
  	.state('root.about-us.web-site-notice-detail', {
  		url: '/web-site-notice-detail/:textId',
  		views: {
- 			'about-us-right': {
+ 			'about-us-right-show': {
  				templateUrl: 'views/about-us/web-site-notice-detail.html',
  				controller: 'WebSiteNoticeDetailCtrl',
  				controllerUrl: 'scripts/controller/about-us/web-site-notice-detail-ctrl'
@@ -440,9 +430,7 @@
  		url: '/link-us',
  		views: {
  			'about-us-right-show': {
- 				templateUrl: 'views/about-us/link-us.html',
- 				controller: 'LinkUsCtrl',
- 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 				templateUrl: 'views/about-us/link-us.html'
  			}
  		}
  	})
@@ -450,9 +438,7 @@
  		url: '/news-details',
  		views: {
  			'about-us-right-show': {
- 				templateUrl: 'views/about-us/news-details.html',
- 				controller: 'NewsCtrl',
- 				controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+ 				templateUrl: 'views/about-us/news-details.html'
  			}
  		}
  	})
