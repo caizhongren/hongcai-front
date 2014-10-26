@@ -30,4 +30,6 @@ hongcaiApp.controller("AboutUsCtrl", ["$scope", "$state", "$rootScope", "$locati
                 "text": "联系我们"}]
         };
 
+    $rootScope.selectPage = $location.path().split('/')[1];
+
 }]);
