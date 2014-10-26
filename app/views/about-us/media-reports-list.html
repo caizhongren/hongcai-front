@@ -1,21 +1,23 @@
-<div class="right-area introduction-height" ng-controller="MediaReportsCtrl">
+<div class="right-area dynamic-height col-md-8 col-lg-8 no-padding" ng-controller="MediaReportsCtrl">
 	<div class="right-title">媒体报道</div>
-	<div class="introduction-area" ng-repeat="item in data">
-		<div class="dynamic-show">
-			<a ui-sref="root.about-us.media-reports-detail({textId: item.id})">
-			<div class="img-dynamic">
-				<img src="{{item.image}}" width="165" height="114">
-			</div></a> 
-			<a class="p-title-dynamic" ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a>
-			<p class="p-date">{{item.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
-			<a ui-sref="root.about-us.media-reports-detail({textId: item.id})" class="p-dynamic-show" style="overflow:hidden;">
-				<div ta-bind ng-model="item.content"></div>
-			</a>
+	<div class="row no-margin">
+		<div class="introduction-area col-md-12 col-lg-12" ng-repeat="item in data">
+			<div class="dynamic-show">
+				<a ui-sref="root.about-us.media-reports-detail({textId: item.id})">
+				<div class="img-dynamic col-md-3 col-lg-3">
+					<img src="{{item.image}}" width="165" height="114">
+				</div></a> 
+				<a class="p-title-dynamic col-md-6 col-lg-6" ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a>
+				<p class=" col-md-2 col-lg-2">{{item.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
+				<a ui-sref="root.about-us.media-reports-detail({textId: item.id})" class="p-dynamic-show col-md-8 col-lg-8" style="overflow:hidden;">
+					<div ta-bind ng-model="item.content"></div>
+				</a>
+			</div>
 		</div>
+		<ul class="pager">
+		  <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+		  {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
+		  <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+		</ul>
 	</div>
-	<ul class="pager">
-	  <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
-	  {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
-	  <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
-	</ul>
 </div>
