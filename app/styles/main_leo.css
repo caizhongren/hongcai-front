@@ -6321,7 +6321,7 @@ body {
   color: #ea5430;
 }
 .project-detail {
-  padding: 15px;
+  padding: 40px;
 }
 .timeline {
   list-style: none;
@@ -6359,7 +6359,7 @@ body {
   clear: both;
 }
 .timeline > li > .timeline-panel {
-  width: 46%;
+  width: 44%;
   float: left;
   border: 1px solid #d4d4d4;
   border-radius: 2px;
