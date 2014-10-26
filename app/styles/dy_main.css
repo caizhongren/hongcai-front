@@ -361,7 +361,7 @@ input:focus{
 }
 /*about-us*/
 
-/*
+
 .about-left-area .tips-area p{
   width: 164px;
   padding-left: 30px;
@@ -455,7 +455,7 @@ input:focus{
 }
 .out-card{
   
-}*/
+}
 
 
 
@@ -495,7 +495,7 @@ input:focus{
 
 
 
-/*.pic-check {
+.pic-check {
   float: left;
   margin-top: 3px;
 }
@@ -583,9 +583,9 @@ input:focus{
 }
 .regist-refresh-pic{
   margin:8px 70px 0 0 !important;
-}*/
+}
 /*person_set*/
-/*.head{
+.head{
     height: 125px;
     width: 100%;
 }
@@ -1345,10 +1345,10 @@ input:focus{
   width: 1px;
   background-color: #dbdbdb;
   float: left;
-}*/
+}
 
 /*get-pwd-back*/
-/*.get-pwd-area{
+.get-pwd-area{
   margin: 0 auto;
   height: 555px;
   width: 980px;
@@ -1444,5 +1444,5 @@ input:focus{
 }
 .select-area{
   padding-top: 30px;
-}*/
+}
 
