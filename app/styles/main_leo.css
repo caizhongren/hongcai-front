@@ -6197,6 +6197,12 @@ body {
 #major-bar .navbar-header > a {
   height: 90px;
 }
+#major-bar .navbar-right {
+  margin-top: 42px;
+}
+#major-bar .active {
+  color: #eb5c3f;
+}
 .projects-filter ul > li > a {
   color: #777777;
 }
