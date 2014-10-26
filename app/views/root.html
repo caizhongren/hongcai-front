@@ -7,8 +7,10 @@
 </section>
 <section class="about-us">
 	<div class="container">
-		<div ui-view="about-sidebar" class="row"></div>
-		<div ui-view="about-us-right" class="row"></div>
+		<div class="row">
+			<div ui-view="about-sidebar"></div>
+			<div ui-view="about-us-right"></div>
+		</div>	
 	</div>
 </section>
 <section ui-view></section>
