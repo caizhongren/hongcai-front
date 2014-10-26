@@ -1,0 +1,18 @@
+<div class="right-area introduction-height" ng-controller="MediaReportsCtrl">
+	<div class="right-title">媒体报道</div>
+	<div class="introduction-area" ng-repeat="item in data">
+		<div class="dynamic-show">
+			<a ui-sref="root.about-us.media-reports-detail({textId: item.id})"><div class="img-dynamic"></div></a> 
+			<a class="p-title-dynamic" ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a>
+			<p class="p-date">{{item.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
+			<a ui-sref="root.about-us.media-reports-detail({textId: item.id})" class="p-dynamic-show" style="overflow:hidden;">
+				<div ta-bind ng-model="item.content"></div>
+			</a>
+		</div>
+	</div>
+	<ul class="pager">
+	  <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+	  {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
+	  <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+	</ul>
+</div>
