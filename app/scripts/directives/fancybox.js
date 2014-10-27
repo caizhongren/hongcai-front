@@ -15,8 +15,9 @@ angular.module('hongcaiApp')
         element.bind('click', function () {
           var url = attrs.hcPreviewUrl;
           // var opt = attra.hcOption;
-          $window.$.fancybox.open(url);
+          // $window.$.fancybox.open(url);
           // angular.element('img[fancybox]').fancybox();
+          $("a.grouped_elements").fancybox();
         });
       }
     };
