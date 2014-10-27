@@ -469,7 +469,7 @@
  	})
  	;
 
- 	// $urlRouterProvider.otherwise('/');
+ 	$urlRouterProvider.otherwise('/');
  	$locationProvider.html5Mode(true);
  	$locationProvider.hashPrefix('!');
 
@@ -505,3 +505,9 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 });
 
 hongcaiApp.constant('DEFAULT_DOMAIN', '/hongcai/api/v1');
+
+hongcaiApp.filter('startFrom', function startFrom() {
+	return function(input, start) {
+	  return input.slice(parseInt(start));
+	};
+});

@@ -3,7 +3,7 @@ hongcaiApp.controller("MediaReportsCtrl", ["$scope", "$state", "$stateParams", "
         $scope.textList = response.data;
         $scope.orderProp = 'id';
         $scope.currentPage = 0;
-        $scope.pageSize = 15;
+        $scope.pageSize = 5;
         $scope.data = [];
         $scope.numberOfPages = function(){
             return Math.ceil($scope.data.length / $scope.pageSize);
