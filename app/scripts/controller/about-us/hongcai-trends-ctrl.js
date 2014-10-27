@@ -1,5 +1,5 @@
-hongcaiApp.controller("MediaReportsCtrl", ["$scope", "$state", "$stateParams", "AboutUsService", function ($scope, $state, $stateParams, AboutUsService) {
-	AboutUsService.textList.get({category: 1}, function(response) {
+hongcaiApp.controller("HongcaiTrendsCtrl", ["$scope", "$state", "$stateParams", "AboutUsService", function ($scope, $state, $stateParams, AboutUsService) {
+	AboutUsService.textList.get({category: 3}, function(response) {
         $scope.textList = response.data;
         $scope.orderProp = 'id';
         $scope.currentPage = 0;
