@@ -43,7 +43,7 @@
 	</div>
 	<!--手机验证身份-->
 	<div class="get-pwd-input-area" ng-show="areaFlag == 21" >
-		已发送验证码到{{数据绑定}}，请在下面输入您收到的验证码
+		已发送验证码到{{phoneNum||"133*****569"}}，请在下面输入您收到的验证码
 		<div class="safe-form-group select-form-group">
 					<label>输入验证码：</label>
 					<input type="text" class="verify-input" required/>
@@ -58,7 +58,7 @@
 	</div>
 	<!--邮箱验证身份-->
 	<div class="get-pwd-input-area" ng-show="areaFlag == 22" >
-		邮件已经发送到{{数据绑定}}，请到邮箱查看邮件！
+		邮件已经发送到{{emailAddr||"739*****@qq.com"}}，请到邮箱查看邮件！
 	</div>
 	<!--验证身份-->
 	<div class="get-pwd-input-area" ng-show="areaFlag == 2" >
