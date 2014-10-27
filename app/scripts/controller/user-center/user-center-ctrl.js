@@ -16,52 +16,54 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
 
     });
 
+    $rootScope.isSecurityAuth = false;
+
     /***************************** sidebar start *************************/
     $rootScope.selectSide = $location.path().substr($location.path().indexOf("/") + 1);
     UserCenterService.userSecurityInfo.get({}, function(response) {
-            if(response.ret == 1) {
-                var securityLevel = 0;
-                var userVo = response.data.userVo;
-                $scope.email = userVo.email;
-                $scope.mobile = userVo.mobile;
-                $scope.realName = userVo.realName;
-                $scope.idNo = userVo.idNo;
-                var realNameAuthStatus = userVo.realNameAuthStatus;
-                if(realNameAuthStatus == 1){
-                    $scope.realNameAuthStatus = "认证中";
-                    $scope.isRealNameAuth = true;
-                }else if(realNameAuthStatus == 2){
-                    $scope.realNameAuthStatus = "已认证";
-                     $scope.isRealNameAuth = true;
-                }else if(realNameAuthStatus == 3){
-                    $scope.realNameAuthStatus = "认证失败";
-                     $scope.isRealNameAuth = false;
-                }
-
-                if(userVo.trusteeshipAccountStatus == 1){
-                    $scope.haveTrusteeshipAccount = true;
-                } else {
-                    $scope.haveTrusteeshipAccount = false;
-                }
-
-                if (userVo.email){
-                    securityLevel = securityLevel +1;
-                }
-                if(userVo.mobile){
-                    securityLevel = securityLevel +1;
-                }
-                if($scope.isRealNameAuth){
-                    securityLevel = securityLevel +1;
-                }
-                $scope.securityLevel = securityLevel - 1;
-
-            } else {
-                //toaster.pop('warning', "提示", response.msg);
-                //$scope.errorMessage = response.msg;
-                //$scope.warning = true;
-                $state.go('root.login');
+        if(response.ret == 1) {
+            var securityLevel = 0;
+            var userVo = response.data.userVo;
+            $scope.email = userVo.email;
+            $scope.mobile = userVo.mobile;
+            $scope.realName = userVo.realName;
+            $scope.idNo = userVo.idNo;
+            var realNameAuthStatus = userVo.realNameAuthStatus;
+            if(realNameAuthStatus == 1){
+                $scope.realNameAuthStatus = "认证中";
+                $scope.isRealNameAuth = true;
+            }else if(realNameAuthStatus == 2){
+                $scope.realNameAuthStatus = "已认证";
+                 $scope.isRealNameAuth = true;
+            }else if(realNameAuthStatus == 3){
+                $scope.realNameAuthStatus = "认证失败";
+                 $scope.isRealNameAuth = false;
             }
-        });
+
+            if(userVo.trusteeshipAccountStatus == 1){
+                $scope.haveTrusteeshipAccount = true;
+            } else {
+                $scope.haveTrusteeshipAccount = false;
+            }
+
+            if (userVo.email){
+                securityLevel = securityLevel +1;
+            }
+            if(userVo.mobile){
+                securityLevel = securityLevel +1;
+            }
+            if($scope.isRealNameAuth){
+                securityLevel = securityLevel +1;
+            }
+            $scope.securityLevel = securityLevel - 1;
+
+        } else {
+            //toaster.pop('warning', "提示", response.msg);
+            //$scope.errorMessage = response.msg;
+            //$scope.warning = true;
+            $state.go('root.login');
+        }
+    });
 
 	function new_form(){
 		var f = document.createElement("form");
