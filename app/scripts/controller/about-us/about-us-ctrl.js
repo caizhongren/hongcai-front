@@ -17,8 +17,8 @@ hongcaiApp.controller("AboutUsCtrl", ["$scope", "$state", "$rootScope", "$locati
                 "link": "root.about-us.web-site-notice",
                 "text": "网站公告"},
             {
-            	"href": "/hongcaidynamic",
-                "link": "root.about-us.hongcaidynamic",
+            	"href": "/hongcai-trends",
+                "link": "root.about-us.hongcai-trends",
                 "text": "宏财动态"},
             {
             	"href": "/media-reports",

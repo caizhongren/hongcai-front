@@ -23,7 +23,7 @@ angular.module('hongcaiApp').directive('aboutsidebar', ['$location', '$rootScope
 				});
 			});
 		},
-		template: '<div class="about-left-area about-us-area">' + 
+		template: '<div class="col-md-offset-1 col-lg-offset-1 col-md-2 col-lg-2 about-left-area no-padding">' + 
 		'<a ng-repeat="m in menus.left" ui-sref="{{m.link}}" href="{{m.href}}" class="tips-area" >' + 
 		'<div class="left-show-area left-top-radius"></div>' + 
 		'<p class="">{{m.text}}</p>' + 

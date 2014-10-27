@@ -1,0 +1,7 @@
+<div class="right-area introduction-height" ng-controller="HongcaiTrendsDetailCtrl">
+	<div class="introduction-area">
+		<h3 class="details-title">{{text.title}}</h3>
+		<p class="p-date">{{text.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
+		<div class="p-introduction p-details" ta-bind ng-model="text.content"></div>
+	</div>
+</div>
