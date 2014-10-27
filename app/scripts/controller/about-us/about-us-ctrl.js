@@ -1,8 +1,4 @@
-hongcaiApp
-.controller("AboutUsCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $location, $stateParams, AboutUsService) {
-	$rootScope.flag = 0;
-	$rootScope.selectPage = $location.path().split('/')[1];
-
+hongcaiApp.controller("AboutUsCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $location, $stateParams, AboutUsService) {
 	$scope.menus = {
             "left": [{
             	"href": "/introduction-of-platform",
@@ -17,8 +13,8 @@ hongcaiApp
                 "link": "root.about-us.company-profile",
                 "text": "公司简介"},
             {
-            	"href": "/web-site-announcement",
-                "link": "root.about-us.web-site-announcement",
+            	"href": "/web-site-notice",
+                "link": "root.about-us.web-site-notice",
                 "text": "网站公告"},
             {
             	"href": "/hongcaidynamic",
@@ -34,29 +30,6 @@ hongcaiApp
                 "text": "联系我们"}]
         };
 
-}])
-.controller("IntroductionCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, AboutUsService) {
-	$rootScope.flag = 1;
-}])
-.controller("BusinessModelCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, AboutUsService) {
-	$rootScope.flag = 2;
-}])
-.controller("CompanyProfileCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, AboutUsService) {
-	$rootScope.flag = 3;
-}])
-.controller("WebSiteCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, AboutUsService) {
-	$rootScope.flag = 4;
-}])
-.controller("HongcaiDynamicCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, AboutUsService) {
-	$rootScope.flag = 5;
-}])
-.controller("MediaReportsCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, AboutUsService) {
-	$rootScope.flag = 6;
-}])
-.controller("LinkUsCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, AboutUsService) {
-	$rootScope.flag = 7;
-}])
-.controller("NewsCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "AboutUsService", function ($scope, $state, $rootScope, $stateParams, AboutUsService) {
+    $rootScope.selectPage = $location.path().split('/')[1];
 
-}])
-;
+}]);
