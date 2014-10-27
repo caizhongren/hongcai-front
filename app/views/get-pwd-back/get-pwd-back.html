@@ -41,6 +41,25 @@
 			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button" ng-disabled="getPwdUserForm.$invalid" ng-click="verifyAccount()"/>
 		</form>
 	</div>
+	<!--手机验证身份-->
+	<div class="get-pwd-input-area" ng-show="areaFlag == 21" >
+		已发送验证码到{{数据绑定}}，请在下面输入您收到的验证码
+		<div class="safe-form-group select-form-group">
+					<label>输入验证码：</label>
+					<input type="text" class="verify-input" required/>
+					<div>
+						<div  class="user-tips-area get-pwd-tips-area get-verify-tips">
+							<img ng-src="images/check_no.png" class="user-check-img">
+							<p class="input-tips user-input-tips">yeyeyey</p>
+						</div>
+					</div>
+				</div>
+				<input type="button" value="下一步" class="verify-button get-pwd-button" ng-disabled="phoneForm.$invalid"/>
+	</div>
+	<!--邮箱验证身份-->
+	<div class="get-pwd-input-area" ng-show="areaFlag == 22" >
+		邮件已经发送到{{数据绑定}}，请到邮箱查看邮件！
+	</div>
 	<!--验证身份-->
 	<div class="get-pwd-input-area" ng-show="areaFlag == 2" >
 		<div class="select-area">
