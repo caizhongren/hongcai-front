@@ -6163,6 +6163,21 @@ button.close {
     display: none !important;
   }
 }
+@media (min-width: 768px) {
+  .container {
+    width: 560px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 780px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 980px;
+  }
+}
 html,
 body {
   color: #777777;
@@ -6210,10 +6225,18 @@ body {
 #major-bar .active {
   color: #eb5c3f;
 }
-.projects-filter ul > li > a {
+.projects-filter .list-inline {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.projects-filter .list-inline li {
+  margin-left: 13px;
+  margin-right: 13px;
+}
+.projects-filter .list-inline li a {
   color: #777777;
 }
-.projects-filter ul > li > a .fa-check-square-o {
+.projects-filter .list-inline li a .fa-check-square-o {
   color: #e94828;
 }
 .hc-text-red {
