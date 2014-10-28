@@ -38,7 +38,7 @@
 					<p class="input-tips user-input-tips">验证码错误</p>
 				</div>
 			</div>
-			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button" ng-disabled="getPwdUserForm.$invalid" ng-click="verifyAccount()"/>
+			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button" ng-disabled="getPwdUserForm.$invalid" ng-click="verifyAccount(getPwd.account)"/>
 		</form>
 	</div>
 	<!--手机验证身份-->
@@ -46,15 +46,15 @@
 		已发送验证码到{{phoneNum||"133*****569"}}，请在下面输入您收到的验证码
 		<div class="safe-form-group select-form-group">
 					<label>输入验证码：</label>
-					<input type="text" class="verify-input" required/>
+					<input type="text" class="verify-input" ng-model="getPwd.mobileCaptcha" required/>
 					<div>
 						<div  class="user-tips-area get-pwd-tips-area get-verify-tips">
 							<img ng-src="images/check_no.png" class="user-check-img">
-							<p class="input-tips user-input-tips">yeyeyey</p>
+							<p class="input-tips user-input-tips">验证码错误</p>
 						</div>
 					</div>
 				</div>
-				<input type="button" value="下一步" class="verify-button get-pwd-button" ng-disabled="phoneForm.$invalid"/>
+				<input type="button" value="下一步" class="verify-button get-pwd-button" ng-disabled="phoneForm.$invalid" ng-click="checkMobileCaptcha(getPwd.account, getPwd.mobileCaptcha)"/>
 	</div>
 	<!--邮箱验证身份-->
 	<div class="get-pwd-input-area" ng-show="areaFlag == 22" >
@@ -153,7 +153,7 @@
 					<p class="input-tips user-input-tips">密码输入不一致</p>
 				</div>
 			</div>
-			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button" ng-disabled="newPwdForm.$invalid" ng-click="setPhoneNewPwd()"/>
+			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button" ng-disabled="newPwdForm.$invalid" ng-click="setPhoneNewPwd(user.password)"/>
 		</form>
 	</div>
 	<!--完成-->
