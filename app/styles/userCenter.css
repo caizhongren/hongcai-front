@@ -1,0 +1,135 @@
+body{
+    margin: 0;
+    color: #333;
+    text-rendering: optimizelegibility;
+    _background-attachment: fixed;
+    _background-image: url(about:blank);
+}
+.card-ok{
+    background: url(/images/sprite.png) -82px -370px no-repeat;
+}
+.card-no{
+    background: url(/images/sprite.png) -82px -424px no-repeat;
+}
+.phone-ok{
+    background: url(/images/sprite.png) -142px -370px no-repeat;
+}
+.phone-no{
+    background: url(/images/sprite.png) -142px -424px no-repeat;
+}
+.mail-ok{
+    background: url(/images/sprite.png) -199px -370px no-repeat;
+}
+.mail-no{
+    background: url(/images/sprite.png) -199px -424px no-repeat;
+}
+.high-level{
+  background: url(/images/sprite.png) -35px -1165px no-repeat;
+}
+.mid-level{
+  background: url(/images/sprite.png) -35px -1228px no-repeat;
+}
+.low-level{
+  background: url(/images/sprite.png) -83px -501px no-repeat;
+}
+.red-account{
+    background: url(/images/sprite.png) -427px -463px no-repeat;
+}
+.grey-account {
+  background: url(/images/sprite.png) -394px -463px no-repeat;
+}
+.tips-area:active .grey-account,
+.tips-area:active .red-account{
+    background: url(/images/sprite.png) -463px -463px no-repeat;
+}
+
+.red-bankcard{
+    background: url(/images/sprite.png) -429px -499px no-repeat;
+}
+.grey-bankcard {
+  background: url(/images/sprite.png) -395px -499px no-repeat;
+}
+.tips-area:active .grey-bankcard,
+.tips-area:active .red-bankcard{
+    background: url(/images/sprite.png) -463px -499px no-repeat;
+}
+
+.red-safeset{
+    background: url(/images/sprite.png) -429px -534px no-repeat;
+}
+.grey-safeset {
+  background: url(/images/sprite.png) -395px -534px no-repeat;
+}
+.tips-area:active .grey-safeset,
+.tips-area:active .red-safeset{
+    background: url(/images/sprite.png) -463px -534px no-repeat;
+}
+
+.red-assets{
+    background: url(/images/sprite.png) -429px -569px no-repeat;
+}
+.grey-assets {
+  background: url(/images/sprite.png) -395px -569px no-repeat;
+}
+.tips-area:active .grey-assets,
+.tips-area:active .red-assets{
+    background: url(/images/sprite.png) -463px -569px no-repeat;
+}
+
+.red-recharge{
+    background: url(/images/sprite.png) -429px -604px no-repeat;
+}
+.grey-recharge {
+  background: url(/images/sprite.png) -395px -604px no-repeat;
+}
+.tips-area:active .grey-recharge,
+.tips-area:active .red-recharge{
+    background: url(/images/sprite.png) -463px -604px no-repeat;
+}
+
+.red-withdraw{
+    background: url(/images/sprite.png) -429px -641px no-repeat;
+}
+.grey-withdraw {
+  background: url(/images/sprite.png) -395px -641px no-repeat;
+}
+.tips-area:active .grey-withdraw,
+.tips-area:active .red-withdraw{
+    background: url(/images/sprite.png) -463px -641px no-repeat;
+}
+
+.red-record {
+  background: url(/images/sprite.png) -429px -673px no-repeat;
+}
+.grey-record {
+  background: url(/images/sprite.png) -395px -673px no-repeat;
+}
+.tips-area:active .grey-record,
+.tips-area:active .red-record {
+  background: url(/images/sprite.png) -463px -673px no-repeat;
+}
+
+.red-investment {
+  background: url(/images/sprite.png) -429px -709px no-repeat;
+}
+.grey-investment {
+  background: url(/images/sprite.png) -395px -709px no-repeat;
+}
+.tips-area:active .grey-investment,
+.tips-area:active .red-investment {
+  background: url(/images/sprite.png) -463px -709px no-repeat;
+}
+
+.red-news {
+  background: url(/images/sprite.png) -429px -743px no-repeat;
+}
+.grey-news {
+  background: url(/images/sprite.png) -395px -743px no-repeat;
+}
+.tips-area:active .grey-news,
+.tips-area:active .red-news{
+  background: url(/images/sprite.png) -463px -743px no-repeat;
+}
+.account-pic-bg{
+  background: url(/images/sprite.png) -1309px -304px no-repeat;
+}

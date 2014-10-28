@@ -1,55 +1,6 @@
 <!--账户总览-->
 <div class="right-area right-account-height col-md-8 col-lg-8" ng-controller="AccountOverviewCtrl">
-	<div class="row">
-		<div class="right-title">账户总览</div>
-	</div>
-	<div class="row">
-		<div class="account-message">
-			<div class="account-pic account-pic-bg">
-				<cjs-doughnut dataset="doughnutAccountData" options="doughnutOptions" width="313" height="313"></cjs-doughnut>
-			</div>
-			<div class="right-message">
-				<div class="left-message-show">
-					<div class="assets-ico total-assets"></div>
-					<p class="asset-tips">账户总资产</p>
-					<p class="asset-money">{{capital.totalAssets | number:2}} 元</p>
-				</div>
-				<div class="left-message-show">
-					<div class="assets-ico net-income"></div>
-					<p class="asset-tips">累计净收益</p>
-					<p class="asset-money">{{capital.userCapital.receivedProfit| number:2}} 元</p>
-				</div>
-				<div class="left-message-show last-show">
-					<div class="assets-ico account-balance"></div>
-					<p class="asset-tips">账户余额</p>
-					<p class="asset-money">{{(capital.userCapital.balance)| number:2}} 元</p>
-				</div>
-				<a ui-sref="root.userCenter.recharge" class="verify-button account-button">充值</a>
-				<a ui-sref="root.userCenter.withdraw" class="get-verify-button account-button account-right-button">提现</a>
-				<a ui-sref="root.userCenter.assets-overview" class="view-more">查看更多></a>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="right-title">投资信息</div>
-	</div>
-	<div class="row">
-		<div class="row account-investment">
-			<div class="col-md-4 border-r">
-				<p class="account-number">{{ investingNum || "0"}}<span class="ft-14">个</span></p>
-				<p class="account-number-message">理财中</p>
-			</div>
-			<div class="col-md-4 border-r">
-				<p class="account-number">{{ investedNum || "0" }}<span class="ft-14">个</span></p>
-				<p class="account-number-message">购买成功</p>
-			</div>
-			<div class="col-md-4" style="margin-right:0;">
-				<p class="account-number">{{ investNum || "0"}}<span class="ft-14">个</span></p>
-				<p class="account-number-message">投资共计</p>
-			</div>
-			<a href="/investment" class="view-more investment-more">查看更多></a>
-		</div>
-	</div>
+	
 </div>
 	
 
