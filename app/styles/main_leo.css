@@ -6178,10 +6178,6 @@ button.close {
     width: 980px;
   }
 }
-.panel {
-  padding-right: 35px;
-  padding-left: 35px;
-}
 html,
 body {
   color: #777777;
@@ -6242,6 +6238,10 @@ body {
 }
 .projects-filter .list-inline li a .fa-check-square-o {
   color: #e94828;
+}
+#project-list .panel {
+  padding-right: 35px;
+  padding-left: 35px;
 }
 #project-list .list-group-item {
   padding-top: 19px;
@@ -6373,8 +6373,14 @@ body {
   background: none;
   color: #ea5430;
 }
-.project-detail {
-  padding: 40px;
+#project-detail {
+  padding: 30px;
+}
+#project-detail .status .row {
+  padding-top: 15px;
+}
+#project-detail .project-info {
+  padding: 30px;
 }
 .timeline {
   list-style: none;
@@ -6412,7 +6418,7 @@ body {
   clear: both;
 }
 .timeline > li > .timeline-panel {
-  width: 44%;
+  width: 42%;
   float: left;
   border: 1px solid #d4d4d4;
   border-radius: 2px;

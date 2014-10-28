@@ -81,29 +81,34 @@ body {
 }
 
 #project-list {
-    .list-group-item {
-        padding-top: 19px;
-        padding-bottom: 19px;
-        .col-lg-2 {
-            margin-left: -15px;
-        }
-        .col-lg-7 {
-            padding-right: 10px;
-            padding-left: 50px;
+  .panel {
+    padding-right: 35px;
+    padding-left: 35px;
+  }
 
-            .col-xs-12 > h3 {
-                margin-top: 0px;
-            }
-        }
-
-        .col-lg-7,
-        .col-lg-3 {
-            .row > .col-xs-12 {
-                margin-top: 3px;
-                margin-bottom: 3px;
-            }
-        }
+  .list-group-item {
+    padding-top: 19px;
+    padding-bottom: 19px;
+    .col-lg-2 {
+        margin-left: -15px;
     }
+    .col-lg-7 {
+      padding-right: 10px;
+      padding-left: 50px;
+
+      .col-xs-12 > h3 {
+          margin-top: 0px;
+      }
+    }
+
+    .col-lg-7,
+    .col-lg-3 {
+      .row > .col-xs-12 {
+          margin-top: 3px;
+          margin-bottom: 3px;
+      }
+    }
+  }
 }
 
 .hc-text-red {
@@ -236,11 +241,20 @@ body {
 }
 
 // project detail page
-.project-detail {
-  padding: 40px;
+#project-detail {
+  padding: 30px;
 
+  .status {
+    .row {
+      // padding: 7px;
+      padding-top: 15px;
+    }
+  }
+
+  .project-info {
+    padding: 30px;
+  }
 }
-
 .timeline {
     list-style: none;
     padding: 20px 0 20px;
@@ -285,7 +299,7 @@ body {
         }
 
         .timeline > li > .timeline-panel {
-            width: 44%;
+            width: 42%;
             float: left;
             border: 1px solid #d4d4d4;
             border-radius: 2px;
