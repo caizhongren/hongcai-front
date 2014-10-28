@@ -80,6 +80,32 @@ body {
   }
 }
 
+#project-list {
+    .list-group-item {
+        padding-top: 19px;
+        padding-bottom: 19px;
+        .col-lg-2 {
+            margin-left: -15px;
+        }
+        .col-lg-7 {
+            padding-right: 10px;
+            padding-left: 50px;
+
+            .col-xs-12 > h3 {
+                margin-top: 0px;
+            }
+        }
+
+        .col-lg-7,
+        .col-lg-3 {
+            .row > .col-xs-12 {
+                margin-top: 3px;
+                margin-bottom: 3px;
+            }
+        }
+    }
+}
+
 .hc-text-red {
 	color: @brand-danger;
 	&:hover {
