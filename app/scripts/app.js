@@ -13,12 +13,13 @@
  	'mgcrea.ngStrap',
  	'ui.router',
  	'ngResource',
-  	'angularMoment', 
- 	'toaster', 
- 	'chartjs', 
+  	'angularMoment',
+ 	'toaster',
+ 	'chartjs',
  	'angularFileUpload',
  	'placeholders',
- 	'textAngular'
+ 	'textAngular',
+  'angular-flexslider'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider' , function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -77,8 +78,8 @@
  		url: '/register-mobile',
  		views: {
  			'': {
- 				templateUrl: 'views/register/register-mobile.html', 
- 				controller: 'RegisterMobileCtrl', 
+ 				templateUrl: 'views/register/register-mobile.html',
+ 				controller: 'RegisterMobileCtrl',
  				controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
  			}
  		}
@@ -87,8 +88,8 @@
  		url: '/register-mail',
  		views: {
  			'': {
- 				templateUrl: 'views/register/register-mail.html', 
- 				controller: 'RegisterMailCtrl', 
+ 				templateUrl: 'views/register/register-mail.html',
+ 				controller: 'RegisterMailCtrl',
  				controllerUrl: 'scripts/controller/register/register-mail-ctrl'
  			}
  		}
@@ -466,8 +467,8 @@
  }]);
 
 hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
-	var routespermission = ['/account-overview', 
-							'/assets-overview',  
+	var routespermission = ['/account-overview',
+							'/assets-overview',
 							'/realname-authentication',
 							'/security-settings',
 							'/withdraw',
@@ -495,3 +496,9 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 });
 
 hongcaiApp.constant('DEFAULT_DOMAIN', '/hongcai/api/v1');
+
+hongcaiApp.filter('startFrom', function startFrom() {
+	return function(input, start) {
+	  return input.slice(parseInt(start));
+	};
+});
