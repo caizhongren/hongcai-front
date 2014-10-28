@@ -1,7 +1,9 @@
 <!--网站公告-->
-<div class="right-area introduction-height col-md-8 col-lg-8 no-padding" ng-controller="WebSiteNoticeCtrl">
-	<div class="right-title">网站公告</div>
-	<div class="row no-margin">
+<div class="right-area introduction-height col-md-9 col-lg-9" ng-controller="WebSiteNoticeCtrl">
+	<div class="row">
+		<div class="right-title">网站公告</div>
+	</div>
+	<div class="row">
 		<div class="introduction-area col-md-12 col-lg-12">
 			<div class="web-show" ng-repeat="item in data">
 				<a ui-sref="root.about-us.web-site-notice-detail({textId: item.id})" class="a-web-news">{{item.title}}</a>
