@@ -11,7 +11,7 @@
 			sHeight: 70,
 			bWidth: 250,
 			bHeight: 190,*/
-			mRight: 15,
+			mRight: 9,
 			pBottom: 20,
 			index: 0,
 			speed: 400,
@@ -26,7 +26,7 @@
 			var s = $(this),
 				a = opt;
 			vWidth = (o.sWidth + o.mRight) * (o.visible - 1) + o.bWidth;
-			s.append('<div class="sudyslider" style="width:' + vWidth + 'px;"><div class="slider-container" style="width:' + vWidth + 'px;height:85' + 'px;position:relative;overflow:hidden;"></div><div class="slider-control" style="width:' + vWidth + 'px;position:relative;cursor:pointer;"><span class="slider-widget" style="display:block;position:absolute;z-index:10;"></span></div></div>');
+			s.append('<div class="sudyslider"><div class="slider-container" style="height:85' + 'px;position:relative;overflow:hidden;"></div><div class="slider-control" style="position:relative;cursor:pointer;"><span class="slider-widget" style="display:block;position:absolute;z-index:10;"></span></div></div>');
 			/*s.append('<div class="sudyslider" style="width:' + vWidth + 'px;"><div class="slider-container" style="width:' + vWidth + 'px;height:' + (o.bHeight + o.pBottom) + 'px;position:relative;overflow:hidden;"></div><div class="slider-control" style="width:' + vWidth + 'px;position:relative;cursor:pointer;"><span class="slider-widget" style="display:block;position:absolute;z-index:10;"></span></div></div>');*/
 			var b = s.find(".sudySlider"),
 				c = s.find(".slider-container"),
@@ -182,7 +182,7 @@
 			/*点击放大图片*/
 			function imgEnlarge(index){
 				var imgSrc = $('#slider img').eq(index).attr('src');
-				$('body').append('<div class="modal-backdrop am-fade"></div><div class="modal top am-fade-and-slide-top am-fade" tabindex="-1" role="dialog" style="display: block;"><div class="modal-dialog"><div class="modal-content"><div class="modal-header" style="border-bottom:none;"><button type="button" class="close">×</button></div><div class="modal-body" style="text-align: center;"><img src="' + imgSrc + '"></div><div class="modal-footer hidden"></div></div></div></div>')
+				$('body').append('<div class="modal-backdrop am-fade"></div><div id="enLarge" class="modal top am-fade-and-slide-top am-fade" tabindex="-1" role="dialog" style="display: block;"><div class="modal-dialog"><div class="modal-content"><div class="modal-header" style="border-bottom:none;"><button type="button" class="close">×</button></div><div class="modal-body" style="text-align: center;"><img src="' + imgSrc + '"></div><div class="modal-footer hidden"></div></div></div></div>')
 				$('.close').on('click',function(){
 					$('.modal-backdrop').remove();
 					$('.modal').remove();
