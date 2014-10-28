@@ -52,7 +52,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a ui-sref-active="active" ui-sref="root.main">首页</a></li>
-            <li><a ui-sref-active="active" href="/project-list/6,7,8,9/0/100/0/100/0/200000000/release_start_time/false" ng-class="{active: selectPage==='project-list'}">我要理财</a></li>
+            <li><a ui-sref-active="active" ui-sref="root.project-list-query({status: '6,7,8,9', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: 'false' })">我要理财</a></li>
             <!-- <li><a ui-sref-active="active" ui-sref="root.project-list([1,2,3])">我要理财</a></li> -->
             <li><a ui-sref-active="active" ui-sref="root.safe">安全保障</a></li>
             <li><a ui-sref-active="active" ui-sref="root.about-us.introduction-of-platform">关于我们</a></li>
