@@ -135,7 +135,7 @@
 					ng-focus required autofocus/>
 				<input type="button" value="获取验证码"
 					class="{{changeMobileForm.mobileNo.$invalid ? 'get-verify-button verify-index grey' : 'get-verify-button verify-index'}}"
-					ng-click="sendMobileCaptcha(mobileNo)" id="getVerify" ng-disabled="changeMobileForm.mobileNo.$invalid"/>
+					ng-click="sendMobileCaptcha(mobileNo)" onclick="countDown(this,60);" id="getVerify" ng-disabled="changeMobileForm.mobileNo.$invalid"/>
 				<div ng-show="changeMobileForm.mobileNo.$dirty && changeMobileForm.mobileNo.$invalid && !changeMobileForm.mobileNo.$focused">
 					<div  class="user-tips-area safe-tips-area" 
 							ng-show="changeMobileForm.mobileNo.$error.required &&
@@ -210,3 +210,32 @@
 		</form>
 	</div>
 </div>
+
+<script>
+	function countDown(obj, second){
+	    // 如果秒数还是大于0，则表示倒计时还没结束
+	    if(second >= 0){
+	          // 获取默认按钮上的文字
+	          if(typeof buttonDefaultValue === 'undefined' ){
+	            buttonDefaultValue =  obj.defaultValue;
+	        }
+	        // 按钮置为不可点击状态
+	        obj.disabled = true;            
+	        // 按钮里的内容呈现倒计时状态
+	        //obj.value = buttonDefaultValue + '(' + second + ')';
+	        obj.value = second + "s 后重新发送";
+	        obj.className = 'white-button grey';
+	        // 时间减一
+	        second--;
+	        // 一秒后重复执行
+	        setTimeout(function(){countDown(obj,second);},1000);
+	    // 否则，按钮重置为初始状态
+	    }else{
+	        // 按钮置未可点击状态
+	        obj.disabled = false;   
+	        // 按钮里的内容恢复初始状态
+	        obj.className = 'white-button';
+	        obj.value = buttonDefaultValue;
+	    }   
+	}
+</script>

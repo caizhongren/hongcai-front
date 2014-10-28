@@ -27,6 +27,10 @@ body {
 		margin-top: 2px;
 	}
 
+    ul > li > .ft-red {
+        color: #ea5430;
+    }
+
 	ul > li > a,
 	ul > li > span {
 		padding-top: 2px;
@@ -56,11 +60,22 @@ body {
 }
 
 .projects-filter {
-  ul > li > a {
-    color: @gray-light;
+  .list-inline {
+    margin-top: 7px;
+    margin-bottom: 7px;
 
-    .fa-check-square-o {
-      color: @brand-danger;
+    li {
+      margin-left: 13px;
+      margin-right: 13px;
+
+      a {
+        color: @gray-light;
+
+        .fa-check-square-o {
+          color: @brand-danger;
+        }
+
+      }
     }
   }
 }
@@ -111,7 +126,7 @@ body {
 	/*right-service css*/
 	.bottom_tools{
 		position:fixed;
-		z-index:1070;
+		z-index:1000;
 		right:40px;
 		bottom:40px;
 	}
@@ -383,4 +398,49 @@ body {
             left: -14px;
             right: auto;
         }
+}
+
+//modal
+.modal-backdrop.am-fade, .aside-backdrop.am-fade {
+    background: rgba(0,0,0,.8);
+}
+#enLarge {
+    .modal-dialog {
+        width: auto;
+        .modal-content {
+            box-shadow: none;
+            border: none;
+            background-color: rgba(0,0,0,0);
+        }
+        .modal-header .close {
+            color: #fff;
+            font-size: 40px;
+            margin-top: -15px;
+            opacity: 0.5;
+        }
+        .modal-header .close:hover {
+            opacity: 0.8;
+        }
+
+    }
+}
+
+//sudy
+@media (min-width: 768px) {
+  .slider-container,
+  .slider-control {
+    width: 686px;
+  }
+}
+@media (min-width: 992px) {
+  .slider-container,
+  .slider-control {
+    width: 556px;
+  }
+}
+@media (min-width: 1200px) {
+  .slider-container,
+  .slider-control {
+    width: 686px;
+  }
 }

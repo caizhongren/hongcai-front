@@ -936,7 +936,11 @@ hr {
   margin-left: 20px;
 }
 .sponsorInstitution p {
+  height: 120px;
   text-indent: 2em;
+  word-wrap: break-word;
+  overflow: hidden;
+  text-align: justify;
   padding: 0;
 }
 .sponsorInstitution img {
