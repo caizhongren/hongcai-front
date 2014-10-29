@@ -470,7 +470,7 @@
  	})
  	;
 
- 	$urlRouterProvider.otherwise('/');
+ 	// $urlRouterProvider.otherwise('/');
  	$locationProvider.html5Mode(true);
  	$locationProvider.hashPrefix('!');
 
