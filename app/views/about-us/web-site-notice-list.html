@@ -1,10 +1,14 @@
 <!--网站公告-->
-<div class="right-area introduction-height" ng-controller="WebSiteNoticeCtrl">
-	<div class="right-title">网站公告</div>
-	<div class="introduction-area">
-		<div class="web-show" ng-repeat="item in data">
-			<a ui-sref="root.about-us.web-site-notice-detail({textId: item.id})" class="a-web-news">{{item.title}}</a>
-			<p class="p-date">{{item.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
+<div class="right-area introduction-height col-md-9 col-lg-9" ng-controller="WebSiteNoticeCtrl">
+	<div class="row">
+		<div class="right-title">网站公告</div>
+	</div>
+	<div class="row">
+		<div class="introduction-area col-md-12 col-lg-12">
+			<div class="web-show" ng-repeat="item in data">
+				<a ui-sref="root.about-us.web-site-notice-detail({textId: item.id})" class="a-web-news">{{item.title}}</a>
+				<p class="p-date">{{item.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
+			</div>
 		</div>
 	</div>
 </div>

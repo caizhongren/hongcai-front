@@ -6239,6 +6239,29 @@ body {
 .projects-filter .list-inline li a .fa-check-square-o {
   color: #e94828;
 }
+#project-list .panel {
+  padding-right: 35px;
+  padding-left: 35px;
+}
+#project-list .list-group-item {
+  padding-top: 19px;
+  padding-bottom: 19px;
+}
+#project-list .list-group-item .col-lg-2 {
+  margin-left: -15px;
+}
+#project-list .list-group-item .col-lg-7 {
+  padding-right: 10px;
+  padding-left: 50px;
+}
+#project-list .list-group-item .col-lg-7 .col-xs-12 > h3 {
+  margin-top: 0px;
+}
+#project-list .list-group-item .col-lg-7 .row > .col-xs-12,
+#project-list .list-group-item .col-lg-3 .row > .col-xs-12 {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
 .hc-text-red {
   color: #e94828;
 }
@@ -6350,8 +6373,14 @@ body {
   background: none;
   color: #ea5430;
 }
-.project-detail {
-  padding: 40px;
+#project-detail {
+  padding: 30px;
+}
+#project-detail .status .row {
+  padding-top: 15px;
+}
+#project-detail .project-info {
+  padding: 30px;
 }
 .timeline {
   list-style: none;
@@ -6389,7 +6418,7 @@ body {
   clear: both;
 }
 .timeline > li > .timeline-panel {
-  width: 44%;
+  width: 42%;
   float: left;
   border: 1px solid #d4d4d4;
   border-radius: 2px;

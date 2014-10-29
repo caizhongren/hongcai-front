@@ -1,15 +1,15 @@
-<div class="container" style="padding-top: 30px;">
+<div id="project-detail" class="container">
   <div class="row">
       <div class="col-xs-12 col-md-8">
         <div class="row">
           <div class="col-xs-12">
-            <div class="panel panel-default" style="padding: 40px;">
+            <div class="panel panel-default">
               <div class="panel-body">
                 <div class="row">
-                  <div class="hidden-xs hidden-md col-lg-4">
-                    <img src="" alt="" ph-img="245x245" class="img-rounded">
+                  <div class="hidden-xs hidden-md col-lg-5">
+                    <img src="" alt="" ph-img="240x240" class="img-rounded">
                   </div> <!-- .hidden-xs.col-sm-4 -->
-                  <div class="col-lg-8">
+                  <div class="col-lg-7">
                     <div class="row">
                       <div class="col-xs-12">
                         <h1>{{ project.name || '项目名称未能正常显示请重试'}}</h1>
@@ -56,7 +56,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="panel panel-default project-detail" ng-init="activeTab=0;">
+            <div class="panel panel-default project-info" ng-init="activeTab=0;">
               <ul class="nav nav-pills nav-justified">
                 <li ng-class="{active: activeTab===$index}" ng-repeat="tab in tabs"><a ng-click="switchTab($index)">{{tab.title}}</a></li>
                 <!-- <li ng-class="{active: activeTab===2}"><a ng-click="activeTab=2;">activeTab: {{activeTab}}</a></li>
@@ -299,7 +299,7 @@
         <div class="row">
           <div class="col-xs-12">
             <form class="form-horizontal"  ng-submit="isAvailableInvest(project);">
-              <div class="panel panel-default">
+              <div class="panel panel-default status">
 
                 <div class="panel-heading">
                   投资状态
@@ -365,10 +365,20 @@
                     </tr>
                   </thead>
                   <tbody>
-                   <tr ng-repeat="order in orderList">
-                      <td>{{order.createTime}}</td>
-                      <td>{{order.userName}}</td>
-                      <td>{{order.orderAmount}}</td>
+                    <tr>
+                      <td>1分钟前</td>
+                      <td>张角</td>
+                      <td>400,00</td>
+                    </tr>
+                    <tr>
+                      <td>1分钟前</td>
+                      <td>贾诩</td>
+                      <td>400,00</td>
+                    </tr>
+                    <tr>
+                      <td>1分钟前</td>
+                      <td>貂蝉</td>
+                      <td>400,00</td>
                     </tr>
                   </tbody>
                 </table>

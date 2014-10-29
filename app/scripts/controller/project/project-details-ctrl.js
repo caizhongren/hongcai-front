@@ -5,7 +5,6 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.pledges = projectDetails.data.pledges;
         $scope.isAvailable = projectDetails.data.isAvailable;
         $scope.enterprise = projectDetails.data.enterprise;
-        $scope.orderList = projectDetails.data.orderList;
 
         // var project = projectDetails.data.project;
         // var projectInfo = projectDetails.data.projectInfo;

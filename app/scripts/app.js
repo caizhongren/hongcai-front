@@ -112,7 +112,7 @@
  	.state('root.userCenter.account-overview', {
  		url: '/account-overview',
  		views: {
- 			'user-center': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/account-overview.html',
  				controller: 'AccountOverviewCtrl',
  				controllerUrl: 'scripts/controller/user-center/account-overview-ctrl'
@@ -122,7 +122,7 @@
  	.state('root.userCenter.assets-overview', {
  		url: '/assets-overview',
  		views: {
- 			'user-center': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/assets-overview.html',
  				controller: 'AssetsOverviewCtrl',
  				controllerUrl: 'scripts/controller/user-center/assets-overview-ctrl'
@@ -132,7 +132,7 @@
  	.state('root.userCenter.bankcard-management', {
  		url: '/bankcard-management',
  		views: {
- 			'user-center': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/bankcard-management.html',
  				controller: 'BankCardManagementCtrl',
  				controllerUrl: 'scripts/controller/user-center/bankcard-management-ctrl'
@@ -142,7 +142,7 @@
  	.state('root.userCenter.security-settings', {
  		url: '/security-settings',
  		views: {
- 			'user-center': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/security-settings.html',
  				controller: 'SecuritySettingsCtrl',
  				controllerUrl: 'scripts/controller/user-center/security-settings-ctrl'
@@ -152,7 +152,7 @@
  	.state('root.userCenter.recharge', {
  		url: '/recharge',
  		views: {
- 			'user-center': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/recharge.html',
  				controller: 'RechargeCtrl',
  				controllerUrl: 'scripts/controller/user-center/recharge-ctrl'
@@ -162,7 +162,7 @@
  	.state('root.userCenter.withdraw', {
  		url: '/withdraw',
  		views: {
- 			'user-center': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/withdraw.html',
  				controller: 'WithdrawCtrl',
  				controllerUrl: 'scripts/controller/user-center/withdraw-ctrl'
@@ -172,7 +172,7 @@
  	.state('root.userCenter.record', {
  		url: '/record',
  		views: {
- 			'user-center': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/record.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
@@ -182,7 +182,7 @@
  	.state('root.userCenter.investment', {
  		url: '/userCenter-investment',
  		views: {
- 			'user-center': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/investment.html',
  				controller: 'UserOrderCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
@@ -192,7 +192,7 @@
  	.state('root.userCenter.investment-query', {
  		url: '/userCenter-investment/:dateInterval',
  		views: {
- 			'user-center': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/investment.html',
  				controller: 'UserOrderCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
@@ -202,18 +202,8 @@
  	.state('root.userCenter.news', {
  		url: '/news',
  		views: {
- 			'user-center': {
+ 			'user-center-right': {
  				templateUrl: 'views/user-center/news.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			}
- 		}
- 	})
- 	.state('root.userCenter.realname-authentication', {
- 		url: '/realname-authentication',
- 		views: {
- 			'user-center': {
- 				templateUrl: 'views/user-center/realname-authentication.html',
  				controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
