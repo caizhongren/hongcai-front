@@ -16,7 +16,6 @@
             <p class="navbar-text">您好，欢迎来到宏财！<i class="fa fa-phone"></i>400-400-400-400</p>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a class="ft-red" href="#">新手引导</a></li>
             <li ng-if="isLogged === true">
                 <span>欢迎，<a ui-sref="root.userCenter.account-overview">{{loginName}}</a> <a ng-href="#" ng-click="logout();">退出</a></span>
             </li>
@@ -26,6 +25,7 @@
             <li ng-if="isLogged !== true">
                 <a ui-sref="root.registerMobile">注册</a>
             </li>
+            <li><a class="ft-red" href="#">新手引导</a></li>
             <li><a ui-sref="root.help-center.introduce">帮助中心</a></li>
           </ul>
         </div><!--/.nav-collapse -->
