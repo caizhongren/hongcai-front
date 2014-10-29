@@ -6568,7 +6568,7 @@ body {
 @media (min-width: 992px) {
   .slider-container,
   .slider-control {
-    width: 556px;
+    width: 426px;
   }
   .unLogged {
     top: 3%;
@@ -6582,7 +6582,7 @@ body {
 @media (min-width: 1200px) {
   .slider-container,
   .slider-control {
-    width: 686px;
+    width: 556px;
   }
   .unLogged {
     top: 6%;
