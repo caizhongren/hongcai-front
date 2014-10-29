@@ -6570,11 +6570,31 @@ body {
   .slider-control {
     width: 556px;
   }
+  .fixedBox {
+    top: 3%;
+    padding: 1%;
+  }
 }
 @media (min-width: 1200px) {
   .slider-container,
   .slider-control {
     width: 686px;
+  }
+  .fixedBox {
+    top: 6%;
+    padding: 2% 1%;
+  }
+}
+@media (min-width: 1300px) {
+  .fixedBox {
+    top: 8%;
+    padding: 3% 1%;
+  }
+}
+@media (min-width: 1400px) {
+  .fixedBox {
+    top: 9%;
+    padding: 3% 1%;
   }
 }
 .ft-red {
@@ -6597,9 +6617,21 @@ body {
 }
 .fixedBox {
   position: absolute;
-  height: 290px;
-  top: 15px;
-  right: 290px;
-  background-color: #000000;
+  right: 18%;
+  width: 23%;
+  background-color: rgba(0, 0, 0, 0.2);
   color: #fff;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+.fixedBox .pull-right {
+  margin-right: 15px;
+}
+.fixedBox p {
+  margin-top: 2%;
+}
+.fixedBox .btn {
+  margin-left: 4%;
+}
+.fixedBox .pull-right {
+  margin-top: 2%;
 }
