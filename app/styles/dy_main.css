@@ -72,6 +72,7 @@ input:focus{
     border-radius: 5px;
     margin-left: 40px;
     margin-bottom: 30px;
+    min-height: 600px !important;
 }
 /*loginAndRegiste.css*/
 .bg-login{
@@ -240,6 +241,7 @@ input:focus{
   background-color: white;
   border-radius: 5px;
   margin-top: 18px;
+  border-top: 0px solid #dbdbdb;
 }
 .tips-area{
     height: 45px;
@@ -313,9 +315,10 @@ input:focus{
   padding-left: 60px;
   margin-top: 20px;
   margin-bottom: 30px;
+  font-weight: bold;
 }
 .introduction-area{
-  margin: 20px auto 0 auto;
+  padding:0px 72px !important;
   color: #9a9595;
 }
 .img-area{
@@ -351,6 +354,7 @@ input:focus{
   margin-top: 2px;
   font-size: 14px;
   color: #9a9595;
+  float: right;
 }
 .p-dynamic-show{
   height: 65px;
@@ -626,7 +630,7 @@ input:focus{
   margin: 60px auto 50px auto;
 }
 .account-pic {
-  margin: -15px 0 0 65px;
+  margin: -15px 0 0 20px;
   float: left;
 }
 .left-message {
@@ -681,7 +685,6 @@ input:focus{
   margin: -10px 0 0 0;
 }
 .right-message {
-  float: left;
   height: 260px;
 }
 .right-message .left-message-show {
@@ -1182,7 +1185,7 @@ input:focus{
 }*/
 /*about-us*/
 .web-show{
-  height: 60px;
+  height: 40px;
   padding: 10px 5px;
 }
 .web-show a,
@@ -1222,10 +1225,11 @@ input:focus{
 }
 .details-title{
   width: 280px;
-  margin: 60px auto 10px auto;
+  margin: 0px auto 10px auto;
+  text-align: center;
 }
 .p-details{
-  margin-top: 110px;
+  margin-top: 50px;
 }
 .bank-card-show{
   height: 142px;
@@ -1328,3 +1332,23 @@ input:focus{
 .regist-refresh-pic{
   margin:8px 70px 0 0 !important;
 }*/
+.p-click{
+  cursor: pointer;
+}
+.p-click:hover{
+  color: #e14526;
+}
+.help-height{
+  height: 226px;
+}
+.news-details{
+  height: inherit;
+  overflow: hidden;
+}
+.news-details p{
+  line-height: 22px;
+}
+.news-details img,
+.news-details h1{
+  display: none;
+}

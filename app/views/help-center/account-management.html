@@ -1,0 +1,45 @@
+<!--账户管理-->
+<div class="col-md-9 col-lg-9 right-area">
+	<div class="row">
+		<div class="right-title">账户管理</div>
+	</div>
+	<div class="row">
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 p-click" ng-click="changeAccountQ1 =! changeAccountQ1">1、注册时，进行手机验证，收不到短信怎么办？</p>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ1 == true">请确认手机是否安装短信拦截或过滤软件；
+		<br>请确认手机是否能够正常接收短信（信号问题、欠费、停机等）；
+		<br>短信收发过程中可能会存在延迟，请耐心等待，短信在30分钟内均有效；
+		<br>您还可以联系客服，寻求帮助（400-027-8080）。</p>
+	</div>
+	<div class="row">
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 p-click" ng-click="changeAccountQ2 =! changeAccountQ2">2、通过邮箱找回登录密码时，收不到邮件，怎么办？</p>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ2 == true">请您在垃圾邮件中查找，如果没有，则可能是您邮箱服务器存在问题，你可以选择更换绑定邮箱。</p>
+	</div>
+	<div class="row">
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 p-click" ng-click="changeAccountQ3 =! changeAccountQ3">3、注册成功之后用户名是否可以修改</p>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ3 == true">不可以。用户名一旦注册成功不能修改。</p>
+	</div>
+	<div class="row">
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 p-click" ng-click="changeAccountQ4 =! changeAccountQ4">4、为什么充值不成功</p>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ4 == true">可能存在以下情况：
+		<br>充值超过限额(充值限额是由银行、第三方支付平台和用户自己设定的支付限额三者共同决定，取三者最小值)；
+		<br>如您通过网上银行支付，请确认您已经开通网上银行支付功能。</p>
+	</div>
+	<div class="row">
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 p-click" ng-click="changeAccountQ5 =! changeAccountQ5">5、申请提现后，多久能到账？</p>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ5 == true">宏财网收到用户提现申请后即对提现进行转账操作，由于不同银行处理速度不同，提现资金将会当天或下个工作日到账（如遇双休日或法定节假日顺延）。如果用户迟迟未收到提现资金，可能为银行卡信息填写有误，银行做正在退票操作，预计会在7个工作日内完成退票，请用户耐心等候。用户还可以联系客服（400-027-8080），寻求帮助。</p>
+	</div>	
+	<div class="row">
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 p-click" ng-click="changeAccountQ6 =! changeAccountQ6">6、提现手续费是多少？</p>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ6 == true">手续费将作为第三方平台的转账费用。第三方支付平台将按<em>2元/笔</em>进行收费。</p>
+	</div>
+	<div class="row">
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 p-click" ng-click="changeAccountQ7 =! changeAccountQ7">7、无法提现的几种情况</p>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ7 == true">
+		银行账号/户名错误，或是账号和户名不符；
+		<br>银行账户冻结或正在办理挂失；
+		<br>省份、城市、开户行等银行信息错误；
+		<br>使用信用卡提现。
+		<br>由于信息校验不正确而提现失败。
+		<br>如果遇到以上情况，我们会在收到支付机构转账失败的通知后解除您的资金冻结（手续费不退还）请您不必担心资金安全。</p>
+	</div>
+</div>

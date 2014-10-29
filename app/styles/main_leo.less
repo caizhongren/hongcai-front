@@ -59,6 +59,17 @@ body {
 	}
 }
 
+.special-recommend {
+  .hot-sale {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    width: 90px;
+    height: 90px;
+    background: url(../../../images/sprite.png) -280px -90px;
+  }
+}
+
 .projects-filter {
   .list-inline {
     margin-top: 7px;
@@ -467,20 +478,97 @@ body {
 
 //sudy
 @media (min-width: 768px) {
-  .slider-container,
-  .slider-control {
-    width: 686px;
-  }
+    .slider-container,
+    .slider-control {
+        width: 686px;
+    }
 }
 @media (min-width: 992px) {
-  .slider-container,
-  .slider-control {
-    width: 556px;
-  }
+    .slider-container,
+    .slider-control {
+        width: 426px;
+    }
+    .unLogged {
+        top: 3%;
+        padding: 1%;
+    }
+    .logged {
+        top: 12%;
+        padding: 1%;
+    }
 }
 @media (min-width: 1200px) {
-  .slider-container,
-  .slider-control {
-    width: 686px;
-  }
+    .slider-container,
+    .slider-control {
+        width: 556px;
+    }
+    .unLogged {
+        top: 6%;
+        padding: 2% 1%;
+    }
+    .logged {
+        top: 13%;
+        padding: 2% 1%;
+    }
+}
+@media (min-width: 1300px) {
+    .unLogged {
+        top: 8%;
+        padding: 3% 1%;
+    }
+    .logged {
+        top: 11%;
+        padding: 3% 1%;
+    }
+}
+@media (min-width: 1400px) {
+    .unLogged {
+        top: 9%;
+        padding: 3% 1%;
+    }
+    .logged {
+        top: 13%;
+        padding: 3% 1%;
+    }
+}
+
+//index-login/registe
+.ft-red {
+    color: #eb5c3f;
+}
+.ft-24 {
+    font-size: 24px;
+}
+.ft-20 {
+    font-size: 20px;
+}
+.ft-18 {
+    font-size: 18px;
+}
+.ft-16 {
+    font-size: 16px;
+}
+.ft-14 {
+    font-size: 14px;
+}
+.fixedBox {
+    position: absolute;
+    right: 18%;
+    width: 23%;
+    background-color: rgba(0,0,0,0.1);
+    color: #fff;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .2);
+    .pull-right {
+        margin-right: 15px;
+    }
+    p {
+        margin-top: 2%;
+    }
+    .btn {
+        margin-left: 4%;
+    }
+    .pull-right {
+        margin-top: 2%;
+    }
+
 }

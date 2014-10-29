@@ -23,19 +23,19 @@
 			        <label>投资状态：</label>
 			        <ul class="nav nav-pills">
 						<li class="{{dateInterval == '0' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'0'})">全部</a>
+							<a ui-sref="root.userCenter.investment-query({status:'0'})">全部</a>
 						</li>
 						<li class="{{dateInterval == '7' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'7'})">还款中</a>
+							<a ui-sref="root.userCenter.investment-query({status:'4,5'})">还款中</a>
 						</li>
 						<li class="{{dateInterval == '30' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'30'})">投资中的</a>
+							<a ui-sref="root.userCenter.investment-query({status:'2,3'})">投资中的</a>
 						</li>
 						<li class="{{dateInterval == '90' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'90'})">已结清</a>
+							<a ui-sref="root.userCenter.investment-query({status:'6'})">已结清</a>
 						</li>
 						<li class="{{dateInterval == '90' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'90'})">未支付</a>
+							<a ui-sref="root.userCenter.investment-query({status:'1'})">未支付</a>
 						</li>
 					</ul>
 			    </div>
