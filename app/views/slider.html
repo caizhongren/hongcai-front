@@ -36,22 +36,33 @@
 					<span class="glyphicon glyphicon-chevron-right"></span>
 				</a>
 			</div>
-			<div class="fixedBox row hidden-xs hidden-sm">
+			<div ng-if="isLogged === true" class="fixedBox logged row hidden-xs hidden-sm">
+				<div class="col-lg-12">
+					<div class="row">
+						<div class="col-lg-12 ft-18">
+			                <p><span>欢迎回来，<a ui-sref="root.userCenter.account-overview">{{loginName}}</a></span></p>
+			                <p><span class="ft-14">账户可用余额</span></p>
+			                <p class="ft-14"><span class="ft-16">0.00<!-- 数据绑定 --></span>元<a class="pull-right" ui-sref="root.userCenter.recharge">充值</a></p>
+			            </div>
+			            <a class="col-lg-11 col-md-11 btn btn-danger btn-lg" ui-sref="root.registerMobile">我的账户</a>
+					</div>
+				</div>
+			</div>
+			<div ng-if="isLogged !== true" class="fixedBox unLogged row hidden-xs hidden-sm">
 				<div class="col-lg-12">
 					<div class="row">
 						<div class="col-lg-12 ft-18">
 							宏财网历史年化收益率
 							<p class="ft-16">最高
-								<span class="ft-red ft-24">14.24%</span>
+								<span class="ft-red ft-24">14.24%<!-- 数据绑定 --></span>
 							</p>
 							<p class="ft-16">
-								<span class="ft-red">40</span>倍活期存款收益<span class="ft-red">3</span>倍货币基金收益
+								<span class="ft-red">40<!-- 数据绑定 --></span>倍活期存款收益<span class="ft-red">3<!-- 数据绑定 --></span>倍货币基金收益
 							</p>
-							</div>
+						</div>
 						<a class="col-lg-11 col-md-11 btn btn-danger btn-lg" ui-sref="root.registerMobile">立即注册</a>
 						<div class="pull-right">已有账号？<a ui-sref="root.login">立即登录</a></div>
 					</div>
-
 				</div>
 			</div>
 
