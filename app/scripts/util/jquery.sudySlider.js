@@ -11,7 +11,7 @@
 			sHeight: 70,
 			bWidth: 250,
 			bHeight: 190,*/
-			mRight: 9,
+			mRight: 13,
 			pBottom: 20,
 			index: 0,
 			speed: 400,
