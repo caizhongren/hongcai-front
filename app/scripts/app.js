@@ -190,7 +190,7 @@
  		}
  	})
  	.state('root.userCenter.investment-query', {
- 		url: '/userCenter-investment/:dateInterval',
+ 		url: '/userCenter-investment/:dateInterval/:status',
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/investment.html',
