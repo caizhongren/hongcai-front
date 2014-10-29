@@ -458,6 +458,59 @@
  			}
  		}
  	})
+ 	/*------------------------------------------  help-center  -----------------------------------------------*/
+ 	.state('root.help-center', {
+ 		views: {
+ 			'help-center-right': {
+ 				templateUrl: 'views/help-center/help-center.html'
+ 			},
+ 			'help-sidebar': {
+ 				templateUrl: 'views/help-center/help-sidebar.html',
+ 				controller: 'HelpCenterCtrl',
+ 				controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.help-center.introduce', {
+ 		url: '/introduce',
+ 		views: {
+ 			'help-center-right-show': {
+ 				templateUrl: 'views/help-center/introduce.html'
+ 			}
+ 		}
+ 	})
+ 	.state('root.help-center.investors', {
+ 		url: '/investors',
+ 		views: {
+ 			'help-center-right-show': {
+ 				templateUrl: 'views/help-center/investors.html'
+ 			}
+ 		}
+ 	})
+ 	.state('root.help-center.account-management', {
+ 		url: '/account-management',
+ 		views: {
+ 			'help-center-right-show': {
+ 				templateUrl: 'views/help-center/account-management.html'
+ 			}
+ 		}
+ 	})
+ 	.state('root.help-center.safety-certification', {
+ 		url: '/safety-certification',
+ 		views: {
+ 			'help-center-right-show': {
+ 				templateUrl: 'views/help-center/safety-certification.html'
+ 			}
+ 		}
+ 	})
+ 	.state('root.help-center.law-and-policy-guarantee', {
+ 		url: '/law-and-policy-guarantee',
+ 		views: {
+ 			'help-center-right-show': {
+ 				templateUrl: 'views/help-center/law-and-policy-guarantee.html'
+ 			}
+ 		}
+ 	})
  	;
 
  	// $urlRouterProvider.otherwise('/');

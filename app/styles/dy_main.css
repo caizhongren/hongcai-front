@@ -1328,3 +1328,6 @@ input:focus{
 .regist-refresh-pic{
   margin:8px 70px 0 0 !important;
 }*/
+.p-click{
+  cursor: pointer;
+}
