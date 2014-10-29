@@ -24,12 +24,12 @@
 						ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678]))\d{8}$/" 
 						ensure-unique-mobile="mobile" 
 						required ng-focus autofocus> 
-					<div ng-show="registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused">
-						<div ng-show="registerForm.mobile.$error.unique">
+					<div ng-if="registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused">
+						<div ng-if="registerForm.mobile.$error.unique">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
 							<p class="input-tips regist-input-tips">手机号码已被占用</p>
 						</div>
-						<div ng-show="registerForm.mobile.$error.pattern">
+						<div ng-if="registerForm.mobile.$error.pattern">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
 							<p class="input-tips regist-input-tips">手机号码格式不正确</p>
 						</div>
@@ -38,17 +38,17 @@
 				<div class="form-group col-md-12 col-lg-12">
 					<label for="mobileCaptcha" class="col-md-3 col-lg-3">验证码：</label>
 					<input type="text" 
-						class="col-md-3 col-lg-4"
+						class="col-md-3 col-lg-3"
 						id="mobileCaptcha"
 						name="mobileCaptcha"
 						ng-model="user.mobileCaptcha"
 						required ng-focus>
-					<input type="button" class="col-md-3 col-lg-2 {{registerForm.mobile.$invalid ? 'white-button grey' : 'white-button'}}" value="获取验证码" onclick="countDown(this,60);" ng-click="sendMobileCaptcha();" ng-disabled="registerForm.mobile.$invalid">
-					<div ng-show="registerForm.mobileCaptcha.$dirty && registerForm.mobileCaptcha.$invalid && registerForm.mobileCaptcha.$error.check && !registerForm.mobileCaptcha.$focused">
+					<input type="button" class="col-md-3 col-lg-3 {{registerForm.mobile.$invalid ? 'white-button grey' : 'white-button'}}" value="获取验证码" onclick="countDown(this,60);" ng-click="sendMobileCaptcha();" ng-disabled="registerForm.mobile.$invalid">
+					<div ng-if="registerForm.mobileCaptcha.$dirty && registerForm.mobileCaptcha.$invalid && registerForm.mobileCaptcha.$error.check && !registerForm.mobileCaptcha.$focused">
 						<img ng-src="images/check_no.png" class="verify-pictips">
 						<p class="input-tips regist-input-tips verify-input-tips">验证码错误!</p>
 					</div>
-					<div ng-show="registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused">
+					<div ng-if="registerForm.mobileCaptcha.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused && !registerForm.mobileCaptcha.$focused">
 						<img ng-src="images/check_no.png" class="verify-pictips">
 						<p class="input-tips regist-input-tips verify-input-tips">手机号码有误!</p>
 					</div>
@@ -65,20 +65,20 @@
 						ng-pattern="/^[\u4e00-\u9fa5|a-z|A-Z][\u4e00-\u9fa5|a-z|A-Z|_|0-9|\-]{1,}$/" 
 						ensure-unique-name="name" 
 						required ng-focus>
-					<div ng-show="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused">
-						<div ng-show="registerForm.name.$error.unique">
+					<div ng-if="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused">
+						<div ng-if="registerForm.name.$error.unique">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
 							<p class="input-tips regist-input-tips">用户名已被占用</p>
 						</div>
-						<div ng-show="registerForm.name.$error.minlength">
+						<div ng-if="registerForm.name.$error.minlength">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
 							<p class="input-tips regist-input-tips">不能小于3个字符</p>
 						</div>
-						<div ng-show="registerForm.name.$error.maxlength">
+						<div ng-if="registerForm.name.$error.maxlength">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
 							<p class="input-tips regist-input-tips">不能大于15个字符</p>
 						</div>
-						<div ng-show="registerForm.name.$error.pattern">
+						<div ng-if="registerForm.name.$error.pattern">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
 							<p class="input-tips regist-input-tips">4-15位字符，以字母、中文开头，支持中文、字母、数字以及下划线</p>
 						</div>
@@ -95,16 +95,16 @@
 						ng-maxlength="22" 
 						ng-pattern="/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/"
 						required ng-focus>
-					<div ng-show="registerForm.password.$dirty && registerForm.password.$invalid && !registerForm.password.$focused">
-						<div ng-show="registerForm.password.$error.minlength">
+					<div ng-if="registerForm.password.$dirty && registerForm.password.$invalid && !registerForm.password.$focused">
+						<div ng-if="registerForm.password.$error.minlength">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
 							<p class="input-tips regist-input-tips">不能小于6个字符</p>
 						</div>
-						<div ng-show="registerForm.password.$error.maxlength">
+						<div ng-if="registerForm.password.$error.maxlength">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
 							<p class="input-tips regist-input-tips">不能大于22个字符</p>
 						</div>
-						<div ng-show="registerForm.password.$error.pattern">
+						<div ng-if="registerForm.password.$error.pattern">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
 							<p class="input-tips regist-input-tips">数字或字母的组合，可以包含特殊字符，长度6-22</p>
 						</div>
@@ -113,7 +113,7 @@
 				<div class="form-group col-md-12 col-lg-12">
 					<label for="repeatPassword" class="col-md-3 col-lg-3">确认密码：</label>
 					<input type="password" class="col-md-6 col-lg-6" name="repeatPassword" id="repeatPassword" ng-model="user.repeatPassword" password-match="password" required>
-					<div ng-show="registerForm.$error && registerForm.repeatPassword.$error.passwordmatch && !registerForm.password.$focused">
+					<div ng-if="registerForm.repeatPassword.$dirty && registerForm.$error && registerForm.repeatPassword.$error.passwordmatch && !registerForm.password.$focused && !registerForm.repeatPassword.$focused">
 						<img ng-src="images/check_no.png" class="check-img regist-check-img">
 						<p class="input-tips regist-input-tips">密码不一致</p>
 					</div>
