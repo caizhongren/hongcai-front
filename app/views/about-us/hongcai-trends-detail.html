@@ -1,7 +1,9 @@
-<div class="right-area introduction-height" ng-controller="HongcaiTrendsDetailCtrl">
-	<div class="introduction-area">
-		<h3 class="details-title">{{text.title}}</h3>
-		<p class="p-date">{{text.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
-		<div class="p-introduction p-details" ta-bind ng-model="text.content"></div>
+<div class="right-area col-md-9 col-lg-9" ng-controller="HongcaiTrendsDetailCtrl">
+	<div class="row">
+		<div class="introduction-area col-md-12 col-lg-12">
+			<h3 class="details-title">{{text.title}}</h3>
+			<p class="p-date">{{text.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
+			<div class="p-introduction p-details" ta-bind ng-model="text.content"></div>
+		</div>
 	</div>
 </div>

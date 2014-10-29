@@ -3,11 +3,11 @@ hongcaiApp.controller("HelpCenterCtrl", ["$scope", "$state", "$rootScope", "$loc
             "left": [{
             	"href": "/introduce",
                 "link": "root.help-center.introduce",
-                "text": "宏财网介绍"},
+                "text": "宏财介绍"},
             {
             	"href": "/investors",
                 "link": "root.help-center.investors",
-                "text": "投资人"},
+                "text": "投资介绍"},
             {
             	"href": "/account-management",
                 "link": "root.help-center.account-management",
@@ -19,7 +19,7 @@ hongcaiApp.controller("HelpCenterCtrl", ["$scope", "$state", "$rootScope", "$loc
             {
             	"href": "/law-and-policy-guarantee",
                 "link": "root.help-center.law-and-policy-guarantee",
-                "text": "法律和政策保障"}]
+                "text": "法律保障"}]
         };
 
     $rootScope.selectPage = $location.path().split('/')[1];
