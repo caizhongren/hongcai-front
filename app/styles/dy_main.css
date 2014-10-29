@@ -72,6 +72,7 @@ input:focus{
     border-radius: 5px;
     margin-left: 40px;
     margin-bottom: 30px;
+    min-height: 600px !important;
 }
 /*loginAndRegiste.css*/
 .bg-login{
@@ -240,6 +241,7 @@ input:focus{
   background-color: white;
   border-radius: 5px;
   margin-top: 18px;
+  border-top: 0px solid #dbdbdb;
 }
 .tips-area{
     height: 45px;
@@ -313,9 +315,10 @@ input:focus{
   padding-left: 60px;
   margin-top: 20px;
   margin-bottom: 30px;
+  font-weight: bold;
 }
 .introduction-area{
-  margin: 20px auto 0 auto;
+  padding:0px 72px !important;
   color: #9a9595;
 }
 .img-area{
@@ -626,7 +629,7 @@ input:focus{
   margin: 60px auto 50px auto;
 }
 .account-pic {
-  margin: -15px 0 0 65px;
+  margin: -15px 0 0 20px;
   float: left;
 }
 .left-message {
@@ -681,7 +684,6 @@ input:focus{
   margin: -10px 0 0 0;
 }
 .right-message {
-  float: left;
   height: 260px;
 }
 .right-message .left-message-show {
@@ -1330,4 +1332,10 @@ input:focus{
 }*/
 .p-click{
   cursor: pointer;
+}
+.p-click:hover{
+  color: #e14526;
+}
+.help-height{
+  height: 226px;
 }
