@@ -71,23 +71,40 @@ body {
 }
 
 .projects-filter {
-  .list-inline {
+  padding-left: 0px;
+  .row > .col-xs-12 > .row {
     margin-top: 7px;
     margin-bottom: 7px;
 
-    li {
-      margin-left: 13px;
-      margin-right: 13px;
-
+    .col-xs-1,
+    .col-xs-2 {
       a {
         color: @gray-light;
 
         .fa-check-square-o {
           color: @brand-danger;
         }
-
       }
     }
+  }
+  .list-inline {
+    margin-top: 7px;
+    margin-bottom: 7px;
+
+    // li {
+    //   margin-left: 13px;
+    //   margin-right: 13px;
+
+    //   a {
+    //     color: @gray-light;
+
+    //     .fa-check-square-o {
+    //       color: @brand-danger;
+    //     }
+
+    //   }
+    // }
+
   }
 }
 
