@@ -1265,6 +1265,12 @@ input:focus{
 .login-input-tips{
   margin-right: -60px;
 }
+.verify-input-tips{
+  margin-top: 6px;
+}
+.verify-pictips{
+  margin-top: 6px;
+}
 /*.pic-check {
   float: left;
   margin-top: 3px;
@@ -1300,14 +1306,8 @@ input:focus{
 .agree-area {
   margin-top: 10px;
 }
-.verify-pictips{
-  margin-top: -23px;
-  margin-right: 46px;
-  float: right;
-}
-.verify-input-tips{
-  margin-top: -23px;
-}
+
+
 
 .a-verify {
   position: absolute;

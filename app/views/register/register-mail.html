@@ -105,7 +105,7 @@
 						ng-model="user.repeatPassword" 
 						password-match="password" 
 						required />
-					<div ng-if=" registerForm.repeatPassword.$error.passwordmatch && !registerForm.password.$focused && !registerForm.repeatPassword.$focused">
+					<div ng-if="registerForm.repeatPassword.$dirty && registerForm.repeatPassword.$error.passwordmatch && !registerForm.password.$focused && !registerForm.repeatPassword.$focused">
 						<img ng-src="images/check_no.png" class="check-img regist-check-img">
 						<p class="input-tips regist-input-tips">密码不一致</p>
 					</div>
