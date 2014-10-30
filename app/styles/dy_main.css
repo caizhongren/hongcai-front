@@ -82,11 +82,11 @@ input:focus{
   height: 380px;
 }
 .regist-area{
-  height: 455px;
+  height: 480px;
 }
 .login-left-area,
 .regist-left-area{  
-  height: 100%;
+  min-height: 92% !important;
   border: 2px solid #d9d5d6;
   border-radius: 8px;
   background-color: white;
@@ -99,11 +99,11 @@ input:focus{
 }
 .login-right-area,
 .regist-right-area{
-  height: 100%;
+  height: 92%;
   background: url(/images/sprite1.png) 15px 45px no-repeat;
 }
 .regist-right-area{
-  background: url(/images/sprite1.png) 0px 130px no-repeat;
+  background: url(/images/sprite1.png) 0px 115px no-repeat;
 }
 .p-login-right,
 .p-regist-right{
@@ -136,9 +136,6 @@ input:focus{
 .form-login,
 .form-regist{
   padding-top: 30px;
-}
-.form-group{
-  height: 30px;
 }
 .p-checkbox,
 .p-remember{
@@ -195,11 +192,11 @@ input:focus{
   border-top-right-radius: 5px;
 }
 .pic-verify {
-  height: 100%;
+  height: 34px;
   cursor: pointer;
 }
 .refresh-pic{
-  height: 100%;
+  height: 34px;
   background: url(/images/sprite.png) -392px -857px no-repeat;
   cursor: pointer;
 }
@@ -1247,26 +1244,23 @@ input:focus{
 }
 .regist-check-img,
 .login-check-img{
-  margin-left: 3px;
-  margin-top: 8px;
+  margin-top: -4px;
 }
 .input-tips {
   font-size: 12px;
   color: #d8271c;
-  float: right;
-  width: 114px;
+  margin: 0px;
 }
 .regist-input-tips,
 .login-input-tips{
-  margin-top: 9px;
-  margin-right: -40px;
+  margin-top: -19px;
+  margin-left: 19px;
 }
 .login-input-tips{
   margin-right: -60px;
 }
-.verify-pictips,
-.verify-input-tips{
-  margin-top: 6px;
+.form-div{
+  padding-top: 10px;
 }
 /*.pic-check {
   float: left;

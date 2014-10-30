@@ -237,27 +237,14 @@
         <div class="col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4>媒体报道 <small class="pull-right">更多 &gt;</small></h4>
+              <h4>媒体报道 <a href="/media-reports"><small class="pull-right">更多 &gt;</small></a></h4>
             </div>
-            <div class="panel-body">
-
+            <div class="panel-body" ng-repeat="item in mediaList">
               <div class="row">
-                <div class="col-xs-8">你看认购和认购人快过</div>
-                <div class="col-xs-4 text-right"><small>09-11</small></div>
+                <div class="col-xs-8"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
+                <div class="col-xs-4 text-right"><small>{{item.createTime * 1000 | date:'MM-dd'}}</small></div>
               </div>
-              <div class="row">
-                <div class="col-xs-8">你看认购和认购人快过</div>
-                <div class="col-xs-4 text-right"><small>09-11</small></div>
-              </div>
-              <div class="row">
-                <div class="col-xs-9">你看认购和认购人快过</div>
-                <div class="col-xs-3 text-right">09-11</div>
-              </div>
-              <p>你看认购和认购人快过<small class="text-muted pull-right">09-11</small></p>
-<!--               <p>你看认购和认购人快过<small class="text-muted pull-right">09-11</small></p>
-              <p>你看认购和认购人快过<small class="text-muted pull-right">09-11</small></p>
-              <p>你看认购和认购人快过<small class="text-muted pull-right">09-11</small></p>
- -->            </div>
+            </div>
           </div> <!-- .panel.panel-default -->
         </div> <!-- .col-xs-12 -->
       </div> <!-- .row -->
@@ -266,21 +253,12 @@
         <div class="col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4>网站公告 <small class="pull-right">更多 &gt;</small></h4>
+              <h4>网站公告 <a href="/web-site-notice"><small class="pull-right">更多 &gt;</small></a></h4>
             </div>
-            <div class="panel-body">
-
+            <div class="panel-body" ng-repeat="item in noticeList">
               <div class="row">
-                <div class="col-xs-8">你看认购和认购人快过</div>
-                <div class="col-xs-4 text-right">09-11</div>
-              </div>
-              <div class="row">
-                <div class="col-xs-8">你看认购和认购人快过</div>
-                <div class="col-xs-4 text-right">09-11</div>
-              </div>
-              <div class="row">
-                <div class="col-xs-8">你看认购和认购人快过</div>
-                <div class="col-xs-4 text-right">09-11</div>
+                <div class="col-xs-8"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
+                <div class="col-xs-4 text-right">{{item.createTime * 1000 | date:'MM-dd'}}</div>
               </div>
             </div>
           </div> <!-- .panel.panel-default -->
