@@ -630,7 +630,7 @@ input:focus{
   margin: 60px auto 50px auto;
 }
 .account-pic {
-  margin: -15px 0 0 20px;
+  margin: -15px 0 0 0px;
   float: left;
 }
 .left-message {
@@ -688,14 +688,14 @@ input:focus{
   height: 260px;
 }
 .right-message .left-message-show {
-  margin-left: 85px;
+  margin-left: 40px;
 }
 .account-button {
   height: 30px;
   margin-top: -10px;
-  display: inline-block;
-  line-height: 30px;
   text-align: center;
+  margin-left: 45px;
+  border-radius: 5px;
 }
 .account-button:hover {
   color: #fff;
@@ -707,14 +707,14 @@ input:focus{
 .view-more {
   color: #cecdcd;
   float: right;
-  margin-top: 20px;
-  margin-right: 90px;
+  margin-top: 30px;
+  margin-right: 48px;
 }
 .view-more:hover {
   color: inherit;
 }
 .account-investment {
-  padding: 0px 90px;
+  height: 135px;
 }
 .account-investment-show {
   height: 74px;
@@ -737,7 +737,7 @@ input:focus{
   color: #888181;
 }
 .investment-more {
-  margin: 20px 16px 0 0;
+  margin: 20px 75px 0 0;
 }
 .userCenter label {
   font-weight: normal;
@@ -805,7 +805,6 @@ input:focus{
 }
  .verify-area .tip {
   margin-top: 50px;
-  margin-left: -40px;
 }
  .verify-tip {
   height: 35px;
@@ -1083,7 +1082,7 @@ input:focus{
   background: url(/images/sprite.png) -463px -743px no-repeat;
 }
 .account-pic-bg{
-  background: url(/images/sprite.png) -1309px -304px no-repeat;
+  background: url(/images/sprite.png) -1300px -304px no-repeat;
 }
 /*get-pwd-back*/
 /*.get-pwd-area{
@@ -1265,10 +1264,8 @@ input:focus{
 .login-input-tips{
   margin-right: -60px;
 }
+.verify-pictips,
 .verify-input-tips{
-  margin-top: 6px;
-}
-.verify-pictips{
   margin-top: 6px;
 }
 /*.pic-check {
@@ -1306,7 +1303,6 @@ input:focus{
 .agree-area {
   margin-top: 10px;
 }
-
 
 
 .a-verify {

@@ -1,31 +1,31 @@
 <!--账户总览-->
-<div class="right-area right-account-height col-md-8 col-lg-8" ng-controller="AccountOverviewCtrl">
+<div class="right-area right-account-height col-md-8 col-lg-9" ng-controller="AccountOverviewCtrl">
 	<div class="row">
 		<div class="right-title">账户总览</div>
 	</div>
 	<div class="row">
 		<div class="account-message">
-			<div class="account-pic account-pic-bg col-md-6 col-lg-6">
+			<div class="account-pic account-pic-bg col-md-6 col-lg-6 col-lg-offset-1">
 				<cjs-doughnut dataset="doughnutAccountData" options="doughnutOptions" height="313"></cjs-doughnut>
 			</div>
-			<div class="right-message">
-				<div class="left-message-show">
+			<div class="right-message col-md-6 col-lg-5">
+				<div class="left-message-show col-md-12 col-lg-12">
 					<div class="assets-ico total-assets"></div>
 					<p class="asset-tips">账户总资产</p>
 					<p class="asset-money">{{capital.totalAssets | number:2}} 元</p>
 				</div>
-				<div class="left-message-show">
+				<div class="left-message-show col-md-12 col-lg-12">
 					<div class="assets-ico net-income"></div>
 					<p class="asset-tips">累计净收益</p>
 					<p class="asset-money">{{capital.userCapital.receivedProfit| number:2}} 元</p>
 				</div>
-				<div class="left-message-show last-show">
+				<div class="left-message-show last-show col-md-12 col-lg-12">
 					<div class="assets-ico account-balance"></div>
 					<p class="asset-tips">账户余额</p>
 					<p class="asset-money">{{(capital.userCapital.balance)| number:2}} 元</p>
 				</div>
-				<a ui-sref="root.userCenter.recharge" class="verify-button account-button">充值</a>
-				<a ui-sref="root.userCenter.withdraw" class="get-verify-button account-button account-right-button">提现</a>
+				<input type="button" ui-sref="root.userCenter.recharge" class="red-button account-button col-md-3 col-lg-3" value="充值" />
+				<input type="button" ui-sref="root.userCenter.withdraw" class="white-button account-button account-right-button col-md-3 col-lg-3" value="提现" />
 				<a ui-sref="root.userCenter.assets-overview" class="view-more">查看更多></a>
 			</div>
 		</div>
