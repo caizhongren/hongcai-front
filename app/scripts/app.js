@@ -430,14 +430,6 @@
  			}
  		}
  	})
- 	.state('root.about-us.news-details', {
- 		url: '/news-details',
- 		views: {
- 			'about-us-right-show': {
- 				templateUrl: 'views/about-us/news-details.html'
- 			}
- 		}
- 	})
  	/*------------------------------------------  get-pwd-back  -----------------------------------------------*/
  	.state('root.get-pwd-back', {
  		url: '/get-pwd-back',
