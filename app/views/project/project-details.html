@@ -41,7 +41,7 @@
                         担保机构：<a ui-sref="root.project-sponsorInstitution">{{project.guaranteeName}}</a>
                       </div>
                       <div class="col-xs-12">
-                        还款方式：{{repayment_type.repaymentType}}
+                        还款方式：{{project.repaymentName}}
                       </div>
                     </div> <!-- .row -->
                   </div> <!-- .col-sm-8 -->
@@ -307,14 +307,14 @@
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-xs-12">
-                      可投金额：{{project.total - project.minInvest * project.countInvest}}元
+                      可投金额：{{project.total - project.minInvest * project.countInvest | number : 0}}元
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-xs-12">
                       <span class="pull-left">投资进度：</span>
                       <div class="progress">
-                        <div class="progress-bar progress-bar-info hc-bg-red" role="progressbar" aria-valuenow="{{project.progress || 0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{project.progress||0}}%;">{{project.progress||0}}%</div>
+                        <div class="progress-bar progress-bar-info hc-bg-red" role="progressbar" aria-valuenow="{{project.progress || 0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{project.progress||0}}%;">{{project.progress||0 | number : 2}}%</div>
                       </div> <!-- .progress -->
 
                     </div>
