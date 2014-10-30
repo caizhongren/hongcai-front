@@ -25,7 +25,7 @@
 					<div class="col-md-3">担保公司：{{projectVo.guaranteeName}}<!-- 数据绑定 --></div>
 				</div>
 				<div class="row">
-					<div class="col-md-3">年化收益率：{{projectVo.progress}}<!-- 数据绑定 --></div>
+					<div class="col-md-3">年化收益率：{{projectVo.annualEarnings}}%<!-- 数据绑定 --></div>
 					<div class="col-md-3">还款方式：{{projectVo.repaymentName}}<!-- 数据绑定 --></div>
 					<div class="col-md-3">计息日期：{{projectVo.releaseStartTime}}<!-- 数据绑定 --></div>
 					<div class="col-md-3">还款日期：{{projectVo.repaymentDate}}<!-- 数据绑定 --></div>
@@ -36,9 +36,9 @@
 			<div class="col-md-12"><strong>&nbsp;&nbsp;投资信息确认</strong></div>
 			<div class="col-md-12">
 				<div class="row">
-					<div class="col-md-3">投资金额：{{amount| number:2}}<!-- 数据绑定 -->元</div>
-					<div class="col-md-3">账户余额：{{capital.balance | number:2}}<!-- 数据绑定 --></div>
-					<div class="col-md-3">还需金额：{{distance | number:2}}<!-- 数据绑定 --></div>
+					<div class="col-md-3">投资金额：{{investAmount| number:2}}<!-- 数据绑定 -->元</div>
+					<div class="col-md-3">账户余额：{{capital.balance | number:2}}元<!-- 数据绑定 --></div>
+					<div class="col-md-3">还需金额：{{distance | number:2}}元<!-- 数据绑定 --></div>
 				</div>
 			</div>
 		</div>
@@ -55,8 +55,7 @@
 		<div class="row list-item"  ng-switch="distance">
 			<div class="col-md-12" ng-switch-default>
 				<div class="col-md-3">您的余额不足</div>
-				<input type="button" value="充值" class="verify-button" ng-click="transfer(orderId)"/>
-				<!-- <input type="button" value="修改投资金额" class="verify-button get-verify-button" ng-click="transfer(orderId)"/> -->
+				<input type="button" value="充值" class="verify-button" ui-sref="root.userCenter.recharge"/>
 
 				<button type="button" class="verify-button get-verify-button" ng-click="showModal()">修改投资金额
 				</button>

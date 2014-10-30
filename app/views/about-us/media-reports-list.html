@@ -10,9 +10,9 @@
 					<img src="{{item.image}}">
 				</div></a> 
 				<a class="p-title-dynamic col-md-6 col-lg-6" ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a>
-				<p class=" col-md-2 col-lg-2">{{item.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
+				<p class=" col-md-3 col-lg-3">{{item.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
 				<a ui-sref="root.about-us.media-reports-detail({textId: item.id})" class="p-dynamic-show col-md-8 col-lg-8" style="overflow:hidden;">
-					<div ta-bind ng-model="item.content"></div>
+					<div ta-bind ng-model="item.content" class="news-details"></div>
 				</a>
 			</div>
 		</div>

@@ -1,4 +1,5 @@
 hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", "ProjectService", "$modal", function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, $modal) {
+        $rootScope.redirectUrl = $location.path();
     var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
         $scope.project = projectDetails.data.project;
         $scope.projectInfo = projectDetails.data.projectInfo;
@@ -24,7 +25,6 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.isAvailableInvest = function(project){//验证用户权限
             ProjectService.isAvailableInvest.get({amount: project.amount,projectId:project.id }, function(response) {
                 if(response.ret == 1) {
-                    console.info(response.data.isBalance);
                     if (response.data.flag) {
                         if (response.data.isBalance) {
                              $state.go("root.invest-verify", {projectId: response.data.projectId,amount: response.data.amount});
