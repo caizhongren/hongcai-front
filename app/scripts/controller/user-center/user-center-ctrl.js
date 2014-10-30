@@ -2,8 +2,18 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
 	
     $scope.selectedDate = "2014-10-16T08:50:36.394Z"; // <- [object Date]
     $scope.selectedDateAsNumber = 509414400000; // <- [object Number]
-    $scope.fromDate = "2014-10-07T16:00:00.000Z"; // <- [object Date]
-    $scope.untilDate = "2014-10-07T16:00:00.000Z"; // <- [object Date]
+    $scope.fromDate = new Date(2014, 9, 20); 
+    $scope.untilDate = new Date(2014, 10, 7);
+    
+    $scope.fromDateChanged = function () {
+        console.log($scope.fromDate);
+
+    };
+
+    $scope.untilDateChanged = function () {
+        console.log($scope.untilDate);
+
+    };
 
     UserCenterService.userSecurityInfo.get({},function(response){
         if (response.ret == 1){
