@@ -7,11 +7,13 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
     
     $scope.fromDateChanged = function () {
         console.log($scope.fromDate);
+        $location.path('userCenter-investment/6') 
 
     };
 
     $scope.untilDateChanged = function () {
         console.log($scope.untilDate);
+        $location.path('userCenter-investment/6')
 
     };
 
