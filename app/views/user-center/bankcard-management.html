@@ -1,7 +1,9 @@
 <!--银行卡管理-->
-<div class="right-area right-account-height col-md-8 col-lg-8 no-padding">
-    <div class="right-title">银行卡管理</div>
-    <div class="verify-area introduction-area border-none">
+<div class="right-area right-account-height col-md-8 col-lg-9">
+    <div class="row">
+        <div class="right-title">银行卡管理</div>
+    </div>
+    <div class="verify-area introduction-area border-none row">
         <a href="javacscript:;" ng-show="isVerifying" ng-init="isAuth=false">
             <div class="bank-card-show">
                 <p>认证中</p>
@@ -18,9 +20,9 @@
             </div>
         </a>
         <!--start 安全认证提示 -->
-        <p class="title verify-tip safe-card-tips" ng-show="!isAuth">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
+        <p class="verify-tip safe-card-tips" ng-show="!isAuth">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
         <!--end 安全认证提示 -->
-        <p class="tip ft-12">
+        <p class="ft-12">
             温馨提示
             <br>
             为确保您的资金划转安全高效，宏财建议您完善开户行信息。您只需在分支行框内输入分支行关键词。

@@ -184,8 +184,8 @@
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/record.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'UserDealCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-deal-ctrl'
  			}
  		}
  	})

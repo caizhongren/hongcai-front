@@ -1,4 +1,4 @@
-hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "$rootScope", "$location", "MainService", function ($scope, $stateParams, $rootScope, $location, MainService) {
+hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "$rootScope", "$location", "MainService", "AboutUsService", function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService) {
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {
@@ -22,6 +22,21 @@ hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "$rootScope", "$loc
         $scope.indexStatic = indexStatistics.data.indexStatic;
     });
 
+    AboutUsService.textList.get({category: 1}, function(response) {
+        $scope.textList = response.data;
+        $scope.mediaList = [];
+        for (var i = 0; i < 5; i++) {
+            $scope.mediaList.push($scope.textList.textList[i]);
+        }
+    });
+
+    AboutUsService.textList.get({category: 2}, function(response) {
+        $scope.textList = response.data;
+        $scope.noticeList = [];
+        for (var i = 0; i < 5; i++) {
+            $scope.noticeList.push($scope.textList.textList[i]);
+        }
+    });
 
     $rootScope.selectPage = $location.path().split('/')[1];
 }]);

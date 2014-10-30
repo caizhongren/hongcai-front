@@ -82,11 +82,11 @@ input:focus{
   height: 380px;
 }
 .regist-area{
-  height: 455px;
+  height: 480px;
 }
 .login-left-area,
 .regist-left-area{  
-  height: 100%;
+  min-height: 92% !important;
   border: 2px solid #d9d5d6;
   border-radius: 8px;
   background-color: white;
@@ -99,11 +99,11 @@ input:focus{
 }
 .login-right-area,
 .regist-right-area{
-  height: 100%;
+  height: 92%;
   background: url(/images/sprite1.png) 15px 45px no-repeat;
 }
 .regist-right-area{
-  background: url(/images/sprite1.png) 0px 130px no-repeat;
+  background: url(/images/sprite1.png) 0px 115px no-repeat;
 }
 .p-login-right,
 .p-regist-right{
@@ -136,9 +136,6 @@ input:focus{
 .form-login,
 .form-regist{
   padding-top: 30px;
-}
-.form-group{
-  height: 30px;
 }
 .p-checkbox,
 .p-remember{
@@ -195,11 +192,11 @@ input:focus{
   border-top-right-radius: 5px;
 }
 .pic-verify {
-  height: 100%;
+  height: 34px;
   cursor: pointer;
 }
 .refresh-pic{
-  height: 100%;
+  height: 34px;
   background: url(/images/sprite.png) -392px -857px no-repeat;
   cursor: pointer;
 }
@@ -508,8 +505,7 @@ input:focus{
 }
 .tips {
   height: inherit;
-  text-align: left;
-  margin-left: 60px;
+  text-align: center;
 }
 .message {
   height: 100%;
@@ -517,7 +513,7 @@ input:focus{
 }
 .activity {
   height: 100%;
-  text-align: right;
+  text-align: left;
   cursor: pointer;
 }
 .hadset {
@@ -630,7 +626,7 @@ input:focus{
   margin: 60px auto 50px auto;
 }
 .account-pic {
-  margin: -15px 0 0 20px;
+  margin: -15px 0 0 0px;
   float: left;
 }
 .left-message {
@@ -688,14 +684,14 @@ input:focus{
   height: 260px;
 }
 .right-message .left-message-show {
-  margin-left: 85px;
+  margin-left: 40px;
 }
 .account-button {
   height: 30px;
   margin-top: -10px;
-  display: inline-block;
-  line-height: 30px;
   text-align: center;
+  margin-left: 45px;
+  border-radius: 5px;
 }
 .account-button:hover {
   color: #fff;
@@ -707,14 +703,14 @@ input:focus{
 .view-more {
   color: #cecdcd;
   float: right;
-  margin-top: 20px;
-  margin-right: 90px;
+  margin-top: 30px;
+  margin-right: 48px;
 }
 .view-more:hover {
   color: inherit;
 }
 .account-investment {
-  padding: 0px 90px;
+  height: 135px;
 }
 .account-investment-show {
   height: 74px;
@@ -737,28 +733,11 @@ input:focus{
   color: #888181;
 }
 .investment-more {
-  margin: 20px 16px 0 0;
+  margin: 20px 75px 0 0;
 }
 .userCenter label {
   font-weight: normal;
   padding-top: 2px;
-}
-.userCenter .real-name label {
-  text-align: right;
-  float: left;
-  margin-right: 20px;
-}
-.real-name .user-name {
-  float: left;
-}
-.real-name .verify-button {
-  margin-left: 215px;
-  border-radius: 0px;
-}
-.real-name{
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 70px;
 }
  .read,
  .read-check {
@@ -805,7 +784,6 @@ input:focus{
 }
  .verify-area .tip {
   margin-top: 50px;
-  margin-left: -40px;
 }
  .verify-tip {
   height: 35px;
@@ -843,6 +821,10 @@ input:focus{
  .recharge .mgn-top,
  .withdraw .mgn-top {
   margin-top: 10px;
+}
+ .recharge .mgn-top p,
+ .withdraw .mgn-top p {
+  padding-top: 5px;
 }
  .recharge .tip,
  .withdraw .tip {
@@ -912,13 +894,7 @@ input:focus{
   float: left;
   margin: 7px 7px 0 3px;
 }
-.user-input-tips{
-  margin-left: 26px;
-  margin-top: -17px;
-}
 .user-tips-area{
-  float: right;
-  margin-right: -96px;
   height: 20px;
 }
 .safe-tips-area{
@@ -948,7 +924,7 @@ input:focus{
   margin-top: -29px;
 }
 .safe-card-tips{
-  margin: 0 0 0 -42px !important;
+  margin: 0 0 20px 0; 
 }
 .mid-line{
   height: 74px;
@@ -1083,7 +1059,7 @@ input:focus{
   background: url(/images/sprite.png) -463px -743px no-repeat;
 }
 .account-pic-bg{
-  background: url(/images/sprite.png) -1309px -304px no-repeat;
+  background: url(/images/sprite.png) -1300px -304px no-repeat;
 }
 /*get-pwd-back*/
 /*.get-pwd-area{
@@ -1248,28 +1224,28 @@ input:focus{
 }
 .regist-check-img,
 .login-check-img{
-  margin-left: 3px;
-  margin-top: 8px;
+  margin-top: -4px;
 }
 .input-tips {
   font-size: 12px;
   color: #d8271c;
-  float: right;
-  width: 114px;
+  margin: 0px;
+}
+.user-input-tips{
+  float: left;
+  margin-left: -3px;
+  margin-top: 8px;
 }
 .regist-input-tips,
 .login-input-tips{
-  margin-top: 9px;
-  margin-right: -40px;
+  margin-top: -19px;
+  margin-left: 19px;
 }
 .login-input-tips{
   margin-right: -60px;
 }
-.verify-input-tips{
-  margin-top: 6px;
-}
-.verify-pictips{
-  margin-top: 6px;
+.form-div{
+  padding-top: 10px;
 }
 /*.pic-check {
   float: left;
@@ -1306,7 +1282,6 @@ input:focus{
 .agree-area {
   margin-top: 10px;
 }
-
 
 
 .a-verify {
