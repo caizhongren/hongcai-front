@@ -65,7 +65,7 @@
  		}
  	})
  	.state('root.login', {
- 		url: '/login',
+ 		url: '/login/:isRedirect',
  		views: {
  			'': {
  				templateUrl: 'views/login.html',
@@ -430,14 +430,6 @@
  			}
  		}
  	})
- 	.state('root.about-us.news-details', {
- 		url: '/news-details',
- 		views: {
- 			'about-us-right-show': {
- 				templateUrl: 'views/about-us/news-details.html'
- 			}
- 		}
- 	})
  	/*------------------------------------------  get-pwd-back  -----------------------------------------------*/
  	.state('root.get-pwd-back', {
  		url: '/get-pwd-back',
@@ -533,6 +525,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
 					$rootScope.loginName = response.data.data.name;
+					$rootScope.user = response.data.data.user;
 				} else {
 					$location.path('/login');
 				}
@@ -542,6 +535,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
 					$rootScope.loginName = response.data.data.name;
+					$rootScope.user = response.data.data.user;
 				}
 			});
 		}

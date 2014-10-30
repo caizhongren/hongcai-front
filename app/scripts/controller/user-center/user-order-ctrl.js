@@ -4,13 +4,16 @@ hongcaiApp.controller("UserOrderCtrl", ["$scope", "$rootScope", "$state", "$stat
     var getOrderByUser = UserCenterService.getOrderByUser.get({ dateInterval: $stateParams.dateInterval,
     															status: $stateParams.status},
     															function(response) {
-        $scope.orderList = getOrderByUser.data.orderVoList;
+        /*$scope.orderList = getOrderByUser.data.orderVoList;
         $scope.orderCount = getOrderByUser.data.orderCount;
         $scope.amount = getOrderByUser.data.amount;
         $scope.dateInterval = getOrderByUser.data.dateInterval;
         $scope.status = getOrderByUser.data.status;
         console.info($scope.status);
         console.info($scope.orderList);
+
+        $scope.dateInterval = getOrderByUser.data.dateInterval;*/
+
 
     });
 }]);

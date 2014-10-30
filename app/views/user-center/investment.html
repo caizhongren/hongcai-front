@@ -59,18 +59,21 @@
 			    <div class="row datePicker">
 			        <label>固定期限：</label>
 			        <form name="datepickerForm" class="form-inline" role="form">
-					  <div class="date">
-					    <label class="control-label"><i class="fa fa-calendar"></i><small>开始日期</small></label>
-					    <label class="control-label"><i class="fa fa-calendar"></i> <small>截止日期</small></label>
-					    <br>
-					    <div class="form-group mgn-l">
-					      <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker>
-					    </div>
-					    <i class="fa fa-arrows-h"></i>
-					    <div class="form-group">
-					      <input type="text" class="form-control" ng-model="untilDate" data-min-date="{{fromDate}}" placeholder="Until" bs-datepicker>
-					    </div>
-					  </div>
+				  		<div class="date">
+						    <label class="control-label"><i class="fa fa-calendar"></i><small>开始日期</small></label>
+						    <label class="control-label"><i class="fa fa-calendar"></i> <small>截止日期</small></label>
+						    <br>
+						    <div class="form-group mgn-l">
+						      <input type="text" class="form-control" ng-model="fromDate" data-max-date placeholder="From" data-autoclose="true" bs-datepicker ng-change="fromDateChanged();">
+						    </div>
+						    <i class="fa fa-arrows-h"></i>
+						    <div class="form-group">
+						      <input type="text" class="form-control" ng-model="untilDate" data-min-date placeholder="Until" data-autoclose="true" bs-datepicker ng-change="untilDateChanged();">
+						    </div>
+						    <!-- <div class="form-group">
+						    	<input type="date" id="exampleInput" name="input" ng-model="untilDate" placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" ng-change="untilDateChanged();" />
+						    </div> -->
+					  	</div>
 					</form>
 			    </div>
 			    <div class="row record-list">

@@ -17,9 +17,9 @@
 							ng-model="user.account" 
 							required 
 							autofocus>
-						<div ng-show="loginForm.account.$dirty && loginForm.account.$invalid">
-							<div ng-show="loginForm.account.$error.required">
-								<img ng-src="images/check_no.png" class="check-img login-check-img">
+						<div ng-if="loginForm.account.$dirty && loginForm.account.$invalid">
+							<div ng-if="loginForm.account.$error.required">
+								<img ng-src="images/check_no.png" class="login-check-img">
 								<p class="input-tips login-input-tips">账号不能为空</p>
 							</div>
 						</div>
@@ -32,13 +32,13 @@
 							ng-model="user.password"
 							required 
 							autofocus>
-						<div ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
-							<div ng-show="loginForm.password.$error.required">
-								<img ng-src="images/check_no.png" class="check-img login-check-img">
+						<div ng-if="loginForm.password.$dirty && loginForm.password.$invalid">
+							<div ng-if="loginForm.password.$error.required">
+								<img ng-src="images/check_no.png" class="login-check-img">
 								<p class="input-tips login-input-tips">密码不能为空</p>
 							</div>
 						</div>
-						<div ng-show="isPasswordError" ng-init="isPasswordError=false">
+						<div ng-if="isPasswordError" ng-init="isPasswordError=false">
 								<img ng-src="images/check_no.png" class="check-img login-check-img">
 								<p class="input-tips login-input-tips">账号或密码错误</p>
 						</div>
@@ -47,7 +47,6 @@
 						<label class="col-md-3 col-lg-3"></label>
 						<div class="col-md-6 col-lg-6 no-padding">
 							<input type="checkbox" class="p-checkbox" checked="false">
-							<!--<img src="images/check_01.png" class="pic-check" onclick="change_agree_pic(this);">-->
 							<p class="p-remember">记住用户名</p>
 							<a ui-sref="root.get-pwd-back" class="p-forget">忘记密码？</a>
 						</div>

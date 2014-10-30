@@ -1246,6 +1246,31 @@ input:focus{
   font-weight: bold;
   margin: 90px 0 0 71px;
 }
+.regist-check-img,
+.login-check-img{
+  margin-left: 3px;
+  margin-top: 8px;
+}
+.input-tips {
+  font-size: 12px;
+  color: #d8271c;
+  float: right;
+  width: 114px;
+}
+.regist-input-tips,
+.login-input-tips{
+  margin-top: 9px;
+  margin-right: -40px;
+}
+.login-input-tips{
+  margin-right: -60px;
+}
+.verify-input-tips{
+  margin-top: 6px;
+}
+.verify-pictips{
+  margin-top: 6px;
+}
 /*.pic-check {
   float: left;
   margin-top: 3px;
@@ -1259,21 +1284,12 @@ input:focus{
 .check-img{
   margin-top: 13px;
 }
-.input-tips {
-  font-size: 12px;
-  width: 145px;
-  float: left;
-  margin-top: -24px;
-  color: #d8271c;
-}
+
 .input-verify-width{
   width: 125px;
 }
 
-.login-check-img{
-  float: right;
-  margin-right: 20px;
-}
+
 .login-input-tips{
   margin-left: 320px;
 }
@@ -1286,25 +1302,12 @@ input:focus{
 .form-regist .login-regist-form-group .big-tips{
   width: 70px;
 }
-.regist-check-img{
-  margin-left: 5px;
-}
-.regist-input-tips{
-  float: right;
-  margin-right: -108px;
-  margin-top: 12px;
-}
+
 .agree-area {
   margin-top: 10px;
 }
-.verify-pictips{
-  margin-top: -23px;
-  margin-right: 46px;
-  float: right;
-}
-.verify-input-tips{
-  margin-top: -23px;
-}
+
+
 
 .a-verify {
   position: absolute;
