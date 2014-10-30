@@ -65,7 +65,7 @@
  		}
  	})
  	.state('root.login', {
- 		url: '/login',
+ 		url: '/login/:isRedirect',
  		views: {
  			'': {
  				templateUrl: 'views/login.html',
@@ -525,6 +525,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
 					$rootScope.loginName = response.data.data.name;
+					$rootScope.user = response.data.data.user;
 				} else {
 					$location.path('/login');
 				}
@@ -534,6 +535,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
 					$rootScope.loginName = response.data.data.name;
+					$rootScope.user = response.data.data.user;
 				}
 			});
 		}

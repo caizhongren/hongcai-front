@@ -210,7 +210,7 @@
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-sm-6">项目规模：<strong class="ft-18">{{project.total/10000 | number : 0}}万元</strong></div>
-									<div class="col-xs-12 col-sm-6">可投金额：<strong class="ft-18">{{project.currentAmount | number : 2}}</strong>元</div>
+									<div class="col-xs-12 col-sm-6">可投金额：<strong class="ft-18">{{project.currentStock * project.minInvest || 0 | number : 0}}</strong>元</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-sm-6">年化收益：<strong class="ft-red ft-24">{{project.annualEarnings}}%</strong></div>

@@ -1,11 +1,16 @@
-hongcaiApp.controller("LoginCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "LoginService", "SessionService", "toaster", function ($scope, $state, $rootScope, $stateParams, LoginService, SessionService, toaster) {
+hongcaiApp.controller("LoginCtrl", ["$scope", "$location","$state", "$rootScope", "$stateParams", "LoginService", "SessionService", "toaster", function ($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, toaster) {
+    
     $scope.login = function(user){
         LoginService.userLogin.get({account: user.account, password: user.password }, function(response) {
             if(response.ret == 1) {
                 SessionService.set("user", response.data.user.name);
-                $state.go('root.userCenter.account-overview');
                 $rootScope.loginName = response.data.user.name;
                 $rootScope.isLogged = true;
+                if($stateParams.isRedirect){
+                    $location.path($rootScope.redirectUrl);
+                } else {
+                   $state.go('root.userCenter.account-overview'); 
+                }
             } else {
                 if (response.code == -1009){
                     $scope.isPasswordError = true;
