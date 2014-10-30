@@ -3,7 +3,6 @@ hongcaiApp.controller("GuaranteeListCtrl", ["$scope", "$stateParams", "$location
 
     var sponsor = GuaranteeService.guaranteeList.get(function() {
         $scope.guaranteeList = sponsor.data.guaranteeList;
-        console.info($scope.guaranteeList);
     });
 
     $scope.imgs = [

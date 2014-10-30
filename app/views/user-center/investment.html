@@ -23,19 +23,19 @@
 			        <label>投资状态：</label>
 			        <ul class="nav nav-pills">
 						<li class="{{dateInterval == '0' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({status:'0'})">全部</a>
+							<a ui-sref="root.userCenter.investment-query({status:'0',dateInterval:dateInterval})">全部</a>
 						</li>
 						<li class="{{dateInterval == '7' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({status:'4,5'})">还款中</a>
+							<a ui-sref="root.userCenter.investment-query({status:'4,5',dateInterval:dateInterval})">还款中</a>
 						</li>
 						<li class="{{dateInterval == '30' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({status:'2,3'})">投资中的</a>
+							<a ui-sref="root.userCenter.investment-query({status:'2,3',dateInterval:dateInterval})">投资中的</a>
 						</li>
 						<li class="{{dateInterval == '90' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({status:'6'})">已结清</a>
+							<a ui-sref="root.userCenter.investment-query({status:'6',dateInterval:dateInterval})">已结清</a>
 						</li>
 						<li class="{{dateInterval == '90' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({status:'1'})">未支付</a>
+							<a ui-sref="root.userCenter.investment-query({status:'1',dateInterval:dateInterval})">未支付</a>
 						</li>
 					</ul>
 			    </div>
@@ -43,34 +43,37 @@
 			        <label>时间：</label>
 			        <ul class="nav nav-pills">
 						<li class="{{dateInterval == '0' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'0'})">全部</a>
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'0',status:status})">全部</a>
 						</li>
 						<li class="{{dateInterval == '7' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'7'})">最近七天</a>
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'7',status:status})">最近七天</a>
 						</li>
 						<li class="{{dateInterval == '30' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'30'})">一个月</a>
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'30',status:status})">一个月</a>
 						</li>
 						<li class="{{dateInterval == '90' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'90'})">三个月</a>
+							<a ui-sref="root.userCenter.investment-query({dateInterval:'90',status:status})">三个月</a>
 						</li>
 					</ul>
 			    </div>
 			    <div class="row datePicker">
 			        <label>固定期限：</label>
 			        <form name="datepickerForm" class="form-inline" role="form">
-					  <div class="date">
-					    <label class="control-label"><i class="fa fa-calendar"></i><small>开始日期</small></label>
-					    <label class="control-label"><i class="fa fa-calendar"></i> <small>截止日期</small></label>
-					    <br>
-					    <div class="form-group mgn-l">
-					      <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker>
-					    </div>
-					    <i class="fa fa-arrows-h"></i>
-					    <div class="form-group">
-					      <input type="text" class="form-control" ng-model="untilDate" data-min-date="{{fromDate}}" placeholder="Until" bs-datepicker>
-					    </div>
-					  </div>
+				  		<div class="date">
+						    <label class="control-label"><i class="fa fa-calendar"></i><small>开始日期</small></label>
+						    <label class="control-label"><i class="fa fa-calendar"></i> <small>截止日期</small></label>
+						    <br>
+						    <div class="form-group mgn-l">
+						      <input type="text" class="form-control" ng-model="fromDate" data-max-date placeholder="From" data-autoclose="true" bs-datepicker ng-change="fromDateChanged();">
+						    </div>
+						    <i class="fa fa-arrows-h"></i>
+						    <div class="form-group">
+						      <input type="text" class="form-control" ng-model="untilDate" data-min-date placeholder="Until" data-autoclose="true" bs-datepicker ng-change="untilDateChanged();">
+						    </div>
+						    <!-- <div class="form-group">
+						    	<input type="date" id="exampleInput" name="input" ng-model="untilDate" placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" ng-change="untilDateChanged();" />
+						    </div> -->
+					  	</div>
 					</form>
 			    </div>
 			    <div class="row record-list">

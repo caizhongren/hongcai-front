@@ -89,11 +89,11 @@
 			    			<span class="col-md-2 border-r border-l">账户现金</span>
 			    			<span class="col-md-1 ">备注</span>
 			    		</div>
-			    		<div class="row record-item">
-			    			<span class="col-md-2">2014-10-10<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">收支类型<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">收支描述<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">8000<!-- 数据绑定 --></span>
+			    		<div class="row record-item" ng-repeat="deal in dealList">
+			    			<span class="col-md-2">{{deal.createTime}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-2">{{deal.type}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-2">{{deal.description}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-2">{{deal.getAmount}}<!-- 数据绑定 --></span>
 			    			<span class="col-md-1">8000<!-- 数据绑定 --></span>
 			    			<span class="col-md-2">8000<!-- 数据绑定 --></span>
 			    			<span class="col-md-1 ">备注<!-- 数据绑定 --></span>

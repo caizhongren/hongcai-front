@@ -65,7 +65,7 @@
  		}
  	})
  	.state('root.login', {
- 		url: '/login',
+ 		url: '/login/:isRedirect',
  		views: {
  			'': {
  				templateUrl: 'views/login.html',
@@ -174,8 +174,8 @@
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/record.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
+ 				controller: 'UserDealCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-deal-ctrl'
  			}
  		}
  	})
@@ -525,6 +525,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
 					$rootScope.loginName = response.data.data.name;
+					$rootScope.user = response.data.data.user;
 				} else {
 					$location.path('/login');
 				}
@@ -534,6 +535,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
 					$rootScope.loginName = response.data.data.name;
+					$rootScope.user = response.data.data.user;
 				}
 			});
 		}
