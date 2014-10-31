@@ -328,7 +328,7 @@
                     <button  class="btn btn-danger btn-lg btn-block">已融资完成</button>
                   </div>
 
-                  <div class="row" ng-switch="isAvailable" ng-if="isLogged">
+                  <div class="row" ng-switch="isAvailable" ng-if="isLogged && project.progress < 100">
                     <div class="col-xs-12" ng-switch-when="2">
                       <a ui-sref="root.userCenter.security-settings" class="btn btn-danger btn-lg btn-block">请完善资料</a>
                     </div>
