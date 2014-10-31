@@ -11,26 +11,26 @@
 
     <!--<p>{{isSecurityAuth}}</p>-->
     <div class="row">
-		<form class="col-md-offset-2 col-lg-offset-2" name="rechargeForm" ng-if="isSecurityAuth" >
+		<form class="col-md-offset-2 col-lg-offset-2" name="rechargeForm" ng-show="isSecurityAuth" >
 			<div class="row">
 				<div class="form-group mgn-top">
-					<label class="col-md-2 col-lg-2">可用余额：</label>
+					<label class="col-md-3 col-lg-2">可用余额：</label>
 					<p>{{ balance || "0" | number:2}}元</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label class="col-md-2 col-lg-2">充值金额：</label>
+					<label class="col-md-3 col-lg-2">充值金额：</label>
 					<input name="amount" type="text" class="verify-input"  
 											ng-model="rechargeAmount" 
 											ng-pattern="/^-?\d+(\.\d{1,2})?$/"
 											ng-foucus 
 											required autofocus/>&nbsp;&nbsp;元
-					<div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-if="rechargeForm.amount.$dirty && rechargeForm.amount.$error.pattern" >
+					<div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.pattern" >
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">只能输入数字</p>
 					</div>
-					<div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-if="rechargeForm.amount.$dirty && rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">
+					<div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips" >充值金额不能为空</p>
 					</div>
@@ -38,7 +38,7 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<input type="button" value="确认充值" class="verify-button" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid"/>
+					<input type="button" value="确认充值" class="verify-button col-md-offset-3 col-lg-offset-2" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid"/>
 				</div>
 			</div>
 		</form>
