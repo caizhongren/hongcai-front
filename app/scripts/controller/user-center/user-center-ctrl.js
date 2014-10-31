@@ -4,18 +4,6 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
     $scope.selectedDateAsNumber = 509414400000; // <- [object Number]
     $scope.fromDate = new Date(2014, 9, 20); 
     $scope.untilDate = new Date(2014, 10, 7);
-    
-    $scope.fromDateChanged = function () {
-        //console.log($scope.fromDate);
-        $location.path('userCenter-investment/6') 
-
-    };
-
-    $scope.untilDateChanged = function (status,dateInterval) {
-        //console.log($scope.untilDate);
-        $location.path('userCenter-investment/6')
-
-    };
 
     UserCenterService.userSecurityInfo.get({},function(response){
         if (response.ret == 1){
