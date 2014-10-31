@@ -189,6 +189,16 @@
  			}
  		}
  	})
+ 	.state('root.userCenter.record-query', {
+ 		url: '/record/:dateInterval/:type',
+ 		views: {
+ 			'user-center-right': {
+ 				templateUrl: 'views/user-center/record.html',
+ 				controller: 'UserDealCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-deal-ctrl'
+ 			}
+ 		}
+ 	})
  	.state('root.userCenter.investment', {
  		url: '/userCenter-investment',
  		views: {
