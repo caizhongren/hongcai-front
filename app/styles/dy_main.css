@@ -1160,6 +1160,9 @@ input:focus{
   padding-top: 30px;
 }*/
 /*about-us*/
+.about-us p{
+  line-height: 23px;
+}
 .web-show{
   height: 40px;
   padding: 10px 5px;
