@@ -1,11 +1,14 @@
-hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", "ProjectService", "$modal", function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, $modal) {
-        $rootScope.redirectUrl = $location.path();
+hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", "ProjectService", "OrderService", "$modal", function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal) {
+    $rootScope.redirectUrl = $location.path();
+
+
     var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
         $scope.project = projectDetails.data.project;
         $scope.projectInfo = projectDetails.data.projectInfo;
         $scope.pledges = projectDetails.data.pledges;
         $scope.isAvailable = projectDetails.data.isAvailable;
         $scope.enterprise = projectDetails.data.enterprise;
+        $scope.orderList = projectDetails.data.orderList;
 
         // var project = projectDetails.data.project;
         // var projectInfo = projectDetails.data.projectInfo;
@@ -81,6 +84,8 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
     $scope.isActiveTab = function(tabUrl) {
         return tabUrl == $scope.currentTab;
     }
+
+
 
     if($(window).scrollTop()>100){
         $('body,html').animate({scrollTop:0},800);

@@ -325,7 +325,7 @@
                   </div>
 
                   <div class="col-xs-12" ng-if="isLogged && project.progress == 100">
-                    <button  class="btn btn-danger btn-lg btn-block">已融资完成</button>
+                    <input type='button'  value="已融资完成" class="btn btn-danger btn-lg btn-block"/>
                   </div>
 
                   <div class="row" ng-switch="isAvailable" ng-if="isLogged && project.progress < 100">
@@ -374,7 +374,7 @@
                     <tr  ng-repeat="order in orderList">
                       <td>{{order.createTime}}</td>
                       <td>{{order.userName}}</td>
-                      <td>{{order.orderAmount}}</td>
+                      <td>{{order.orderAmount| number : 0}}元</td>
                     </tr>
                   </tbody>
                 </table>
