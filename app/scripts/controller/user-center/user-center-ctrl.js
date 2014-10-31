@@ -4,18 +4,6 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
     $scope.selectedDateAsNumber = 509414400000; // <- [object Number]
     $scope.fromDate = new Date(2014, 9, 20); 
     $scope.untilDate = new Date(2014, 10, 7);
-    
-    $scope.fromDateChanged = function () {
-        //console.log($scope.fromDate);
-        $location.path('userCenter-investment/6') 
-
-    };
-
-    $scope.untilDateChanged = function (status,dateInterval) {
-        //console.log($scope.untilDate);
-        $location.path('userCenter-investment/6')
-
-    };
 
     UserCenterService.userSecurityInfo.get({},function(response){
         if (response.ret == 1){
@@ -31,6 +19,20 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
     $rootScope.isSecurityAuth = false;
 
     /***************************** sidebar start *************************/
+    $scope.timestamp = new Date();
+    var welcomeTime = $scope.timestamp.getHours();
+    if(welcomeTime > 5 && welcomeTime < 9){
+        $scope.welcomeTip = '早安~';
+    }else if(welcomeTime >= 9 && welcomeTime <= 11){
+        $scope.welcomeTip = '上午好，';
+    }else if(welcomeTime >= 12 && welcomeTime <= 14){
+        $scope.welcomeTip = '中午好，';
+    }else if(welcomeTime >= 15 && welcomeTime <= 18){
+        $scope.welcomeTip = '下午好，';
+    }else {
+        $scope.welcomeTip = '晚安~';
+    }
+
     $rootScope.selectSide = $location.path().substr($location.path().indexOf("/") + 1);
     UserCenterService.userSecurityInfo.get({}, function(response) {
         if(response.ret == 1) {

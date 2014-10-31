@@ -52,7 +52,7 @@ input:focus{
 .white-button {
   border: 1px solid #e94828;
   border-radius: 3px;
-  height: 30px;
+  height: 34px;
   background-color: white;
   margin-left: 5px;
   color: #e94828;
@@ -387,7 +387,7 @@ input:focus{
 }
 /*个人中心*/
 .left-area{
-    height: 595px;
+    height: 550px;
     border:1px solid #dbdbdb;
     font-size: 12px;
     color: #888181;
@@ -396,13 +396,6 @@ input:focus{
 }
 .personal-information{
     height: 180px;
-}
-.left-user-head{
-    height: 71px;
-    width: 71px;
-    background: url(/images/sprite.png) -285px -382px no-repeat;
-    float: left;
-    margin-top: -18px;
 }
 .account-message {
   height: 325px;
@@ -436,31 +429,24 @@ input:focus{
     position: relative;
 }
 .p-user-name{
-    float: right;
     padding-top: 20px;
     margin-bottom: 16px;
-    width: 91px;
+    text-align: center;
 }
 .safe-pic{
     height: 47px;
     width: 47px;
-    margin: 15px 2px 0 8px;
+    margin: 15px 3px 0 3px;
     float: left;
 }
-
 .security-level{
     height: 12px;
-    width: 158px;
-    float: left;
-    margin: 12px 0  10px 6px;
-}
-
-.p-security-level{
-    height: 14px;
-    width: 85px;
+    width: 145px;
+    margin: 12px auto 10px auto;
 }
 .a-up-level{
-    float: right;
+  float: right;
+  margin-top: -28px;
 }
 .center-tips{
     height: 45px;
@@ -639,8 +625,6 @@ input:focus{
 }
 .left-message-show {
   height: 90px;
-  margin-left: 140px;
-  padding-top: 15px;
   border-bottom: 1px solid #f5f5f5;
 }
 .last-show {
@@ -921,7 +905,7 @@ input:focus{
 }
 .assets-money{
   font-size: 30px;
-  margin-left: 200px;
+  padding-left: 20px;
 }
 .safe-email-change{
   margin-top: -29px;
@@ -935,18 +919,22 @@ input:focus{
   background-color: #dbdbdb;
   float: left;
 }
+.safe-pic-area{
+  width: 165px;
+  margin: 0 auto;
+}
 /*bgPicChange*/
 .card-ok{
-    background: url(/images/sprite.png) -82px -370px no-repeat;
+    background: url(/images/sprite.png) -77px -370px no-repeat;
 }
 .card-no{
-    background: url(/images/sprite.png) -82px -424px no-repeat;
+    background: url(/images/sprite.png) -77px -424px no-repeat;
 }
 .phone-ok{
-    background: url(/images/sprite.png) -142px -370px no-repeat;
+    background: url(/images/sprite.png) -136px -370px no-repeat;
 }
 .phone-no{
-    background: url(/images/sprite.png) -142px -424px no-repeat;
+    background: url(/images/sprite.png) -136px -424px no-repeat;
 }
 .mail-ok{
     background: url(/images/sprite.png) -199px -370px no-repeat;
@@ -961,7 +949,7 @@ input:focus{
   background: url(/images/sprite.png) -35px -1228px no-repeat;
 }
 .low-level{
-  background: url(/images/sprite.png) -83px -501px no-repeat;
+  background: url(/images/sprite.png) -35px -1197px no-repeat;
 }
 .red-account{
     background: url(/images/sprite.png) -427px -463px no-repeat;
