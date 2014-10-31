@@ -1029,6 +1029,10 @@ hr {
 #carousel-generic .sponsors {
   width: 885px;
 }
+#carousel-generic .carousel-inner a:hover,
+#carousel-generic .sponsors a:hover {
+  text-decoration: none;
+}
 #carousel-generic .carousel-control {
   width: 0;
 }
