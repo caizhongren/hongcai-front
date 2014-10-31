@@ -38,35 +38,34 @@
 				<div class="row">
 					<div class="col-md-3">投资金额：{{investAmount| number:2}}<!-- 数据绑定 -->元</div>
 					<div class="col-md-3">账户余额：{{capital.balance | number:2}}元<!-- 数据绑定 --></div>
-					<div class="col-md-3">还需金额：{{distance | number:2}}元<!-- 数据绑定 --></div>
+					<div class="col-md-3" ng-if="investAmount > capital.balance">还需金额：{{investAmount - capital.balance | number:2}}元<!-- 数据绑定 --></div>
 				</div>
 			</div>
 		</div>
-		<div class="row list-item border-b" ng-switch="distance">
+		<div class="row list-item border-b" ng-switch="investAmount - capital.balance < 0">
 			<div class="col-md-12" ng-switch-default>	
 			</div>
-			<div class="col-md-12" ng-switch-when="0">
+			<div class="col-md-12" ng-switch-when="true">
 				<div class=""></div>
 				<ul class="nav nav-pills">
 					<li class="active"></li>同意《投资协议》以及《隐私条款》
 				</ul>
 			</div>
 		</div>
-		<div class="row list-item"  ng-switch="distance">
-			<div class="col-md-12" ng-switch-default>
+		<div class="row list-item"  ng-switch="investAmount - capital.balance < 0">
+			<div class="col-md-12" ng-switch-when="false">
 				<div class="col-md-3">您的余额不足</div>
 				<input type="button" value="充值" class="verify-button" ui-sref="root.userCenter.recharge"/>
 
-				<button type="button" class="verify-button get-verify-button" ng-click="showModal()">修改投资金额
-				</button>
+				<button type="button" class="verify-button get-verify-button" ng-click="showModal()">修改投资金额</button>
 
 			</div>
-			<div class="col-md-12" ng-switch-when="0">
+			<div class="col-md-12" ng-switch-when="true">
 				<form>
 					<div class="form-group mgn-top">
 						<label>订单号：{{orderId}}</label>
 						<br>
-						您将要支付<span class="ftw-b ft-red">{{amount | number:2}}</span>元，核实信息无误后请确认
+						您将要支付<span class="ftw-b ft-red">{{investAmount | number:2}}</span>元，核实信息无误后请确认
 
 					</div>
 					<input type="button" value="确认" class="verify-button" ng-click="transfer(orderId)"/>

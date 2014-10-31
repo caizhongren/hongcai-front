@@ -1,4 +1,4 @@
-hongcaiApp.controller("investVerifyCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "OrderService", "SessionService", "toaster", "$modal",function ($scope, $state, $rootScope, $stateParams, OrderService, SessionService, toaster,$modal) {
+hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$rootScope", "$stateParams", "OrderService", "SessionService", "toaster", "$modal",function ($scope, $location, $state, $rootScope, $stateParams, OrderService, SessionService, toaster,$modal) {
     
     var investVerify = OrderService.investVerify.get({projectId: $stateParams.projectId, amount: $stateParams.amount, }, function(response) {
         if(response.ret == 1) {
@@ -53,6 +53,10 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$state", "$rootScope", "$s
     $scope.showModal = function() {
         myOtherModal.$promise.then(myOtherModal.show);
     };
+
+    $scope.changeInvestAmount = function(investAmount){
+        $location.path('/invest-verify/' + $stateParams.projectId + '/' + investAmount);
+    }
 
 
 }]);

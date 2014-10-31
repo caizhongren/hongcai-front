@@ -94,6 +94,16 @@
  			}
  		}
  	})
+ 	.state('root.newbie-guide', {
+ 		url: '/newbie-guide',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/newbie-guide.html',
+ 				controller: 'RegisterMailCtrl',
+ 				controllerUrl: 'scripts/controller/register/register-mail-ctrl'
+ 			}
+ 		}
+ 	})
  	/*------------------------------------------  user-center  -----------------------------------------------*/
  	.state('root.userCenter', {
  		views: {
@@ -171,6 +181,16 @@
  	})
  	.state('root.userCenter.record', {
  		url: '/record',
+ 		views: {
+ 			'user-center-right': {
+ 				templateUrl: 'views/user-center/record.html',
+ 				controller: 'UserDealCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-deal-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.userCenter.record-query', {
+ 		url: '/record/:dateInterval/:type',
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/record.html',
@@ -517,7 +537,8 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 							'/realname-authentication',
 							'/security-settings',
 							'/withdraw',
-							'/recharge'];
+							'/recharge',
+							'/invest-verify'];
 	$rootScope.$on('$stateChangeStart', function() {
 		var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
 		if(routespermission.indexOf($location.path()) !== -1) {

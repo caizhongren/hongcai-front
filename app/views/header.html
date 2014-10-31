@@ -25,7 +25,7 @@
             <li ng-if="isLogged !== true">
                 <a ui-sref="root.registerMobile">注册</a>
             </li>
-            <li><a class="ft-red" href="#">新手引导</a></li>
+            <li><a class="ft-red" ui-sref="root.newbie-guide">新手引导</a></li>
             <li><a ui-sref="root.help-center.introduce">帮助中心</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -52,7 +52,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a ui-sref-active="active" ui-sref="root.main">首页</a></li>
-            <li><a ui-sref-active="active" ui-sref="root.project-list-query({status: '6,7,8,9', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: 'false' })">我要理财</a></li>
+            <li><a ui-sref-active="active" ui-sref="root.project-list-query({status: '6,7,8,9', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })">我要理财</a></li>
             <!-- <li><a ui-sref-active="active" ui-sref="root.project-list([1,2,3])">我要理财</a></li> -->
             <li><a ui-sref-active="active" ui-sref="root.safe">安全保障</a></li>
             <li><a ui-sref-active="active" ui-sref="root.about-us.introduction-of-platform">关于我们</a></li>
