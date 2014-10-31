@@ -94,6 +94,16 @@
  			}
  		}
  	})
+ 	.state('root.newbie-guide', {
+ 		url: '/newbie-guide',
+ 		views: {
+ 			'': {
+ 				templateUrl: 'views/newbie-guide.html',
+ 				controller: 'RegisterMailCtrl',
+ 				controllerUrl: 'scripts/controller/register/register-mail-ctrl'
+ 			}
+ 		}
+ 	})
  	/*------------------------------------------  user-center  -----------------------------------------------*/
  	.state('root.userCenter', {
  		views: {
