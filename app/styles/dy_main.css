@@ -6,6 +6,9 @@ body{
     _background-attachment: fixed;
     _background-image: url(about:blank);
 }
+a:hover{
+  text-decoration: none !important;
+}
 label{
   font-weight: normal !important;
   padding: 5px 8px 0 !important;
@@ -1160,7 +1163,8 @@ input:focus{
   padding-top: 30px;
 }*/
 /*about-us*/
-.about-us p{
+.about-us div,
+.help-center div{
   line-height: 23px;
 }
 .web-show{
