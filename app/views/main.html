@@ -201,7 +201,7 @@
                     <a class="pull-left"><i class="fa fa-pie-chart hc-text-red ft-3em"></i></a>
                     <div class="media-body">
                       <p>总投资额</p>
-                      <h3 class="media-heading">{{indexStatic.staticAmount}}<small>万元</small></h3>
+                      <h3 class="media-heading">{{indexStatic.staticAmount * 10000 | number : 0}}<small>元</small></h3>
                     </div>
                   </div>
                 </div>
@@ -212,7 +212,7 @@
                     <a class="pull-left"><i class="fa fa-calculator hc-text-red ft-3em"></i></a>
                     <div class="media-body">
                       <p>用户受益</p>
-                      <h3 class="media-heading">{{indexStatic.staticProfit}}<small>万元</small></h3>
+                      <h3 class="media-heading">{{indexStatic.staticProfit * 10000 | number : 0}}<small>元</small></h3>
                     </div>
                   </div>
                 </div>
