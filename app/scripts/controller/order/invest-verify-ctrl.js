@@ -7,7 +7,9 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$ro
            $scope.distance = investVerify.data.distance;
            $scope.orderId = investVerify.data.orderId;
            $scope.investAmount = investVerify.data.amount;
-        } 
+        }  else if (response.ret == -1){
+            alert(response.msg);
+        }
     });
 
 	function new_form(){
