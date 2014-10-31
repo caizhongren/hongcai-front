@@ -6382,6 +6382,14 @@ body {
 #calculater .arrow:after {
   border-left-color: #e94828;
 }
+#calculater .popover-content input,
+#calculater .popover-content .btn-default {
+  width: 100%;
+  margin-bottom: 5px;
+}
+#calculater .popover-content .btn-default {
+  text-align: right;
+}
 .safe .nav {
   padding-top: 20px;
   padding-bottom: 20px;

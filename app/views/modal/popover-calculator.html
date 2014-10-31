@@ -3,14 +3,18 @@
   <h3 class="popover-title" ng-show="title"></h3>
   <div class="popover-content">
   	<form name="popoverForm" class="ng-pristine ng-valid">
-  		<pre>2 + 3 = <span class="ng-binding">5</span></pre>
-  		<input type="number" min="0" ng-model="value">
-  		<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" bs-select>
-		  Action <span class="caret"></span>
-		</button>
+  		<pre>
+  			<span>出借金额：{{value === '' || value < 100 || value > 1000000 ? '100-100万' : value}}</span>
+  			<span>出借利率：{{rate === '' ? 0 : rate}}</span>
+  			<span>出借期限：{{selectedIcon}}</span>
+  		</pre>
+		<input type="number" min="0" ng-model="value" placeholder="输入借款金额">
+		<input type="number" min="0" ng-model="rate" placeholder="输入借款利率">
+    	<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" placeholder="选择借款期数" bs-select><span class="caret"></span>
+    	</button>
   		<div class="form-actions">
   			<button type="button" class="btn btn-danger" ng-click="$hide()">关闭</button> 
-  			<button type="button" class="btn btn-primary" ng-click="popover.saved=true;$hide()">计算</button>
+  			<button type="button" class="btn btn-primary" ng-click="popover.saved=true;">计算</button>
   		</div>
   	</form>
   </div>
