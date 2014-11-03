@@ -6,6 +6,7 @@ hongcaiApp.controller("LoginCtrl", ["$scope", "$location","$state", "$rootScope"
                 SessionService.set("user", response.data.user.name);
                 $rootScope.loginName = response.data.user.name;
                 $rootScope.isLogged = true;
+                $rootScope.securityStatus = response.data.securityStatus;
                 if($stateParams.isRedirect){
                     $location.path($rootScope.redirectUrl);
                 } else {
