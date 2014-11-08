@@ -6306,9 +6306,10 @@ body {
   height: 45px;
   background-image: url(../images/backgrounds.32.png);
   background-position: -101px -1px;
+  margin-bottom: 3px;
 }
 #service .calculator:hover {
-  background-position: -147px -48px;
+  background-position: -147px -47px;
 }
 #service .toTop {
   right: 20px;
@@ -6361,6 +6362,7 @@ body {
   background-image: url(../images/backgrounds.32.png);
   background-position: -7px -6px;
   display: block;
+  margin-bottom: 3px;
 }
 #service #feedback:hover {
   background-image: url(../images/backgrounds.32.png);
@@ -6372,6 +6374,7 @@ body {
   background-image: url(../images/backgrounds.32.png);
   background-position: -148px 0;
   cursor: pointer;
+  margin-bottom: 3px;
 }
 #service .qr_tool:hover {
   width: 45px;
