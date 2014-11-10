@@ -1,4 +1,16 @@
 <div id="calculater" class="popover">
+	<div  class="result">      
+       	<div class="handle"><p class="rotate">&lt;&lt</p></div>
+      	<div class="slide">
+      		<pre>
+				<label>计算结果：</label>
+				<span>出借本金&nbsp;=&nbsp;<strong>{{value === '' || value < 100 || value > 1000000 ? '0' : value}}</strong>元</span>
+				<span>收获利息&nbsp;=&nbsp;<strong id="rateValue">0</strong>元</span>
+				<span>回款总额&nbsp;=&nbsp;<strong id="payback" >0</strong>元</span>
+			</pre>
+		</div>  
+	</div>
+
   	<div class="arrow"></div>
   	<h3 class="popover-title" ng-show="title"></h3>
   	<div class="popover-content">
@@ -18,10 +30,23 @@
 	  		</div>
 	  	</form>
   	</div>
-  	<div class="result">
-  		<div class="form-group col-md-12 col-lg-12">
-			<label for="account" class="col-md-3 col-lg-3">计算结果：</label>
-			<input type="text" class="col-md-6 col-lg-6 ng-pristine ng-invalid ng-invalid-required" id="account" name="account" ng-model="user.account" required="" autofocus="">
-		</div>
-  	</div>
+  	<script type="text/javascript">
+		$(".handle").click(function(){
+			if(!$(this).siblings(".slide").is(":visible")){
+				$(this).addClass("select");
+				$(this).siblings(".slide").animate({width:"show"},300);
+				$('.rotate').html('&gt;&gt;');
+			}
+			else{
+				$(this).siblings(".slide").animate({width:"hide"},300);
+				$(this).removeClass("select");
+				$('.rotate').html('&lt;&lt;');
+			}
+		})
+
+		$('.btn-primary').click(function(){
+			//$('#rateValue').text({{value}}*{{rate}});
+	   	})
+	</script>
+  	
 </div>

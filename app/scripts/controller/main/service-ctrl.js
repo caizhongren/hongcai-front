@@ -35,4 +35,9 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
     ];
 
 
+   	function calculate (){
+   		popover.saved=true;
+   		console.log(99)
+   	}
+
 }]);
