@@ -25,6 +25,8 @@
     "textAngular": "~1.2.2",
     "fancybox": "~2.1.5",
     "angular-flexslider": "~1.2.10"
+    "jquery": "~1.11.1",
+    "firebug-lite": "~1.5.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",
