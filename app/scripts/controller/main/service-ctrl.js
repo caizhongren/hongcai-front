@@ -23,4 +23,21 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
          qrImg.fadeOut();
     });
 
+    //计算器
+    $scope.value = '';
+    $scope.rate = '';
+
+    $scope.selectedIcon = '';
+    $scope.icons = [
+        {value: '3期', label: '<i class="fa"></i>3期'},
+        {value: '6期', label: '<i class="fa"></i>6期'},
+        {value: '12期', label: '<i class="fa"></i>12期'}
+    ];
+
+
+   	function calculate (){
+   		popover.saved=true;
+   		console.log(99)
+   	}
+
 }]);
