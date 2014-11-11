@@ -6301,6 +6301,12 @@ body {
 #service img {
   position: fixed;
 }
+#service .calculator {
+  width: 45px;
+  height: 45px;
+  background-image: url(../images/backgrounds.32.png);
+  background-position: -250px -15px;
+}
 #service .toTop {
   right: 20px;
   bottom: 80px;
@@ -6321,13 +6327,13 @@ body {
   bottom: 40px;
 }
 #service .bottom_tools > * {
-  font: 0/0 a;
-  display: block;
-  margin-top: 5px;
-  color: transparent;
-  border: 0;
-  background-color: transparent;
-  text-shadow: none;
+  /* font:0/0 a;
+        display:block;
+        margin-top:5px;
+        color:transparent;
+        border:0;
+        background-color:transparent;
+        text-shadow:none */
 }
 #service .qr_img {
   position: absolute;
@@ -6368,6 +6374,13 @@ body {
   height: 45px;
   background-image: url(../images/backgrounds.32.png);
   background-position: -192px -46px;
+}
+#calculater {
+  background-color: #e94828;
+}
+#calculater .arrow,
+#calculater .arrow:after {
+  border-left-color: #e94828;
 }
 .safe .nav {
   padding-top: 20px;
@@ -6647,7 +6660,7 @@ body {
 .fixedBox {
   position: absolute;
   right: 18%;
-  width: 23%;
+  width: 18%;
   background-color: rgba(0, 0, 0, 0.1);
   color: #fff;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);

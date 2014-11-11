@@ -1,0 +1,17 @@
+<div id="calculater" class="popover">
+  <div class="arrow"></div>
+  <h3 class="popover-title" ng-show="title"></h3>
+  <div class="popover-content">
+  	<form name="popoverForm" class="ng-pristine ng-valid">
+  		<pre>2 + 3 = <span class="ng-binding">5</span></pre>
+  		<input type="number" min="0" ng-model="value">
+  		<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" bs-select>
+		  Action <span class="caret"></span>
+		</button>
+  		<div class="form-actions">
+  			<button type="button" class="btn btn-danger" ng-click="$hide()">关闭</button> 
+  			<button type="button" class="btn btn-primary" ng-click="popover.saved=true;$hide()">计算</button>
+  		</div>
+  	</form>
+  </div>
+</div>

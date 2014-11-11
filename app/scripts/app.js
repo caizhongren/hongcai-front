@@ -219,7 +219,7 @@
  			}
  		}
  	})
- 	.state('root.userCenter.news', {
+ 	/*.state('root.userCenter.news', {
  		url: '/news',
  		views: {
  			'user-center-right': {
@@ -228,7 +228,7 @@
  				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
  			}
  		}
- 	})
+ 	})*/
  	/*---------------------------------------------  yeepay  ---------------------------------------------*/
  	.state('root.userCenter.yeepay-callback', {
  		url: '/yeepay-callback/:yeepayService/:yeepayStatus',

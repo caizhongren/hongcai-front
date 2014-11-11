@@ -23,4 +23,11 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
          qrImg.fadeOut();
     });
 
+    //计算器
+    $scope.value = 0;
+
+    $scope.selectedIcon = "";
+    // $scope.selectedIcons = '["Globe","Heart"]';
+    // $scope.icons = '[{"value":"Gear","label":"<i class=\"fa fa-gear\"></i> Gear"},{"value":"Globe","label":"<i class=\"fa fa-globe\"></i> Globe"}]';
+
 }]);
