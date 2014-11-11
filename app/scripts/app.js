@@ -546,9 +546,9 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
 					$rootScope.loginName = response.data.data.name;
-					$rootScope.user = response.data.data.user;
+					$rootScope.securityStatus = response.data.data.securityStatus;
 				} else {
-					$location.path('/login');
+					$location.path('/login/');
 				}
 			});
 		} else {
@@ -556,7 +556,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
 					$rootScope.loginName = response.data.data.name;
-					$rootScope.user = response.data.data.user;
+					$rootScope.securityStatus = response.data.data.securityStatus;
 				}
 			});
 		}

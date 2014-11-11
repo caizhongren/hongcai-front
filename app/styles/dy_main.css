@@ -612,7 +612,7 @@ input:focus{
 .account-pic,
 .assets-pic {
   height: 313px;
-  margin: 60px auto 50px auto;
+  margin: 0px auto 30px auto;
 }
 .account-pic {
   margin: -15px 0 0 0px;

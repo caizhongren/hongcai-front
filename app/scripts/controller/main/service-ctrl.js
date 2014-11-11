@@ -24,10 +24,20 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
     });
 
     //计算器
-    $scope.value = 0;
+    $scope.value = '';
+    $scope.rate = '';
 
-    $scope.selectedIcon = "";
-    // $scope.selectedIcons = '["Globe","Heart"]';
-    // $scope.icons = '[{"value":"Gear","label":"<i class=\"fa fa-gear\"></i> Gear"},{"value":"Globe","label":"<i class=\"fa fa-globe\"></i> Globe"}]';
+    $scope.selectedIcon = '';
+    $scope.icons = [
+        {value: '3期', label: '<i class="fa"></i>3期'},
+        {value: '6期', label: '<i class="fa"></i>6期'},
+        {value: '12期', label: '<i class="fa"></i>12期'}
+    ];
+
+
+   	function calculate (){
+   		popover.saved=true;
+   		console.log(99)
+   	}
 
 }]);

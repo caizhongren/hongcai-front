@@ -3,24 +3,14 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
     $rootScope.selectSide = "security-settings";
     UserCenterService.userSecurityInfo.get({}, function(response) {
         if(response.ret == 1) {
-            var userVo = response.data.userVo;
-            $scope.email = userVo.email;
-            $scope.mobile = userVo.mobile;
-            $scope.realName = userVo.realName;
-            $scope.idNo = userVo.idNo;
-            var realNameAuthStatus = userVo.realNameAuthStatus;
-            if(realNameAuthStatus == 1){
-                $scope.realNameAuthStatus = "认证中";
-                $scope.isRealNameAuth = true;
-            }else if(realNameAuthStatus == 2){
-                $scope.realNameAuthStatus = "已认证";
-                $scope.isRealNameAuth = true;
-            }else if(realNameAuthStatus == 3){
-                $scope.realNameAuthStatus = "认证失败";
-                $scope.isRealNameAuth = false;
-            }
+            var userAuth = response.data.userAuth;
+            var user = response.data.user;
+            $scope.email = user.email;
+            $scope.mobile = user.mobile;
+            $scope.realName = userAuth.realName;
+            $scope.idNo = userAuth.idNo;
 
-            if(userVo.trusteeshipAccountStatus == 1){
+            if(userAuth.yeepayAccountStatus == 1){
                 $scope.haveTrusteeshipAccount = true;
             } else {
                 $scope.haveTrusteeshipAccount = false;

@@ -6305,7 +6305,11 @@ body {
   width: 45px;
   height: 45px;
   background-image: url(../images/backgrounds.32.png);
-  background-position: -250px -15px;
+  background-position: -101px -1px;
+  margin-bottom: 3px;
+}
+#service .calculator:hover {
+  background-position: -147px -47px;
 }
 #service .toTop {
   right: 20px;
@@ -6356,11 +6360,13 @@ body {
   width: 45px;
   height: 45px;
   background-image: url(../images/backgrounds.32.png);
-  background-position: -102px 0;
+  background-position: -7px -6px;
+  display: block;
+  margin-bottom: 3px;
 }
 #service #feedback:hover {
   background-image: url(../images/backgrounds.32.png);
-  background-position: -146px -46px;
+  background-position: -7px -53px;
 }
 #service .qr_tool {
   width: 45px;
@@ -6368,6 +6374,7 @@ body {
   background-image: url(../images/backgrounds.32.png);
   background-position: -148px 0;
   cursor: pointer;
+  margin-bottom: 3px;
 }
 #service .qr_tool:hover {
   width: 45px;
@@ -6381,6 +6388,14 @@ body {
 #calculater .arrow,
 #calculater .arrow:after {
   border-left-color: #e94828;
+}
+#calculater .popover-content input,
+#calculater .popover-content .btn-default {
+  width: 100%;
+  margin-bottom: 5px;
+}
+#calculater .popover-content .btn-default {
+  text-align: right;
 }
 .safe .nav {
   padding-top: 20px;
@@ -6676,4 +6691,56 @@ body {
 }
 .fixedBox .pull-right {
   margin-top: 2%;
+}
+#calculater {
+  width: 200px;
+}
+#calculater pre {
+  padding: 9.5px 0;
+}
+.result {
+  position: absolute;
+  right: 197px;
+  height: 100%;
+}
+.result .handle {
+  float: left;
+  position: relative;
+  top: -1px;
+  width: 18px;
+  height: 100%;
+  cursor: pointer;
+  background: #e94828;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 0;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+}
+.result .handle:hover {
+  background: #c93315;
+}
+.result .handle:hover .rotate {
+  color: #fff;
+}
+.result .slide {
+  position: relative;
+  top: -275px;
+  z-index: -1;
+  width: 230px;
+  height: 100%;
+  display: none;
+  background: #e94828;
+}
+.result .slide pre {
+  margin: 20px 15px 0 30px;
+}
+.result .slide pre span {
+  margin-left: 32px;
+}
+.result .rotate {
+  margin-top: 120px;
+  color: #f2f2f2;
 }

@@ -4,23 +4,23 @@
 		<p class="p-user-name col-md-12 col-lg-12"><strong>{{welcomeTip}}</strong>{{ loginName }}</p>
 		<div class="row">
 			<div class="safe-pic-area">
-				<div class="safe-pic {{isRealNameAuth ? 'card-ok' : 'card-no'}}"></div>
-				<div class="safe-pic {{mobile ? 'phone-ok' : 'phone-no'}}"></div>
-				<div class="safe-pic {{email ? 'mail-ok' : 'mail-no'}}"></div>
+				<div class="safe-pic {{securityStatus.realNameAuthStatus == 1 ? 'card-ok' : 'card-no'}}"></div>
+				<div class="safe-pic {{securityStatus.mobileStatus == 1 ? 'phone-ok' : 'phone-no'}}"></div>
+				<div class="safe-pic {{securityStatus.emailStatus == 1  ? 'mail-ok' : 'mail-no'}}"></div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="security-level low-level"  ng-if="securityLevel == 0"></div>
-			<div class="security-level mid-level"  ng-if="securityLevel == 1"></div>
-			<div class="security-level high-level"  ng-if="securityLevel == 2"></div>
+		<div class="row" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus">
+			<div class="security-level low-level"  ng-switch-default></div>
+			<div class="security-level mid-level"  ng-switch-when="2"></div>
+			<div class="security-level high-level"  ng-switch-when="3"></div>
 		</div>
-		<div class="row no-margin">
+		<div class="row no-margin" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus">
 			<p>&nbsp&nbsp安全等级：
-				<span ng-if="securityLevel == 0">低</span>
-				<span ng-if="securityLevel == 1">中</span>
-				<span ng-if="securityLevel == 2">高</span>
+				<span ng-switch-default>低</span>
+				<span ng-switch-when="2">中</span>
+				<span ng-switch-when="3">高</span>
 			</p>
-			<a ui-sref="root.userCenter.security-settings" class="a-up-level" ng-show="securityLevel != 2">【提升】</a>
+			<a ui-sref="root.userCenter.security-settings" class="a-up-level" ng-show="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus != 3">【提升】</a>
 		</div>
 	</div>
 	<div class="row">
