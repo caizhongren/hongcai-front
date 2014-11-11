@@ -25,7 +25,9 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
 
     //计算器
     $scope.value = '';
+    $scope.displayValue = $scope.value;
     $scope.rate = '';
+    $scope.arrow = '<<'
 
     $scope.selectedIcon = '';
     $scope.icons = [
@@ -35,9 +37,25 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
     ];
 
 
-   	function calculate (){
+   	$scope.calculate = function (){
    		popover.saved=true;
    		console.log(99)
    	}
+
+    $scope.valueChange = function () {
+        $scope.displayValue =  ($scope.value === '' || $scope.value < 100 || $scope.value > 1000000) ? 0 : $scope.value
+    };
+
+    $scope.switchResult = function () {
+        $scope.isResultShow = $scope.isResultShow ? false : true;
+        $scope.arrow = $scope.isResultShow ? '>>' : '<<';
+        if($scope.isResultShow){
+            angular.element("#calculater .slide").animate({width:"show"},300);
+        }else {
+            angular.element("#calculater .slide").animate({width:"hide"},300);
+        }
+
+    };
+
 
 }]);
