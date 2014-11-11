@@ -25,6 +25,7 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
 
     //计算器
     $scope.value = '';
+    $scope.displayValue = $scope.value;
     $scope.rate = '';
 
     $scope.selectedIcon = '';
@@ -39,5 +40,31 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
    		popover.saved=true;
    		console.log(99)
    	}
+
+    $scope.valueChange = function(){
+        $scope.displayValue =  ($scope.value === '' || $scope.value < 100 || $scope.value > 1000000) ? 0 : $scope.value
+    };
+
+    $scope.switchResult = function(){
+        $scope.isResultShow = $scope.isResultShow ? false : true;
+    };
+
+
+    $(".handle").click(function(){
+        if(!$(this).siblings(".slide").is(":visible")){
+            $(this).addClass("select");
+            $(this).siblings(".slide").animate({width:"show"},300);
+            $('.rotate').html('&gt;&gt;');
+        }
+        else{
+            $(this).siblings(".slide").animate({width:"hide"},300);
+            $(this).removeClass("select");
+            $('.rotate').html('&lt;&lt;');
+        }
+    })
+
+    $('.btn-primary').click(function(){
+        //$('#rateValue').text({{value}}*{{rate}});
+    })
 
 }]);
