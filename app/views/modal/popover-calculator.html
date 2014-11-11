@@ -5,9 +5,9 @@
       	<div class="slide">
       		<pre>
 				<label>计算结果：</label>
-				<span>出借本金&nbsp;=&nbsp;<strong>{{ displayValue}}</strong>元</span>
-				<span>收获利息&nbsp;=&nbsp;<strong id="rateValue">0</strong>元</span>
-				<span>回款总额&nbsp;=&nbsp;<strong id="payback" >0</strong>元</span>
+				<span>出借本金&nbsp;=&nbsp;<strong>{{params.displayValue}}</strong>元</span>
+				<span>收获利息&nbsp;=&nbsp;<strong>{{params.interest}}</strong>元</span>
+				<span>回款总额&nbsp;=&nbsp;<strong>{{params.payback}}</strong>元</span>
 			</pre>
 		</div>  
 	</div>
@@ -17,17 +17,18 @@
   	<div class="popover-content">
 	  	<form name="popoverForm" class="ng-pristine ng-valid">
 	  		<pre>
-	  			<span>出借金额：{{displayValue}}</span>
-	  			<span>出借利率：{{rate === '' ? 0 : rate}}</span>
+	  			<span>出借金额：{{params.displayValue}}</span>
+	  			<span>出借利率：{{params.displayrate}}</span>
 	  			<span>出借期限：{{selectedIcon}}</span>
 	  		</pre>
-			<input type="number" min="0" ng-model="value" placeholder="输入借款金额" ng-change="valueChange();">
-			<input type="number" min="0" ng-model="rate" placeholder="输入借款利率">
-	    	<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" placeholder="选择借款期数" bs-select><span class="caret"></span>
+			<input type="number" min="0" ng-model="params.inputValue" placeholder="输入借款金额" ng-change="capitalValueChange();">
+			<input type="number" min="0" ng-model="params.rate" placeholder="输入借款利率" ng-change="rateValueChange();">
+	    	<button type="button" class="btn btn-default" ng-model="params.selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in params.icons" placeholder="选择借款期数" bs-select><span class="caret"></span>
 	    	</button>
 	  		<div class="form-actions">
 	  			<button type="button" class="btn btn-danger" ng-click="$hide()">关闭</button> 
-	  			<button type="button" class="btn btn-primary" ng-click="popover.saved=true;">计算</button>
+	  			<button type="button" class="btn btn-primary" ng-click="calculate()">计算</button>
+	  			<!-- <button type="button" class="btn btn-primary" ng-click="popover.saved=true;">计算</button> -->
 	  		</div>
 	  	</form>
   	</div>

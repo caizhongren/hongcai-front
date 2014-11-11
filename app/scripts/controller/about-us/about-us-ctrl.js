@@ -3,23 +3,25 @@ hongcaiApp.controller("AboutUsCtrl", ["$scope", "$state", "$rootScope", "$locati
             "left": [{
             	"href": "/introduction-of-platform",
                 "link": "root.about-us.introduction-of-platform",
-                "text": "平台简介"},
+                "text": "宏财简介"},
             {
             	"href": "/business-model",
                 "link": "root.about-us.business-model",
-                "text": "业务模式"},
+                "text": "宏财资质"},
+            {
+                "href": "/hongcai-trends",
+                "link": "root.about-us.hongcai-trends",
+                "text": "宏财动态"},
+            {
+                "href": "/web-site-notice",
+                "link": "root.about-us.web-site-notice",
+                "text": "网站公告"},
             {
             	"href": "/company-profile",
                 "link": "root.about-us.company-profile",
                 "text": "公司简介"},
-            {
-            	"href": "/web-site-notice",
-                "link": "root.about-us.web-site-notice",
-                "text": "网站公告"},
-            {
-            	"href": "/hongcai-trends",
-                "link": "root.about-us.hongcai-trends",
-                "text": "宏财动态"},
+            
+            
             {
             	"href": "/media-reports",
                 "link": "root.about-us.media-reports",

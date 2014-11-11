@@ -6698,6 +6698,10 @@ body {
 #calculater pre {
   padding: 9.5px 0;
 }
+#calculater .btn-primary {
+  width: 110px;
+  background-color: #ff9a17;
+}
 .result {
   position: absolute;
   right: 197px;

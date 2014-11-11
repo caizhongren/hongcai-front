@@ -24,27 +24,47 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
     });
 
     //计算器
-    $scope.value = '';
-    $scope.displayValue = $scope.value;
-    $scope.rate = '';
+    // $scope.inputValue = 0;
+    $scope.params = {
+        'inputValue' : '',
+        'displayValue' : '100-100万',
+        'rate' : '',
+        'displayrate' : 'XX%',
+        'selectedIcon' : '',
+        'icons' : [
+            {value: '3期', label: '<i class="fa"></i>3期'},
+            {value: '6期', label: '<i class="fa"></i>6期'},
+            {value: '12期', label: '<i class="fa"></i>12期'}
+        ],
+        'interest' : '',
+        'payback' : ''
+    };
+    
     $scope.arrow = '<<'
 
-    $scope.selectedIcon = '';
-    $scope.icons = [
-        {value: '3期', label: '<i class="fa"></i>3期'},
-        {value: '6期', label: '<i class="fa"></i>6期'},
-        {value: '12期', label: '<i class="fa"></i>12期'}
-    ];
-
-
    	$scope.calculate = function (){
-   		popover.saved=true;
-   		console.log(99)
+   		// popover.saved=true;
+        $scope.targetSelectedIcon = $scope.params.selectedIcon.replace(/期/g,'');
+        if($scope.params.displayValue &&  $scope.params.rate && $scope.params.selectedIcon){
+            $scope.params.interest = $scope.params.inputValue * $scope.params.rate/100 * $scope.targetSelectedIcon;
+            $scope.params.payback = $scope.params.inputValue + $scope.params.interest;
+            $scope.isResultShow = $scope.isResultShow ? false : true;
+            $scope.arrow = '>>';
+            if($scope.isResultShow){
+                angular.element("#calculater .slide").animate({width:"show"},300);
+            }
+        }
+
    	}
 
-    $scope.valueChange = function () {
-        $scope.displayValue =  ($scope.value === '' || $scope.value < 100 || $scope.value > 1000000) ? 0 : $scope.value
+    $scope.capitalValueChange = function () {
+        $scope.params.displayValue = $scope.params.inputValue === '' || $scope.params.inputValue < 100 || $scope.params.inputValue > 1000000 ? "100-100万" : $scope.params.inputValue;
     };
+
+    $scope.rateValueChange = function () {
+        $scope.params.displayrate = $scope.params.rate === '' || $scope.params.rate === null || $scope.params.rate == undefined ? "XX%" : $scope.params.rate + '%';
+    };
+
 
     $scope.switchResult = function () {
         $scope.isResultShow = $scope.isResultShow ? false : true;
