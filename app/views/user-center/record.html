@@ -1,7 +1,7 @@
 <!--支付记录-->
 <div class="right-area right-assets-height record col-md-8 col-lg-8 no-padding">
 	<div class="right-title">支付记录</div>
-	<div class="padd"><span>当前账户资产总计： <strong>80588.00<!-- 数据绑定 --></strong>元。</span><span>其中可用资产： <strong>5880.00<!-- 数据绑定 --></strong>元，</span><span>冻结资产：<strong>79500.00<!-- 数据绑定 --></strong>元。</span></div>
+	<div class="padd"><span>当前账户资产总计： <strong>{{capital.investAmount}}+{{capital.balance}}<!-- 数据绑定 --></strong>元。</span><span>其中可用资产： <strong>{{capital.balance}}<!-- 数据绑定 --></strong>元，</span><span>冻结资产：<strong>{{capital.freezeCapital}}<!-- 数据绑定 --></strong>元。</span></div>
 	<div class="row">
 		<div class="col-md-12">
 			<div class="filter-container sort">
@@ -28,19 +28,24 @@
 			        <label>支付类型：</label>
 			        <ul class="nav nav-pills">
 			            <li class="active mgn-l">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'0'})">&nbsp;全部</a>
+			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'0',
+							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;全部</a>
 			            </li>
 			            <li class="">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'1'})">&nbsp;充值</a>
+			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'1',
+							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;充值</a>
 			            </li>
 			            <li class="">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'2'})">&nbsp;提现</a>
+			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'2',
+							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;提现</a>
 			            </li>
 			            <li class="">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'3'})">&nbsp;投资</a>
+			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'3',
+							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;投资</a>
 			            </li>
 			            <li class="">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'4,5'})">&nbsp;回款</a>
+			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'4,5',
+							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;回款</a>
 			            </li>
 			        </ul>
 			    </div>
@@ -48,16 +53,20 @@
 			        <label>时间：</label>
 			        <ul class="nav nav-pills">
 			            <li class="active mgn-l">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:'0',type:type})">&nbsp;全部</a>
+			                <a ui-sref="root.userCenter.record-query({dateInterval:'0',type:type,
+							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;全部</a>
 			            </li>
 			            <li class="">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:'7',type:type})">&nbsp;最近七天</a>
+			                <a ui-sref="root.userCenter.record-query({dateInterval:'7',type:type,
+							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;最近七天</a>
 			            </li>
 			            <li class="">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:'30',type:type})">&nbsp;一个月</a>
+			                <a ui-sref="root.userCenter.record-query({dateInterval:'30',type:type,
+							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;一个月</a>
 			            </li>
 			            <li class="">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:'90',type:type})">&nbsp;三个月</a>
+			                <a ui-sref="root.userCenter.record-query({dateInterval:'90',type:type,
+							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;三个月</a>
 			            </li>
 			        </ul>
 			    </div>

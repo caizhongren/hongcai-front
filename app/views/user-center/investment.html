@@ -71,11 +71,11 @@
 						    <label class="control-label"><i class="fa fa-calendar"></i> <small>截止日期</small></label>
 						    <br>
 						    <div class="form-group mgn-l">
-						      <input type="text" class="form-control" ng-model="fromDate" data-max-date placeholder="From" data-autoclose="true" bs-datepicker ng-change="fromDateChanged();">
+						      <input type="text" class="form-control" ng-model="fromDate" data-max-date placeholder="From" data-autoclose="true" bs-datepicker ng-change="fromDealDateChanged();">
 						    </div>
 						    <i class="fa fa-arrows-h"></i>
 						    <div class="form-group">
-						      <input type="text" class="form-control" ng-model="untilDate" data-min-date placeholder="Until" data-autoclose="true" bs-datepicker ng-change="untilDateChanged({{status}},{{dateInterval}});">
+						      <input type="text" class="form-control" ng-model="untilDate" data-min-date placeholder="Until" data-autoclose="true" bs-datepicker ng-change="untilDealDateChanged({{status}},{{dateInterval}});">
 						    </div>
 						    <!-- <div class="form-group">
 						    	<input type="date" id="exampleInput" name="input" ng-model="untilDate" placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" ng-change="untilDateChanged();" />
