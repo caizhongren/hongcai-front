@@ -27,6 +27,7 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
     $scope.value = '';
     $scope.displayValue = $scope.value;
     $scope.rate = '';
+    $scope.arrow = '<<'
 
     $scope.selectedIcon = '';
     $scope.icons = [
@@ -36,35 +37,25 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
     ];
 
 
-   	function calculate (){
+   	$scope.calculate = function (){
    		popover.saved=true;
    		console.log(99)
    	}
 
-    $scope.valueChange = function(){
+    $scope.valueChange = function () {
         $scope.displayValue =  ($scope.value === '' || $scope.value < 100 || $scope.value > 1000000) ? 0 : $scope.value
     };
 
-    $scope.switchResult = function(){
+    $scope.switchResult = function () {
         $scope.isResultShow = $scope.isResultShow ? false : true;
+        $scope.arrow = $scope.isResultShow ? '>>' : '<<';
+        if($scope.isResultShow){
+            angular.element("#calculater .slide").animate({width:"show"},300);
+        }else {
+            angular.element("#calculater .slide").animate({width:"hide"},300);
+        }
+
     };
 
-
-    $(".handle").click(function(){
-        if(!$(this).siblings(".slide").is(":visible")){
-            $(this).addClass("select");
-            $(this).siblings(".slide").animate({width:"show"},300);
-            $('.rotate').html('&gt;&gt;');
-        }
-        else{
-            $(this).siblings(".slide").animate({width:"hide"},300);
-            $(this).removeClass("select");
-            $('.rotate').html('&lt;&lt;');
-        }
-    })
-
-    $('.btn-primary').click(function(){
-        //$('#rateValue').text({{value}}*{{rate}});
-    })
 
 }]);
