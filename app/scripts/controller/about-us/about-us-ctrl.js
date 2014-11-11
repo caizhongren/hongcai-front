@@ -19,7 +19,7 @@ hongcaiApp.controller("AboutUsCtrl", ["$scope", "$state", "$rootScope", "$locati
             {
             	"href": "/company-profile",
                 "link": "root.about-us.company-profile",
-                "text": "公司简介"},
+                "text": "加入宏财"},
             
             
             {

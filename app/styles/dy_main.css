@@ -1325,3 +1325,14 @@ input:focus{
 .news-details h1{
   display: none;
 }
+.magn {
+  margin-left: 72px;
+}
+.aboutUs-right-title {
+  padding-left: 72px !important;
+}
+.aboutUs-introduction-area {
+  word-wrap: break-word;
+  word-break: break-all;
+  text-indent: 2em;
+}
