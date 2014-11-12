@@ -19,7 +19,8 @@
  	'angularFileUpload',
  	'placeholders',
  	'textAngular',
-  'angular-flexslider'
+  	'angular-flexslider',
+  	'timer'
  	]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider' , function($stateProvider, $urlRouterProvider, $locationProvider) {
