@@ -6430,6 +6430,7 @@ body {
   color: #e6e6e6;
   background-color: #fff;
   border-color: #cccccc;
+  cursor: not-allowed;
 }
 .timeline {
   list-style: none;
