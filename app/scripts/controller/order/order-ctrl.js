@@ -1,5 +1,4 @@
 hongcaiApp.controller("OrderCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "OrderService", "SessionService", "toaster", function ($scope, $state, $rootScope, $stateParams, OrderService, SessionService, toaster) {
-    console.info($stateParams);
     OrderService.investVerify.get({user: user.amount }, function(response) {
         if(response.msg == 'success') {
             SessionService.set("user", response.data.user.name);

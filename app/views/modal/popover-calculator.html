@@ -12,11 +12,11 @@
    			 	<table class="table table-bordered table-striped">
 		      		<tbody>
 				        <tr>
-				          <th class="" class="text-nowrap" width="40%">出借金额（本金）</th>
+				          <th class="" class="text-nowrap" width="40%">投资金额</th>
 				          <td width="60%">{{params.displayValue}}元</td>
 				        </tr>
 				        <tr>
-				          <th class="text-nowrap" width="40%">收获利息（利息）</th>
+				          <th class="text-nowrap" width="40%">收获利息</th>
 				          <td width="60%">{{params.interest}}元</td>
 				        </tr>
 				        <tr>
@@ -34,13 +34,13 @@
   	<div class="popover-content">
 	  	<form name="popoverForm" class="ng-pristine ng-valid">
 	  		<pre>
-	  			<span>出借金额：{{params.displayValue}}</span>
-	  			<span>出借利率：{{params.displayrate}}</span>
-	  			<span>出借期限：{{selectedIcon}}</span>
+	  			<span>投资金额：{{params.displayValue}}</span>
+	  			<span>年化收益率：{{params.displayrate}}</span>
+	  			<span>项目期限：{{params.selectedIcon}}</span>
 	  		</pre>
-			<input type="number" min="0" ng-model="params.inputValue" placeholder="输入借款金额" ng-change="capitalValueChange();">
-			<input type="number" min="0" ng-model="params.rate" placeholder="输入借款利率" ng-change="rateValueChange();">
-	    	<button type="button" class="btn btn-default" ng-model="params.selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in params.icons" placeholder="选择借款期数" bs-select><span class="caret"></span>
+			<input type="number" min="0" ng-model="params.inputValue" placeholder="输入投资金额" ng-change="capitalValueChange();">
+			<input type="number" min="0" ng-model="params.rate" placeholder="输入年化收益率" ng-change="rateValueChange();">
+	    	<button type="button" class="btn btn-default" ng-model="params.selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in params.icons" placeholder="选择项目期限" bs-select><span class="caret"></span>
 	    	</button>
 	  		<div class="form-actions">
 	  			<button type="button" class="btn btn-danger" ng-click="$hide()">关闭</button> 
