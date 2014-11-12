@@ -19,10 +19,11 @@
  	'angularFileUpload',
  	'placeholders',
  	'textAngular',
-  'angular-flexslider'
+  	'angular-flexslider',
+  	'timer'
  	]);
 
- hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider' , function($stateProvider, $urlRouterProvider, $locationProvider) {
+ hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
  	$stateProvider
  	.state('root', {
  		abstract: true,
@@ -529,6 +530,13 @@
  	$locationProvider.html5Mode(true);
  	$locationProvider.hashPrefix('!');
 
+ 	//initialize get if not there
+    if (!$httpProvider.defaults.headers.get) {
+        $httpProvider.defaults.headers.get = {};    
+    }
+    //disable IE ajax request caching
+    $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
+
  }]);
 
 hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
@@ -552,7 +560,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 				}
 			});
 		} else {
-			$checkSessionServer.then(function(response){
+			$checkSessionServer.then(function(response) {
 				if(response.data.data.name !== '') {
 					$rootScope.isLogged = true;
 					$rootScope.loginName = response.data.data.name;

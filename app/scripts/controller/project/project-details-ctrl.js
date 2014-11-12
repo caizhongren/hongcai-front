@@ -9,6 +9,7 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.isAvailable = projectDetails.data.isAvailable;
         $scope.enterprise = projectDetails.data.enterprise;
         $scope.orderList = projectDetails.data.orderList;
+        
 
         // var project = projectDetails.data.project;
         // var projectInfo = projectDetails.data.projectInfo;
@@ -51,6 +52,9 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         };
     });
     $rootScope.selectPage = $location.path().split('/')[1];
+
+    $scope.statDate = new Date('2014', '10', '12', '16','30','00');
+    $scope.countdownNum = ($scope.statDate.getTime() - (new Date()).getTime())/1000;
 
     $scope.tabs = [{
             title: '项目信息',

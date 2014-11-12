@@ -22,6 +22,7 @@ body {
 #mini-bar {
 	height: 25px;
 	min-height: 25px;
+    margin-bottom: 0;
 
 	.navbar-text {
 		margin-top: 2px;
@@ -40,7 +41,6 @@ body {
 
 #major-bar {
 	background-color: #fff;
-	height: 100px;
 	margin-bottom: 0px;
 
 	ul > li > a {
@@ -200,7 +200,7 @@ body {
 		position:fixed;
 		z-index:1000;
 		right:40px;
-		bottom:40px;
+		bottom:130px;
 	}
 
 	.bottom_tools>*{
@@ -316,6 +316,17 @@ body {
 
   .project-info {
     padding: 30px;
+  }
+
+  .timer {
+    text-align: center;
+  }
+
+  .btn-default {
+    color: #e6e6e6;
+    background-color: #fff;
+    border-color: #cccccc;
+    cursor: not-allowed;
   }
 }
 .timeline {
@@ -541,11 +552,11 @@ body {
         width: 426px;
     }
     .unLogged {
-        top: 3%;
-        padding: 1%;
+        top: 3px;
+        padding: 2px;
     }
     .logged {
-        top: 12%;
+        top: 16px;
         padding: 1%;
     }
 }
@@ -555,8 +566,8 @@ body {
         width: 556px;
     }
     .unLogged {
-        top: 6%;
-        padding: 2% 1%;
+        top: 7%;
+        padding: 1% 1%;
     }
     .logged {
         top: 13%;
@@ -565,7 +576,7 @@ body {
 }
 @media (min-width: 1300px) {
     .unLogged {
-        top: 8%;
+        top: 5%;
         padding: 3% 1%;
     }
     .logged {
@@ -575,7 +586,7 @@ body {
 }
 @media (min-width: 1400px) {
     .unLogged {
-        top: 9%;
+        top: 7%;
         padding: 3% 1%;
     }
     .logged {
@@ -607,7 +618,7 @@ body {
     position: absolute;
     right: 18%;
     width: 18%;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,.2);
     color: #fff;
     box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .2);
     .pull-right {
@@ -689,7 +700,7 @@ body {
             margin-left: 17px;
             margin-top: 30px;
             th {
-                padding-left: 16px;
+                text-align: center;
             }
         }
     }
