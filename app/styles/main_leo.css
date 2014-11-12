@@ -6423,6 +6423,14 @@ body {
 #project-detail .project-info {
   padding: 30px;
 }
+#project-detail .timer {
+  text-align: center;
+}
+#project-detail .btn-default {
+  color: #e6e6e6;
+  background-color: #fff;
+  border-color: #cccccc;
+}
 .timeline {
   list-style: none;
   padding: 20px 0 20px;
