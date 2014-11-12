@@ -9,7 +9,7 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         var scrollTop = $(window).scrollTop();
         var $windowHeight = $(window).innerHeight();
         scrollTop > 50 ? $("#scrollUp").fadeIn(200).css("display","block") : $("#scrollUp").fadeOut(200);           
-        $bottomTools.css("bottom", scrollHeight - scrollTop > $windowHeight ? 40 : $windowHeight + scrollTop + 40 - scrollHeight);
+        $bottomTools.css("bottom", scrollHeight - scrollTop > $windowHeight ? 130 : $windowHeight + scrollTop + 130 - scrollHeight);
     });
     
     $('#scrollUp').click(function (e) {
@@ -32,9 +32,9 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         'displayrate' : 'XX%',
         'selectedIcon' : '',
         'icons' : [
-            {value: '3期', label: '<i class="fa"></i>3期'},
-            {value: '6期', label: '<i class="fa"></i>6期'},
-            {value: '12期', label: '<i class="fa"></i>12期'}
+            {value: '3个月', label: '<i class="fa"></i>3个月'},
+            {value: '6个月', label: '<i class="fa"></i>6个月'},
+            {value: '12个月', label: '<i class="fa"></i>12个月'}
         ],
         'interest' : '',
         'payback' : ''
@@ -44,9 +44,9 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
 
    	$scope.calculate = function (){
    		// popover.saved=true;
-        $scope.targetSelectedIcon = $scope.params.selectedIcon.replace(/期/g,'');
+        $scope.targetSelectedIcon = $scope.params.selectedIcon.replace(/个月/g,'');
         if($scope.params.displayValue &&  $scope.params.rate && $scope.params.selectedIcon){
-            $scope.params.interest = $scope.params.inputValue * $scope.params.rate/100 * $scope.targetSelectedIcon;
+            $scope.params.interest = $scope.params.inputValue * $scope.params.rate/1200 * $scope.targetSelectedIcon;
             $scope.params.payback = $scope.params.inputValue + $scope.params.interest;
             $scope.isResultShow = $scope.isResultShow ? false : true;
             $scope.arrow = '>>';

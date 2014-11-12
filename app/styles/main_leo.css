@@ -6196,6 +6196,7 @@ body {
 #mini-bar {
   height: 25px;
   min-height: 25px;
+  margin-bottom: 0;
 }
 #mini-bar .navbar-text {
   margin-top: 2px;
@@ -6210,7 +6211,6 @@ body {
 }
 #major-bar {
   background-color: #fff;
-  height: 100px;
   margin-bottom: 0px;
 }
 #major-bar ul > li > a {
@@ -6328,7 +6328,7 @@ body {
   position: fixed;
   z-index: 1000;
   right: 40px;
-  bottom: 40px;
+  bottom: 130px;
 }
 #service .bottom_tools > * {
   /* font:0/0 a;
@@ -6765,7 +6765,7 @@ body {
   margin-top: 30px;
 }
 .result .slide .table-responsive th {
-  padding-left: 16px;
+  text-align: center;
 }
 .result .rotate {
   margin-top: 120px;
