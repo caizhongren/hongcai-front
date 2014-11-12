@@ -317,6 +317,17 @@ body {
   .project-info {
     padding: 30px;
   }
+
+  .timer {
+    text-align: center;
+  }
+
+  .btn-default {
+    color: #e6e6e6;
+    background-color: #fff;
+    border-color: #cccccc;
+    cursor: not-allowed;
+  }
 }
 .timeline {
     list-style: none;
@@ -668,14 +679,28 @@ body {
         position: relative;
         top: -275px;
         z-index: -1;
-        width:230px;
+        width:375px;
         height:100%;
         display:none;
-        background: #e94828;
+        background: #fff9f8;
+        border: 1px solid #e94828;
+        label {
+            height: auto;
+            margin: 20px 15px 0 25px;
+            font-size: 16px;
+            font-weight: bolder !important;
+        }
         pre {
             margin: 20px 15px 0 30px;
             span {
                 margin-left: 32px;
+            }
+        }
+        .table-responsive {
+            margin-left: 17px;
+            margin-top: 30px;
+            th {
+                padding-left: 16px;
             }
         }
     }
