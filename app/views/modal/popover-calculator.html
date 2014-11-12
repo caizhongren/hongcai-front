@@ -2,12 +2,30 @@
 	<div  class="result">      
        	<div class="handle" ng-click="switchResult();" ng-class="{'select': isResultShow}"><p class="rotate">{{arrow}}</p></div>
       	<div class="slide">
-      		<pre>
-				<label>计算结果：</label>
-				<span>出借本金&nbsp;=&nbsp;<strong>{{params.displayValue}}</strong>元</span>
-				<span>收获利息&nbsp;=&nbsp;<strong>{{params.interest}}</strong>元</span>
-				<span>回款总额&nbsp;=&nbsp;<strong>{{params.payback}}</strong>元</span>
-			</pre>
+			<label>计算结果：</label>
+      		<!-- <pre>
+      						<span>出借本金&nbsp;=&nbsp;<strong>{{params.displayValue}}</strong>元</span>
+      						<span>收获利息&nbsp;=&nbsp;<strong>{{params.interest}}</strong>元</span>
+      						<span>回款总额&nbsp;=&nbsp;<strong>{{params.payback}}</strong>元</span>
+      					</pre> -->
+			<div class="table-responsive">
+   			 	<table class="table table-bordered table-striped">
+		      		<tbody>
+				        <tr>
+				          <th class="text-nowrap">出借金额（本金）</th>
+				          <td>{{params.displayValue}}元</td>
+				        </tr>
+				        <tr>
+				          <th class="text-nowrap">收获利息（利息）</th>
+				          <td>{{params.interest}}元</td>
+				        </tr>
+				        <tr>
+				          <th class="text-nowrap">回款总额</th>
+				          <td>{{params.payback}}元</td>
+				        </tr>
+		      		</tbody>
+		    	</table>
+		  	</div>
 		</div>  
 	</div>
 
