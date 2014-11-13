@@ -8,20 +8,20 @@
  */
 
  var hongcaiApp = angular.module('hongcaiApp', [
- 	'ngAnimate',
- 	'ngSanitize',
- 	'mgcrea.ngStrap',
- 	'ui.router',
- 	'ngResource',
-  	'angularMoment',
- 	'toaster',
- 	'chartjs',
- 	'angularFileUpload',
- 	'placeholders',
- 	'textAngular',
-  	'angular-flexslider',
-  	'timer'
- 	]);
+  'ngAnimate',
+  'ngSanitize',
+  'mgcrea.ngStrap',
+  'ui.router',
+  'ngResource',
+  'angularMoment',
+  'toaster',
+  'chartjs',
+  'angularFileUpload',
+  'placeholders',
+  'textAngular',
+  'angular-flexslider',
+  'timer'
+  ]);
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
  	$stateProvider
