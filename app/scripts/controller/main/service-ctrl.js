@@ -82,6 +82,13 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         if($scope.isResultShow == true){
             $scope.isResultShow = false;
             $scope.arrow = '<<';
+            $scope.params.interest = '';
+            $scope.params.payback = '';
+            $scope.params.displayValue = '100-100万';
+            $scope.params.displayrate = 'XX%'
+            $scope.params.inputValue = '';
+            $scope.params.rate = '';
+            $scope.params.selectedIcon = '';
         }
     }
 
