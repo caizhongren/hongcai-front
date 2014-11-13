@@ -17,7 +17,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li ng-if="isLogged === true">
-                <span>欢迎，<a ui-sref="root.userCenter.account-overview">{{loginName}}</a> <a ng-href="#" ng-click="logout();">退出</a></span>
+                <span>欢迎，<a ui-sref="root.userCenter.account-overview">{{loginName}}</a> <a ng-href="#" ng-click="logout();" class="logout">退出</a></span>
             </li>
             <li ng-if="isLogged !== true">
                 <a ui-sref="root.login">登录</a>
@@ -26,7 +26,7 @@
                 <a ui-sref="root.registerMobile">注册</a>
             </li>
             <li><a class="ft-red" ui-sref="root.newbie-guide">新手引导</a></li>
-            <li><a ui-sref="root.help-center.introduce">帮助中心</a></li>
+            <li><a ui-sref="root.help-center.introduce" class="help">帮助中心</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

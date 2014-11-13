@@ -6181,9 +6181,13 @@ button.close {
 html,
 body {
   color: #777777;
+  cursor: default;
   /*padding-bottom: 0px;*/
   /*font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "冬青黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;*/
   font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
+a {
+  color: #807979;
 }
 .container-fluid {
   padding-left: 0;
@@ -6208,6 +6212,12 @@ body {
 #mini-bar ul > li > span {
   padding-top: 2px;
   display: inline-block;
+}
+#mini-bar .logout {
+  margin-left: 10px;
+}
+#mini-bar .help {
+  padding-left: 0;
 }
 #major-bar {
   background-color: #fff;
@@ -6344,6 +6354,7 @@ body {
   top: -189px;
   left: -183px;
   display: none;
+  border: 1px solid #e94828;
 }
 #service #scrollUp {
   width: 45px;
