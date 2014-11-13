@@ -39,10 +39,11 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         'interest' : '',
         'payback' : ''
     };
-    
-    $scope.arrow = '<<'
 
-   	$scope.calculate = function (){
+    $scope.isResultShow = false;
+    $scope.arrow = $scope.isResultShow ? '>>' : '<<';
+
+   	$scope.calculate = function() {
    		// popover.saved=true;
         $scope.targetSelectedIcon = $scope.params.selectedIcon.replace(/个月/g,'');
         if($scope.params.displayValue &&  $scope.params.rate && $scope.params.selectedIcon){
@@ -57,16 +58,16 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
 
    	}
 
-    $scope.capitalValueChange = function () {
+    $scope.capitalValueChange = function() {
         $scope.params.displayValue = $scope.params.inputValue === '' || $scope.params.inputValue < 100 || $scope.params.inputValue > 1000000 ? "100-100万" : $scope.params.inputValue;
     };
 
-    $scope.rateValueChange = function () {
+    $scope.rateValueChange = function() {
         $scope.params.displayrate = $scope.params.rate === '' || $scope.params.rate === null || $scope.params.rate == undefined ? "XX%" : $scope.params.rate + '%';
     };
 
 
-    $scope.switchResult = function () {
+    $scope.switchResult = function() {
         $scope.isResultShow = $scope.isResultShow ? false : true;
         $scope.arrow = $scope.isResultShow ? '>>' : '<<';
         if($scope.isResultShow){
@@ -76,6 +77,20 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         }
 
     };
+
+    $scope.changeArrow = function() {
+        if($scope.isResultShow == true){
+            $scope.isResultShow = false;
+            $scope.arrow = '<<';
+            $scope.params.interest = '';
+            $scope.params.payback = '';
+            $scope.params.displayValue = '100-100万';
+            $scope.params.displayrate = 'XX%'
+            $scope.params.inputValue = '';
+            $scope.params.rate = '';
+            $scope.params.selectedIcon = '';
+        }
+    }
 
 
 }]);
