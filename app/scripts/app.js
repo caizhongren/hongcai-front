@@ -468,6 +468,17 @@
  			}
  		}
  	})
+  /*------------------------------------------  set-new-pwd  -----------------------------------------------*/
+  .state('root.set-new-pwd', {
+    url: '/set-new-pwd/:uuid/:token',
+    views: {
+      '': {
+        templateUrl: 'views/get-pwd-back/set-new-pwd.html',
+        controller: 'SetNewPwdCtrl',
+        controllerUrl: 'scripts/controller/get-pwd-back/get-pwd-back-ctrl'
+      }
+    }
+  })
  	/*------------------------------------------  agreement -----------------------------------------------*/
  	.state('root.registration-agreement', {
  		url: '/registration-agreement',
