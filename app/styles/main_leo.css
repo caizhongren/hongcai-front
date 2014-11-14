@@ -6297,6 +6297,14 @@ a {
   margin-top: 3px;
   margin-bottom: 3px;
 }
+#project-list .list-group-item .list-btn-default {
+  background-color: #bfb2b2;
+  border: 1px solid #d8d8d8;
+  color: #fff;
+}
+#project-list .list-group-item .list-btn-default:hover {
+  background-color: #b0a8a8;
+}
 .hc-text-red {
   color: #e94828;
 }
