@@ -6178,6 +6178,10 @@ button.close {
     width: 980px;
   }
 }
+.panel-heading {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
 html,
 body {
   color: #777777;
@@ -6242,6 +6246,14 @@ a {
   width: 90px;
   height: 90px;
   background: url(../../../images/sprite.png) -280px -90px;
+}
+.special-recommend .panel-body {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.statics .panel-body {
+  padding-top: 27.5px;
+  padding-bottom: 27.5px;
 }
 .projects-filter {
   padding-left: 0px;
