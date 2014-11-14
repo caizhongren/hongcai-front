@@ -34,9 +34,11 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         console.log(projectDetails.data)
         
         $scope.isAvailableInvest = function(project){//验证用户权限
-            if (project.amount <= 0){
-                alert('请输入正确的投资金额！');
+            if (project.amount <= $scope.project.minInvest){
+                alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
                 return;
+            } else if (amount%$scope.project.increaseAmount){
+                alert('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
             }
             ProjectService.isAvailableInvest.get({amount: project.amount,projectId:project.id }, function(response) {
                 if(response.ret == 1) {
