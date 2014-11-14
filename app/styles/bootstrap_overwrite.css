@@ -6178,3 +6178,7 @@ button.close {
     width: 980px;
   }
 }
+.panel-heading {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
