@@ -38,7 +38,7 @@
                     <!-- <div class="col-xs-12">&nbsp;</div> -->
                     <div class="row">
                       <div class="col-xs-12">
-                        担保机构：<a ui-sref="root.project-sponsorInstitution">{{project.guaranteeName}}</a>
+                        担保机构：<a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})">{{project.guaranteeName}}</a>
                       </div>
                       <div class="col-xs-12">
                         还款方式：{{project.repaymentName}}

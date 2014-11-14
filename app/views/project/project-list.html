@@ -205,10 +205,10 @@
 							</div>
 							<div class="col-lg-7">
 								<div class="row">
-									<div class="col-xs-12"><h3>{{project.name}}</h3></div>
+									<div class="col-xs-12"><h3><a ui-sref="root.project-details({projectId: project.id})">{{project.name}}</a></h3></div>
 								</div>
 								<div class="row">
-									<div class="col-xs-12">担保机构：{{project.guaranteeName}}</div>
+									<div class="col-xs-12"><a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})">担保机构：{{project.guaranteeName}}</a></div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 text-nowrap">还款方式：{{project.repaymentName}}</div>

@@ -11,23 +11,9 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.orderList = projectDetails.data.orderList;
         $scope.enterpriseFile = projectDetails.data.enterpriseFile;
         $scope.imageList = projectDetails.data.imageList;
+
+        console.log(projectDetails.data)
         
-
-        // var project = projectDetails.data.project;
-        // var projectInfo = projectDetails.data.projectInfo;
-        // var pledges = projectDetails.data.pledges;
-
-        // 椤圭洰
-        // $scope.name = project.name;
-        // $scope.total = project.total;
-        // $scope.annualEarnings = project.annualEarnings;
-        // $scope.cycle = project.cycle;
-        // $scope.description = project.description;
-
-        // 椤圭洰淇℃伅
-        // $scope.financingPurpose = projectInfo.financingPurpose;
-        // $scope.repaymentSource = projectInfo.repaymentSource;
-
         $scope.isAvailableInvest = function(project){//验证用户权限
             ProjectService.isAvailableInvest.get({amount: project.amount,projectId:project.id }, function(response) {
                 if(response.ret == 1) {
@@ -60,19 +46,19 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
 
     $scope.tabs = [{
             title: '项目信息',
-            url: 'one.tpl.html'
+            // url: 'one.tpl.html'
         }, {
             title: '企业信息',
-            url: 'two.tpl.html'
+            // url: 'two.tpl.html'
         }, {
             title: '风控信息',
-            url: 'three.tpl.html'
+            // url: 'three.tpl.html'
         }, {
             title: '相关文件',
-            url: 'four.tpl.html'
+            // url: 'four.tpl.html'
         }, {
             title: '项目里程',
-            url: 'five.tpl.html'
+            // url: 'five.tpl.html'
         }
     ];
 
@@ -81,15 +67,15 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
       // $scope.currentTab = tab.url;
     }
 
-    $scope.currentTab = 'one.tpl.html';
+    // $scope.currentTab = 'one.tpl.html';
 
-    $scope.onClickTab = function (tab) {
-        $scope.currentTab = tab.url;
-    }
+    // $scope.onClickTab = function (tab) {
+    //     $scope.currentTab = tab.url;
+    // }
 
-    $scope.isActiveTab = function(tabUrl) {
-        return tabUrl == $scope.currentTab;
-    }
+    // $scope.isActiveTab = function(tabUrl) {
+    //     return tabUrl == $scope.currentTab;
+    // }
 
 
 
