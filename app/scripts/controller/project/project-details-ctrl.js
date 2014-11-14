@@ -34,6 +34,10 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         console.log(projectDetails.data)
         
         $scope.isAvailableInvest = function(project){//验证用户权限
+            if (project.amount <= 0){
+                alert('请输入正确的投资金额！');
+                return;
+            }
             ProjectService.isAvailableInvest.get({amount: project.amount,projectId:project.id }, function(response) {
                 if(response.ret == 1) {
                     if (response.data.flag) {
