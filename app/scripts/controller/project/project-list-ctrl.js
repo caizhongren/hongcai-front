@@ -35,6 +35,7 @@ hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$rootScope"
             for (var i = 0; i < $scope.projectList.length; i++) {
                 $scope.data.push($scope.projectList[i]);
             }
+            console.log($scope.projectList)
         } 
 
 	    $scope.sortType = false;
