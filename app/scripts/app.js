@@ -242,7 +242,7 @@
  		}
  	})
  	/*---------------------------------------------  project  ---------------------------------------------*/
- 	.state('root.project-list', {
+ 	/*.state('root.project-list', {
  		url: '/project-list',
  		views: {
  			'': {
@@ -251,7 +251,7 @@
  				controllerUrl: 'scripts/controller/project/project-list-ctrl'
  			}
  		}
- 	})
+ 	})*/
  	.state('root.project-list-query', {
  		url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
  		views: {

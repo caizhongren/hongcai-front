@@ -38,7 +38,7 @@
                     <!-- <div class="col-xs-12">&nbsp;</div> -->
                     <div class="row">
                       <div class="col-xs-12">
-                        担保机构：<a ui-sref="root.project-sponsorInstitution">{{project.guaranteeName}}</a>
+                        担保机构：<a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})">{{project.guaranteeName}}</a>
                       </div>
                       <div class="col-xs-12">
                         还款方式：{{project.repaymentName}}
@@ -178,11 +178,9 @@
                                     <div class="timeline-panel">
                                       <div class="timeline-heading">
                                         <h4 class="timeline-title">项目上线</h4>
-                                        <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago</small></p>
                                       </div>
                                       <div class="timeline-body">
-                                        <p>上线时间：2014-09-16</p>
-                                        <p>操 作 人：夏侯惇</p>
+                                        <p>上线时间：{{project.publishTime}}</p>
                                       </div>
                                     </div>
                                   </li>
@@ -193,8 +191,8 @@
                                         <h4 class="timeline-title">项目募集</h4>
                                       </div>
                                       <div class="timeline-body">
-                                        <p>开始时间：2014-09-16</p>
-                                        <p>结束时间：2014-09-16</p>
+                                        <p>开始时间：{{project.releaseStartTime}}</p>
+                                        <p>结束时间：{{project.releaseEndTime}}</p>
                                       </div>
                                     </div>
                                   </li>
@@ -205,8 +203,7 @@
                                         <h4 class="timeline-title">项目放款</h4>
                                       </div>
                                       <div class="timeline-body">
-                                        <p>已还：0.00（0期）</p>
-                                        <p>操 作 人：赵子龙</p>
+                                        <p>已还：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest)}}（{{billCount}}期）</p>
                                       </div>
                                     </div>
                                   </li>
@@ -217,7 +214,7 @@
                                         <h4 class="timeline-title">项目还款</h4>
                                       </div>
                                       <div class="timeline-body">
-                                        <p>待还款：169,162.71（4期）</p>
+                                        <p>待还款：{{remainPrincipal + remainInterest}}（{{project.cycle - billCount}}期）</p>
                                       </div>
                                     </div>
                                   </li>

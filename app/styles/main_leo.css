@@ -6368,41 +6368,41 @@ a {
   display: none;
   border: 1px solid #e94828;
 }
-#service #scrollUp {
-  width: 45px;
-  height: 45px;
-  background-image: url(../images/backgrounds.32.png);
-  background-position: -54px -53px;
-  display: none;
-}
-#service #scrollUp:hover {
-  background-image: url(../images/backgrounds.32.png);
-  background-position: -100px -53px;
-}
-#service #feedback {
-  width: 45px;
-  height: 45px;
-  background-image: url(../images/backgrounds.32.png);
-  background-position: -7px -6px;
-  display: block;
-  margin-bottom: 3px;
-}
-#service #feedback:hover {
-  background-image: url(../images/backgrounds.32.png);
-  background-position: -7px -53px;
-}
+#service #weiBo,
+#service #feedback,
+#service #scrollUp,
 #service .qr_tool {
   width: 45px;
   height: 45px;
   background-image: url(../images/backgrounds.32.png);
-  background-position: -148px 0;
-  cursor: pointer;
   margin-bottom: 3px;
 }
+#service #scrollUp {
+  background-position: -54px -53px;
+  display: none;
+}
+#service #scrollUp:hover {
+  background-position: -100px -53px;
+}
+#service #feedback {
+  background-position: -7px -6px;
+  display: block;
+}
+#service #feedback:hover {
+  background-position: -7px -53px;
+}
+#service #weiBo {
+  display: block;
+  background-position: -194px 0;
+}
+#service #weiBo:hover {
+  background-position: -238px -46px;
+}
+#service .qr_tool {
+  background-position: -148px 0;
+  cursor: pointer;
+}
 #service .qr_tool:hover {
-  width: 45px;
-  height: 45px;
-  background-image: url(../images/backgrounds.32.png);
   background-position: -192px -46px;
 }
 #calculater {
