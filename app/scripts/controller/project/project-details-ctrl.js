@@ -37,8 +37,9 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
             if (project.amount <= $scope.project.minInvest){
                 alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
                 return;
-            } else if (amount%$scope.project.increaseAmount){
+            } else if (project.amount%$scope.project.increaseAmount){
                 alert('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
+                return;
             }
             ProjectService.isAvailableInvest.get({amount: project.amount,projectId:project.id }, function(response) {
                 if(response.ret == 1) {
