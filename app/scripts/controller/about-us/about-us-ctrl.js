@@ -34,4 +34,8 @@ hongcaiApp.controller("AboutUsCtrl", ["$scope", "$state", "$rootScope", "$locati
 
     $rootScope.selectPage = $location.path().split('/')[1];
 
+    if($(window).scrollTop()>100){
+        $('body,html').animate({scrollTop:0},800);
+    }
+
 }]);
