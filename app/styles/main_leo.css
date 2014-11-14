@@ -6352,13 +6352,6 @@ a {
   right: 40px;
   bottom: 130px;
 }
-#service .bottom_tools a,
-#service .bottom_tools .qr_tool {
-  width: 45px;
-  height: 45px;
-  background-image: url(../images/backgrounds.32.png);
-  margin-bottom: 3px;
-}
 #service .bottom_tools > * {
   /* font:0/0 a;
         display:block;
@@ -6374,6 +6367,15 @@ a {
   left: -183px;
   display: none;
   border: 1px solid #e94828;
+}
+#service #weiBo,
+#service #feedback,
+#service #scrollUp,
+#service .qr_tool {
+  width: 45px;
+  height: 45px;
+  background-image: url(../images/backgrounds.32.png);
+  margin-bottom: 3px;
 }
 #service #scrollUp {
   background-position: -54px -53px;
