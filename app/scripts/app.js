@@ -20,10 +20,16 @@
   'placeholders',
   'textAngular',
   'angular-flexslider',
+  'angular-loading-bar',
   'timer'
   ]);
 
- hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+ hongcaiApp
+  .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = true;
+    cfpLoadingBarProvider.includeBar = true;
+  }])
+ .config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
  	$stateProvider
   .state('newbie-guide', {
     url: '/newbie-guide',
@@ -458,6 +464,17 @@
  			}
  		}
  	})
+  /*------------------------------------------  set-new-pwd  -----------------------------------------------*/
+  .state('root.set-new-pwd', {
+    url: '/set-new-pwd/:uuid/:token',
+    views: {
+      '': {
+        templateUrl: 'views/get-pwd-back/set-new-pwd.html',
+        controller: 'SetNewPwdCtrl',
+        controllerUrl: 'scripts/controller/get-pwd-back/get-pwd-back-ctrl'
+      }
+    }
+  })
  	/*------------------------------------------  agreement -----------------------------------------------*/
  	.state('root.registration-agreement', {
  		url: '/registration-agreement',
@@ -528,7 +545,7 @@
 
  	//initialize get if not there
     if (!$httpProvider.defaults.headers.get) {
-        $httpProvider.defaults.headers.get = {};    
+        $httpProvider.defaults.headers.get = {};
     }
     //disable IE ajax request caching
     $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
@@ -551,6 +568,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 					$rootScope.isLogged = true;
 					$rootScope.loginName = response.data.data.name;
 					$rootScope.securityStatus = response.data.data.securityStatus;
+          $rootScope.userCapital = response.data.data.userCapital;
 				} else {
 					$location.path('/login/');
 				}
@@ -561,6 +579,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 					$rootScope.isLogged = true;
 					$rootScope.loginName = response.data.data.name;
 					$rootScope.securityStatus = response.data.data.securityStatus;
+          $rootScope.userCapital = response.data.data.userCapital;
 				}
 			});
 		}

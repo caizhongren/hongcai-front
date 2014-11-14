@@ -8,7 +8,7 @@
     <meta name="keywords" content="P2P, P2B, P2P网贷, P2B投资, P2P投资, 互联网金融, 宏财网, 投资理财, 高收益低风险, 安全理财"/>
     <meta name="description" content="宏财网，高效、透明、增值、创新的互联网金融平台。严格的风控体系，100%本息担保，第三方资金托管，为用户提供全方位的安全理财服务。
 ">
-    <meta name="renderer" content="webkit">    
+    <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.css" />
     <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css" />
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <!-- endbower -->
     <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css" />
     <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
@@ -38,11 +39,12 @@
     <!-- endbuild -->
   </head>
   <body class="index">
-    
+
 
     <!-- Add your site or application content here -->
-    <section ui-view="header" class="header-full"></section>
-    <section ui-view class="bg-offWhite"></section>
+
+    <section ui-view="header" ></section>
+    <section ui-view class="bg-offWhite" autoscroll="false"></section>
     <section ui-view="service"></section>
     <section ui-view="footer"></section>
 
@@ -88,6 +90,7 @@
     <script src="bower_components/bower-angular-placeholders/angular-placeholders.js"></script>
     <script src="bower_components/textAngular/dist/textAngular.min.js"></script>
     <script src="bower_components/angular-timer/dist/angular-timer.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <!-- endbower -->
     <script src="bower_components/fancybox/source/jquery.fancybox.js"></script>
     <script src="bower_components/flexslider/jquery.flexslider.js"></script>
