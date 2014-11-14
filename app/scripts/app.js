@@ -25,6 +25,10 @@
 
  hongcaiApp.config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
  	$stateProvider
+  .state('newbie-guide', {
+    url: '/newbie-guide',
+    templateUrl: 'views/newbie-guide.html'
+  })
  	.state('root', {
  		abstract: true,
  		views: {
@@ -242,16 +246,7 @@
  		}
  	})
  	/*---------------------------------------------  project  ---------------------------------------------*/
- 	/*.state('root.project-list', {
- 		url: '/project-list',
- 		views: {
- 			'': {
- 				templateUrl: 'views/project/project-list.html',
- 				controller: 'ProjectListCtrl',
- 				controllerUrl: 'scripts/controller/project/project-list-ctrl'
- 			}
- 		}
- 	})*/
+ 	
  	.state('root.project-list-query', {
  		url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
  		views: {
@@ -343,6 +338,7 @@
  	})
  	/*------------------------------------------  about-us  -----------------------------------------------*/
  	.state('root.about-us', {
+    abstract: true,
  		views: {
  			'about-us-right': {
  				templateUrl: 'views/about-us/about-us.html',
