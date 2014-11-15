@@ -15,7 +15,6 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.remainInterest = projectDetails.data.remainInterest;
         $scope.remainPrincipal = projectDetails.data.remainPrincipal;
 
-
         $scope.dateArray = $scope.project.releaseStartTime.split('-');
         
         $scope.day = $scope.dateArray[2].split(' ')[0];

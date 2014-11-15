@@ -259,7 +259,7 @@
                   </div>
 
                   <div class="col-xs-12" ng-if="isLogged && project.progress >= 100">
-                    <input type='button'  value="了解详情" class="btn btn-danger btn-lg btn-block"/>
+                    <input type='button'  value="已满标" class="btn btn-danger btn-lg btn-block" disabled="disabled"/>
                   </div>
 
                   <div class="row" ng-switch="isAvailable" ng-if="isLogged && project.progress < 100 && project.status != 6">
