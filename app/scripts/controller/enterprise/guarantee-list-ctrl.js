@@ -56,9 +56,9 @@ hongcaiApp.controller("GuaranteeListCtrl", ["$scope", "$stateParams", "$location
         $("#slider").sudySlider($scope.imgs);
     });
 
-    if($(window).scrollTop()>100){
-        $('body,html').animate({scrollTop:0},800);
-    }
+    // if($(window).scrollTop()>100){
+    //     $('body,html').animate({scrollTop:0},800);
+    // }
 
 }]);
 

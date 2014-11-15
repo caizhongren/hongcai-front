@@ -6305,6 +6305,12 @@ a {
 #project-list .list-group-item .list-btn-default:hover {
   background-color: #b0a8a8;
 }
+#footer .media {
+  float: right;
+}
+#footer .icons {
+  text-align: center;
+}
 .hc-text-red {
   color: #e94828;
 }
@@ -6673,6 +6679,9 @@ a {
     top: 13%;
     padding: 2% 1%;
   }
+  .index-cooperation img {
+    margin-left: -15px;
+  }
 }
 @media (min-width: 1300px) {
   .unLogged {
@@ -6731,6 +6740,39 @@ a {
 }
 .fixedBox .pull-right {
   margin-top: 2%;
+}
+.mediaList a,
+.noticeList a,
+.help a {
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.cooperation {
+  height: 435px;
+}
+.index-cooperation {
+  background-color: #fff;
+  border-top: 1px solid #d8d8d8;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.index-cooperation label {
+  display: block;
+  text-align: left;
+  padding-left: 0 !important;
+}
+.index-cooperation a {
+  display: inline-block;
+  width: 19%;
+}
+.index-cooperation a img {
+  margin-left: 0;
+}
+.index-cooperation .cooperation-flow {
+  margin: 0 auto;
 }
 #calculater {
   width: 200px;

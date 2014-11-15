@@ -29,8 +29,13 @@
     cfpLoadingBarProvider.includeSpinner = true;
     cfpLoadingBarProvider.includeBar = true;
   }])
- .config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+ .config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$uiViewScrollProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider) {
+  $uiViewScrollProvider.useAnchorScroll();
  	$stateProvider
+  .state('newbie-guide', {
+    url: '/newbie-guide',
+    templateUrl: 'views/newbie-guide.html'
+  })
  	.state('root', {
  		abstract: true,
  		views: {
@@ -64,11 +69,11 @@
  				templateUrl: 'views/slider.html',
  				controllerUrl: 'scripts/controller/main/main-ctrl'
  			},
- 			'sponsor': {
+ 			/*'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
  				controller: 'GuaranteeListCtrl',
  				controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
- 			}
+ 			}*/
  		}
  	})
  	.state('root.login', {
@@ -248,16 +253,7 @@
  		}
  	})
  	/*---------------------------------------------  project  ---------------------------------------------*/
- 	/*.state('root.project-list', {
- 		url: '/project-list',
- 		views: {
- 			'': {
- 				templateUrl: 'views/project/project-list.html',
- 				controller: 'ProjectListCtrl',
- 				controllerUrl: 'scripts/controller/project/project-list-ctrl'
- 			}
- 		}
- 	})*/
+
  	.state('root.project-list-query', {
  		url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
  		views: {
@@ -300,7 +296,6 @@
  			'': {
  				templateUrl: 'views/safe.html',
  				controller: 'SafeCtrl',
- 				controllerUrl: 'scripts/controller/project/safe-ctrl'
  			},
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
@@ -349,6 +344,7 @@
  	})
  	/*------------------------------------------  about-us  -----------------------------------------------*/
  	.state('root.about-us', {
+    abstract: true,
  		views: {
  			'about-us-right': {
  				templateUrl: 'views/about-us/about-us.html',
@@ -468,6 +464,17 @@
  			}
  		}
  	})
+  /*------------------------------------------  set-new-pwd  -----------------------------------------------*/
+  .state('root.set-new-pwd', {
+    url: '/set-new-pwd/:uuid/:token/',
+    views: {
+      '': {
+        templateUrl: 'views/get-pwd-back/set-new-pwd.html',
+        controller: 'SetNewPwdCtrl',
+        controllerUrl: 'scripts/controller/get-pwd-back/get-pwd-back-ctrl'
+      }
+    }
+  })
  	/*------------------------------------------  agreement -----------------------------------------------*/
  	.state('root.registration-agreement', {
  		url: '/registration-agreement',
@@ -545,7 +552,7 @@
 
  }]);
 
-hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
+hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
 	var routespermission = ['/account-overview',
 							'/assets-overview',
 							'/realname-authentication',

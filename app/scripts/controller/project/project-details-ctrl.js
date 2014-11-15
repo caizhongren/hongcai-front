@@ -14,7 +14,9 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.billCount = projectDetails.data.billCount;
         $scope.remainInterest = projectDetails.data.remainInterest;
         $scope.remainPrincipal = projectDetails.data.remainPrincipal;
-        
+
+        $scope.project.status = 6;
+        $scope.project.releaseStartTime = projectDetails.data.project.releaseStartTime;
 
         // var project = projectDetails.data.project;
         // var projectInfo = projectDetails.data.projectInfo;
@@ -31,8 +33,6 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         // $scope.financingPurpose = projectInfo.financingPurpose;
         // $scope.repaymentSource = projectInfo.repaymentSource;
 
-        console.log(projectDetails.data)
-        
         $scope.isAvailableInvest = function(project){//验证用户权限
             if (project.amount <= $scope.project.minInvest){
                 alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
@@ -105,9 +105,9 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
 
 
 
-    if($(window).scrollTop()>100){
-        $('body,html').animate({scrollTop:0},800);
-    }
+    // if($(window).scrollTop()>100){
+    //     $('body,html').animate({scrollTop:0},800);
+    // }
 
     $scope.image = 'images/test/0.png';
     var myOtherModal = $modal({scope: $scope, template: 'views/modal/modal-imageEnlarge.html', show: false});
