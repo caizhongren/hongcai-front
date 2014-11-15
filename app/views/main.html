@@ -247,7 +247,7 @@
               <h4>媒体报道 <small class="pull-right"><a href="/media-reports">更多 &gt;</a></small></h4>
             </div>
             <div class="panel-body">
-              <div class="row mediaList" ng-repeat="item in mediaList">
+              <div class="row mediaList" ng-repeat="item in mediaList track by $index">
                 <div class="col-xs-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
                 <div class="col-xs-3 text-right"><small>{{item.createTime * 1000 | date:'MM-dd'}}</small></div>
               </div>
@@ -264,7 +264,7 @@
               <h4>网站公告 <small class="pull-right"><a href="/web-site-notice">更多 &gt;</a></small></h4>
             </div>
             <div class="panel-body">
-              <div class="row noticeList" ng-repeat="item in noticeList">
+              <div class="row noticeList" ng-repeat="item in noticeList track by $index">
                 <div class="col-xs-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
                 <div class="col-xs-3 text-right">{{item.createTime * 1000 | date:'MM-dd'}}</div>
               </div>
