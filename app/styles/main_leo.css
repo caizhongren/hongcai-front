@@ -6471,6 +6471,11 @@ a {
 #project-detail {
   padding: 30px;
 }
+#project-detail .project-name {
+  font-size: 30px;
+  margin-top: 0;
+  padding-top: 0;
+}
 #project-detail .status .row {
   padding-top: 15px;
 }
