@@ -6308,6 +6308,9 @@ a {
 #footer .media {
   float: right;
 }
+#footer .icons {
+  text-align: center;
+}
 .hc-text-red {
   color: #e94828;
 }
