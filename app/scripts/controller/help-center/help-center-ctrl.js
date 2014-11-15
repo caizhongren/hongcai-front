@@ -51,8 +51,8 @@ hongcaiApp.controller("HelpCenterCtrl", ["$scope", "$state", "$rootScope", "$loc
     $scope.changeLawQ3 = false;
     $scope.changeLawQ4 = false;
 
-    if($(window).scrollTop()>100){
-        $('body,html').animate({scrollTop:0},800);
-    }
-    
+    // if($(window).scrollTop()>100){
+    //     $('body,html').animate({scrollTop:0},800);
+    // }
+
 }]);

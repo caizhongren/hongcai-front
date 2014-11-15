@@ -1,6 +1,6 @@
 hongcaiApp.controller("ProjectSponsorInstitutionCtrl", ["$scope", "$stateParams", "$location", "ProjectService" ,function ($scope, $stateParams, $location, ProjectService) {
     $scope.sortType = $stateParams.sortType || false ;
-    
+
     var sponsorInstitution = ProjectService.sponsorInstitution.get({guaranteeId: $stateParams.guaranteeId}, function() {
         $scope.projectList = sponsorInstitution.data.projectList;
         $scope.guarantee = sponsorInstitution.data.guarantee;
@@ -32,7 +32,7 @@ hongcaiApp.controller("ProjectSponsorInstitutionCtrl", ["$scope", "$stateParams"
         $scope.pageSize = 15;
         $scope.data = [];
 		$scope.projectList = projectList.data;
-  
+
 	    $scope.numberOfPages = function() {
 	        return Math.ceil($scope.data.length / $scope.pageSize);
 	    }
@@ -97,9 +97,9 @@ hongcaiApp.controller("ProjectSponsorInstitutionCtrl", ["$scope", "$stateParams"
         $("#slider").sudySlider($scope.imgs);
     });
 
-    if($(window).scrollTop()>100){
-        $('body,html').animate({scrollTop:0},800);
-    }
+    // if($(window).scrollTop()>100){
+    //     $('body,html').animate({scrollTop:0},800);
+    // }
 
 }]);
 

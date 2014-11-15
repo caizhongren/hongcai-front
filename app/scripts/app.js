@@ -29,7 +29,8 @@
     cfpLoadingBarProvider.includeSpinner = true;
     cfpLoadingBarProvider.includeBar = true;
   }])
- .config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+ .config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$uiViewScrollProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider) {
+  $uiViewScrollProvider.useAnchorScroll();
  	$stateProvider
   .state('newbie-guide', {
     url: '/newbie-guide',
@@ -252,7 +253,7 @@
  		}
  	})
  	/*---------------------------------------------  project  ---------------------------------------------*/
- 	
+
  	.state('root.project-list-query', {
  		url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
  		views: {
@@ -465,7 +466,7 @@
  	})
   /*------------------------------------------  set-new-pwd  -----------------------------------------------*/
   .state('root.set-new-pwd', {
-    url: '/set-new-pwd/:uuid/:token',
+    url: '/set-new-pwd/:uuid/:token/',
     views: {
       '': {
         templateUrl: 'views/get-pwd-back/set-new-pwd.html',
@@ -551,7 +552,7 @@
 
  }]);
 
-hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
+hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
 	var routespermission = ['/account-overview',
 							'/assets-overview',
 							'/realname-authentication',
@@ -560,6 +561,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 							'/recharge',
 							'/invest-verify'];
 	$rootScope.$on('$stateChangeStart', function() {
+    $window.scrollTo(0,0);
 		var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
 		if(routespermission.indexOf($location.path()) !== -1) {
 			$checkSessionServer.then(function(response){
