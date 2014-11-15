@@ -37,17 +37,6 @@ hongcaiApp.controller("AssetsOverviewCtrl", [ "$scope", "$state", "$rootScope", 
 					value : 20,
 					label: '冻结资金',
 					color : "#6aabe1"
-				},
-				{
-					value: 20,
-					label: '已收收益',
-					//highlight: '#FF5A5E',
-					color:"#913969"
-				},
-				{
-					value : 20,
-					label: '累计投资',
-					color : "#e94828"
 				}]
 		    } else {
 				$scope.doughnutAssetsData = [{
@@ -69,17 +58,6 @@ hongcaiApp.controller("AssetsOverviewCtrl", [ "$scope", "$state", "$rootScope", 
 					value : response.data.userCapital.freezeCapital,
 					label: '冻结资金',
 					color : "#6aabe1"
-				},
-				{
-					value: response.data.userCapital.receivedProfit,
-					label: '已收收益',
-					//highlight: '#FF5A5E',
-					color:"#913969"
-				},
-				{
-					value : response.data.userCapital.amount,
-					label: '累计投资',
-					color : "#e94828"
 				}]
 		    }
 
