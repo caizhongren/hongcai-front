@@ -117,12 +117,12 @@
         <div class="form-group">
           <label for="step2-mobile" class="col-sm-3 control-label">输入验证码:</label>
           <div class="col-sm-4">
-            <input type="text" class="form-control" name="step2-mobile" ng-model="getPwd.mobileCaptcha" required ng-focnus id="step2-mobile" placeholder="">
+            <input type="text" class="form-control" name="step2-mobile" ng-model="getPwd.mobileCaptcha"  ng-focnus id="step2-mobile" placeholder="">
           </div>
         </div>
         <div class="form-group">
           <div class="col-sm-offset-3">
-            <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="step21From.$invalid" ng-click="checkMobileCaptcha(getPwd, getPwd.mobileCaptcha)">下一步</button>
+            <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="step21From.$invalid" ng-click="checkMobileCaptcha(getPwd)">下一步</button>
           </div>
         </div>
       </form>
@@ -172,14 +172,14 @@
           <div class="form-group">
             <label for="phoneCaptcha" class="col-sm-4 control-label">输入验证码:</label>
             <div class="col-sm-4">
-              <input type="text" class="form-control" id="phoneCaptcha" ng-model="getPwd.phoneCaptcha" required/>
+              <input type="text" class="form-control" name="phoneCaptcha" id="phoneCaptcha" ng-model="getPwd.mobileCaptcha" />
             </div>
             <input type="button", class="btn btn-info" value="获取验证码" ng-click="sendMobileCaptcha(getPwd.account, getPwd.phone);" onclick="countDown(this,60);" ng-disabled="Step2GetPhone.phone.$invalid">
           </div>
 
           <div class="form-group">
             <div class="col-sm-offset-3">
-              <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="Step2GetPhone.$invalid" ng-click="checkMobileCaptcha(getPwd, getPwd.phoneCaptcha)">下一步</button>
+              <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="Step2GetPhone.$invalid" ng-click="checkMobileCaptcha(getPwd)">下一步</button>
             </div>
           </div>
         </form>
@@ -222,7 +222,7 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-3">
-            <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="Step3SetPhonePwd.$invalid" ng-click="setPhoneNewPwd(getPwd.account, getPwd.mobileCaptcha, user)">下一步</button>
+            <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="Step3SetPhonePwd.$invalid" ng-click="setPhoneNewPwd(getPwd, user)">下一步</button>
           </div>
         </div>
       </form>

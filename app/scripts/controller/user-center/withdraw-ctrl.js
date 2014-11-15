@@ -58,8 +58,8 @@ hongcaiApp.controller("WithdrawCtrl", [ "$location", "$scope", "$state", "$rootS
                 _f.action="http://qa.yeepay.com/member/bha/toWithdraw";
                 _f.submit();
 
-            } else {
-
+            } else if (response.ret == -1){
+                alert(response.msg);
             }
         });
     };   
