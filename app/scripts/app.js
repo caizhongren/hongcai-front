@@ -68,11 +68,11 @@
  				templateUrl: 'views/slider.html',
  				controllerUrl: 'scripts/controller/main/main-ctrl'
  			},
- 			'sponsor': {
+ 			/*'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
  				controller: 'GuaranteeListCtrl',
  				controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
- 			}
+ 			}*/
  		}
  	})
  	.state('root.login', {
@@ -295,7 +295,6 @@
  			'': {
  				templateUrl: 'views/safe.html',
  				controller: 'SafeCtrl',
- 				controllerUrl: 'scripts/controller/project/safe-ctrl'
  			},
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',

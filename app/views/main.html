@@ -247,9 +247,9 @@
               <h4>媒体报道 <small class="pull-right"><a href="/media-reports">更多 &gt;</a></small></h4>
             </div>
             <div class="panel-body">
-              <div class="row" ng-repeat="item in mediaList">
-                <div class="col-xs-8"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
-                <div class="col-xs-4 text-right"><small>{{item.createTime * 1000 | date:'MM-dd'}}</small></div>
+              <div class="row mediaList" ng-repeat="item in mediaList">
+                <div class="col-xs-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
+                <div class="col-xs-3 text-right"><small>{{item.createTime * 1000 | date:'MM-dd'}}</small></div>
               </div>
               <!-- <p><span class="pull-left"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></span><span class="pull-right"><small>{{item.createTime * 1000 | date:'MM-dd'}}</small></span></p> -->
             </div>
@@ -264,9 +264,9 @@
               <h4>网站公告 <small class="pull-right"><a href="/web-site-notice">更多 &gt;</a></small></h4>
             </div>
             <div class="panel-body">
-              <div class="row" ng-repeat="item in noticeList">
-                <div class="col-xs-8"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
-                <div class="col-xs-4 text-right">{{item.createTime * 1000 | date:'MM-dd'}}</div>
+              <div class="row noticeList" ng-repeat="item in noticeList">
+                <div class="col-xs-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
+                <div class="col-xs-3 text-right">{{item.createTime * 1000 | date:'MM-dd'}}</div>
               </div>
             </div>
           </div> <!-- .panel.panel-default -->
@@ -298,7 +298,7 @@
         </div> <!-- .col-xs-12 -->
       </div> <!-- .row -->
 
-      <div class="row">
+      <div class="row help">
         <div class="col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading">
@@ -307,16 +307,16 @@
             <div class="panel-body">
 
               <div class="row">
-                <div class="col-xs-8"><a ui-sref='root.help-center.introduce'>宏财网是做什么的网站？</a></div>
-                <div class="col-xs-4 text-right">09-11</div>
+                <div class="col-xs-9"><a ui-sref='root.help-center.introduce'>宏财网是做什么的网站？</a></div>
+                <div class="col-xs-3 text-right">09-11</div>
               </div>
               <div class="row">
-                <div class="col-xs-8"><a ui-sref='root.help-center.introduce'>宏财网安全吗？</a></div>
-                <div class="col-xs-4 text-right">09-11</div>
+                <div class="col-xs-9"><a ui-sref='root.help-center.introduce'>宏财网安全吗？</a></div>
+                <div class="col-xs-3 text-right">09-11</div>
               </div>
               <div class="row">
-                <div class="col-xs-8"><a ui-sref='root.help-center.introduce'>一旦借款人无法偿还怎么办？</a></div>
-                <div class="col-xs-4 text-right">09-11</div>
+                <div class="col-xs-9"><a ui-sref='root.help-center.introduce'>一旦借款人无法偿还怎么办？</a></div>
+                <div class="col-xs-3 text-right">09-11</div>
               </div>
             </div>
           </div> <!-- .panel.panel-default -->
@@ -329,6 +329,33 @@
   </div> <!-- .row -->
 
 </div> <!-- .container -->
+
+<div class="container-fluid cooperation">
+  <div class="row">
+    <div class="hidden-xs col-sm-8 col-sm-offset-2">
+      <label><strong>合作金融机构</strong></label>
+        <div class="cooperation-flow">
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+          <a><img src='images/partner_yeepay.png'></a>
+        </div>
+    </div> 
+  </div>
+
+  
+</div>
 
 <!-- end 主体 -->
 
