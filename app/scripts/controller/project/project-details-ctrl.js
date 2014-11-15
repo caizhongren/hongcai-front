@@ -103,12 +103,6 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
     //     return tabUrl == $scope.currentTab;
     // }
 
-
-
-    // if($(window).scrollTop()>100){
-    //     $('body,html').animate({scrollTop:0},800);
-    // }
-
     $scope.image = 'images/test/0.png';
     var myOtherModal = $modal({scope: $scope, template: 'views/modal/modal-imageEnlarge.html', show: false});
     $scope.showModal = function(image) {
