@@ -6186,6 +6186,7 @@ html,
 body {
   color: #777777;
   cursor: default;
+  overflow-x: hidden;
   /*padding-bottom: 0px;*/
   /*font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "冬青黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;*/
   font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
@@ -6469,6 +6470,11 @@ a {
 }
 #project-detail {
   padding: 30px;
+}
+#project-detail .project-name {
+  font-size: 30px;
+  margin-top: 0;
+  padding-top: 0;
 }
 #project-detail .status .row {
   padding-top: 15px;

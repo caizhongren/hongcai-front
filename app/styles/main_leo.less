@@ -5,6 +5,7 @@ html,
 body {
   color: @gray-light;
   cursor: default;
+  overflow-x: hidden;
   /*padding-bottom: 0px;*/
   /*font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "冬青黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;*/
   font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
@@ -379,28 +380,32 @@ a {
 // project detail page
 #project-detail {
   padding: 30px;
-
-  .status {
+    .project-name {
+        font-size: 30px;
+        margin-top: 0;
+        padding-top: 0;
+    }
+    .status {
     .row {
       // padding: 7px;
       padding-top: 15px;
     }
-  }
+    }
 
-  .project-info {
+    .project-info {
     padding: 30px;
-  }
+    }
 
-  .timer {
+    .timer {
     text-align: center;
-  }
+    }
 
-  .btn-default {
+    .btn-default {
     color: #e6e6e6;
     background-color: #fff;
     border-color: #cccccc;
     cursor: not-allowed;
-  }
+    }
 }
 .timeline {
     list-style: none;
