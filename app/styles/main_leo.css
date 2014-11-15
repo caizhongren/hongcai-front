@@ -6308,6 +6308,9 @@ a {
 #footer .media {
   float: right;
 }
+#footer .media a {
+  cursor: default;
+}
 #footer .icons {
   text-align: center;
 }
@@ -6678,6 +6681,9 @@ a {
   .logged {
     top: 13%;
     padding: 2% 1%;
+  }
+  .index-cooperation a {
+    cursor: default;
   }
   .index-cooperation img {
     margin-left: -15px;

@@ -296,6 +296,7 @@
  			'': {
  				templateUrl: 'views/safe.html',
  				controller: 'SafeCtrl',
+        controllerUrl: 'scripts/controller/project/safe-ctrl'
  			},
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
