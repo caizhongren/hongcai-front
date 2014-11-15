@@ -6679,7 +6679,7 @@ a {
     top: 13%;
     padding: 2% 1%;
   }
-  .cooperation img {
+  .index-cooperation img {
     margin-left: -15px;
   }
 }
@@ -6751,24 +6751,27 @@ a {
   overflow: hidden;
 }
 .cooperation {
+  height: 435px;
+}
+.index-cooperation {
   background-color: #fff;
   border-top: 1px solid #d8d8d8;
   padding-top: 25px;
   padding-bottom: 25px;
 }
-.cooperation label {
+.index-cooperation label {
   display: block;
   text-align: left;
   padding-left: 0 !important;
 }
-.cooperation a {
+.index-cooperation a {
   display: inline-block;
   width: 19%;
 }
-.cooperation a img {
+.index-cooperation a img {
   margin-left: 0;
 }
-.cooperation .cooperation-flow {
+.index-cooperation .cooperation-flow {
   margin: 0 auto;
 }
 #calculater {
