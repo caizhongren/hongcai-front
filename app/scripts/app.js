@@ -551,7 +551,7 @@
 
  }]);
 
-hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
+hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
 	var routespermission = ['/account-overview',
 							'/assets-overview',
 							'/realname-authentication',
@@ -560,6 +560,7 @@ hongcaiApp.run(function($rootScope, $location, $http, DEFAULT_DOMAIN) {
 							'/recharge',
 							'/invest-verify'];
 	$rootScope.$on('$stateChangeStart', function() {
+    $window.scrollTo(0,0);
 		var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
 		if(routespermission.indexOf($location.path()) !== -1) {
 			$checkSessionServer.then(function(response){
