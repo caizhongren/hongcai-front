@@ -43,7 +43,7 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
       UserCenterService.sendMobileCaptcha.get({mobile: account }, function(response) {
         if(response.ret == 1) {
           $scope.areaFlag = 21;
-          reLoadProcessBar();
+          // reLoadProcessBar();
           $scope.phoneNum = account;
         } else {
           // TODO
@@ -54,7 +54,7 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
       UserCenterService.sendResetPwdEmail.get({email: account }, function(response) {
         if(response.ret == 1) {
             $scope.areaFlag = 22;
-            reLoadProcessBar();
+            // reLoadProcessBar();
             $scope.emailAddr = account;
         } else {
           // TODO
@@ -77,7 +77,7 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
         }
       });
       $scope.areaFlag = 2;
-      reLoadProcessBar();
+      // reLoadProcessBar();
     }
   }
   // STEP2 根据account通过手机找回
@@ -101,23 +101,23 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
         UserCenterService.sendResetPwdEmail.get({email: email}, function(response) {
           if(response.ret == 1) {
             $scope.areaFlag = 22;
-            reLoadProcessBar();
+            // reLoadProcessBar();
           };
         });
       };
     });
   };
 
-  $scope.checkMobileCaptcha = function(user, mobileCaptcha){
+  $scope.checkMobileCaptcha = function(user){
     if(user.phone && user.account) {
       var mobile = user.phone;
     } else {
       var mobile = user.account;
     };
-    UserCenterService.checkMobileCaptcha.get({mobile: mobile, captcha: mobileCaptcha }, function(response) {
+    UserCenterService.checkMobileCaptcha.get({mobile: mobile, captcha: user.mobileCaptcha }, function(response) {
       if(response.ret == 1) {
         $scope.areaFlag = 3;
-        reLoadProcessBar();
+        // reLoadProcessBar();
       } else {
         // TODO
         console.log('');
@@ -125,17 +125,19 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
     });
   };
 
-  $scope.setPhoneNewPwd = function(mobile, mobileCaptcha, user){
-    if (user.password != user.repeatPassword) {
+  $scope.setPhoneNewPwd = function(user, newPwd){
+    if (newPwd.password != newPwd.repeatPassword) {
       return;
     };
-    UserCenterService.resetMobilePassword.get({mobile: mobile, captcha: mobileCaptcha, password: user.password }, function(response) {
+    if(user.account && user.phone) {
+      var mobile = user.phone;
+    } else {
+      var mobile = user.account;
+    }
+    UserCenterService.resetMobilePassword.get({mobile: mobile, captcha: user.mobileCaptcha, password: newPwd.password }, function(response) {
       if(response.ret == 1) {
-        // $scope.startCountDownNo = 5;
         $scope.areaFlag = 4;
-        reLoadProcessBar();
       } else {
-        // console.log("error auth");
       };
     });
   };
