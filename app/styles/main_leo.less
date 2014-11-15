@@ -210,6 +210,29 @@ a {
 	font-size: 3em;
 }
 
+// progress loading bar
+#loading-bar {
+  .bar {
+    background: @brand-danger;
+  }
+
+  .peg {
+    // eb5c3f
+    -moz-box-shadow: #eb5c3f 1px 0 6px 1px;
+    -ms-box-shadow: #eb5c3f 1px 0 6px 1px;
+    -webkit-box-shadow: #eb5c3f 1px 0 6px 1px;
+    box-shadow: #eb5c3f 1px 0 6px 1px;
+
+  }
+}
+
+#loading-bar-spinner {
+  .spinner-icon {
+    border-top-color:  @brand-danger;
+    border-left-color: @brand-danger;
+  }
+}
+
 #service {
 	img {
 		position: fixed;

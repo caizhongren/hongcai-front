@@ -23,26 +23,20 @@ hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "$rootScope", "$loc
     });
 
     AboutUsService.textList.get({category: 1}, function(response) {
-        $scope.textList = response.data;
-        $scope.mediaList = [];
-        for (var i = 0; i < 5; i++) {
-            $scope.mediaList.push($scope.textList.textList[i]);
-        }
+        $scope.textList = response.data.textList;
+        $scope.mediaList = $scope.textList.slice(0, 4);
     });
 
     AboutUsService.textList.get({category: 2}, function(response) {
-        $scope.textList = response.data;
-        $scope.noticeList = [];
-        for (var i = 0; i < 5; i++) {
-            $scope.noticeList.push($scope.textList.textList[i]);
-        }
+        $scope.textList = response.data.textList;
+        $scope.noticeList = $scope.textList.slice(0, 4);
     });
 
     $rootScope.selectPage = $location.path().split('/')[1];
 }]);
 //JQuery 操作DOM
-function change_agree_pic(x){
-    var Flag = ( x.getAttribute( "src", 2 ) == "images/check_01.png" )
-    x.src = Flag ? "images/check_02.png" : "images/check_01.png";
-}
-   
+// function change_agree_pic(x){
+//     var Flag = ( x.getAttribute( "src", 2 ) == "images/check_01.png" )
+//     x.src = Flag ? "images/check_02.png" : "images/check_01.png";
+// }
+

@@ -6334,6 +6334,19 @@ a {
 .ft-3em {
   font-size: 3em;
 }
+#loading-bar .bar {
+  background: #e94828;
+}
+#loading-bar .peg {
+  -moz-box-shadow: #eb5c3f 1px 0 6px 1px;
+  -ms-box-shadow: #eb5c3f 1px 0 6px 1px;
+  -webkit-box-shadow: #eb5c3f 1px 0 6px 1px;
+  box-shadow: #eb5c3f 1px 0 6px 1px;
+}
+#loading-bar-spinner .spinner-icon {
+  border-top-color: #e94828;
+  border-left-color: #e94828;
+}
 #service {
   /*right-service css*/
 }

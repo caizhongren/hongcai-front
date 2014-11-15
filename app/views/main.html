@@ -247,7 +247,7 @@
               <h4>媒体报道 <small class="pull-right"><a href="/media-reports">更多 &gt;</a></small></h4>
             </div>
             <div class="panel-body">
-              <div class="row mediaList" ng-repeat="item in mediaList track by $index">
+              <div class="row mediaList" ng-repeat="item in mediaList">
                 <div class="col-xs-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
                 <div class="col-xs-3 text-right">{{item.createTime * 1000 | date:'MM-dd'}}</div>
               </div>
@@ -351,10 +351,10 @@
           <a><img src='images/partner_yeepay.png'></a>
           <a><img src='images/partner_yeepay.png'></a>
         </div>
-    </div> 
+    </div>
   </div>
 
-  
+
 </div>
 
 <!-- end 主体 -->
