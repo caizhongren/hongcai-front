@@ -1,17 +1,80 @@
 <br>
 <br>
-<div class="col-sm-offset-2 col-sm-6">
-<div class="panel panel-info" ng-controller="GetPwdCtrl" >
-  <div class="panel-heading">
-    <ul class="nav nav-pills" role="tablist">
-      <li role="presentation" class="{{areaFlag == 1 ? 'active' : ''}}"><a href="">输入账号</a></li>
-      <li role="presentation" class="{{(String(areaFlag).charAt(0) == 2) ? 'active' : ''"><a href="">验证身份</a></li>
-      <li role="presentation" class="{{areaFlag == 3 ? 'active' : ''}}"><a href="">修改密码</a></li>
-      <li role="presentation" class="{{areaFlag == 4 ? 'active' : ''}}"><a href="">完成</a></li>
-    </ul>
-  </div>
-  <div class="panel-body">
-    <!-- STEP1 用户信息 -->
+<div class="container get-pwd-back">
+  <div class="row">
+    <div class="co-xs-12">
+    <div class="panel panel-info" ng-controller="GetPwdCtrl" >
+<!--       <div class="panel-heading">
+         <h3>找回密码</h3> -->
+      </div>
+      <br>
+      <div class="panel-body panel-get-pwd-back" >
+        <ul class="row">
+              <li class="col-xs-3">
+                <span class="get-pwd-back-step-line"></span>
+                <span class="get-pwd-back-step">
+                  <i class="fa fa-user"></i>
+                </span>
+                <p class="get-pwd-back-step-text">输入帐号</p>
+              </li>
+              <li class="col-xs-3">
+                <span class="get-pwd-back-step-line"></span>
+                <span class="get-pwd-back-step">
+                  <i class="fa fa-user"></i>
+                </span>
+                <p class="get-pwd-back-step-text">验证身份</p>
+              </li>
+              <li class="col-xs-3">
+                <span class="get-pwd-back-step-line"></span>
+                <span class="get-pwd-back-step">
+                  <i class="fa fa-user"></i>
+                </span>
+                <p class="get-pwd-back-step-text">修改密码</p>
+              </li>
+              <li class="col-xs-3">
+                  <span class="get-pwd-back-step">
+                    <i class="fa fa-user"></i>
+                  </span>
+                  <p class="get-pwd-back-step-text">完成</p>
+              </li>
+            </ul>
+        </div>
+
+<!--     <div class="container" style="background-color: #ea5430; color: #fff">
+      <div class="row bs-wizard" style="border-bottom:0;">
+        <div class="col-xs-3 bs-wizard-step" ng-class="step1Flag">
+          <div class="text-center bs-wizard-stepnum">Step 1</div>
+          <div class="progress" style="height:2px;"><div class="progress-bar"></div></div>
+          <a href="" class="bs-wizard-dot" style="width: 50px; height: 50px; background: #fff; margin-top: -24px; margin-left: -24px; font-size: 60px"><i class="fa fa-user"></i></a>
+          <div class="bs-wizard-info text-center" style="color: #fff;">输入帐号</div>
+        </div>
+
+        <div class="col-xs-3 bs-wizard-step" ng-class="step2Flag">
+          <div class="text-center bs-wizard-stepnum">Step 2</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <a href="" class="bs-wizard-dot"></a>
+
+          <div class="bs-wizard-info text-center">验证身份</div>
+        </div>
+
+        <div class="col-xs-3 bs-wizard-step" ng-class="step3Flag">
+          <div class="text-center bs-wizard-stepnum">Step 3</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <a href="" class="bs-wizard-dot"></a>
+          <div class="bs-wizard-info text-center">修改密码</div>
+        </div>
+
+        <div class="col-xs-3 bs-wizard-step" ng-class="step4Flag">
+          <div class="text-center bs-wizard-stepnum">Step 4</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <a href="" class="bs-wizard-dot"></a>
+          <div class="bs-wizard-info text-center">完成</div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+ -->
     <div ng-show="areaFlag == 1">
       <form class="form-horizontal" role="form" name="getPwdUserForm">
         <div class="form-group">
@@ -201,3 +264,5 @@
       }
   }
 </script>
+
+
