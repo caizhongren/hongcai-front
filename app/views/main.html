@@ -249,7 +249,7 @@
             <div class="panel-body">
               <div class="row mediaList" ng-repeat="item in mediaList">
                 <div class="col-xs-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
-                <div class="col-xs-3 text-right"><small>{{item.createTime * 1000 | date:'MM-dd'}}</small></div>
+                <div class="col-xs-3 text-right">{{item.createTime * 1000 | date:'MM-dd'}}</div>
               </div>
               <!-- <p><span class="pull-left"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></span><span class="pull-right"><small>{{item.createTime * 1000 | date:'MM-dd'}}</small></span></p> -->
             </div>
