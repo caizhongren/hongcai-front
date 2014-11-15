@@ -6178,12 +6178,20 @@ button.close {
     width: 980px;
   }
 }
+.panel-heading {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
 html,
 body {
   color: #777777;
+  cursor: default;
   /*padding-bottom: 0px;*/
   /*font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "冬青黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;*/
   font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
+a {
+  color: #807979;
 }
 .container-fluid {
   padding-left: 0;
@@ -6196,6 +6204,7 @@ body {
 #mini-bar {
   height: 25px;
   min-height: 25px;
+  margin-bottom: 0;
 }
 #mini-bar .navbar-text {
   margin-top: 2px;
@@ -6208,9 +6217,14 @@ body {
   padding-top: 2px;
   display: inline-block;
 }
+#mini-bar .logout {
+  margin-left: 10px;
+}
+#mini-bar .help {
+  padding-left: 0;
+}
 #major-bar {
   background-color: #fff;
-  height: 100px;
   margin-bottom: 0px;
 }
 #major-bar ul > li > a {
@@ -6232,6 +6246,14 @@ body {
   width: 90px;
   height: 90px;
   background: url(../../../images/sprite.png) -280px -90px;
+}
+.special-recommend .panel-body {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.statics .panel-body {
+  padding-top: 27.5px;
+  padding-bottom: 27.5px;
 }
 .projects-filter {
   padding-left: 0px;
@@ -6274,6 +6296,14 @@ body {
 #project-list .list-group-item .col-lg-3 .row > .col-xs-12 {
   margin-top: 3px;
   margin-bottom: 3px;
+}
+#project-list .list-group-item .list-btn-default {
+  background-color: #bfb2b2;
+  border: 1px solid #d8d8d8;
+  color: #fff;
+}
+#project-list .list-group-item .list-btn-default:hover {
+  background-color: #b0a8a8;
 }
 .hc-text-red {
   color: #e94828;
@@ -6328,7 +6358,7 @@ body {
   position: fixed;
   z-index: 1000;
   right: 40px;
-  bottom: 40px;
+  bottom: 130px;
 }
 #service .bottom_tools > * {
   /* font:0/0 a;
@@ -6344,42 +6374,43 @@ body {
   top: -189px;
   left: -183px;
   display: none;
+  border: 1px solid #e94828;
 }
-#service #scrollUp {
-  width: 45px;
-  height: 45px;
-  background-image: url(../images/backgrounds.32.png);
-  background-position: -54px -53px;
-  display: none;
-}
-#service #scrollUp:hover {
-  background-image: url(../images/backgrounds.32.png);
-  background-position: -100px -53px;
-}
-#service #feedback {
-  width: 45px;
-  height: 45px;
-  background-image: url(../images/backgrounds.32.png);
-  background-position: -7px -6px;
-  display: block;
-  margin-bottom: 3px;
-}
-#service #feedback:hover {
-  background-image: url(../images/backgrounds.32.png);
-  background-position: -7px -53px;
-}
+#service #weiBo,
+#service #feedback,
+#service #scrollUp,
 #service .qr_tool {
   width: 45px;
   height: 45px;
   background-image: url(../images/backgrounds.32.png);
-  background-position: -148px 0;
-  cursor: pointer;
   margin-bottom: 3px;
 }
+#service #scrollUp {
+  background-position: -54px -53px;
+  display: none;
+}
+#service #scrollUp:hover {
+  background-position: -100px -53px;
+}
+#service #feedback {
+  background-position: -7px -6px;
+  display: block;
+}
+#service #feedback:hover {
+  background-position: -7px -53px;
+}
+#service #weiBo {
+  display: block;
+  background-position: -194px 0;
+}
+#service #weiBo:hover {
+  background-position: -238px -46px;
+}
+#service .qr_tool {
+  background-position: -148px 0;
+  cursor: pointer;
+}
 #service .qr_tool:hover {
-  width: 45px;
-  height: 45px;
-  background-image: url(../images/backgrounds.32.png);
   background-position: -192px -46px;
 }
 #calculater {
@@ -6621,11 +6652,11 @@ body {
     width: 426px;
   }
   .unLogged {
-    top: 3%;
-    padding: 1%;
+    top: 3px;
+    padding: 2px;
   }
   .logged {
-    top: 12%;
+    top: 16px;
     padding: 1%;
   }
 }
@@ -6635,8 +6666,8 @@ body {
     width: 556px;
   }
   .unLogged {
-    top: 6%;
-    padding: 2% 1%;
+    top: 7%;
+    padding: 1% 1%;
   }
   .logged {
     top: 13%;
@@ -6645,7 +6676,7 @@ body {
 }
 @media (min-width: 1300px) {
   .unLogged {
-    top: 8%;
+    top: 5%;
     padding: 3% 1%;
   }
   .logged {
@@ -6655,7 +6686,7 @@ body {
 }
 @media (min-width: 1400px) {
   .unLogged {
-    top: 9%;
+    top: 7%;
     padding: 3% 1%;
   }
   .logged {
@@ -6685,7 +6716,7 @@ body {
   position: absolute;
   right: 18%;
   width: 18%;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
   color: #fff;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
@@ -6765,7 +6796,7 @@ body {
   margin-top: 30px;
 }
 .result .slide .table-responsive th {
-  padding-left: 16px;
+  text-align: center;
 }
 .result .rotate {
   margin-top: 120px;

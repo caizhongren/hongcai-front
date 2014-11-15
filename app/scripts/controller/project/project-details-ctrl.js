@@ -5,10 +5,15 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
     var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
         $scope.project = projectDetails.data.project;
         $scope.projectInfo = projectDetails.data.projectInfo;
-        $scope.pledges = projectDetails.data.pledges;
+        // $scope.pledges = projectDetails.data.pledges;
         $scope.isAvailable = projectDetails.data.isAvailable;
         $scope.enterprise = projectDetails.data.enterprise;
         $scope.orderList = projectDetails.data.orderList;
+        $scope.enterpriseFile = projectDetails.data.enterpriseFile;
+        $scope.imageList = projectDetails.data.imageList;
+        $scope.billCount = projectDetails.data.billCount;
+        $scope.remainInterest = projectDetails.data.remainInterest;
+        $scope.remainPrincipal = projectDetails.data.remainPrincipal;
         
 
         // var project = projectDetails.data.project;
@@ -26,7 +31,16 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         // $scope.financingPurpose = projectInfo.financingPurpose;
         // $scope.repaymentSource = projectInfo.repaymentSource;
 
+        console.log(projectDetails.data)
+        
         $scope.isAvailableInvest = function(project){//验证用户权限
+            if (project.amount <= $scope.project.minInvest){
+                alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
+                return;
+            } else if (project.amount%$scope.project.increaseAmount){
+                alert('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
+                return;
+            }
             ProjectService.isAvailableInvest.get({amount: project.amount,projectId:project.id }, function(response) {
                 if(response.ret == 1) {
                     if (response.data.flag) {
@@ -58,19 +72,19 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
 
     $scope.tabs = [{
             title: '项目信息',
-            url: 'one.tpl.html'
+            // url: 'one.tpl.html'
         }, {
             title: '企业信息',
-            url: 'two.tpl.html'
+            // url: 'two.tpl.html'
         }, {
             title: '风控信息',
-            url: 'three.tpl.html'
+            // url: 'three.tpl.html'
         }, {
             title: '相关文件',
-            url: 'four.tpl.html'
+            // url: 'four.tpl.html'
         }, {
             title: '项目里程',
-            url: 'five.tpl.html'
+            // url: 'five.tpl.html'
         }
     ];
 
@@ -79,15 +93,15 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
       // $scope.currentTab = tab.url;
     }
 
-    $scope.currentTab = 'one.tpl.html';
+    // $scope.currentTab = 'one.tpl.html';
 
-    $scope.onClickTab = function (tab) {
-        $scope.currentTab = tab.url;
-    }
+    // $scope.onClickTab = function (tab) {
+    //     $scope.currentTab = tab.url;
+    // }
 
-    $scope.isActiveTab = function(tabUrl) {
-        return tabUrl == $scope.currentTab;
-    }
+    // $scope.isActiveTab = function(tabUrl) {
+    //     return tabUrl == $scope.currentTab;
+    // }
 
 
 

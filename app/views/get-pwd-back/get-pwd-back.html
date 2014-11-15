@@ -1,165 +1,203 @@
-<div class="bg bg-offWhite get-pwd"  ng-controller = "GetPwdCtrl">
-<div class="get-pwd-area">
-	<div class="get-tips-area">
-		<div class="get-tips-pic"></div>
-		<p class="p-get-pwd-tips {{areaFlag == 1 ? 'bg-get-pwd-tips' : ''}}">输入账号</p>
-		<p class="p-get-pwd-tips {{areaFlag == 2 ? 'bg-get-pwd-tips' : ''}}">验证身份</p>
-		<p class="p-get-pwd-tips {{areaFlag == 3 ? 'bg-get-pwd-tips' : ''}}">修改密码</p>
-		<p class="p-get-pwd-tips last-tips {{areaFlag == 4 ? 'bg-get-pwd-tips' : ''}}">完成</p>
-	</div>
-	<!--输入帐号-->
-	<div class="get-pwd-input-area" ng-show="areaFlag == 1">
-		<form class="real-name" name="getPwdUserForm">
-			<div class="safe-form-group get-pwd-form-group">
-				<label>用户名：</label>
-				<input type="text" 
-						class="verify-input" 
-						id="account" 
-						name="account" 
-						ng-model="getPwd.account"
-						find-account="account" required ng-focus>
-				<div ng-show="getPwdUserForm.account.$dirty && getPwdUserForm.account.$invalid && !getPwdUserForm.account.$focused && getPwdUserForm.account.$error.unique" class="user-tips-area get-pwd-tips-area">
-					<img ng-src="images/check_no.png" class="user-check-img">
-					<p class="input-tips user-input-tips">该账号不存在</p>
-				</div>
-			</div>
-			<div class="safe-form-group get-pwd-form-group">
-				<label>验证码：</label>
-				<input type="text" class="verify-input phone-input-width" 
-					id="captcha" 
-					name="captcha" 
-					ng-model="user.captcha" 
-					ensure-captcha="captcha" 
-					required ng-focus />
-				<img src="{{getPicCaptcha}}" class="pic-verify pwd-verify-pic" id="checkCaptcha" ng-click="refreshCode()">
-				<div class="refresh-pic" ng-click="refreshCode()"></div>
-				<div class="user-tips-area get-pwd-verify-area" ng-show="getPwdUserForm.captcha.$dirty && getPwdUserForm.captcha.$invalid && !getPwdUserForm.captcha.$focused && getPwdUserForm.captcha.$error.check">
-					<img ng-src="images/check_no.png" class="user-check-img">
-					<p class="input-tips user-input-tips">验证码错误</p>
-				</div>
-			</div>
-			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button" ng-disabled="getPwdUserForm.$invalid" ng-click="verifyAccount(getPwd.account)"/>
-		</form>
-	</div>
-	<!--手机验证身份-->
-	<div class="get-pwd-input-area" ng-show="areaFlag == 21" >
-		已发送验证码到{{phoneNum||"133*****569"}}，请在下面输入您收到的验证码
-		<div class="safe-form-group select-form-group">
-					<label>输入验证码：</label>
-					<input type="text" class="verify-input" ng-model="getPwd.mobileCaptcha" required/>
-					<div>
-						<div  class="user-tips-area get-pwd-tips-area get-verify-tips">
-							<img ng-src="images/check_no.png" class="user-check-img">
-							<p class="input-tips user-input-tips">验证码错误</p>
-						</div>
-					</div>
-				</div>
-				<input type="button" value="下一步" class="verify-button get-pwd-button" ng-disabled="phoneForm.$invalid" ng-click="checkMobileCaptcha(getPwd.account, getPwd.mobileCaptcha)"/>
-	</div>
-	<!--邮箱验证身份-->
-	<div class="get-pwd-input-area" ng-show="areaFlag == 22" >
-		邮件已经发送到{{emailAddr||"739*****@qq.com"}}，请到邮箱查看邮件！
-	</div>
-	<!--验证身份-->
-	<div class="get-pwd-input-area" ng-show="areaFlag == 2" >
-		<div class="select-area">
-			<div class="safe-form-group select-form-group">
-				<label>请选择找回方式：</label>
-                <select 
-                    ng-init="CategoryVal = 0"
-                    ng-model="CategoryVal" 
-                    ng-options="CategoryVal.CategoryId as CategoryVal.Name for CategoryVal in Category">
-                    <option value="0">手机找回</option>
-                    <option value="1">邮箱找回</option>
-                </select>
-			</div>
-			<div class="safe-form-group select-form-group" ng-if="isDisplay === true">
-				<label>绑定手机：</label>
-				<span>{{usermessage.mobile}}</span>
-			</div>
-			<div class="safe-form-group select-form-group" ng-if="isDisplay !== true">
-				<label>绑定邮箱：</label>
-				<span>{{usermessage.email}}</span>
-			</div>
-		</div>
-		<div ng-if="isDisplay === true" class="get-phone-area">
-            <form class="real-name" name="getPhoneForm">
-				<div class="safe-form-group select-form-group">
-					<label>重新输入该手机号码：</label>
-					<input type="text" class="verify-input phone-input-width" 
-						id="phone" 
-						name="phone" 
-						ng-model="getPwd.phone"
-						check-phone="phone" required/>
-						<input type="button" class="{{getPhoneForm.mobile.$invalid ? 'get-verify-button verify-index get-verify-index grey' : 'get-verify-button verify-index get-verify-index'}}" value="获取验证码" onclick="countDown(this,60);" ng-click="sendMobileCaptcha();" ng-disabled="getPhoneForm.mobile.$invalid">
-					<div>
-						<div  class="user-tips-area get-pwd-tips-area get-verify-tips">
-							<img ng-src="images/check_no.png" class="user-check-img phone-verify-check-img">
-							<p ng-if="" class="input-tips user-input-tips phone-verify-tips-index">手机号码不匹配</p>
-						</div>
-					</div>
-				</div>
-				<div class="safe-form-group select-form-group">
-					<label>输入验证码：</label>
-					<input type="text" class="verify-input" required/>
-					<div>
-						<div  class="user-tips-area get-pwd-tips-area get-verify-tips">
-							<img ng-src="images/check_no.png" class="user-check-img">
-							<p class="input-tips user-input-tips">yeyeyey</p>
-						</div>
-					</div>
-				</div>
-				<input type="button" value="下一步" class="verify-button get-pwd-button" ng-disabled="phoneForm.$invalid"/>
-			</form>
+<br>
+<br>
+<div class="col-sm-offset-2 col-sm-6">
+<div class="panel panel-info" ng-controller="GetPwdCtrl" >
+  <div class="panel-heading">
+    <ul class="nav nav-pills" role="tablist">
+      <li role="presentation" class="{{areaFlag == 1 ? 'active' : ''}}"><a href="">输入账号</a></li>
+      <li role="presentation" class="{{(String(areaFlag).charAt(0) == 2) ? 'active' : ''"><a href="">验证身份</a></li>
+      <li role="presentation" class="{{areaFlag == 3 ? 'active' : ''}}"><a href="">修改密码</a></li>
+      <li role="presentation" class="{{areaFlag == 4 ? 'active' : ''}}"><a href="">完成</a></li>
+    </ul>
+  </div>
+  <div class="panel-body">
+    <!-- STEP1 用户信息 -->
+    <div ng-show="areaFlag == 1">
+      <form class="form-horizontal" role="form" name="getPwdUserForm">
+        <div class="form-group">
+          <label for="account" class="col-sm-3 control-label">用户名:</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" name="account" ng-model="getPwd.account" find-account="account" required ng-focnus id="account" placeholder="用户名/邮箱/手机号码">
+            <div ng-show="getPwdUserForm.account.$dirty && getPwdUserForm.account.$invalid && !getPwdUserForm.account.$focused && getPwdUserForm.account.$error.unique" class="user-tips-area get-pwd-tips-area">
+              <img ng-src="images/check_no.png" class="user-check-img">
+              <p class="input-tips user-input-tips">该账号不存在</p>
+            </div>
+          </div>
         </div>
-       	<div ng-if="isDisplay !== true" class="get-phone-area">
-            <form class="real-name" name="emailForm">
-				<div class="safe-form-group select-form-group">
-					<label>重新输入该邮箱：</label>
-					<input type="text" class="verify-input"
-						id="email" 
-						name="email" 
-						ng-model="getPwd.email"
-						check-phone="email" required/>
-					<div>
-						<div class="user-tips-area get-pwd-tips-area get-verify-tips">
-							<img ng-src="images/check_no.png" class="user-check-img">
-							<p class="input-tips user-input-tips">yeyeyey</p>
-						</div>
-					</div>
-				</div>
-				<input type="button" value="下一步" class="verify-button mail-button get-pwd-button" ng-disabled="emailForm.$invalid"/>
-			</form>
+
+        <div class="form-group">
+          <label for="captcha" class="col-sm-3 control-label">验证码:</label>
+          <div class="col-sm-2 ">
+            <input type="text" class="form-control" name="captcha" ng-model="user.captcha" ensure-captcha="captcha" id="captcha" placeholder="请输入验证码" required ng-focus />
+            <div ng-show="getPwdUserForm.captcha.$dirty && getPwdUserForm.captcha.$invalid && !getPwdUserForm.captcha.$focused && getPwdUserForm.captcha.$error.check">
+              <img ng-src="images/check_no.png" class="user-check-img">
+              <p class="input-tips user-input-tips">验证码错误</p>
+            </div>
+          </div>
+          <img src="{{getPicCaptcha}}" class="" id="checkCaptcha" ng-click="refreshCode()">
+          <a href="" ng-click="refreshCode()">看不清?换图片</a>
+
         </div>
-	</div>
-	<!--修改密码-->
-	<div class="get-pwd-input-area" ng-show="areaFlag == 3">
-		<form class="real-name" name="newPwdForm">
-			<div class="safe-form-group">
-				<label>输入新密码：</label>
-				<input type="password" class="verify-input" id="password" name="password" ng-model="user.password" required/>
-				<!--<div>
-					<div class="user-tips-area get-pwd-tips-area">
-						<img ng-src="images/check_no.png" class="user-check-img">
-						<p class="input-tips user-input-tips">yeyeyey</p>
-					</div>
-				</div>-->
-			</div>
-			<div class="safe-form-group">
-				<label>确认新密码：</label>
-				<input type="password" class="verify-input" name="repeatPassword" id="repeatPassword" ng-model="user.repeatPassword" password-match="password" required/>
-				<div class="user-tips-area get-pwd-tips-area" ng-show="newPwdForm.$error && newPwdForm.repeatPassword.$error.passwordmatch && !newPwdForm.password.$focused">
-					<img ng-src="images/check_no.png" class="user-check-img">
-					<p class="input-tips user-input-tips">密码输入不一致</p>
-				</div>
-			</div>
-			<input type="button" value="下一步" class="verify-button mail-button get-pwd-button" ng-disabled="newPwdForm.$invalid" ng-click="setPhoneNewPwd(user.password)"/>
-		</form>
-	</div>
-	<!--完成-->
-	<div class="get-pwd-input-area"  ng-show="areaFlag == 4">
-		<p class="get-pwd-success">密码找回成功！</p>
-		<p class="get-pwd-success-tips"><span>{{seconds}}</span>秒后进入<span>登录页</span>，请使用新密码进行登录</p>
-	</div>
+        <div class="form-group">
+          <div class="col-sm-offset-3">
+            <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="getPwdUserForm.$invalid" ng-click="verifyAccount(getPwd.account)">下一步</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- STEP2-1 通过手机号进行手机验证 -->
+    <div ng-show="areaFlag == 21">
+      <div class="col-sm-offset-3">
+        <h5>已发送验证码到{{phoneNum||"133*****569"}}，请在下面输入您收到的验证码!</h5>
+      </div>
+      <form class="form-horizontal" role="form" name="step21From">
+        <div class="form-group">
+          <label for="step2-mobile" class="col-sm-3 control-label">输入验证码:</label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" name="step2-mobile" ng-model="getPwd.mobileCaptcha" required ng-focnus id="step2-mobile" placeholder="">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3">
+            <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="step21From.$invalid" ng-click="checkMobileCaptcha(getPwd, getPwd.mobileCaptcha)">下一步</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- STEP2-2 通过邮件找回 -->
+    <div ng-show="areaFlag == 22">
+      <div class="col-sm-offset-3">
+       <h5>邮件已经发送到{{emailAddr||"739*****@qq.com"}}，请到邮箱查看邮件！</h5>
+      </div>
+    </div>
+
+    <!--STEP2 通过用户名判断手机和邮箱 验证身份-->
+    <div ng-show="areaFlag == 2" >
+      <div class="col-sm-9">
+          <label class="col-sm-4" for="categoryVal">请选择找回方式：</label>
+        <div class="col-sm-4">
+          <select class="form-control "
+              id="categoryVal"
+              ng-init="CategoryVal = 0"
+              ng-model="CategoryVal"
+              ng-options="CategoryVal.CategoryId as CategoryVal.Name for CategoryVal in Category">
+              <option value="0">手机找回</option>
+              <option value="1">邮箱找回</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-sm-9" ng-if="isDisplay === true">
+        <label class="col-sm-4">绑定手机：</label>
+        <span class="col-sm-4"><h5>{{usermessage.mobile}}</h5></span>
+      </div>
+
+      <div class="col-sm-9" ng-if="isDisplay !== true">
+          <label class="col-sm-4">绑定邮箱：</label>
+          <span class="col-sm-4"><h5>{{usermessage.email}}</h5></span>
+      </div>
+
+      <div ng-if="isDisplay === true" class="col-sm-9">
+        <form class="form-horizontal" role="form" name="Step2GetPhone">
+          <div class="form-group">
+            <label for="phone" class="col-sm-4 control-label">重新输入该手机号码:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" name="phone" ng-model="getPwd.phone" required ng-focnus id="phone" placeholder="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phoneCaptcha" class="col-sm-4 control-label">输入验证码:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="phoneCaptcha" ng-model="getPwd.phoneCaptcha" required/>
+            </div>
+            <input type="button", class="btn btn-info" value="获取验证码" ng-click="sendMobileCaptcha(getPwd.account, getPwd.phone);" onclick="countDown(this,60);" ng-disabled="Step2GetPhone.phone.$invalid">
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-3">
+              <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="Step2GetPhone.$invalid" ng-click="checkMobileCaptcha(getPwd, getPwd.phoneCaptcha)">下一步</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div ng-if="isDisplay !== true" class="col-sm-9">
+        <form class="form-horizontal" role="form" name="Step2GetEmail">
+          <div class="form-group">
+            <label for="email" class="col-sm-4 control-label">重新输入该邮箱:</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="email" name="email" id="email" ng-model="getPwd.email" required placeholder="" />
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-3">
+              <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="Step2GetEmail.$invalid" ng-click="infoVerifyEmail(getPwd.account, getPwd.email)">下一步</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- STEP3 -->
+    <div ng-show="areaFlag == 3">
+      <form class="form-horizontal" role="form" name="Step3SetPhonePwd">
+        <div class="form-group">
+          <label for="password" class="col-sm-3 control-label">输入新密码:</label>
+          <div class="col-sm-5">
+            <input type="password" class="form-control" name="password" id="password" ng-model="user.password" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="repeatPassword" class="col-sm-3 control-label">确定新密码:</label>
+          <div class="col-sm-5">
+            <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" ng-model="user.repeatPassword" password-match="password" required />
+          </div>
+          <div ng-show="Step3SetPhonePwd.password.$dirty && Step3SetPhonePwd.password.$invalid && !Step3SetPhonePwd.password.$focused && Step3SetPhonePwd.password.$error.unique" class="user-tips-area get-pwd-tips-area">
+            <img ng-src="images/check_no.png" class="user-check-img">
+            <p class="input-tips user-input-tips">密码输入不一致</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3">
+            <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="Step3SetPhonePwd.$invalid" ng-click="setPhoneNewPwd(getPwd.account, getPwd.mobileCaptcha, user)">下一步</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- STEP4 完成跳转-->
+    <div ng-show="areaFlag == 4">
+      <h5>密码找回成功</h5>
+      <h5><timer interval="1000" countdown="startCountDownNo">{{ countdown }}</timer></span>秒后进入<span><a ui-sref="root.login">登录</a>页，请使用新密码进行登录</h5>
+    </div>
+  </div>
 </div>
 </div>
+
+<script>
+  function countDown(obj, second){
+      // 如果秒数还是大于0，则表示倒计时还没结束
+      if(second >= 0){
+            // 获取默认按钮上的文字
+            if(typeof buttonDefaultValue === 'undefined' ){
+              buttonDefaultValue =  obj.defaultValue;
+          }
+          // 按钮置为不可点击状态
+          obj.disabled = true;
+          // 按钮里的内容呈现倒计时状态
+          //obj.value = buttonDefaultValue + '(' + second + ')';
+          obj.value = second + "s 后重新发送";
+          obj.className = 'white-button grey';
+          // 时间减一
+          second--;
+          // 一秒后重复执行
+          setTimeout(function(){countDown(obj,second);},1000);
+      // 否则，按钮重置为初始状态
+      }else{
+          // 按钮置未可点击状态
+          obj.disabled = false;
+          // 按钮里的内容恢复初始状态
+          obj.className = 'white-button';
+          obj.value = buttonDefaultValue;
+      }
+  }
+</script>

@@ -9,7 +9,7 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         var scrollTop = $(window).scrollTop();
         var $windowHeight = $(window).innerHeight();
         scrollTop > 50 ? $("#scrollUp").fadeIn(200).css("display","block") : $("#scrollUp").fadeOut(200);           
-        $bottomTools.css("bottom", scrollHeight - scrollTop > $windowHeight ? 40 : $windowHeight + scrollTop + 40 - scrollHeight);
+        $bottomTools.css("bottom", scrollHeight - scrollTop > $windowHeight ? 130 : $windowHeight + scrollTop + 130 - scrollHeight);
     });
     
     $('#scrollUp').click(function (e) {
@@ -32,21 +32,22 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         'displayrate' : 'XX%',
         'selectedIcon' : '',
         'icons' : [
-            {value: '3期', label: '<i class="fa"></i>3期'},
-            {value: '6期', label: '<i class="fa"></i>6期'},
-            {value: '12期', label: '<i class="fa"></i>12期'}
+            {value: '3个月', label: '<i class="fa"></i>3个月'},
+            {value: '6个月', label: '<i class="fa"></i>6个月'},
+            {value: '12个月', label: '<i class="fa"></i>12个月'}
         ],
         'interest' : '',
         'payback' : ''
     };
-    
-    $scope.arrow = '<<'
 
-   	$scope.calculate = function (){
+    $scope.isResultShow = false;
+    $scope.arrow = $scope.isResultShow ? '>>' : '<<';
+
+   	$scope.calculate = function() {
    		// popover.saved=true;
-        $scope.targetSelectedIcon = $scope.params.selectedIcon.replace(/期/g,'');
+        $scope.targetSelectedIcon = $scope.params.selectedIcon.replace(/个月/g,'');
         if($scope.params.displayValue &&  $scope.params.rate && $scope.params.selectedIcon){
-            $scope.params.interest = $scope.params.inputValue * $scope.params.rate/100 * $scope.targetSelectedIcon;
+            $scope.params.interest = $scope.params.inputValue * $scope.params.rate/1200 * $scope.targetSelectedIcon;
             $scope.params.payback = $scope.params.inputValue + $scope.params.interest;
             $scope.isResultShow = $scope.isResultShow ? false : true;
             $scope.arrow = '>>';
@@ -57,16 +58,16 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
 
    	}
 
-    $scope.capitalValueChange = function () {
+    $scope.capitalValueChange = function() {
         $scope.params.displayValue = $scope.params.inputValue === '' || $scope.params.inputValue < 100 || $scope.params.inputValue > 1000000 ? "100-100万" : $scope.params.inputValue;
     };
 
-    $scope.rateValueChange = function () {
+    $scope.rateValueChange = function() {
         $scope.params.displayrate = $scope.params.rate === '' || $scope.params.rate === null || $scope.params.rate == undefined ? "XX%" : $scope.params.rate + '%';
     };
 
 
-    $scope.switchResult = function () {
+    $scope.switchResult = function() {
         $scope.isResultShow = $scope.isResultShow ? false : true;
         $scope.arrow = $scope.isResultShow ? '>>' : '<<';
         if($scope.isResultShow){
@@ -76,6 +77,20 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         }
 
     };
+
+    $scope.changeArrow = function() {
+        if($scope.isResultShow == true){
+            $scope.isResultShow = false;
+            $scope.arrow = '<<';
+            $scope.params.interest = '';
+            $scope.params.payback = '';
+            $scope.params.displayValue = '100-100万';
+            $scope.params.displayrate = 'XX%'
+            $scope.params.inputValue = '';
+            $scope.params.rate = '';
+            $scope.params.selectedIcon = '';
+        }
+    }
 
 
 }]);
