@@ -15,8 +15,16 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.remainInterest = projectDetails.data.remainInterest;
         $scope.remainPrincipal = projectDetails.data.remainPrincipal;
 
-        $scope.project.status = 6;
-        $scope.project.releaseStartTime = projectDetails.data.project.releaseStartTime;
+
+        $scope.dateArray = $scope.project.releaseStartTime.split('-');
+        
+        $scope.day = $scope.dateArray[2].split(' ')[0];
+        $scope.timeArray = $scope.dateArray[2].split(' ')[1].split(':');
+        $scope.statDate = new Date($scope.dateArray[0], $scope.dateArray[1]-1, $scope.day, $scope.timeArray[0],$scope.timeArray[1],$scope.timeArray[2]);
+        // $scope.statDate = new Date('2014', '12', '12', '16','30','00');
+        $scope.countdownNum = ($scope.statDate.getTime() - (new Date()).getTime())/1000;
+
+
 
         // var project = projectDetails.data.project;
         // var projectInfo = projectDetails.data.projectInfo;
@@ -67,9 +75,7 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
     });
     $rootScope.selectPage = $location.path().split('/')[1];
 
-    $scope.statDate = new Date('2014', '10', '12', '16','30','00');
-    $scope.countdownNum = ($scope.statDate.getTime() - (new Date()).getTime())/1000;
-
+    
     $scope.tabs = [{
             title: '项目信息',
             // url: 'one.tpl.html'
