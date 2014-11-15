@@ -14,6 +14,9 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.billCount = projectDetails.data.billCount;
         $scope.remainInterest = projectDetails.data.remainInterest;
         $scope.remainPrincipal = projectDetails.data.remainPrincipal;
+
+        $scope.project.status = 6;
+        $scope.project.releaseStartTime = projectDetails.data.project.releaseStartTime;
         
 
         // var project = projectDetails.data.project;
@@ -31,7 +34,7 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         // $scope.financingPurpose = projectInfo.financingPurpose;
         // $scope.repaymentSource = projectInfo.repaymentSource;
 
-        console.log(projectDetails.data)
+        console.log(projectDetails.data,$scope.project.releaseStartTime)
         
         $scope.isAvailableInvest = function(project){//验证用户权限
             if (project.amount <= $scope.project.minInvest){
