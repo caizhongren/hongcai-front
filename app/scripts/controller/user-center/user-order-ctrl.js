@@ -1,18 +1,18 @@
 hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$state", "$stateParams", "UserCenterService", function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService) {
-    
-	$rootScope.selectSide = 'userCenter-investment';
 
-	var dateStart = 0;
-	var dateEnd = 0;
+    $rootScope.selectSide = 'userCenter-investment';
 
-	$scope.fromDateChanged = function () {
-        dateStart = $scope.fromDate;
+    var dateStart = 0;
+    var dateEnd = 0;
 
+    $scope.fromDateChanged = function () {
+      dateStart = $scope.fromDate;
+      $location.path($rootScope.selectSide+'/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd);
     };
 
-    $scope.untilDateChanged = function (status,dateInterval) {
-        $location.path('userCenter-investment/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd)
-
+    $scope.untilDealDateChanged = function (status,dateInterval) {
+      dateEnd = $scope.endDate;
+      $location.path($rootScope.selectSide+'/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd)
     };
 
     var getOrderByUser = UserCenterService.getOrderByUser.get({ dateInterval: $stateParams.dateInterval,
@@ -27,7 +27,16 @@ hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$s
         $scope.dateStart = getOrderByUser.data.dateStart;
         $scope.dateEnd = getOrderByUser.data.dateEnd;
 
+        $scope.currentPage = 0;
+        $scope.pageSize = 6;
+        $scope.data = [];
 
+        $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+        }
+        for (var i = 0; i < $scope.orderList.length; i++) {
+            $scope.data.push($scope.orderList[i]);
+        }
     });
 }]);
 

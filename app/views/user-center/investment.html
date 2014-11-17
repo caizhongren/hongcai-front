@@ -1,5 +1,5 @@
 <!-- 投资产品 -->
-<div ng-controller="UserOrderCtrl"  class="right-area right-assets-height investment col-md-8 col-lg-8 no-padding" >
+<div ng-controller="UserOrderCtrl"  class="right-area right-assets-height investment col-md-8 col-lg-9 no-padding" >
 	<div class="right-title">投资产品</div>
 	<div class="padd"><span>当前账户总计投资产品： <strong>{{orderCount.all}}</strong>个。</span><span>其中还款中： <strong>{{orderCount.returning}}</strong>个，</span><span>投资中：<strong>{{orderCount.paying}}</strong>个。</span><span>已结清：<strong>{{orderCount.returned}}</strong>个。</span></div>
 	<div class="padd"><span>投资总额： <strong>{{amount.amount}}</strong>元，</span><span>累计收益：<strong>{{amount.profit}}</strong>元。</span></div>
@@ -93,15 +93,20 @@
 			    			<span class="col-md-2 border-r">预计收益</span>
 			    			<span class="col-md-2">已得收益</span>
 			    		</div>
-			    		<div class="row record-item"  ng-repeat="order in orderList">
-			    			<span class="col-md-2">{{order.projectName}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{order.valueDate}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{order.settlementDate}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-1">{{order.orderAmount}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{order.profit}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{order.returnProfit}}<!-- 数据绑定 --></span>
+			    		<div class="row record-item"  ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+			    			<span class="col-md-2">{{item.projectName}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-2">{{item.valueDate}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-2">{{item.settlementDate}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-1">{{item.orderAmount}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-2">{{item.profit}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-2">{{item.returnProfit}}<!-- 数据绑定 --></span>
 			    		</div>
 			    	</div>
+			    	<ul class="pager">
+				      <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+				      {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
+				      <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+				    </ul>
 			    </div>
 			</div>
 		</div>
