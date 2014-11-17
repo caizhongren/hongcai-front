@@ -47,8 +47,8 @@
 			</div>
 			<div class="col-md-12" ng-switch-when="true">
 				<div class=""></div>
-				<ul class="nav nav-pills">
-					<li class="active"></li>同意《投资协议》以及《隐私条款》
+		s		<ul class="nav nav-pills">
+					<li class="invest-check"><input type="checkbox" checked="false"></li>同意《投资协议》以及《隐私条款》
 				</ul>
 			</div>
 		</div>
@@ -68,8 +68,8 @@
 						您将要支付<span class="ftw-b ft-red">{{investAmount | number:2}}</span>元，核实信息无误后请确认
 
 					</div>
-					<input type="button" value="确认" class="verify-button" ng-click="transfer(orderId)"/>
-					<input type="button" value="取消" class="verify-button get-verify-button" ng-click="transfer(orderId)"/>
+					<input type="button" value="确认" class="red-button col-lg-1 col-md-2" ng-click="transfer(orderId)"/>
+					<input type="button" value="取消" class="white-button col-lg-1 col-md-2" ng-click="transfer(orderId)"/>
 				</form>
 			</div>
 		</div>
