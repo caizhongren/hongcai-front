@@ -93,15 +93,20 @@
 			    			<span class="col-md-2 border-r">预计收益</span>
 			    			<span class="col-md-2">已得收益</span>
 			    		</div>
-			    		<div class="row record-item"  ng-repeat="order in orderList">
-			    			<span class="col-md-2">{{order.projectName}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{order.valueDate}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{order.settlementDate}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-1">{{order.orderAmount}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{order.profit}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{order.returnProfit}}<!-- 数据绑定 --></span>
+			    		<div class="row record-item"  ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+			    			<span class="col-md-2">{{item.projectName}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-2">{{item.valueDate}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-2">{{item.settlementDate}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-1">{{item.orderAmount}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-2">{{item.profit}}<!-- 数据绑定 --></span>
+			    			<span class="col-md-2">{{item.returnProfit}}<!-- 数据绑定 --></span>
 			    		</div>
 			    	</div>
+			    	<ul class="pager">
+				      <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+				      {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
+				      <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+				    </ul>
 			    </div>
 			</div>
 		</div>

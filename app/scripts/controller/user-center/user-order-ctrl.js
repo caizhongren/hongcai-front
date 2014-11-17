@@ -11,8 +11,7 @@ hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$s
     };
 
     $scope.untilDateChanged = function (status,dateInterval) {
-        $location.path('userCenter-investment/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd)
-
+        $location.path('userCenter-investment/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd);
     };
 
     var getOrderByUser = UserCenterService.getOrderByUser.get({ dateInterval: $stateParams.dateInterval,
@@ -27,7 +26,16 @@ hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$s
         $scope.dateStart = getOrderByUser.data.dateStart;
         $scope.dateEnd = getOrderByUser.data.dateEnd;
 
+        $scope.currentPage = 0;
+        $scope.pageSize = 6;
+        $scope.data = [];
 
+        $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+        }
+        for (var i = 0; i < $scope.orderList.length; i++) {
+            $scope.data.push($scope.orderList[i]);
+        }
     });
 }]);
 

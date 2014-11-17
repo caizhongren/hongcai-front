@@ -9,8 +9,7 @@ hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$rootScope"
     												  maxTotalAmount: $stateParams.maxTotalAmount,
     												  sortCondition: $stateParams.sortCondition,
     												  sortType: $scope.sortType}, function() {
-        $scope.data = [];
-        $scope.projectList = [];
+        $scope.projectList = response.data.projectList;
         $scope.status = $stateParams.status;
         $scope.minCycle = $stateParams.minCycle;
         $scope.maxCycle = $stateParams.maxCycle;
@@ -21,21 +20,15 @@ hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$rootScope"
         $scope.sortCondition = $stateParams.sortCondition;
         $scope.orderProp = 'id';
         $scope.currentPage = 0;
-        $scope.pageSize = 1;
+        $scope.pageSize = 6;
         $scope.data = [];
-         if (response.ret == 1){
-        	$scope.projectList = response.data.projectList;
-            if(response.data){
-                $scope.pageSize = response.data.projectList.length;
-            }
 
-            $scope.numberOfPages = function() {
-                return Math.ceil($scope.data.length / $scope.pageSize);
-            }
-            for (var i = 0; i < $scope.projectList.length; i++) {
-                $scope.data.push($scope.projectList[i]);
-            }
-        } 
+        $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+        }
+        for (var i = 0; i < $scope.projectList.length; i++) {
+            $scope.data.push($scope.projectList[i]);
+        }
 
 	    $scope.sortType = false;
 	    $scope.toggleSort = function() {

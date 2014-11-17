@@ -73,17 +73,22 @@
           <span class="col-xs-2 border-r border-l">账户现金</span>
           <span class="col-xs-1 ">备注</span>
         </div>
-        <div class="row record-item" ng-repeat="deal in dealList">
-          <span class="col-xs-2">{{deal.createTime}}</span>
-          <span class="col-xs-2">{{deal.type}}</span>
-          <span class="col-xs-2">{{deal.description}}</span>
-          <span class="col-xs-2">{{deal.getAmount}}</span>
-          <span class="col-xs-1">{{deal.payAmount}}</span>
-          <span class="col-xs-2">{{deal.balance}}</span>
-          <span class="col-xs-1 ">{{deal.description}}</span>
+        <div class="row record-item" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+          <span class="col-xs-2">{{item.createTime}}</span>
+          <span class="col-xs-2">{{item.type}}</span>
+          <span class="col-xs-2">{{item.description}}</span>
+          <span class="col-xs-2">{{item.getAmount}}</span>
+          <span class="col-xs-1">{{item.payAmount}}</span>
+          <span class="col-xs-2">{{item.balance}}</span>
+          <span class="col-xs-1 ">{{item.description}}</span>
         </div>
       </div>
     </div>
+    <ul class="pager">
+      <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+      {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
+      <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+    </ul>
 
 
 
