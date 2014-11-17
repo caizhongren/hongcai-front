@@ -10,25 +10,32 @@ hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$state
 
     };
 
-  $scope.untilDealDateChanged = function (status,dateInterval) {
-    dateEnd = $scope.endDate;
-    $location.path('record/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd)
+    $scope.untilDealDateChanged = function (status,dateInterval) {
+        dateEnd = $scope.endDate;
+        $location.path('record/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd);
+    };
 
-  };
+    var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval, type: $stateParams.type},function(response) {
 
-  var response = UserCenterService.getDealByUser.get( { dateInterval: $stateParams.dateInterval,
-                                                        type: $stateParams.type},function() {
+        $scope.dealList = getDealByUser.data.dealList;
+        $scope.dateStart = getOrderByUser.data.dateStart;
+        $scope.dateEnd = getOrderByUser.data.dateEnd;
+        $scope.type = getDealByUser.data.type;
+        $scope.dateInterval = getDealByUser.data.dateInterval;
+        $scope.userId = getDealByUser.data.userId;
+        $scope.capital = getDealByUser.data.capital;
+        $scope.currentPage = 0;
+        $scope.pageSize = 10;
+        $scope.data = [];
 
-    $scope.type = $stateParams.type;
-    $scope.dateInterval = $stateParams.dateInterval;
+        $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+        }
+        for (var i = 0; i < $scope.dealList.length; i++) {
+            $scope.data.push($scope.dealList[i]);
+        }
 
-    if(response.ret == 1) {
-      $scope.dealList = response.data.dealList;
-      $scope.dateStart = response.data.startTime;
-      $scope.dateEnd = response.data.endTime;
-      $scope.userId = response.data.userId;
-      $scope.capital = response.data.capital;
-    }
-  });
+    });
+
 }]);
 
