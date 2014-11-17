@@ -691,7 +691,7 @@ input:focus{
   color: #cecdcd;
   float: right;
   margin-top: 30px;
-  margin-right: 48px;
+  margin-right: 70px;
 }
 .view-more:hover {
   color: inherit;
@@ -720,7 +720,7 @@ input:focus{
   color: #888181;
 }
 .investment-more {
-  margin: 20px 75px 0 0;
+  margin: 20px 100px 0 0;
 }
 .userCenter label {
   font-weight: normal;
