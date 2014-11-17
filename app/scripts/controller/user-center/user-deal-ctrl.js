@@ -1,29 +1,33 @@
 hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$stateParams", "UserCenterService", function ($scope,$rootScope, $state, $stateParams, UserCenterService) {
-    
-    var dateStart = 0;
-	var dateEnd = 0;
 
-	$scope.fromDealDateChanged = function () {
-        dateStart = $scope.fromDate;
+  var dateStart = 0;
+  var dateEnd = 0;
 
-    };
-
-    $scope.untilDealDateChanged = function (status,dateInterval) {
-        $location.path('userCenter-investment/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd)
+  $scope.fromDealDateChanged = function () {
+    dateStart = $scope.fromDate;
+    $location.path('userCenter-investment/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd);
 
     };
 
-    var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval,
-    															type: $stateParams.type},
-    															function(response) {
-        $scope.dealList = getDealByUser.data.dealList;
-        $scope.dateStart = getOrderByUser.data.dateStart;
-        $scope.dateEnd = getOrderByUser.data.dateEnd;
-        $scope.type = getDealByUser.data.type;
-        $scope.dateInterval = getDealByUser.data.dateInterval;
-        $scope.userId = getDealByUser.data.userId;
-        $scope.capital = getDealByUser.data.capital;
+  $scope.untilDealDateChanged = function (status,dateInterval) {
+    dateEnd = $scope.endDate;
+    $location.path('userCenter-investment/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd)
 
-    });
+  };
+
+  var response = UserCenterService.getDealByUser.get( { dateInterval: $stateParams.dateInterval,
+                                                        type: $stateParams.type},function() {
+
+    $scope.type = $stateParams.type;
+    $scope.dateInterval = $stateParams.dateInterval;
+
+    if(response.ret == 1) {
+      $scope.dealList = response.data.dealList;
+      $scope.dateStart = response.data.startTime;
+      $scope.dateEnd = response.data.endTime;
+      $scope.userId = response.data.userId;
+      $scope.capital = response.data.capital;
+    }
+  });
 }]);
 
