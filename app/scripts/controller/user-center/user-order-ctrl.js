@@ -1,17 +1,18 @@
 hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$state", "$stateParams", "UserCenterService", function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService) {
-    
-	$rootScope.selectSide = 'userCenter-investment';
 
-	var dateStart = 0;
-	var dateEnd = 0;
+    $rootScope.selectSide = 'userCenter-investment';
 
-	$scope.fromDateChanged = function () {
-        dateStart = $scope.fromDate;
+    var dateStart = 0;
+    var dateEnd = 0;
 
+    $scope.fromDateChanged = function () {
+      dateStart = $scope.fromDate;
+      $location.path($rootScope.selectSide+'/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd);
     };
 
-    $scope.untilDateChanged = function (status,dateInterval) {
-        $location.path('userCenter-investment/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd);
+    $scope.untilDealDateChanged = function (status,dateInterval) {
+      dateEnd = $scope.endDate;
+      $location.path($rootScope.selectSide+'/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd)
     };
 
     var getOrderByUser = UserCenterService.getOrderByUser.get({ dateInterval: $stateParams.dateInterval,

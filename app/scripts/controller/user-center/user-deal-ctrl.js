@@ -1,15 +1,18 @@
 hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$stateParams", "UserCenterService", function ($scope,$rootScope, $state, $stateParams, UserCenterService) {
-    
-    var dateStart = 0;
-	var dateEnd = 0;
 
-	$scope.fromDealDateChanged = function () {
-        dateStart = $scope.fromDate;
+  $rootScope.selectSide = 'record';
+  var dateStart = 0;
+  var dateEnd = 0;
+
+  $scope.fromDealDateChanged = function () {
+    dateStart = $scope.fromDate;
+    $location.path('record/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd);
 
     };
 
     $scope.untilDealDateChanged = function (status,dateInterval) {
-        $location.path('userCenter-investment/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd);
+        dateEnd = $scope.endDate;
+        $location.path('record/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd);
     };
 
     var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval, type: $stateParams.type},function(response) {
@@ -33,5 +36,6 @@ hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$state
         }
 
     });
+
 }]);
 

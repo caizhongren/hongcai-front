@@ -6449,7 +6449,12 @@ a {
   margin-bottom: 5px;
 }
 #calculater .popover-content .btn-default {
-  text-align: right;
+  text-align: left;
+  padding-left: 6px;
+}
+#calculater .caret {
+  float: right;
+  margin-top: 7px;
 }
 .safe .nav {
   padding-top: 20px;

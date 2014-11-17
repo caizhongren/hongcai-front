@@ -142,11 +142,11 @@
                               <div class="col-xs-12">
                                 <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 合同协议</h4>
                               </div>
-                              <div class="col-xs-6 col-sm-4" ng-repeat="contract in  imageList">
+                              <div class="col-xs-6 col-sm-4 file-padding" ng-repeat="contract in  imageList">
                                 <div class="thumbnail">
                                   <a class="grouped_elements" rel="group1" href="{{contract.uploadFile.url}}"><img fancybox ph-img="170x125" hc-preview-url="images/bank-img.png"></a>
                                   <div class="caption">
-                                    <h5>{{contract.uploadFile.originalName}}</h5>
+                                    <h5 class="file-head">{{contract.uploadFile.originalName}}</h5>
                                   </div>
                                 </div>
                               </div>
@@ -155,11 +155,11 @@
                               <div class="col-xs-12">
                                 <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 企业相关照片</h4>
                               </div>
-                              <div class="col-xs-6 col-sm-4" ng-repeat="enterPrise in  enterpriseFile">
+                              <div class="col-xs-6 col-sm-4 file-padding" ng-repeat="enterPrise in  enterpriseFile">
                                 <div class="thumbnail">
                                    <a class="grouped_elements" rel="group1" href="{{enterPrise.uploadFile.url}}"><img fancybox ph-img="170x125" hc-preview-url="images/bank-img.png"></a>
                                   <div class="caption">
-                                    <h5>{{enterPrise.uploadFile.originalName}}</h5>
+                                    <h5 class="file-head">{{enterPrise.uploadFile.originalName}}</h5>
                                   </div>
                                 </div>
                               </div>

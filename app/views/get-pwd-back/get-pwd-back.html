@@ -3,41 +3,63 @@
 <div class="container get-pwd-back">
   <div class="row">
     <div class="co-xs-12">
-    <div class="panel panel-info" ng-controller="GetPwdCtrl" >
+    <div ng-controller="GetPwdCtrl" >
 <!--       <div class="panel-heading">
          <h3>找回密码</h3> -->
       </div>
       <div class="panel-body panel-get-pwd-back" >
         <ul class="row">
-              <li class="col-xs-3">
-                <span class="get-pwd-back-step-line"></span>
-                <span class="get-pwd-back-step">
-                  <i class="fa fa-user"></i>
-                </span>
-                <p class="get-pwd-back-step-text">输入帐号</p>
-              </li>
-              <li class="col-xs-3">
-                <span class="get-pwd-back-step-line"></span>
-                <span class="get-pwd-back-step">
-                  <i class="fa fa-user"></i>
-                </span>
-                <p class="get-pwd-back-step-text">验证身份</p>
-              </li>
-              <li class="col-xs-3">
-                <span class="get-pwd-back-step-line"></span>
-                <span class="get-pwd-back-step">
-                  <i class="fa fa-user"></i>
-                </span>
-                <p class="get-pwd-back-step-text">修改密码</p>
-              </li>
-              <li class="col-xs-3">
-                  <span class="get-pwd-back-step">
-                    <i class="fa fa-user"></i>
-                  </span>
-                  <p class="get-pwd-back-step-text">完成</p>
-              </li>
-            </ul>
-        </div>
+          <li class="col-xs-2 margin-l">
+            <span class="get-pwd-back-step-line"></span>
+            <span class="get-pwd-back-step">
+              <i class="fa fa-user"></i>
+            </span>
+            <p class="get-pwd-back-step-text">输入帐号</p>
+          </li>
+          <li class="col-xs-2">
+            <span class="get-pwd-back-step-line"></span>
+            <span class="get-pwd-back-step">
+              <i class="fa fa-credit-card"></i>
+            </span>
+            <p class="get-pwd-back-step-text">验证身份</p>
+          </li>
+          <li class="col-xs-2">
+            <span class="get-pwd-back-step-line"></span>
+            <span class="get-pwd-back-step">
+              <i class="fa fa-key"></i>
+            </span>
+            <p class="get-pwd-back-step-text">修改密码</p>
+          </li>
+          <li class="col-xs-2">
+              <span class="get-pwd-back-step">
+                <i class="fa fa-check"></i>
+              </span>
+              <p class="get-pwd-back-step-text">完成</p>
+          </li>
+        </ul>
+        <ul class="row triangle-up">
+          <li class="col-xs-2 margin-l" ng-class="{'active': areaFlag==1}">
+            <span class="get-pwd-back-step">
+              <i class="fa fa-sort-asc"></i>
+            </span>
+          </li>
+          <li class="col-xs-2" ng-class="{'active': areaFlag==21 || areaFlag==22 || areaFlag==23 }">
+            <span class="get-pwd-back-step">
+              <i class="fa fa-sort-asc"></i>
+            </span>
+          </li>
+          <li class="col-xs-2" ng-class="{'active': areaFlag==3}">
+            <span class="get-pwd-back-step">
+              <i class="fa fa-sort-asc"></i>
+            </span>
+          </li>
+          <li class="col-xs-2" ng-class="{'active': areaFlag==4}">
+              <span class="get-pwd-back-step">
+                <i class="fa fa-sort-asc"></i>
+              </span>
+          </li>
+        </ul>
+      </div>
 
 <!--     <div class="container" style="background-color: #ea5430; color: #fff">
       <div class="row bs-wizard" style="border-bottom:0;">
@@ -74,10 +96,10 @@
     <br>
     <br>
  -->
-    <div ng-show="areaFlag == 1">
+    <div ng-show="areaFlag == 1" class="margin-b">
       <form class="form-horizontal" role="form" name="getPwdUserForm">
         <div class="form-group">
-          <label for="account" class="col-sm-3 control-label">用户名:</label>
+          <label for="account" class="col-sm-3 col-sm-offset-1 control-label">用户名:</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" name="account" ng-model="getPwd.account" find-account="account" required ng-focnus id="account" placeholder="用户名/邮箱/手机号码">
             <div ng-show="getPwdUserForm.account.$dirty && getPwdUserForm.account.$invalid && !getPwdUserForm.account.$focused && getPwdUserForm.account.$error.unique" class="user-tips-area get-pwd-tips-area">
@@ -88,7 +110,7 @@
         </div>
 
         <div class="form-group">
-          <label for="captcha" class="col-sm-3 control-label">验证码:</label>
+          <label for="captcha" class="col-sm-3 col-sm-offset-1 control-label">验证码:</label>
           <div class="col-sm-2 ">
             <input type="text" class="form-control" name="captcha" ng-model="user.captcha" ensure-captcha="captcha" id="captcha" placeholder="请输入验证码" required ng-focus />
             <div ng-show="getPwdUserForm.captcha.$dirty && getPwdUserForm.captcha.$invalid && !getPwdUserForm.captcha.$focused && getPwdUserForm.captcha.$error.check">
@@ -102,19 +124,19 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-3">
-            <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="getPwdUserForm.$invalid" ng-click="verifyAccount(getPwd.account)">下一步</button>
+            <button type="submit" class="col-sm-6 col-sm-offset-1 btn btn-primary btn-lg" ng-disabled="getPwdUserForm.$invalid" ng-click="verifyAccount(getPwd.account)">下一步</button>
           </div>
         </div>
       </form>
     </div>
     <!-- STEP2-1 通过手机号进行手机验证 -->
-    <div ng-show="areaFlag == 21">
+    <div ng-show="areaFlag == 21" class="margin-b">
       <div class="col-sm-offset-3">
         <h5>已发送验证码到{{phoneNum||"133*****569"}}，请在下面输入您收到的验证码!</h5>
       </div>
       <form class="form-horizontal" role="form" name="step21From">
         <div class="form-group">
-          <label for="step2-mobile" class="col-sm-3 control-label">输入验证码:</label>
+          <label for="step2-mobile" class="col-sm-3 col-sm-offset-1 control-label">输入验证码:</label>
           <div class="col-sm-4">
             <input type="text" class="form-control" name="step2-mobile" ng-model="getPwd.mobileCaptcha"  ng-focnus id="step2-mobile" placeholder="">
           </div>
@@ -128,14 +150,14 @@
     </div>
 
     <!-- STEP2-2 通过邮件找回 -->
-    <div ng-show="areaFlag == 22">
+    <div ng-show="areaFlag == 22" class="margin-b">
       <div class="col-sm-offset-3">
        <h5>邮件已经发送到{{emailAddr||"739*****@qq.com"}}，请到邮箱查看邮件！</h5>
       </div>
     </div>
 
     <!--STEP2 通过用户名判断手机和邮箱 验证身份-->
-    <div ng-show="areaFlag == 2" >
+    <div ng-show="areaFlag == 2" class="margin-b">
       <div class="col-sm-9">
           <label class="col-sm-4" for="categoryVal">请选择找回方式：</label>
         <div class="col-sm-4">
@@ -201,16 +223,16 @@
       </div>
     </div>
     <!-- STEP3 -->
-    <div ng-show="areaFlag == 3">
+    <div ng-show="areaFlag == 3" class="margin-b">
       <form class="form-horizontal" role="form" name="Step3SetPhonePwd">
         <div class="form-group">
-          <label for="password" class="col-sm-3 control-label">输入新密码:</label>
+          <label for="password" class="col-sm-3 col-sm-offset-1 control-label">输入新密码:</label>
           <div class="col-sm-5">
             <input type="password" class="form-control" name="password" id="password" ng-model="user.password" required />
           </div>
         </div>
         <div class="form-group">
-          <label for="repeatPassword" class="col-sm-3 control-label">确定新密码:</label>
+          <label for="repeatPassword" class="col-sm-3 col-sm-offset-1 control-label">确定新密码:</label>
           <div class="col-sm-5">
             <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" ng-model="user.repeatPassword" password-match="password" required />
           </div>
@@ -220,14 +242,14 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-offset-3">
+          <div class="col-sm-offset-4">
             <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="Step3SetPhonePwd.$invalid" ng-click="setPhoneNewPwd(getPwd, user)">下一步</button>
           </div>
         </div>
       </form>
     </div>
     <!-- STEP4 完成跳转-->
-    <div ng-show="areaFlag == 4">
+    <div ng-show="areaFlag == 4" class="margin-b">
       <h5>密码找回成功</h5>
       <h5><timer interval="1000" countdown="startCountDownNo">{{ countdown }}</timer></span>秒后进入<span><a ui-sref="root.login">登录</a>页，请使用新密码进行登录</h5>
     </div>
