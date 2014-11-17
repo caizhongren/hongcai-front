@@ -25,9 +25,8 @@
                 <p class="asset-money">{{capital.userCapital.waitingProfit | number:2}} 元</p>
             </div>
             <div class="left-message-show last-show">
-                <div class="assets-ico principal-amount-to-be-received"></div>
-                <p class="asset-tips">待收本金</p>
-                <p class="asset-money">{{capital.userCapital.waitingCapital | number:2}} 元</p>
+                <p>已收收益</p>
+                <p class="asset-money">{{capital.userCapital.receivedProfit | number:2}} 元</p>
             </div>
         </div>
         <div class="right-message col-md-4 col-lg-4">
@@ -37,13 +36,12 @@
                 <p class="asset-money">{{capital.userCapital.freezeCapital | number:2}} 元</p>
             </div>
             <div class="left-message-show">
-                <div class="assets-ico income-received"></div>
-                <p class="asset-tips">已收收益</p>
-                <p class="asset-money">{{capital.userCapital.receivedProfit | number:2}} 元</p>
+                <div class="assets-ico principal-amount-to-be-received"></div>
+                <p class="asset-tips">待收本金</p>
+                <p class="asset-money">{{capital.userCapital.waitingCapital | number:2}} 元</p>
             </div>
             <div class="left-message-show last-show">
-                <div class="assets-ico accumulated-investment"></div>
-                <p class="asset-tips">累计投资</p>
+                <p>累计投资</p>
                 <p class="asset-money">{{capital.userCapital.amount | number:2}} 元</p>
             </div>
         </div>
