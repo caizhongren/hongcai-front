@@ -1,10 +1,37 @@
+.get-pwd-back .margin-b {
+  margin-bottom: 150px;
+}
+.get-pwd-back .fa {
+  font-size: 36px;
+  position: relative;
+  top: -4px;
+}
 .get-pwd-back .panel-get-pwd-back {
   background-color: #ea5430;
   color: #fff;
   height: 170px;
+  margin-bottom: 60px;
+}
+.get-pwd-back .panel-get-pwd-back .triangle-up {
+  position: relative;
+  top: -10px;
+  margin-top: 0;
+}
+.get-pwd-back .panel-get-pwd-back .triangle-up li span {
+  background-color: transparent !important;
+}
+.get-pwd-back .panel-get-pwd-back .triangle-up .active .fa {
+  position: relative;
+  top: -2px;
+  color: #fff;
 }
 .get-pwd-back .panel-get-pwd-back ul {
   list-style: none;
+  padding: 0;
+  margin-top: 50px;
+}
+.get-pwd-back .panel-get-pwd-back ul .margin-l {
+  margin-left: 22.5%;
 }
 .get-pwd-back .panel-get-pwd-back ul li {
   padding-left: 0px;
