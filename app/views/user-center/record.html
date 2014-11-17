@@ -1,185 +1,124 @@
 <!--支付记录-->
-<div class="right-area right-assets-height record col-md-8 col-lg-8 no-padding">
+<div ng-controller="UserDealCtrl" class="right-area right-assets-height record col-md-8 col-lg-8 no-padding" >
 	<div class="right-title">支付记录</div>
 	<div class="padd"><span>当前账户资产总计： <strong>{{capital.investAmount}}+{{capital.balance}}<!-- 数据绑定 --></strong>元。</span><span>其中可用资产： <strong>{{capital.balance}}<!-- 数据绑定 --></strong>元，</span><span>冻结资产：<strong>{{capital.freezeCapital}}<!-- 数据绑定 --></strong>元。</span></div>
 	<div class="row">
 		<div class="col-xs-12">
-      <ul class="nav nav-tabs nav-justified" role="tablist">
-        <li role="presentation" ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'0',
-                dateStart:dateStart,dateEnd:dateEnd})" class="active"><a href="">全部</a></li>
-        <li role="presentation"><a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'1',
-                dateStart:dateStart,dateEnd:dateEnd})" href="">充值</a></li>
-        <li role="presentation"><a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'2',
-                dateStart:dateStart,dateEnd:dateEnd})" href="">提现</a></li>
-        <li role="presentation"><a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'3',
-                dateStart:dateStart,dateEnd:dateEnd})"href="">投资</a></li>
-        <li role="presentation"><a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'4,5',
-                dateStart:dateStart,dateEnd:dateEnd})" href="">回款</a></li>
-      </ul>
-			<!-- <div class="filter-container sort"> -->
-      <br>
-      <div class="row">
-        <label class="col-xs-2"><h5>时间：</h5></label>
-        <div class="col-xs-8">
-          <ul class="nav nav-pills">
-              <li class="active mgn-l">
-                  <a ui-sref="root.userCenter.record-query({dateInterval:'0',type:type,
-          dateStart:dateStart,dateEnd:dateEnd})">&nbsp;全部</a>
-              </li>
-              <li class="">
-                  <a ui-sref="root.userCenter.record-query({dateInterval:'7',type:type,
-          dateStart:dateStart,dateEnd:dateEnd})">&nbsp;最近七天</a>
-              </li>
-              <li class="">
-                  <a ui-sref="root.userCenter.record-query({dateInterval:'30',type:type,
-          dateStart:dateStart,dateEnd:dateEnd})">&nbsp;一个月</a>
-              </li>
-              <li class="">
-                  <a ui-sref="root.userCenter.record-query({dateInterval:'90',type:type,
-          dateStart:dateStart,dateEnd:dateEnd})">&nbsp;三个月</a>
-              </li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <label class="col-xs-2">固定期限：</label>
-        <div class="col-xs-10">
-          <form name="datepickerForm" class="form-inline" role="form">
-            <label class="control-label"><small>开始</small></label>
-            <div class="form-group mgn-l">
-              <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker>
+      <div class="panel panel-default">
+      <ul class="list-group">
+        <li class="list-group-item projects-filter">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-2 pull-left text-nowrap" style="padding-left: 32px">项目状态：</div>
+                  <div class="col-xs-2 text-nowrap">
+                    <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'0', dateStart:dateStart, dateEnd:dateEnd})">
+                      <i class="fa" ng-class="{'fa-check-square-o': type === '0', 'fa-square-o': type !== '0'}"></i>
+                      全部
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'1', dateStart:dateStart, dateEnd:dateEnd})">
+                      <i class="fa" ng-class="{'fa-check-square-o': type === '1', 'fa-square-o': type !== '1'}"></i>
+                      充值
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'2', dateStart:dateStart,dateEnd:dateEnd})">
+                      <i class="fa" ng-class="{'fa-check-square-o': type === '2', 'fa-square-o': type !== '2'}"></i>
+                      提现
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'3', dateStart:dateStart, dateEnd:dateEnd})">
+                      <i class="fa" ng-class="{'fa-check-square-o': type === '3', 'fa-square-o': type !== '3'}"></i>
+                      投资
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'4,5', dateStart:dateStart, dateEnd:dateEnd})">
+                      <i class="fa" ng-class="{'fa-check-square-o': type === '4,5', 'fa-square-o': type !== '4,5'}"></i>
+                      回款
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <i class="fa fa-calendar"></i>
-            <!-- 隔断条 -->
-            <i class="fa fa-arrows-h"></i>
-
-            <label class="control-label"> <small>截止</small></label>
-            <div class="form-group">
-              <input type="text" class="form-control" ng-model="untilDate" data-min-date="{{fromDate}}" placeholder="Until" bs-datepicker>
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-2 text-nowrap" style="padding-left: 32px">项目期限：</div>
+                  <div class="col-xs-2 text-nowrap">
+                    <a ui-sref="root.userCenter.record-query({dateInterval:'0', type:type, dateStart:dateStart, dateEnd:dateEnd})" >
+                      <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval === '0', 'fa-square-o': dateInterval !== '0' }"></i>
+                      全部
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.record-query({dateInterval:'7', type:type, dateStart:dateStart, dateEnd:dateEnd})" >
+                      <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval === '7', 'fa-square-o': dateInterval !== '7' }"></i>
+                      最近七天
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.record-query({dateInterval:'30', type:type, dateStart:dateStart, dateEnd:dateEnd})" >
+                      <i class="fa" ng-class="{'fa-check-square-o': dateInterval === '30', 'fa-square-o': dateInterval !== '30' }"></i>
+                      一个月
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.record-query({dateInterval:'90', type:type, dateStart:dateStart, dateEnd:dateEnd})" >
+                      <i class="fa" ng-class="{'fa-check-square-o': dateInterval === '90', 'fa-square-o': dateInterval !== '90' }"></i>
+                      三个月
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-            <i class="fa fa-calendar"></i>
-          </form>
-        </div>
-      </div>
-      <br>
-    <div class="row record-list">
-      <div class="col-xs-12">
-        <div class="row record-list-head">
-          <span class="col-xs-2 border-r">创建时间</span>
-          <span class="col-xs-2 border-r">收支类型</span>
-          <span class="col-xs-2 border-r">收支描述</span>
-          <span class="col-xs-2 border-r">收入</span>
-          <span class="col-xs-1">支出</span>
-          <span class="col-xs-2 border-r border-l">账户现金</span>
-          <span class="col-xs-1 ">备注</span>
-        </div>
-        <div class="row record-item" ng-repeat="deal in dealList">
-          <span class="col-xs-2">{{deal.createTime}}</span>
-          <span class="col-xs-2">{{deal.type}}</span>
-          <span class="col-xs-2">{{deal.description}}</span>
-          <span class="col-xs-2">{{deal.getAmount}}</span>
-          <span class="col-xs-1">{{deal.payAmount}}</span>
-          <span class="col-xs-2">{{deal.balance}}</span>
-          <span class="col-xs-1 ">{{deal.description}}</span>
-        </div>
+            <div class="row">
+              <label class="col-xs-2">固定期限：</label>
+              <form name="" class="form-inline" role="form">
+                <div class="form-group text-nowrap">
+                  <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>开始日期</label>
+                  <div class="col-xs-2">
+                    <input type="date" class="form-control" ng-model="fromDate"  placeholder="From"  ng-change="fromDealDateChanged();">
+                  </div>
+                </div>
+                <div class="form-group text-nowrap">
+                  <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>结束日期</label>
+                  <div class="col-xs-2">
+                    <input type="date" class="form-control" ng-model="endDate"  placeholder="From" ng-change="DealDateChanged({{type}},{{dateInterval}});">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-
-
-
-<!--           <div class="row record-list">
-            <div class="col-md-12">
-              <div class="row record-list-head">
-                <span class="col-md-2 border-r">创建时间</span>
-                <span class="col-md-2 border-r">收支类型</span>
-                <span class="col-md-2 border-r">收支描述</span>
-                <span class="col-md-2 border-r">收入</span>
-                <span class="col-md-1">支出</span>
-                <span class="col-md-2 border-r border-l">账户现金</span>
-                <span class="col-md-1 ">备注</span>
-              </div>
-              <div class="row record-item" ng-repeat="deal in dealList">
-                <span class="col-md-2">{{deal.createTime}}</span>
-                <span class="col-md-2">{{deal.type}}</span>
-                <span class="col-md-2">{{deal.description}}</span>
-                <span class="col-md-2">{{deal.getAmount}}</span>
-                <span class="col-md-1">{{deal.payAmount}}</span>
-                <span class="col-md-2">{{deal.balance}}</span>
-                <span class="col-md-1 ">{{deal.description}}</span>
-              </div>
-
-            </div>
-          </div> -->
-<!--           <div class="row datePicker">
-              <label>固定期限：</label>
-              <form name="datepickerForm" class="form-inline" role="form">
-            <div class="date">
-              <label class="control-label"><i class="fa fa-calendar"></i><small>开始日期</small></label>
-              <label class="control-label"><i class="fa fa-calendar"></i> <small>截止日期</small></label>
-              <br>
-              <div class="form-group mgn-l">
-                <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker>
-              </div>
-              <i class="fa fa-arrows-h"></i>
-              <div class="form-group">
-                <input type="text" class="form-control" ng-model="untilDate" data-min-date="{{fromDate}}" placeholder="Until" bs-datepicker>
-              </div>
-            </div>
-          </form>
-          </div> -->
-<!-- 			    <div class="sort-item">
-			        <label>支付类型：</label>
-			        <ul class="nav nav-pills">
-			            <li class="active mgn-l">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'0',
-							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;全部</a>
-			            </li>
-			            <li class="">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'1',
-							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;充值</a>
-			            </li>
-			            <li class="">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'2',
-							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;提现</a>
-			            </li>
-			            <li class="">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'3',
-							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;投资</a>
-			            </li>
-			            <li class="">
-			                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval,type:'4,5',
-							dateStart:dateStart,dateEnd:dateEnd})">&nbsp;回款</a>
-			            </li>
-			        </ul>
-			    </div> -->
-			    <!-- <div class="sort-item"> -->
-
-			    <!-- </div> -->
-
-<!-- 			    <div class="row record-list">
-			    	<div class="col-md-12">
-			    		<div class="row record-list-head">
-			    			<span class="col-md-2 border-r">创建时间</span>
-			    			<span class="col-md-2 border-r">收支类型</span>
-			    			<span class="col-md-2 border-r">收支描述</span>
-			    			<span class="col-md-2 border-r">收入</span>
-			    			<span class="col-md-1">支出</span>
-			    			<span class="col-md-2 border-r border-l">账户现金</span>
-			    			<span class="col-md-1 ">备注</span>
-			    		</div>
-			    		<div class="row record-item" ng-repeat="deal in dealList">
-			    			<span class="col-md-2">{{deal.createTime}}</span>
-			    			<span class="col-md-2">{{deal.type}}</span>
-			    			<span class="col-md-2">{{deal.description}}</span>
-			    			<span class="col-md-2">{{deal.getAmount}}</span>
-			    			<span class="col-md-1">{{deal.payAmount}}</span>
-			    			<span class="col-md-2">{{deal.balance}}</span>
-			    			<span class="col-md-1 ">{{deal.description}}</span>
-			    		</div>
-
-			    	</div>
-			    </div> -->
-			</div>
-		</div>
-	</div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>创建时间</th>
+        <th>收支类型</th>
+        <th>收支描述</th>
+        <th>收入</th>
+        <th>支出</th>
+        <th>账户现金</th>
+        <th>备注</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="deal in dealList">
+        <td>{{ deal.createTime }}</td>
+        <td>{{ deal.type }}</td>
+        <td>{{ deal.description }}</td>
+        <td>{{ deal.payAmount }}</td>
+        <td>{{ deal.payAmount }}</td>
+        <td>{{ deal.balance}}</td>
+        <td>{{ deal.description}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
