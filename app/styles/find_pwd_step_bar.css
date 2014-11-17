@@ -6,6 +6,9 @@
   position: relative;
   top: -4px;
 }
+.get-pwd-back .success {
+  text-align: center;
+}
 .get-pwd-back .panel-get-pwd-back {
   background-color: #ea5430;
   color: #fff;

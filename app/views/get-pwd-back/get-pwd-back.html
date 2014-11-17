@@ -136,7 +136,7 @@
       </div>
       <form class="form-horizontal" role="form" name="step21From">
         <div class="form-group">
-          <label for="step2-mobile" class="col-sm-3 control-label">输入验证码:</label>
+          <label for="step2-mobile" class="col-sm-3 col-sm-offset-1 control-label">输入验证码:</label>
           <div class="col-sm-4">
             <input type="text" class="form-control" name="step2-mobile" ng-model="getPwd.mobileCaptcha"  ng-focnus id="step2-mobile" placeholder="">
           </div>
@@ -226,13 +226,13 @@
     <div ng-show="areaFlag == 3" class="margin-b">
       <form class="form-horizontal" role="form" name="Step3SetPhonePwd">
         <div class="form-group">
-          <label for="password" class="col-sm-3 control-label">输入新密码:</label>
+          <label for="password" class="col-sm-3 col-sm-offset-1 control-label">输入新密码:</label>
           <div class="col-sm-5">
             <input type="password" class="form-control" name="password" id="password" ng-model="user.password" required />
           </div>
         </div>
         <div class="form-group">
-          <label for="repeatPassword" class="col-sm-3 control-label">确定新密码:</label>
+          <label for="repeatPassword" class="col-sm-3 col-sm-offset-1 control-label">确定新密码:</label>
           <div class="col-sm-5">
             <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" ng-model="user.repeatPassword" password-match="password" required />
           </div>
@@ -242,7 +242,7 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-offset-3">
+          <div class="col-sm-offset-4">
             <button type="submit" class="col-sm-6 btn btn-primary btn-lg" ng-disabled="Step3SetPhonePwd.$invalid" ng-click="setPhoneNewPwd(getPwd, user)">下一步</button>
           </div>
         </div>
