@@ -1,15 +1,20 @@
 hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$rootScope", "$stateParams", "OrderService", "SessionService", "toaster", "$modal",function ($scope, $location, $state, $rootScope, $stateParams, OrderService, SessionService, toaster,$modal) {
     
-    var investVerify = OrderService.investVerify.get({projectId: $stateParams.projectId, amount: $stateParams.amount, }, function(response) {
+    OrderService.investVerify.get({projectId: $stateParams.projectId, amount: $stateParams.amount, }, function(response) {
+
         if(response.ret == 1) {
-           $scope.projectVo = investVerify.data.projectVo;
-           $scope.capital = investVerify.data.capital;
-           $scope.distance = investVerify.data.distance;
-           $scope.orderId = investVerify.data.orderId;
-           $scope.investAmount = investVerify.data.amount;
+           $scope.project = response.data.project;
+           $scope.capital = response.data.capital;
+           $scope.investAmount = $stateParams.amount;
         }  else if (response.ret == -1){
-            alert(response.msg);
+            if (response.code == 1){
+                alert('已经卖光啦！');
+            } else {
+                alert(response.msg);
+            }
+            $location.path('project-list/6,7,8,9/0/100/0/100/0/200000000/release_start_time/false');
         }
+
     });
 
 	function new_form(){
@@ -36,8 +41,8 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$ro
     	return e;
     }
 
-    $scope.transfer = function(orderId){
-    	OrderService.transfer.get({orderId: orderId, }, function(response) {
+    $scope.transfer = function(project, investAmount){
+    	OrderService.transfer.get({projectId: project.id, investAmount: investAmount}, function(response) {
         	if(response.ret == 1) {
     			var req = response.data.req;
     			var sign = response.data.sign;
