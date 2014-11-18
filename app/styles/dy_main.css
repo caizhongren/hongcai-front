@@ -1367,3 +1367,11 @@ input:focus{
 .open{
   background: url(/images/sprite.png) -31px -1777px no-repeat;
 }
+.friends-ship{
+  font-size: 18px;
+}
+.friends-ship a{
+  display: block;
+  margin: 20px 20px 10px 10px;
+  float: left;
+}
