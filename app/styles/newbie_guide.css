@@ -1,7 +1,12 @@
 /* 右侧导航 */
+.bg10-test {
+	position: absolute;
+	bottom: 0;
+	background: url(/images/newbie/bg11.png) 50% 0 no-repeat;
+}
 #fullPage-nav { _display: none; font-size: 12px;}
 #fullPage-nav li { width: 90px; height: 21px; margin: 10px 0 0; vertical-align: middle;}
-#fullPage-nav li a { float: right; width: 21px; height: 21px; color: #8F9DA4; text-decoration: none; text-align: right; background: url(../../../images/newbie/dot.png) 5px 5px no-repeat;}
+#fullPage-nav li a { float: right; width: 21px; height: 21px; color: #8F9DA4; text-decoration: none; text-align: right; background: url(/images/newbie/dot.png) 5px 5px no-repeat;}
 #fullPage-nav li .active { background-position: 0 bottom;}
 #fullPage-nav span { display: none;}
 .fullPage-tooltip { float: left; top: 0; margin-right: 5px; font: 12px "Microsoft Yahei"; color: #8F9DA4; line-height: 21px;}
@@ -10,7 +15,7 @@
 .section .bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; padding-top:0;}
 .section .bg img { display: block; width: 100%; height: 100%;}
 
-.bg11 { position: absolute; bottom: 0; width: 100%; height: 850px; background: url(../../../images/newbie/bg11.png) 50% 0 no-repeat; transition: all 1s;}
+.bg11 { position: absolute; bottom: 0; width: 100%; height: 850px; background: url(/images/newbie/bg11.png) 50% 0 no-repeat; transition: all 1s;}
 .bg12 { position: absolute; bottom: -392px; width: 100%; height: 392px; background: url(../../../images/newbie/bg12.png) 50% 0 no-repeat; opacity: 0; transition: all 1.7s; bottom: 90px\0;}
 .bg13 { position: absolute; bottom: -377px; width: 100%; height: 377px; background: url(../../../images/newbie/bg13.png) 50% 0 no-repeat; transition: all 1s;}
 .hgroup { position: absolute; width: 554px; height: 176px; left: 50%; top: 25%; margin: 0 0 0 -277px; text-indent: -9999px; background-image: url(../../../images/newbie/slogan.png); opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
