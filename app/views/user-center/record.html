@@ -3,7 +3,7 @@
 	<div class="right-title">支付记录</div>
 	<div class="padd"><span>当前账户资产总计： <strong>{{capital.investAmount + capital.balance}}<!-- 数据绑定 --></strong>元。</span><span>其中可用资产： <strong>{{capital.balance}}<!-- 数据绑定 --></strong>元，</span><span>冻结资产：<strong>{{capital.freezeCapital}}<!-- 数据绑定 --></strong>元。</span></div>
 	<div class="padd">
-    <span>当前账户资产总计： 
+    <span>当前账户资产总计：
       <strong>{{capital.investAmount + capital.balance}}<!-- 数据绑定 --></strong>元。
     </span>
     <span>其中可用资产：
@@ -84,31 +84,26 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <label class="col-xs-2">固定期限：</label>
-    <form name="" class="form-inline" role="form">
-      <div class="form-group text-nowrap">
-        <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>开始日期</label>
-        <div class="col-xs-2">
-          <input type="date"  class="form-control" ng-model="fromDate"  placeholder="From"  ng-change="fromDealDateChanged();">
+        <div class="row">
+          <label class="col-xs-2">固定期限：</label>
+          <form name="" class="form-inline" role="form">
+            <div class="form-group text-nowrap">
+              <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>开始日期</label>
+              <div class="col-xs-2">
+                <input type="date" class="form-control" ng-model="fromDate"  placeholder="From"  ng-change="fromDealDateChanged();">
+              </div>
+            </div>
+            <div class="form-group text-nowrap">
+              <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>结束日期</label>
+              <div class="col-xs-2">
+                <input type="date" class="form-control" ng-model="dateEnd"  placeholder="End" ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
+              </div>
+            </div>
+          </form>
         </div>
-      </div>
-      <div class="form-group text-nowrap">
-        <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>结束日期</label>
-        <div class="col-xs-2">
-          <input type="date" ng-init="{{dateEnd}}" class="form-control" ng-model="endDate"  placeholder="From" ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
-        </div>
-      </div>
-    </form>
-
       </li>
     </ul>
   </div>
-
-
   <table class="table table-bordered">
     <thead>
       <tr>
