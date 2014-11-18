@@ -29,16 +29,12 @@ hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$state
     $scope.currentPage = 0;
     $scope.pageSize = 10;
     $scope.data = [];
-    console.info(getDealByUser.data.dealList);
     $scope.numberOfPages = function() {
-        return Math.ceil($scope.data.length / $scope.pageSize);
+      return Math.ceil($scope.data.length / $scope.pageSize);
     }
     for (var i = 0; i < $scope.dealList.length; i++) {
         $scope.data.push($scope.dealList[i]);
-
     }
-    console.log($scope.data)
-
   });
 
 }]);

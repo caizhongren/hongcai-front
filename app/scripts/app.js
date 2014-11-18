@@ -601,9 +601,3 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
 });
 
 hongcaiApp.constant('DEFAULT_DOMAIN', '/hongcai/api/v1');
-
-hongcaiApp.filter('startFrom', function startFrom() {
-	return function(input, start) {
-	  return input.slice(parseInt(start));
-	};
-});
