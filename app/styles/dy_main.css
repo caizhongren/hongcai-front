@@ -430,9 +430,13 @@ input:focus{
     position: relative;
 }
 .p-user-name{
-    padding-top: 20px;
-    margin-bottom: 16px;
+    padding-top: 10px;
+    margin-bottom: 0;
+    width: 100%;
     text-align: center;
+}
+.p-user-name strong{
+  font-size: 20px;
 }
 .safe-pic{
     height: 47px;
@@ -667,6 +671,10 @@ input:focus{
   font-size: 24px;
   font-weight: bold;
   margin: -10px 0 0 0;
+}
+.asset-money small{
+  font-size: 16px;
+  font-weight: normal;
 }
 .right-message {
   height: 260px;
@@ -1308,6 +1316,7 @@ input:focus{
 }*/
 .p-click{
   cursor: pointer;
+  line-height: 18px;
 }
 .p-click:hover{
   color: #e14526;
@@ -1347,4 +1356,14 @@ input:focus{
 .invest-check{
   height: 13px;
   width: 20px;
+}
+.help-ico{
+  height: 16px;
+  width: 16px;
+  background: url(/images/sprite.png) -105px -1779px no-repeat;
+  float: left;
+  cursor: pointer;
+}
+.open{
+  background: url(/images/sprite.png) -31px -1777px no-repeat;
 }
