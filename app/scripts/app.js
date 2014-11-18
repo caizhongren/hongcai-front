@@ -210,7 +210,7 @@
  		}
  	})
  	.state('root.userCenter.record-query', {
- 		url: '/record/:dateInterval/:type',
+ 		url: '/record/:dateInterval/:type/:dateStart/:dateEnd',
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/record.html',
@@ -230,7 +230,7 @@
  		}
  	})
  	.state('root.userCenter.investment-query', {
- 		url: '/userCenter-investment/:dateInterval/:status',
+ 		url: '/userCenter-investment/:dateInterval/:status/:dateStart/:dateEnd',
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/investment.html',
