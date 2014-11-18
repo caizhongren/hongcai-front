@@ -4,7 +4,7 @@
 	<div class="padd"><span>当前账户资产总计： <strong>{{capital.investAmount + capital.balance}}<!-- 数据绑定 --></strong>元。</span><span>其中可用资产： <strong>{{capital.balance}}<!-- 数据绑定 --></strong>元，</span><span>冻结资产：<strong>{{capital.freezeCapital}}<!-- 数据绑定 --></strong>元。</span></div>
 	<div class="padd">
     <span>当前账户资产总计： 
-      <strong>{{capital.investAmount}}+{{capital.balance}}<!-- 数据绑定 --></strong>元。
+      <strong>{{capital.investAmount + capital.balance}}<!-- 数据绑定 --></strong>元。
     </span>
     <span>其中可用资产： 
       <strong>{{capital.balance}}<!-- 数据绑定 --></strong>元，
@@ -50,13 +50,13 @@
       <div class="form-group text-nowrap">
         <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>开始日期</label>
         <div class="col-xs-2">
-          <input type="date" class="form-control" ng-model="fromDate"  placeholder="From"  ng-change="fromDealDateChanged();">
+          <input type="date"  class="form-control" ng-model="fromDate"  placeholder="From"  ng-change="fromDealDateChanged();">
         </div>
       </div>
       <div class="form-group text-nowrap">
         <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>结束日期</label>
         <div class="col-xs-2">
-          <input type="date" class="form-control" ng-model="endDate"  placeholder="From" ng-change="DealDateChanged({{type}},{{dateInterval}});">
+          <input type="date" ng-init="{{dateEnd}}" class="form-control" ng-model="endDate"  placeholder="From" ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
         </div>
       </div>
     </form>

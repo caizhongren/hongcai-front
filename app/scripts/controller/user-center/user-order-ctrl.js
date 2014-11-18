@@ -7,25 +7,24 @@ hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$s
 
     $scope.fromDateChanged = function () {
       dateStart = $scope.fromDate;
-      $location.path($rootScope.selectSide+'/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd);
+      console.info(dateStart);
     };
 
     $scope.untilDealDateChanged = function (status,dateInterval) {
       dateEnd = $scope.endDate;
-      $location.path($rootScope.selectSide+'/:'+dateInterval+'/:'+status+'/:'+dateStart+'/:'+dateEnd)
+      $location.path('userCenter-investment/'+dateInterval+'/'+status+'/'+dateStart+'/'+dateEnd)
     };
 
     var getOrderByUser = UserCenterService.getOrderByUser.get({ dateInterval: $stateParams.dateInterval,
-    															status: $stateParams.status},
+    															status: $stateParams.status,dateStart: $stateParams.dateStart,dateEnd: $stateParams.dateEnd},
     															function(response) {
         $scope.orderList = getOrderByUser.data.orderVoList;
         $scope.orderCount = getOrderByUser.data.orderCount;
         $scope.amount = getOrderByUser.data.amount;
         $scope.dateInterval = getOrderByUser.data.dateInterval;
         $scope.status = getOrderByUser.data.status;
-        $scope.dateInterval = getOrderByUser.data.dateInterval;
-        $scope.dateStart = getOrderByUser.data.dateStart;
-        $scope.dateEnd = getOrderByUser.data.dateEnd;
+        $scope.fromDate = getOrderByUser.data.dateStart;
+        $scope.endDate = getOrderByUser.data.dateEnd;
 
         $scope.currentPage = 0;
         $scope.pageSize = 6;

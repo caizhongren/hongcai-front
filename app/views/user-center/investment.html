@@ -58,7 +58,7 @@
                   </div>
                   <div class="col-xs-2">
                     <a ui-sref="root.userCenter.investment-query({dateInterval:'7',status:status, dateStart:dateStart, dateEnd:dateEnd})" >
-                      <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval === '7', 'fa-square-o': dateInterval !== '7' }"></i>
+                      <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval === 7, 'fa-square-o': dateInterval !== '7' }"></i>
                       最近七天
                     </a>
                   </div>
@@ -83,13 +83,13 @@
                 <div class="form-group text-nowrap">
                   <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>开始日期</label>
                   <div class="col-xs-2">
-                    <input type="date" class="form-control" ng-model="fromDate"  placeholder="From"  ng-change="fromDealDateChanged();">
+                    <input type="date" class="form-control" ng-model="fromDate"  placeholder="From"  ng-change="fromDateChanged({{status}},{{dateInterval}});">
                   </div>
                 </div>
                 <div class="form-group text-nowrap">
                   <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>结束日期</label>
                   <div class="col-xs-2">
-                    <input type="date" class="form-control" ng-model="endDate"  placeholder="From" ng-change="DealDateChanged({{status}},{{dateInterval}});">
+                    <input type="date" class="form-control" ng-model="endDate"  placeholder="From" ng-change="untilDealDateChanged({{status}},{{dateInterval}});">
                   </div>
                 </div>
               </form>
