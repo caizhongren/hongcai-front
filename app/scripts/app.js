@@ -116,6 +116,14 @@
  			}
  		}
  	})
+  .state('root.friends-ship', {
+    url: '/friends',
+    views: {
+      '': {
+        templateUrl: 'views/friends-ship.html'
+      }
+    }
+  })
  	/*------------------------------------------  user-center  -----------------------------------------------*/
  	.state('root.userCenter', {
  		views: {
