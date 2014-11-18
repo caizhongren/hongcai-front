@@ -1342,6 +1342,7 @@ input:focus{
 }
 .file-head{
   margin: 0 !important;
+  text-align: center;
 }
 .invest-check{
   height: 13px;

@@ -1,114 +1,129 @@
 <!-- 投资产品 -->
 <div ng-controller="UserOrderCtrl"  class="right-area right-assets-height investment col-md-8 col-lg-9 no-padding" >
-	<div class="right-title">投资产品</div>
-	<div class="padd"><span>当前账户总计投资产品： <strong>{{orderCount.all}}</strong>个。</span><span>其中还款中： <strong>{{orderCount.returning}}</strong>个，</span><span>投资中：<strong>{{orderCount.paying}}</strong>个。</span><span>已结清：<strong>{{orderCount.returned}}</strong>个。</span></div>
-	<div class="padd"><span>投资总额： <strong>{{amount.amount}}</strong>元，</span><span>累计收益：<strong>{{amount.profit}}</strong>元。</span></div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="filter-container sort">
-			    <!-- <div class="sort-item nav-tabs">
-			        <div class="nav nav-pills">
-			            <span class="active">
-			                <a ui-sref="root.userCenter.investment({status: 1})">&nbsp;还款中的投资</a>
-			            </span>
-			            <span class="">
-			                <a href="#">&nbsp;投标中的投资</a>
-			            </span>
-			            <span class="">
-			                <a href="#">&nbsp;已结清的投资</a>
-			            </span>
-			        </div>
-			    </div> -->
-			    <div class="sort-item">
-			        <label>投资状态：</label>
-			        <ul class="nav nav-pills">
-						<li class="{{dateInterval == '0' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'0',
-							dateStart:dateStart,dateEnd:dateEnd})">全部</a>
-						</li>
-						<li class="{{dateInterval == '7' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'4,5',dateStart:dateStart,dateEnd:dateEnd})">还款中</a>
-						</li>
-						<li class="{{dateInterval == '30' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'2,3',dateStart:dateStart,dateEnd:dateEnd})">投资中的</a>
-						</li>
-						<li class="{{dateInterval == '90' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'6',
-							dateStart:dateStart,dateEnd:dateEnd})">已结清</a>
-						</li>
-						<li class="{{dateInterval == '90' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'1',
-							dateStart:dateStart,dateEnd:dateEnd})">未支付</a>
-						</li>
-					</ul>
-			    </div>
-			    <div class="sort-item">
-			        <label>时间：</label>
-			        <ul class="nav nav-pills">
-						<li class="{{dateInterval == '0' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'0',status:status,
-							dateStart:dateStart,dateEnd:dateEnd})">全部</a>
-						</li>
-						<li class="{{dateInterval == '7' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'7',status:status,
-							dateStart:dateStart,dateEnd:dateEnd})">最近七天</a>
-						</li>
-						<li class="{{dateInterval == '30' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'30',status:status,
-							dateStart:dateStart,dateEnd:dateEnd})">一个月</a>
-						</li>
-						<li class="{{dateInterval == '90' ? 'active' : ''}}">
-							<a ui-sref="root.userCenter.investment-query({dateInterval:'90',status:status,
-							dateStart:dateStart,dateEnd:dateEnd})">三个月</a>
-						</li>
-					</ul>
-			    </div>
-			    <div class="row datePicker">
-			        <label>固定期限：</label>
-			        <form name="datepickerForm" class="form-inline" role="form">
-				  		<div class="date">
-						    <label class="control-label"><i class="fa fa-calendar"></i><small>开始日期</small></label>
-						    <label class="control-label"><i class="fa fa-calendar"></i> <small>截止日期</small></label>
-						    <br>
-						    <div class="form-group mgn-l">
-						      <input type="text" class="form-control" ng-model="fromDate" data-max-date placeholder="From" data-autoclose="true" bs-datepicker ng-change="fromDealDateChanged();">
-						    </div>
-						    <i class="fa fa-arrows-h"></i>
-						    <div class="form-group">
-						      <input type="text" class="form-control" ng-model="untilDate" data-min-date placeholder="Until" data-autoclose="true" bs-datepicker ng-change="untilDealDateChanged({{status}},{{dateInterval}});">
-						    </div>
-						    <!-- <div class="form-group">
-						    	<input type="date" id="exampleInput" name="input" ng-model="untilDate" placeholder="yyyy-MM-dd" min="2013-01-01" max="2013-12-31" ng-change="untilDateChanged();" />
-						    </div> -->
-					  	</div>
-					</form>
-			    </div>
-			    <div class="row record-list">
-			    	<div class="col-md-12">
-			    		<div class="row record-list-head">
-			    			<span class="col-md-2 border-r">项目名称</span>
-			    			<span class="col-md-2 border-r">计息日</span>
-			    			<span class="col-md-2 border-r">到期日</span>
-			    			<span class="col-md-2 border-r">金额</span>
-			    			<span class="col-md-2 border-r">预计收益</span>
-			    			<span class="col-md-2">已得收益</span>
-			    		</div>
-			    		<div class="row record-item"  ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-			    			<span class="col-md-2">{{item.projectName}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{item.valueDate}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{item.settlementDate}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-1">{{item.orderAmount}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{item.profit}}<!-- 数据绑定 --></span>
-			    			<span class="col-md-2">{{item.returnProfit}}<!-- 数据绑定 --></span>
-			    		</div>
-			    	</div>
-			    	<ul class="pager">
-				      <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
-				      {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
-				      <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
-				    </ul>
-			    </div>
-			</div>
-		</div>
-	</div>
+  <div class="right-title">投资产品</div>
+  <div class="padd"><span>当前账户总计投资产品： <strong>{{orderCount.all}}</strong>个。</span><span>其中还款中： <strong>{{orderCount.returning}}</strong>个，</span><span>投资中：<strong>{{orderCount.paying}}</strong>个。</span><span>已结清：<strong>{{orderCount.returned}}</strong>个。</span></div>
+  <div class="padd"><span>投资总额： <strong>{{amount.amount}}</strong>元，</span><span>累计收益：<strong>{{amount.profit}}</strong>元。</span></div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="panel panel-default">
+        <ul class="list-group">
+          <li class="list-group-item projects-filter">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-2 pull-left text-nowrap" style="padding-left: 32px">项目状态：</div>
+                  <div class="col-xs-2 text-nowrap">
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'0', dateStart:dateStart,dateEnd:dateEnd})">
+                      <i class="fa" ng-class="{'fa-check-square-o': status === '0', 'fa-square-o': status !== '0'}"></i>
+                        全部
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'4,5',dateStart:dateStart,dateEnd:dateEnd})">
+                      <i class="fa" ng-class="{'fa-check-square-o': status === '4,5', 'fa-square-o': status !== '4,5'}"></i>
+                      还款中
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'2,3',dateStart:dateStart,dateEnd:dateEnd})">
+                      <i class="fa" ng-class="{'fa-check-square-o': status === '2,3', 'fa-square-o': status !== '2,3'}"></i>
+                      投资中的
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'6',dateStart:dateStart,dateEnd:dateEnd})">
+                      <i class="fa" ng-class="{'fa-check-square-o': status === '6', 'fa-square-o': status !== '6'}"></i>
+                      已结清
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'1',dateStart:dateStart,dateEnd:dateEnd})">
+                      <i class="fa" ng-class="{'fa-check-square-o': status === '1', 'fa-square-o': status !== '1'}"></i>
+                      未支付
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-2 text-nowrap" style="padding-left: 32px">项目期限：</div>
+                  <div class="col-xs-2 text-nowrap">
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:'0',status:status, dateStart:dateStart, dateEnd:dateEnd})" >
+                      <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval === '0', 'fa-square-o': dateInterval !== '0' }"></i>
+                      全部
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:'7',status:status, dateStart:dateStart, dateEnd:dateEnd})" >
+                      <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval === '7', 'fa-square-o': dateInterval !== '7' }"></i>
+                      最近七天
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:'30',status:status, dateStart:dateStart, dateEnd:dateEnd})" >
+                      <i class="fa" ng-class="{'fa-check-square-o': dateInterval === '30', 'fa-square-o': dateInterval !== '30' }"></i>
+                      一个月
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:'90',status:status, dateStart:dateStart, dateEnd:dateEnd})" >
+                      <i class="fa" ng-class="{'fa-check-square-o': dateInterval === '90', 'fa-square-o': dateInterval !== '90' }"></i>
+                      三个月
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <label class="col-xs-2">固定期限：</label>
+              <form name="" class="form-inline" role="form">
+                <div class="form-group text-nowrap">
+                  <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>开始日期</label>
+                  <div class="col-xs-2">
+                    <input type="date" class="form-control" ng-model="fromDate"  placeholder="From"  ng-change="fromDealDateChanged();">
+                  </div>
+                </div>
+                <div class="form-group text-nowrap">
+                  <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>结束日期</label>
+                  <div class="col-xs-2">
+                    <input type="date" class="form-control" ng-model="endDate"  placeholder="From" ng-change="DealDateChanged({{status}},{{dateInterval}});">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>项目名称</th>
+        <th>计息日</th>
+        <th>到期日</th>
+        <th>金额</th>
+        <th>预计收益</th>
+        <th>已得收益</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+        <td>{{item.projectName}}</td>
+        <td>{{item.valueDate}}</td>
+        <td>{{item.settlementDate}}</td>
+        <td>{{item.orderAmount}}</td>
+        <td>{{item.profit}}</td>
+        <td>{{item.returnProfit}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="pager">
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+    {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+  </ul>
 </div>
