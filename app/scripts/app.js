@@ -116,6 +116,14 @@
  			}
  		}
  	})
+  .state('root.friends-ship', {
+    url: '/friends',
+    views: {
+      '': {
+        templateUrl: 'views/friends-ship.html'
+      }
+    }
+  })
  	/*------------------------------------------  user-center  -----------------------------------------------*/
  	.state('root.userCenter', {
  		views: {
@@ -561,29 +569,29 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
 							'/withdraw',
 							'/recharge',
 							'/invest-verify'];
-	$rootScope.$on('$stateChangeStart', function() {
-		var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
-		if(routespermission.indexOf($location.path()) !== -1) {
-			$checkSessionServer.then(function(response){
-				if(response.data.data.name !== '') {
-					$rootScope.isLogged = true;
-					$rootScope.loginName = response.data.data.name;
-					$rootScope.securityStatus = response.data.data.securityStatus;
-          $rootScope.userCapital = response.data.data.userCapital;
-				} else {
+  $rootScope.$on('$stateChangeStart', function() {
+    var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
+    if(routespermission.indexOf($location.path()) !== -1) {
+      $checkSessionServer.then(function(response){
+        if(response.data.data && response.data.data.name !== '' && response.data.data.name !== undefined && response.data.data.name !== null) {
+          $rootScope.isLogged = true;
+          $rootScope.loginName = response.data.data.name;
+          $rootScope.securityStatus = response.data.data.securityStatus;
+          $rootScope.userCapital = response.data.data.userCapital
+        } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
-					$location.path('/login/');
-				}
-			});
+          $location.path('/login/');
+        }
+      });
 		} else {
 			$checkSessionServer.then(function(response) {
-				if(response.data.data.name !== '') {
-					$rootScope.isLogged = true;
-					$rootScope.loginName = response.data.data.name;
-					$rootScope.securityStatus = response.data.data.securityStatus;
+        if(response.data.data && response.data.data.name !== '' && response.data.data.name !== undefined && response.data.data.name !== null) {
+          $rootScope.isLogged = true;
+          $rootScope.loginName = response.data.data.name;
+          $rootScope.securityStatus = response.data.data.securityStatus;
           $rootScope.userCapital = response.data.data.userCapital;
-				} else {
+        } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
         }

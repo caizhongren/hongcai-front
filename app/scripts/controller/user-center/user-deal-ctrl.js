@@ -1,8 +1,10 @@
-hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$stateParams","$location", "UserCenterService", function ($scope,$rootScope, $state, $stateParams, $location, UserCenterService) {
 
+hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$stateParams","$location", "UserCenterService", function ($scope,$rootScope, $state, $stateParams, $location, UserCenterService) {
   $rootScope.selectSide = 'record';
   var dateStart = 0;
   var dateEnd = 0;
+  $scope.type = $stateParams.type;
+  $scope.dateInterval = $stateParams.dateInterval
 
   $scope.fromDealDateChanged = function () {
     dateStart = $scope.fromDate;
@@ -32,6 +34,7 @@ hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$state
         for (var i = 0; i < $scope.dealList.length; i++) {
             $scope.data.push($scope.dealList[i]);
         }
+        console.log($scope.data)
 
     });
 
