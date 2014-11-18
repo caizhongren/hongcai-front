@@ -267,13 +267,16 @@
                       <a ui-sref="root.userCenter.security-settings" class="btn btn-danger btn-lg btn-block">请完善资料</a>
                     </div>
                     <div class="col-xs-12" ng-if="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus == 3">
-                      <div class="input-group input-group-lg">
-                        <span class="input-group-addon"><i class="fa fa-rmb hc-text-red"></i></span>
-                        <input type="number" name="project.amount" ng-model="project.amount" class="form-control" placeholder="投资金额（元）">
-                        <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
-                        <span class="input-group-btn">
-                          <button class="btn btn-danger">立即投资</button>
-                        </span>
+                      <div class="input-group input-group-lg" ng-switch on="isAvailable">
+                        <div class="col-xs-12" ng-switch-when="1">
+                          <a ui-sref="root.userCenter.security-settings" class="btn btn-danger btn-lg btn-block">您有未支付订单</a>
+                        </div>
+                          <span class="input-group-addon" ng-switch-default><i class="fa fa-rmb hc-text-red"></i></span>
+                          <input type="number" name="project.amount" ng-model="project.amount" class="form-control" placeholder="投资金额（元）" ng-switch-default>
+                          <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
+                          <span class="input-group-btn" ng-switch-default>
+                            <button class="btn btn-danger">立即投资</button>
+                          </span> 
                       </div>
                     </div>
                   </div>
