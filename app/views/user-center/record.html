@@ -62,7 +62,7 @@
         </div>
       </div>
       <br>
-    <div class="row record-list">
+      <div class="row record-list">
       <div class="col-xs-12">
         <div class="row record-list-head">
           <span class="col-xs-2 border-r">创建时间</span>
@@ -83,102 +83,12 @@
           <span class="col-xs-1 ">{{item.description}}</span>
         </div>
       </div>
-    </div>
-    <ul class="pager">
+      </div>
+      <ul class="pager">
       <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
       {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
       <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
-    </ul>
-
-
-
-<!--           <div class="row record-list">
-            <div class="col-md-12">
-              <div class="row record-list-head">
-                <span class="col-md-2 border-r">创建时间</span>
-                <span class="col-md-2 border-r">收支类型</span>
-                <span class="col-md-2 border-r">收支描述</span>
-                <span class="col-md-2 border-r">收入</span>
-                <span class="col-md-1">支出</span>
-                <span class="col-md-2 border-r border-l">账户现金</span>
-                <span class="col-md-1 ">备注</span>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                <div class="row">
-                  <div class="col-xs-2 text-nowrap" style="padding-left: 32px">项目期限：</div>
-                  <div class="col-xs-2 text-nowrap">
-                    <a ui-sref="root.userCenter.record-query({dateInterval:'0', type:type, dateStart:dateStart, dateEnd:dateEnd})" >
-                      <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval === '0', 'fa-square-o': dateInterval !== '0' }"></i>
-                      全部
-                    </a>
-                  </div>
-                  <div class="col-xs-2">
-                    <a ui-sref="root.userCenter.record-query({dateInterval:'7', type:type, dateStart:dateStart, dateEnd:dateEnd})" >
-                      <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval === '7', 'fa-square-o': dateInterval !== '7' }"></i>
-                      最近七天
-                    </a>
-                  </div>
-                  <div class="col-xs-2">
-                    <a ui-sref="root.userCenter.record-query({dateInterval:'30', type:type, dateStart:dateStart, dateEnd:dateEnd})" >
-                      <i class="fa" ng-class="{'fa-check-square-o': dateInterval === '30', 'fa-square-o': dateInterval !== '30' }"></i>
-                      一个月
-                    </a>
-                  </div>
-                  <div class="col-xs-2">
-                    <a ui-sref="root.userCenter.record-query({dateInterval:'90', type:type, dateStart:dateStart, dateEnd:dateEnd})" >
-                      <i class="fa" ng-class="{'fa-check-square-o': dateInterval === '90', 'fa-square-o': dateInterval !== '90' }"></i>
-                      三个月
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <label class="col-xs-2">固定期限：</label>
-              <form name="" class="form-inline" role="form">
-                <div class="form-group text-nowrap">
-                  <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>开始日期</label>
-                  <div class="col-xs-2">
-                    <input type="date" class="form-control" ng-model="fromDate"  placeholder="From"  ng-change="fromDealDateChanged();">
-                  </div>
-                </div>
-                <div class="form-group text-nowrap">
-                  <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>结束日期</label>
-                  <div class="col-xs-2">
-                    <input type="date" class="form-control" ng-model="endDate"  placeholder="From" ng-change="DealDateChanged({{type}},{{dateInterval}});">
-                  </div>
-                </div>
-              </form>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>创建时间</th>
-        <th>收支类型</th>
-        <th>收支描述</th>
-        <th>收入</th>
-        <th>支出</th>
-        <th>账户现金</th>
-        <th>备注</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="deal in dealList">
-        <td>{{ deal.createTime }}</td>
-        <td>{{ deal.type }}</td>
-        <td>{{ deal.description }}</td>
-        <td>{{ deal.payAmount }}</td>
-        <td>{{ deal.payAmount }}</td>
-        <td>{{ deal.balance}}</td>
-        <td>{{ deal.description}}</td>
-      </tr>
-    </tbody>
-  </table>
+      </ul>
+    <div>
+  <div>
 </div>
