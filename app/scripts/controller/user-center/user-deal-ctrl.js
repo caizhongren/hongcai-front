@@ -18,8 +18,8 @@ hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$state
     var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval, type: $stateParams.type},function(response) {
 
         $scope.dealList = getDealByUser.data.dealList;
-        $scope.dateStart = getOrderByUser.data.dateStart;
-        $scope.dateEnd = getOrderByUser.data.dateEnd;
+        $scope.dateStart = getDealByUser.data.dateStart;
+        $scope.dateEnd = getDealByUser.data.dateEnd;
         $scope.type = getDealByUser.data.type;
         $scope.dateInterval = getDealByUser.data.dateInterval;
         $scope.userId = getDealByUser.data.userId;
@@ -27,7 +27,7 @@ hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$state
         $scope.currentPage = 0;
         $scope.pageSize = 10;
         $scope.data = [];
-
+        console.info(getDealByUser.data.dealList);
         $scope.numberOfPages = function() {
             return Math.ceil($scope.data.length / $scope.pageSize);
         }
