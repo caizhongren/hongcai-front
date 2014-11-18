@@ -22,7 +22,7 @@
 					<div class="col-md-3">项目编号：{{project.number}}<!-- 数据绑定 --></div>
 					<div class="col-md-3">项目名称：{{project.name}}<!-- 数据绑定 --></div>
 					<div class="col-md-3">借款企业：{{project.enterpriseName}}<!-- 数据绑定 --></div>
-					<div class="col-md-3">担保公司：{{project.guaranteeName}}<!-- 数据绑定 --></div>
+					<div class="col-md-3">保荐机构：{{project.guaranteeName}}<!-- 数据绑定 --></div>
 				</div>
 				<div class="row">
 					<div class="col-md-3">年化收益率：{{project.annualEarnings}}%<!-- 数据绑定 --></div>
@@ -47,7 +47,7 @@
 			</div>
 			<div class="col-md-12" ng-switch-when="true">
 				<div class=""></div>
-		s		<ul class="nav nav-pills">
+				<ul class="nav nav-pills">
 					<li class="invest-check"><input type="checkbox" checked="false"></li>同意《投资协议》以及《隐私条款》
 				</ul>
 			</div>
@@ -65,8 +65,8 @@
 					<div class="form-group mgn-top">
 						您将要支付<span class="ftw-b ft-red">{{investAmount | number:2}}</span>元，核实信息无误后请确认
 					</div>
-					<input type="button" value="确认" class="verify-button" ng-click="transfer(project, investAmount)"/>
-					<input type="button" value="取消" class="verify-button get-verify-button"/>
+					<input type="button" value="确认" class="red-button col-md-1 col-lg-1" ng-click="transfer(project, investAmount)"/>
+					<input type="button" value="取消" class="white-button col-md-1 col-lg-1"/>
 				</form>
 			</div>
 		</div>
