@@ -1168,6 +1168,9 @@ input:focus{
 .help-center div{
   line-height: 23px;
 }
+.about-us .padding-b {
+  padding-bottom: 120px;
+}
 .web-show{
   height: 40px;
   padding: 10px 5px;
