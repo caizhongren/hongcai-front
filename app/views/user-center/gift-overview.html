@@ -1,0 +1,70 @@
+<!--账户总览-->
+<div class="right-area right-account-height col-md-8 col-lg-9" ng-controller="AccountOverviewCtrl">
+	<div class="row">
+		<div class="right-title">我的宏包</div>
+	</div>
+	<div class="row">
+		<div class="row account-investment">
+			<div class="col-md-3 border-r">
+				<p class="account-number">{{ data.length || "0"}}<span class="ft-14">张</span></p>
+				<p class="account-number-message">可用宏包</p>
+			</div>
+			<div class="col-md-3 border-r">
+				<p class="account-number">{{ totalAmount || "0" }}<span class="ft-14">元</span></p>
+				<p class="account-number-message">可用宏包总额</p>
+			</div>
+			<div class="col-md-3 border-r" style="margin-right:0;">
+				<p class="account-number">{{ investNum || "0"}}<span class="ft-14">元</span></p>
+				<p class="account-number-message">已用宏包总额</p>
+			</div>
+			<div class="col-md-3" style="margin-right:0;">
+				<p class="account-number">{{ investNum || "0"}}<span class="ft-14">元</span></p>
+				<p class="account-number-message">宏包投资所得奖励</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="right-title">宏包列表</div>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>面值</th>
+				<th>生效时间</th>
+				<th>过期时间</th>
+				<th>使用规则</th>
+				<th>备注</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+				<td>{{item.gift.amount}}元</td>
+				<td>{{item.gift.createTime * 1000 | date:'yyyy-MM-dd'}}</td>
+				<td>{{item.gift.dueTime * 1000 | date:'yyyy-MM-dd'}}</td>
+				<td>投资金额满{{item.activityRule.amountLimit}}元可以使用</td>
+				<td>{{item.activity.description}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<ul class="pager">
+		<li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+		{{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
+		<li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+	</ul>
+
+	<div class="row">
+		<div class="ft-12 col-md-offset-2 col-lg-offset-2">
+			<p>温馨提示</p>
+			<p>1. 完成注册后可激活现金宏包，宏包仅可投资散标项目；</p>
+			<p>2. 有效期为三个月，以领取日开始计算 单笔投资每满1,000元时可以使用一张，可叠加使用，每笔投资最多使用10张；</p>
+			<p>3. 宏包价值不可用于转让回收款项； </p>
+			<p>4. 宏包投资中的项目如需转让，宏包收益则按转让成功后结束计算；</p>
+			<p>5. 宏包不可提现，不可转账，投资后仅返还宏包利息；</p>
+			<p>6. 对于恶意刷奖的行为，宏财有权取消用户领取、激活、兑换奖励，并保留相关法律权利；</p>
+			<p>7. 严禁利用本活动进行匿名转账、信用卡套现等行为，一经发现将扣除手续费并清退相关资金； </p>
+			<p>8. 宏财泰富有权在法律允许范围内解释。</p>
+		</div>
+	</div>
+</div>
+
+

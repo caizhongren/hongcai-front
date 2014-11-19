@@ -21,5 +21,6 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
     resetMobilePassword: $resource(DEFAULT_DOMAIN + '/siteUser/resetMobilePassword', {mobile: '@mobile', captcha: '@captcha', password: '@password'}),
     infoVerify: $resource(DEFAULT_DOMAIN + '/siteUser/infoVerify', {account: '@account', mobile: '@mobile', email: '$email'}),
     resetEmailPassword: $resource(DEFAULT_DOMAIN + '/siteUser/resetEmailPassword', {uuid: '$uuid', token: "@token", password: '@password'}),
+    getGiftListByUserId: $resource(DEFAULT_DOMAIN + '/activity/getGiftListByUserId')
   };
 });

@@ -239,6 +239,16 @@
  			}
  		}
  	})
+  .state('root.userCenter.gift-overview', {
+    url: '/gift-overview',
+    views: {
+      'user-center-right': {
+        templateUrl: 'views/user-center/gift-overview.html',
+        controller: 'GiftOverviewCtrl',
+        controllerUrl: 'scripts/controller/user-center/gift-overview-ctrl'
+      }
+    }
+  })
  	/*.state('root.userCenter.news', {
  		url: '/news',
  		views: {
