@@ -113,7 +113,7 @@
     <tbody>
       <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
         <td>{{item.projectName}}</td>
-        <td>{{item.valueDate}}</td>
+        <td>{{item.valueDate * 1000 | date:'yyyy/MM/dd'}}</td>
         <td>{{item.settlementDate}}</td>
         <td>{{item.orderAmount}}</td>
         <td>{{item.profit}}</td>
