@@ -121,6 +121,16 @@
     views: {
       '': {
         templateUrl: 'views/friends-ship.html'
+        //templateUrl: 'views/register/send-email.html'
+        //templateUrl: 'views/user-center/success.html'
+      }
+    }
+  })
+  .state('root.send-email', {
+    url: '/send-email-success',
+    views: {
+      '': {
+        templateUrl: 'views/register/send-email.html'
       }
     }
   })

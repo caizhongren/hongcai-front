@@ -43,6 +43,8 @@ input:focus{
   color: white;
   font-size: 14px;
   outline: none;
+  cursor: pointer;
+  margin: 0 5px;
 }
 .red-button:hover {
   background-color: #f27b64;
@@ -55,9 +57,10 @@ input:focus{
   border-radius: 3px;
   height: 34px;
   background-color: white;
-  margin-left: 5px;
+  margin: 0 5px;
   color: #e94828;
   outline-style: none;
+  cursor: pointer;
 }
 .white-button:hover {
   background-color: #e94828;
@@ -672,6 +675,7 @@ input:focus{
   font-weight: bold;
   margin: -10px 0 0 0;
 }
+.assets-money small,
 .asset-money small{
   font-size: 16px;
   font-weight: normal;
@@ -1374,4 +1378,28 @@ input:focus{
   display: block;
   margin: 20px 20px 10px 10px;
   float: left;
+}
+.smile-bg{
+  float: left;
+  width: 95px;
+  height: 95px;
+  background: url(/images/sprite.png) -40px -730px no-repeat;
+}
+.success-page{
+  height: 200px;
+  margin-top: 100px;
+}
+.success-tips{
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.button-div{
+  margin: 20px 0;
+}
+.p-pay-success{
+  margin-top: 9px;
+}
+.p-pay-begin{
+  margin-left: 60px;
 }
