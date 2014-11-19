@@ -6182,3 +6182,6 @@ button.close {
   padding-top: 1px;
   padding-bottom: 1px;
 }
+.panel-default > .panel-heading {
+  color: #807979;
+}
