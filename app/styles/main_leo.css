@@ -6194,6 +6194,9 @@ body {
 a {
   color: #807979;
 }
+.margin-t {
+  margin-top: 80px;
+}
 .container-fluid {
   padding-left: 0;
   padding-right: 0;
