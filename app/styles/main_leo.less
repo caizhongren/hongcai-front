@@ -15,6 +15,10 @@ a {
     color: #807979;
 }
 
+.margin-t {
+    margin-top: 80px;
+}
+
 .container-fluid {
     padding-left: 0;
     padding-right: 0;
@@ -56,6 +60,8 @@ a {
 #major-bar {
 	background-color: #fff;
 	margin-bottom: 0px;
+    clear: both;
+    
 
 	ul > li > a {
 		font-size: 1.3em;
@@ -354,11 +360,13 @@ a {
         .btn-default {
             text-align: left;
             padding-left: 6px;
+            color: #9f9d9c;
         }
     }
     .caret {
         float: right;
         margin-top: 7px;
+        color: #000;
     }
 }
 
@@ -391,10 +399,18 @@ a {
         padding-top: 0;
     }
     .status {
-    .row {
-      // padding: 7px;
-      padding-top: 15px;
-    }
+        .row {
+          // padding: 7px;
+          padding-top: 15px;
+        }
+
+        .padding-t-0 {
+            padding-top: 0;
+        }
+
+        .margin-b-0 {
+            margin-bottom: 20px;
+        }
     }
 
     .project-info {
@@ -411,7 +427,14 @@ a {
     border-color: #cccccc;
     cursor: not-allowed;
     }
+
+    .padding-tAb {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
 }
+
 .timeline {
     list-style: none;
     padding: 20px 0 20px;
@@ -840,4 +863,24 @@ a {
         color: #f2f2f2;
     }
 
+}
+
+.sponsorInstitution {
+    .project-item {
+        .col-md-8 {
+            padding-left: 0;
+            padding-right: 0;
+            .col-md-3,
+            .col-md-4 {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+
+}
+
+
+.pwd-success h5 {
+    text-align: center;
 }

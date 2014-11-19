@@ -88,7 +88,7 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
             title: '相关文件',
             // url: 'four.tpl.html'
         }, {
-            title: '项目里程',
+            title: '项目历程',
             // url: 'five.tpl.html'
         }
     ];

@@ -121,6 +121,16 @@
     views: {
       '': {
         templateUrl: 'views/friends-ship.html'
+        //templateUrl: 'views/register/send-email.html'
+        //templateUrl: 'views/register/success.html'
+      }
+    }
+  })
+  .state('root.send-email', {
+    url: '/send-email-success',
+    views: {
+      '': {
+        templateUrl: 'views/register/send-email.html'
       }
     }
   })
@@ -601,9 +611,3 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
 });
 
 hongcaiApp.constant('DEFAULT_DOMAIN', '/hongcai/api/v1');
-
-hongcaiApp.filter('startFrom', function startFrom() {
-	return function(input, start) {
-	  return input.slice(parseInt(start));
-	};
-});
