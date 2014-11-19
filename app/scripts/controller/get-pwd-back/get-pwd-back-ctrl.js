@@ -6,31 +6,6 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
     angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());
   };
 
-  // $scope.reLoadProcessBar = function() {
-  //   if($scope.areaFlag == 1) {
-
-  //   }
-
-  // };
-
-  var reLoadProcessBar = function() {
-    if($scope.areaFlag == 1) {
-      $scope.step1Flag = "complete";
-      $scope.step2Falg = $scope.step3Falg = $scope.step4Falg =  "disabled";
-    } else if( $scope.areaFlag == 2 || $scope.areaFlag == 21 || $scope.areaFlag == 22) {
-      $scope.step1Flag = "complete";
-      $scope.step2Flag = "active";
-      $scope.step3Flag = $scope.step4Flag = "disabled";
-    } else if( $scope.areaFlag == 3) {
-      $scope.step1Flag = $scope.step2Flag = "complete";
-      $scope.step3Flag = "active";
-      $scope.step4Flag = "disabled";
-    } else {
-      $scope.step1Flag = $scope.step2Flag =  $scope.step3Flag = $scope.step4Flag= "complete";
-    }
-
-  }
-
   $scope.verifyAccount = function(account){
     var dataBoth=[{"CategoryId":0, "Name":"手机找回" }, {"CategoryId":1, "Name":"邮箱找回"}];
     var dataPhone=[{"CategoryId":0, "Name":"手机找回"}];
@@ -38,7 +13,6 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
 
     var mobilePattern = /^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678]))\d{8}$/;
     var emailPattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-
     if (mobilePattern.test(account)){ // 说明是手机号码找回
       UserCenterService.sendMobileCaptcha.get({mobile: account }, function(response) {
         if(response.ret == 1) {
@@ -62,6 +36,7 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
         }
       });
     } else {
+      $scope.areaFlag = 2;
       if($scope.usermessage.mobile && $scope.usermessage.email){
         $scope.Category = dataBoth;
       }else if($scope.usermessage.mobile){
@@ -76,8 +51,6 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
           $scope.isDisplay = true;
         }
       });
-      $scope.areaFlag = 2;
-      // reLoadProcessBar();
     }
   }
   // STEP2 根据account通过手机找回
@@ -101,7 +74,6 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
         UserCenterService.sendResetPwdEmail.get({email: email}, function(response) {
           if(response.ret == 1) {
             $scope.areaFlag = 22;
-            // reLoadProcessBar();
           };
         });
       };
@@ -117,7 +89,6 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
     UserCenterService.checkMobileCaptcha.get({mobile: mobile, captcha: user.mobileCaptcha }, function(response) {
       if(response.ret == 1) {
         $scope.areaFlag = 3;
-        // reLoadProcessBar();
       } else {
         // TODO
         console.log('');

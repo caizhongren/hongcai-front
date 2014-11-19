@@ -32,9 +32,9 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         'displayrate' : 'XX%',
         'selectedIcon' : '',
         'icons' : [
-            {value: '3个月', label: '<i class="fa"></i>3个月'},
-            {value: '6个月', label: '<i class="fa"></i>6个月'},
-            {value: '12个月', label: '<i class="fa"></i>12个月'}
+            {value: '3个月', label: '3个月'},
+            {value: '6个月', label: '6个月'},
+            {value: '12个月', label: '12个月'}
         ],
         'interest' : '',
         'payback' : ''
@@ -57,6 +57,11 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         }
 
    	}
+
+    $scope.colorCtrl = function(){
+        $('#calculater .btn-default').css({'color':'#777'});
+        console.log($('#calculater .btn-default').length)
+    }
 
     $scope.capitalValueChange = function() {
         $scope.params.displayValue = $scope.params.inputValue === '' || $scope.params.inputValue < 100 || $scope.params.inputValue > 1000000 ? "100-100万" : $scope.params.inputValue;

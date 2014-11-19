@@ -6227,6 +6227,7 @@ a {
 #major-bar {
   background-color: #fff;
   margin-bottom: 0px;
+  clear: both;
 }
 #major-bar ul > li > a {
   font-size: 1.3em;
@@ -6451,10 +6452,12 @@ a {
 #calculater .popover-content .btn-default {
   text-align: left;
   padding-left: 6px;
+  color: #9f9d9c;
 }
 #calculater .caret {
   float: right;
   margin-top: 7px;
+  color: #000;
 }
 .safe .nav {
   padding-top: 20px;
