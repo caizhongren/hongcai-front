@@ -79,8 +79,8 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/hongcai/api/v1',
-          host: '192.168.1.43',
-          port: 8000
+          host: '192.168.80.40',
+          port: 8080
         }
       ],
       livereload: {
