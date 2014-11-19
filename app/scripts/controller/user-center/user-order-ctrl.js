@@ -1,4 +1,4 @@
-hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$state", "$stateParams", "UserCenterService", "$location", function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService, $location) {
+hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$state", "$stateParams", "UserCenterService", function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService) {
 
     $rootScope.selectSide = 'userCenter-investment';
 
