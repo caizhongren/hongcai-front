@@ -1,12 +1,60 @@
 
 <div class="col-sm-offset-2 col-sm-6">
   <div class="panel panel-info" ng-controller="SetNewPwdCtrl" >
-    <div class="panel-heading">
-      <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" class="{{areaFlag == 1 ? 'active' : ''}}"><a href="">输入账号</a></li>
-        <li role="presentation" class="{{areaFlag == 2 ? 'active' : ''}}"><a href="">验证身份</a></li>
-        <li role="presentation" class="{{areaFlag == 3 ? 'active' : ''}}"><a href="">修改密码</a></li>
-        <li role="presentation" class="{{areaFlag == 4 ? 'active' : ''}}"><a href="">完成</a></li>
+<!--     <div class="panel-heading">
+  <ul class="nav nav-pills" role="tablist">
+    <li role="presentation" class="{{areaFlag == 1 ? 'active' : ''}}"><a href="">输入账号</a></li>
+    <li role="presentation" class="{{areaFlag == 2 ? 'active' : ''}}"><a href="">验证身份</a></li>
+    <li role="presentation" class="{{areaFlag == 3 ? 'active' : ''}}"><a href="">修改密码</a></li>
+    <li role="presentation" class="{{areaFlag == 4 ? 'active' : ''}}"><a href="">完成</a></li>
+  </ul>
+</div> -->
+    <div class="panel-body panel-get-pwd-back" >
+      <ul class="row">
+        <li class="col-xs-2 margin-l">
+          <span class="get-pwd-back-step-line"></span>
+          <span class="get-pwd-back-step"><i class="fa fa-user"></i></span>
+          <p class="get-pwd-back-step-text">输入帐号</p>
+        </li>
+
+        <li class="col-xs-2">
+          <span class="get-pwd-back-step-line"></span>
+          <span class="get-pwd-back-step">
+            <i class="fa fa-credit-card"></i>
+          </span>
+          <p class="get-pwd-back-step-text">验证身份</p>
+        </li>
+
+        <li class="col-xs-2">
+          <span class="get-pwd-back-step-line"></span>
+          <span class="get-pwd-back-step">
+            <i class="fa fa-key"></i>
+          </span>
+          <p class="get-pwd-back-step-text">修改密码</p>
+        </li>
+
+        <li class="col-xs-2">
+            <span class="get-pwd-back-step">
+              <i class="fa fa-check"></i>
+            </span>
+            <p class="get-pwd-back-step-text">完成</p>
+        </li>
+      </ul>
+      <ul class="row triangle-up">
+        <li class="col-xs-2 margin-l" ng-class="{'active': areaFlag == 1}">
+          <span class="get-pwd-back-step">
+            <i class="fa fa-sort-asc"></i>
+          </span>
+        </li>
+        <li class="col-xs-2" ng-class="{'active': areaFlag == 2}">
+          <span class="get-pwd-back-step"><i class="fa fa-sort-asc"></i></span>
+        </li>
+        <li class="col-xs-2" ng-class="{'active': areaFlag == 3}">
+          <span class="get-pwd-back-step"><i class="fa fa-sort-asc"></i></span>
+        </li>
+        <li class="col-xs-2" ng-class="{'active': areaFlag == 4}">
+          <span class="get-pwd-back-step"><i class="fa fa-sort-asc"></i></span>
+        </li>
       </ul>
     </div>
     <div class="panel-body">
