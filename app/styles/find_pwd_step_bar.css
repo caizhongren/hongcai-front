@@ -1,6 +1,13 @@
 .get-pwd-back .margin-b {
   margin-bottom: 150px;
 }
+.get-pwd-back .padding-lr {
+  padding-left: 20px !important;
+  padding-right: 22px !important;
+}
+.get-pwd-back .padding-l {
+  padding-left: 20px !important;
+}
 .get-pwd-back .fa {
   font-size: 36px;
   position: relative;
