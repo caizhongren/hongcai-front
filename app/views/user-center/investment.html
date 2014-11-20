@@ -78,7 +78,7 @@
               </div>
             </div>
             <div class="row">
-              <label class="col-xs-2">固定期限：</label>
+              <label class="col-xs-2" style="margin-left: 5.5px; text-align:center;">固定期限：</label>
               <form name="" class="form-inline" role="form">
                 <div class="form-group text-nowrap">
                   <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>开始日期</label>
@@ -112,12 +112,12 @@
     </thead>
     <tbody>
       <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-        <td>{{item.projectName}}</td>
-        <td>{{item.valueDate * 1000 | date:'yyyy/MM/dd'}}</td>
-        <td>{{item.settlementDate}}</td>
-        <td>{{item.orderAmount}}</td>
-        <td>{{item.profit}}</td>
-        <td>{{item.returnProfit}}</td>
+        <td>{{ item.projectName }}</td>
+        <td>{{ item.valueDate | limitTo: 10 }}</td>
+        <td>{{ item.settlementDate | limitTo: 10 }}</td>
+        <td>{{ item.orderAmount }}</td>
+        <td>{{ item.profit }}</td>
+        <td>{{ item.returnProfit }}</td>
       </tr>
     </tbody>
   </table>
