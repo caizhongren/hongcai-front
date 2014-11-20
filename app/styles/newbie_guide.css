@@ -1,4 +1,5 @@
 /* 右侧导航 */
+.returnHome {position: relative;right: -67px;font-size: 26px;}
 #fullPage-nav { _display: none; font-size: 12px;}
 #fullPage-nav li { width: 90px; height: 21px; margin: 10px 0 0; vertical-align: middle;}
 #fullPage-nav li a { float: right; width: 21px; height: 21px; color: #8F9DA4; text-decoration: none; text-align: right; background: url(/images/newbie/dot.png) 5px 5px no-repeat;}
