@@ -6496,6 +6496,9 @@ a {
 #project-detail .status .padding-t-0 {
   padding-top: 0;
 }
+#project-detail .status .padding-l-0 {
+  padding-left: 0;
+}
 #project-detail .status .margin-b-0 {
   margin-bottom: 20px;
 }

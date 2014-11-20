@@ -14,17 +14,26 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.billCount = projectDetails.data.billCount;
         $scope.remainInterest = projectDetails.data.remainInterest;
         $scope.remainPrincipal = projectDetails.data.remainPrincipal;
+        console.log(projectDetails.data)
+
+        // $scope.statDate = new Date('2014', '12', '12', '16','30','00');
+
+        /*$scope.project.releaseStartTime = '2014-11-21 15:29:00';
         
         $scope.dateArray = $scope.project.releaseStartTime.split('-');
         
         $scope.day = $scope.dateArray[2].split(' ')[0];
         $scope.timeArray = $scope.dateArray[2].split(' ')[1].split(':');
         $scope.statDate = new Date($scope.dateArray[0], $scope.dateArray[1]-1, $scope.day, $scope.timeArray[0],$scope.timeArray[1],$scope.timeArray[2]);
-        // $scope.statDate = new Date('2014', '12', '12', '16','30','00');
-        $scope.countdownNum = ($scope.statDate.getTime() - (new Date()).getTime())/1000;
+        $scope.countdownNum = ($scope.statDate.getTime() - (new Date()).getTime())/1000;*/
 
-
-
+        $scope.testDate = new Date (2014,10,20,17,42,30).getTime();
+        console.log($scope.testDate)
+        $scope.finished = function(){
+            /*if($scope.project.status == 6){
+                window.location.reload();
+            }*/
+        }
         // var project = projectDetails.data.project;
         // var projectInfo = projectDetails.data.projectInfo;
         // var pledges = projectDetails.data.pledges;
