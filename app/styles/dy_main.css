@@ -107,10 +107,12 @@ input:focus{
 .login-right-area,
 .regist-right-area{
   height: 92%;
-  background: url(/images/sprite1.png) 15px 45px no-repeat;
+}
+.login-right-area{
+  background: url(/images/sprite.png) -1527px -780px no-repeat;
 }
 .regist-right-area{
-  background: url(/images/sprite1.png) 0px 115px no-repeat;
+  background: url(/images/sprite.png) -1574px -695px no-repeat;
 }
 .p-login-right,
 .p-regist-right{
@@ -212,7 +214,8 @@ input:focus{
 }
 .triangle{
   height: 12px;
-  background: url(/images/sprite1.png) 0px -361px no-repeat;
+
+  background: url(/images/sprite.png) -1565px -1183px no-repeat;
 }
 /*agreement*/
 .agreement-area{
@@ -391,7 +394,7 @@ input:focus{
 }
 /*个人中心*/
 .left-area{
-    height: 550px;
+    height: 640px;
     border:1px solid #dbdbdb;
     font-size: 12px;
     color: #888181;
