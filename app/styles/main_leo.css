@@ -6899,6 +6899,9 @@ a {
   margin-top: 120px;
   color: #f2f2f2;
 }
+.sponsorInstitution .project-item {
+  height: 90px;
+}
 .sponsorInstitution .project-item .col-md-8 {
   padding-left: 0;
   padding-right: 0;
@@ -6907,6 +6910,21 @@ a {
 .sponsorInstitution .project-item .col-md-8 .col-md-4 {
   padding-left: 0;
   padding-right: 0;
+}
+.sponsorInstitution .project-item .col-md-8 .col-md-3 span,
+.sponsorInstitution .project-item .col-md-8 .col-md-4 span {
+  font-size: 14px;
+}
+.sponsorInstitution .project-item .col-md-1 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.sponsorInstitution .project-item .btn-danger {
+  background-color: #bfb2b2;
+  border: 1px solid #d8d8d8;
+}
+.sponsorInstitution .project-item .btn-danger:hover {
+  background-color: #b0a8a8;
 }
 .pwd-success h5 {
   text-align: center;
