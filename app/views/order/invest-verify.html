@@ -26,9 +26,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-3">年化收益率：{{project.annualEarnings}}%<!-- 数据绑定 --></div>
-					<div class="col-md-3">还款方式：{{project.repaymentName}}<!-- 数据绑定 --></div>
-					<div class="col-md-3">计息日期：{{project.releaseStartTime}}<!-- 数据绑定 --></div>
-					<div class="col-md-3">还款日期：{{project.repaymentDate}}<!-- 数据绑定 --></div>
+					<div class="col-md-3">还款方式：{{project.repaymentName == 1  ? '按月付息到期还本' : '按月返还等额本息'}}<!-- 数据绑定 --></div>
 				</div>
 			</div>
 		</div>

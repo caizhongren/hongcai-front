@@ -4,7 +4,7 @@ hongcaiApp.controller("RegisterMobileCtrl", ["$scope", "$state", "$rootScope", "
         RegisterService.saveRegister.save({name: user.name, type:0, account: user.mobile, captcha: user.mobileCaptcha, password: user.password }, function(response) {
             if(response.ret == 1) {
                 SessionService.set("user", response.data.user.name);
-                $state.go('newbie-guide');
+                $state.go('root.newbie-guide');
                 //$rootScope.loginName = response.data.user.name;
                 //$rootScope.isLogged = true;
             } else {
