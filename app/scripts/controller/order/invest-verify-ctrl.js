@@ -1,4 +1,4 @@
-hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$rootScope", "$stateParams", "OrderService", "SessionService", "toaster", "$modal",function ($scope, $location, $state, $rootScope, $stateParams, OrderService, SessionService, toaster,$modal) {
+hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$rootScope", "$stateParams", "$OrderService", "SessionService", "toaster", "$modal",function ($scope, $location, $state, $rootScope, $stateParams, OrderService, SessionService, toaster,$modal) {
     
     OrderService.investVerify.get({projectId: $stateParams.projectId, amount: $stateParams.amount, }, function(response) {
 
@@ -43,7 +43,7 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$ro
     	return e;
     }
 
-    $scope.transfer = function(project, investAmount,giftCount){
+    $scope.transfer = function(project, investAmount, giftCount){
     	OrderService.saveOrder.get({projectId: project.id, investAmount: investAmount ,giftCount: giftCount}, function(response) {
         	if(response.ret == 1) {
 
