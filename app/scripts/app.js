@@ -106,7 +106,7 @@
  		url: '/newbie-guide',
  		views: {
  			'': {
- 				templateUrl: 'views/newbie-guide.html',
+ 				templateUrl: 'newbie-guide.html',
  				controller: 'RegisterMailCtrl',
  				controllerUrl: 'scripts/controller/register/register-mail-ctrl'
  			}
