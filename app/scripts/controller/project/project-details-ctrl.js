@@ -22,7 +22,7 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.timeArray = $scope.dateArray[2].split(' ')[1].split(':');
         $scope.statDate = new Date($scope.dateArray[0], $scope.dateArray[1]-1, $scope.day, $scope.timeArray[0],$scope.timeArray[1],$scope.timeArray[2]);
        
-        $scope.statDate = new Date('2014', '12', '12', '16','30','00');
+        $scope.statDate = new Date('2014', '12', '12', '16','30','00');//假数据
 
         $scope.finished = function(){
             if($scope.project.status == 6){

@@ -43,7 +43,7 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$ro
     	return e;
     }
 
-    $scope.transfer = function(project, investAmount,giftCount){
+    $scope.transfer = function(project, investAmount, giftCount){
     	OrderService.saveOrder.get({projectId: project.id, investAmount: investAmount ,giftCount: giftCount}, function(response) {
         	if(response.ret == 1) {
 

@@ -134,7 +134,7 @@
         </div>
 
         <div class="col-xs-12" ng-if="isDisplay !== true">
-            <label class="col-xs-3">绑定邮箱：</label>
+            <label class="col-xs-3 col-xs-offset-1">绑定邮箱：</label>
             <span class="col-xs-5"><h5>{{usermessage.email}}</h5></span>
         </div>
 
@@ -142,13 +142,13 @@
           <form class="form-horizontal" role="form" name="Step2GetPhone">
             <div class="form-group">
               <label for="phone" class="col-xs-3 col-xs-offset-1 control-label">重新输入该手机号码：</label>
-              <div class="col-xs-5">
+              <div class="col-xs-5 padding-lr">
                 <input type="text" class="form-control" name="phone" ng-model="getPwd.phone" required ng-focnus id="phone" placeholder="">
               </div>
             </div>
             <div class="form-group">
               <label for="phoneCaptcha" class="col-xs-3 col-xs-offset-1 control-label">输入验证码：</label>
-              <div class="col-xs-5">
+              <div class="col-xs-5 padding-lr">
                 <input type="text" class="form-control" name="phoneCaptcha" id="phoneCaptcha" ng-model="getPwd.mobileCaptcha" />
               </div>
               <div class="col-xs-3">
@@ -164,17 +164,17 @@
           </form>
         </div>
 
-        <div ng-if="isDisplay !== true" class="col-xs-9">
+        <div ng-if="isDisplay !== true" class="col-xs-12">
           <form class="form-horizontal" role="form" name="Step2GetEmail">
             <div class="form-group">
-              <label for="email" class="col-xs-4 control-label">重新输入该邮箱:</label>
-              <div class="col-xs-4">
+              <label for="email" class="col-xs-4 control-label">重新输入该邮箱：</label>
+              <div class="col-xs-4 padding-l">
                 <input type="text" class="form-control" id="email" name="email" id="email" ng-model="getPwd.email" required placeholder="" />
               </div>
             </div>
             <div class="form-group">
-              <div class="col-xs-offset-6">
-                <button type="submit" class="col-xs-6 btn btn-primary btn-lg" ng-disabled="Step2GetEmail.$invalid" ng-click="infoVerifyEmail(getPwd.account, getPwd.email)">下一步</button>
+              <div class="col-xs-offset-4">
+                <button type="submit" class="col-xs-4 btn btn-primary btn-lg" ng-disabled="Step2GetEmail.$invalid" ng-click="infoVerifyEmail(getPwd.account, getPwd.email)">下一步</button>
               </div>
             </div>
           </form>
