@@ -6182,6 +6182,9 @@ button.close {
   padding-top: 1px;
   padding-bottom: 1px;
 }
+.panel-default > .panel-heading {
+  color: #807979;
+}
 html,
 body {
   color: #777777;
@@ -6490,10 +6493,19 @@ a {
 #project-detail .status .row {
   padding-top: 15px;
 }
+#project-detail .status .padding-t-0 {
+  padding-top: 0;
+}
+#project-detail .status .padding-l-0 {
+  padding-left: 0;
+}
+#project-detail .status .margin-b-0 {
+  margin-bottom: 20px;
+}
 #project-detail .project-info {
   padding: 30px;
 }
-#project-detail .timer {
+#project-detail .project-timer {
   text-align: center;
 }
 #project-detail .btn-default {
@@ -6501,6 +6513,10 @@ a {
   background-color: #fff;
   border-color: #cccccc;
   cursor: not-allowed;
+}
+#project-detail .padding-tAb {
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 .timeline {
   list-style: none;
@@ -6742,6 +6758,12 @@ a {
 .ft-red {
   color: #eb5c3f;
 }
+.ft-36 {
+  font-size: 36px;
+}
+.ft-30 {
+  font-size: 30px;
+}
 .ft-24 {
   font-size: 24px;
 }
@@ -6879,4 +6901,37 @@ a {
 .result .rotate {
   margin-top: 120px;
   color: #f2f2f2;
+}
+.sponsorInstitution .project-item {
+  height: 90px;
+}
+.sponsorInstitution .project-item .col-md-8 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.sponsorInstitution .project-item .col-md-8 .col-md-3,
+.sponsorInstitution .project-item .col-md-8 .col-md-4 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.sponsorInstitution .project-item .col-md-8 .col-md-3 span,
+.sponsorInstitution .project-item .col-md-8 .col-md-4 span {
+  font-size: 14px;
+}
+.sponsorInstitution .project-item .col-md-1 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.sponsorInstitution .project-item .btn-danger {
+  background-color: #bfb2b2;
+  border: 1px solid #d8d8d8;
+}
+.sponsorInstitution .project-item .btn-danger:hover {
+  background-color: #b0a8a8;
+}
+.pwd-success h5 {
+  text-align: center;
+}
+.index-newbie h3 {
+  text-align: center;
 }

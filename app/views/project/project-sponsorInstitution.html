@@ -65,40 +65,60 @@
 			    <div class="table-responsive">
 			    	<ul class="projects-list" ng-repeat="project in projectList">
 			    		<li class="project-item row bg-row-success">
-			    			<div class="col-md-2"><a><img ng-src="{{project.image}}" width="150" height="145"/></a></div>
-			    			<div class="col-md-5">
-				                <div class="row">
-				                  <div class="col-lg-12 project-name">{{project.name}}</div>
-				                </div>
-				                <div class="row">
-				                  <div class="col-lg-12">保荐机构：<span>{{project.guaranteeName}}</span></div>
-				                </div>
-				                <div class="row">
-				                  <div class="col-lg-12">还款方式：<span>{{project.repaymentName}}</span></div>
-				                </div>
-				                <div class="row">
-				                  <div class="col-lg-6">项目规模：<span>{{project.total}}</span></div>
-				                  <div class="col-lg-6">可投金额：<span>{{project.occupancyStock * project.minInvest}}</span></div>
-				                </div>
-				                <div class="row">
-				                  <div class="col-lg-6">年化收益：<span class="ft-red">{{project.annualEarnings}}%</span></div>
-				                  <div class="col-lg-6">项目期限：<span class="">{{project.cycle}} 个月</span></div>
-				                </div>
+			    			<div class="col-md-8">
 
+			    				<div class="row">
+			    					<div class="col-md-1">
+			    						<a><img src="images/project-img.png" width="100%"/></a>
+			    						<!-- <a><img ng-src="{{project.image}}" width="100%"/></a> -->
+			    					</div>
+			    					<div class="col-md-11">
+			    						<div class="row">
+			    							<div class="col-lg-12"><strong>{{project.name}}</strong></div>
+			    						</div>
+			    						<div class="row">
+			    							<div class="col-md-4">项目规模：<span>{{project.total}}</span></div>
+			    							<div class="col-md-4">年化收益：<span class="ft-red">{{project.annualEarnings}}%</span></div>
+			    							<div class="col-md-4">项目期限：<span class="">{{project.cycle}} 个月</span></div>
+			    						</div>
+			    					</div>
+			    				</div>
+			    				
+			    			</div>
+			    			<div class="col-md-4">
+			    				<div class="row">
+				                  	<div class="col-lg-12">
+				                    	<a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: project.id})">了解详情</a>
+				                  	</div>
+				                </div>
+			    			</div>
+			    			<!-- <div class="col-md-2"><a><img ng-src="{{project.image}}" width="150" height="145"/></a></div>
+			    			<div class="col-md-5">
+			    							                <div class="row">
+			    							                  <div class="col-lg-12 project-name">{{project.name}}</div>
+			    							                </div>
+			    							                <div class="row">
+			    							                  <div class="col-lg-6">项目规模：<span>{{project.total}}</span></div>
+			    							                </div>
+			    							                <div class="row">
+			    							                  <div class="col-lg-6">年化收益：<span class="ft-red">{{project.annualEarnings}}%</span></div>
+			    							                  <div class="col-lg-6">项目期限：<span class="">{{project.cycle}} 个月</span></div>
+			    							                </div>
+			    			
 			    			</div>
 			    			<div class="col-md-5 project-progress">
 			    				<div class="row">
 			    					<div class="col-lg-12">项目状态：<span>{{ project.statusText }}</span></div>
 			    				</div>
 			    				<div class="row">
-				                  <div class="col-lg-12"><span class="progress-tit">投资进度：</span><div class="progress-bar"><span class="progress bg-red" style="width:{{project.progress}}%"></span></div><span class="progress-percent"></span></div>
-				                </div>
+			    							                  <div class="col-lg-12"><span class="progress-tit">投资进度：</span><div class="progress-bar"><span class="progress bg-red" style="width:{{project.progress}}%"></span></div><span class="progress-percent"></span></div>
+			    							                </div>
 			    				<div class="row">
-				                  <div class="col-lg-12">
-				                    <a class="go bg-success" ui-sref="root.project-details({projectId: project.id})">了解详情</a>
-				                  </div>
-				                </div>
-			    			</div>
+			    							                  <div class="col-lg-12">
+			    							                    <a class="go bg-success" ui-sref="root.project-details({projectId: project.id})">了解详情</a>
+			    							                  </div>
+			    							                </div>
+			    			</div> -->
 			    		</li>
 		    		</ul>
 

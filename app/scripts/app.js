@@ -32,10 +32,6 @@
  .config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$uiViewScrollProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider) {
   $uiViewScrollProvider.useAnchorScroll();
  	$stateProvider
-  .state('newbie-guide', {
-    url: '/newbie-guide',
-    templateUrl: 'views/newbie-guide.html'
-  })
  	.state('root', {
  		abstract: true,
  		views: {
@@ -110,7 +106,7 @@
  		url: '/newbie-guide',
  		views: {
  			'': {
- 				templateUrl: 'views/newbie-guide.html',
+ 				templateUrl: 'newbie-guide.html',
  				controller: 'RegisterMailCtrl',
  				controllerUrl: 'scripts/controller/register/register-mail-ctrl'
  			}
@@ -121,6 +117,16 @@
     views: {
       '': {
         templateUrl: 'views/friends-ship.html'
+        //templateUrl: 'views/register/send-email.html'
+        //templateUrl: 'views/user-center/success.html'
+      }
+    }
+  })
+  .state('root.send-email', {
+    url: '/send-email-success',
+    views: {
+      '': {
+        templateUrl: 'views/register/send-email.html'
       }
     }
   })
@@ -239,6 +245,16 @@
  			}
  		}
  	})
+  .state('root.userCenter.gift-overview', {
+    url: '/gift-overview',
+    views: {
+      'user-center-right': {
+        templateUrl: 'views/user-center/gift-overview.html',
+        controller: 'GiftOverviewCtrl',
+        controllerUrl: 'scripts/controller/user-center/gift-overview-ctrl'
+      }
+    }
+  })
  	/*.state('root.userCenter.news', {
  		url: '/news',
  		views: {
@@ -387,7 +403,9 @@
  		url: '/company-profile',
  		views: {
  			'about-us-right-show': {
- 				templateUrl: 'views/about-us/company-profile.html'
+ 				templateUrl: 'views/about-us/company-profile.html',
+        controller: 'HelpCenterCtrl',
+        controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
  			}
  		}
  	})

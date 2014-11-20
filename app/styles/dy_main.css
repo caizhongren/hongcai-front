@@ -43,6 +43,8 @@ input:focus{
   color: white;
   font-size: 14px;
   outline: none;
+  cursor: pointer;
+  margin: 0 5px;
 }
 .red-button:hover {
   background-color: #f27b64;
@@ -55,9 +57,10 @@ input:focus{
   border-radius: 3px;
   height: 34px;
   background-color: white;
-  margin-left: 5px;
+  margin: 0 5px;
   color: #e94828;
   outline-style: none;
+  cursor: pointer;
 }
 .white-button:hover {
   background-color: #e94828;
@@ -104,10 +107,12 @@ input:focus{
 .login-right-area,
 .regist-right-area{
   height: 92%;
-  background: url(/images/sprite1.png) 15px 45px no-repeat;
+}
+.login-right-area{
+  background: url(/images/sprite.png) -1527px -780px no-repeat;
 }
 .regist-right-area{
-  background: url(/images/sprite1.png) 0px 115px no-repeat;
+  background: url(/images/sprite.png) -1574px -695px no-repeat;
 }
 .p-login-right,
 .p-regist-right{
@@ -147,7 +152,9 @@ input:focus{
 }
 .p-checkbox{
   height: 15px;
+  width: 15px;
   margin-top: 0 !important;
+  padding: 0 !important;
 }
 .p-remember{
   font-size: 12px;
@@ -209,7 +216,8 @@ input:focus{
 }
 .triangle{
   height: 12px;
-  background: url(/images/sprite1.png) 0px -361px no-repeat;
+
+  background: url(/images/sprite.png) -1565px -1183px no-repeat;
 }
 /*agreement*/
 .agreement-area{
@@ -388,7 +396,7 @@ input:focus{
 }
 /*个人中心*/
 .left-area{
-    height: 550px;
+    height: 640px;
     border:1px solid #dbdbdb;
     font-size: 12px;
     color: #888181;
@@ -672,6 +680,7 @@ input:focus{
   font-weight: bold;
   margin: -10px 0 0 0;
 }
+.assets-money small,
 .asset-money small{
   font-size: 16px;
   font-weight: normal;
@@ -842,27 +851,51 @@ input:focus{
   background-color: #f27b64;
 }
 .safe-process{
-  height: 155px;
-  background: url(/images/sprite.png) -18px -1275px no-repeat;
-  margin: 0 auto;
-  border-bottom: 1px solid #dfdfdf;
-  margin-bottom: 35px;
+  height: 135px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #cecdcd;
+  margin-left: 25px;
 }
 .process-tips{
-  float: left;
-  margin-top: 85px;
+  height: 80px;
+  padding-top: 70px;
+  text-align: center;
 }
-.safe-pwd{
-  margin-left: 20px;
+.grey-safe-pwd{
+  background: url(/images/sprite.png) -12px -1277px no-repeat;
 }
-.safe-phone{
-  margin-left: 117px;
+.grey-safe-phone{
+  background: url(/images/sprite.png) -140px -1277px no-repeat;
 }
-.safe-mail{
-  margin-left: 114px;
+.grey-safe-mail{
+  background: url(/images/sprite.png) -269px -1277px no-repeat;
 }
-.safe-realname{
-  margin-left: 105px;
+.grey-safe-realname{
+  background: url(/images/sprite.png) -400px -1277px no-repeat;
+}
+.red-safe-pwd{
+  background: url(/images/sprite.png) -12px -1390px no-repeat;
+}
+.red-safe-phone{
+  background: url(/images/sprite.png) -140px -1390px no-repeat;
+}
+.red-safe-mail{
+  background: url(/images/sprite.png) -269px -1390px no-repeat;
+}
+.red-safe-realname{
+  background: url(/images/sprite.png) -400px -1390px no-repeat;
+}
+.blue-safe-pwd{
+  background: url(/images/sprite.png) -12px -1485px no-repeat;
+}
+.blue-safe-phone{
+  background: url(/images/sprite.png) -140px -1485px no-repeat;
+}
+.blue-safe-mail{
+  background: url(/images/sprite.png) -269px -1485px no-repeat;
+}
+.blue-safe-realname{
+  background: url(/images/sprite.png) -400px -1485px no-repeat;
 }
 .change-area{
   border: 1px solid #dfdfdf; 
@@ -1061,108 +1094,13 @@ input:focus{
 .account-pic-bg{
   background: url(/images/sprite.png) -1300px -304px no-repeat;
 }
-/*get-pwd-back*/
-/*.get-pwd-area{
-  margin: 0 auto;
-  height: 555px;
-  width: 980px;
-  border: 1px solid #dbdbdb;
-  background-color: white;
-  color: #646464;
-}
-.get-pwd{
-  padding-top: 20px;
-  padding-bottom: 40px;
-}
-.get-tips-area{
-  height: 200px;
-  width: 100%;
-  padding: 70px 190px 0 195px;
-  background-color: #e94828;
-  font-size: 14px;
-  color: white;
-}
-.get-tips-pic{
-  background: url(/images/sprite.png) -35px -1553px no-repeat;
-  height: 75px;
-  width: 100%;
-}
-.p-get-pwd-tips{
-  height: 55px;
-  width: 60px;
-  text-align: center;
-  float: left;
-  margin: 0 113px 0 4px;
-}
-.bg-get-pwd-tips{
-  background: url(/images/sprite.png) -510px -770px no-repeat;
-}
-.last-tips{
-  margin-right: 0;
-  margin-left: 0;
-}
-.get-pwd-input-area{
-  margin-top: 30px;
-}
-.get-pwd-form-group{
-  padding-left: 30px;
-}
-.get-pwd-tips-area{
-  margin-right: -2px;
-  width: 130px;
-  margin-top: -30px;
-}
-.pwd-verify-pic{
-  width: 76px;
-  height: 42px;
-  margin-left: -4px;
-}
-
-.get-pwd-verify-area{
-  margin: -33px -54px 0 0;
-}
-.get-pwd-button{
-  margin-left: 360px !important;
-}
-.get-pwd-success{
-  font-size: 24px;
-  font-weight: bold;
-  margin: 100px 0 0 410px;
-}
-.get-pwd-success-tips{
-  font-size: 14px;
-  margin: 8px 0 0 360px;
-}
-.get-pwd-success-tips span{
-  color: #e14526;
-}
-.select-area label{
-  width: 140px;
-  text-align: right;
-}
-.select-form-group{
-  width: 455px;
-}
-.get-phone-area .real-name{
-  padding: 0;
-  margin-top: -15px;
-}
-.get-verify-index{
-  margin-right: 66px;
-}
-.get-verify-tips{
-  margin-right: -72px;
-}
-.get-phone-area .get-pwd-button{
-  margin-left: 430px !important;
-}
-.select-area{
-  padding-top: 30px;
-}*/
 /*about-us*/
 .about-us div,
 .help-center div{
   line-height: 23px;
+}
+.about-us .padding-b {
+  padding-bottom: 120px;
 }
 .web-show{
   height: 40px;
@@ -1251,69 +1189,6 @@ input:focus{
 .form-div{
   padding-top: 10px;
 }
-/*.pic-check {
-  float: left;
-  margin-top: 3px;
-}
-
-.agreement-bg{
-  height: 120px;
-  width: 710px;
-  background-color: black;
-}
-.check-img{
-  margin-top: 13px;
-}
-
-.input-verify-width{
-  width: 125px;
-}
-
-
-.login-input-tips{
-  margin-left: 320px;
-}
-.remember-height{
-  height: 35px;
-}
-.regist-area{
-  height: 460px;
-}
-.form-regist .login-regist-form-group .big-tips{
-  width: 70px;
-}
-
-.agree-area {
-  margin-top: 10px;
-}
-
-
-.a-verify {
-  position: absolute;
-  font-size: 12px;
-  color: #e94828;
-  top: 40px;
-  right: 45px;
-  cursor: pointer;
-}
-.a-verify:hover {
-  color: #e94828;
-}
-
-.p-agree {
-  float: left;
-  margin-left: 5px;
-}
-.p-picverify {
-  margin-top: -22px;
-}
-.popover-content {
-  padding: 5px 8px;
-  height: 30px;
-}
-.regist-refresh-pic{
-  margin:8px 70px 0 0 !important;
-}*/
 .p-click{
   cursor: pointer;
   line-height: 18px;
@@ -1374,4 +1249,35 @@ input:focus{
   display: block;
   margin: 20px 20px 10px 10px;
   float: left;
+}
+.smile-bg{
+  float: left;
+  width: 95px;
+  height: 95px;
+  background: url(/images/sprite.png) -40px -730px no-repeat;
+}
+.success-page{
+  height: 200px;
+  margin-top: 100px;
+}
+.success-tips{
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.button-div{
+  margin: 20px 0;
+}
+.p-pay-success{
+  margin-top: 9px;
+}
+.p-pay-begin{
+  margin-left: 60px;
+}
+.p-invitation{
+  font-size: 18px;
+  margin-top: 20px;
+}
+.p-invitation strong{
+  color: #e14526;
 }

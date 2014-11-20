@@ -4,9 +4,10 @@ hongcaiApp.controller("RegisterMailCtrl", ["$scope", "$state", "$rootScope", "$s
 
     $scope.submitRegisterMail = function(user) {
         RegisterService.saveRegister.save({name: user.name, type: 1, account: user.email, password: user.password, captcha: user.captcha }, function(response) {
+            console.log(response.ret);
             if(response.ret == 1) {
                 SessionService.set("user", response.data.user.name);
-                $state.go('root.userCenter.account-overview');
+                $state.go('root.send-email');
                 //$rootScope.loginName = response.data.user.name;
                 //$rootScope.isLogged = true;
             } else {
