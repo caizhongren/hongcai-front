@@ -35,61 +35,66 @@
 		</div>
 	</div>
 	<div class="change-area change-pwd-height" ng-show="changPwd" ng-init="changPwd=false">
-		<form class="real-name" name="changePwdForm" ng-submit="changePassword(password)">
-			<div class="safe-form-group">
-				<label for="oldPwd">原始密码：</label>
-				<input type="password" class="verify-input"  
-					name="oldPwd"
-					id = "oldPwd"
-					ng-model="password.oldPassword" 
-					check-password="oldPwd"
-					required
-					ng-focus				
-					autofocus/>
-				<div class="user-tips-area safe-tips-area" 
-						ng-show="changePwdForm.oldPwd.$dirty && changePwdForm.oldPwd.$invalid && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.required">
-					<img ng-src="images/check_no.png" class="user-check-img">
-					<p class="input-tips user-input-tips">请输入原密码</p>
+		<form class="real-name row" name="changePwdForm" ng-submit="changePassword(password)">
+			<div class="col-md-8 col-lg-6 col-md-offset-2 col-lg-offset-3">
+				<div class="safe-form-group row">
+					<label for="oldPwd" class="col-md-4 col-lg-4">原始密码：</label>
+					<input type="password" class="verify-input col-md-6 col-lg-6"  
+						name="oldPwd"
+						id = "oldPwd"
+						ng-model="password.oldPassword" 
+						check-password="oldPwd"
+						required
+						ng-focus				
+						autofocus/>
+					<div class="user-tips-area safe-tips-area" 
+							ng-show="changePwdForm.oldPwd.$dirty && changePwdForm.oldPwd.$invalid && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.required">
+						<img ng-src="images/check_no.png" class="user-check-img">
+						<p class="input-tips user-input-tips">请输入原密码</p>
+					</div>
+					<div class="user-tips-area safe-tips-area" 
+							ng-show="changePwdForm.oldPwd.$dirty && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.isPasswordTrue">
+						<img ng-src="images/check_no.png" class="user-check-img">
+						<p class="input-tips user-input-tips">原始密码错误</p>
+					</div>
 				</div>
-				<div class="user-tips-area safe-tips-area" 
-						ng-show="changePwdForm.oldPwd.$dirty && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.isPasswordTrue">
-					<img ng-src="images/check_no.png" class="user-check-img">
-					<p class="input-tips user-input-tips">原始密码错误</p>
+				<div class="safe-form-group row">
+					<label class="col-md-4 col-lg-4">新密码：</label>
+					<input type="password" class="verify-input col-md-6 col-lg-6"
+						name = "newPwd"
+						id = "newPwd" 
+						ng-model="password.newPassword"
+						ng-focus
+						required/>
+					<div class="user-tips-area safe-tips-area" 
+							ng-show="changePwdForm.newPwd.$dirty && changePwdForm.newPwd.$invalid && !changePwdForm.newPwd.$focused">
+						<img ng-src="images/check_no.png" class="user-check-img">
+						<p class="input-tips user-input-tips">请输入新密码</p>
+					</div>
+				</div>
+				<div class="safe-form-group row">
+					<label class="col-md-4 col-lg-4">确认密码：</label>
+					<input type="password" class="verify-input col-md-6 col-lg-6"
+						name = "confirmPwd"
+						id = "confirmPwd"
+						ng-focus 
+						ng-model="password.repeatNewPassword" required/>
+					<div  class="user-tips-area safe-tips-area"
+							ng-show="changePwdForm.confirmPwd.$dirty && changePwdForm.confirmPwd.$invalid && !changePwdForm.confirmPwd.$focused">
+						<img ng-src="images/check_no.png" class="user-check-img">
+						<p class="input-tips user-input-tips">请输入确认密码</p>
+					</div>
+					<div class="user-tips-area safe-tips-area"
+							ng-show="changePwdForm.confirmPwd.$dirty && !checkTwoPassword(password) && !changePwdForm.confirmPwd.$focused" >
+						<img ng-src="images/check_no.png" class="user-check-img">
+						<p class="input-tips user-input-tips">密码不一致</p>
+					</div>
+				</div>
+				<div class="safe-form-group row">
+					<label class="col-md-4 col-lg-4"></label>
+					<input type="submit" value="确定" class="verify-button col-md-3 col-lg-3"  ng-disabled="changePwdForm.$invalid"/>
 				</div>
 			</div>
-			<div class="safe-form-group">
-				<label>新密码：</label>
-				<input type="password" class="verify-input"
-					name = "newPwd"
-					id = "newPwd" 
-					ng-model="password.newPassword"
-					ng-focus
-					required/>
-				<div class="user-tips-area safe-tips-area" 
-						ng-show="changePwdForm.newPwd.$dirty && changePwdForm.newPwd.$invalid && !changePwdForm.newPwd.$focused">
-					<img ng-src="images/check_no.png" class="user-check-img">
-					<p class="input-tips user-input-tips">请输入新密码</p>
-				</div>
-			</div>
-			<div class="safe-form-group">
-				<label>确认密码：</label>
-				<input type="password" class="verify-input"
-					name = "confirmPwd"
-					id = "confirmPwd"
-					ng-focus 
-					ng-model="password.repeatNewPassword" required/>
-				<div  class="user-tips-area safe-tips-area"
-						ng-show="changePwdForm.confirmPwd.$dirty && changePwdForm.confirmPwd.$invalid && !changePwdForm.confirmPwd.$focused">
-					<img ng-src="images/check_no.png" class="user-check-img">
-					<p class="input-tips user-input-tips">请输入确认密码</p>
-				</div>
-				<div  class="user-tips-area safe-tips-area"
-						ng-show="changePwdForm.confirmPwd.$dirty && !checkTwoPassword(password) && !changePwdForm.confirmPwd.$focused" >
-					<img ng-src="images/check_no.png" class="user-check-img">
-					<p class="input-tips user-input-tips">两次输入的密码不一致</p>
-				</div>
-			</div>
-			<input type="submit" value="确定" class="verify-button mail-button"  ng-disabled="changePwdForm.$invalid"/>
 		</form>
 	</div>
 	<div class="row">
@@ -103,34 +108,39 @@
 		</div>
 	</div>
 	<div class="change-area change-mail-height" ng-show="changeEmail" ng-init="changeEmail = false">
-		<form class="real-name" name="bindEmailForm" >
-			<div class="safe-form-group">
-				<label>邮箱：</label>
-				<input type="text" class="verify-input"
-						id="newEmail" 
-						name="newEmail" 
-						ng-model="newEmail" 
-						ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/" 
-						ensure-unique-email="newEmail" required ng-focus autofocus/>
-				<div ng-show="
-						bindEmailForm.newEmail.$dirty && 
-						bindEmailForm.newEmail.$invalid && 
-						!bindEmailForm.newEmail.$focused">
-					<div class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.pattern">
-						<img ng-src="images/check_no.png" class="user-check-img">
-						<p class="input-tips user-input-tips">邮箱格式不正确</p>
-					</div>
-					<div  class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.unique">
-						<img ng-src="images/check_no.png" class="user-check-img">
-						<p class="input-tips user-input-tips">邮箱已被占用</p>
-					</div>
-					<div  class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.required">
-						<img ng-src="images/check_no.png" class="user-check-img">
-						<p class="input-tips user-input-tips">请填写邮箱</p>
+		<form class="real-name row" name="bindEmailForm" >
+			<div class="col-md-8 col-lg-6 col-md-offset-2 col-lg-offset-">
+				<div class="safe-form-group row">
+					<label class="col-md-4 col-lg-5">邮箱：</label>
+					<input type="text" class="verify-input col-md-6 col-lg-6"
+							id="newEmail" 
+							name="newEmail" 
+							ng-model="newEmail" 
+							ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/" 
+							ensure-unique-email="newEmail" required ng-focus autofocus/>
+					<div ng-show="
+							bindEmailForm.newEmail.$dirty && 
+							bindEmailForm.newEmail.$invalid && 
+							!bindEmailForm.newEmail.$focused">
+						<div class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.pattern">
+							<img ng-src="images/check_no.png" class="user-check-img">
+							<p class="input-tips user-input-tips">邮箱格式不正确</p>
+						</div>
+						<div  class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.unique">
+							<img ng-src="images/check_no.png" class="user-check-img">
+							<p class="input-tips user-input-tips">邮箱已被占用</p>
+						</div>
+						<div  class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.required">
+							<img ng-src="images/check_no.png" class="user-check-img">
+							<p class="input-tips user-input-tips">请填写邮箱</p>
+						</div>
 					</div>
 				</div>
+				<div class="safe-form-group row">
+					<label class="col-md-4 col-lg-5"></label>
+					<input type="submit" value="确定" class="verify-button col-md-3 col-lg-3"  ng-disabled="bindEmailForm.$invalid" ng-click="bindEmail(newEmail)"/>
+				</div>
 			</div>
-			<input type="button" value="确定" class="verify-button mail-button" ng-disabled="bindEmailForm.$invalid" ng-click="bindEmail(newEmail)"/>
 		</form>
 	</div>
 	<div class="row">
