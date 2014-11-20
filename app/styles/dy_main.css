@@ -862,16 +862,40 @@ input:focus{
   text-align: center;
 }
 .grey-safe-pwd{
-  background: url(/images/sprite.png) -9px -1277px no-repeat;
+  background: url(/images/sprite.png) -12px -1277px no-repeat;
 }
 .grey-safe-phone{
   background: url(/images/sprite.png) -140px -1277px no-repeat;
 }
 .grey-safe-mail{
-  background: url(/images/sprite.png) -1527px -780px no-repeat;
+  background: url(/images/sprite.png) -269px -1277px no-repeat;
 }
 .grey-safe-realname{
-  background: url(/images/sprite.png) -1527px -780px no-repeat;
+  background: url(/images/sprite.png) -400px -1277px no-repeat;
+}
+.red-safe-pwd{
+  background: url(/images/sprite.png) -12px -1390px no-repeat;
+}
+.red-safe-phone{
+  background: url(/images/sprite.png) -140px -1390px no-repeat;
+}
+.red-safe-mail{
+  background: url(/images/sprite.png) -269px -1390px no-repeat;
+}
+.red-safe-realname{
+  background: url(/images/sprite.png) -400px -1390px no-repeat;
+}
+.blue-safe-pwd{
+  background: url(/images/sprite.png) -12px -1485px no-repeat;
+}
+.blue-safe-phone{
+  background: url(/images/sprite.png) -140px -1485px no-repeat;
+}
+.blue-safe-mail{
+  background: url(/images/sprite.png) -269px -1485px no-repeat;
+}
+.blue-safe-realname{
+  background: url(/images/sprite.png) -400px -1485px no-repeat;
 }
 .change-area{
   border: 1px solid #dfdfdf; 

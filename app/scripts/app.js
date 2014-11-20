@@ -32,10 +32,6 @@
  .config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$uiViewScrollProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider) {
   $uiViewScrollProvider.useAnchorScroll();
  	$stateProvider
-  .state('newbie-guide', {
-    url: '/newbie-guide',
-    templateUrl: 'views/newbie-guide.html'
-  })
  	.state('root', {
  		abstract: true,
  		views: {
@@ -407,7 +403,9 @@
  		url: '/company-profile',
  		views: {
  			'about-us-right-show': {
- 				templateUrl: 'views/about-us/company-profile.html'
+ 				templateUrl: 'views/about-us/company-profile.html',
+        controller: 'HelpCenterCtrl',
+        controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
  			}
  		}
  	})
