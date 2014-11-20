@@ -12,7 +12,7 @@ a:hover{
 label{
   font-weight: normal !important;
   padding: 5px 8px 0 !important;
-  height: 100%;
+  /*height: 100%;*/
   text-align: right;
 }
 input{
@@ -107,10 +107,12 @@ input:focus{
 .login-right-area,
 .regist-right-area{
   height: 92%;
-  background: url(/images/sprite1.png) 15px 45px no-repeat;
+}
+.login-right-area{
+  background: url(/images/sprite.png) -1527px -780px no-repeat;
 }
 .regist-right-area{
-  background: url(/images/sprite1.png) 0px 115px no-repeat;
+  background: url(/images/sprite.png) -1574px -695px no-repeat;
 }
 .p-login-right,
 .p-regist-right{
@@ -150,7 +152,9 @@ input:focus{
 }
 .p-checkbox{
   height: 15px;
+  width: 15px;
   margin-top: 0 !important;
+  padding: 0 !important;
 }
 .p-remember{
   font-size: 12px;
@@ -212,7 +216,8 @@ input:focus{
 }
 .triangle{
   height: 12px;
-  background: url(/images/sprite1.png) 0px -361px no-repeat;
+
+  background: url(/images/sprite.png) -1565px -1183px no-repeat;
 }
 /*agreement*/
 .agreement-area{
@@ -391,7 +396,7 @@ input:focus{
 }
 /*个人中心*/
 .left-area{
-    height: 550px;
+    height: 640px;
     border:1px solid #dbdbdb;
     font-size: 12px;
     color: #888181;
@@ -574,7 +579,6 @@ input:focus{
   border-radius: 5px;
   color: white;
   font-size: 14px;
-  margin-left: 90px;
   outline: none;
 }
 .verify-button:hover {
@@ -846,27 +850,51 @@ input:focus{
   background-color: #f27b64;
 }
 .safe-process{
-  height: 155px;
-  background: url(/images/sprite.png) -18px -1275px no-repeat;
-  margin: 0 auto;
-  border-bottom: 1px solid #dfdfdf;
-  margin-bottom: 35px;
+  height: 135px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #cecdcd;
+  margin-left: 25px;
 }
 .process-tips{
-  float: left;
-  margin-top: 85px;
+  height: 80px;
+  padding-top: 70px;
+  text-align: center;
 }
-.safe-pwd{
-  margin-left: 20px;
+.grey-safe-pwd{
+  background: url(/images/sprite.png) -12px -1277px no-repeat;
 }
-.safe-phone{
-  margin-left: 117px;
+.grey-safe-phone{
+  background: url(/images/sprite.png) -140px -1277px no-repeat;
 }
-.safe-mail{
-  margin-left: 114px;
+.grey-safe-mail{
+  background: url(/images/sprite.png) -269px -1277px no-repeat;
 }
-.safe-realname{
-  margin-left: 105px;
+.grey-safe-realname{
+  background: url(/images/sprite.png) -400px -1277px no-repeat;
+}
+.red-safe-pwd{
+  background: url(/images/sprite.png) -12px -1390px no-repeat;
+}
+.red-safe-phone{
+  background: url(/images/sprite.png) -140px -1390px no-repeat;
+}
+.red-safe-mail{
+  background: url(/images/sprite.png) -269px -1390px no-repeat;
+}
+.red-safe-realname{
+  background: url(/images/sprite.png) -400px -1390px no-repeat;
+}
+.blue-safe-pwd{
+  background: url(/images/sprite.png) -12px -1485px no-repeat;
+}
+.blue-safe-phone{
+  background: url(/images/sprite.png) -140px -1485px no-repeat;
+}
+.blue-safe-mail{
+  background: url(/images/sprite.png) -269px -1485px no-repeat;
+}
+.blue-safe-realname{
+  background: url(/images/sprite.png) -400px -1485px no-repeat;
 }
 .change-area{
   border: 1px solid #dfdfdf; 
@@ -883,8 +911,6 @@ input:focus{
 }
 .verify-index{
   margin-top: 0;
-  margin-right: 116px;
-  float: right;
 }
 .safe-form-group{
   height: 50px;
@@ -899,12 +925,6 @@ input:focus{
 }
 .safe-tips-area{
   margin-right: -70px;
-}
-.phone-verify-tips-index{
-  margin-top: -26px;
-}
-.phone-verify-check-img{
-  margin-top: -23px;
 }
 .grey,
 .grey:hover{

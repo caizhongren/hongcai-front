@@ -50,6 +50,16 @@ hongcaiApp.controller("HelpCenterCtrl", ["$scope", "$state", "$rootScope", "$loc
     $scope.changeLawQ2 = false;
     $scope.changeLawQ3 = false;
     $scope.changeLawQ4 = false;
+    $scope.changePosition1 = false;
+    $scope.changePosition2 = false;
+    $scope.changePosition3 = false;
+    $scope.changePosition4 = false;
+    $scope.changePosition5 = false;
+    $scope.changePosition6 = false;
+    $scope.changePosition7 = false;
+    $scope.changePosition8 = false;
+    $scope.changePosition9 = false;
+    $scope.changePosition10 = false;
 
     // if($(window).scrollTop()>100){
     //     $('body,html').animate({scrollTop:0},800);
