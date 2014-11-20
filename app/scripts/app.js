@@ -259,16 +259,16 @@
       }
     }
   })
- 	/*.state('root.userCenter.news', {
- 		url: '/news',
- 		views: {
- 			'user-center-right': {
- 				templateUrl: 'views/user-center/news.html',
- 				controller: 'UserCenterCtrl',
- 				controllerUrl: 'scripts/controller/user-center/user-center-ctrl'
- 			}
- 		}
- 	})*/
+  .state('root.userCenter.invite-rebate', {
+    url: '/invite-rebate',
+    views: {
+      'user-center-right': {
+        templateUrl: 'views/user-center/invite-rebate.html',
+        controller: 'InviteRebateCtrl',
+        controllerUrl: 'scripts/controller/user-center/invite-rebate-ctrl'
+      }
+    }
+  })
  	/*---------------------------------------------  yeepay  ---------------------------------------------*/
  	.state('root.userCenter.yeepay-callback', {
  		url: '/yeepay-callback/:yeepayService/:yeepayStatus',

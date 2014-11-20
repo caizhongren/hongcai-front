@@ -1,0 +1,45 @@
+<!--账户总览-->
+<div class="right-area right-account-height col-md-8 col-lg-9" ng-controller="InviteRebateCtrl">
+	<div class="row">
+		<div class="right-title">邀请返利</div>
+	</div>
+	<div class="row">
+		<div class="row account-investment">
+			<div class="col-md-6 border-r">
+				<p class="account-number-message">您的邀请码</p>
+				<p class="account-number">{{ voucher.number || "0"}}<span class="ft-14"></span></p>
+			</div>
+			<div class="col-md-6">
+				<p class="account-number-message">通过社交网站</p>
+				
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="right-title">我的邀请</div>
+	</div>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>邀请用户</th>
+				<th>注册时间</th>
+				<th>邀请奖励</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+				<td>{{item.user.name}}</td>
+				<td>{{item.user.createTime * 1000 | date:'yyyy-MM-dd'}}</td>
+				<td>{{item.gift.amount}}</td>
+			</tr>
+		</tbody>
+	</table>
+	<ul class="pager">
+		<li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+		{{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
+		<li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+	</ul>
+
+</div>
+
+
