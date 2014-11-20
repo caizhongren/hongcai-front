@@ -251,7 +251,7 @@
 		c.css3 && (c.css3 = U());
 		b("body").wrapInner('<div id="superContainer" />');
 		if (c.navigation) {
-			b("body").append('<div id="fullPage-nav"><ul></ul></div>');
+			b("body").append('<div id="fullPage-nav"><a class="returnHome" href="javascript:;" title="返回首页"><i class="fa fa-home"></i></a><ul></ul></div>');
 			var t = b("#fullPage-nav");
 			t.css("color", c.navigationColor);
 			t.addClass(c.navigationPosition)
