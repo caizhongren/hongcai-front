@@ -139,9 +139,19 @@
     url: '/register-success/:etoken',
     views: {
       '': {
-        templateUrl: 'views/register/register-success.html',
+        templateUrl: 'views/success.html',
         controller: 'RegisterSuccessCtrl',
         controllerUrl: 'scripts/controller/register/register-success-ctrl'
+      }
+    }
+  })
+  .state('root.transfer-success', {
+    url: '/transfer-success/:status',
+    views: {
+      '': {
+        templateUrl: 'views/success.html',
+        controller: 'TransferSuccessCtrl',
+        controllerUrl: 'scripts/controller/order/transfer-success-ctrl'
       }
     }
   })
@@ -200,6 +210,16 @@
  			}
  		}
  	})
+  .state('root.open-yeepay-account-success', {
+    url: '/yeepay-success/:status',
+    views: {
+      '': {
+        templateUrl: 'views/user-center/yeepay-success.html',
+        controller: 'YeepaySuccessCtrl',
+        controllerUrl: 'scripts/controller/user-center/yeepay-success-ctrl'
+      }
+    }
+  })
  	.state('root.userCenter.recharge', {
  		url: '/recharge',
  		views: {
@@ -460,8 +480,8 @@
  		views: {
  			'about-us-right-show': {
  				templateUrl: 'views/about-us/media-reports-detail.html',
- 				controller: 'MediaReportsDetailCtrl',
- 				controllerUrl: 'scripts/controller/about-us/media-report-detail-ctrl'
+ 				controller: 'HongcaiTrendsDetailCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
  			}
  		}
  	})
@@ -481,8 +501,8 @@
  		views: {
  			'about-us-right-show': {
  				templateUrl: 'views/about-us/web-site-notice-detail.html',
- 				controller: 'WebSiteNoticeDetailCtrl',
- 				controllerUrl: 'scripts/controller/about-us/web-site-notice-detail-ctrl'
+ 				controller: 'HongcaiTrendsDetailCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
  			}
  		}
  	})
