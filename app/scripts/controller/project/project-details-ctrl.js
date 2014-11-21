@@ -9,7 +9,8 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.isAvailable = projectDetails.data.isAvailable;
         $scope.enterprise = projectDetails.data.enterprise;
         $scope.orderList = projectDetails.data.orderList;
-        $scope.enterpriseFile = projectDetails.data.enterpriseFile;
+        $scope.enterpriseThumbnailFileList = projectDetails.data.enterpriseThumbnailFileList;
+        $scope.enterpriseOriginalFileList = projectDetails.data.enterpriseOriginalFileList;
         $scope.contractOriginalFileList = projectDetails.data.contractOriginalFileList;
         $scope.contractThumbnailFileList = projectDetails.data.contractThumbnailFileList;
         
