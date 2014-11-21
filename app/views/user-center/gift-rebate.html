@@ -1,8 +1,8 @@
 <!-- 投资产品 -->
 <div ng-controller="UserOrderCtrl"  class="right-area right-assets-height investment col-md-8 col-lg-9 no-padding" >
   <div class="right-title">投资产品</div>
-  <div class="padd"><span>当前账户总计投资产品： <strong>{{orderCount.all}}</strong>个。</span><span>其中还款中： <strong>{{orderCount.returning}}</strong>个，</span><span>投资中：<strong>{{orderCount.paying}}</strong>个。</span><span>已结清：<strong>{{orderCount.returned}}</strong>个。</span></div>
-  <div class="padd"><span>投资总额： <strong>{{amount.amount}}</strong>元，</span><span>累计收益：<strong>{{amount.profit}}</strong>元。</span></div>
+  <div class="padd"><span>当前账户宏包投资产品： <strong>{{orderCount.all}}</strong>个。</span><span>其中收益中： <strong>{{orderCount.returning}}</strong>个，</span><span>等待收益：<strong>{{orderCount.paying}}</strong>个。</span><span>已结清：<strong>{{orderCount.returned}}</strong>个。</span></div>
+  <div class="padd"><span>宏包投资总额： <strong>{{amount.amount}}</strong>元，</span><span>宏包累计收益：<strong>{{amount.profit}}</strong>元。</span></div>
   <div class="row">
     <div class="col-xs-12">
       <div class="panel panel-default no-border">
@@ -11,7 +11,7 @@
             <div class="row">
               <div class="col-xs-12">
                 <div class="row">
-                  <div class="col-xs-2 pull-left text-nowrap" style="padding-left: 32px">项目状态：</div>
+                  <div class="col-xs-2 pull-left text-nowrap" style="padding-left: 32px">订单状态：</div>
                   <div class="col-xs-2 text-nowrap">
                     <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'0', dateStart:dateStart,dateEnd:dateEnd})">
                       <i class="fa" ng-class="{'fa-check-square-o': status === '0', 'fa-square-o': status !== '0'}"></i>
