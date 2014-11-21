@@ -214,7 +214,7 @@
     url: '/yeepay-success/:status',
     views: {
       '': {
-        templateUrl: 'views/user-center/yeepay-success.html',
+        templateUrl: 'views/success.html',
         controller: 'YeepaySuccessCtrl',
         controllerUrl: 'scripts/controller/user-center/yeepay-success-ctrl'
       }
