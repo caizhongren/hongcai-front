@@ -210,6 +210,16 @@
  			}
  		}
  	})
+  .state('root.open-yeepay-account-success', {
+    url: '/yeepay-success/:status',
+    views: {
+      '': {
+        templateUrl: 'views/user-center/yeepay-success.html',
+        controller: 'YeepaySuccessCtrl',
+        controllerUrl: 'scripts/controller/user-center/yeepay-success-ctrl'
+      }
+    }
+  })
  	.state('root.userCenter.recharge', {
  		url: '/recharge',
  		views: {
