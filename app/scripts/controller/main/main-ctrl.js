@@ -33,6 +33,25 @@ hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "$rootScope", "$loc
     });
 
     $rootScope.selectPage = $location.path().split('/')[1];
+
+
+    $scope.media = [
+      {mimeType: 'image/png', src:'images/banner-1.png'},
+      {mimeType: 'image/png', src:'images/banner-2.png'},
+      {mimeType: 'image/png', src:'images/banner-3.png'}
+    ];
+    $scope.slickConfig = {
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      onAfterChange: function(slick, index) {
+          var slides = $('.slick-track').children().not('.slick-cloned');
+          if (index >= slides.length) return;
+          // $(slides[index]).find('video').each(playVideo);
+      }
+    };
+    $scope.slickHandle = {
+    };
 }]);
 //JQuery 操作DOM
 // function change_agree_pic(x){
