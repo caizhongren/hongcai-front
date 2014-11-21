@@ -6,7 +6,8 @@ hongcaiApp.factory('RegisterService', function ($resource, DEFAULT_DOMAIN) {
 				type: '@type', 
 				account: '@account', 
 				password: '@password', 
-				captcha: '@captcha'}}
+				captcha: '@captcha',
+				inviteCode: '@inviteCode'}}
 		}),
         sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/sendMobileCaptcha', {}, {
             save: {method: "POST", params: {mobile: '@mobile'}}

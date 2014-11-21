@@ -1,9 +1,18 @@
 hongcaiApp.controller("RegisterMailCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "RegisterService", "SessionService", "DEFAULT_DOMAIN", "toaster", function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster) {
 
+
+    if ($stateParams.inviteCode){
+        $scope.user= {inviteCode:  $stateParams.inviteCode};
+    }
     $scope.getPicCaptcha = DEFAULT_DOMAIN + "/siteUser/getPicCaptcha?";
 
     $scope.submitRegisterMail = function(user) {
-        RegisterService.saveRegister.save({name: user.name, type: 1, account: user.email, password: user.password, captcha: user.captcha }, function(response) {
+        RegisterService.saveRegister.save({name: user.name, 
+                                            type: 1, 
+                                            account: user.email, 
+                                            password: user.password, 
+                                            captcha: user.captcha, 
+                                            inviteCode: user.inviteCode }, function(response) {
             console.log(response.ret);
             if(response.ret == 1) {
                 SessionService.set("user", response.data.user.name);

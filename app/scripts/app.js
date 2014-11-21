@@ -89,7 +89,7 @@
  		}
  	})
  	.state('root.registerMobile', {
- 		url: '/register-mobile',
+ 		url: '/register-mobile/:inviteCode',
  		views: {
  			'': {
  				templateUrl: 'views/register/register-mobile.html',
@@ -99,7 +99,7 @@
  		}
  	})
  	.state('root.registerMail', {
- 		url: '/register-mail',
+ 		url: '/register-mail/:inviteCode',
  		views: {
  			'': {
  				templateUrl: 'views/register/register-mail.html',
