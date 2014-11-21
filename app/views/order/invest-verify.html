@@ -47,7 +47,7 @@
 					<div class="col-md-12">您当前的投资额度为：{{investAmount| number:2}} 元，最多可以使用{{giftCount}}个宏包</div>
 					<div class="col-md-3">宏包金额：100元</div>
 					<div class="col-md-6">宏包数量：
-						<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" placeholder="请选择使用数量" bs-select><span class="caret"></span>
+						<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" placeholder="请选择使用数量" bs-select ng-init="selectedIcon = 0"><span class="caret"></span>
 						</button>
 					</div>
 				</div>
