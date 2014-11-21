@@ -8,6 +8,7 @@ hongcaiApp.controller("GiftOverviewCtrl", [ "$scope", "$state", "$rootScope", "$
     		$scope.currentPage = 0;
 	        $scope.pageSize = 6;
 	        $scope.data = [];
+	        $scope.totalAvailable = 0;
 	        $scope.totalAvailableAmount = 0;
 	        $scope.totalUsedAmount = 0;
 
@@ -18,6 +19,7 @@ hongcaiApp.controller("GiftOverviewCtrl", [ "$scope", "$state", "$rootScope", "$
 	            $scope.data.push($scope.giftList[i]);
 	            if($scope.giftList[i].gift.status == 2) {
 	            	$scope.totalAvailableAmount += $scope.giftList[i].gift.amount;
+	            	$scope.totalAvailable ++;
 	            }
 	            if($scope.giftList[i].gift.status == 3) {
 	            	$scope.totalUsedAmount += $scope.giftList[i].gift.amount;
