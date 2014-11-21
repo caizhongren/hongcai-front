@@ -470,8 +470,8 @@
  		views: {
  			'about-us-right-show': {
  				templateUrl: 'views/about-us/media-reports-detail.html',
- 				controller: 'MediaReportsDetailCtrl',
- 				controllerUrl: 'scripts/controller/about-us/media-report-detail-ctrl'
+ 				controller: 'HongcaiTrendsDetailCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
  			}
  		}
  	})
@@ -491,8 +491,8 @@
  		views: {
  			'about-us-right-show': {
  				templateUrl: 'views/about-us/web-site-notice-detail.html',
- 				controller: 'WebSiteNoticeDetailCtrl',
- 				controllerUrl: 'scripts/controller/about-us/web-site-notice-detail-ctrl'
+ 				controller: 'HongcaiTrendsDetailCtrl',
+ 				controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
  			}
  		}
  	})
