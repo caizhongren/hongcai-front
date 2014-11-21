@@ -20,13 +20,16 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.securityStatus.realNameAuthStatus =1;
         $scope.securityStatus.mobileStatus =1;
         $scope.securityStatus.emailStatus = 1;*/ /*控制未完成订单提示框弹出的假数据*/
-        
+
+        // console.log($scope.project.publishTime)
+        console.log($scope.project.status)
+
         $scope.dateArray = $scope.project.releaseStartTime.split('-');
         $scope.day = $scope.dateArray[2].split(' ')[0];
         $scope.timeArray = $scope.dateArray[2].split(' ')[1].split(':');
-        $scope.statDate = new Date($scope.dateArray[0], $scope.dateArray[1]-1, $scope.day, $scope.timeArray[0],$scope.timeArray[1],$scope.timeArray[2]);
+        $scope.statDate = new Date($scope.dateArray[0], $scope.dateArray[1]-1, $scope.day, $scope.timeArray[0],$scope.timeArray[1],$scope.timeArray[2]+10);
        
-        $scope.statDate = new Date('2014', '12', '12', '16','30','00');//假数据
+        /*$scope.statDate = new Date('2014', '10', '21', '20','17','10');*///假数据
 
         $scope.finished = function(){
             if($scope.project.status == 6){
