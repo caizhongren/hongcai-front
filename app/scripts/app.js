@@ -145,6 +145,16 @@
       }
     }
   })
+  .state('root.transfer-success', {
+    url: '/transfer-success/:status',
+    views: {
+      '': {
+        templateUrl: 'views/order/transfer-success.html',
+        controller: 'TransferSuccessCtrl',
+        controllerUrl: 'scripts/controller/order/transfer-success-ctrl'
+      }
+    }
+  })
  	/*------------------------------------------  user-center  -----------------------------------------------*/
  	.state('root.userCenter', {
  		views: {
