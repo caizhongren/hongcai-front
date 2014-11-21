@@ -260,6 +260,26 @@
  			}
  		}
  	})
+ 	.state('root.userCenter.gift-rebate', {
+ 		url: '/gift-rebate',
+ 		views: {
+ 			'user-center-right': {
+ 				templateUrl: 'views/user-center/gift-rebate.html',
+ 				controller: 'UserGiftCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-gift-ctrl'
+ 			}
+ 		}
+ 	})
+ 	.state('root.userCenter.gift-rebate-query', {
+ 		url: '/gift-rebate/:dateInterval/:status/:dateStart/:dateEnd',
+ 		views: {
+ 			'user-center-right': {
+ 				templateUrl: 'views/user-center/gift-rebate.html',
+ 				controller: 'UserGiftCtrl',
+ 				controllerUrl: 'scripts/controller/user-center/user-gift-ctrl'
+ 			}
+ 		}
+ 	})
   .state('root.userCenter.gift-overview', {
     url: '/gift-overview',
     views: {
@@ -601,7 +621,9 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
 							'/security-settings',
 							'/withdraw',
 							'/recharge',
-							'/invest-verify'];
+							'/invest-verify',
+              '/gift-overview',
+              '/invite-rebate'];
   $rootScope.$on('$stateChangeStart', function() {
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     if(routespermission.indexOf($location.path()) !== -1) {

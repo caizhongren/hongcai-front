@@ -8,7 +8,7 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
     getUserCapital: $resource(DEFAULT_DOMAIN + '/siteUserCapital/getUserCapitalById'),
     getUserAvailableCash: $resource(DEFAULT_DOMAIN + '/siteUserCapital/getUserAvailableCash'),
     getUserOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser'),
-    getOrderByUser: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser', {dateInterval: '@dateInterval',status: '@status',dateStart: '@dateStart',dateEnd: '@dateEnd'}),
+    getOrderByUser: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser', {dateInterval: '@dateInterval',status: '@status',dateStart: '@dateStart',dateEnd: '@dateEnd',type: '@type'}),
     getUserBalance: $resource(DEFAULT_DOMAIN + '/siteUserCapital/getUserBalance'),
     sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/sendMobileCaptcha', {mobile: '@mobile'}),
     bindMobile: $resource(DEFAULT_DOMAIN + '/siteUser/bindMobile', {mobile: '@mobile', captcha: '@captcha'}),
