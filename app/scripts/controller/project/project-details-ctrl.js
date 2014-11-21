@@ -1,4 +1,4 @@
-hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", "ProjectService", "OrderService", "$modal", function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal) {
+hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", "ProjectService", "OrderService", "$modal", "$alert", function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert) {
     $rootScope.redirectUrl = $location.path();
 
 
@@ -15,7 +15,11 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.remainInterest = projectDetails.data.remainInterest;
         $scope.remainPrincipal = projectDetails.data.remainPrincipal;
 
-
+        /*$scope.isAvailable = 0;
+        $scope.project.progress = 90;
+        $scope.securityStatus.realNameAuthStatus =1;
+        $scope.securityStatus.mobileStatus =1;
+        $scope.securityStatus.emailStatus = 1;*/ /*控制未完成订单提示框弹出的假数据*/
         
         $scope.dateArray = $scope.project.releaseStartTime.split('-');
         $scope.day = $scope.dateArray[2].split(' ')[0];
@@ -29,27 +33,18 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
                 window.location.reload();
             }
         }
-        // var project = projectDetails.data.project;
-        // var projectInfo = projectDetails.data.projectInfo;
-        // var pledges = projectDetails.data.pledges;
-
-        // 椤圭洰
-        // $scope.name = project.name;
-        // $scope.total = project.total;
-        // $scope.annualEarnings = project.annualEarnings;
-        // $scope.cycle = project.cycle;
-        // $scope.description = project.description;
-
-        // 椤圭洰淇℃伅
-        // $scope.financingPurpose = projectInfo.financingPurpose;
-        // $scope.repaymentSource = projectInfo.repaymentSource;
+       
 
         $scope.isAvailableInvest = function(project){//验证用户权限
             if (project.amount <= $scope.project.minInvest){
-                alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
+                // alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
+                $scope.msg = '投资金额必须大于最小投资金额' + $scope.project.minInvest + '！';
+                var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
                 return;
             } else if (project.amount%$scope.project.increaseAmount){
-                alert('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
+                // alert('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
+                $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍！';
+                var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
                 return;
             }
             ProjectService.isAvailableInvest.get({amount: project.amount,projectId:project.id }, function(response) {
@@ -118,6 +113,9 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.targetImg = image;
         myOtherModal.$promise.then(myOtherModal.show);
     };
+
+    
+
 
 }]);
 
