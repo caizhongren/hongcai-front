@@ -31,7 +31,7 @@
                     </div> <!-- .row -->
                     <div class="row">
                       <div class="col-xs-12">
-                        发布日期：{{ project.publishTime || 0 | amDateFormat: 'YYYY年M月d日'}}
+                        发布日期：{{ project.publishTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}
                       </div>
                     </div> <!-- .row -->
                     <hr style="margin-top: 9px;margin-bottom: 9px;">
@@ -293,7 +293,7 @@
                           <input type="number" min="0" max="1000000" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required ng-switch-default>
                           <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                           <button class="btn btn-danger btn-lg btn-block" ng-switch-default>立即投资</button>
-                          
+
                         </form>
                       </div>
                     </div>
