@@ -6986,3 +6986,6 @@ a {
 .alert .bottom .margin-l {
   margin-left: 30%;
 }
+.slick-dots {
+  height: 20%;
+}

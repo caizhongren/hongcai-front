@@ -39,6 +39,7 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
                 $scope.changeMobile = false;
                 $scope.mobileNo = null;
                 $scope.inputCaptcha = null;
+                $rootScope.securityStatus.mobileStatus = 1;
             } else {
 
             }
@@ -52,6 +53,7 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
                 $scope.email = email.substr(0,2) + "****" + email.substr(email.indexOf("@"));
                 $scope.changeEmail = false;
                 $scope.newEmail = null;
+                $rootScope.securityStatus.emailStatus = 1;
             } else {
 
             }
@@ -125,7 +127,7 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
                 create_elements(_f,"sign",sign);
                 _f.action="http://qa.yeepay.com/member/bha/toRegister";
                 _f.submit();
-
+                $rootScope.securityStatus.realNameAuthStatus = 1;
             } else {
 
             }
