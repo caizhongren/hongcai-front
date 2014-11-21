@@ -1,7 +1,7 @@
 hongcaiApp.controller('TransferSuccessCtrl', ["$scope", "$state", "$rootScope", "$stateParams", "RegisterService", "SessionService", "DEFAULT_DOMAIN", "toaster", function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster) {
 
 
-    $scope.page='yeepay-transfer';
+    $scope.page = 2;
 
 }]);
  
