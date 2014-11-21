@@ -1,4 +1,4 @@
-hongcaiApp.controller("InviteRebateCtrl", [ "$scope", "$state", "$rootScope", "$stateParams", "UserCenterService", "OrderService", "DEFAULT_DOMAIN", function ($scope, $state, $rootScope, $stateParams, UserCenterService, OrderService, DEFAULT_DOMAIN) {
+hongcaiApp.controller("InviteRebateCtrl", [ "$scope", "$state", "$rootScope", "UserCenterService", function ($scope, $state, $rootScope, UserCenterService) {
 
     $rootScope.selectSide = 'invite-rebate';
 
@@ -16,10 +16,13 @@ hongcaiApp.controller("InviteRebateCtrl", [ "$scope", "$state", "$rootScope", "$
 	        for (var i = 0; i < $scope.inviteList.length; i++) {
 	            $scope.data.push($scope.inviteList[i]);
 	        }
-	        
+
 		} else {
             
         }
+        
     });
 
 }]);
+
+
