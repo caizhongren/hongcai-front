@@ -22,7 +22,7 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.securityStatus.emailStatus = 1;*/ /*控制未完成订单提示框弹出的假数据*/
 
         // console.log($scope.project.publishTime)
-        console.log($scope.project.status)
+        // console.log($scope.project.status)
 
         $scope.dateArray = $scope.project.releaseStartTime.split('-');
         $scope.day = $scope.dateArray[2].split(' ')[0];
