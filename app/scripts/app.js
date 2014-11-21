@@ -621,7 +621,9 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
 							'/security-settings',
 							'/withdraw',
 							'/recharge',
-							'/invest-verify'];
+							'/invest-verify',
+              '/gift-overview',
+              '/invite-rebate'];
   $rootScope.$on('$stateChangeStart', function() {
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     if(routespermission.indexOf($location.path()) !== -1) {
