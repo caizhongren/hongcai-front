@@ -6935,3 +6935,6 @@ a {
 .index-newbie h3 {
   text-align: center;
 }
+.slick-dots {
+  height: 20%;
+}

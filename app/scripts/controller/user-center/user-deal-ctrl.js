@@ -6,19 +6,19 @@ hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$state
   $scope.type = $stateParams.type;
   $scope.dateInterval = $stateParams.dateInterval;
   $scope.typeValue = { '1': '充值', '2': '提现', '3': '投资', '4,5': '回款' };
+  // 时间函数，先注释
+  // $scope.openStartTime = function($event) {
+  //   $event.preventDefault();
+  //   $event.stopPropagation();
 
-  $scope.openStartTime = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
+  //   $scope.openedStartTime = true;
+  // };
+  // $scope.openEndTime = function($event) {
+  //   $event.preventDefault();
+  //   $event.stopPropagation();
 
-    $scope.openedStartTime = true;
-  };
-  $scope.openEndTime = function($event) {
-    $event.preventDefault();
-    $event.stopPropagation();
-
-    $scope.openedEndTime = true;
-  };
+  //   $scope.openedEndTime = true;
+  // };
   $scope.fromDealDateChanged = function () {
     dateStart = $scope.fromDate;
   };

@@ -22,8 +22,7 @@
   'angular-flexslider',
   'angular-loading-bar',
   'timer',
-  // 'ui.bootstrap'
-  // 'slick'
+  'bardo.directives'
   ]);
 
  hongcaiApp
@@ -31,6 +30,10 @@
     cfpLoadingBarProvider.includeSpinner = true;
     cfpLoadingBarProvider.includeBar = true;
   }])
+  // .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  // $locationProvider.html5Mode(true);
+  // $routeProvider.when 'carousel-example-generic';
+  // }])
  .config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$uiViewScrollProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider) {
   $uiViewScrollProvider.useAnchorScroll();
  	$stateProvider
@@ -85,7 +88,7 @@
  		}
  	})
  	.state('root.registerMobile', {
- 		url: '/register-mobile',
+ 		url: '/register-mobile/:inviteCode',
  		views: {
  			'': {
  				templateUrl: 'views/register/register-mobile.html',
@@ -95,7 +98,7 @@
  		}
  	})
  	.state('root.registerMail', {
- 		url: '/register-mail',
+ 		url: '/register-mail/:inviteCode',
  		views: {
  			'': {
  				templateUrl: 'views/register/register-mail.html',
@@ -129,6 +132,16 @@
     views: {
       '': {
         templateUrl: 'views/register/send-email.html'
+      }
+    }
+  })
+  .state('root.register-success', {
+    url: '/register-success/:etoken',
+    views: {
+      '': {
+        templateUrl: 'views/register/register-success.html',
+        controller: 'RegisterSuccessCtrl',
+        controllerUrl: 'scripts/controller/register/register-success-ctrl'
       }
     }
   })
