@@ -38,7 +38,7 @@ hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$state
     $scope.currentPage = 0;
     $scope.pageSize = 10;
     $scope.data = [];
-    console.info(getDealByUser.data.dealList);
+    
     $scope.numberOfPages = function() {
       return Math.ceil($scope.data.length / $scope.pageSize);
     }
