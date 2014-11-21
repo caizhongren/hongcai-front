@@ -139,7 +139,7 @@
     url: '/register-success/:etoken',
     views: {
       '': {
-        templateUrl: 'views/register/register-success.html',
+        templateUrl: 'views/success.html',
         controller: 'RegisterSuccessCtrl',
         controllerUrl: 'scripts/controller/register/register-success-ctrl'
       }
@@ -149,7 +149,7 @@
     url: '/transfer-success/:status',
     views: {
       '': {
-        templateUrl: 'views/order/transfer-success.html',
+        templateUrl: 'views/success.html',
         controller: 'TransferSuccessCtrl',
         controllerUrl: 'scripts/controller/order/transfer-success-ctrl'
       }
