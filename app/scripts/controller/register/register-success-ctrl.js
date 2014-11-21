@@ -2,9 +2,9 @@ hongcaiApp.controller('RegisterSuccessCtrl', ["$scope", "$state", "$rootScope", 
 
 
     $scope.message = '注册成功';
-    var token = $stateParams.token;
-    if(token){
-        RegisterService.activeEmail.get({token: token}, function(response){
+    var etoken = $stateParams.etoken;
+    if(etoken){
+        RegisterService.activeEmail.get({etoken: etoken}, function(response){
             if (response.ret == -1){
                 $scope.message = response.msg;
             }

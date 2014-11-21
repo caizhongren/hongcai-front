@@ -137,7 +137,7 @@
     }
   })
   .state('root.register-success', {
-    url: '/register-success',
+    url: '/register-success/:etoken',
     views: {
       '': {
         templateUrl: 'views/register/register-success.html',
