@@ -22,8 +22,8 @@
   'angular-flexslider',
   'angular-loading-bar',
   'timer',
-  'ui.bootstrap',
-  'slick'
+  // 'ui.bootstrap'
+  // 'slick'
   ]);
 
  hongcaiApp
