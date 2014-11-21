@@ -1272,3 +1272,7 @@ input:focus{
 .p-invitation strong{
   color: #e14526;
 }
+.no-border{
+  border-top: 1px solid #fff !important;
+  border-bottom: 1px solid #fff !important;
+}
