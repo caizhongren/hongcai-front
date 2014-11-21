@@ -1279,3 +1279,6 @@ input:focus{
 .invest-tips{
   padding-top: 5px;
 }
+.border-end{
+  border-bottom: 1px solid #dbdbdb;
+}

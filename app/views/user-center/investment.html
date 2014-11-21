@@ -1,8 +1,16 @@
 <!-- 投资产品 -->
 <div ng-controller="UserOrderCtrl"  class="right-area right-assets-height investment col-md-8 col-lg-9 no-padding" >
   <div class="right-title">投资产品</div>
-  <div class="padd"><span>当前账户总计投资产品： <strong>{{orderCount.all}}</strong>个。</span><span>其中还款中： <strong>{{orderCount.returning}}</strong>个，</span><span>投资中：<strong>{{orderCount.paying}}</strong>个。</span><span>已结清：<strong>{{orderCount.returned}}</strong>个。</span></div>
-  <div class="padd"><span>投资总额： <strong>{{amount.amount}}</strong>元，</span><span>累计收益：<strong>{{amount.profit}}</strong>元。</span></div>
+  <div class="padd">
+    <span>当前账户总计投资产品： <strong>{{orderCount.all}}</strong>个。</span>
+    <span>其中还款中： <strong>{{orderCount.returning}}</strong>个，</span>
+    <span>投资中：<strong>{{orderCount.paying}}</strong>个。</span>
+    <span>已结清：<strong>{{orderCount.returned}}</strong>个。</span>
+  </div>
+  <div class="padd border-end">
+    <span>投资总额：<strong>{{amount.amount}}</strong>元，</span>
+    <span>累计收益：<strong>{{amount.profit}}</strong>元。</span>
+  </div>
   <div class="row">
     <div class="col-xs-12">
       <div class="panel panel-default no-border">
@@ -11,7 +19,7 @@
             <div class="row">
               <div class="col-xs-12">
                 <div class="row">
-                  <div class="col-xs-2 pull-left text-nowrap" style="padding-left: 32px">项目状态：</div>
+                  <div class="col-xs-2 pull-left text-nowrap">项目状态：</div>
                   <div class="col-xs-2 text-nowrap">
                     <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'0', dateStart:dateStart,dateEnd:dateEnd})">
                       <i class="fa" ng-class="{'fa-check-square-o': status === '0', 'fa-square-o': status !== '0'}"></i>
@@ -49,7 +57,7 @@
             <div class="row">
               <div class="col-xs-12">
                 <div class="row">
-                  <div class="col-xs-2 text-nowrap" style="padding-left: 32px">项目期限：</div>
+                  <div class="col-xs-2 text-nowrap">项目期限：</div>
                   <div class="col-xs-2">
                     <a ui-sref="root.userCenter.investment-query({dateInterval:'0',status:status, dateStart:dateStart, dateEnd:dateEnd})" >
                       <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval == '0', 'fa-square-o': dateInterval != '0' }"></i>
@@ -78,16 +86,20 @@
               </div>
             </div>
             <div class="row">
-              <form name="datepickerForm" class="form-inline" role="form">
-                <label class="col-xs-2" style="margin-left: 5.5px; text-align:center;">固定期限：</label>
-                <div class="form-group">
-                  <i class="fa fa-calendar"></i>
-                  <input type="text" class="form-control" ng-model="fromDate" data-max-date="" placeholder="开始时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="fromDateChanged({{status}},{{dateInterval}});">
-                  <i class="fa fa-arrows-h"></i>
-                  <i class="fa fa-calendar"></i>
-                  <input type="text" class="form-control" ng-model="endDate" data-min-date="{{fromDate}}" data-date-format="yyyy-MM-dd" placeholder="结束时间" data-date-type="number" bs-datepicker ng-change="untilDealDateChanged({{status}},{{dateInterval}});">
+              <div class="col-xs-12">
+                <div class="row">
+                  <form name="datepickerForm" class="form-inline" role="form">
+                    <div class="col-xs-2 text-nowrap">固定期限：</div>
+                    <div class="form-group">
+                      <i class="fa fa-calendar"></i>
+                      <input type="text" class="form-control" ng-model="fromDate" data-max-date="" placeholder="开始时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="fromDateChanged({{status}},{{dateInterval}});">
+                      <i class="fa fa-arrows-h"></i>
+                      <i class="fa fa-calendar"></i>
+                      <input type="text" class="form-control" ng-model="endDate" data-min-date="{{fromDate}}" data-date-format="yyyy-MM-dd" placeholder="结束时间" data-date-type="number" bs-datepicker ng-change="untilDealDateChanged({{status}},{{dateInterval}});">
+                    </div>
+                  </form>
                 </div>
-              </form>
+              </div>
             </div>
           </li>
         </ul>
