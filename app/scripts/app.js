@@ -130,6 +130,16 @@
       }
     }
   })
+  .state('root.register-success', {
+    url: '/register-success',
+    views: {
+      '': {
+        templateUrl: 'views/register/register-success.html',
+        controller: 'RegisterSuccessCtrl',
+        controllerUrl: 'scripts/controller/register/register-success-ctrl'
+      }
+    }
+  })
  	/*------------------------------------------  user-center  -----------------------------------------------*/
  	.state('root.userCenter', {
  		views: {
