@@ -81,12 +81,11 @@
               <form name="datepickerForm" class="form-inline" role="form">
                 <label class="col-xs-2" style="margin-left: 5.5px; text-align:center;">固定期限：</label>
                 <div class="form-group">
-                    <i class="fa fa-calendar"></i>
-                    <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="开始时间" bs-datepicker ng-change="fromDateChanged({{type}},{{dateInterval}});">
-                    <i class="fa fa-arrows-h"></i>
-                    <i class="fa fa-calendar"></i>
-                    <input type="text" class="form-control" ng-model="endDate" data-min-date="{{fromDate}}" placeholder="结束时间" bs-datepicker ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
-                  </div>
+                  <i class="fa fa-calendar"></i>
+                  <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="开始时间" bs-datepicker ng-change="fromDateChanged({{type}},{{dateInterval}});">
+                  <i class="fa fa-arrows-h"></i>
+                  <i class="fa fa-calendar"></i>
+                  <input type="text" class="form-control" ng-model="endDate" data-min-date="{{fromDate}}" placeholder="结束时间" bs-datepicker ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
                 </div>
               </form>
             </div>
