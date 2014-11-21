@@ -7,10 +7,31 @@
 		<div class="row account-investment">
 			<div class="col-md-6 border-r">
 				<p class="account-number-message">您的邀请码</p>
-				<p class="account-number">{{ voucher.number || "0"}}<span class="ft-14"></span></p>
+				<p class="account-number">{{ voucher.inviteCode || "0"}}<span class="ft-14"></span></p>
 			</div>
 			<div class="col-md-6">
+				<div id="description"> 宏财网，高效、透明、增值、创新的互联网金融平台。严格的风控体系，100%本息担保，第三方资金托管，为用户提供全方位的安全理财服务。http://www.hongcai.com/register-mobile/{{ voucher.inviteCode || "0"}}</div>
 				<p class="account-number-message">通过社交网站</p>
+				<!-- JiaThis Button BEGIN -->
+				<script "text/javascript">
+				var jiathis_config = { 
+					url: "http://www.hongcai.com", 
+					title: "#要理财，上宏财!#", 
+					summary:document.getElementById("description").innerHTML
+				} 
+				</script> 
+
+				<div class="jiathis_style_32x32">
+					<a class="jiathis_button_qzone"></a>
+					<a class="jiathis_button_tsina"></a>
+					<a class="jiathis_button_tqq"></a>
+					<a class="jiathis_button_weixin"></a>
+					<a class="jiathis_button_renren"></a>
+					<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+					<a class="jiathis_counter_style"></a>
+				</div>
+				<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1407332092939656" charset="utf-8"></script>
+				<!-- JiaThis Button END -->
 				
 			</div>
 		</div>

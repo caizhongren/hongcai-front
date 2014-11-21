@@ -22,15 +22,15 @@ hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$state
   $scope.fromDealDateChanged = function () {
     dateStart = $scope.fromDate;
   };
-  $scope.untilDealDateChanged = function (status,dateInterval) {
-    dateEnd = $scope.dateEnd;
-    $location.path('record/'+$scope.dateInterval+'/'+$scope.status+'/'+dateStart+'/'+dateEnd);
+  $scope.untilDealDateChanged = function (type,dateInterval) {
+    dateEnd = $scope.endDate;
+    $location.path('record/'+$scope.dateInterval+'/'+$scope.type+'/'+dateStart+'/'+dateEnd);
   };
 
-  var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval,type: $stateParams.type,dateStart: $stateParams.dateStart,dateEnd: $stateParams.dateEnd},function(response) {
+  var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval,type: $stateParams.type,dateStart: $stateParams.dateStart, dateEnd: $stateParams.dateEnd},function(response) {
     $scope.dealList = getDealByUser.data.dealList;
-    $scope.fromDate = getDealByUser.data.startTime;
-    $scope.endDate = getDealByUser.data.endTime;
+    $scope.fromDate = getDealByUser.data.dateStart;
+    $scope.endDate = getDealByUser.data.dateEnd;
     $scope.type = getDealByUser.data.type;
     $scope.dateInterval = getDealByUser.data.dateInterval;
     $scope.userId = getDealByUser.data.userId;
@@ -38,7 +38,7 @@ hongcaiApp.controller("UserDealCtrl", ["$scope", "$rootScope", "$state", "$state
     $scope.currentPage = 0;
     $scope.pageSize = 10;
     $scope.data = [];
-    console.info(getDealByUser.data.dealList);
+    
     $scope.numberOfPages = function() {
       return Math.ceil($scope.data.length / $scope.pageSize);
     }
