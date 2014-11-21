@@ -5,7 +5,7 @@
   <div class="padd"><span>投资总额： <strong>{{amount.amount}}</strong>元，</span><span>累计收益：<strong>{{amount.profit}}</strong>元。</span></div>
   <div class="row">
     <div class="col-xs-12">
-      <div class="panel panel-default">
+      <div class="panel panel-default no-border">
         <ul class="list-group">
           <li class="list-group-item projects-filter">
             <div class="row">
@@ -82,10 +82,10 @@
                 <label class="col-xs-2" style="margin-left: 5.5px; text-align:center;">固定期限：</label>
                 <div class="form-group">
                   <i class="fa fa-calendar"></i>
-                  <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="开始时间" bs-datepicker ng-change="fromDateChanged({{type}},{{dateInterval}});">
+                  <input type="text" class="form-control" ng-model="fromDate" data-max-date="" placeholder="开始时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="fromDateChanged({{status}},{{dateInterval}});">
                   <i class="fa fa-arrows-h"></i>
                   <i class="fa fa-calendar"></i>
-                  <input type="text" class="form-control" ng-model="endDate" data-min-date="{{fromDate}}" placeholder="结束时间" bs-datepicker ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
+                  <input type="text" class="form-control" ng-model="endDate" data-min-date="{{fromDate}}" data-date-format="yyyy-MM-dd" placeholder="结束时间" data-date-type="number" bs-datepicker ng-change="untilDealDateChanged({{status}},{{dateInterval}});">
                 </div>
               </form>
             </div>
@@ -110,15 +110,15 @@
       <td>
         <details ng-open="open"><summary><button type="button" class="btn btn-link" data-placement="bottom" title="{{item.projectName}}" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover>{{ item.projectName }}</button></summary></details>
       </td>
-        <td>{{ item.valueDate | limitTo: 10 }}</td>
-        <td>{{ item.settlementDate | limitTo: 10 }}</td>
+        <td>{{ item.valueDate | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ item.settlementDate | date: 'yyyy-MM-dd' }}</td>
         <td>{{ item.orderAmount }}</td>
         <td>{{ item.profit }}</td>
         <td>
           {{ item.returnProfit }}<button data-placement="bottom" class="btn btn-link" title="{{item.projectName}}" data-template="views/modal/popover-investment-list-details.html" data-trigger="focus" bs-popover>[详情]</button></a>
-          <div ng-if="status === '1'">
-            <input type="button" class="btn btn-primary" value="去支付">
-            <input type="button" class="btn btn-default" value="退款">
+          <div ng-if="item.status === '1'">
+            <input type="button" class="btn btn-primary" value="继续支付">
+            <input type="button" class="btn btn-default" value="取消订单">
           </div>
         </td>
       </tr>
