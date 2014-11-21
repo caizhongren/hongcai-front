@@ -22,8 +22,7 @@
   'angular-flexslider',
   'angular-loading-bar',
   'timer',
-  // 'ui.bootstrap'
-  'slick'
+  'bardo.directives'
   ]);
 
  hongcaiApp
