@@ -15,7 +15,7 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.remainInterest = projectDetails.data.remainInterest;
         $scope.remainPrincipal = projectDetails.data.remainPrincipal;
 
-        /*$scope.isAvailable = 1;
+        /*$scope.isAvailable = 0;
         $scope.project.progress = 90;
         $scope.securityStatus.realNameAuthStatus =1;
         $scope.securityStatus.mobileStatus =1;
@@ -37,10 +37,14 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
 
         $scope.isAvailableInvest = function(project){//验证用户权限
             if (project.amount <= $scope.project.minInvest){
-                alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
+                // alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
+                $scope.msg = "投资金额必须大于最小投资金额' + $scope.project.minInvest + '！'";
+                var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
                 return;
             } else if (project.amount%$scope.project.increaseAmount){
-                alert('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
+                // alert('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
+                $scope.msg = "投资金额必须为' + $scope.project.increaseAmount + '的整数倍！";
+                var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
                 return;
             }
             ProjectService.isAvailableInvest.get({amount: project.amount,projectId:project.id }, function(response) {
