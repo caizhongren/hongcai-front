@@ -81,15 +81,17 @@
               <label class="col-xs-2" style="margin-left: 5.5px; text-align:center;">固定期限：</label>
               <form name="" class="form-inline" role="form">
                 <div class="form-group text-nowrap">
-                  <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>开始日期</label>
-                  <div class="col-xs-2">
-                    <input type="date" class="form-control" ng-model="fromDate"  placeholder="From"  ng-change="fromDateChanged({{status}},{{dateInterval}});">
+                  <!-- <label class="col-xs-2 control-label">开始日期</label> -->
+                  <div class="col-xs-3">
+                    <input type="text" class="form-control" datepicker-popup ng-model="fromDate" is-open="openedStartTime" ng-required="true" placeholder="开始时间" />
+                    <button type="button" class="btn btn-default" ng-click="openStartTime($event)" ng-change="fromDateChanged({{status}},{{dateInterval}});"><i class="glyphicon glyphicon-calendar"></i></button>
                   </div>
                 </div>
                 <div class="form-group text-nowrap">
-                  <label class="col-xs-4 control-label"><i class="fa fa-calendar"></i>结束日期</label>
-                  <div class="col-xs-2">
-                    <input type="date" class="form-control" ng-model="endDate"  placeholder="From" ng-change="untilDealDateChanged({{status}},{{dateInterval}});">
+                  <!-- <label class="col-xs-2 control-label">结束日期</label> -->
+                  <div class="col-xs-3">
+                    <input type="text" class="form-control" datepicker-popup ng-model="endDate" is-open="openedEndTime" ng-required="true" placeholder="结束时间" />
+                    <button type="button" class="btn btn-default" ng-click="openEndTime($event)" ng-change="untilDealDateChanged({{status}},{{dateInterval}});"><i class="glyphicon glyphicon-calendar"></i></button>
                   </div>
                 </div>
               </form>
