@@ -1,7 +1,7 @@
 <!--支付记录-->
 <div ng-controller="UserDealCtrl" class="right-area right-assets-height record col-md-8 col-lg-9 no-padding" >
 	<div class="right-title">支付记录</div>
-	<div class="padd">
+	<div class="padd border-end">
     <span>当前账户资产总计：
       <strong>{{capital.investAmount + capital.balance}}<!-- 数据绑定 --></strong>元。
     </span>
@@ -18,7 +18,7 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="row">
-              <div class="col-xs-2 pull-left text-nowrap" style="padding-left: 32px">项目状态：</div>
+              <div class="col-xs-2 pull-left text-nowrap">项目状态：</div>
               <div class="col-xs-2 text-nowrap">
                 <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'0', dateStart:dateStart, dateEnd:dateEnd})">
                   <i class="fa" ng-class="{'fa-check-square-o': type == '0', 'fa-square-o': type != '0'}"></i>
@@ -55,7 +55,7 @@
         <div class="row">
           <div class="col-xs-12">
             <div class="row">
-              <div class="col-xs-2 text-nowrap" style="padding-left: 32px">项目期限：</div>
+              <div class="col-xs-2 text-nowrap">项目期限：</div>
               <div class="col-xs-2 text-nowrap">
                 <a ui-sref="root.userCenter.record-query({dateInterval:'0', type:type, dateStart:dateStart, dateEnd:dateEnd})" >
                   <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval == '0', 'fa-square-o': dateInterval != '0' }"></i>
@@ -84,16 +84,20 @@
           </div>
         </div>
         <div class="row">
-          <form name="datepickerForm" class="form-inline" role="form">
-            <label class="col-xs-2" style="margin-left: 5.5px; text-align:center;">固定期限：</label>
-            <div class="form-group">
-              <i class="fa fa-calendar"></i>
-              <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{endDate}}" placeholder="开始时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="fromDealDateChanged();">
-              <i class="fa fa-arrows-h"></i>
-              <i class="fa fa-calendar"></i>
-              <input type="text" class="form-control" ng-model="endDate" data-min-date="{{fromDate}}" placeholder="结束时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
+          <div class="col-xs-12">
+            <div class="row">
+              <form name="datepickerForm" class="form-inline" role="form">
+                <div class="col-xs-2 text-nowrap">固定期限：</div>
+                <div class="form-group">
+                  <i class="fa fa-calendar"></i>
+                  <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{endDate}}" placeholder="开始时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="fromDealDateChanged();">
+                  <i class="fa fa-arrows-h"></i>
+                  <i class="fa fa-calendar"></i>
+                  <input type="text" class="form-control" ng-model="endDate" data-min-date="{{fromDate}}" placeholder="结束时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </li>
     </ul>
