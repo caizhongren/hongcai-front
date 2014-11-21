@@ -5,6 +5,16 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
   $scope.refreshCode = function() {
     angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());
   };
+  // countdown
+  $scope.timerRunning = false;
+  $scope.startTimer = function (){
+    $scope.$broadcast('timer-start');
+    $scope.timerRunning = true;
+    // var timeOutNo = new Date().getTime() + 5*1000;
+    // while(new Date().getTime() == timeOutNo) {
+    //   $state.go('root.login');
+    // }
+  };
 
   $scope.verifyAccount = function(account){
     var dataBoth=[{"CategoryId":0, "Name":"手机找回" }, {"CategoryId":1, "Name":"邮箱找回"}];
@@ -108,6 +118,7 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
     UserCenterService.resetMobilePassword.get({mobile: mobile, captcha: user.mobileCaptcha, password: newPwd.password }, function(response) {
       if(response.ret == 1) {
         $scope.areaFlag = 4;
+        $scope.startTimer();
       } else {
       };
     });

@@ -83,6 +83,8 @@
             </div>
           </div>
         </form>
+        <!-- <h4><timer autostart="timerRunning" interval="1000" countdown="5">{{ countdown }}</timer></span>秒后进入<span><a ui-sref="root.login" class="active">登录</a>页，请使用新密码进行登录</h4> -->
+        <!-- <button ng-click="startTimer();">Start！</button> -->
       </div>
 
       <!-- STEP2-1 通过手机号进行手机验证 -->
@@ -208,8 +210,8 @@
       </div>
   <!-- STEP4 完成跳转-->
       <div ng-show="areaFlag == 4" class="margin-b pwd-success">
-        <h5>密码找回成功</h5>
-        <h5><timer interval="1000" countdown="startCountDownNo">{{ countdown }}</timer></span>秒后进入<span><a ui-sref="root.login">登录</a>页，请使用新密码进行登录</h5>
+        <h4>密码找回成功</h4>
+        <h4><timer autostart="timerRunning" interval="1000" countdown="5">{{ countdown }}</timer></span>秒后进入<span><a ui-sref="root.login" class="active">登录</a>页，请使用新密码进行登录</h4>
       </div>
     </div>
   </div>
