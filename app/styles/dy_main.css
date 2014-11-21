@@ -911,8 +911,6 @@ input:focus{
 }
 .verify-index{
   margin-top: 0;
-  margin-right: 116px;
-  float: right;
 }
 .safe-form-group{
   height: 50px;
@@ -927,12 +925,6 @@ input:focus{
 }
 .safe-tips-area{
   margin-right: -70px;
-}
-.phone-verify-tips-index{
-  margin-top: -26px;
-}
-.phone-verify-check-img{
-  margin-top: -23px;
 }
 .grey,
 .grey:hover{
