@@ -20,8 +20,6 @@ hongcaiApp.controller("AboutUsCtrl", ["$scope", "$state", "$rootScope", "$locati
             	"href": "/company-profile",
                 "link": "root.about-us.company-profile",
                 "text": "加入宏财"},
-
-
             {
             	"href": "/media-reports",
                 "link": "root.about-us.media-reports",
@@ -31,11 +29,5 @@ hongcaiApp.controller("AboutUsCtrl", ["$scope", "$state", "$rootScope", "$locati
                 "link": "root.about-us.link-us",
                 "text": "联系我们"}]
         };
-
-    $rootScope.selectPage = $location.path().split('/')[1];
-
-    // if($(window).scrollTop()>100){
-    //     $('body,html').animate({scrollTop:0},800);
-    // }
 
 }]);
