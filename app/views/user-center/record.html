@@ -88,10 +88,10 @@
             <label class="col-xs-2" style="margin-left: 5.5px; text-align:center;">固定期限：</label>
             <div class="form-group">
               <i class="fa fa-calendar"></i>
-              <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="开始时间" bs-datepicker ng-change="fromDateChanged({{type}},{{dateInterval}});">
+              <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{endDate}}" placeholder="开始时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="fromDealDateChanged();">
               <i class="fa fa-arrows-h"></i>
               <i class="fa fa-calendar"></i>
-              <input type="text" class="form-control" ng-model="endDate" data-min-date="{{fromDate}}" placeholder="结束时间" bs-datepicker ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
+              <input type="text" class="form-control" ng-model="endDate" data-min-date="{{fromDate}}" placeholder="结束时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
             </div>
           </form>
         </div>
