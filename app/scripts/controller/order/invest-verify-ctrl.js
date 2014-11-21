@@ -1,5 +1,5 @@
 hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$rootScope", "$stateParams", "OrderService", "SessionService", "toaster", "$modal",function ($scope, $location, $state, $rootScope, $stateParams, OrderService, SessionService, toaster,$modal) {
-    
+    $scope.giftCount;
     OrderService.investVerify.get({projectId: $stateParams.projectId, amount: $stateParams.amount, }, function(response) {
 
         if(response.ret == 1) {
@@ -7,7 +7,16 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$ro
            $scope.capital = response.data.capital;
            $scope.giftCount = response.data.giftCount;
            $scope.investAmount = $stateParams.amount;
-           
+           $scope.icons = [
+                {value :"",label:""},
+            ];
+            $scope.icons= [];
+            for (var i= 0; i <= $scope.giftCount; i++){
+                var obj = {};
+                obj.value = "" + i + "";
+                obj.label = "" + i + "";
+                $scope.icons.push(obj);
+            }
         }  else if (response.ret == -1){
             if (response.code == 1){
                 alert('已经卖光啦！');
@@ -72,6 +81,5 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$ro
     $scope.changeInvestAmount = function(investAmount){
         $location.path('/invest-verify/' + $stateParams.projectId + '/' + investAmount);
     }
-
 
 }]);
