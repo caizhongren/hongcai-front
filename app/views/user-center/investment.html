@@ -78,20 +78,14 @@
               </div>
             </div>
             <div class="row">
-              <label class="col-xs-2" style="margin-left: 5.5px; text-align:center;">固定期限：</label>
-              <form name="" class="form-inline" role="form">
-                <div class="form-group text-nowrap">
-                  <!-- <label class="col-xs-2 control-label">开始日期</label> -->
-                  <div class="col-xs-3">
-                    <input type="text" class="form-control" datepicker-popup ng-model="fromDate" is-open="openedStartTime" ng-required="true" placeholder="开始时间" />
-                    <button type="button" class="btn btn-default" ng-click="openStartTime($event)" ng-change="fromDateChanged({{status}},{{dateInterval}});"><i class="glyphicon glyphicon-calendar"></i></button>
-                  </div>
-                </div>
-                <div class="form-group text-nowrap">
-                  <!-- <label class="col-xs-2 control-label">结束日期</label> -->
-                  <div class="col-xs-3">
-                    <input type="text" class="form-control" datepicker-popup ng-model="endDate" is-open="openedEndTime" ng-required="true" placeholder="结束时间" />
-                    <button type="button" class="btn btn-default" ng-click="openEndTime($event)" ng-change="untilDealDateChanged({{status}},{{dateInterval}});"><i class="glyphicon glyphicon-calendar"></i></button>
+              <form name="datepickerForm" class="form-inline" role="form">
+                <label class="col-xs-2" style="margin-left: 5.5px; text-align:center;">固定期限：</label>
+                <div class="form-group">
+                    <i class="fa fa-calendar"></i>
+                    <input type="text" class="form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="开始时间" bs-datepicker ng-change="fromDateChanged({{type}},{{dateInterval}});">
+                    <i class="fa fa-arrows-h"></i>
+                    <i class="fa fa-calendar"></i>
+                    <input type="text" class="form-control" ng-model="endDate" data-min-date="{{fromDate}}" placeholder="结束时间" bs-datepicker ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
                   </div>
                 </div>
               </form>

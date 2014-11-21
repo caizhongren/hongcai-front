@@ -6,19 +6,19 @@ hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$s
     var dateEnd = 0;
     $scope.status = $stateParams.status || 0;
     $scope.dateInterval = $stateParams.dateInterval || 0;
-    // 时间组件
-    $scope.openStartTime = function($event) {
-      $event.preventDefault();
-      $event.stopPropagation();
+    // 时间组件 先注释
+    // $scope.openStartTime = function($event) {
+    //   $event.preventDefault();
+    //   $event.stopPropagation();
 
-      $scope.openedStartTime = true;
-    };
-    $scope.openEndTime = function($event) {
-      $event.preventDefault();
-      $event.stopPropagation();
+    //   $scope.openedStartTime = true;
+    // };
+    // $scope.openEndTime = function($event) {
+    //   $event.preventDefault();
+    //   $event.stopPropagation();
 
-      $scope.openedEndTime = true;
-    };
+    //   $scope.openedEndTime = true;
+    // };
 
     //  时间组件结束
     $scope.fromDateChanged = function () {

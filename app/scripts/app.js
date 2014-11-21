@@ -23,7 +23,7 @@
   'angular-loading-bar',
   'timer',
   // 'ui.bootstrap'
-  // 'slick'
+  'slick'
   ]);
 
  hongcaiApp
@@ -31,6 +31,10 @@
     cfpLoadingBarProvider.includeSpinner = true;
     cfpLoadingBarProvider.includeBar = true;
   }])
+  // .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  // $locationProvider.html5Mode(true);
+  // $routeProvider.when 'carousel-example-generic';
+  // }])
  .config(['$stateProvider', '$urlRouterProvider' ,'$locationProvider', '$uiViewScrollProvider', '$httpProvider' , function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider) {
   $uiViewScrollProvider.useAnchorScroll();
  	$stateProvider
