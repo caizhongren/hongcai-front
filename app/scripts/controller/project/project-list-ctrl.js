@@ -23,6 +23,8 @@ hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$rootScope"
         $scope.pageSize = 6;
         $scope.data = [];
 
+        console.log(response.data.projectList)
+
         $scope.numberOfPages = function() {
             return Math.ceil($scope.data.length / $scope.pageSize);
         }

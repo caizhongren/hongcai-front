@@ -199,8 +199,7 @@
 					<li class="list-group-item" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
 						<div class="row">
 							<div class="hidden-md col-lg-2">
-								<!-- <img ng-src="{{project.image}}" width="150" height="145"/> -->
-								<img ng-src="{{item.image}}" class="img-rounded" ph-img="150x147">
+								<img ng-src={{item.image}} class="img-rounded" width="160" height="165">
 							</div>
 							<div class="col-lg-7">
 								<div class="row">
