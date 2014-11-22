@@ -6198,6 +6198,10 @@ button.close {
   opacity: 1;
   color: #c93315;
 }
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+}
 html,
 body {
   color: #777777;
