@@ -23,11 +23,10 @@ angular.module('hongcaiApp').directive('aboutsidebar', ['$location', '$rootScope
 				});
 			});
 		},
-		template: '<div class="col-md-2 col-lg-2 about-left-area no-padding">' + 
-		'<a ng-repeat="m in menus.left" ui-sref="{{m.link}}" href="{{m.href}}" class="tips-area" >' + 
-		'<div class="left-show-area left-top-radius"></div>' + 
-		'<p class="">{{m.text}}</p>' + 
-		'</a>' + 
-		'</div>'
+		template: '<div class="col-md-2 col-lg-2 about-left-area">' + 
+		'<div class="row"><a ng-repeat="m in menus.left" ui-sref="{{m.link}}" href="{{m.href}}" class="tips-area" >' + 
+		'<div class="left-show-area"></div>' + 
+		'<p>{{m.text}}</p>' + 
+		'</a></div></div>'
 	};
 }]);
