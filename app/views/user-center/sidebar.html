@@ -14,13 +14,15 @@
 			<div class="security-level mid-level"  ng-switch-when="2"></div>
 			<div class="security-level high-level"  ng-switch-when="3"></div>
 		</div>
-		<div class="row no-margin" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus">
-			<p>&nbsp&nbsp安全等级：
-				<span ng-switch-default>低</span>
-				<span ng-switch-when="2">中</span>
-				<span ng-switch-when="3">高</span>
-			</p>
-			<a ui-sref="root.userCenter.security-settings" class="a-up-level" ng-show="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus != 3">【提升】</a>
+		<div class="row" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus">
+			<div class="col-md-12 col-lg-12">
+				<p>&nbsp&nbsp安全等级：
+					<span ng-switch-default>低</span>
+					<span ng-switch-when="2">中</span>
+					<span ng-switch-when="3">高</span>
+				</p>
+				<a ui-sref="root.userCenter.security-settings" class="a-up-level" ng-show="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus != 3">【提升】</a>
+			</div>
 		</div>
 	</div>
 	<div class="row">

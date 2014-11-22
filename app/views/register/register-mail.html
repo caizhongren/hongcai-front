@@ -21,7 +21,10 @@
 						name="email" 
 						ng-model="user.email" 
 						ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/" 
-						ensure-unique-email="email" required ng-focus autofocus>
+						ensure-unique-email="email" 
+						required 
+						ng-focus 
+						autofocus />
 					<div ng-if="registerForm.email.$dirty && registerForm.email.$invalid && !registerForm.email.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 						<div ng-if="registerForm.email.$error.pattern" class="row">
 							<img ng-src="images/check_no.png" class="regist-check-img">
@@ -47,26 +50,28 @@
 						ng-minlength="3" 
 						ng-maxlength="15" 
 						ng-pattern="/^[\u4e00-\u9fa5|a-z|A-Z][\u4e00-\u9fa5|a-z|A-Z|_|0-9|\-]{0,}$/" 
-						ensure-unique-name="name" required ng-focus>
+						ensure-unique-name="name"
+						required 
+						ng-focus />
 					<div ng-if="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 						<div ng-if="registerForm.name.$error.unique" class="row">
-							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<img ng-src="images/check_no.png" class="regist-check-img">
 							<p class="input-tips regist-input-tips">用户名已被占用</p>
 						</div>
 						<div ng-if="registerForm.name.$error.minlength" class="row">
-							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<img ng-src="images/check_no.png" class="regist-check-img">
 							<p class="input-tips regist-input-tips">不能小于3个字符</p>
 						</div>
 						<div ng-if="registerForm.name.$error.maxlength" class="row">
-							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<img ng-src="images/check_no.png" class="regist-check-img">
 							<p class="input-tips regist-input-tips">不能大于15个字符</p>
 						</div>
 						<div ng-if="registerForm.name.$error.pattern" class="row">
-							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<img ng-src="images/check_no.png" class="regist-check-img">
 							<p class="input-tips regist-input-tips">4-15位字符，以字母、中文开头，支持中文、字母、数字以及下划线</p>
 						</div>
 						<div ng-if="registerForm.name.$error.required" class="row">
-							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<img ng-src="images/check_no.png" class="regist-check-img">
 							<p class="input-tips regist-input-tips">请填写用户名</p>
 						</div>
 					</div>
@@ -81,7 +86,8 @@
 						ng-minlength="6" 
 						ng-maxlength="22" 
 						ng-pattern="/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/"
-						required ng-focus>
+						required 
+						ng-focus />
 					<div ng-if="registerForm.password.$dirty && registerForm.password.$invalid && !registerForm.password.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 						<div ng-if="registerForm.password.$error.minlength" class="row">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
@@ -99,7 +105,8 @@
 				</div>
 				<div class="form-group col-md-12 col-lg-12">
 					<label for="repeatPassword" class="col-md-3 col-lg-3">确认密码：</label>
-					<input type="password" class="col-md-6 col-lg-6" 
+					<input type="password" 
+						class="col-md-6 col-lg-6" 
 						name="repeatPassword" 
 						id="repeatPassword" 
 						ng-model="user.repeatPassword" 
@@ -119,7 +126,9 @@
 						id="captcha" 
 						name="captcha" 
 						ng-model="user.captcha" 
-						ensure-captcha="captcha" required ng-focus>
+						ensure-captcha="captcha" 
+						required 
+						ng-focus />
 					<img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify col-md-2 col-lg-2 no-padding" ng-click="refreshCode()">
 					<div class="refresh-pic col-md-1 col-lg-1" ng-click="refreshCode()"></div>
 					<div ng-if="registerForm.captcha.$dirty && registerForm.captcha.$invalid && registerForm.captcha.$error.check && !registerForm.captcha.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
@@ -131,7 +140,12 @@
 				</div>
 				<div class="form-group col-md-12 col-lg-12">
 					<label class="col-md-3 col-lg-3">邀请码：<br>（选填）</label>
-					<input class="col-md-6 col-lg-6" type="text" ng-model='user.inviteCode' check-invite-code='inviteCode' name='inviteCode' id='inviteCode'>
+					<input type="text"
+						class="col-md-6 col-lg-6"  
+						ng-model='user.inviteCode' 
+						check-invite-code='inviteCode' 
+						name='inviteCode' 
+						id='inviteCode' />
 					<div class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div" ng-if='registerForm.inviteCode.$error.isInviteCodeTrue'>
 						<div class="row">
 							<img ng-src="images/check_no.png" class="check-img regist-check-img">
@@ -142,11 +156,14 @@
 				<div class="form-group col-md-12 col-lg-12">
 					<label class="col-md-3 col-lg-3"></label>
 					<div class="col-md-9 col-lg-9 no-padding">
-						<input type="checkbox" class="p-checkbox" checked="false">
+						<input type="checkbox" class="p-checkbox" checked="false" />
 						<p class="p-remember">同意<a ui-sref="root.registration-agreement" target="_blank">《注册协议》</a></p>
 					</div>
 					<label class="col-md-3 col-lg-3"></label>
-	                <input type="submit" class="col-md-6 col-lg-6 {{registerForm.$invalid ? 'red-button grey' : 'red-button'}}" ng-disabled="registerForm.$invalid" value="立即注册">
+	          <input type="submit" 
+	          	class="col-md-6 col-lg-6 {{registerForm.$invalid ? 'red-button grey' : 'red-button'}}" 
+	          	ng-disabled="registerForm.$invalid" 
+	          	value="立即注册" />
 				</div>			
 			</form>
 			</div>

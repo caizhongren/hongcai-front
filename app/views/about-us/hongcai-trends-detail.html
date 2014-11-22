@@ -4,12 +4,12 @@
 	</div>
 	<div class="row">
 		<div class="introduction-area col-md-12 col-lg-12">
-			<h3 class="details-title">{{text.title}}</h3>
+			<h3 class="details-title col-md-10 col-lg-10">{{text.title}}</h3>
 			<p class="p-date">{{text.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
-			<div class="p-introduction p-details" ta-bind ng-model="text.content"></div>
+			<div class="p-details" ta-bind ng-model="text.content"></div>
 		</div>
 	</div>
-	<div class="row margin-t">
+	<div class="row">
 		<div class="introduction-area col-md-12 col-lg-12">
 			<button class="btn btn-danger pull-right" ui-sref="root.about-us.hongcai-trends">返回</button>
 		</div>
