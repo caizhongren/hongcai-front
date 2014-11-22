@@ -22,6 +22,8 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
     infoVerify: $resource(DEFAULT_DOMAIN + '/siteUser/infoVerify', {account: '@account', mobile: '@mobile', email: '$email'}),
     resetEmailPassword: $resource(DEFAULT_DOMAIN + '/siteUser/resetEmailPassword', {uuid: '$uuid', token: "@token", password: '@password'}),
     getGiftListByUserId: $resource(DEFAULT_DOMAIN + '/activity/getGiftListByUserId'),
-    getInviteList: $resource(DEFAULT_DOMAIN + '/activity/getInviteList')
+    getInviteList: $resource(DEFAULT_DOMAIN + '/activity/getInviteList'),
+    getOrderBillByOrderId: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderBillByOrderId', {orderId: '$orderId'}),
+    cancelOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/cancelOrder', {orderId: '$orderId'})
   };
 });
