@@ -41,8 +41,9 @@ input:focus{
 .red-withdraw,.grey-withdraw ,.tips-area:active .grey-withdraw,.tips-area:active .red-withdraw,
 .red-record, .grey-record ,.tips-area:active .grey-record,.tips-area:active .red-record,
 .red-investment ,.grey-investment ,.tips-area:active .grey-investment,.tips-area:active .red-investment,
-.red-news ,.grey-news ,.tips-area:active .grey-news,.tips-area:active .red-news,
-.account-pic-bg,.help-ico,.open,.smile-bg,.bank-card-show{
+.red-news ,.grey-news ,.tips-area:active .grey-news,.tips-area:active .red-news,.account-pic-bg,.help-ico,
+.open,.smile-bg,.bank-card-show,.red-package-overview,.grey-package-overview,.grey-invite-rebate,
+.red-invite-rebate{
   background: url(/images/sprite.png) no-repeat;
 }
 
@@ -226,6 +227,28 @@ input:focus{
 .tips-area:active .grey-news,
 .tips-area:active .red-news{
   background-position: -463px -743px;
+}
+
+.red-package-overview {
+  background-position: -425px -384px;
+}
+.grey-package-overview{
+  background-position: -391px -384px;
+}
+.tips-area:active .grey-package-overview,
+.tips-area:active .red-package-overview{
+  background-position: -459px -384px;
+}
+
+.red-invite-rebate {
+  background-position: -424px -425px;
+}
+.grey-invite-rebate {
+  background-position: -390px -425px;
+}
+.tips-area:active .grey-invite-rebate,
+.tips-area:active .red-invite-rebate{
+  background-position: -458px -425px;
 }
 .account-pic-bg{
   background-position: -1300px -304px;
