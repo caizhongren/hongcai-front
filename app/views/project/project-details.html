@@ -290,7 +290,7 @@
                         </div>
                         <form ng-submit="isAvailableInvest(project);" ng-switch-default>
 
-                          <input type="number" min="0" max="1000000" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required ng-switch-default>
+                          <input type="number" min="0" max="1000000" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required ng-switch-default>
                           <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                           <button class="btn btn-danger btn-lg btn-block" ng-switch-default>立即投资</button>
 
