@@ -336,7 +336,7 @@
                   </thead>
                   <tbody>
                     <tr  ng-repeat="order in orderList">
-                      <td>{{order.createTime}}</td>
+                      <td>{{order.createTime * 1000 | date: "yy-MM-dd"}}</td>
                       <td>{{order.userName}}</td>
                       <td>{{order.orderAmount| number : 0}}元</td>
                     </tr>

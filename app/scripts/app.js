@@ -281,7 +281,7 @@
  		}
  	})
  	.state('root.userCenter.gift-rebate', {
- 		url: '/gift-rebate',
+ 		url: '/gift-rebate/:type',
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/gift-rebate.html',
@@ -291,7 +291,7 @@
  		}
  	})
  	.state('root.userCenter.gift-rebate-query', {
- 		url: '/gift-rebate/:dateInterval/:status/:dateStart/:dateEnd',
+ 		url: '/gift-rebate/:type/:dateInterval/:status/:dateStart/:dateEnd',
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/gift-rebate.html',

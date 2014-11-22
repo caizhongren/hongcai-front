@@ -1,6 +1,7 @@
 hongcaiApp.controller("UserGiftCtrl", ["$location", "$scope", "$rootScope", "$state", "$stateParams", "UserCenterService", function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService) {
 
-    $rootScope.selectSide = 'userCenter-investment';
+    $rootScope.redirectUrl = $location.path();
+    $rootScope.selectSide = 'gift-rebate';
 
     var dateStart = 0;
     var dateEnd = 0;
@@ -27,11 +28,11 @@ hongcaiApp.controller("UserGiftCtrl", ["$location", "$scope", "$rootScope", "$st
 
     $scope.untilDealDateChanged = function (status,dateInterval) {
       dateEnd = $scope.endDate;
-      $location.path('userCenter-investment/'+dateInterval+'/'+status+'/'+dateStart+'/'+dateEnd)
+      $location.path('gift-rebate/'+dateInterval+'/'+status+'/'+dateStart+'/'+dateEnd)
     };
 
-    var getOrderByUser = UserCenterService.getOrderByUser.get({ dateInterval: $stateParams.dateInterval,
-    															status: $stateParams.status,dateStart: $stateParams.dateStart,dateEnd: $stateParams.dateEnd,type: 99},
+    var getOrderByUser = UserCenterService.getOrderByUser.get({ type: $stateParams.type,dateInterval: $stateParams.dateInterval,
+    															status: $stateParams.status,dateStart: $stateParams.dateStart,dateEnd: $stateParams.dateEnd},
     															function(response) {
 
         $scope.orderList = getOrderByUser.data.orderVoList;
@@ -41,6 +42,8 @@ hongcaiApp.controller("UserGiftCtrl", ["$location", "$scope", "$rootScope", "$st
         $scope.status = getOrderByUser.data.status;
         $scope.fromDate = getOrderByUser.data.dateStart;
         $scope.endDate = getOrderByUser.data.dateEnd;
+
+        console.info($scope.orderList);
 
         $scope.currentPage = 0;
         $scope.pageSize = 6;
