@@ -92,7 +92,7 @@
             <li class="list-group-item" ng-repeat="project in projectList">
               <div class="row">
                 <div class="hidden-xs hidden-md col-lg-5">
-                  <a ui-sref="root.project-details({projectId: project.id})"><img src="images/project-img.png" alt="{{project.name}}" class="img-rounded"></a>
+                  <a ui-sref="root.project-details({projectId: project.id})"><img src="{{project.image}}" alt="{{project.name}}" class="img-rounded"></a>
                 </div>
 
                 <div class="col-md-12 col-lg-7">
