@@ -1,5 +1,5 @@
 <!--账户总览-->
-<div class="right-area right-account-height col-md-8 col-lg-9" ng-controller="AccountOverviewCtrl">
+<div class="right-area col-md-8 col-lg-9" ng-controller="AccountOverviewCtrl">
 	<div class="row">
 		<div class="right-title">我的宏包</div>
 	</div>
@@ -51,7 +51,6 @@
 		{{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
 		<li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
 	</ul>
-
 	<div class="row">
 		<div class="ft-12 col-md-offset-2 col-lg-offset-2">
 			<p>温馨提示</p>

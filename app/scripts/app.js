@@ -123,7 +123,7 @@
       '': {
         templateUrl: 'views/friends-ship.html'
         //templateUrl: 'views/register/send-email.html'
-        //templateUrl: 'views/user-center/success.html'
+        //templateUrl: 'views/success.html'
       }
     }
   })

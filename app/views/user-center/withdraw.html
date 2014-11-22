@@ -1,5 +1,5 @@
 <!--提现-->
-<div class="right-area right-assets-height withdraw col-md-8 col-lg-9">
+<div class="right-area withdraw col-md-8 col-lg-9">
 	<div class="row">
 		<div class="right-title word-less-title">提现</div>
 	</div>
@@ -37,7 +37,8 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<input type="button" value="确认提现" class="verify-button" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)"/>
+					<label class="col-md-3 col-lg-2"></label>
+					<input type="button" value="确认提现" class="red-button" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)"/>
 				</div>
 			</div>
 		</form>

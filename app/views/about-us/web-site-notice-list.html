@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="introduction-area col-md-12 col-lg-12">
 			<div class="web-show" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-				<a ui-sref="root.about-us.web-site-notice-detail({textId: item.id})" class="a-web-news">{{item.title| limitTo: 13 }}...</a>
+				<a ui-sref="root.about-us.web-site-notice-detail({textId: item.id})" >{{item.title| limitTo: 13 }}...</a>
 				<p class="p-date">{{item.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
 			</div>
 		</div>
