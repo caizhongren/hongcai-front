@@ -1,5 +1,15 @@
 hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$rootScope", "$location", "ProjectService", function ($scope, $stateParams, $rootScope, $location, ProjectService) {
     $scope.sortType = $stateParams.sortType || false ;
+    if($scope.sortType === 'true'){
+      $scope.sortType = true;
+    } else {
+      $scope.sortType = false;
+    }
+    $scope.toggleSort = function() {
+      $scope.sortType = !$scope.sortType;
+    };
+    console.log('status:'+ $stateParams.status);
+    console.log('type status:'+ typeof($stateParams.status));
     var response = ProjectService.projectList.get({status: $stateParams.status,
     												  minCycle: $stateParams.minCycle,
     												  maxCycle: $stateParams.maxCycle,
@@ -23,19 +33,12 @@ hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$rootScope"
         $scope.pageSize = 6;
         $scope.data = [];
 
-        console.log(response.data.projectList)
-
         $scope.numberOfPages = function() {
             return Math.ceil($scope.data.length / $scope.pageSize);
         }
         for (var i = 0; i < $scope.projectList.length; i++) {
             $scope.data.push($scope.projectList[i]);
         }
-
-	    $scope.sortType = false;
-	    $scope.toggleSort = function() {
-	    	$scope.sortType = !$scope.sortType;
-    	};
 	});
     $rootScope.selectPage = $location.path().split('/')[1];
 }]);

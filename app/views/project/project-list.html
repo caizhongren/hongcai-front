@@ -15,7 +15,7 @@
                     <div class="col-xs-1 pull-left text-nowrap">项目状态：</div>
                     <div class="col-xs-1 text-nowrap">
                       <a ui-sref="root.project-list-query({status:'6,7,8,9,10', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })">
-                        <i class="fa" ng-class="{'fa-check-square-o': status === '6,7,8,9,10', 'fa-square-o': status !== '7,8,9,10'}"></i>
+                        <i class="fa" ng-class="{'fa-check-square-o': status === '6,7,8,9,10', 'fa-square-o': status !== '6,7,8,9,10'}"></i>
                         全部
                       </a>
                     </div>
@@ -113,7 +113,6 @@
                       </a>
                     </div>
                     <div class="col-xs-2">
-
                     </div>
                   </div>
                 <!-- </ul> -->
@@ -158,44 +157,27 @@
                 <!-- </ul> -->
               </div>
             </div> <!-- .row -->
-           <div class="row">
+					</li>
+          <li class="list-group-item">
+            <div class="row">
               <div class="col-xs-12">
                 <!-- <ul class="list-inline"> -->
                   <div class="row">
-                    <div class="col-xs-1 text-nowrap">排　　序：</div>
-                    <div class="col-xs-2 text-nowrap">
-                      <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'release_start_time', sortType: sortType})" ng-click="toggleSort()">
-                        <i class="fa" ng-class="{'fa-check-square-o': sortCondition==='release_start_time', 'fa-square-o': sortCondition!=='release_start_time'}"></i>
-                        发布时间
-                      </a>
-                    </div>
-                    <div class="col-xs-2">
-                      <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'total', sortType: sortType})" ng-click="toggleSort()">
-                        <i class="fa" ng-class="{'fa-check-square-o': sortCondition==='total', 'fa-square-o': sortCondition!=='total'}"></i>
-                        项目规模
-                      </a>
-                    </div>
-                    <div class="col-xs-2">
-                      <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'annual_earnings', sortType: sortType})" ng-click="toggleSort()">
-                        <i class="fa" ng-class="{'fa-check-square-o': sortCondition==='annual_earnings', 'fa-square-o': sortCondition!=='annual_earnings'}"></i>
-                        年化收益
-                      </a>
-                    </div>
-                    <div class="col-xs-2">
-                      <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'repayment_date', sortType: sortType})" ng-click="toggleSort()">
-                        <i class="fa" ng-class="{'fa-check-square-o': sortCondition==='repayment_date', 'fa-square-o': sortCondition!=='repayment_date'}"></i>
-                        还款日期
-                      </a>
-                    </div>
-                    <div class="col-xs-2">
+                    <div class="col-xs-1 text-nowrap" style="padding: 0px;">排　　序：</div>
+                    <div class="col-xs-6 text-nowrap">
+                      <div class="btn-group">
+                        <a role="button" class="btn btn-default"  ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'release_start_time', sortType: sortType})" ng-click="toggleSort()">发布时间 <i class="fa" ng-class="{'fa-angle-up': (sortCondition ==='release_start_time' && sortType === true) , 'fa-angle-down': (sortCondition === 'release_start_time' && sortType === false) }"></i></a>
 
-                    </div>
+                        <a type="button" class="btn btn-default" ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'total', sortType: sortType})" ng-click="toggleSort()">项目规模 <i class="fa" ng-class="{'fa-angle-up': (sortCondition ==='total' && sortType === true), 'fa-angle-down': (sortCondition === 'total' && sortType === false)}"></i></a>
+
+                        <a type="button" class="btn btn-default" ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'annual_earnings', sortType: sortType})" ng-click="toggleSort()">年化收益 <i class="fa" ng-class="{'fa-angle-up': (sortCondition === 'annual_earnings' && sortType === true), 'fa-angle-down': (sortCondition === 'annual_earnings' && sortType === false)}"></i></a>
+
+                        <a type="button" class="btn btn-default" ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'repayment_date', sortType: sortType})" ng-click="toggleSort()">还款日期 <i class="fa" ng-class="{'fa-angle-up': (sortCondition ==='repayment_date' && sortType === true) , 'fa-angle-down': (sortCondition === 'repayment_date' && sortType === false)}"></i></a>
+                      </div>
                   </div>
-                <!-- </ul> -->
               </div>
-            </div> <!-- .row -->
-
-					</li>
+            </div>
+          </li>
 					<li class="list-group-item" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
 						<div class="row">
 							<div class="hidden-md col-lg-2">
