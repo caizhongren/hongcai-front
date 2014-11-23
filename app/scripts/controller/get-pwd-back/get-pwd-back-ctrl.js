@@ -22,7 +22,6 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
       UserCenterService.sendMobileCaptcha.get({mobile: account }, function(response) {
         if(response.ret == 1) {
           $scope.areaFlag = 21;
-          // reLoadProcessBar();
           $scope.phoneNum = account;
         } else {
           // TODO
@@ -33,7 +32,6 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
       UserCenterService.sendResetPwdEmail.get({email: account }, function(response) {
         if(response.ret == 1) {
             $scope.areaFlag = 22;
-            // reLoadProcessBar();
             $scope.emailAddr = account;
         } else {
           // TODO
@@ -129,7 +127,7 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
   };
 }]);
 
-hongcaiApp.controller("SetNewPwdCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "SessionService", "toaster","GetPwdService","UserCenterService", function ($scope, $state, $rootScope, $stateParams, SessionService, toaster, GetPwdService, UserCenterService) {
+hongcaiApp.controller("SetNewPwdCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "SessionService", "toaster","GetPwdService","UserCenterService", '$timeout', function ($scope, $state, $rootScope, $stateParams, SessionService, toaster, GetPwdService, UserCenterService, $timeout) {
   $scope.areaFlag = 3;
 
   $scope.uuId = $stateParams.uuid;
@@ -138,13 +136,19 @@ hongcaiApp.controller("SetNewPwdCtrl", ["$scope", "$state", "$rootScope", "$stat
   $scope.setEmailNewPwd = function(user) {
     if(user.password != user.repeatPassword) {
       return;
-    };
+    }
     UserCenterService.resetEmailPassword.get({uuid: $scope.uuId, token: $scope.token, password: user.password }, function(response){
       if(response.ret == 1) {
         $scope.areaFlag = 4;
-        // reLoadProcessBar();
-        $scope.startCountDownNo = 5;
-      };
+        $scope.counter = 5;
+        $scope.onTimeout = function(){
+          $scope.counter--;
+          mytimeout = $timeout($scope.onTimeout,1000);
+          if($scope.counter == 0) {
+            $state.go('root.login');
+          }
+        }
+      }
     });
-  };
+  }
 }])

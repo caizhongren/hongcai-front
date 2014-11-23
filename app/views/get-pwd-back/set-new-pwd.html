@@ -1,15 +1,57 @@
+<br>
+<br>
+<div class="container get-pwd-back">
+  <div class="row">
+    <div class="col-xs-12" ng-controller="SetNewPwdCtrl">
+      <div class="panel-body panel-get-pwd-back" >
+        <ul class="row">
+          <li class="col-xs-2 margin-l">
+            <span class="get-pwd-back-step-line"></span>
+            <span class="get-pwd-back-step"><i class="fa fa-user"></i></span>
+            <p class="get-pwd-back-step-text">输入帐号</p>
+          </li>
 
-<div class="col-sm-offset-3 col-sm-6">
-  <div class="panel panel-info" ng-controller="SetNewPwdCtrl" >
-    <div class="panel-heading">
-      <ul class="nav nav-pills" role="tablist">
-        <li role="presentation" class="{{areaFlag == 1 ? 'active' : ''}}"><a href="">输入账号</a></li>
-        <li role="presentation" class="{{areaFlag == 2 ? 'active' : ''}}"><a href="">验证身份</a></li>
-        <li role="presentation" class="{{areaFlag == 3 ? 'active' : ''}}"><a href="">修改密码</a></li>
-        <li role="presentation" class="{{areaFlag == 4 ? 'active' : ''}}"><a href="">完成</a></li>
-      </ul>
-    </div>
-    <div class="panel-body">
+          <li class="col-xs-2">
+            <span class="get-pwd-back-step-line"></span>
+            <span class="get-pwd-back-step">
+              <i class="fa fa-credit-card"></i>
+            </span>
+            <p class="get-pwd-back-step-text">验证身份</p>
+          </li>
+
+          <li class="col-xs-2">
+            <span class="get-pwd-back-step-line"></span>
+            <span class="get-pwd-back-step">
+              <i class="fa fa-key"></i>
+            </span>
+            <p class="get-pwd-back-step-text">修改密码</p>
+          </li>
+
+          <li class="col-xs-2">
+              <span class="get-pwd-back-step">
+                <i class="fa fa-check"></i>
+              </span>
+              <p class="get-pwd-back-step-text">完成</p>
+          </li>
+        </ul>
+        <ul class="row triangle-up">
+          <li class="col-xs-2 margin-l" ng-class="{'active': areaFlag == 1}">
+            <span class="get-pwd-back-step">
+              <i class="fa fa-sort-asc"></i>
+            </span>
+          </li>
+          <li class="col-xs-2" ng-class="{'active': areaFlag == 21 || areaFlag == 22 || areaFlag == 23 }">
+            <span class="get-pwd-back-step"><i class="fa fa-sort-asc"></i></span>
+          </li>
+          <li class="col-xs-2" ng-class="{'active': areaFlag == 3}">
+            <span class="get-pwd-back-step"><i class="fa fa-sort-asc"></i></span>
+          </li>
+          <li class="col-xs-2" ng-class="{'active': areaFlag == 4}">
+            <span class="get-pwd-back-step"><i class="fa fa-sort-asc"></i></span>
+          </li>
+        </ul>
+      </div>
+      <!-- STEP3 -->
       <form class="form-horizontal" role="form" name="Step3SetPwd" ng-show="areaFlag == 3">
         <div class="form-group">
           <label for="password" class="col-sm-3 col-sm-offset-1 control-label">输入新密码:</label>
@@ -33,10 +75,10 @@
           </div>
         </div>
       </form>
-      <!-- STEP4 -->
-      <div ng-show="areaFlag == 4" class="success">
-        <h5>密码找回成功</h5>
-        <h5><timer interval="1000" countdown="startCountDownNo">{{ countdown }}</timer></span>秒后进入<span><a ui-sref="root.login">登录</a>页，请使用新密码进行登录</h5>
+      <!-- STEP4 完成跳转-->
+      <div ng-show="areaFlag == 4" class="margin-b pwd-success">
+        <h4>密码找回成功</h4>
+        <h4>{{ counter }} 秒后进入<a ui-sref="root.login" class="active">登录</a>页，请使用新密码进行登录</h4>
       </div>
     </div>
   </div>
