@@ -1,38 +1,50 @@
 <!-- start 主体 -->
 <div class="container">
   <div class="row">
-    <div class="hidden-xs col-sm-4">
-      <div class="media">
-        <span class="pull-left hc-text-red ft-4em"><i class="fa fa-line-chart"></i></span>
+    <div class="hidden-xs col-xs-4">
+      <div class="media" style="margin-bottom: 30px;">
+        <span class="pull-left hc-text-red ft-4em">
+        <img src="images/main_safe.png" alt="">
+        <!-- <i class="fa fa-line-chart"></i> -->
+        </span>
         <div class="media-body">
-          <h4 class="media-heading">100%本息担保</h4>
-          <p class="text-nowrap">大型担保公司担保</p>
-          <p class="text-nowrap">国有担保公司再担保</p>
+          <h3 class="media-heading" style="padding-top: 6px;">安全保障</h3>
+          <p class="text-nowrap" style="line-height: 18px;">国有担保公司担保或 <br>再担保9重风控，36<br>道安全认证</p>
+        </div>
+      </div>
+    </div>
+<!--     <div class="hidden-xs col-xs-1">
+      <img src="images/main_dline.png" alt="">
+    </div> -->
+
+    <div class="hidden-xs col-xs-4">
+      <div class="media" style="margin-bottom: 30px;">
+        <span class="pull-left hc-text-red ft-4em" >
+        <!-- <i class="fa fa-graduation-cap"></i> -->
+        <img src="images/main_inv.png" alt="">
+        </span>
+        <div class="media-body">
+          <h3 class="media-heading" style="padding-top: 6px;">投资收益</h3>
+          <p class="text-nowrap" style="line-height: 18px;">100元起投，轻松完<br>成投资40倍银行同期<br>活期收益</p>
         </div>
       </div>
     </div>
 
-    <div class="hidden-xs col-sm-4">
-      <div class="media">
-        <span class="pull-left hc-text-red ft-4em"><i class="fa fa-graduation-cap"></i></span>
+<!--     <div class="hidden-xs col-xs-1">
+      <img src="images/main_dline.png" alt="">
+    </div> -->
+
+    <div class="hidden-xs col-xs-4">
+      <div class="media" style="margin-bottom: 30px;">
+        <span class="pull-left hc-text-red ft-4em">
+        <img src="images/main_sweet.png" alt="">
+        </span>
         <div class="media-body">
-          <h4 class="media-heading">40倍活期收益</h4>
-          <p class="text-nowrap">年化收益10%-14%</p>
-          <p class="text-nowrap">最高超过40倍活期存款收益</p>
+          <h3 class="media-heading" style="padding-top: 6px;">灵活便捷</h3>
+          <p class="text-nowrap">7*24小时全天候理财<br>服务，随时随地完成<br>财富增值</p>
         </div>
       </div>
     </div>
-
-    <div class="hidden-xs col-sm-3 col-sm-offset-1">
-      <div class="media">
-        <span class="pull-left hc-text-red ft-4em"><i class="fa fa-shield"></i></span>
-        <div class="media-body">
-          <h4 class="media-heading">9重安全保障</h4>
-          <p class="text-nowrap">36层监测天网</p>
-          <p class="text-nowrap">层层监控只为安全</p>
-        </div>
-      </div>
-    </div> 
   </div>
 </div>
 
@@ -80,13 +92,13 @@
             </div>
           </div>
         </div>
-      </div> 
+      </div>
 
       <div class="row">
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="hc-text-red"><i class="fa fa-check-square"></i>推荐产品 <small><a class="pull-right" ui-sref="root.project-list-query({status: [6,7,8,9], minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false})">更多产品 &gt;</a></small></h4>
-          </div> 
+          </div>
 
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="project in projectList">
@@ -139,7 +151,7 @@
             </li>
           </ul>
         </div>
-      </div> 
+      </div>
     </div>
 
     <div class="col-xs-12 col-sm-4">
@@ -172,7 +184,7 @@
                   </div>
                 </div>
               </div>
-              
+
               <div class="row">
                 <div class="col-xs-12">
                   <div class="media">
@@ -184,10 +196,10 @@
                   </div>
                 </div>
               </div>
-            </div> 
-          </div> 
-        </div> 
-      </div> 
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-xs-12">
@@ -202,9 +214,9 @@
                 <div class="col-xs-3 text-right">{{item.createTime * 1000 | date:'MM-dd'}}</div>
               </div>
             </div>
-          </div> 
-        </div> 
-      </div> 
+          </div>
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-xs-12">
@@ -219,9 +231,9 @@
                 <div class="col-xs-3 text-right">{{item.createTime * 1000 | date:'MM-dd'}}</div>
               </div>
             </div>
-          </div> 
-        </div> 
-      </div> 
+          </div>
+        </div>
+      </div>
 
       <div class="row index-newbie">
         <div class="col-xs-12">
@@ -243,7 +255,7 @@
                 </h3>
               </a>
             </div>
-          </div> 
+          </div>
         </div>
       </div>
 
@@ -270,12 +282,12 @@
                 <div class="col-xs-3 text-right">09-11</div>
               </div>
             </div>
-          </div> 
-        </div> 
-      </div> 
-    </div> 
-  </div> 
-</div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="container index-cooperation">
   <div class="row">
