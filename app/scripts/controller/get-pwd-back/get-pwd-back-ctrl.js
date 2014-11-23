@@ -1,20 +1,15 @@
-hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope", "$stateParams", "SessionService", "DEFAULT_DOMAIN", "toaster","GetPwdService", "UserCenterService", function ($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster,GetPwdService, UserCenterService) {
+hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope", "$stateParams", "SessionService", "DEFAULT_DOMAIN", "toaster","GetPwdService", "UserCenterService", '$timeout', function ($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster,GetPwdService, UserCenterService, $timeout) {
   $scope.areaFlag = 1;
   $scope.getPicCaptcha = DEFAULT_DOMAIN + "/siteUser/getPicCaptcha?";
-
   $scope.refreshCode = function() {
     angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());
   };
-  // countdown
-  $scope.timerRunning = false;
-  $scope.startTimer = function (){
-    $scope.$broadcast('timer-start');
-    $scope.timerRunning = true;
-    // var timeOutNo = new Date().getTime() + 5*1000;
-    // while(new Date().getTime() == timeOutNo) {
-    //   $state.go('root.login');
-    // }
-  };
+  // Timer
+  // $scope.timerRunning = false;
+  // $scope.startTimer = function (){
+  //   $scope.$broadcast('timer-start');
+  //   $scope.timerRunning = true;
+  // };
 
   $scope.verifyAccount = function(account){
     var dataBoth=[{"CategoryId":0, "Name":"手机找回" }, {"CategoryId":1, "Name":"邮箱找回"}];
@@ -118,7 +113,16 @@ hongcaiApp.controller("GetPwdCtrl", ["$scope", "$timeout", "$state", "$rootScope
     UserCenterService.resetMobilePassword.get({mobile: mobile, captcha: user.mobileCaptcha, password: newPwd.password }, function(response) {
       if(response.ret == 1) {
         $scope.areaFlag = 4;
-        $scope.startTimer();
+        $scope.counter = 5;
+        $scope.onTimeout = function(){
+          $scope.counter--;
+          mytimeout = $timeout($scope.onTimeout,1000);
+          if($scope.counter == 0) {
+            $state.go('root.login');
+          }
+        };
+        var mytimeout = $timeout($scope.onTimeout,1000);
+        // $scope.startTimer();
       } else {
       };
     });
