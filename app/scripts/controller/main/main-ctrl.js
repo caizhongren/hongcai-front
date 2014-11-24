@@ -1,4 +1,4 @@
-hongcaiApp.controller("MainCtrl", ["$scope", "$stateParams", "$rootScope", "$location", "MainService", "AboutUsService", function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService) {
+hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService) {
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {

@@ -1,6 +1,6 @@
-hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$rootScope", "$stateParams", "UserCenterService", "DEFAULT_DOMAIN", function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
+hongcaiApp.controller('UserCenterCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
 	
-    $scope.selectedDate = "2014-10-16T08:50:36.394Z"; // <- [object Date]
+    $scope.selectedDate = '2014-10-16T08:50:36.394Z'; // <- [object Date]
     $scope.selectedDateAsNumber = 509414400000; // <- [object Number]
     $scope.fromDate = new Date(2014, 9, 20); 
     $scope.untilDate = new Date(2014, 10, 7);
@@ -33,15 +33,15 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
     
 
 	function new_form(){
-		var f = document.createElement("form");
+		var f = document.createElement('form');
 		document.body.appendChild(f);
-		f.method = "post";
-        //f.target = "_blank";
+		f.method = 'post';
+        //f.target = '_blank';
         return f;
     }
 
     function create_elements(eForm,eName,eValue){
-    	var e=document.createElement("input");
+    	var e=document.createElement('input');
     	eForm.appendChild(e);
     	e.type='text';
     	e.name=eName;
@@ -56,9 +56,9 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
     	return e;
     }
 
-    $scope.getPicCaptcha = DEFAULT_DOMAIN + "/siteUser/getPicCaptcha?" + Math.random();
+    $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
     $scope.refreshCode = function() {
-        angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());
+        angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
 
 
@@ -69,9 +69,9 @@ hongcaiApp.controller("UserCenterCtrl", [ "$location", "$scope", "$state", "$roo
     			var req = response.data.req;
     			var sign = response.data.sign;
                 var _f=new_form();
-                create_elements(_f,"req",req);
-                create_elements(_f,"sign",sign);
-                _f.action="http://qa.yeepay.com/member/bha/toBindBankCard";
+                create_elements(_f,'req',req);
+                create_elements(_f,'sign',sign);
+                _f.action='http://qa.yeepay.com/member/bha/toBindBankCard';
                 _f.submit();
 
             } else {

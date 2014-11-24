@@ -1,4 +1,4 @@
-hongcaiApp.controller("RegisterMobileCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "RegisterService", "SessionService", "DEFAULT_DOMAIN", "toaster", function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster) {
+hongcaiApp.controller('RegisterMobileCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster) {
 
 
     if ($stateParams.inviteCode){
@@ -12,19 +12,19 @@ hongcaiApp.controller("RegisterMobileCtrl", ["$scope", "$state", "$rootScope", "
                                             password: user.password, 
                                             inviteCode: user.inviteCode }, function(response) {
             if(response.ret == 1) {
-                SessionService.set("user", response.data.user.name);
+                SessionService.set('user', response.data.user.name);
                 $state.go('root.newbie-guide');
                 //$rootScope.loginName = response.data.user.name;
                 //$rootScope.isLogged = true;
             } else {
-                toaster.pop('warning', "提示", response.msg);
+                toaster.pop('warning', '提示', response.msg);
                 $state.go('root.registerMobile');
             }
         });
     };
 
     $scope.sendMobileCaptcha = function() {
-        RegisterService.sendMobileCaptcha.save({mobile: angular.element("#mobile").val() }, function(response) {
+        RegisterService.sendMobileCaptcha.save({mobile: angular.element('#mobile').val() }, function(response) {
             if(response.ret == 1) {
                 
             } else {

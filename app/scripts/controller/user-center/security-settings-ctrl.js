@@ -1,6 +1,6 @@
-hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope", "$stateParams", "UserCenterService", "toaster", function ($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
+hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'toaster', function ($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
         
-    $rootScope.selectSide = "security-settings";
+    $rootScope.selectSide = 'security-settings';
     UserCenterService.userSecurityInfo.get({}, function(response) {
         if(response.ret == 1) {
             var userAuth = response.data.userAuth;
@@ -17,7 +17,7 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
             }
 
         } else {
-            toaster.pop('warning', "提示", response.msg);
+            toaster.pop('warning', '提示', response.msg);
             //$scope.errorMessage = response.msg;
             //$scope.warning = true;
             $state.go('root.login');
@@ -27,7 +27,7 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
     $scope.sendMobileCaptcha = function(mobile){
         UserCenterService.sendMobileCaptcha.get({mobile: mobile}, function(response){
             if (response.ret == 1){
-                console.log("sendMobileCaptcha success");
+                console.log('sendMobileCaptcha success');
             }
         });
     }; 
@@ -35,7 +35,7 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
     $scope.bindMobile = function(mobileNo, captcha){
         UserCenterService.bindMobile.get({mobile: mobileNo, captcha: captcha},function(response){
             if (response.ret == 1){
-                $scope.mobile = mobileNo.substr(0,3) + "****" + mobileNo.substr(7,11);
+                $scope.mobile = mobileNo.substr(0,3) + '****' + mobileNo.substr(7,11);
                 $scope.changeMobile = false;
                 $scope.mobileNo = null;
                 $scope.inputCaptcha = null;
@@ -50,7 +50,7 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
     $scope.bindEmail = function(email){
         UserCenterService.bindEmail.get({email: email},function(response){
             if (response.ret == 1){
-                $scope.email = email.substr(0,2) + "****" + email.substr(email.indexOf("@"));
+                $scope.email = email.substr(0,2) + '****' + email.substr(email.indexOf('@'));
                 $scope.changeEmail = false;
                 $scope.newEmail = null;
                 $rootScope.securityStatus.emailStatus = 1;
@@ -87,15 +87,15 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
 
 
     function new_form(){
-        var f = document.createElement("form");
+        var f = document.createElement('form');
         document.body.appendChild(f);
-        f.method = "post";
-        //f.target = "_blank";
+        f.method = 'post';
+        //f.target = '_blank';
         return f;
     }
 
     function create_elements(eForm,eName,eValue){
-        var e=document.createElement("input");
+        var e=document.createElement('input');
         eForm.appendChild(e);
         e.type='text';
         e.name=eName;
@@ -113,7 +113,7 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
     $scope.checkEmailAndMobile = function(){
         if(!$scope.email || !$scope.mobile){
             $scope.openTrusteeshipAccount = false;
-            alert("请先绑定邮箱和手机号码");
+            alert('请先绑定邮箱和手机号码');
         }
     }
 
@@ -123,9 +123,9 @@ hongcaiApp.controller("SecuritySettingsCtrl", ["$scope", "$state", "$rootScope",
                 var req = response.data.req;
                 var sign = response.data.sign;
                 var _f=new_form();
-                create_elements(_f,"req",req);
-                create_elements(_f,"sign",sign);
-                _f.action="http://qa.yeepay.com/member/bha/toRegister";
+                create_elements(_f,'req',req);
+                create_elements(_f,'sign',sign);
+                _f.action='http://qa.yeepay.com/member/bha/toRegister';
                 _f.submit();
                 $rootScope.securityStatus.realNameAuthStatus = 1;
             } else {

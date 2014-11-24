@@ -1,4 +1,4 @@
-hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$state", "$stateParams", "UserCenterService", "$aside", function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService, $aside) {
+hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService, $aside) {
 
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
@@ -8,11 +8,11 @@ hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$s
     $scope.dateInterval = $stateParams.dateInterval || 0;
 
     $scope.showListNameInfo = function() {
-      angular.element("#investment-list").animate({width:"show"},300);
+      angular.element('#investment-list').animate({width:'show'},300);
     };
 
     $scope.showListDetails =  function() {
-      angular.element("#investment-detail").animate({width:"show"},300);
+      angular.element('#investment-detail').animate({width:'show'},300);
     }
     // 时间组件 先注释
     // $scope.openStartTime = function($event) {
@@ -72,7 +72,7 @@ hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$s
     $scope.cancelOrder = function(orderId) {
       UserCenterService.cancelOrder.get({orderId: orderId}, function(response){
         if(response.ret == 1) {
-          console.log("cancelOrder sucess!");
+          console.log('cancelOrder sucess!');
         }
       });
     };
@@ -93,7 +93,7 @@ hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$s
     // var invDays = 0;
     // var invEarnings = 0;
     // var invRate = 0.12
-    // moment([2012, 0, 31]).month(1).format("YYYY-MM-DD");
+    // moment([2012, 0, 31]).month(1).format('YYYY-MM-DD');
     // moment([2010, 0, 31]).add(1, 'months'); // February 28
     // var m = moment(new Date(2011, 2, 12, 5, 0, 0)); // the day before DST in the US
     // m.hours(); // 5
@@ -103,8 +103,8 @@ hongcaiApp.controller("UserOrderCtrl", ["$location", "$scope", "$rootScope", "$s
 
     // for (var i=0;i<=invCycle,i++) {
     //     var invList = {};
-    //     // moment([2012, 0, 31]).month(1).format("YYYY-MM-DD");
-    //     PayDate = moment(invStartDate).month(i).("YYYY-MM-DD");
+    //     // moment([2012, 0, 31]).month(1).format('YYYY-MM-DD');
+    //     PayDate = moment(invStartDate).month(i).('YYYY-MM-DD');
     //     if( invType == 1) {
     //     if(i == 0){
     //         invDays = PayDate - invInitDate;

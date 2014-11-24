@@ -13,7 +13,7 @@ angular.module('hongcaiApp')
     return function (input, formatNo) {
       input = input || '';
       if(out.length > formatNo ){
-        return (input/10000).toString() + "万";
+        return (input/10000).toString() + '万';
       } else {
         return;
       }

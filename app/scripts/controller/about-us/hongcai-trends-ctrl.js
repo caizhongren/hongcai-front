@@ -1,4 +1,4 @@
-hongcaiApp.controller("HongcaiTrendsCtrl", ["$scope", "$state", "$stateParams", "AboutUsService", function ($scope, $state, $stateParams, AboutUsService) {
+hongcaiApp.controller('HongcaiTrendsCtrl', ['$scope', '$state', '$stateParams', 'AboutUsService', function ($scope, $state, $stateParams, AboutUsService) {
 	AboutUsService.textList.get({category: 3}, function(response) {
         $scope.textList = response.data;
         $scope.orderProp = 'id';

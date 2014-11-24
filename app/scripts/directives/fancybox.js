@@ -17,7 +17,7 @@ angular.module('hongcaiApp')
           // var opt = attra.hcOption;
           // $window.$.fancybox.open(url);
           // angular.element('img[fancybox]').fancybox();
-          $("a.grouped_elements").fancybox();
+          $('a.grouped_elements').fancybox();
         });
       }
     };
