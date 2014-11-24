@@ -5,7 +5,6 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
         $scope.projectList = projectList.data.recommend;
         $scope.projectVo = projectList.data.specialRecommend[0];
 
-
        /* $scope.orderProp = 'id';
         $scope.currentPage = 0;
         $scope.pageSize = 15;
