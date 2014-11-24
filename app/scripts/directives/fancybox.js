@@ -7,17 +7,17 @@
  * # fancybox
  */
 angular.module('hongcaiApp')
-  .directive('fancybox', function ($window) {
+  .directive('fancybox', function () {
     return {
       // template: '<div></div>',
       restrict: 'A',
-      link: function(scope, element, attrs) {
+      link: function(scope, element) {
         element.bind('click', function () {
-          var url = attrs.hcPreviewUrl;
+          // var url = attrs.hcPreviewUrl;
           // var opt = attra.hcOption;
           // $window.$.fancybox.open(url);
           // angular.element('img[fancybox]').fancybox();
-          $('a.grouped_elements').fancybox();
+          angular.element('a.grouped_elements').fancybox();
         });
       }
     };
