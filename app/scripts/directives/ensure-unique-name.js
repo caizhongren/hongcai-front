@@ -4,8 +4,8 @@ angular.module('hongcaiApp').directive('ensureUniqueName', ['$http', 'DEFAULT_DO
 		require: 'ngModel',
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch(attrs.ngModel, function() {
-				var name = angular.element("#" + attrs.ensureUniqueName).val();
-				if(name != "") {
+				var name = angular.element('#' + attrs.ensureUniqueName).val();
+				if(name !== '') {
 					$http({
 						method: 'POST',
 						url: DEFAULT_DOMAIN + '/siteUser/isUniqueName?name=' + name
