@@ -6262,6 +6262,7 @@ a:link {
   height: 25px;
   min-height: 25px;
   margin-bottom: 0;
+  overflow: hidden;
   background-color: #777;
 }
 #mini-bar .navbar-text {
