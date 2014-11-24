@@ -1,6 +1,6 @@
-hongcaiApp.controller("RechargeCtrl", [ "$location", "$scope", "$state", "$rootScope", "$stateParams", "UserCenterService", "DEFAULT_DOMAIN", function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
+hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
 
-    $rootScope.selectSide = "recharge";
+    $rootScope.selectSide = 'recharge';
 
     $scope.balance = 0;
     UserCenterService.getUserBalance.get({}, function(response) {
@@ -11,22 +11,22 @@ hongcaiApp.controller("RechargeCtrl", [ "$location", "$scope", "$state", "$rootS
 
     $scope.checkAmount = function(amount){
         if(!angular.isNumber(amount)){
-            $scope.amountErrMsg = "只能输入数字";
-            console.log("只能输入数字");
+            $scope.amountErrMsg = '只能输入数字';
+            console.log('只能输入数字');
             return false;
         }
     }
     
 	function new_form(){
-		var f = document.createElement("form");
+		var f = document.createElement('form');
 		document.body.appendChild(f);
-		f.method = "post";
-        //f.target = "_blank";
+		f.method = 'post';
+        //f.target = '_blank';
         return f;
     }
 
     function create_elements(eForm,eName,eValue){
-    	var e=document.createElement("input");
+    	var e=document.createElement('input');
     	eForm.appendChild(e);
     	e.type='text';
     	e.name=eName;
@@ -41,9 +41,9 @@ hongcaiApp.controller("RechargeCtrl", [ "$location", "$scope", "$state", "$rootS
     	return e;
     }
 
-    $scope.getPicCaptcha = DEFAULT_DOMAIN + "/siteUser/getPicCaptcha?" + Math.random();
+    $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
     $scope.refreshCode = function() {
-        angular.element("#checkCaptcha").attr("src", angular.element("#checkCaptcha").attr("src").substr(0, angular.element("#checkCaptcha").attr("src").indexOf('?')) + "?code=" + Math.random());
+        angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
 
     $scope.recharge = function(amount) {
@@ -52,9 +52,9 @@ hongcaiApp.controller("RechargeCtrl", [ "$location", "$scope", "$state", "$rootS
     			var req = response.data.req;
     			var sign = response.data.sign;
                 var _f=new_form();
-                create_elements(_f,"req",req);
-                create_elements(_f,"sign",sign);
-                _f.action="http://qa.yeepay.com/member/bha/toRecharge";
+                create_elements(_f,'req',req);
+                create_elements(_f,'sign',sign);
+                _f.action='http://qa.yeepay.com/member/bha/toRecharge';
                 _f.submit();
 
             } else {

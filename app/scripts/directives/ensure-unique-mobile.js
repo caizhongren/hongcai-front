@@ -4,8 +4,8 @@ angular.module('hongcaiApp').directive('ensureUniqueMobile', ['$http', 'DEFAULT_
 		require: 'ngModel',
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch(attrs.ngModel, function() {
-				var mobile = angular.element("#" + attrs.ensureUniqueMobile).val();
-				if(mobile != "") {
+				var mobile = angular.element('#' + attrs.ensureUniqueMobile).val();
+				if(mobile != '') {
 					$http({
 						method: 'POST',
 						url: DEFAULT_DOMAIN + '/siteUser/isUniqueMobile?mobile=' + mobile

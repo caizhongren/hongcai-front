@@ -1,4 +1,4 @@
-hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", "ProjectService", "OrderService", "$modal", "$alert", function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert) {
+hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert) {
     $rootScope.redirectUrl = $location.path();
 
 
@@ -59,13 +59,13 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
                 if(response.ret == 1) {
                     if (response.data.flag) {
                         if (response.data.isBalance) {
-                             $state.go("root.invest-verify", {projectId: response.data.projectId,amount: response.data.amount});
+                             $state.go('root.invest-verify', {projectId: response.data.projectId,amount: response.data.amount});
                         }else{
-                             $state.go("root.invest-verify", {projectId: response.data.projectId,amount: response.data.amount});
+                             $state.go('root.invest-verify', {projectId: response.data.projectId,amount: response.data.amount});
                         }
 
                     }else{
-                        $state.go("root.userCenter.account-overview");
+                        $state.go('root.userCenter.account-overview');
                     }
 
                 } else {
