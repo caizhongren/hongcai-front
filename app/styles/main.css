@@ -930,7 +930,6 @@ hr {
 }
 .safe .list-item .col-md-5 {
   height: 190px;
-  background: url('../images/sprite.png');
 }
 .safe .service {
   border-top: 1px solid #dbdbdb;
