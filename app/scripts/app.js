@@ -121,9 +121,8 @@
     url: '/friends',
     views: {
       '': {
-        templateUrl: 'views/friends-ship.html'
-        //templateUrl: 'views/register/send-email.html'
-        //templateUrl: 'views/success.html'
+        //templateUrl: 'views/friends-ship.html'
+        templateUrl: 'views/banner/nine.html'
       }
     }
   })
@@ -619,6 +618,15 @@
  			}
  		}
  	})
+  /*------------------------------------------  banner  -----------------------------------------------*/
+  .state('root.banner-nine', {
+    url: '/nine-security',
+    views: {
+      '': {
+        templateUrl: 'views/banner/nine.html'
+      }
+    }
+  })
  	;
 
  	// $urlRouterProvider.otherwise('/');
