@@ -18,7 +18,7 @@
     	<link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
-	    <link rel="stylesheet" href="styles/jquery.fullPage.css">
+	    <link rel="stylesheet" href="http://cdn.staticfile.org/jquery-fullPage/1.7.5/jquery.fullPage.css">
 
     <!-- build:css(.tmp) styles/main.css -->
 	    <!-- <link rel="stylesheet" href="styles/main_leo.css"> -->
@@ -30,8 +30,8 @@
 		<script src="bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->    		
-	    <script src="scripts/util/jquery-ui.min.js"></script>
-    	<script src="scripts/util/jquery.fullPage.js"></script>
+	    <script src="http://cdn.staticfile.org/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    	<script src="http://cdn.staticfile.org/jquery-fullPage/1.7.5/jquery.fullPage.min.js"></script>
 
 	</head>
 	<body>
@@ -91,6 +91,9 @@
 			$('.bg52').on('click',function(){
 				window.location.href = "/";
 			});
+
+			var targetDom = $('#fullPage-nav ul');
+			$('<a class="returnHome" href="javascript:;" title="返回首页"><i class="fa fa-home"></i></a>').insertBefore(targetDom);
 
 			$('.returnHome').on('click',function(){
 				window.location.href = "/";
