@@ -21,5 +21,5 @@ angular.module('hongcaiApp').directive('ensureUniqueName', ['$http', 'DEFAULT_DO
 				}
 			});
 		}
-	}
+	};
 }]);
