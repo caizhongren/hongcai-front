@@ -5,8 +5,8 @@ angular.module('hongcaiApp').directive('checkPassword', ['$http', 'DEFAULT_DOMAI
 		require: 'ngModel',
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch(attrs.ngModel, function() {
-				var password = angular.element("#" + attrs.checkPassword).val();
-				if(password != "") {
+				var password = angular.element('#' + attrs.checkPassword).val();
+				if(password != '') {
 					$http({
 						method: 'POST',
 						url: DEFAULT_DOMAIN + '/siteUser/checkPassword?password=' + password

@@ -4,8 +4,8 @@ angular.module('hongcaiApp').directive('ensureUniqueEmail', ['$http', 'DEFAULT_D
 		require: 'ngModel',
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch(attrs.ngModel, function() {
-				var email = angular.element("#" + attrs.ensureUniqueEmail).val();
-				if(email != "") {
+				var email = angular.element('#' + attrs.ensureUniqueEmail).val();
+				if(email != '') {
 					$http({
 						method: 'POST',
 						url: DEFAULT_DOMAIN + '/siteUser/isUniqueEmail?email=' + email

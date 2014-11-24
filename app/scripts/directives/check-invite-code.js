@@ -5,8 +5,8 @@ angular.module('hongcaiApp').directive('checkInviteCode', ['$http', 'DEFAULT_DOM
 		require: 'ngModel',
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch(attrs.ngModel, function() {
-				var inviteCode = angular.element("#inviteCode").val();
-				if(inviteCode != "") {
+				var inviteCode = angular.element('#inviteCode').val();
+				if(inviteCode != '') {
 					$http({
 						method: 'POST',
 						url: DEFAULT_DOMAIN + '/activity/checkInviteCode?inviteCode=' + inviteCode
