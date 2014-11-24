@@ -6225,6 +6225,16 @@ a:link {
 .bg-grey-d {
   background-color: #777;
 }
+.btn-yellow {
+  background-color: #ff9900;
+}
+.btn-yellow:hover {
+  background-color: #f59607;
+  color: #fff;
+}
+.ft-white {
+  color: #fff;
+}
 .margin-t {
   margin-top: 80px;
 }
