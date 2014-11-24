@@ -6316,6 +6316,26 @@ a:link {
 .recommend .margin-t-0 {
   margin-top: 0;
 }
+.special-recommend .margin-t-15,
+.recommend .margin-t-15 {
+  margin-top: 15px;
+}
+.special-recommend hr,
+.recommend hr {
+  margin: 12px 0;
+}
+.special-recommend .col-xs-5 a:visited,
+.recommend .col-xs-5 a:visited {
+  color: #fff;
+}
+.special-recommend .col-xs-5 a:focus,
+.recommend .col-xs-5 a:focus {
+  color: #fff;
+}
+.special-recommend .col-xs-5 .cursor-d,
+.recommend .col-xs-5 .cursor-d {
+  cursor: default;
+}
 .statics .panel-body {
   padding-top: 27.5px;
   padding-bottom: 27.5px;
@@ -6815,6 +6835,9 @@ a:link {
     padding: 3% 1%;
   }
 }
+.ftw-b {
+  font-weight: bold;
+}
 .ft-red {
   color: #eb5c3f;
 }
@@ -6838,6 +6861,18 @@ a:link {
 }
 .ft-14 {
   font-size: 14px;
+}
+.project-icon {
+  display: inline-block;
+  width: 31px;
+  height: 31px;
+  line-height: 31px;
+  background: url(../images/sprite.png) -220px -270px;
+  text-align: center;
+  color: #fff;
+}
+.project-icon:hover {
+  color: #fff;
 }
 .fixedBox {
   position: absolute;
