@@ -50,8 +50,8 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
+        files: ['<%= yeoman.app %>/styles/{,*/}*.css', '<%= yeoman.app %>/styles/themes/{,*/}*.less'],
+        tasks: ['newer:copy:styles', 'autoprefixer', 'less']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -79,8 +79,8 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/hongcai/api/v1',
-          host: '192.168.80.40',
-          port: 8080
+          host: '192.168.1.43',
+          port: 8000
         }
       ],
       livereload: {
@@ -179,6 +179,21 @@ module.exports = function (grunt) {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//
+      }
+    },
+
+    less: {
+      server: {
+        options: {
+          paths: ['<%= yeoman.app %>/styles']
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: '**/*.less',
+          dest: '.tmp/styles',
+          ext: '.css'
+        }]
       }
     },
 

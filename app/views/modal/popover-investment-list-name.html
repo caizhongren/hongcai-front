@@ -1,7 +1,20 @@
-<ul>
-<label class="col-lg-5 col-md-5">投资项目：</label><p class="col-lg-5 col-md-5 invest-tips">{{ item.settlementDate }}</p>
-<label class="col-lg-5 col-md-5">收益率：</label><p class="col-lg-5 col-md-5 invest-tips">{{ item.settlementDate }}</p>
-<label class="col-lg-5 col-md-5">状态：</label><p class="col-lg-5 col-md-5 invest-tips">{{ item.settlementDate }}</p>
-<label class="col-lg-5 col-md-5">合同：</label><p class="col-lg-5 col-md-5 invest-tips">{{ item.settlementDate }}</p>
-</ul>
+<div id="investment-name", class="popover">
+  <div class="arrow"></div>
+  <h5 class="popover-title">投资项目: {{ item.settlementDate }}</h5>
+  <div class="popover-content" style="font-size:12px;">
+    <table class="table table-hover">
+      <tbody>
+        <tr> <td>收益率：{{ item.settlementDate }}</td> </tr>
+        <tr> <td>状态：{{ item.settlementDate }}</td> </tr>
+        <tr> <td>合同：{{ item.settlementDate }}</td> </tr>
+      </tbody>
+    </table>
+<!--     <ul>
+      <label class="col-xs-2">投资项目：</label><p class="col-lg-5 col-md-5 invest-tips">{{ item.settlementDate }}</p>
+      <label class="col-xs-2">收益率：</label><p class="col-lg-5 col-md-5 invest-tips">{{ item.settlementDate }}</p>
+      <label class="col-xs-2">状态：</label><p class="col-lg-5 col-md-5 invest-tips">{{ item.settlementDate }}</p>
+      <label class="col-xs-2">合同：</label><p class="col-lg-5 col-md-5 invest-tips">{{ item.settlementDate }}</p>
+    </ul> -->
+  </div>
+</div>
 

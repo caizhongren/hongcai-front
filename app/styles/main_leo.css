@@ -6185,6 +6185,23 @@ button.close {
 .panel-default > .panel-heading {
   color: #807979;
 }
+.slick-slide img {
+  display: block;
+  width: 100%;
+}
+.slick-dots li.slick-active button:before {
+  color: #c93315;
+  opacity: 1;
+}
+.slick-dots li button:hover:before,
+.slick-dots li button:focus:before {
+  opacity: 1;
+  color: #c93315;
+}
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+}
 html,
 body {
   color: #777777;
@@ -6193,12 +6210,35 @@ body {
   /*padding-bottom: 0px;*/
   /*font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "冬青黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;*/
   font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  background-color: #F0F0F0;
 }
 a {
   color: #333;
 }
+a:link {
+  text-decoration: none;
+  outline: none;
+}
+.bg-grey-l {
+  background-color: #ccc;
+}
+.bg-grey-d {
+  background-color: #777;
+}
 .margin-t {
   margin-top: 80px;
+}
+.full-column .margin-l-15 {
+  margin-left: 15px;
+}
+.full-column .margin-l-23 {
+  margin-left: 23px;
+}
+.full-column .margin-b-30 {
+  margin-bottom: 30px;
+}
+.full-column .line-h-27 {
+  line-height: 27px;
 }
 .container-fluid {
   padding-left: 0;
@@ -6212,9 +6252,11 @@ a {
   height: 25px;
   min-height: 25px;
   margin-bottom: 0;
+  background-color: #777;
 }
 #mini-bar .navbar-text {
   margin-top: 2px;
+  color: #fff;
 }
 #mini-bar ul > li > .ft-red {
   color: #ea5430;
@@ -6223,6 +6265,7 @@ a {
 #mini-bar ul > li > span {
   padding-top: 2px;
   display: inline-block;
+  color: #fff;
 }
 #mini-bar .logout {
   margin-left: 10px;
@@ -6255,9 +6298,23 @@ a {
   height: 90px;
   background: url(../../../images/sprite.png) -280px -90px;
 }
-.special-recommend .panel-body {
-  padding-left: 0px;
-  padding-right: 0px;
+.special-recommend .panel-body,
+.recommend .panel-body,
+.special-recommend li,
+.recommend li {
+  padding: 30px;
+}
+.special-recommend .padding-0,
+.recommend .padding-0 {
+  padding: 0;
+}
+.special-recommend .padding-r-0,
+.recommend .padding-r-0 {
+  padding-right: 0;
+}
+.special-recommend .margin-t-0,
+.recommend .margin-t-0 {
+  margin-top: 0;
 }
 .statics .panel-body {
   padding-top: 27.5px;
@@ -6989,4 +7046,31 @@ a {
 }
 .slick-dots {
   height: 20%;
+}
+.list-group-item h3 {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#footer a:hover {
+  text-decoration: underline !important;
+}
+#footer .footer-up {
+  padding: 30px 0;
+  color: #fff;
+}
+#footer .footer-up a {
+  color: #fff;
+}
+#footer .footer-up .fa-phone {
+  color: #fff;
+  line-height: 54px;
+}
+#footer .footer-up .links {
+  line-height: 54px;
+  border-right: 1px solid #fff;
+}
+#footer .footer-down {
+  padding: 30px 0 75px 0;
 }

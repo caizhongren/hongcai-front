@@ -94,137 +94,137 @@
                       </div>
                     </div>
                   </section> <!-- section -->
-                        <section ng-if="tab.title==='企业信息'">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 企业背景</h4>
-                              </div>
-                              <div class="col-xs-12">
-                                <p>{{enterprise.background}}</p>
-                              </div>
-                              <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 营业范围</h4>
-                              </div>
-                              <div class="col-xs-12">
-                                <p>{{enterprise.businessScope}}</p>
-                              </div>
-                              <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 经营状况</h4>
-                              </div>
-                              <div class="col-xs-12">
-                                <p>{{enterprise.businessState}}</p>
+                  <section ng-if="tab.title==='企业信息'">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 企业背景</h4>
+                        </div>
+                        <div class="col-xs-12">
+                          <p>{{enterprise.background}}</p>
+                        </div>
+                        <div class="col-xs-12">
+                          <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 营业范围</h4>
+                        </div>
+                        <div class="col-xs-12">
+                          <p>{{enterprise.businessScope}}</p>
+                        </div>
+                        <div class="col-xs-12">
+                          <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 经营状况</h4>
+                        </div>
+                        <div class="col-xs-12">
+                          <p>{{enterprise.businessState}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </section> <!-- section -->
+                  <section ng-if="tab.title==='风控信息'">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <h4 class="page-header"><i class="fa fa-square hc-text-red"></i>保荐机构</h4>
+                        </div>
+                        <div class="col-xs-12">
+                          <p>{{projectInfo.guaranteeSuggestion}}</p>
+                        </div>
+                        <div class="col-xs-12">
+                          <h4 class="page-header"><i class="fa fa-square hc-text-red"></i>风控措施</h4>
+                        </div>
+                        <div class="col-xs-12">
+                          <p>{{projectInfo.riskManagementInfo}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </section> <!-- section -->
+                  <section ng-if="tab.title==='相关文件'">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 合同协议</h4>
+                        </div>
+                        <div class="col-xs-6 col-sm-4 file-padding" ng-repeat="contract in contractThumbnailFileList">
+                          <div class="thumbnail">
+                            <a class="grouped_elements" rel="group1" href="{{contractOriginalFileList[$index].uploadFile.url}}"><img fancybox width="175" height="125" hc-preview-url="{{enterPrise.uploadFile.url}}" src="{{contract.uploadFile.url}}"></a>
+                            <div class="caption">
+                              <h5 class="file-head">{{contract.uploadFile.originalName}}</h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 企业相关照片</h4>
+                        </div>
+                        <div class="row">
+                          <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 file-padding" ng-repeat="enterPrise in enterpriseThumbnailFileList">
+                            <div class="thumbnail">
+                               <a class="grouped_elements" rel="group1" href="{{enterpriseOriginalFileList[$index].uploadFile.url}}"><img fancybox  width="175" height="125" hc-preview-url="{{enterPrise.uploadFile.url}}" src="{{enterPrise.uploadFile.url}}"></a>
+                              <div class="caption">
+                                <h5 class="file-head">{{enterPrise.uploadFile.originalName}}</h5>
                               </div>
                             </div>
                           </div>
-                        </section> <!-- section -->
-                        <section ng-if="tab.title==='风控信息'">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i>保荐机构</h4>
-                              </div>
-                              <div class="col-xs-12">
-                                <p>{{projectInfo.guaranteeSuggestion}}</p>
-                              </div>
-                              <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i>风控措施</h4>
-                              </div>
-                              <div class="col-xs-12">
-                                <p>{{projectInfo.riskManagementInfo}}</p>
-                              </div>
-                            </div>
-                          </div>
-                        </section> <!-- section -->
-                        <section ng-if="tab.title==='相关文件'">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 合同协议</h4>
-                              </div>
-                              <div class="col-xs-6 col-sm-4 file-padding" ng-repeat="contract in contractThumbnailFileList">
-                                <div class="thumbnail">
-                                  <a class="grouped_elements" rel="group1" href="{{contractOriginalFileList[$index].uploadFile.url}}"><img fancybox width="175" height="125" hc-preview-url="{{enterPrise.uploadFile.url}}" src="{{contract.uploadFile.url}}"></a>
-                                  <div class="caption">
-                                    <h5 class="file-head">{{contract.uploadFile.originalName}}</h5>
-                                  </div>
+                        </div>
+                        
+                      </div>
+                    </div>
+                  </section> <!-- section -->
+                  <section ng-if="tab.title==='项目历程'">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4>
+                          <ul class="timeline">
+                            <li>
+                              <div class="timeline-badge primary"><i class="fa fa-rocket"></i></div>
+                              <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                  <h4 class="timeline-title">项目上线</h4>
+                                </div>
+                                <div class="timeline-body">
+                                  <p>上线时间：{{project.publishTime}}</p>
                                 </div>
                               </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 企业相关照片</h4>
-                              </div>
-                              <div class="row">
-                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 file-padding" ng-repeat="enterPrise in enterpriseThumbnailFileList">
-                                  <div class="thumbnail">
-                                     <a class="grouped_elements" rel="group1" href="{{enterpriseOriginalFileList[$index].uploadFile.url}}"><img fancybox  width="175" height="125" hc-preview-url="{{enterPrise.uploadFile.url}}" src="{{enterPrise.uploadFile.url}}"></a>
-                                    <div class="caption">
-                                      <h5 class="file-head">{{enterPrise.uploadFile.originalName}}</h5>
-                                    </div>
-                                  </div>
+                            </li>
+                            <li class="timeline-inverted">
+                              <div class="timeline-badge info"><i class="fa fa-users"></i></div>
+                              <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                  <h4 class="timeline-title">项目募集</h4>
+                                </div>
+                                <div class="timeline-body">
+                                  <p>开始时间：{{project.releaseStartTime}}</p>
+                                  <p>结束时间：{{project.releaseEndTime}}</p>
                                 </div>
                               </div>
-                              
-                            </div>
-                          </div>
-                        </section> <!-- section -->
-                        <section ng-if="tab.title==='项目历程'">
-                          <div class="container-fluid">
-                            <div class="row">
-                              <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4>
-                                <ul class="timeline">
-                                  <li>
-                                    <div class="timeline-badge primary"><i class="fa fa-rocket"></i></div>
-                                    <div class="timeline-panel">
-                                      <div class="timeline-heading">
-                                        <h4 class="timeline-title">项目上线</h4>
-                                      </div>
-                                      <div class="timeline-body">
-                                        <p>上线时间：{{project.publishTime}}</p>
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="timeline-inverted">
-                                    <div class="timeline-badge info"><i class="fa fa-users"></i></div>
-                                    <div class="timeline-panel">
-                                      <div class="timeline-heading">
-                                        <h4 class="timeline-title">项目募集</h4>
-                                      </div>
-                                      <div class="timeline-body">
-                                        <p>开始时间：{{project.releaseStartTime}}</p>
-                                        <p>结束时间：{{project.releaseEndTime}}</p>
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li>
-                                    <div class="timeline-badge warning"><i class="fa fa-tree"></i></div>
-                                    <div class="timeline-panel">
-                                      <div class="timeline-heading">
-                                        <h4 class="timeline-title">项目放款</h4>
-                                      </div>
-                                      <div class="timeline-body">
-                                        <p>已还：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest)}}（{{billCount}}期）</p>
-                                      </div>
-                                    </div>
-                                  </li>
-                                  <li class="timeline-inverted">
-                                    <div class="timeline-badge success"><i class="fa fa-list-ol"></i></div>
-                                    <div class="timeline-panel">
-                                      <div class="timeline-heading">
-                                        <h4 class="timeline-title">项目还款</h4>
-                                      </div>
-                                      <div class="timeline-body">
-                                        <p>待还款：{{remainPrincipal + remainInterest}}（{{project.cycle - billCount}}期）</p>
-                                      </div>
-                                    </div>
-                                  </li>
-                                </ul>
+                            </li>
+                            <li>
+                              <div class="timeline-badge warning"><i class="fa fa-tree"></i></div>
+                              <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                  <h4 class="timeline-title">项目放款</h4>
+                                </div>
+                                <div class="timeline-body">
+                                  <p>已还：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest)}}（{{billCount}}期）</p>
+                                </div>
                               </div>
-                            </div>
-                          </div>
-                        </section> <!-- section -->
+                            </li>
+                            <li class="timeline-inverted">
+                              <div class="timeline-badge success"><i class="fa fa-list-ol"></i></div>
+                              <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                  <h4 class="timeline-title">项目还款</h4>
+                                </div>
+                                <div class="timeline-body">
+                                  <p>待还款：{{remainPrincipal + remainInterest}}（{{project.cycle - billCount}}期）</p>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </section> <!-- section -->
                 </div>
               </div> <!-- .tab-content -->
             </div> <!-- .panel -->
@@ -290,7 +290,7 @@
                         </div>
                         <form ng-submit="isAvailableInvest(project);" ng-switch-default>
 
-                          <input type="number" min="0" max="1000000" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required ng-switch-default>
+                          <input type="number" min="0" max="1000000" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required ng-switch-default>
                           <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                           <button class="btn btn-danger btn-lg btn-block" ng-switch-default>立即投资</button>
 
@@ -321,28 +321,63 @@
 
         <div class="row">
           <div class="col-xs-12">
-            <div class="panel panel-default">
-              <div class="panel-heading ft-16 padding-tAb">
-                <strong>投资记录</strong>
+            <div class="panel panel-default" ng-init="activeTab_right=0;">
+              <!-- <div class="panel-heading ft-16 padding-tAb"> -->
+                <!-- <strong>投资记录</strong> -->
+              <ul class="nav nav-pills nav-justified border-b">
+                <li ng-class="{active: activeTab_right===$index}" ng-repeat="tab_right in tabs_right"><a ng-click="switchTab_right($index)">{{tab_right.title}}</a></li>
+                
+              </ul>
+              <!-- </div> -->
+              <div class="tab-content">
+                <div class="tab-pane" ng-class="{active: activeTab_right===$index}" ng-repeat="tab_right in tabs_right">
+                  <section ng-if="tab_right.title==='投资记录'">
+                    <div class="panel-body">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>成交时间</th>
+                            <th>投资人</th>
+                            <th>投标金额</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr  ng-repeat="order in orderList">
+                            <td>{{order.createTime * 1000 | date: "yy-MM-dd"}}</td>
+                            <td>{{order.userName}}</td>
+                            <td>{{order.orderAmount| number : 0}}元</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                  <section ng-if="tab_right.title==='还款计划'">
+                    <div class="panel-body">
+                      <table class="table table-hover">
+                        <thead>
+                          <tr>
+                            <th>预期还款时间</th>
+                            <th>类型</th>
+                            <th>还款金额</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr  ng-repeat="preRepayment in preRepaymentList">
+                            <td>{{preRepayment.repaymentTime * 1000 | date: "yy-MM-dd"}}</td>
+                            <td ng-if="preRepayment.repaymentNo==1">利息</td>
+                            <td ng-if="preRepayment.repaymentNo==2">本金</td>
+                            <td ng-if="preRepayment.repaymentNo==3">本金+利息</td>
+                            <td ng-if="preRepayment.repaymentNo==1">{{preRepayment.repaymentInterest| number : 0}}元</td>
+                            <td ng-if="preRepayment.repaymentNo==2">{{preRepayment.repaymentPrincipal| number : 0}}元</td>
+                            <td ng-if="preRepayment.repaymentNo==3">{{preRepayment.repaymentAmount| number : 0}}元</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </section>
+                </div>
               </div>
-              <div class="panel-body">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>成交时间</th>
-                      <th>投资人</th>
-                      <th>投标金额</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr  ng-repeat="order in orderList">
-                      <td>{{order.createTime * 1000 | date: "yy-MM-dd"}}</td>
-                      <td>{{order.userName}}</td>
-                      <td>{{order.orderAmount| number : 0}}元</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              
             </div>
           </div>
         </div> <!-- .row -->

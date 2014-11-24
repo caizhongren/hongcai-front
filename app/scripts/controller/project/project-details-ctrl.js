@@ -13,6 +13,7 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         $scope.enterpriseOriginalFileList = projectDetails.data.enterpriseOriginalFileList;
         $scope.contractOriginalFileList = projectDetails.data.contractOriginalFileList;
         $scope.contractThumbnailFileList = projectDetails.data.contractThumbnailFileList;
+        $scope.preRepaymentList = projectDetails.data.preRepaymentList;
         
         $scope.billCount = projectDetails.data.billCount;
         $scope.remainInterest = projectDetails.data.remainInterest;
@@ -26,6 +27,7 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
 
         // console.log($scope.project.publishTime)
         // console.log($scope.project.status)
+        console.log($scope.preRepaymentList)
 
         $scope.dateArray = $scope.project.releaseStartTime.split('-');
         $scope.day = $scope.dateArray[2].split(' ')[0];
@@ -98,8 +100,22 @@ hongcaiApp.controller("ProjectDetailsCtrl", ["$scope", "$state", "$rootScope", "
         }
     ];
 
+    $scope.tabs_right = [{
+            title: '投资记录',
+            // url: 'one.tpl.html'
+        }, {
+            title: '还款计划',
+            // url: 'two.tpl.html'
+        }
+    ];
+
     $scope.switchTab = function (tabIndex) {
       $scope.activeTab = tabIndex;
+      // $scope.currentTab = tab.url;
+    }
+
+    $scope.switchTab_right = function (tabIndex_right) {
+      $scope.activeTab_right = tabIndex_right;
       // $scope.currentTab = tab.url;
     }
 

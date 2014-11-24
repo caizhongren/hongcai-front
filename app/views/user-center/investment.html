@@ -122,14 +122,15 @@
     <tbody>
       <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
       <td>
-        <details ng-open="open"><summary><button type="button" class="btn btn-link" data-placement="bottom" title="{{item.projectName}}" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover>{{ item.projectName }}</button></summary></details>
+        <button ng-mouseenter="showListNameInfo();" style="padding:0px;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button> {{ item.projectName }}
       </td>
         <td>{{ item.valueDate | date: 'yyyy-MM-dd' }}</td>
         <td>{{ item.settlementDate | date: 'yyyy-MM-dd' }}</td>
         <td>{{ item.orderAmount }}</td>
         <td>{{ item.profit }}</td>
         <td>
-          {{ item.returnProfit }}<button data-placement="bottom" class="btn btn-link" title="{{item.projectName}}" data-template="views/modal/popover-investment-list-details.html" data-trigger="focus" bs-popover>[详情]</button></a>
+          {{ item.returnProfit }}
+          <button style="padding:0px;" class="btn btn-link" title="{{item.projectName}}" data-template="views/modal/popover-investment-list-details.html" data-animation="am-fade-and-slide-right" data-placement="right"  bs-popover data-trigger="focus" ng-click="showListDetails();">[详情]</button></a>
           <div ng-if="item.status === '1'">
             <input type="button" class="btn btn-primary" value="继续支付">
             <input type="button" class="btn btn-default" value="取消订单">
