@@ -75,7 +75,7 @@ hr {
   background-color: #ebebeb;
 }
 .bg-offWhite {
-  background-color: #fdfbfb;
+  background-color: #f0f0f0;
 }
 .bg-white {
   background-color: #fff;
@@ -190,44 +190,6 @@ hr {
 }
 .security {
   background-position: -605px 6px;
-}
-.recommend-img {
-  width: 250px;
-  height: 250px;
-  background: url('../../../images/bank-img.png');
-}
-.recommend {
-  height: 270px;
-  padding: 10px;
-  border: 1px solid #dbdbdb;
-  border-radius: 2px;
-}
-.col-lg-8 .recommend {
-  border: 3px solid #e94828;
-}
-.recommend-details {
-  margin-left: 7px;
-}
-.recommend-details .col-lg-4 {
-  text-align: center;
-}
-.recommend-details .recommend-details-top {
-  margin-top: 0;
-}
-.recommend-details .recommend-details-main {
-  margin-top: 30px;
-}
-.recommend-details .recommend-details-main .ft-24 {
-  padding-bottom: 10px;
-  display: inline-block;
-}
-.recommend-details .hot-sale {
-  position: absolute;
-  right: -22px;
-  top: -16px;
-  width: 90px;
-  height: 90px;
-  background: url(../../../images/sprite.png) -280px -90px;
 }
 .project-name {
   font-size: 24px;
@@ -419,10 +381,6 @@ hr {
   left: -30px;
 }
 /*footer*/
-#footer {
-  height: 370px;
-  color: #807979;
-}
 .footer-info {
   padding: 60px 0;
 }
