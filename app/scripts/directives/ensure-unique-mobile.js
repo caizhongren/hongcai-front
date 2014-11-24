@@ -5,21 +5,25 @@ angular.module('hongcaiApp').directive('ensureUniqueMobile', ['$http', 'DEFAULT_
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch(attrs.ngModel, function() {
 				var mobile = angular.element('#' + attrs.ensureUniqueMobile).val();
+<<<<<<< Updated upstream
 				if(mobile != '') {
+=======
+				if(mobile !== '') {
+>>>>>>> Stashed changes
 					$http({
 						method: 'POST',
 						url: DEFAULT_DOMAIN + '/siteUser/isUniqueMobile?mobile=' + mobile
-					}).success(function(data, status, headers, cfg) {
-						if(data.data.isUnique == 0) {
+					}).success(function(data) {
+						if(data.data.isUnique === 0) {
 							ctrl.$setValidity('unique', true);
-						} else if(data.data.isUnique == 1) {
+						} else if(data.data.isUnique === 1) {
 							ctrl.$setValidity('unique', false);
 						}
-					}).error(function(data, status, headers, cfg) {
+					}).error(function() {
 						ctrl.$setValidity('unique', false);
 					});
 				}
 			});
 		}
-	}
+	};
 }]);
