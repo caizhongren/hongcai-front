@@ -1,4 +1,4 @@
-hongcaiApp.controller("UploadCtrl", ['$scope', '$upload', 'DEFAULT_DOMAIN', function ($scope, $upload, DEFAULT_DOMAIN) {
+hongcaiApp.controller('UploadCtrl', ['$scope', '$upload', 'DEFAULT_DOMAIN', function ($scope, $upload, DEFAULT_DOMAIN) {
     $scope.onFileSelect = function($files) {
         //$files: an array of files selected, each file has name, size, and type.
         for (var i = 0; i < $files.length; i++) {

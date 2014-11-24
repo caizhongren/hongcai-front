@@ -12,8 +12,8 @@ angular.module('hongcaiApp')
   .filter('menoyFormat', function () {
     return function (input, formatNo) {
       input = input || '';
-      if(input.length > formatNo ){
-        return (input/10000).toString() + "万";
+      if(out.length > formatNo ){
+        return (input/10000).toString() + '万';
       } else {
         return;
       }

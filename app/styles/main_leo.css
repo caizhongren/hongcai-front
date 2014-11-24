@@ -6575,6 +6575,9 @@ a:link {
   padding-top: 12px;
   padding-bottom: 12px;
 }
+#project-detail .padding-0 {
+  padding: 0;
+}
 .timeline {
   list-style: none;
   padding: 20px 0 20px;

@@ -1,4 +1,4 @@
-hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$rootScope", "$stateParams", "OrderService", "SessionService", "toaster", "$modal",function ($scope, $location, $state, $rootScope, $stateParams, OrderService, SessionService, toaster,$modal) {
+hongcaiApp.controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', 'OrderService', 'SessionService', 'toaster', '$modal',function ($scope, $location, $state, $rootScope, $stateParams, OrderService, SessionService, toaster,$modal) {
     $scope.giftCount = 0;
     OrderService.investVerify.get({projectId: $stateParams.projectId, amount: $stateParams.amount, }, function(response) {
 
@@ -8,13 +8,13 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$ro
            $scope.giftCount = response.data.giftCount;
            $scope.investAmount = $stateParams.amount;
            $scope.icons = [
-                {value :"",label:""},
+                {value :'',label:''},
             ];
             $scope.icons= [];
             for (var i= 0; i <= $scope.giftCount; i++){
                 var obj = {};
-                obj.value = "" + i + "";
-                obj.label = "" + i + "";
+                obj.value = '' + i + '';
+                obj.label = '' + i + '';
                 $scope.icons.push(obj);
             }
         }  else if (response.ret == -1){
@@ -29,15 +29,15 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$ro
     });
 
 	function new_form(){
-		var f = document.createElement("form");
+		var f = document.createElement('form');
 		document.body.appendChild(f);
-		f.method = "post";
-        //f.target = "_blank";
+		f.method = 'post';
+        //f.target = '_blank';
         return f;
     }
 
     function create_elements(eForm,eName,eValue){
-    	var e=document.createElement("input");
+    	var e=document.createElement('input');
     	eForm.appendChild(e);
     	e.type='text';
     	e.name=eName;
@@ -62,9 +62,9 @@ hongcaiApp.controller("investVerifyCtrl", ["$scope", "$location", "$state", "$ro
                         var req = response.data.req;
                         var sign = response.data.sign;
                         var _f=new_form();//创建一个form表单
-                        create_elements(_f,"req",req);//创建form中的input对象
-                        create_elements(_f,"sign",sign);
-                        _f.action="http://qa.yeepay.com/member/bha/toTransfer";//form提交地址
+                        create_elements(_f,'req',req);//创建form中的input对象
+                        create_elements(_f,'sign',sign);
+                        _f.action='http://qa.yeepay.com/member/bha/toTransfer';//form提交地址
                         _f.submit();//提交
                     } 
                 });

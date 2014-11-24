@@ -1,25 +1,25 @@
-hongcaiApp.controller("HelpCenterCtrl", ["$scope", "$state", "$rootScope", "$location", "$stateParams", function ($scope, $state, $rootScope, $location, $stateParams) {
+hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', function ($scope, $state, $rootScope, $location, $stateParams) {
 	$scope.menus = {
-            "left": [{
-            	"href": "/introduce",
-                "link": "root.help-center.introduce",
-                "text": "宏财介绍"},
+            'left': [{
+            	'href': '/introduce',
+                'link': 'root.help-center.introduce',
+                'text': '宏财介绍'},
             {
-            	"href": "/investors",
-                "link": "root.help-center.investors",
-                "text": "投资介绍"},
+            	'href': '/investors',
+                'link': 'root.help-center.investors',
+                'text': '投资介绍'},
             {
-            	"href": "/account-management",
-                "link": "root.help-center.account-management",
-                "text": "账户管理"},
+            	'href': '/account-management',
+                'link': 'root.help-center.account-management',
+                'text': '账户管理'},
             {
-            	"href": "/safety-certification",
-                "link": "root.help-center.safety-certification",
-                "text": "安全认证"},
+            	'href': '/safety-certification',
+                'link': 'root.help-center.safety-certification',
+                'text': '安全认证'},
             {
-            	"href": "/law-and-policy-guarantee",
-                "link": "root.help-center.law-and-policy-guarantee",
-                "text": "法律保障"}]
+            	'href': '/law-and-policy-guarantee',
+                'link': 'root.help-center.law-and-policy-guarantee',
+                'text': '法律保障'}]
         };
 
     $rootScope.selectPage = $location.path().split('/')[1];
@@ -60,9 +60,5 @@ hongcaiApp.controller("HelpCenterCtrl", ["$scope", "$state", "$rootScope", "$loc
     $scope.changePosition8 = false;
     $scope.changePosition9 = false;
     $scope.changePosition10 = false;
-
-    // if($(window).scrollTop()>100){
-    //     $('body,html').animate({scrollTop:0},800);
-    // }
 
 }]);

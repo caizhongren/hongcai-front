@@ -1,4 +1,4 @@
-hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateParams", function ($scope, $state, $rootScope, $stateParams) {
+hongcaiApp.controller('ServiceCtrl', ['$scope', '$state', '$rootScope', '$stateParams', function ($scope, $state, $rootScope, $stateParams) {
     
     var $bottomTools = $('.bottom_tools');
     var $qrTools = $('.qr_tool');
@@ -8,8 +8,8 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         var scrollHeight = $(document).height();
         var scrollTop = $(window).scrollTop();
         var $windowHeight = $(window).innerHeight();
-        scrollTop > 50 ? $("#scrollUp").fadeIn(200).css("display","block") : $("#scrollUp").fadeOut(200);           
-        $bottomTools.css("bottom", scrollHeight - scrollTop > $windowHeight ? 130 : $windowHeight + scrollTop + 130 - scrollHeight);
+        scrollTop > 50 ? $('#scrollUp').fadeIn(200).css('display','block') : $('#scrollUp').fadeOut(200);           
+        $bottomTools.css('bottom', scrollHeight - scrollTop > $windowHeight ? 130 : $windowHeight + scrollTop + 130 - scrollHeight);
     });
     
     $('#scrollUp').click(function (e) {
@@ -52,7 +52,7 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
             $scope.isResultShow = $scope.isResultShow ? false : true;
             $scope.arrow = '>>';
             if($scope.isResultShow){
-                angular.element("#calculater .slide").animate({width:"show"},300);
+                angular.element('#calculater .slide').animate({width:'show'},300);
             }
         }
 
@@ -64,11 +64,11 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
     }
 
     $scope.capitalValueChange = function() {
-        $scope.params.displayValue = $scope.params.inputValue === '' || $scope.params.inputValue < 100 || $scope.params.inputValue > 1000000 ? "100-100万" : $scope.params.inputValue;
+        $scope.params.displayValue = $scope.params.inputValue === '' || $scope.params.inputValue < 100 || $scope.params.inputValue > 1000000 ? '100-100万' : $scope.params.inputValue;
     };
 
     $scope.rateValueChange = function() {
-        $scope.params.displayrate = $scope.params.rate === '' || $scope.params.rate === null || $scope.params.rate == undefined ? "XX%" : $scope.params.rate + '%';
+        $scope.params.displayrate = $scope.params.rate === '' || $scope.params.rate === null || $scope.params.rate == undefined ? 'XX%' : $scope.params.rate + '%';
     };
 
 
@@ -76,9 +76,9 @@ hongcaiApp.controller("ServiceCtrl", ["$scope", "$state", "$rootScope", "$stateP
         $scope.isResultShow = $scope.isResultShow ? false : true;
         $scope.arrow = $scope.isResultShow ? '>>' : '<<';
         if($scope.isResultShow){
-            angular.element("#calculater .slide").animate({width:"show"},300);
+            angular.element('#calculater .slide').animate({width:'show'},300);
         }else {
-            angular.element("#calculater .slide").animate({width:"hide"},300);
+            angular.element('#calculater .slide').animate({width:'hide'},300);
         }
 
     };

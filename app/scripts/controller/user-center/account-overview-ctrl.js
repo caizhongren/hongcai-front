@@ -1,4 +1,4 @@
-hongcaiApp.controller("AccountOverviewCtrl", [ "$scope", "$state", "$rootScope", "$stateParams", "UserCenterService", "OrderService", "DEFAULT_DOMAIN", function ($scope, $state, $rootScope, $stateParams, UserCenterService, OrderService, DEFAULT_DOMAIN) {
+hongcaiApp.controller('AccountOverviewCtrl', [ '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'OrderService', 'DEFAULT_DOMAIN', function ($scope, $state, $rootScope, $stateParams, UserCenterService, OrderService, DEFAULT_DOMAIN) {
 
     $rootScope.selectSide = 'account-overview';
     var totalAssets = 0;
@@ -16,39 +16,39 @@ hongcaiApp.controller("AccountOverviewCtrl", [ "$scope", "$state", "$rootScope",
 	    			value: 30,
 	    			label: '账户总资产',
 					//highlight: '#FF5A5E',
-					color:"#e94828"
+					color:'#e94828'
 				},
 				{
 					value : 30,
 					label: '累计净收益',
-					color : "#f9b81e"
+					color : '#f9b81e'
 				},
 				{
 					value : 30,
 					label: '账户余额',
-					color : "#62cbc6"
+					color : '#62cbc6'
 				}]
 		    } else {
 		    	$scope.doughnutAccountData = [{
 	    			value: response.data.totalAssets,
 	    			label: '账户总资产',
 					//highlight: '#FF5A5E',
-					color:"#e94828"
+					color:'#e94828'
 				},
 				{
 					value : response.data.userCapital.receivedProfit,
 					label: '累计净收益',
-					color : "#f9b81e"
+					color : '#f9b81e'
 				},
 				{
 					value : response.data.userCapital.balance,
 					label: '账户余额',
-					color : "#62cbc6"
+					color : '#62cbc6'
 				}]
 		    }
 
 		} else {
-            //toaster.pop('warning', "提示", response.msg);
+            //toaster.pop('warning', '提示', response.msg);
             //$scope.errorMessage = response.msg;
             //$scope.warning = true;
             $state.go('root.login');
@@ -58,24 +58,24 @@ hongcaiApp.controller("AccountOverviewCtrl", [ "$scope", "$state", "$rootScope",
     if(totalAssets > 0 && receivedProfit > 0 && balance > 0) {
     	$scope.doughnutOptions = {
 	        segmentShowStroke : false,
-	        segmentStrokeColor : "#fff",
+	        segmentStrokeColor : '#fff',
 	        segmentStrokeWidth : 2,
 	        percentageInnerCutout : 65,
 	        animation : true,
 	        animationSteps : 100,
-	        animationEasing : "easeOutQuart",
+	        animationEasing : 'easeOutQuart',
 	        animateRotate : true,
 	        animateScale : false
 	    };
     } else {
     	$scope.doughnutOptions = {
 	        segmentShowStroke : false,
-	        segmentStrokeColor : "#fff",
+	        segmentStrokeColor : '#fff',
 	        segmentStrokeWidth : 2,
 	        percentageInnerCutout : 65,
 	        animation : true,
 	        animationSteps : 100,
-	        animationEasing : "easeOutQuart",
+	        animationEasing : 'easeOutQuart',
 	        animateRotate : true,
 	        animateScale : false, 
 	        showTooltips: false

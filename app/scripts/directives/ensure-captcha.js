@@ -6,17 +6,17 @@ angular.module('hongcaiApp').directive('ensureCaptcha', ['$http', 'DEFAULT_DOMAI
 			scope.$watch(attrs.ngModel, function() {
 				$http({
 					method: 'POST',
-					url: DEFAULT_DOMAIN + '/siteUser/checkPicCaptcha?captcha=' + angular.element("#" + attrs.ensureCaptcha).val()
-				}).success(function(data, status, headers, cfg) {
-					if(data.ret == 1) {
+					url: DEFAULT_DOMAIN + '/siteUser/checkPicCaptcha?captcha=' + angular.element('#' + attrs.ensureCaptcha).val()
+				}).success(function(data) {
+					if(data.ret === 1) {
 						ctrl.$setValidity('check', true);
 					} else {
 						ctrl.$setValidity('check', false);
 					}
-				}).error(function(data, status, headers, cfg) {
+				}).error(function() {
 					ctrl.$setValidity('check', false);
 				});
 			});
 		}
-	}
+	};
 }]);

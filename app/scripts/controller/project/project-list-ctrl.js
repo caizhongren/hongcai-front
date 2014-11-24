@@ -1,4 +1,4 @@
-hongcaiApp.controller("ProjectListCtrl", ["$scope", "$stateParams", "$rootScope", "$location", "ProjectService", function ($scope, $stateParams, $rootScope, $location, ProjectService) {
+hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'ProjectService', function ($scope, $stateParams, $rootScope, $location, ProjectService) {
     $scope.sortType = $stateParams.sortType || false ;
     if($scope.sortType === 'true'){
       $scope.sortType = true;

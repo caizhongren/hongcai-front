@@ -652,7 +652,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
           $rootScope.isLogged = true;
           $rootScope.loginName = response.data.data.name;
           $rootScope.securityStatus = response.data.data.securityStatus;
-          $rootScope.userCapital = response.data.data.userCapital
+          $rootScope.userCapital = response.data.data.userCapital;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
