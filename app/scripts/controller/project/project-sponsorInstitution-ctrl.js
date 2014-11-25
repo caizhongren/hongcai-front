@@ -97,9 +97,6 @@ hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams'
         $('#slider').sudySlider($scope.imgs);
     });
 
-    // if($(window).scrollTop()>100){
-    //     $('body,html').animate({scrollTop:0},800);
-    // }
 
 }]);
 

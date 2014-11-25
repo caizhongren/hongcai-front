@@ -1,4 +1,4 @@
-hongcaiApp.controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', 'OrderService', 'SessionService', 'YEEPAY_ADDRESS', '$modal',function ($scope, $location, $state, $rootScope, $stateParams, OrderService, SessionService, YEEPAY_ADDRESS, modal) {
+hongcaiApp.controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', 'OrderService', 'SessionService', 'YEEPAY_ADDRESS', '$modal',function ($scope, $location, $state, $rootScope, $stateParams, OrderService, SessionService, YEEPAY_ADDRESS, $modal) {
     $scope.giftCount = 0;
     OrderService.investVerify.get({projectId: $stateParams.projectId, amount: $stateParams.amount, }, function(response) {
 
