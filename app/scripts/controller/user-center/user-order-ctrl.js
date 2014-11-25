@@ -30,11 +30,11 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
 
     //  时间组件结束
     $scope.fromDateChanged = function () {
-      dateStart = $scope.fromDate;
+      dateStart = $scope.invFromDate;
     };
 
     $scope.untilDealDateChanged = function (status,dateInterval) {
-      dateEnd = $scope.endDate;
+      dateEnd = $scope.invUntilDate;
       $location.path('userCenter-investment/'+dateInterval+'/'+status+'/'+dateStart+'/'+dateEnd)
     };
 
@@ -46,8 +46,8 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
         $scope.amount = getOrderByUser.data.amount;
         $scope.dateInterval = getOrderByUser.data.dateInterval;
         $scope.status = getOrderByUser.data.status;
-        $scope.fromDate = getOrderByUser.data.dateStart;
-        $scope.endDate = getOrderByUser.data.dateEnd;
+        $scope.invFromDate = getOrderByUser.data.dateStart;
+        $scope.invUntilDate = getOrderByUser.data.dateEnd;
 
         $scope.currentPage = 0;
         $scope.pageSize = 6;
