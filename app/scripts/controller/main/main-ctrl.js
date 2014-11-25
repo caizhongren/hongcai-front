@@ -37,7 +37,9 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     $scope.media = [
       {mimeType: 'image/png', src:'images/banner-1.png', href:'' },
       {mimeType: 'image/png', src:'images/banner-2.png', href:'' },
-      {mimeType: 'image/png', src:'images/banner-3.png', href:'' }
+      {mimeType: 'image/png', src:'images/banner-3.png', href:'' },
+      {mimeType: 'image/png', src:'images/banner-4.png', href:'' },
+      {mimeType: 'image/png', src:'images/banner-5.png', href:'' }
     ];
     $scope.slickConfig = {
       dots: true,
