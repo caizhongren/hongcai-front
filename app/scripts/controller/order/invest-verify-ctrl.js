@@ -1,4 +1,4 @@
-hongcaiApp.controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', 'OrderService', 'SessionService', 'toaster', '$modal',function ($scope, $location, $state, $rootScope, $stateParams, OrderService, SessionService, toaster,$modal) {
+hongcaiApp.controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', 'OrderService', 'SessionService', 'YEEPAY_ADDRESS', '$modal',function ($scope, $location, $state, $rootScope, $stateParams, OrderService, SessionService, YEEPAY_ADDRESS, modal) {
     $scope.giftCount = 0;
     OrderService.investVerify.get({projectId: $stateParams.projectId, amount: $stateParams.amount, }, function(response) {
 
@@ -64,7 +64,7 @@ hongcaiApp.controller('investVerifyCtrl', ['$scope', '$location', '$state', '$ro
                         var _f=new_form();//创建一个form表单
                         create_elements(_f,'req',req);//创建form中的input对象
                         create_elements(_f,'sign',sign);
-                        _f.action='http://qa.yeepay.com/member/bha/toTransfer';//form提交地址
+                        _f.action= YEEPAY_ADDRESS + 'toTransfer';//form提交地址
                         _f.submit();//提交
                     } 
                 });

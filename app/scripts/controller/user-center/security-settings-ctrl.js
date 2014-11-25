@@ -1,4 +1,4 @@
-hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'toaster', function ($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
+hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'YEEPAY_ADDRESS', function ($scope, $state, $rootScope, $stateParams, UserCenterService, YEEPAY_ADDRESS) {
         
     $rootScope.selectSide = 'security-settings';
     UserCenterService.userSecurityInfo.get({}, function(response) {
@@ -17,8 +17,6 @@ hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope',
             }
 
         } else {
-            toaster.pop('warning', '提示', response.msg);
-            //$scope.errorMessage = response.msg;
             //$scope.warning = true;
             $state.go('root.login');
         }
@@ -122,10 +120,10 @@ hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope',
             if(response.ret == 1) {
                 var req = response.data.req;
                 var sign = response.data.sign;
-                var _f=new_form();
+                var _f = new_form();
                 create_elements(_f,'req',req);
                 create_elements(_f,'sign',sign);
-                _f.action='http://qa.yeepay.com/member/bha/toRegister';
+                _f.action =  YEEPAY_ADDRESS + 'toRegister';
                 _f.submit();
                 $rootScope.securityStatus.realNameAuthStatus = 1;
             } else {
