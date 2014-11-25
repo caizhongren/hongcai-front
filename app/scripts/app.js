@@ -676,3 +676,11 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
 });
 
 hongcaiApp.constant('DEFAULT_DOMAIN', '/hongcai/api/v1');
+/**
+ * 测试环境易宝链接地址
+ */
+hongcaiApp.constant('YEEPAY_ADDRESS', 'http://qa.yeepay.com/member/bha/');
+/**
+ * 正式环境易宝链接地址
+ */
+//hongcaiApp.constant('YEEPAY_ADDRESS', 'https://member.yeepay.com/member/bha/');
