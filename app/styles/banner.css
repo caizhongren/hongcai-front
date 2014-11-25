@@ -1,0 +1,105 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-rendering: optimizelegibility;
+    _background-attachment: fixed;
+    _background-image: url(about:blank);
+    font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
+.banner-bg{
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.banner-bg img{
+  width: 100%;
+}
+.nine-bg{
+  background: url(/images/nine-sprite.png) -10px 0 no-repeat;
+  width: 980px;
+  margin: 0 auto;
+  height: 3695px;
+  position: relative;
+}
+.step-area{
+  width: 465px;
+  height: 70px;
+}
+.step-area-tips{
+  display: none;
+  height: 210px;
+  width: 410px;
+  background: url(/images/sprite.png) -752px -1403px no-repeat;
+  margin-top: -197px;
+  margin-left: 285px;
+}
+.step-area:hover .step-area-tips{
+  display: block;
+}
+.ab{
+  position: absolute;
+}
+.step-one{
+  top: 455px;
+  left: 260px;
+}
+.step-two{
+  top: 815px;
+  left: 260px;
+}
+.step-three{
+  top: 1175px;
+  left: 260px;
+}
+.step-four{
+  top: 1525px;
+  left: 260px;
+}
+.step-five{
+  top: 1835px;
+  left: 260px;
+}
+.step-six{
+  top: 2195px;
+  left: 260px;
+}
+.step-seven{
+  top: 2555px;
+  left: 260px;
+}
+.step-eight{
+  top: 2915px;
+  left: 260px;
+}
+.step-nine{
+  top: 3200px;
+  left: 260px;
+}
+.step-area-tips strong{
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 15px;
+} 
+.step-area-tips p{
+  padding: 0 20px;
+}
+.green-button{
+  display: block;
+  height: 45px;
+  width: 270px;
+  background-color: #84b000;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 13px;
+  border-radius: 3px;
+  top: 3555px;
+  left: 355px;
+  font-size: 16px;
+}
+.green-button:hover{
+  background-color: #99cc00;
+  color: white;
+}

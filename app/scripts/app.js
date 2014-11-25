@@ -117,13 +117,21 @@
  			}
  		}
  	})
+  /*------------------------------------------  banner  -----------------------------------------------*/
+  .state('root.banner-nine', {
+    url: '/nine-security',
+    views: {
+      '': {
+        templateUrl: 'banner-nine.html'
+      }
+    }
+  })
   .state('root.friends-ship', {
     url: '/friends',
     views: {
       '': {
         templateUrl: 'views/friends-ship.html'
-        //templateUrl: 'views/register/send-email.html'
-        //templateUrl: 'views/success.html'
+        //templateUrl: 'banner-nine.html'
       }
     }
   })
@@ -446,14 +454,6 @@
  			}
  		}
  	})
- 	.state('root.about-us.business-model', {
- 		url: '/business-model',
- 		views: {
- 			'about-us-right-show': {
- 				templateUrl: 'views/about-us/business-model.html'
- 			}
- 		}
- 	})
  	.state('root.about-us.company-profile', {
  		url: '/company-profile',
  		views: {
@@ -619,6 +619,14 @@
  			}
  		}
  	})
+  .state('root.help-center.other-question', {
+    url: '/other-question',
+    views: {
+      'help-center-right-show': {
+        templateUrl: 'views/help-center/other-question.html'
+      }
+    }
+  })
  	;
 
  	// $urlRouterProvider.otherwise('/');
