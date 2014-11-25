@@ -20,7 +20,7 @@ html,body{
   background: url(/images/nine-sprite.png) -10px 0 no-repeat;
   width: 980px;
   margin: 0 auto;
-  height: 3820px;
+  height: 3695px;
   position: relative;
 }
 .step-area{
@@ -84,4 +84,20 @@ html,body{
 } 
 .step-area-tips p{
   padding: 0 20px;
+}
+.green-button{
+  display: block;
+  height: 36px;
+  width: 270px;
+  background-color: #84b000;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 10px;
+  border-radius: 3px;
+  top: 3555px;
+  left: 355px;
+}
+.green-button:hover{
+  background-color: #99cc00;
 }

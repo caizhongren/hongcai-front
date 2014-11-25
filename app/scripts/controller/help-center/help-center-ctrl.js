@@ -29,8 +29,7 @@ hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$loc
     $rootScope.selectPage = $location.path().split('/')[1];
     $scope.changeIntroduceQ1 = false;
     $scope.changeIntroduceQ2 = false;
-    $scope.changeIntroduceQ3 = false;
-    $scope.changeIntroduceQ4 = false;
+
     $scope.changeInvestorsQ1 = false;
     $scope.changeInvestorsQ2 = false;
     $scope.changeInvestorsQ3 = false;
@@ -38,6 +37,19 @@ hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$loc
     $scope.changeInvestorsQ5 = false;
     $scope.changeInvestorsQ6 = false;
     $scope.changeInvestorsQ7 = false;
+    $scope.changeInvestorsQ8 = false;
+    $scope.changeInvestorsQ9 = false;
+    $scope.changeInvestorsQ10 = false;
+    $scope.changeInvestorsQ11 = false;
+    $scope.changeInvestorsQ12 = false;
+    $scope.changeInvestorsQ13 = false;
+    $scope.changeInvestorsQ14 = false;
+    $scope.changeInvestorsQ15 = false;
+    $scope.changeInvestorsQ16 = false;
+    $scope.changeInvestorsQ17 = false;
+    $scope.changeInvestorsQ18 = false;
+
+
     $scope.changeAccountQ1 = false;
     $scope.changeAccountQ2 = false;
     $scope.changeAccountQ3 = false;
@@ -46,6 +58,7 @@ hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$loc
     $scope.changeAccountQ6 = false;
     $scope.changeAccountQ7 = false;
     $scope.changeAccountQ8 = false;
+
     $scope.changeSafeQ1 = false;
     $scope.changeSafeQ2 = false;
     $scope.changeSafeQ3 = false;
@@ -54,10 +67,12 @@ hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$loc
     $scope.changeSafeQ6 = false;
     $scope.changeSafeQ7 = false;
     $scope.changeSafeQ8 = false;
+
     $scope.changeLawQ1 = false;
     $scope.changeLawQ2 = false;
     $scope.changeLawQ3 = false;
     $scope.changeLawQ4 = false;
+
     $scope.changePosition1 = false;
     $scope.changePosition2 = false;
     $scope.changePosition3 = false;
@@ -68,5 +83,9 @@ hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$loc
     $scope.changePosition8 = false;
     $scope.changePosition9 = false;
     $scope.changePosition10 = false;
+
+    $scope.changeOther1 = false;
+    $scope.changeOther2 = false;
+    $scope.changeOther3 = false;
 
 }]);

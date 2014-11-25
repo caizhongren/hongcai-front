@@ -28,7 +28,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-   <!-- <script src="bower_components/jquery/dist/jquery.js"></script>-->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->       
       <!--<script src="scripts/util/jquery-ui.min.js"></script>
@@ -94,6 +94,15 @@
           <p>来自四大、顶级律所的专业人员，依靠多年的行业经验和专业的职业素养，为您的资金保驾护航</p>
         </div>
       </div>
+      <a href="/login/" class="green-button ab">立即注册</a>
     </div>
+    <script>
+    $(function(){
+      $('.green-button').on('click',function(){
+        window.location.href = "/login";
+      })
+
+    });
+    </script>
   </body>
 </html>

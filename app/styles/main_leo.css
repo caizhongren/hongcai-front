@@ -6214,6 +6214,7 @@ body {
 }
 a {
   color: #333;
+  text-decoration: none;
 }
 a:link {
   text-decoration: none;
@@ -7102,15 +7103,15 @@ a:link {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-#footer a:hover {
-  text-decoration: underline !important;
-}
 #footer .footer-up {
   padding: 30px 0;
   color: #fff;
 }
 #footer .footer-up a {
   color: #fff;
+}
+#footer .footer-up a:hover {
+  color: #e94828;
 }
 #footer .footer-up .fa-phone {
   color: #fff;

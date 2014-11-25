@@ -130,7 +130,7 @@
     url: '/friends',
     views: {
       '': {
-        //templateUrl: 'views/friends-ship.html'
+        templateUrl: 'views/friends-ship.html'
         //templateUrl: 'banner-nine.html'
       }
     }
