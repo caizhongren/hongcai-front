@@ -599,7 +599,6 @@ input:focus{
   width: 3px;
 }
 .about-left-area{
-  height: 317px;
   margin-top: 18px;
   border-top: 0px solid #dbdbdb;
 }
@@ -918,8 +917,4 @@ input:focus{
 }
 .web-show .p-date{
   margin-top: 0px;
-}
-.nine-bg{
-  background: url(/images/nine-sprite.png) 0 0 no-repeat;
-  height: 4000px;
 }

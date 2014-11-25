@@ -19,7 +19,11 @@ hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$loc
             {
             	'href': '/law-and-policy-guarantee',
                 'link': 'root.help-center.law-and-policy-guarantee',
-                'text': '法律保障'}]
+                'text': '法律保障'},
+            {
+                'href': '/other-question',
+                'link': 'root.help-center.other-question',
+                'text': '其他问题'}]
         };
 
     $rootScope.selectPage = $location.path().split('/')[1];
@@ -41,11 +45,15 @@ hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$loc
     $scope.changeAccountQ5 = false;
     $scope.changeAccountQ6 = false;
     $scope.changeAccountQ7 = false;
+    $scope.changeAccountQ8 = false;
     $scope.changeSafeQ1 = false;
     $scope.changeSafeQ2 = false;
     $scope.changeSafeQ3 = false;
     $scope.changeSafeQ4 = false;
     $scope.changeSafeQ5 = false;
+    $scope.changeSafeQ6 = false;
+    $scope.changeSafeQ7 = false;
+    $scope.changeSafeQ8 = false;
     $scope.changeLawQ1 = false;
     $scope.changeLawQ2 = false;
     $scope.changeLawQ3 = false;

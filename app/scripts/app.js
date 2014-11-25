@@ -117,12 +117,21 @@
  			}
  		}
  	})
+  /*------------------------------------------  banner  -----------------------------------------------*/
+  .state('root.banner-nine', {
+    url: '/nine-security',
+    views: {
+      '': {
+        templateUrl: 'banner-nine.html'
+      }
+    }
+  })
   .state('root.friends-ship', {
     url: '/friends',
     views: {
       '': {
         //templateUrl: 'views/friends-ship.html'
-        templateUrl: 'views/banner/nine.html'
+        //templateUrl: 'banner-nine.html'
       }
     }
   })
@@ -445,14 +454,6 @@
  			}
  		}
  	})
- 	.state('root.about-us.business-model', {
- 		url: '/business-model',
- 		views: {
- 			'about-us-right-show': {
- 				templateUrl: 'views/about-us/business-model.html'
- 			}
- 		}
- 	})
  	.state('root.about-us.company-profile', {
  		url: '/company-profile',
  		views: {
@@ -618,12 +619,11 @@
  			}
  		}
  	})
-  /*------------------------------------------  banner  -----------------------------------------------*/
-  .state('root.banner-nine', {
-    url: '/nine-security',
+  .state('root.help-center.other-question', {
+    url: '/other-question',
     views: {
-      '': {
-        templateUrl: 'views/banner/nine.html'
+      'help-center-right-show': {
+        templateUrl: 'views/help-center/other-question.html'
       }
     }
   })
