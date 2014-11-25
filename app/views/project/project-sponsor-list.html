@@ -1,89 +1,16 @@
 <!-- start 保荐机构-轮播 -->
-<div class="full-screen cooperation">
-  <div class="container">
-    <div class="row mgn-top ftw-b">保荐机构</div>
-    <div class="row mgn-top cooperation-list">
+<div class="container-fluid cooperation" ng-controller="GuaranteeListCtrl">
+  <div class="container bg-white sponsor-list panel">
+    <div class="row mgn-top ftw-b padding-l-30">保荐机构</div>
+    <div class="row mgn-top" style="position: relative;">
       <!-- start sponsor-轮播 -->
-      <div id="carousel-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-generic" data-slide-to="2"></li>
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-              <div class="sponsors">
-                <div class="cooperation-icon" ng-repeat="guarantee in guaranteeList">
-                	<a ui-sref="root.project-sponsorInstitution({guaranteeId : guarantee.id})">
-                		<div class="sonsor-row">
-                			<img src="images/sponsor.png" width="35" height="35"/>
-                			<span class="sponsor-name">{{guarantee.name}}<!-- 数据绑定 --></span>
-                		</div>
-                		<div class="sonsor-row bg-grey">
-                			<small>注册资本：{{guarantee.registerCapital}}万<!-- 数据绑定 --></small>
-                			<small class="float-r">详细&gt;</small>
-                		</div>
-                		
-                	</a>
-                </div>
-              </div>
-              
-              <div class="carousel-caption">
-              </div>
-            </div>
-            <div class="item">
-              	<div class="sponsors">
-                	<div class="cooperation-icon" ng-repeat="guarantee in guaranteeList">
-                		<a ui-sref="root.project-sponsorInstitution">
-                			<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">{{guarantee.name}}<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：{{guarantee.registerCapital}}万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-                		</a>
-                	</div>
-	                
-          		</div>
-              
-          		<div class="carousel-caption">
-          		</div>
-   		 	</div>
-     		<div class="item">
-              	<div class="sponsors">
-                	<div class="cooperation-icon" ng-repeat="guarantee in guaranteeList">
-                		<a ui-sref="root.project-sponsorInstitution">
-                			<div class="sonsor-row">
-	                			<img src="images/sponsor.png" width="35" height="35"/>
-	                			<span class="sponsor-name">{{guarantee.name}}<!-- 数据绑定 --></span>
-	                		</div>
-	                		<div class="sonsor-row bg-grey">
-	                			<small>注册资本：{{guarantee.registerCapital}}万<!-- 数据绑定 --></small>
-	                			<small class="float-r">详细&gt;</small>
-	                		</div>
-                		</a>
-                	</div>
-              	</div>
-              
-              	<div class="carousel-caption">
-              	</div>
-            </div>
-            
-        </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-      </div>
+        <slick settings="slickConfig" control="slickHandle" media="media" src="views/modal/slick_slider_sponsor.html"></slick>
+        <span class="glyphicon glyphicon-chevron-left" ng-click="slickHandle.slickPrev()"></span>
+        <span class="glyphicon glyphicon-chevron-right" ng-click="slickHandle.slickNext()"></span>
       <!-- end sponsor-轮播 -->
     </div>
   </div>
 </div>
 <!-- end 保荐机构-轮播 -->
+
+

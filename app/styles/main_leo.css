@@ -6185,10 +6185,6 @@ button.close {
 .panel-default > .panel-heading {
   color: #807979;
 }
-.slick-slide img {
-  display: block;
-  width: 100%;
-}
 .slick-dots li.slick-active button:before {
   color: #c93315;
   opacity: 1;
@@ -6197,6 +6193,10 @@ button.close {
 .slick-dots li button:focus:before {
   opacity: 1;
   color: #c93315;
+}
+.cooperation .slick-slider {
+  width: 95%;
+  margin: 0 auto;
 }
 .carousel-control.left,
 .carousel-control.right {
@@ -6917,6 +6917,22 @@ a:link {
 .cooperation {
   height: 435px;
 }
+.cooperation .padding-l-30 {
+  padding-left: 30px;
+}
+.cooperation .glyphicon {
+  position: absolute;
+  top: 45%;
+}
+.cooperation .glyphicon-chevron-left {
+  left: 5px;
+}
+.cooperation .glyphicon-chevron-right {
+  right: 5px;
+}
+.cooperation .slick-dots {
+  bottom: -75px;
+}
 .index-cooperation {
   background-color: #fff;
   border-top: 1px solid #d8d8d8;
@@ -7034,6 +7050,11 @@ a:link {
 }
 .sponsorInstitution .project-item .btn-danger:hover {
   background-color: #b0a8a8;
+}
+.sponsor-list {
+  padding-top: 20px;
+  padding-bottom: 60px;
+  border: 1px solid #dbdbdb;
 }
 .pwd-success h5 {
   text-align: center;

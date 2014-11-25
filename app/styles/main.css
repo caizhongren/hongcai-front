@@ -346,22 +346,26 @@ hr {
   background-position: -6px -235px;
 }
 .cooperation-icon {
-  width: 260px;
-  height: 80px;
+  width: 31.33%;
   float: left;
-  margin-right: 35px;
+  margin-right: 1%;
+  margin-left: 1%;
   margin-top: 10px;
   border: 1px solid #dbdbdb;
   border-radius: 2px;
   position: relative;
 }
+.cooperation-icon .margin-b-5 {
+  margin-bottom: 5px;
+}
 .cooperation-icon img {
   position: absolute;
   top: 5px;
-  left: 25px;
+  left: 15px;
 }
 .cooperation-icon .sponsor-name {
-  margin-left: 50px;
+  width: 100%;
+  padding-left: 50px;
   display: inline-block;
   font-size: 14px;
   font-weight: bold;
@@ -369,16 +373,12 @@ hr {
 .cooperation-icon .sonsor-row {
   height: 40px;
   line-height: 40px;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 15px;
+  padding-right: 15px;
   color: #858080;
 }
 .cooperation-icon .sonsor-row .float-r {
   float: right;
-}
-.cooperation-list {
-  position: relative;
-  left: -30px;
 }
 /*footer*/
 .footer-info {
@@ -411,7 +411,6 @@ hr {
 /*project-list*/
 .project-list-all {
   padding-top: 15px;
-  padding-bottom: 30px;
   color: #717071;
 }
 .project-list-all .container {
