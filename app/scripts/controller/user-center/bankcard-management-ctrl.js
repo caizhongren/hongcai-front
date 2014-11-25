@@ -1,4 +1,4 @@
-hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
+hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'YEEPAY_ADDRESS', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, YEEPAY_ADDRESS) {
 
     $rootScope.selectSide = 'bankcard-management';
     UserCenterService.getUserBankCard.get({}, function(response) {
@@ -45,7 +45,7 @@ hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state
                 var _f=new_form();
                 create_elements(_f,'req',req);
                 create_elements(_f,'sign',sign);
-                _f.action='http://qa.yeepay.com/member/bha/toBindBankCard';
+                _f.action= YEEPAY_ADDRESS + 'toBindBankCard';
                 _f.submit();
 
             } else {
