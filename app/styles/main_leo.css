@@ -6934,6 +6934,9 @@ a:link {
 .cooperation .slick-dots {
   bottom: -75px;
 }
+.cooperation .slide {
+  width: 100%;
+}
 .index-cooperation {
   background-color: #fff;
   border-top: 1px solid #d8d8d8;
