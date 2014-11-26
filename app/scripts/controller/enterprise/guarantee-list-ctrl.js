@@ -3,10 +3,43 @@ hongcaiApp.controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location
 
     var sponsor = GuaranteeService.guaranteeList.get(function() {
         $scope.guaranteeList = sponsor.data.guaranteeList;
-        console.log($scope.guaranteeList)
+        $scope.media = [];
+
+        var m = Math.floor($scope.guaranteeList.length/9);
+        var n = $scope.guaranteeList.length%9;
+        
+        if (m === 0 && n !== 0){
+            var s = $scope.guaranteeList.slice(0,n);
+            var card = {};
+            card.items = s;
+            $scope.media.push(card);
+        } else if(m !== 0 && n ===0){
+            for(i=1;i<=m;i++){
+                var s = $scope.guaranteeList.slice((i-1)*9,i*9-1);
+                var card = {};
+                card.items = s;
+                $scope.media.push(card);
+
+            }
+        } else if(m !== 0 && n !==0){
+            for(i=1;i<=m;i++){
+                var s = $scope.guaranteeList.slice((i-1)*9,i*9);
+                var card = {};
+                card.items = s;
+                $scope.media.push(card);
+            }
+
+            var t = $scope.guaranteeList.slice(m*9);
+            var card = {};
+            card.items = t;
+            $scope.media.push(card);
+
+        }
+
     });
 
-    $scope.media = [
+
+    /*$scope.media = [
         {'items':
             [
                 {src:'images/sponsor.png', href:'/',name:'天天担保',registerCapital:'500',id:'12'},
@@ -28,8 +61,7 @@ hongcaiApp.controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location
             ]
         }
        
-        // {src:'images/banner-3.png', href:'' }
-    ];
+    ];*/
 
     $scope.slickConfig = {
         dots: true,

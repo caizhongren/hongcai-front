@@ -23,7 +23,7 @@ angular.module('hongcaiApp').directive('helpsidebar', ['$location', function($lo
 				});
 			});
 		},
-		template: '<div class="col-md-2 col-lg-2 about-left-area help-height">' +
+		template: '<div class="col-md-2 col-lg-2 about-left-area">' +
 		'<div class="row"><a ng-repeat="m in menus.left" ui-sref="{{m.link}}" href="{{m.href}}" class="tips-area" >' +
 		'<div class="left-show-area"></div>' +
 		'<p>{{m.text}}</p>' +

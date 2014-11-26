@@ -5,10 +5,6 @@ hongcaiApp.controller('AboutUsCtrl', ['$scope', '$state', '$rootScope', '$locati
                 'link': 'root.about-us.introduction-of-platform',
                 'text': '宏财简介'},
             {
-            	'href': '/business-model',
-                'link': 'root.about-us.business-model',
-                'text': '宏财资质'},
-            {
                 'href': '/hongcai-trends',
                 'link': 'root.about-us.hongcai-trends',
                 'text': '宏财动态'},
