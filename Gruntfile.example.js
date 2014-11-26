@@ -29,7 +29,6 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
-    // ng-constant init
     ngconstant: {
 
           development: {
@@ -75,8 +74,8 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
+        files: ['<%= yeoman.app %>/styles/{,*/}*.css', '<%= yeoman.app %>/styles/themes/{,*/}*.less'],
+        tasks: ['newer:copy:styles', 'autoprefixer', 'less']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -204,6 +203,21 @@ module.exports = function (grunt) {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//
+      }
+    },
+
+    less: {
+      server: {
+        options: {
+          paths: ['<%= yeoman.app %>/styles']
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          src: '**/*.less',
+          dest: '.tmp/styles',
+          ext: '.css'
+        }]
       }
     },
 
@@ -364,6 +378,24 @@ module.exports = function (grunt) {
           cwd: 'bower_components/fontawesome',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
+        }, {
+          // for newbie page
+          expand: true,
+          cwd: '<%= yeoman.app %>/images',
+          dest: 'newbie',
+          src: ['<%= yeoman.dist %>/images']          
+        }, {
+          //for newbie page
+          expand: true,
+          cwd: '<%= yeoman.app %>/scripts',
+          dest: '<%= yeoman.dist %>/scripts',
+          src: '{,*/}*.js'          
+        }, {
+          // for newbie page
+          expand: true,
+          cwd: '<%= yeoman.app %>/styles',
+          dest: '<%= yeoman.dist %>/styles',
+          src: '{,*/}*.css'
         }]
       },
       styles: {
@@ -416,7 +448,6 @@ module.exports = function (grunt) {
     ]);
   });
 
-
   grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
@@ -448,7 +479,7 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-   grunt.registerTask('buildTest43', [
+     grunt.registerTask('buildTest43', [
     'clean:dist',
     'ngconstant:development',
     'wiredep',
