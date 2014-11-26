@@ -651,9 +651,9 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
               '/withdraw',
               '/recharge',
               '/invest-verify',
-              'bankcard-management',
-              'userCenter-investment',
-              'record',
+              '/bankcard-management',
+              '/userCenter-investment',
+              '/record',
               '/gift-overview',
               '/invite-rebate'];
   $rootScope.$on('$stateChangeStart', function() {
