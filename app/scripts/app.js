@@ -22,7 +22,8 @@
   'angular-flexslider',
   'angular-loading-bar',
   'timer',
-  'bardo.directives'
+  'bardo.directives',
+  'config'
   ]);
 
  hongcaiApp
@@ -682,6 +683,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
 		}
 	});
 });
+
 
 hongcaiApp.constant('DEFAULT_DOMAIN', '/hongcai/api/v1');
 /**

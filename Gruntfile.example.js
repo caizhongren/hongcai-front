@@ -29,6 +29,31 @@ module.exports = function (grunt) {
   // Define the configuration for all the tasks
   grunt.initConfig({
 
+    // ng-constant init
+    ngconstant: {
+
+          development: {
+            options: {
+              dest: '.tmp/scripts/config.js',
+              name: 'config',
+              constants: {
+                config: grunt.file.readJSON('config_dev.json')
+              }
+            }
+          },
+
+
+          production: {
+            options: {
+              dest: '.tmp/scripts/config.js',
+              name: 'config',
+              constants: {
+                config: grunt.file.readJSON('config_pro.json')
+              }
+            }
+          }
+        },
+
     // Project settings
     yeoman: appConfig,
 
@@ -50,8 +75,8 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css', '<%= yeoman.app %>/styles/themes/{,*/}*.less'],
-        tasks: ['newer:copy:styles', 'autoprefixer', 'less']
+        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
+        tasks: ['newer:copy:styles', 'autoprefixer']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -179,21 +204,6 @@ module.exports = function (grunt) {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
         ignorePath:  /\.\.\//
-      }
-    },
-
-    less: {
-      server: {
-        options: {
-          paths: ['<%= yeoman.app %>/styles']
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/styles',
-          src: '**/*.less',
-          dest: '.tmp/styles',
-          ext: '.css'
-        }]
       }
     },
 
@@ -354,24 +364,6 @@ module.exports = function (grunt) {
           cwd: 'bower_components/fontawesome',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
-        }, {
-          // for newbie page
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          dest: 'newbie',
-          src: ['<%= yeoman.dist %>/images']          
-        }, {
-          //for newbie page
-          expand: true,
-          cwd: '<%= yeoman.app %>/scripts',
-          dest: '<%= yeoman.dist %>/scripts',
-          src: '{,*/}*.js'          
-        }, {
-          // for newbie page
-          expand: true,
-          cwd: '<%= yeoman.app %>/styles',
-          dest: '<%= yeoman.dist %>/styles',
-          src: '{,*/}*.css'
         }]
       },
       styles: {
@@ -414,6 +406,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -422,6 +415,7 @@ module.exports = function (grunt) {
       'watch'
     ]);
   });
+
 
   grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
@@ -438,6 +432,25 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
+    'wiredep',
+    'useminPrepare',
+    'concurrent:dist',
+    'autoprefixer',
+    'concat',
+    'ngAnnotate',
+    'copy:dist',
+    'cdnify',
+    'cssmin',
+    'uglify',
+    'filerev',
+    'usemin',
+    'htmlmin'
+  ]);
+
+   grunt.registerTask('buildTest43', [
+    'clean:dist',
+    'ngconstant:development',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',

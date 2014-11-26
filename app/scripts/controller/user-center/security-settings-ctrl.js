@@ -1,4 +1,4 @@
-hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'YEEPAY_ADDRESS', function ($scope, $state, $rootScope, $stateParams, UserCenterService, YEEPAY_ADDRESS) {
+hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'config', function ($scope, $state, $rootScope, $stateParams, UserCenterService, config) {
         
     $rootScope.selectSide = 'security-settings';
     UserCenterService.userSecurityInfo.get({}, function(response) {
@@ -123,7 +123,7 @@ hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope',
                 var _f = new_form();
                 create_elements(_f,'req',req);
                 create_elements(_f,'sign',sign);
-                _f.action =  YEEPAY_ADDRESS + 'toRegister';
+                _f.action =  config.YEEPAY_ADDRESS + 'toRegister';
                 _f.submit();
                 $rootScope.securityStatus.realNameAuthStatus = 1;
             } else {
