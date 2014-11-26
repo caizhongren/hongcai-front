@@ -6211,6 +6211,14 @@ body {
   font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
   background-color: #F0F0F0;
 }
+input[type="checkbox"] {
+  border: none;
+  background-color: #fff;
+  outline: none;
+}
+input[type="checkbox"]:focus {
+  outline: none;
+}
 a {
   color: #333;
   text-decoration: none;
@@ -6403,6 +6411,7 @@ a:link {
 }
 #footer .media {
   float: right;
+  width: 100%;
 }
 #footer .media a {
   cursor: default;
