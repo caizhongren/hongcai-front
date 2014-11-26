@@ -2,33 +2,34 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
 
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
+    $scope.typeInvStatus = { '0': '未支付', '1': '已支付'};
     var dateStart = 0;
     var dateEnd = 0;
     $scope.status = $stateParams.status || 0;
     $scope.dateInterval = $stateParams.dateInterval || 0;
-
+    $scope.listInvPond = [];
+    $scope.unpaid = 0;
+    $scope.paid = 0;
     $scope.showListNameInfo = function() {
       angular.element('#investment-list').animate({width:'show'},300);
     };
 
-    $scope.showListDetails =  function() {
+    $scope.showListDetails =  function(orderId) {
       angular.element('#investment-detail').animate({width:'show'},300);
+      $scope.getOrderBillByOrderId(orderId);
     }
-    // 时间组件 先注释
-    // $scope.openStartTime = function($event) {
-    //   $event.preventDefault();
-    //   $event.stopPropagation();
 
-    //   $scope.openedStartTime = true;
-    // };
-    // $scope.openEndTime = function($event) {
-    //   $event.preventDefault();
-    //   $event.stopPropagation();
-
-    //   $scope.openedEndTime = true;
-    // };
-
-    //  时间组件结束
+    $scope.generateContractPDF = function(projectId, orderId) {
+      UserCenterService.generateContractPDF.get({projectId: projectId, orderId: orderId}, function(response) {
+        if(response.ret == 1) {
+          console.log('success!');
+        } else {
+          console.log('projectId:' + projectId);
+          console.log('orderId:' + orderId);
+          console.log('error!');
+        }
+      })
+    }
     $scope.fromDateChanged = function () {
       dateStart = $scope.invFromDate;
     };
@@ -46,8 +47,8 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
         $scope.amount = getOrderByUser.data.amount;
         $scope.dateInterval = getOrderByUser.data.dateInterval;
         $scope.status = getOrderByUser.data.status;
-        $scope.invFromDate = getOrderByUser.data.dateStart;
-        $scope.invUntilDate = getOrderByUser.data.dateEnd;
+        // $scope.invFromDate = getOrderByUser.data.dateStart;
+        // $scope.invUntilDate = getOrderByUser.data.dateEnd;
 
         $scope.currentPage = 0;
         $scope.pageSize = 6;
@@ -60,112 +61,129 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
             $scope.data.push($scope.orderList[i]);
         }
     });
-    // 获取详情按钮
-    $scope.getOrderBillByOrderId = function(orderId) {
-      UserCenterService.getOrderBillByOrderId.get({orderId: orderId}, function(response) {
-        if(response.ret == 1) {
-          // $scope.
-        }
-      });
-    };
+
     // 取消订单
     $scope.cancelOrder = function(orderId) {
+      // 确定要删除订单的弹窗。
       UserCenterService.cancelOrder.get({orderId: orderId}, function(response){
         if(response.ret == 1) {
+          // 刷新页面
           console.log('cancelOrder sucess!');
         }
       });
     };
+    // 获取详情按钮
 
-    // 右侧弹窗 以防今后拿出来重做。
-    // 周期，时间，金额，支付状态
-    // 现有一笔10w的投资，年化利率为12%，项目放款日为2014-1-18，期限6个月，项目完结日为2014-7-12，首次付息日为2014-2-15。
-    // {预计支付时间:'',预计支付金额:'',实际支付状态:''}
-    // 总钱*利息*该月天数/365
+    $scope.getOrderBillByOrderId = function(orderId) {
+      UserCenterService.getOrderBillByOrderId.get({orderId: orderId}, function(response) {
+        if(response.ret == 1) {
+          // 初始化条件
+          // 现有一笔10w的投资，年化利率为12%，项目放款日为2014-1-18，期限6个月，项目完结日为2014-7-12，首次付息日为2014-2-15。
+          var invTotal = 100000;
+          // 现有一笔10w的投资，年化利率为12%，项目放款日为2014-1-18，期限6个月，项目完结日为2014-7-12，首次付息日为2014-2-15。 invType = 1
+          // 现有一笔10w的投资，年化利率为12%，项目放款日为2014-10-28，期限12个月，项目完结日为2015-10-13，首次付息日为2014-11-28。 invType = 2
+          // var invInitDate = changeDateFromat(1416634200);
+          // var invStartDate = changeDateFromat(1416633967);
+          // var invEndDate = changeDateFromat(1417104000);
+          // invType = 1;
+          var invInitDate = [2014,0,18];
+          var invStartDate = [2014,1,15];
+          var invEndDate = [2014,6,15];
+          var invCycle = 6;
+          var invType = 1;  // 1 或者 2
+          // invType = 2;
+          // var invInitDate = [2014,9,28];
+          // var invStartDate = [2014,10,28];
+          // var invEndDate = [2015,9,13];
+          // var invCycle = 12;
+          // var invType = 2;  // 1 或者 2
+          var invRate = 0.12;
+          if (invType === 1 ) {
+            // 先息后本
+            everyMonthInterestPri(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
+          } else if (invType === 2) {
+            everyMonthInterestEq(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
+            // 等额本息
+          }
+          // 获取总收益
+          for(var i=0; i<$scope.listInvPond.length; i++) {
+            var status = $scope.listInvPond[i]['invStatus'];
+            console.log('status:' + status);
+            if( status === '1') {
+              $scope.paid += $scope.listInvPond[i]['invEarnings'];
+            } else {
+              $scope.unpaid = $scope.unpaid + $scope.listInvPond[i]['invEarnings'];
+              console.log('invEarnings:' + $scope.listInvPond[i]['invEarnings']);
+            }
+          }
+        }
+      });
+    };
+    var everyMonthInterestPri = function(invTotal,invInitDate,invStartDate,invEndDate,invCycle,invRate){
+      // 每月的付费天数，付费日期，上次支付日期，该月的利息；
+      $scope.listInvPond = [];
+      var invDays, PayDate, prevDate, invEarnings;
+      var invList = {};
+      var LastPayDate = moment(invStartDate).add((invCycle-1),'month').toString();
+      var diffDate = moment(LastPayDate).diff(moment(invEndDate),'days');
+      if(diffDate === 0) {
+        invCycle = invCycle - 1;
+      }
+      for(var i = 0; i <= invCycle; i++) {
+        payDate = moment(invStartDate).add(i,'month').toString();
+        if (moment(payDate) > moment(invEndDate)) {
+          payDate = invEndDate;
+        }
+        if (i === 0) {
+          invDays = moment(payDate).diff(moment(invInitDate),'days', true);
+        } else {
+          invDays = moment(payDate).diff(moment(prevDate), 'days', true);
+        }
+        invEarnings = invTotal * invRate * invDays / 365;   //计算利率`
+        if (i === invCycle) {
+          invEarnings = invEarnings + invTotal;
+        }
+        prevDate = payDate;
+        invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '2'};
+        $scope.listInvPond.push(invList);
+      }
+    };
+    // 等额本息  intType = 2
+    var everyMonthInterestEq = function(invTotal,invInitDate,invStartDate,invEndDate,invCycle,invRate) {
+      $scope.listInvPond = [];
+      var invDays, payDate, prevDate, invEarnings, currentMonthInterest; //每月的付费天数，付费日期，上次支付日期，该月的付款金额, 当月生成的的利息；
+      var invList = {};
+      invEarnings = (invTotal * invRate * Math.pow((1+invRate/invCycle),invCycle)) / (Math.pow((1+invRate/invCycle),invCycle) -1) / invCycle;
+      LastPayDate = moment(invStartDate).add(invCycle,'month').toString();
+      var diffDate = moment(LastPayDate).diff(moment(invEndDate),'days');
+      if(diffDate === 0) {
+        invCycle = invCycle -1;
+      }
+      for(var i = 0; i <= invCycle; i++) {
+        var invList = {};
+        payDate = moment(invStartDate).add(i,'month').toString();
+        if (diffDate !== 0) {
+          if ( moment(payDate) > moment(invEndDate)) {
+            payDate = invEndDate;
+            invDays = moment(payDate).diff(moment(prevDate), 'days', true);
+            invEarnings = invTotal + invTotal*invRate*invDays/365;
+            invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
+            $scope.listInvPond.push(invList);
+            break;
 
-    // var invCountNo = 100000;
-    // var invInitDate = '2014-1-18'
-    // var invStartDate = '2014-2-15';
-    // var invEndDate = '2014-7-12';
-    // var invCycle = 6;
-    // var PayDate = '';
-    // var invType = 0;
-    // var invDays = 0;
-    // var invEarnings = 0;
-    // var invRate = 0.12
-    // moment([2012, 0, 31]).month(1).format('YYYY-MM-DD');
-    // moment([2010, 0, 31]).add(1, 'months'); // February 28
-    // var m = moment(new Date(2011, 2, 12, 5, 0, 0)); // the day before DST in the US
-    // m.hours(); // 5
-    // m.add(1, 'days').hours(); // 5
-    // $scope.listInvPond = [];
-    // prevDate = '';
+          } else {
+            currentMonthInterest = invTotal*invRate/12;
+            invTotal = invTotal - (invEarnings - currentMonthInterest);
+          }
+        }
+        prevDate = payDate;
+        invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
+        $scope.listInvPond.push(invList);
+      }
+    };
 
-    // for (var i=0;i<=invCycle,i++) {
-    //     var invList = {};
-    //     // moment([2012, 0, 31]).month(1).format('YYYY-MM-DD');
-    //     PayDate = moment(invStartDate).month(i).('YYYY-MM-DD');
-    //     if( invType == 1) {
-    //     if(i == 0){
-    //         invDays = PayDate - invInitDate;
-    //     } else {
-    //         invDays = PayDate - prevDate;
-    //     }
-    //     if(PayDate >= invEndDate) {
-    //         PayDate = invEndDate;
-    //         invDays = PayDate - prevDate;
-    //         invEarnings = invCountNo * invRate * invDays / 365 + invCountNo;
-    //     } else {
-    //         invEarnings = invCountNo * invRate * invDays / 365;
-    //     }
-    //         //
-    //     } else if(invType == 2) {
-    //         //
-    //     }
-    //     invList = {'PayDate': PayDate, 'invEarnings': invEarnings, 'invStatus': '未支付'};
-    //     prevDate = PayDate;
-    //     $scope.listInvPond.push(invList);
-    // }
-    // }
-    // 先息后本
-    // 每月 总钱*利息*该月天数/365
-    // 期限
-    // 首次付息日
-    // 到息日
-
-    // // 等额本息
-    // 每月
-    // 期限
-    // 首次付息日
-    // 到息日
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    var changeDateFromat = function(iDate) {
+      return moment([moment.unix(iDate).year(), moment.unix(iDate).month(), moment.unix(iDate).date()]);
+    }
 }]);
 

@@ -5,11 +5,21 @@ html,
 body {
   color: @gray-light;
   cursor: default;
-  overflow-x: hidden;
+  // overflow-x: hidden;
   /*padding-bottom: 0px;*/
   /*font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "冬青黑体", "Microsoft YaHei", "微软雅黑", SimSun, "宋体", Heiti, "黑体", sans-serif;*/
   font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
   background-color: #F0F0F0;
+}
+
+input[type="checkbox"] {
+    border: none;
+    background-color: #fff;
+    outline: none;
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
 }
 
 a{
@@ -269,6 +279,7 @@ a:link {
 #footer {
     .media{
         float: right;
+        width: 100%;
         a{
             cursor: default;
         }
@@ -432,6 +443,28 @@ a:link {
 }
 
 #calculater {
+    width:200px;
+    height: 258px;
+    .preview {
+        display: block;
+        padding: 9.5px 6px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        word-break: break-all;
+        word-wrap: break-word;
+        color: #333333;
+        background-color: #f5f5f5;
+        border: 1px solid #cccccc;
+        border-radius: 0;
+        span {
+            display: block;
+        }
+    }
+    .btn-primary {
+        width: 110px;
+        background-color: #ff9a17;
+    }
     background-color: #e94828;
     .arrow,
     .arrow:after {
@@ -447,13 +480,81 @@ a:link {
             text-align: left;
             padding-left: 6px;
             color: #9f9d9c;
+            position: relative;
         }
     }
     .caret {
         float: right;
-        margin-top: 7px;
         color: #000;
+        position: absolute;
+        top: 14px;
+        right: 6px;
     }
+}
+
+.result {
+    position: absolute;
+    right: 197px;
+    height: 100%;
+    .handle{
+        float:left;
+        position: relative;
+        top: -1px;
+        width:18px;
+        height:100%;
+        cursor:pointer;
+        background:#e94828;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-right: 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        -webkit-transition:0.3s ease-in-out;
+        -moz-transition:0.3s ease-in-out;
+        -o-transition:0.3s ease-in-out;
+        -ms-transition:0.3s ease-in-out;
+    }
+
+    .handle:hover{
+        background:#c93315;
+        .rotate {
+            color: #fff;
+        }
+    }
+
+    .slide{
+        position: relative;
+        top: -257px;
+        z-index: -1;
+        width:375px;
+        height:100%;
+        display:none;
+        background: #fff9f8;
+        border: 1px solid #e94828;
+        label {
+            height: auto;
+            margin: 20px 15px 0 25px;
+            font-size: 16px;
+            font-weight: bolder !important;
+        }
+        pre {
+            margin: 20px 15px 0 30px;
+            span {
+                margin-left: 32px;
+            }
+        }
+        .table-responsive {
+            margin-left: 17px;
+            margin-top: 30px;
+            th {
+                text-align: center;
+            }
+        }
+    }
+
+    .rotate{
+        margin-top:120px;
+        color: #f2f2f2;
+    }
+
 }
 
 .safe {
@@ -925,82 +1026,6 @@ a:link {
         margin: 0 auto;
 
     }
-}
-
-#calculater {
-    width:200px;
-    pre {
-        padding: 9.5px 0;
-    }
-    .btn-primary {
-        width: 110px;
-        background-color: #ff9a17;
-    }
-}
-
-.result {
-    position: absolute;
-    right: 197px;
-    height: 100%;
-    .handle{
-        float:left;
-        position: relative;
-        top: -1px;
-        width:18px;
-        height:100%;
-        cursor:pointer;
-        background:#e94828;
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        border-right: 0;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        -webkit-transition:0.3s ease-in-out;
-        -moz-transition:0.3s ease-in-out;
-        -o-transition:0.3s ease-in-out;
-        -ms-transition:0.3s ease-in-out;
-    }
-
-    .handle:hover{
-        background:#c93315;
-        .rotate {
-            color: #fff;
-        }
-    }
-
-    .slide{
-        position: relative;
-        top: -275px;
-        z-index: -1;
-        width:375px;
-        height:100%;
-        display:none;
-        background: #fff9f8;
-        border: 1px solid #e94828;
-        label {
-            height: auto;
-            margin: 20px 15px 0 25px;
-            font-size: 16px;
-            font-weight: bolder !important;
-        }
-        pre {
-            margin: 20px 15px 0 30px;
-            span {
-                margin-left: 32px;
-            }
-        }
-        .table-responsive {
-            margin-left: 17px;
-            margin-top: 30px;
-            th {
-                text-align: center;
-            }
-        }
-    }
-
-    .rotate{
-        margin-top:120px;
-        color: #f2f2f2;
-    }
-
 }
 
 .sponsorInstitution {
