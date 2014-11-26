@@ -36,6 +36,19 @@ hongcaiApp.controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location
 
         }
 
+        $scope.slickConfig = {
+            dots: true,
+            // autoplay: true,
+            autoplaySpeed: 3000,
+            onAfterChange: function(slick, index) {
+                var slides = $('.slick-track').children().not('.slick-cloned');
+                if (index >= slides.length) return;
+                // $(slides[index]).find('video').each(playVideo);
+            }
+        };
+
+        $scope.slickHandle = {};
+
     });
 
 
@@ -63,18 +76,18 @@ hongcaiApp.controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location
        
     ];*/
 
-    $scope.slickConfig = {
-        dots: true,
-        // autoplay: true,
-        autoplaySpeed: 3000,
-        onAfterChange: function(slick, index) {
-            var slides = $('.slick-track').children().not('.slick-cloned');
-            if (index >= slides.length) return;
-            // $(slides[index]).find('video').each(playVideo);
-        }
-    };
+    // $scope.slickConfig = {
+    //     dots: true,
+    //     // autoplay: true,
+    //     autoplaySpeed: 3000,
+    //     onAfterChange: function(slick, index) {
+    //         var slides = $('.slick-track').children().not('.slick-cloned');
+    //         if (index >= slides.length) return;
+    //         // $(slides[index]).find('video').each(playVideo);
+    //     }
+    // };
 
-    $scope.slickHandle = {};
+    // $scope.slickHandle = {};
 
 
 }]);
