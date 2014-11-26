@@ -107,6 +107,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
     };
     var everyMonthInterestPri = function(invTotal,invInitDate,invStartDate,invEndDate,invCycle,invRate){
       // 每月的付费天数，付费日期，上次支付日期，该月的利息；
+      $scope.listInvPond = [];
       var invDays, PayDate, prevDate, invEarnings;
       var invList = {};
       var LastPayDate = moment(invStartDate).add((invCycle-1),'month').toString();
@@ -125,7 +126,6 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
           invDays = moment(payDate).diff(moment(prevDate), 'days', true);
         }
         invEarnings = invTotal * invRate * invDays / 365;   //计算利率`
-        console.log('invEarnings: ' + invEarnings);
         if (i === invCycle) {
           invEarnings = invEarnings + invTotal;
         }
@@ -136,6 +136,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
     };
     // 等额本息  intType = 2
     var everyMonthInterestEq = function(invTotal,invInitDate,invStartDate,invEndDate,invCycle,invRate) {
+      $scope.listInvPond = [];
       var invDays, payDate, prevDate, invEarnings, currentMonthInterest; //每月的付费天数，付费日期，上次支付日期，该月的付款金额, 当月生成的的利息；
       var invList = {};
       invEarnings = (invTotal * invRate * Math.pow((1+invRate/invCycle),invCycle)) / (Math.pow((1+invRate/invCycle),invCycle) -1) / invCycle;
