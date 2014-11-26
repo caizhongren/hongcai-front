@@ -6,19 +6,6 @@ hongcaiApp.controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$state
   $scope.type = $stateParams.type;
   $scope.dateInterval = $stateParams.dateInterval;
   $scope.typeValue = { '1': '充值', '2': '提现', '3': '投资', '4,5': '回款' };
-  // 时间函数，先注释
-  // $scope.openStartTime = function($event) {
-  //   $event.preventDefault();
-  //   $event.stopPropagation();
-
-  //   $scope.openedStartTime = true;
-  // };
-  // $scope.openEndTime = function($event) {
-  //   $event.preventDefault();
-  //   $event.stopPropagation();
-
-  //   $scope.openedEndTime = true;
-  // };
   $scope.fromDealDateChanged = function () {
     dateStart = $scope.recFromDate;
   };
@@ -29,8 +16,8 @@ hongcaiApp.controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$state
 
   var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval,type: $stateParams.type,dateStart: $stateParams.dateStart, dateEnd: $stateParams.dateEnd},function(response) {
     $scope.dealList = getDealByUser.data.dealList;
-    $scope.recFromDate = getDealByUser.data.dateStart;
-    $scope.recUntilDate = getDealByUser.data.dateEnd;
+    // $scope.recFromDate = getDealByUser.data.dateStart;
+    // $scope.recUntilDate = getDealByUser.data.dateEnd;
     $scope.type = getDealByUser.data.type;
     $scope.dateInterval = getDealByUser.data.dateInterval;
     $scope.userId = getDealByUser.data.userId;
