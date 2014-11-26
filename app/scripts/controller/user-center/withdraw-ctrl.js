@@ -1,4 +1,4 @@
-hongcaiApp.controller('WithdrawCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
+hongcaiApp.controller('WithdrawCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
 
     $rootScope.selectSide = $location.path().substr($location.path().indexOf('/') + 1);
 
@@ -55,7 +55,7 @@ hongcaiApp.controller('WithdrawCtrl', [ '$location', '$scope', '$state', '$rootS
                 var _f=new_form();
                 create_elements(_f,'req',req);
                 create_elements(_f,'sign',sign);
-                _f.action='http://qa.yeepay.com/member/bha/toWithdraw';
+                _f.action= config.YEEPAY_ADDRESS + 'toWithdraw';
                 _f.submit();
 
             } else if (response.ret == -1){

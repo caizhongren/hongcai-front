@@ -1,4 +1,4 @@
-hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
+hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config',  function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
 
     $rootScope.selectSide = 'recharge';
 
@@ -54,7 +54,7 @@ hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', '$state', '$rootS
                 var _f=new_form();
                 create_elements(_f,'req',req);
                 create_elements(_f,'sign',sign);
-                _f.action='http://qa.yeepay.com/member/bha/toRecharge';
+                _f.action=config.YEEPAY_ADDRESS + 'toRecharge';
                 _f.submit();
 
             } else {
