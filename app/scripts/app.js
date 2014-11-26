@@ -644,13 +644,16 @@
  }]);
 
 hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
-	var routespermission = ['/account-overview',
-							'/assets-overview',
-							'/realname-authentication',
-							'/security-settings',
-							'/withdraw',
-							'/recharge',
-							'/invest-verify',
+  var routespermission = ['/account-overview',
+              '/assets-overview',
+              '/realname-authentication',
+              '/security-settings',
+              '/withdraw',
+              '/recharge',
+              '/invest-verify',
+              'bankcard-management',
+              'userCenter-investment',
+              'record',
               '/gift-overview',
               '/invite-rebate'];
   $rootScope.$on('$stateChangeStart', function() {
