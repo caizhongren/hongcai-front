@@ -101,7 +101,7 @@
           </div>
 
           <ul class="list-group">
-            <li class="list-group-item" ng-repeat="project in projectList">
+            <li class="list-group-item" ng-repeat="project in projectList | orderBy:project.sort">
               <div class="row">
                 <div class="hidden-xs hidden-md col-lg-5">
                   <a ui-sref="root.project-details({projectId: project.id})"><img src="{{project.image}}" alt="{{project.name}}" class="img-rounded" width="230" height="206"></a>
