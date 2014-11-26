@@ -19,6 +19,8 @@ angular.module('hongcaiApp').directive('checkInviteCode', ['$http', 'DEFAULT_DOM
 					}).error(function() {
 						ctrl.$setValidity('isInviteCodeTrue', false);
 					});
+				} else{
+					ctrl.$setValidity('isInviteCodeTrue', true);
 				}
 			});
 		}
