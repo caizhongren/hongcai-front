@@ -38,7 +38,7 @@ hongcaiApp.controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location
 
         $scope.slickConfig = {
             dots: true,
-            // autoplay: true,
+            autoplay: true,
             autoplaySpeed: 3000,
             onAfterChange: function(slick, index) {
                 var slides = $('.slick-track').children().not('.slick-cloned');
@@ -50,45 +50,6 @@ hongcaiApp.controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location
         $scope.slickHandle = {};
 
     });
-
-
-    /*$scope.media = [
-        {'items':
-            [
-                {src:'images/sponsor.png', href:'/',name:'天天担保',registerCapital:'500',id:'12'},
-                {src:'images/sponsor.png', href:'/',name:'天nht担保',registerCapital:'500',id:'12'},
-                {src:'images/sponsor.png', href:'/',name:'天hth担保',registerCapital:'500',id:'12'},
-                {src:'images/sponsor.png', href:'/',name:'天nht担保',registerCapital:'500',id:'12'},
-                {src:'images/sponsor.png', href:'/',name:'天hth担保',registerCapital:'500',id:'12'},
-                {src:'images/sponsor.png', href:'/',name:'天nht担保',registerCapital:'500',id:'12'},
-                {src:'images/sponsor.png', href:'/',name:'天hth担保',registerCapital:'500',id:'12'},
-                {src:'images/sponsor.png', href:'/',name:'天nht担保',registerCapital:'500',id:'12'},
-                {src:'images/sponsor.png', href:'/',name:'天hth担保',registerCapital:'500',id:'12'}
-            ]
-        }
-        ,{'items':
-            [
-                {src:'images/sponsor.png', href:'/',name:'hgjj担保',registerCapital:'500',id:'12'},
-                {src:'images/sponsor.png', href:'/',name:' rdhtt担保',registerCapital:'500',id:'12'},
-                {src:'images/sponsor.png', href:'/',name:'gfh担保',registerCapital:'500',id:'12'}
-            ]
-        }
-       
-    ];*/
-
-    // $scope.slickConfig = {
-    //     dots: true,
-    //     // autoplay: true,
-    //     autoplaySpeed: 3000,
-    //     onAfterChange: function(slick, index) {
-    //         var slides = $('.slick-track').children().not('.slick-cloned');
-    //         if (index >= slides.length) return;
-    //         // $(slides[index]).find('video').each(playVideo);
-    //     }
-    // };
-
-    // $scope.slickHandle = {};
-
 
 }]);
 
