@@ -387,7 +387,7 @@ input:focus{
 
 .white-button,.p-login-right a,.p-regist-right a,.p-login-right a:hover,.p-regist-right a:hover,
 .verify-tip a,.view-more,.add-card,.p-forget:hover,.on-it,.on-it:hover,.p-click:hover,
-.p-title-dynamic:hover,.web-show a:hover,.now,.view-more:hover,.account-number{
+.p-title-dynamic:hover,.web-show a:hover,.now,.view-more:hover,.account-number,.success a{
   color: #e94828;
 }
 

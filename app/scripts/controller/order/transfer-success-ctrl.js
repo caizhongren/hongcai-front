@@ -5,7 +5,7 @@ hongcaiApp.controller('TransferSuccessCtrl', ['$scope', '$timeout', '$state', '$
       $scope.counter--;
       mytimeout = $timeout($scope.onTimeout,1000);
       if($scope.counter === 0) {
-        $scope.go('root.userCenter.account-overview');
+        window.location.href = '/account-overview';
       }
     }
     var mytimeout = $timeout($scope.onTimeout,1000);
