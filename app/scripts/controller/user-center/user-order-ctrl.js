@@ -65,6 +65,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
       // 确定要删除订单的弹窗。
         UserCenterService.cancelOrder.get({orderId: orderId}, function(response){
           if(response.ret == 1) {
+            $window.location.reload();
             // 刷新页面
             console.log('cancelOrder sucess!');
           }
