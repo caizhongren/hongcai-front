@@ -1,4 +1,4 @@
-hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService, $aside) {
+hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService, $aside, $window) {
 
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
@@ -13,7 +13,6 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
     $scope.showListNameInfo = function() {
       angular.element('#investment-list').animate({width:'show'},300);
     };
-
     $scope.showListDetails =  function(orderId) {
       angular.element('#investment-detail').animate({width:'show'},300);
       $scope.getOrderBillByOrderId(orderId);
@@ -24,8 +23,6 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
         if(response.ret == 1) {
           console.log('success!');
         } else {
-          console.log('projectId:' + projectId);
-          console.log('orderId:' + orderId);
           console.log('error!');
         }
       })
@@ -64,13 +61,15 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
 
     // 取消订单
     $scope.cancelOrder = function(orderId) {
+      if($window.confirm('确定取消订单?')) {
       // 确定要删除订单的弹窗。
-      UserCenterService.cancelOrder.get({orderId: orderId}, function(response){
-        if(response.ret == 1) {
-          // 刷新页面
-          console.log('cancelOrder sucess!');
-        }
-      });
+        UserCenterService.cancelOrder.get({orderId: orderId}, function(response){
+          if(response.ret == 1) {
+            // 刷新页面
+            console.log('cancelOrder sucess!');
+          }
+        });
+      }
     };
     // 获取详情按钮
 
@@ -144,7 +143,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
           invEarnings = invEarnings + invTotal;
         }
         prevDate = payDate;
-        invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '2'};
+        invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
         $scope.listInvPond.push(invList);
       }
     };
