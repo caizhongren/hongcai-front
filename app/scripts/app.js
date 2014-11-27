@@ -154,6 +154,16 @@
       }
     }
   })
+  .state('root.register-mobile-success', {
+    url: '/register-mobile-success',
+    views: {
+      '': {
+        templateUrl: 'views/success.html',
+        controller: 'RegisterMoblieSuccessCtrl',
+        controllerUrl: 'scripts/controller/register/register-mobile-success-ctrl'
+      }
+    }
+  })
   .state('root.transfer-success', {
     url: '/transfer-success/:status',
     views: {
