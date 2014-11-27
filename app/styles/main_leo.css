@@ -6665,6 +6665,11 @@ a:link {
 .safe .nav li a {
   padding: 0;
   color: #717071;
+  display: block;
+}
+.safe .nav li a div {
+  width: 62px;
+  height: 63px;
 }
 .safe .nav li a:hover {
   background: none;
@@ -6673,10 +6678,67 @@ a:link {
 .safe .nav li small {
   display: block;
 }
+.safe .nav li .active {
+  color: #eb5c3f;
+}
 .safe .sticky {
   z-index: 50;
   background-color: #fff;
   box-shadow: #888888 1px 1px 5px;
+}
+.safe .step-1 {
+  background: url(../images/safe/safe_nav_1_gray.png) no-repeat;
+}
+.safe .step-2 {
+  background: url(../images/safe/safe_nav_2_gray.png) no-repeat;
+}
+.safe .step-3 {
+  background: url(../images/safe/safe_nav_3_gray.png) no-repeat;
+}
+.safe .step-4 {
+  background: url(../images/safe/safe_nav_4_gray.png) no-repeat;
+}
+.safe .step-5 {
+  background: url(../images/safe/safe_nav_5_gray.png) no-repeat;
+}
+.safe .step-6 {
+  background: url(../images/safe/safe_nav_6_gray.png) no-repeat;
+}
+.safe .step-7 {
+  background: url(../images/safe/safe_nav_7_gray.png) no-repeat;
+}
+.safe .step-8 {
+  background: url(../images/safe/safe_nav_8_gray.png) no-repeat;
+}
+.safe .step-9 {
+  background: url(../images/safe/safe_nav_9_gray.png) no-repeat;
+}
+.safe .active .step-1 {
+  background: url(../images/safe/safe_nav_1_red.png) no-repeat;
+}
+.safe .active .step-2 {
+  background: url(../images/safe/safe_nav_2_red.png) no-repeat;
+}
+.safe .active .step-3 {
+  background: url(../images/safe/safe_nav_3_red.png) no-repeat;
+}
+.safe .active .step-4 {
+  background: url(../images/safe/safe_nav_4_red.png) no-repeat;
+}
+.safe .active .step-5 {
+  background: url(../images/safe/safe_nav_5_red.png) no-repeat;
+}
+.safe .active .step-6 {
+  background: url(../images/safe/safe_nav_6_red.png) no-repeat;
+}
+.safe .active .step-7 {
+  background: url(../images/safe/safe_nav_7_red.png) no-repeat;
+}
+.safe .active .step-8 {
+  background: url(../images/safe/safe_nav_8_red.png) no-repeat;
+}
+.safe .active .step-9 {
+  background: url(../images/safe/safe_nav_9_red.png) no-repeat;
 }
 #project-detail {
   padding: 30px;

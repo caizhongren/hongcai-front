@@ -352,7 +352,26 @@
  		}
  	})
  	/*---------------------------------------------  project  ---------------------------------------------*/
-
+  .state('root.project-category', {
+    url: '/project-category',
+    views: {
+      '': {
+        templateUrl: 'views/project/project-category.html',
+        controller: 'ProjectCategoryCtrl',
+        controllerUrl: 'scripts/controller/project/project-category-ctrl'
+      }
+    }
+  })
+  .state('root.project-activity-group', {
+    url: '/project-activity-group',
+    views: {
+      '': {
+        templateUrl: 'views/project/project-activity-group.html',
+        controller: 'ProjectActivityGroupCtrl',
+        controllerUrl: 'scripts/controller/project/project-activity-group-ctrl'
+      }
+    }
+  })
  	.state('root.project-list-query', {
  		url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
  		views: {
@@ -363,6 +382,16 @@
  			}
  		}
  	})
+  .state('root.activity-details', {
+    url: '/activity/:activityId',
+    views: {
+      '': {
+        templateUrl: 'views/project/activity-details.html',
+        controller: 'ActivityDetailsCtrl',
+        controllerUrl: 'scripts/controller/project/activity-details-ctrl'
+      }
+    }
+  })
  	.state('root.project-details', {
  		url: '/project/:projectId',
  		views: {
