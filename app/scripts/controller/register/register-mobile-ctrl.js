@@ -13,7 +13,7 @@ hongcaiApp.controller('RegisterMobileCtrl', ['$scope', '$state', '$rootScope', '
                                             inviteCode: user.inviteCode }, function(response) {
             if(response.ret == 1) {
                 SessionService.set('user', response.data.user.name);
-                $state.go('root.newbie-guide');
+                $state.go('root.register-mobile-success');
                 //$rootScope.loginName = response.data.user.name;
                 //$rootScope.isLogged = true;
             } else {

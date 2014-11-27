@@ -1,0 +1,113 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-rendering: optimizelegibility;
+    _background-attachment: fixed;
+    _background-image: url(about:blank);
+    font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
+.ab{
+  position: absolute;
+}
+.main{
+  margin-top: 10px;
+  width: 980px;
+  height: 1050px;
+  position: relative;
+  margin: 0 auto;
+  background: url(/images/get_lucky.png) -9px 10px no-repeat;
+}
+.get-lucky{
+  height: 160px;
+  width: 230px;
+  top: 57px;
+  left: 145px;
+  background: url(/images/lucky_sprite.png) 0 9px no-repeat;
+}
+.share-area p{
+  font-size: 16px;
+  margin-top:5px; 
+}
+.share-area p,
+.share-area div{
+  float: left;
+}
+.share-area{
+  top: 200px;
+  left: 555px;
+}
+.tips-bg{
+  width: 100%;
+  height: 792px;
+  top: 258px;
+}
+.tips-area{
+  font-size: 14px;
+  height: 500px;
+  width: 380px;
+  top: 447px;
+  left: 400px;
+}
+.tips-area p{
+  margin-bottom: 10px;
+  line-height: 22px;
+  font-weight: bold;
+  margin-top: 0px;
+}
+.get-rule-inline,.get-rule-inline:hover{
+  color: #e94828;
+}
+.get-rule-inline{
+  text-decoration: none;
+}
+.get-rule-inline:hover{
+  text-decoration: underline;
+}
+.get-rule{
+  background: url(/images/lucky_sprite.png) -245px -8px no-repeat;
+  height: 45px;
+  width: 205px;
+  margin: 40px 0 0 95px;
+  color: white;
+  font-size: 16px;
+  padding: 11px 0 0 62px;
+  text-decoration: none;
+}
+.get-rule:hover{
+  color: white;
+  text-decoration: none;
+}
+.right-bg{
+  height: 85px;
+  width: 450px;
+  background: url(/images/lucky_sprite.png) 0 -160px no-repeat;
+  top: 80px;
+  right: 115px;
+}
+.change-area{
+  height: 245px;
+  width: 100%;
+  z-index: 2;
+  font-size: 14px;
+}
+.get-bg{
+  background: url(/images/lucky_sprite.png) -567px 32px no-repeat;
+}
+.hongbao-bg{
+  background: url(/images/lucky_sprite.png) 195px -285px no-repeat;
+}
+.tuhao-bg{
+  background: url(/images/lucky_sprite.png) -885px -285px no-repeat;
+}
+.p-red{
+  top: 24px;
+  left: 530px;
+  font-size: 18px;
+  color: #e94828;
+}
+.p-grey{
+  top: 140px;
+  right: 205px;
+  color: #a1a0a0;
+}

@@ -53,7 +53,7 @@
 						<p class="input-tips user-input-tips">不能为空</p>
 					</div>
 					<div class="user-tips-area safe-tips-area" 
-							ng-show="changePwdForm.oldPwd.$dirty && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.isPasswordTrue">
+							ng-show="changePwdForm.oldPwd.$dirty && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.isPasswordTrue && !changePwdForm.oldPwd.$error.required">
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">密码错误</p>
 					</div>
@@ -85,7 +85,7 @@
 						<p class="input-tips user-input-tips">不能为空</p>
 					</div>
 					<div class="user-tips-area safe-tips-area"
-							ng-show="changePwdForm.confirmPwd.$dirty && !checkTwoPassword(password) && !changePwdForm.confirmPwd.$focused" >
+							ng-show="changePwdForm.confirmPwd.$dirty && !checkTwoPassword(password) && !changePwdForm.confirmPwd.$focused && !changePwdForm.confirmPwd.$error.required" >
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">密码不一致</p>
 					</div>

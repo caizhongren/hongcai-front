@@ -1,16 +1,18 @@
-hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService, $aside) {
+hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService, $aside, $window) {
 
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
+    $scope.typeInvStatus = { '0': '未支付', '1': '已支付'};
     var dateStart = 0;
     var dateEnd = 0;
     $scope.status = $stateParams.status || 0;
     $scope.dateInterval = $stateParams.dateInterval || 0;
     $scope.listInvPond = [];
+    $scope.unpaid = 0;
+    $scope.paid = 0;
     $scope.showListNameInfo = function() {
       angular.element('#investment-list').animate({width:'show'},300);
     };
-
     $scope.showListDetails =  function(orderId) {
       angular.element('#investment-detail').animate({width:'show'},300);
       $scope.getOrderBillByOrderId(orderId);
@@ -21,8 +23,6 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
         if(response.ret == 1) {
           console.log('success!');
         } else {
-          console.log('projectId:' + projectId);
-          console.log('orderId:' + orderId);
           console.log('error!');
         }
       })
@@ -61,13 +61,15 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
 
     // 取消订单
     $scope.cancelOrder = function(orderId) {
+      if($window.confirm('确定取消订单?')) {
       // 确定要删除订单的弹窗。
-      UserCenterService.cancelOrder.get({orderId: orderId}, function(response){
-        if(response.ret == 1) {
-          // 刷新页面
-          console.log('cancelOrder sucess!');
-        }
-      });
+        UserCenterService.cancelOrder.get({orderId: orderId}, function(response){
+          if(response.ret == 1) {
+            // 刷新页面
+            console.log('cancelOrder sucess!');
+          }
+        });
+      }
     };
     // 获取详情按钮
 
@@ -102,6 +104,17 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
             everyMonthInterestEq(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
             // 等额本息
           }
+          // 获取总收益
+          for(var i=0; i<$scope.listInvPond.length; i++) {
+            var status = $scope.listInvPond[i]['invStatus'];
+            console.log('status:' + status);
+            if( status === '1') {
+              $scope.paid += $scope.listInvPond[i]['invEarnings'];
+            } else {
+              $scope.unpaid = $scope.unpaid + $scope.listInvPond[i]['invEarnings'];
+              console.log('invEarnings:' + $scope.listInvPond[i]['invEarnings']);
+            }
+          }
         }
       });
     };
@@ -130,7 +143,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
           invEarnings = invEarnings + invTotal;
         }
         prevDate = payDate;
-        invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '未支付'};
+        invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
         $scope.listInvPond.push(invList);
       }
     };
@@ -153,7 +166,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
             payDate = invEndDate;
             invDays = moment(payDate).diff(moment(prevDate), 'days', true);
             invEarnings = invTotal + invTotal*invRate*invDays/365;
-            invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '未支付'};
+            invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
             $scope.listInvPond.push(invList);
             break;
 
@@ -163,7 +176,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
           }
         }
         prevDate = payDate;
-        invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '未支付'};
+        invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
         $scope.listInvPond.push(invList);
       }
     };
