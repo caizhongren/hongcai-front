@@ -23,7 +23,8 @@
   'angular-loading-bar',
   'timer',
   'bardo.directives',
-  'config'
+  'config',
+  'sticky'
   ]);
 
  hongcaiApp

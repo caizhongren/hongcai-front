@@ -558,6 +558,9 @@ a:link {
 }
 
 .safe {
+    .padding-lr-30 {
+        padding: 0 30px;
+    }
 	.nav{
 		padding-top: 20px;
 		padding-bottom: 20px;
@@ -565,6 +568,9 @@ a:link {
 		float: none;
 		li {
 			text-align: center;
+            width: 11.11%;
+            float: left;
+            padding: 0 15px;
 			a {
 				padding: 0;
 				color: #717071;
@@ -573,8 +579,18 @@ a:link {
 				background: none;
 				color: #ea5430;
 			}
+            small {
+                display: block;
+            }
 		}
 	}
+
+    .sticky {
+        z-index: 50;
+        background-color: #fff;
+        box-shadow: rgb(136, 136, 136) 1px 1px 5px;
+
+    }
 }
 
 // project detail page
