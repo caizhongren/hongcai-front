@@ -1,28 +1,10 @@
 /*public*/
-@media (min-width: 768px) {
-  .container {
-    width: 560px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 780px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 980px;
-  }
-}
 .modal-open {
   overflow: visible;
 }
 .modal-open .btn,
 .modal-open .btn:hover {
   border-color: #f27b64;
-}
-.modal-open .get-verify-button {
-  margin-top: 0;
 }
 .modal-open .btn-default {
   width: 85px;
@@ -412,9 +394,6 @@ hr {
 .project-list-all {
   padding-top: 15px;
   color: #717071;
-}
-.project-list-all .container {
-  padding-left: 0;
 }
 .project-list-all .filter-container label {
   float: left;
@@ -889,7 +868,6 @@ hr {
   margin-left: 20px;
 }
 .sponsorInstitution p {
-  height: 120px;
   text-indent: 2em;
   word-wrap: break-word;
   overflow: hidden;
