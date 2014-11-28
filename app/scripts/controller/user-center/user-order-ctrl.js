@@ -92,7 +92,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
             }
             var invEndDate = moment.unix(rdp.repaymentDate).toString();
             var invCycle = rdp.cycle;
-            console.log('invCycle: ' + invCycle);
+            // console.log('invCycle: ' + invCycle);
             var invType = rdp.type;
             var invRate = rdp.annualEarnings / 100;
             // TODO 最后去掉调试用的console
@@ -138,7 +138,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
     var everyMonthInterestPri = function(invTotal,invInitDate,invStartDate,invEndDate,invCycle,invRate){
       // 每月的付费天数，付费日期，上次支付日期，该月的利息；
       $scope.listInvPond = [];
-      var invDays, PayDate, prevDate, invEarnings;
+      var invDays, payDate, prevDate, invEarnings;
       var invList = {};
       var LastPayDate = moment(invStartDate).add((invCycle-1),'month').toString();
       var diffDate = moment(LastPayDate).diff(moment(invEndDate),'days');
@@ -188,7 +188,6 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
             invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
             $scope.listInvPond.push(invList);
             break;
-
           } else {
             currentMonthInterest = invTotal*invRate/12;
             invTotal = invTotal - (invEarnings - currentMonthInterest);
