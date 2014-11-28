@@ -24,7 +24,8 @@
   'timer',
   'bardo.directives',
   'config',
-  'sticky'
+  'sticky',
+  'ipCookie'
   ]);
 
  hongcaiApp

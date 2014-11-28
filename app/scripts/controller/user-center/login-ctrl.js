@@ -1,6 +1,15 @@
-hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'toaster', function ($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, toaster) {
-    
+hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'ipCookie', function ($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, ipCookie) {
+
+    if (ipCookie('userName')){
+        $scope.user = [];
+        $scope.user.account = ipCookie('userName');
+    }
     $scope.login = function(user){
+        //记住用户名处理
+        if ($scope.rememberUserName){
+            ipCookie('userName', user.account, { expires: 60 })
+        }
+
         LoginService.userLogin.get({account: user.account, password: user.password }, function(response) {
             if(response.ret == 1) {
                 SessionService.set('user', response.data.user.name);
@@ -10,8 +19,9 @@ hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope'
                 if($stateParams.isRedirect){
                     $location.path($rootScope.redirectUrl);
                 } else {
-                   $state.go('root.userCenter.account-overview'); 
+                   $state.go('root.userCenter.account-overview');
                 }
+
             } else {
                 if (response.code == -1009){
                     $scope.isPasswordError = true;
@@ -27,7 +37,7 @@ hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope'
     $scope.$watch('user.password', function(){
         $scope.isPasswordError = false;
     });
-    
+
     $scope.$watch('user.account', function(){
         $scope.isPasswordError = false;
     });
