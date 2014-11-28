@@ -27,7 +27,7 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
 
         // console.log($scope.project.publishTime)
         // console.log($scope.project.status)
-        console.log($scope.preRepaymentList)
+       // console.log($scope.preRepaymentList)
 
         $scope.dateArray = $scope.project.releaseStartTime.split('-');
         $scope.day = $scope.dateArray[2].split(' ')[0];

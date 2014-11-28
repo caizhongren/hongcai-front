@@ -2,64 +2,49 @@
 	<div class="container page-container sponsorInstitution bg-white">
 		<div class="row">
 			<div class="col-md-12">
-			    <div class="row">
-			    	<div class="col-md-8">
-			    		<div class="row">
-			    			<img src="{{guarantee.url}}" width="90" height="30"><!-- 数据绑定 -->
-			    			<label>{{guarantee.name}}<!-- 数据绑定 --></label>
-			    		</div>
-			    		<hr>
-			    		<div class="row">
-			    			<p class="col-md-12">
-			    				{{guarantee.description}}
-			    				<!-- 数据绑定 -->
-			    			</p>
-			    		</div>
-			    		<div class="row">
-			    			<!-- <div class="imgs">
-			    				<img src="{{image}}" width="105" height="80" >
-			    				<img src="" width="105" height="80" >
-			    				<img src="" width="105" height="80" >
-			    				<img src="" width="105" height="80" >
-			    				<img src="" width="105" height="80" >
-			    			</div>
-			    			<div class="progress-bar"></div> -->
-							<div id="slider"></div>
-			    		</div>
-			    	</div>
-			    	<div class="col-md-4">
-			    		<div class="row">
-			    			<label>合作数据</label>
-			    		</div>
-			    		<hr>
-			    		<div class="row data">
-			    			<div class="col-md-4 border-r">
-			    				<span>{{guaranteeProjectVo.totalCount}}<!-- 数据绑定 --></span>
-			    				<br>
-			    				合作项目
-			    			</div>
-			    			<div class="col-md-4 border-r">
-			    				<span>{{guaranteeProjectVo.returningCount}}<!-- 数据绑定 --></span>
-			    				<br>
-			    				还款中
-			    			</div>
-			    			<div class="col-md-4">
-			    				<span>{{guaranteeProjectVo.retrunedCount}}<!-- 数据绑定 --></span>
-			    				<br>
-			    				还款完成
-			    			</div>
-			    		</div>
-			    		<div class="row">
-			    			<div class="col-md-12">
-			    				<div class="row padd"><span>{{guaranteeProjectVo.totalCapital}}<!-- 数据绑定 --></span>万元合作金额</div>
-			    				<div class="row padd"><span>{{guaranteeProjectVo.returningCapital}}<!-- 数据绑定 --></span>万元还款中</div>
-			    				<div class="row padd"><span>{{guaranteeProjectVo.returnedCapital}}<!-- 数据绑定 --></span>万元还款完成</div>
-			    			</div>
-			    		</div>
-			    	</div>
-			    </div>
-			    
+				<div class="row">
+			    <img src="{{guarantee.url}}" width="90" height="30" alt="logo"><!-- 数据绑定 -->
+			    <label>{{guarantee.name}}</label>
+			    <hr>
+				</div>
+				<div class="col-md-4" style="float:right;">
+				    	<div class="row">
+				    		<label>合作数据</label>
+				    	</div>
+				    	<hr>
+				    	<div class="row data">
+				    		<div class="col-md-4 border-r">
+				    			<span>{{guaranteeProjectVo.totalCount}}</span>
+				    			<br>
+				    			合作项目
+				    		</div>
+				    		<div class="col-md-4 border-r">
+				    			<span>{{guaranteeProjectVo.returningCount}}</span>
+				    			<br>
+				    			还款中
+				    		</div>
+				    		<div class="col-md-4">
+				    			<span>{{guaranteeProjectVo.retrunedCount}}</span>
+				    			<br>
+				    			还款完成
+				    		</div>
+				    	</div>
+				    	<div class="row">
+				    		<div class="col-md-12">
+				    			<div class="row padd"><span>{{guaranteeProjectVo.totalCapital}}</span>万元合作金额</div>
+				    			<div class="row padd"><span>{{guaranteeProjectVo.returningCapital}}</span>万元还款中</div>
+				    			<div class="row padd"><span>{{guaranteeProjectVo.returnedCapital}}</span>万元还款完成</div>
+				    		</div>
+				    	</div>
+				</div>
+			   {{guarantee.description}}		    	
 			</div><!-- /.col-md-12 -->
+
+			<div class="col-md-12">
+				<div class="row">
+					<div id="slider"></div>
+				</div>
+			</div>
 
 			<div class="col-md-12">
 			    <div class="table-responsive">
@@ -69,12 +54,12 @@
 
 			    				<div class="row">
 			    					<div class="col-md-1">
-			    						<a><img src="images/project-img.png" width="100%"/></a>
+			    						<a ui-sref="root.project-details({projectId: project.id})"><img ng-src="{{project.image}}" width="100%"/></a>
 			    						<!-- <a><img ng-src="{{project.image}}" width="100%"/></a> -->
 			    					</div>
 			    					<div class="col-md-11">
 			    						<div class="row">
-			    							<div class="col-lg-12"><strong>{{project.name}}</strong></div>
+			    							<div class="col-lg-12"><a ui-sref="root.project-details({projectId: project.id})"><strong>{{project.name}}</strong></a></div>
 			    						</div>
 			    						<div class="row">
 			    							<div class="col-md-4">项目规模：<span>{{project.total}}</span></div>
@@ -92,33 +77,6 @@
 				                  	</div>
 				                </div>
 			    			</div>
-			    			<!-- <div class="col-md-2"><a><img ng-src="{{project.image}}" width="150" height="145"/></a></div>
-			    			<div class="col-md-5">
-			    							                <div class="row">
-			    							                  <div class="col-lg-12 project-name">{{project.name}}</div>
-			    							                </div>
-			    							                <div class="row">
-			    							                  <div class="col-lg-6">项目规模：<span>{{project.total}}</span></div>
-			    							                </div>
-			    							                <div class="row">
-			    							                  <div class="col-lg-6">年化收益：<span class="ft-red">{{project.annualEarnings}}%</span></div>
-			    							                  <div class="col-lg-6">项目期限：<span class="">{{project.cycle}} 个月</span></div>
-			    							                </div>
-			    			
-			    			</div>
-			    			<div class="col-md-5 project-progress">
-			    				<div class="row">
-			    					<div class="col-lg-12">项目状态：<span>{{ project.statusText }}</span></div>
-			    				</div>
-			    				<div class="row">
-			    							                  <div class="col-lg-12"><span class="progress-tit">投资进度：</span><div class="progress-bar"><span class="progress bg-red" style="width:{{project.progress}}%"></span></div><span class="progress-percent"></span></div>
-			    							                </div>
-			    				<div class="row">
-			    							                  <div class="col-lg-12">
-			    							                    <a class="go bg-success" ui-sref="root.project-details({projectId: project.id})">了解详情</a>
-			    							                  </div>
-			    							                </div>
-			    			</div> -->
 			    		</li>
 		    		</ul>
 
