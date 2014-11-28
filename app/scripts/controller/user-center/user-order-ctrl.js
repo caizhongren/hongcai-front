@@ -80,18 +80,23 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
           if(response.data.project) {
             var rdp = response.data.project;
             var invTotal = rdp.total; //总融资额
-            var invInitDate = moment.unix(rdp.releaseStartTime).toString();
-            var invStartDate = moment.unix(rdp.publishTime).toString();
-            var invEndDate = moment.unix(rdp.releaseEndTime).toString();
+            var invInitDate = moment.unix(rdp.valueDate).toString();
+            var accountDay = rdp.accountDay;
+            var invStartDate = moment([moment(invInitDate).year(), moment(invInitDate).month(), accountDay]).toString();
+            var idiffDay = moment(invStartDate).diff(moment(invInitDate), 'days');
+            if (idiffDay <= 0) {
+              invStartDate = moment(invStartDate).add(1,'month').toString();
+            }
+            var invEndDate = moment.unix(rdp.repaymentDate).toString();
             var invCycle = rdp.cycle;
             var invType = rdp.type;
             var invRate = rdp.annualEarnings / 10;
-            var rdiffDay = moment(invStartDate).diff(moment(invInitDate))
-            if(rdiffDay <= 0) {
-              // TODO
-              $window.alert('测试提示：首次付息日应该大于放款日期!,请珍惜张枫这个帐号。');
-              return;
-            }
+            // var rdiffDay = moment(invStartDate).diff(moment(invInitDate))
+            // if(rdiffDay <= 0) {
+            //   // TODO
+            //   $window.alert('测试提示：首次付息日应该大于放款日期!,请珍惜张枫这个帐号。');
+            //   return;
+            // }
             if (invType === 0 ) {
               // 先息后本
               everyMonthInterestPri(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
@@ -116,45 +121,6 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
               }
             }
           }
-          // 初始化条件
-          // 现有一笔10w的投资，年化利率为12%，项目放款日为2014-1-18，期限6个月，项目完结日为2014-7-12，首次付息日为2014-2-15。
-          // var invTotal = 100000;
-          // 现有一笔10w的投资，年化利率为12%，项目放款日为2014-1-18，期限6个月，项目完结日为2014-7-12，首次付息日为2014-2-15。 invType = 1
-          // 现有一笔10w的投资，年化利率为12%，项目放款日为2014-10-28，期限12个月，项目完结日为2015-10-13，首次付息日为2014-11-28。 invType = 2
-          // var invInitDate = changeDateFromat(1416634200);
-          // var invStartDate = changeDateFromat(1416633967);
-          // var invEndDate = changeDateFromat(1417104000);
-          // invType = 1;
-          // var invInitDate = [2014,0,18];
-          // var invStartDate = [2014,1,15];
-          // var invEndDate = [2014,6,15];
-          // var invCycle = 6;
-          // var invType = 1;  // 1 或者 2
-          // invType = 2;
-          // var invInitDate = [2014,9,28];
-          // var invStartDate = [2014,10,28];
-          // var invEndDate = [2015,9,13];
-          // var invCycle = 12;
-          // var invType = 2;  // 1 或者 2
-          // var invRate = 0.12;
-          // if (invType === 0 ) {
-          //   // 先息后本
-          //   everyMonthInterestPri(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
-          // } else if (invType === 1) {
-          //   everyMonthInterestEq(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
-          //   // 等额本息
-          // }
-          // 获取总收益
-          // for(var i=0; i<$scope.listInvPond.length; i++) {
-          //   var status = $scope.listInvPond[i]['invStatus'];
-          //   console.log('status:' + status);
-          //   if( status === '1') {
-          //     $scope.paid += $scope.listInvPond[i]['invEarnings'];
-          //   } else {
-          //     $scope.unpaid = $scope.unpaid + $scope.listInvPond[i]['invEarnings'];
-          //     console.log('invEarnings:' + $scope.listInvPond[i]['invEarnings']);
-          //   }
-          // }
         }
       });
     };
