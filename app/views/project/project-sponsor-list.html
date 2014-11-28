@@ -5,8 +5,8 @@
     <div class="row mgn-top" style="position: relative;">
       <!-- start sponsor-轮播 -->
         <slick settings="slickConfig" control="slickHandle" media="media" src="views/modal/slick_slider_sponsor.html"></slick>
-        <span class="glyphicon glyphicon-chevron-left" ng-click="slickHandle.slickPrev()"></span>
-        <span class="glyphicon glyphicon-chevron-right" ng-click="slickHandle.slickNext()"></span>
+        <span ng-if="guaranteeList.length > 9" class="glyphicon glyphicon-chevron-left" ng-click="slickHandle.slickPrev()"></span>
+        <span ng-if="guaranteeList.length > 9" class="glyphicon glyphicon-chevron-right" ng-click="slickHandle.slickNext()"></span>
       <!-- end sponsor-轮播 -->
     </div>
   </div>

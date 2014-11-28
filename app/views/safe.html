@@ -1,26 +1,29 @@
 <div class="project-list-all bg-offWhite ng-scope">
 	<div class="container page-container safe bg-white">
 		<div class="row">
+      <div id="safe-step-1"></div><!-- 锚点定位-第一重 -->
 			<img src="images/safe/safe_title.png" width="100%" height="255">
 		</div>
+
 		<div class="row safe-content">
-        <ul class="nav navbar-nav">
-          <div class="row">
-            <li class="col-xs-offset-1 col-xs-1 "><a href="/safe/#safe-step-1"><img src="images/safe/safe_nav_1_red.png" alt=""><small>优质保荐机构担保</small></a></li>
-            <li class="col-xs-1 "><a href="/safe/#safe-step-2"><img src="images/safe/safe_nav_2_red.png" alt=""><small>国有大型担保公司在担保</small></a></li>
-            <li class="col-xs-1 "><a href="/safe/#safe-step-3"><img src="images/safe/safe_nav_3_red.png" alt=""><small>严格的项目审查</small></a></li>
-            <li class="col-xs-1 "><a href="/safe/#safe-step-4"><img src="images/safe/safe_nav_4_red.png" alt=""><small>完善的风控流程</small></a></li>
-            <li class="col-xs-1 "><a href="/safe/#safe-step-5"><img src="images/safe/safe_nav_5_red.png" alt=""><small>第三方支付</small></a></li>
-            <li class="col-xs-1 "><a href="/safe/#safe-step-6"><img src="images/safe/safe_nav_6_red.png" alt=""><small>安全的交易系统</small></a></li>
-            <li class="col-xs-1 "><a href="/safe/#safe-step-7"><img src="images/safe/safe_nav_7_red.png" alt=""><small>严谨的贷后管理</small></a></li>
-            <li class="col-xs-1 "><a href="/safe/#safe-step-8"><img src="images/safe/safe_nav_8_red.png" alt=""><small>风险保障金</small></a></li>
-            <li class="col-xs-1 "><a href="/safe/#safe-step-9"><img src="images/safe/safe_nav_9_red.png" alt=""><small>专业的律师团队</small></a></li>
+        <ul class="nav navbar-nav sticky border-b" sticky>
+          <div class="col-xs-12 padding-lr-30">
+            <li><a href="/safe/#safe-step-1" ng-click="addActive($event)"><div class="step-1"></div><small>优质保荐机构担保</small></a></li>
+            <li><a href="/safe/#safe-step-2" ng-click="addActive($event)"><div class="step-2"></div><small>国有大型担保公司再担保</small></a></li>
+            <li><a href="/safe/#safe-step-3" ng-click="addActive($event)"><div class="step-3"></div><small>严格的项目审查</small></a></li>
+            <li><a href="/safe/#safe-step-4" ng-click="addActive($event)"><div class="step-4"></div><small>完善的风控流程</small></a></li>
+            <li><a href="/safe/#safe-step-5" ng-click="addActive($event)"><div class="step-5"></div><small>第三方资金托管</small></a></li>
+            <li><a href="/safe/#safe-step-6" ng-click="addActive($event)"><div class="step-6"></div><small>安全的交易系统</small></a></li>
+            <li><a href="/safe/#safe-step-7" ng-click="addActive($event)"><div class="step-7"></div><small>严谨的贷后管理</small></a></li>
+            <li><a href="/safe/#safe-step-8" ng-click="addActive($event)"><div class="step-8"></div><small>风险保障金</small></a></li>
+            <li><a href="/safe/#safe-step-9" ng-click="addActive($event)"><div class="step-9"></div><small>专业的律师团队</small></a></li>
           </div>
         </ul>
 			<div class="row content-list">
         <!-- 第一重 -->
-        <div class="border-b"></div>
-				<div class="col-md-12 list-item border-b" id="safe-step-1">
+        <!-- <div class="border-b"></div> -->
+        <div class="col-md-12 list-item border-b">
+				<!-- <div class="col-md-12 list-item border-b" id="safe-step-1"> -->
 					<div class="row">
 						<div class="col-xs-5"><img src="images/safe/safe_content_1.png" style="margin-top: 50px; width: 100%;" alt="优质保荐机构担保"></div>
 						<div class="col-md-7">
@@ -29,20 +32,21 @@
 								<li>宏财严选合作的担保机构</li>
 							</ul>
               <p>
-                <ol>
+                <ol>    
+                  <div id="safe-step-2"></div><!-- 锚点定位-第二重 -->
                   <li>国有参控股优先；</li>
                   <li>获得国家补贴资金优先；</li>
                   <li>近两年荣获中国担保业“百强”优先；</li>
-                  <li>地方排名前五优先；</li>
+                  <li>地方排名前五优先；</li>  
                   <li>再担保体系内担保机构优先。</li>
                 </ol>
               </p>
 							<ul class="tit2">
 								<li>宏财对入选的拟合作担保机构开展尽职调查</li>
-							</ul>
+							</ul>  
 							<p>
                 <ol>
-                  <li>公司背景资质核查；</li>
+                  <li>公司背景资质核查；</li>                  
                   <li>公司近三年财务状况；</li>
                   <li>公司担保业务分类；</li>
                   <li>公司违约率；</li>
@@ -60,13 +64,15 @@
 				</div>
 
         <!-- 第二重 -->
-				<div class="col-md-12 list-item border-b" id="safe-step-2">
+        <div class="col-md-12 list-item border-b">
+				<!-- <div class="col-md-12 list-item border-b" id="safe-step-2"> -->
 					<div class="row">
 						<div class="col-md-7">
 							<p class="ft-16 ftw-b">第二重 国有再担保机构形成双保险</p>
 							<ul class="tit2">
 								<li>什么是再担保？</li>
 							</ul>
+              <div id="safe-step-3"></div><!-- 锚点定位-第三重 -->
 							<p>
                 是指为担保人设立的担保。当担保人不能独立承担担保责任时，再担保人将按合同约定比例向债权人继续剩余的清偿，以保障债权的实现。
                 再担保是担保的一种特殊形式，其设定必须符合以下条件：
@@ -82,7 +88,8 @@
 					</div>
 				</div>
         <!-- 第三重 -->
-				<div class="col-md-12 list-item border-b" id="safe-step-3">
+        <div class="col-md-12 list-item border-b">
+				<!-- <div class="col-md-12 list-item border-b" id="safe-step-3"> -->
 					<div class="row">
 						<div class="col-md-5"><img src="images/safe/safe_content_3.png"  style="margin-top:20px; width:100%;" alt="严格的项目审查"></div>
 						<div class="col-md-7">
@@ -90,6 +97,7 @@
 							<ul class="tit2">
 								<li>多层保证金制度</li>
 							</ul>
+              <div id="safe-step-4"></div><!-- 锚点定位-第四重 -->
 							<p>
 								宏财网对每一个上线发标的融资企业进行严格的四步审核：
                 <ol>
@@ -103,15 +111,19 @@
 					</div>
 				</div>
         <!-- 第四重 -->
-				<div class="col-md-12 list-item border-b" id="safe-step-4">
+        <div class="col-md-12 list-item border-b">
+				<!-- <div class="col-md-12 list-item border-b" id="safe-step-4"> -->
 					<div class="row">
 						<div class="col-md-7">
-							<p class="ft-16 ftw-b">第四重  完善的风控流程  </p>
+              <div id="safe-step-5"></div><!-- 锚点定位-第五重 -->
+							<p class="ft-16 ftw-b">第四重  完善的风控流程  </p>              
 							<p>
                 <ol>
                   <li>平台风控管理团队具备强大的金融背景和多年的风控经验
                 P2P归根结底是金融服务，金融从业背景直接决定平台风控的专业性与严谨性。
                 宏财管理团队来自国内知名P2P公司、国有银行信贷管理部、大型金融集团。</li>
+
+
                   <li>运营理念和运营模式既决定平台的内容与范围，又决定平台的稳定性。
                 宏财模式：线上寻找投资人，线下寻找借款人，对借款人的借款资格有严格的门槛，对符合要求的借款人实地尽调，并将尽调报告摘要与投资人分享，对借款金额与企业实际盈利能力进行压力测试，同时引入第三方机构担保（融资性担保机）及实物抵押和再担保。</li>
                   <li>完善的风控流程
@@ -124,11 +136,14 @@
         </div>
         <!-- 第五重 -->
 
-        <div class="col-md-12 list-item border-b" id="safe-step-5">
+        <div class="col-md-12 list-item border-b">
+        <!-- <div class="col-md-12 list-item border-b" id="safe-step-5"> -->
           <div class="row">
+            <div id="safe-step-6"></div><!-- 锚点定位-第六重 -->
             <div class="col-md-5"><img src="images/safe/safe_content_5.png" style="margin-top:20px; width:100%;" alt="第三方支付托管"></div>
             <div class="col-md-7">
               <p class="ft-16 ftw-b">第五重  第三方支付托管  </p>
+
               <p>
                 宏财网定位信息中介平台提供方，坚决不设“资金池”，投资人的资金都委托资信优良的第三方支付机构托管，所有资金与宏财平台分离，第三方支付承担资金的保管与监督。
                 第三方支付托管的好处：
@@ -145,7 +160,8 @@
           </div>
 				</div>
         <!-- 第六重 -->
-        <div class="col-md-12 list-item border-b" id="safe-step-6">
+        <div class="col-md-12 list-item border-b">
+        <!-- <div class="col-md-12 list-item border-b" id="safe-step-6"> -->
           <div class="row">
             <div class="col-md-7">
               <p class="ft-16 ftw-b">第六重  安全的交易系统  </p>
@@ -156,11 +172,15 @@
               <p>
                 <ol>
                   <li>银行级专业硬件防火墙，控制网站的访问安全；</li>
-                  <li>病毒预防与扫描系统，实时进行病毒检测与扫描；</li>
+                  <li>病毒预防与扫描系统，实时进行病毒检测与扫描；</li>                  
                   <li>专业网络安全团队与安全检测工具，主动进行漏洞扫描与安全检测；</li>
+
+                  <div id="safe-step-7"></div><!-- 锚点定位-第七重 -->
+
                   <li>网站入侵防护工具，拦截黑客攻击，加强防御入侵能力，加固边界安全。</li>
                 </ol>
               </p>
+
                 <ul class="tit2">
                   <li>维度二：数据安全防护</li>
                 </ul>
@@ -176,12 +196,14 @@
           </div>
         </div>
 
-
-        <div class="col-md-12 list-item border-b" id="safe-step-7">
+        <!-- 第七重 -->
+        <div class="col-md-12 list-item border-b">
+        <!-- <div class="col-md-12 list-item border-b" id="safe-step-7"> -->
           <div class="row">
             <div class="col-md-5"><img src="images/safe/safe_content_7.png" style="margin-top:5px; width:105%;" alt="严谨的贷后管理"></div>
             <div class="col-md-7">
               <p class="ft-16 ftw-b">第七重  严谨的贷后管理  </p>
+              <div id="safe-step-8"></div><!-- 锚点定位-第八重 -->
               <p>
                 宏财对上线发标的项目采取动态追踪式贷后管理，宏财项目管理部会根据不同的融资标的、融资周期、融资企业所属行业等进行分类，并分配给贷后管理专员进行跟踪管理并撰写贷后管理报告报送担保企业和宏财风控部。
                 宏财网的贷后管理分为前、中、后三期。前期贷后管理专员与融资企业电话、邮件等方式联系确认贷款用途及要求其提供用款相关证明材料；中期贷后管理专员要通过各种票据、银行对账单等核查用款是否与融资申请的资金用途相符，追踪融资企业生产经营是否正常，关注可能对融资企业生产经营产生影响各种大事件，必要时贷后管理专员要实地考察管理；后期贷后管理专员要重点关注企业的现金流情况，与担保公司共同及时提醒融资企业还款日期、金额等。
@@ -190,13 +212,15 @@
             </div>
           </div>
         </div>
-
-          <div class="col-md-12 list-item border-b" id="safe-step-8">
+          <!-- 第八重 -->
+          <div class="col-md-12 list-item border-b">
+          <!-- <div class="col-md-12 list-item border-b" id="safe-step-8"> -->
             <div class="row">
               <div class="col-md-7">
                 <p class="ft-16 ftw-b">第八重  风险保障金制度 </p>
                 <p>
                   <ol>
+                    <div id="safe-step-9"></div><!-- 锚点定位-第九重 -->
                     <li>为确保投资人的收益，切实降低投资风险，宏财设立风险保障金机制。宏财联合签订协议的合作机构按项目融资金额一定比例提取“风险备用金”，“风险备用金”存入宏财在银行设立风险保障金账户，与平台自有资金分离，风险准备金实行专款专用的专户管理。</li>
                     <li>当发生担保公司因为特殊情况无法及时代偿时，宏财会及时启动风险保障金偿付机制，冲减极端情况下发生代偿不利而带来的风险，用于偿付投资人的可能产生的投资损失，将投资人的损失降到最低。</li>
                   </ol>
@@ -205,7 +229,10 @@
               <div class="col-md-5"><img src="images/safe/safe_content_8.png" style="margin-top:-15px; width:95%" alt="风险保障金制度"></div>
             </div>
           </div>
-          <div class="col-md-12 list-item" id="safe-step-9">
+
+          <!-- 第九重 -->
+          <div class="col-md-12 list-item">
+          <!-- <div class="col-md-12 list-item" id="safe-step-9"> -->
             <div class="row">
               <div class="col-md-5"><img src="images/safe/safe_content_9.png" alt=""></div>
               <div class="col-md-7">
