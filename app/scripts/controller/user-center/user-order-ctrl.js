@@ -77,9 +77,12 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
     $scope.getOrderBillByOrderId = function(orderId) {
       UserCenterService.getOrderBillByOrderId.get({orderId: orderId}, function(response) {
         if(response.ret == 1) {
+          if(response.data.order) {
+            var invTotal = response.data.order.orderAmount;
+          }
           if(response.data.project) {
             var rdp = response.data.project;
-            var invTotal = rdp.total; //总融资额
+             //总融资额
             var invInitDate = moment.unix(rdp.valueDate).toString();
             var accountDay = rdp.accountDay;
             var invStartDate = moment([moment(invInitDate).year(), moment(invInitDate).month(), accountDay]).toString();
@@ -89,8 +92,14 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
             }
             var invEndDate = moment.unix(rdp.repaymentDate).toString();
             var invCycle = rdp.cycle;
+            console.log('invCycle: ' + invCycle);
             var invType = rdp.type;
-            var invRate = rdp.annualEarnings / 10;
+            var invRate = rdp.annualEarnings / 100;
+            // TODO 最后去掉调试用的console
+            // console.log('invRate:' + invRate);
+            // console.log('invTotal:' + invTotal);
+            // console.log('invType:' + invType);
+
             // var rdiffDay = moment(invStartDate).diff(moment(invInitDate))
             // if(rdiffDay <= 0) {
             //   // TODO
@@ -112,6 +121,8 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
                 $scope.listInvPond.splice(i,1,billList);
               }
             }
+            $scope.paid = 0;
+            $scope.unpaid = 0;
             for(var i=0; i<$scope.listInvPond.length; i++) {
               var status = $scope.listInvPond[i]['invStatus'];
               if( status === '1') {
@@ -144,7 +155,9 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
         } else {
           invDays = moment(payDate).diff(moment(prevDate), 'days', true);
         }
+        // console.log('invDays: ' + invDays);
         invEarnings = invTotal * invRate * invDays / 365;   //计算利率
+        // console.log('invEarnings: ' + invEarnings);
         if (i === invCycle) {
           invEarnings = invEarnings + invTotal;
         }
