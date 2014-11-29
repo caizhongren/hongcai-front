@@ -1,0 +1,261 @@
+/*html*/
+html,
+body {
+  font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  background-color: #f0f0f0;
+  text-rendering: optimizelegibility;
+  _background-attachment: fixed;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  color: #777;
+}
+a {
+  text-decoration: none;
+}
+a:link {
+  text-decoration: none;
+  outline: none;
+}
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+hr {
+  border-top: 1px solid #d8d8d8;
+}
+li {
+  list-style: none;
+}
+.full-screen {
+  width: 100%;
+}
+.container {
+  width: 980px;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.ft-red {
+  color: #e94828;
+}
+.bg-red {
+  background-color: #e94828;
+}
+.light-red {
+  color: #f27b64;
+}
+.bg-light-red {
+  background-color: #f27b64;
+}
+.ft-grey {
+  color: #aaa;
+}
+.ft-dark-grey {
+  color: #777;
+}
+.bg-grey {
+  background-color: #ccc;
+}
+.bg-light-grey {
+  background-color: #f0f0f0;
+}
+.bg-dark-grey {
+  background-color: #777;
+}
+.ft-white {
+  color: #fff;
+}
+.bg-white {
+  background-color: #fff;
+}
+.margin-0 {
+  margin: 0;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.ft-center {
+  text-align: center;
+}
+.ft-12 {
+  font-size: 12px;
+}
+.ft-16 {
+  font-size: 16px;
+}
+.ft-14 {
+  font-size: 14px;
+}
+.ft-18 {
+  font-size: 18px;
+}
+.ft-20 {
+  font-size: 20px;
+}
+.ft-24 {
+  font-size: 24px;
+}
+.ft-30 {
+  font-size: 30px;
+}
+.ft-36 {
+  font-size: 36px;
+}
+/*input[type="checkbox"] {
+    border: none;
+    background-color: #fff;
+    outline: none;
+}
+
+input[type="checkbox"]:focus {
+    outline: none;
+}*/
+/*header*/
+#mini-bar {
+  height: 25px;
+  background-color: #777;
+  width: 100%;
+  padding-top: 2px;
+}
+#mini-bar .nav-text {
+  color: #fff;
+  margin: 0;
+  float: left;
+}
+#mini-bar ul {
+  float: right;
+  margin: 0;
+}
+#mini-bar li {
+  float: left;
+  text-align: center;
+  margin-right: 10px;
+}
+#mini-bar li a,
+#mini-bar li span {
+  color: #fff;
+}
+#major-bar {
+  background-color: #fff;
+  height: 95px;
+  clear: both;
+  font-size: 18px;
+  border-bottom: 1px solid #dbdbdb;
+}
+#major-bar .active {
+  color: #e94828;
+}
+#major-bar a {
+  color: #aaa;
+}
+#major-bar a:hover {
+  color: #e94828;
+}
+#major-bar ul {
+  margin-top: 60px;
+  float: right;
+}
+#major-bar li {
+  float: left;
+  margin-left: 30px;
+}
+.logo-img {
+  display: block;
+  width: 300px;
+  height: 100%;
+  background: url('/images/sprite.png') no-repeat -1030px 7px;
+  cursor: pointer;
+  float: left;
+}
+#footer {
+  font-size: 12px;
+  color: #777;
+  width: 100%;
+}
+#footer-link {
+  background-color: #777;
+  font-size: 14px;
+  height: 120px;
+}
+#footer-link ul,
+#footer-link li {
+  float: left;
+}
+#footer-link ul {
+  height: 55px;
+  margin-top: 35px;
+  border-right: 1px solid #fff;
+}
+#footer-link li {
+  margin: 15px 20px;
+}
+#footer-link a {
+  color: #fff;
+}
+#footer-link .customer-service {
+  float: right;
+  width: 195px;
+  height: 55px;
+  margin: 40px 140px 0 0;
+  color: #fff;
+}
+#footer-link .customer-service i {
+  font-size: 3em;
+  float: left;
+}
+#footer-link .customer-service h4,
+#footer-link .customer-service p {
+  float: right;
+}
+#footer-link .customer-service h4 {
+  margin: -5px 40px 10px 0;
+  font-size: 18px;
+}
+#footer-link .customer-service p {
+  margin-top: -5px;
+}
+#footer-show {
+  background-color: #ccc;
+  height: 180px;
+  color: #777;
+  text-align: center;
+}
+.footer-img {
+  width: 300px;
+  height: 50px;
+  margin: 10px auto;
+}
+.footer-img li {
+  float: left;
+}
+.main .three-safe {
+  padding-left: 25px;
+  height: 130px;
+}
+.main .three-safe li {
+  float: left;
+}
+.main .three-safe li div {
+  width: 176px;
+  height: 90px;
+  padding-left: 120px;
+}
+.main .three-safe .security {
+  background: url('/images/sprite.png') no-repeat -390px -90px;
+  border-right: 1px solid #dbdbdb;
+  margin-right: 45px;
+}
+.main .three-safe .investment {
+  background: url('/images/sprite.png') no-repeat -390px -179px;
+  border-right: 1px solid #dbdbdb;
+  margin-right: 45px;
+}
+.main .three-safe .convenient {
+  background: url('/images/sprite.png') no-repeat -390px -270px;
+  width: 130px;
+}

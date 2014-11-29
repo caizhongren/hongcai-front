@@ -47,12 +47,12 @@
  				templateUrl: 'views/root.html'
  			},
  			'header': {
- 				templateUrl: 'views/header.html',
+ 				templateUrl: 'views/header-change.html',
  				controller: 'LoginCtrl',
  				controllerUrl: 'scripts/controller/user-center/login-ctrl'
  			},
  			'footer': {
- 				templateUrl: 'views/footer.html'
+ 				templateUrl: 'views/footer-change.html'
  			},
  			'service': {
  				templateUrl: 'views/service.html',
@@ -65,7 +65,7 @@
  		url: '/',
  		views: {
  			'': {
- 				templateUrl: 'views/main.html',
+ 				templateUrl: 'views/main-change.html',
  				controller: 'MainCtrl',
  				controllerUrl: 'scripts/controller/main/main-ctrl'
  			},
