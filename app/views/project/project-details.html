@@ -367,9 +367,7 @@
                             <td ng-if="preRepayment.repaymentNo==1">利息</td>
                             <td ng-if="preRepayment.repaymentNo==2">本金</td>
                             <td ng-if="preRepayment.repaymentNo==3">本金+利息</td>
-                            <td ng-if="preRepayment.repaymentNo==1">{{preRepayment.repaymentInterest| number : 0}}元</td>
-                            <td ng-if="preRepayment.repaymentNo==2">{{preRepayment.repaymentPrincipal| number : 0}}元</td>
-                            <td ng-if="preRepayment.repaymentNo==3">{{preRepayment.repaymentAmount| number : 0}}元</td>
+                            <td>{{preRepayment.repaymentAmount| number : 0}}元</td>
                           </tr>
                         </tbody>
                       </table>
