@@ -6,5 +6,4 @@ hongcaiApp.controller('ProjectActivityGroupCtrl', ['$scope', 'ProjectService', '
       $window.alert('服务器被修空调的搬走了，正在努力追赶。')
     }
   })
-  console.log('$scope.data:' + $scope.projectList);
 }]);
