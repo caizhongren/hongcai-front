@@ -384,7 +384,7 @@
  		}
  	})
   .state('root.activity-details', {
-    url: '/activity/:activityId',
+    url: '/activity/:activityId/:type',
     views: {
       '': {
         templateUrl: 'views/project/activity-details.html',
@@ -462,7 +462,8 @@
  		}
  	})
  	/*---------------------------------------------  order  ---------------------------------------------*/
- 	.state('root.invest-verify', {//投资信息确认页面:购物车
+  // 投资信息确认页面:购物车
+ 	.state('root.invest-verify', {
  		url: '/invest-verify/:projectId/:amount',
  		views: {
  			'': {
@@ -472,6 +473,17 @@
  			}
  		}
  	})
+  // 宏包信息确认页面
+  .state('root.hongbao-verify', {
+    url: '/hongbao-verify/:activityId/:amount',
+    views: {
+      '': {
+        templateUrl: 'views/order/hongbao-verify.html',
+        controller: 'hongbaoVerifyCtrl',
+        controllerUrl: 'scripts/controller/order/hongboa-verify-ctrl'
+      }
+    }
+  })
  	/*------------------------------------------  about-us  -----------------------------------------------*/
  	.state('root.about-us', {
     abstract: true,
