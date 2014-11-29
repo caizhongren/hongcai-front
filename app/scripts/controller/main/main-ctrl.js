@@ -1,4 +1,4 @@
-hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService) {
+hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService) {
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {
@@ -15,6 +15,11 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
         for (var i = 0; i < $scope.projectList.projectList.length; i++) {
           $scope.data.push($scope.projectList.projectList[i]);
         }*/
+    });
+    var activityGroup = ProjectService.getGiftProjectList.get(function() {
+      if(activityGroup.ret == 1) {
+        $scope.activityList = activityGroup.data.projectList;
+      }
     });
 
     var indexStatistics = MainService.indexStatistics.get(function(response) {
