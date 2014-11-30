@@ -201,5 +201,41 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
     var changeDateFromat = function(iDate) {
       return moment([moment.unix(iDate).year(), moment.unix(iDate).month(), moment.unix(iDate).date()]);
     }
+
+    function new_form(){
+      var f = document.createElement('form');
+      document.body.appendChild(f);
+      f.method = 'post';
+          //f.target = '_blank';
+          return f;
+      }
+    function create_elements(eForm,eName,eValue){
+      var e=document.createElement('input');
+      eForm.appendChild(e);
+      e.type='text';
+      e.name=eName;
+      if(!document.all){
+        e.style.display='none';
+      }else{
+        e.style.display='block';
+        e.style.width='0px';
+        e.style.height='0px';
+      }
+      e.value=eValue;
+      return e;
+    }
+    $scope.toPay = function(projectId, orderId) {
+      OrderService.transfer.get({projectId: project.id, orderId: orderId}, function(response) {
+        if(response.ret == 1) {
+            var req = response.data.req;
+            var sign = response.data.sign;
+            var _f=new_form();//创建一个form表单
+            create_elements(_f,'req',req);//创建form中的input对象
+            create_elements(_f,'sign',sign);
+            _f.action= config.YEEPAY_ADDRESS + 'toTransfer';//form提交地址
+            _f.submit();//提交
+        }
+      });
+    }
 }]);
 
