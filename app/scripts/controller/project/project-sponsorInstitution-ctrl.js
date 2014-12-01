@@ -8,7 +8,7 @@ hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams'
         $scope.originalFile = sponsorInstitution.data.originalFile;
 
         $scope.imgs = [];
-        for(i in sponsorInstitution.data.originalFile){
+        for(var i=0; i<=sponsorInstitution.data.originalFile.length;i++){
             var item = {};
             item.title = $scope.originalFile[i].uploadFile.originalName;
             item.src = $scope.originalFile[i].uploadFile.url;
