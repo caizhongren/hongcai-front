@@ -14,9 +14,9 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <!--<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />-->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.css" />
+    <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css" />
     <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css" />
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
@@ -30,13 +30,14 @@
     <![endif]-->
 
     <!-- build:css(.tmp) styles/main.css -->
-    <!--<link rel="stylesheet" href="styles/main.css">-->
+    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/dy_main.css">
-    <!--<link rel="stylesheet" href="styles/main_leo.css">-->
-    <link rel="stylesheet"  href="styles/test.css">
+    <link rel="stylesheet" href="styles/main_leo.css">
+    <!--<link rel="stylesheet"  href="styles/test.css">-->
     <link rel="stylesheet" href="styles/jquery.fullPage.css">
     <link rel="stylesheet" href="styles/newbie_guide.css">
     <link rel="stylesheet" href="styles/find_pwd_step_bar.css">
+    <!--<link rel="stylesheet"  href="styles/lucky_draw.css">-->
 
     <!-- endbuild -->
   </head>
@@ -47,7 +48,7 @@
 
     <section ui-view="header"></section>
     <section ui-view class="bg-offWhite" autoscroll="true"></section>
-    <!--<section ui-view="service"></section>-->
+    <section ui-view="service"></section>
     <section ui-view="footer"></section>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -121,7 +122,8 @@
     <script src="scripts/controller/project/safe-ctrl.js"></script>
     <script src="scripts/controller/register/register-mail-ctrl.js"></script>
     <script src="scripts/controller/register/register-mobile-ctrl.js"></script>
-     <script src="scripts/controller/register/register-success-ctrl.js"></script>
+    <script src="scripts/controller/register/register-mobile-success-ctrl.js"></script>
+    <script src="scripts/controller/register/register-success-ctrl.js"></script>
     <script src="scripts/controller/user-center/login-ctrl.js"></script>
     <script src="scripts/controller/user-center/user-center-ctrl.js"></script>
     <script src="scripts/controller/user-center/bankcard-management-ctrl.js"></script>

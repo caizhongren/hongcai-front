@@ -47,12 +47,12 @@
  				templateUrl: 'views/root.html'
  			},
  			'header': {
- 				templateUrl: 'views/header-change.html',
+ 				templateUrl: 'views/header.html',
  				controller: 'LoginCtrl',
  				controllerUrl: 'scripts/controller/user-center/login-ctrl'
  			},
  			'footer': {
- 				templateUrl: 'views/footer-change.html'
+ 				templateUrl: 'views/footer.html'
  			},
  			'service': {
  				templateUrl: 'views/service.html',
@@ -65,7 +65,7 @@
  		url: '/',
  		views: {
  			'': {
- 				templateUrl: 'views/main-change.html',
+ 				templateUrl: 'views/main.html',
  				controller: 'MainCtrl',
  				controllerUrl: 'scripts/controller/main/main-ctrl'
  			},
@@ -161,7 +161,7 @@
     views: {
       '': {
         templateUrl: 'views/success.html',
-        controller: 'RegisterMoblieSuccessCtrl',
+        controller: 'RegisterMobileSuccessCtrl',
         controllerUrl: 'scripts/controller/register/register-mobile-success-ctrl'
       }
     }
