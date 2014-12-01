@@ -124,7 +124,7 @@
     <tbody>
       <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
       <td>
-        <button ng-mouseenter="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button> {{ item.projectName }}
+        <button ng-mouseenter="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button> {{ item.projectName | limitTo: 5}}...
       </td>
         <td>{{ item.valueDate*1000 | date: 'yyyy-MM-dd' }}</td>
         <td>{{ item.settlementDate*1000 | date: 'yyyy-MM-dd' }}</td>
