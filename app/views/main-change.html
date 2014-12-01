@@ -24,34 +24,17 @@
     <img src="images/banner_advertising.png" alt="土豪标" width="100%">
   </a>
   <div class="hongbao-show">
-    <p>宏包系列标<span>仅可用宏包投资  /  奖90%收益  /  每日更新</span></p>
+    <p class="hongbao-title">宏包系列标<span>仅可用宏包投资  /  奖90%收益  /  每日更新</span></p>
     <a ui-sref="root.project-activity-group">更多></a>
     <ul>
-      <li>
-        <div>
-          <h4>土豪标</h4>
-          <p></p>
-          <p></p>
-          <p></p>
-          <a ui-sref=""></a>
-        </div>
-      </li>
-      <li>
-        <div>
+      <li ng-repeat="item in activityList">
+        <div class="hongbao-div bg-red-hongbao">
+          <!--<h4>{{ item.name }}</h4>-->
           <h4>宏运当头标</h4>
-          <p></p>
-          <p></p>
-          <p></p>
-          <a ui-sref=""></a>
-        </div>
-      </li>
-      <li>
-        <div>
-          <h4>宏运当头标</h4>
-          <p></p>
-          <p></p>
-          <p></p>
-          <a ui-sref=""></a>
+          <p>2014-11-11</p>
+          <p class="percent">10% + <span>90%</span></p>
+          <p>年化收益</p>
+          <a ui-sref="root.activity-details({activityId: item.id, type: 2})">查看详情</a>
         </div>
       </li>
     </ul>

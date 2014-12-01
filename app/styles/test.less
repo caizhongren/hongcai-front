@@ -25,6 +25,9 @@ hr {border-top: 1px solid #d8d8d8;}
 li {
   list-style: none;
 }
+ul{
+  padding: 0;
+}
 .full-screen {
   width: 100%;
 }
@@ -34,6 +37,9 @@ li {
   position: relative;
   height: 100%;
   overflow: hidden;
+}
+.ft-black{
+  color: #333;
 }
 .ft-red{
   color: #e94828;
@@ -86,9 +92,25 @@ li {
 .ft-14 {font-size: 14px;}
 .ft-18 {font-size: 18px;}
 .ft-20 {font-size: 20px;}
+.ft-22 {font-size: 22px;}
 .ft-24 {font-size: 24px;}
 .ft-30 {font-size: 30px;}
 .ft-36 {font-size: 36px;}
+.grey-border{
+  border: 1px solid #dbdbdb;
+}
+.red-border{
+  border: 1px solid #e94828;
+}
+.white-button{
+  .ft-red;
+  .bg-white;
+  .red-border;
+}
+.white-button:hover{
+  .ft-white;
+  .bg-red;
+}
 /*input[type="checkbox"] {
     border: none;
     background-color: #fff;
@@ -253,6 +275,80 @@ input[type="checkbox"]:focus {
     .convenient{
       background: @bg-img -390px -270px;
       width: 130px;
+    }
+  }
+
+  .hongbao-show{
+    height: 220px;
+    .ft-14;
+    .grey-border;
+    .bg-white;
+    padding: 10px 35px;
+    margin-top: 25px;
+
+    .hongbao-title{
+      border-bottom: 1px solid #dbdbdb;
+      .ft-18;
+      padding-bottom: 5px;
+      .ft-black;
+
+      span{
+        .ft-14;
+        .ft-dark-grey;
+        margin-left: 85px;
+        display: inline-block;
+      }
+      background: @bg-img 120px -1650px;
+    }
+    a {
+      .right;
+      margin-top: -20px;
+      .ft-black;
+    }
+    a:hover {
+      .ft-red;
+    }
+    h4{
+      .ft-black;
+      .ft-22;
+      font-weight: normal;
+      .margin-0;
+    }
+    p{
+      .margin-0;
+    }
+    li{
+      .left;
+    }
+    .hongbao-div{
+      height: 125px;
+      width: 110px;
+      padding: 10px 0 0 140px;
+      margin: 20px 25px 0;
+      a{
+        display: inline-block;
+        .white-button;
+        width: 110px;
+        height: 25px;
+        .ft-center;
+        line-height: 24px;
+        margin-top:20px;
+      }
+    }
+    .bg-grey-hongbao{
+      background: @bg-img -290px -1743px;
+    }
+    .bg-red-hongbao{
+      background: @bg-img -290px -1869px;
+    }
+    .percent{
+      .ft-20;
+      margin-top: 15px;
+      .ft-black;
+      span{
+        .ft-red;
+        font-weight: bold;
+      }
     }
   }
 }

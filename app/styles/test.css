@@ -27,6 +27,9 @@ hr {
 li {
   list-style: none;
 }
+ul {
+  padding: 0;
+}
 .full-screen {
   width: 100%;
 }
@@ -36,6 +39,9 @@ li {
   position: relative;
   height: 100%;
   overflow: hidden;
+}
+.ft-black {
+  color: #333;
 }
 .ft-red {
   color: #e94828;
@@ -97,6 +103,9 @@ li {
 .ft-20 {
   font-size: 20px;
 }
+.ft-22 {
+  font-size: 22px;
+}
 .ft-24 {
   font-size: 24px;
 }
@@ -105,6 +114,21 @@ li {
 }
 .ft-36 {
   font-size: 36px;
+}
+.grey-border {
+  border: 1px solid #dbdbdb;
+}
+.red-border {
+  border: 1px solid #e94828;
+}
+.white-button {
+  color: #e94828;
+  background-color: #fff;
+  border: 1px solid #e94828;
+}
+.white-button:hover {
+  color: #fff;
+  background-color: #e94828;
 }
 /*input[type="checkbox"] {
     border: none;
@@ -258,4 +282,77 @@ input[type="checkbox"]:focus {
 .main .three-safe .convenient {
   background: url('/images/sprite.png') no-repeat -390px -270px;
   width: 130px;
+}
+.main .hongbao-show {
+  height: 220px;
+  font-size: 14px;
+  border: 1px solid #dbdbdb;
+  background-color: #fff;
+  padding: 10px 35px;
+  margin-top: 25px;
+}
+.main .hongbao-show .hongbao-title {
+  border-bottom: 1px solid #dbdbdb;
+  font-size: 18px;
+  padding-bottom: 5px;
+  color: #333;
+  background: url('/images/sprite.png') no-repeat 120px -1650px;
+}
+.main .hongbao-show .hongbao-title span {
+  font-size: 14px;
+  color: #777;
+  margin-left: 85px;
+  display: inline-block;
+}
+.main .hongbao-show a {
+  float: right;
+  margin-top: -20px;
+  color: #333;
+}
+.main .hongbao-show a:hover {
+  color: #e94828;
+}
+.main .hongbao-show h4 {
+  color: #333;
+  font-size: 22px;
+  font-weight: normal;
+  margin: 0;
+}
+.main .hongbao-show p {
+  margin: 0;
+}
+.main .hongbao-show li {
+  float: left;
+}
+.main .hongbao-show .hongbao-div {
+  height: 125px;
+  width: 110px;
+  padding: 10px 0 0 140px;
+  margin: 20px 25px 0;
+}
+.main .hongbao-show .hongbao-div a {
+  display: inline-block;
+  color: #e94828;
+  background-color: #fff;
+  border: 1px solid #e94828;
+  width: 110px;
+  height: 25px;
+  text-align: center;
+  line-height: 24px;
+  margin-top: 20px;
+}
+.main .hongbao-show .bg-grey-hongbao {
+  background: url('/images/sprite.png') no-repeat -290px -1743px;
+}
+.main .hongbao-show .bg-red-hongbao {
+  background: url('/images/sprite.png') no-repeat -290px -1869px;
+}
+.main .hongbao-show .percent {
+  font-size: 20px;
+  margin-top: 15px;
+  color: #333;
+}
+.main .hongbao-show .percent span {
+  color: #e94828;
+  font-weight: bold;
 }

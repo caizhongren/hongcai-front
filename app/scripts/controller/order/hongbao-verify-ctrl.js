@@ -37,7 +37,7 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
           if(response.ret == 1) {
             // $scope.msg = '已支付' + investAmount + '！' + '感谢您使用。';
             // var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
-            $window.alert('支付成功,感觉您使用。');
+            $window.alert('支付成功,感谢您使用。');
             $state.go('root.userCenter.gift-rebate', {type: 99});
 
           }

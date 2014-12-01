@@ -137,7 +137,7 @@
           </span>
           <br>
           <div class="btn-group btn-group-sm" style="float: left;" ng-if="item.status === 1">
-            <button type="button" class="btn btn-primary" value="">继续支付</button>
+            <button type="button" class="btn btn-primary" value="" ng-click="toPay(item.projectId, item.orderId)">继续支付</button>
             <button type="button" class="btn btn-default" value="" ng-click="cancelOrder(item.orderId);">取消订单</button>
           </div>
         </td>
