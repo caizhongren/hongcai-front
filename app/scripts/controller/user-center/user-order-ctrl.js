@@ -1,4 +1,4 @@
-hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService, $aside, $window) {
+hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', function ($location,$scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config) {
 
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
@@ -20,13 +20,11 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
 
     $scope.generateContractPDF = function(projectId, orderId) {
       UserCenterService.generateContractPDF.get({projectId: projectId, orderId: orderId}, function(response) {
-        if(response.ret == 1) {
-          console.log('success!');
-        } else {
-          console.log('error!');
-        }
+        $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
+        // 简单的处理方式，可能被浏览器屏蔽。
+        // window.open('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId, '_blank', '');
       })
-    }
+    };
     $scope.fromDateChanged = function () {
       dateStart = $scope.invFromDate;
     };
@@ -58,7 +56,20 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
             $scope.data.push($scope.orderList[i]);
         }
     });
-
+    // 继续支付订单
+    $scope.toPay = function(projectId, orderId) {
+      OrderService.transfer.get({projectId: projectId, orderId: orderId}, function(response) {
+        if(response.ret == 1) {
+          var req = response.data.req;
+          var sign = response.data.sign;
+          var _f=new_form();//创建一个form表单
+          create_elements(_f,'req',req);//创建form中的input对象
+          create_elements(_f,'sign',sign);
+          _f.action= config.YEEPAY_ADDRESS + 'toTransfer';//form提交地址
+          _f.submit();//提交
+        }
+      });
+    };
     // 取消订单
     $scope.cancelOrder = function(orderId) {
       if($window.confirm('确定取消订单?')) {
@@ -223,19 +234,92 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
       }
       e.value=eValue;
       return e;
-    }
-    $scope.toPay = function(projectId, orderId) {
-      OrderService.transfer.get({projectId: project.id, orderId: orderId}, function(response) {
-        if(response.ret == 1) {
-            var req = response.data.req;
-            var sign = response.data.sign;
-            var _f=new_form();//创建一个form表单
-            create_elements(_f,'req',req);//创建form中的input对象
-            create_elements(_f,'sign',sign);
-            _f.action= config.YEEPAY_ADDRESS + 'toTransfer';//form提交地址
-            _f.submit();//提交
+    };
+  // Based on an implementation here: web.student.tuwien.ac.at/~e0427417/jsdownload.html
+  $scope.downloadPDF = function(httpPath) {
+    // Use an arraybuffer
+    $http.get(httpPath, { responseType: 'arraybuffer' })
+    .success( function(data, status, headers) {
+      var octetStreamMime = 'application/pdf';
+      var success = false;
+      // Get the headers
+      headers = headers();
+      // Get the filename from the x-filename header or default to "download.bin"
+      var filename = headers['x-filename'] || '宏财网借款协议.pdf';
+      // Determine the content type from the header or default to "application/octet-stream"
+      var contentType = headers['content-type'] || octetStreamMime;
+      try
+      {
+        // Try using msSaveBlob if supported
+        var blob = new Blob([data], { type: contentType });
+        if(navigator.msSaveBlob)
+          navigator.msSaveBlob(blob, filename);
+        else {
+          // Try using other saveBlob implementations, if available
+          var saveBlob = navigator.webkitSaveBlob || navigator.mozSaveBlob || navigator.saveBlob;
+          if(saveBlob === undefined) throw "Not supported";
+          saveBlob(blob, filename);
         }
-      });
-    }
+        success = true;
+      } catch(ex)
+      {
+        console.log("saveBlob method failed with the following exception:");
+        console.log(ex);
+      }
+      if(!success)
+      {
+        // Get the blob url creator
+        var urlCreator = window.URL || window.webkitURL || window.mozURL || window.msURL;
+        if(urlCreator)
+        {
+          var link = document.createElement('a');
+          if('download' in link)
+          {
+            try
+            {
+              // Prepare a blob URL
+              var blob = new Blob([data], { type: contentType });
+              var url = urlCreator.createObjectURL(blob);
+              link.setAttribute('href', url);
+              // Set the download attribute (Supported in Chrome 14+ / Firefox 20+)
+              link.setAttribute("download", filename);
+              // Simulate clicking the download link
+              var event = document.createEvent('MouseEvents');
+              event.initMouseEvent('click', true, true, window, 1, 0, 0, 0, 0, false, false, false, false, 0, null);
+              link.dispatchEvent(event);
+              success = true;
+            } catch(ex) {
+              console.log("Download link method with simulated click failed with the following exception:");
+              console.log(ex);
+            }
+          }
+          if(!success)
+          {
+            try
+            {
+              console.log("Trying download link method with window.location ...");
+              var blob = new Blob([data], { type: octetStreamMime });
+              var url = urlCreator.createObjectURL(blob);
+              window.location = url;
+              success = true;
+            } catch(ex) {
+              console.log("Download link method with window.location failed with the following exception:");
+              console.log(ex);
+            }
+          }
+        }
+      }
+      if(!success)
+      {
+        console.log("No methods worked for saving the arraybuffer, using last resort window.open");
+        window.open(httpPath, '_blank', '');
+      }
+    })
+    .error(function(data, status) {
+      console.log("Request failed with status: " + status);
+      // Optionally write the error out to scope
+      $scope.errorDetails = "Request failed with status: " + status;
+    });
+  };
 }]);
 
