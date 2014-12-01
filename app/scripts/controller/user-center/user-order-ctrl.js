@@ -245,7 +245,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
       // Get the headers
       headers = headers();
       // Get the filename from the x-filename header or default to "download.bin"
-      var filename = headers['x-filename'] || 'filename.pdf';
+      var filename = headers['x-filename'] || '宏财网借款协议.pdf';
       // Determine the content type from the header or default to "application/octet-stream"
       var contentType = headers['content-type'] || octetStreamMime;
       try
