@@ -6670,6 +6670,7 @@ a:link {
 .safe .nav li a div {
   width: 62px;
   height: 63px;
+  margin: 0 auto;
 }
 .safe .nav li a:hover {
   background: none;
