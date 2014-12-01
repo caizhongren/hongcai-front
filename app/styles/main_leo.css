@@ -6749,8 +6749,14 @@ a:link {
 #project-detail {
   padding: 30px;
 }
+#project-detail h1 {
+  margin-bottom: 0;
+}
+#project-detail h3 {
+  margin-top: 0;
+}
 #project-detail .project-name {
-  font-size: 30px;
+  font-size: 24px;
   margin-top: 0;
   padding-top: 0;
 }
