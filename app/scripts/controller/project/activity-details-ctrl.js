@@ -52,6 +52,8 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
             title: '活动简介',
         }, {
             title: '活动规则',
+        }, {
+           title: '活动历程',
         }
     ];
 

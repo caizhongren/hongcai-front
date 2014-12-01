@@ -98,6 +98,62 @@
                       </div>
                     </div>
                   </section> <!-- section -->
+                  <section ng-if="tab.title==='活动历程'">
+                    <div class="container-fluid">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4>
+                          <ul class="timeline">
+                            <li>
+                              <div class="timeline-badge primary"><i class="fa fa-rocket"></i></div>
+                              <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                  <h4 class="timeline-title">活动上线</h4>
+                                </div>
+                                <div class="timeline-body">
+                                  <p>上线时间：{{project.publishTime}}</p>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="timeline-inverted">
+                              <div class="timeline-badge info"><i class="fa fa-users"></i></div>
+                              <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                  <h4 class="timeline-title">活动募集开始</h4>
+                                </div>
+                                <div class="timeline-body">
+                                  <p>开始时间：{{project.releaseStartTime}}</p>
+                                </div>
+                              </div>
+                            </li>
+                            <li>
+                              <div class="timeline-badge warning"><i class="fa fa-tree"></i></div>
+                              <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                  <h4 class="timeline-title">活动募集结束</h4>
+                                </div>
+                                <div class="timeline-body">
+                                  <p>结束时间：{{project.releaseEndTime}}</p>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="timeline-inverted">
+                              <div class="timeline-badge success"><i class="fa fa-list-ol"></i></div>
+                              <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                  <h4 class="timeline-title">项目还款</h4>
+                                </div>
+                                <div class="timeline-body">
+                                  <p>待还款</p>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </section> <!-- section -->
                 </div>
               </div> <!-- .tab-content -->
             </div> <!-- .panel -->
@@ -171,13 +227,11 @@
                       <a href="" class="btn btn-danger btn-lg btn-block">立即投资</a>
                     </div>
                   </div> -->
-
                 </div> <!-- .panel-body -->
               </div> <!-- .panel.panel-default -->
             </div>
           </div> <!-- .col-xs-12 -->
         </div> <!-- .row -->
-
         <div class="row">
           <div class="col-xs-12">
             <div class="panel panel-default" ng-init="activeTab_right=0;">
@@ -185,7 +239,6 @@
                 <!-- <strong>投资记录</strong> -->
               <ul class="nav nav-pills nav-justified border-b">
                 <li ng-class="{active: activeTab_right===$index}" ng-repeat="tab_right in tabs_right"><a ng-click="switchTab_right($index)">{{tab_right.title}}</a></li>
-
               </ul>
               <!-- </div> -->
               <div class="tab-content">
@@ -210,62 +263,6 @@
                       </table>
                     </div>
                   </section>
-                </div>
-              </div>
-            </div>
-            <div class="panel panel-default">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-xs-12">
-                    <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4>
-                    <ul class="timeline">
-                      <li>
-                        <div class="timeline-badge primary"><i class="fa fa-rocket"></i></div>
-                        <div class="timeline-panel">
-                          <div class="timeline-heading">
-                            <h5 class="timeline-title">项目上线：</h5>
-                          </div>
-                          <div class="timeline-body">
-                            <p>上线时间：{{project.publishTime}}</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="timeline-inverted">
-                        <div class="timeline-badge info"><i class="fa fa-users"></i></div>
-                        <div class="timeline-panel">
-                          <div class="timeline-heading">
-                            <h5 class="timeline-title">项目募集：</h5>
-                          </div>
-                          <div class="timeline-body">
-                            <p>开始时间：{{project.releaseStartTime}}</p>
-                            <p>结束时间：{{project.releaseEndTime}}</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="timeline-badge warning"><i class="fa fa-tree"></i></div>
-                        <div class="timeline-panel">
-                          <div class="timeline-heading">
-                            <h5 class="timeline-title">项目放款：</h5>
-                          </div>
-                          <div class="timeline-body">
-                            <p>已还：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest)}}（{{billCount}}期）</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li class="timeline-inverted">
-                        <div class="timeline-badge success"><i class="fa fa-list-ol"></i></div>
-                        <div class="timeline-panel">
-                          <div class="timeline-heading">
-                            <h5 class="timeline-title">项目还款：</h5>
-                          </div>
-                          <div class="timeline-body">
-                            <p>待还款：{{remainPrincipal + remainInterest}}（{{project.cycle - billCount}}期）</p>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
               </div>
             </div>
