@@ -82,7 +82,7 @@ hr {
   border-left: 1px solid #dbdbdb;
 }
 .tel-img {
-  background: url('../../../images/sprite.png');
+  background: url('/images/sprite.png');
 }
 /*_header.html*/
 .top-bar {
@@ -140,7 +140,7 @@ hr {
 .logo-img-1 {
   width: 295px;
   height: 80px;
-  background: url('../../../images/sprite.png') -1035px 0;
+  background: url('/images/sprite.png') -1035px 0;
   cursor: pointer;
 }
 /*index*/
@@ -162,7 +162,7 @@ hr {
 }
 .advertise-img {
   height: 75px;
-  background: url('../../../images/sprite.png');
+  background: url('/images/sprite.png');
 }
 .investment {
   background-position: -275px 6px;
@@ -234,7 +234,7 @@ hr {
 .project-tit-img {
   width: 35px;
   height: 30px;
-  background: url('../../../images/sprite.png') -214px -94px;
+  background: url('/images/sprite.png') -214px -94px;
 }
 .project-tit-txt {
   color: #ea5430;
@@ -261,7 +261,7 @@ hr {
 .support-text .support-text-img {
   width: 35px;
   height: 35px;
-  background: url('../../../images/sprite.png') -98px -98px;
+  background: url('/images/sprite.png') -98px -98px;
   float: left;
 }
 .recommend-support-details {
@@ -271,13 +271,13 @@ hr {
   height: 65px;
 }
 .support-img-1 {
-  background: url('../../../images/sprite.png') 32px -85px;
+  background: url('/images/sprite.png') 32px -85px;
 }
 .support-img-2 {
-  background: url('../../../images/sprite.png') 32px -305px;
+  background: url('/images/sprite.png') 32px -305px;
 }
 .support-img-3 {
-  background: url('../../../images/sprite.png') 32px -382px;
+  background: url('/images/sprite.png') 32px -382px;
 }
 .news {
   height: 157px;
@@ -312,7 +312,7 @@ hr {
   height: 60px;
 }
 .flow div {
-  background: url('../../../images/sprite.png');
+  background: url('/images/sprite.png');
   padding: 0;
 }
 .flow .flow-register {
@@ -382,7 +382,7 @@ hr {
 .footer-tele .col-lg-3 {
   height: 60px;
   width: 30px;
-  background: url('../../../images/sprite.png') -19px -155px;
+  background: url('/images/sprite.png') -19px -155px;
   margin-left: 20px;
 }
 .copyright {
@@ -410,7 +410,6 @@ hr {
   border: 1px solid #dbdbdb;
   border-radius: 3px;
   margin-bottom: 30px;
-  padding-left: 0;
 }
 .project-list-all .sort {
   padding: 15px 50px;
@@ -585,7 +584,7 @@ hr {
   margin-bottom: 20px;
 }
 .project-details .progress-icon {
-  background: url('../images/sprite.png');
+  background: url('/images/sprite.png');
   height: 40px;
   width: 40px;
   float: left;
@@ -831,7 +830,7 @@ hr {
   display: inline-block;
   width: 25px;
   height: 25px;
-  background: url('../../../images/sprite.png');
+  background: url('/images/sprite.png');
 }
 .userCenter-news .news-item .collapse-img {
   background-position: -395px -810px;
@@ -898,9 +897,6 @@ hr {
 .safe .top {
   width: 100%;
   height: 255px;
-}
-.safe .row {
-  margin-left: 0;
 }
 .safe .list-item {
   padding-top: 40px;

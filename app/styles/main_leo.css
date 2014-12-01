@@ -6246,14 +6246,19 @@ a:link {
 .margin-t {
   margin-top: 80px;
 }
+.margin-b-30 {
+  margin-bottom: 30px;
+}
+.full-column {
+  /* .margin-b-30 {
+        margin-bottom: 30px;
+    } */
+}
 .full-column .margin-l-15 {
   margin-left: 15px;
 }
 .full-column .margin-l-23 {
   margin-left: 23px;
-}
-.full-column .margin-b-30 {
-  margin-bottom: 30px;
 }
 .full-column .line-h-27 {
   line-height: 27px;
@@ -6315,7 +6320,7 @@ a:link {
   top: -5px;
   width: 90px;
   height: 90px;
-  background: url(../../../images/sprite.png) -280px -90px;
+  background: url(/images/sprite.png) -280px -90px;
 }
 .special-recommend .panel-body,
 .recommend .panel-body,
@@ -6461,7 +6466,7 @@ a:link {
 #service .calculator {
   width: 45px;
   height: 45px;
-  background-image: url(../images/backgrounds.32.png);
+  background-image: url(/images/backgrounds.32.png);
   background-position: -101px -1px;
   margin-bottom: 3px;
 }
@@ -6509,7 +6514,7 @@ a:link {
 #service .qr_tool {
   width: 45px;
   height: 45px;
-  background-image: url(../images/backgrounds.32.png);
+  background-image: url(/images/backgrounds.32.png);
   margin-bottom: 3px;
 }
 #service #scrollUp {
@@ -6688,58 +6693,58 @@ a:link {
   box-shadow: #888888 1px 1px 5px;
 }
 .safe .step-1 {
-  background: url(../images/safe/safe_nav_1_gray.png) no-repeat;
+  background: url(/images/safe/safe_nav_1_gray.png) no-repeat;
 }
 .safe .step-2 {
-  background: url(../images/safe/safe_nav_2_gray.png) no-repeat;
+  background: url(/images/safe/safe_nav_2_gray.png) no-repeat;
 }
 .safe .step-3 {
-  background: url(../images/safe/safe_nav_3_gray.png) no-repeat;
+  background: url(/images/safe/safe_nav_3_gray.png) no-repeat;
 }
 .safe .step-4 {
-  background: url(../images/safe/safe_nav_4_gray.png) no-repeat;
+  background: url(/images/safe/safe_nav_4_gray.png) no-repeat;
 }
 .safe .step-5 {
-  background: url(../images/safe/safe_nav_5_gray.png) no-repeat;
+  background: url(/images/safe/safe_nav_5_gray.png) no-repeat;
 }
 .safe .step-6 {
-  background: url(../images/safe/safe_nav_6_gray.png) no-repeat;
+  background: url(/images/safe/safe_nav_6_gray.png) no-repeat;
 }
 .safe .step-7 {
-  background: url(../images/safe/safe_nav_7_gray.png) no-repeat;
+  background: url(/images/safe/safe_nav_7_gray.png) no-repeat;
 }
 .safe .step-8 {
-  background: url(../images/safe/safe_nav_8_gray.png) no-repeat;
+  background: url(/images/safe/safe_nav_8_gray.png) no-repeat;
 }
 .safe .step-9 {
-  background: url(../images/safe/safe_nav_9_gray.png) no-repeat;
+  background: url(/images/safe/safe_nav_9_gray.png) no-repeat;
 }
 .safe .active .step-1 {
-  background: url(../images/safe/safe_nav_1_red.png) no-repeat;
+  background: url(/images/safe/safe_nav_1_red.png) no-repeat;
 }
 .safe .active .step-2 {
-  background: url(../images/safe/safe_nav_2_red.png) no-repeat;
+  background: url(/images/safe/safe_nav_2_red.png) no-repeat;
 }
 .safe .active .step-3 {
-  background: url(../images/safe/safe_nav_3_red.png) no-repeat;
+  background: url(/images/safe/safe_nav_3_red.png) no-repeat;
 }
 .safe .active .step-4 {
-  background: url(../images/safe/safe_nav_4_red.png) no-repeat;
+  background: url(/images/safe/safe_nav_4_red.png) no-repeat;
 }
 .safe .active .step-5 {
-  background: url(../images/safe/safe_nav_5_red.png) no-repeat;
+  background: url(/images/safe/safe_nav_5_red.png) no-repeat;
 }
 .safe .active .step-6 {
-  background: url(../images/safe/safe_nav_6_red.png) no-repeat;
+  background: url(/images/safe/safe_nav_6_red.png) no-repeat;
 }
 .safe .active .step-7 {
-  background: url(../images/safe/safe_nav_7_red.png) no-repeat;
+  background: url(/images/safe/safe_nav_7_red.png) no-repeat;
 }
 .safe .active .step-8 {
-  background: url(../images/safe/safe_nav_8_red.png) no-repeat;
+  background: url(/images/safe/safe_nav_8_red.png) no-repeat;
 }
 .safe .active .step-9 {
-  background: url(../images/safe/safe_nav_9_red.png) no-repeat;
+  background: url(/images/safe/safe_nav_9_red.png) no-repeat;
 }
 #project-detail {
   padding: 30px;
@@ -7049,7 +7054,7 @@ a:link {
   width: 31px;
   height: 31px;
   line-height: 31px;
-  background: url(../images/sprite.png) -220px -270px;
+  background: url(/images/sprite.png) -220px -270px;
   text-align: center;
   color: #fff;
 }
