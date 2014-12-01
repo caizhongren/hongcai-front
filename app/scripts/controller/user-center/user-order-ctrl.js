@@ -1,4 +1,4 @@
-hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService, $aside, $window) {
+hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', function ($location,$scope,$rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config) {
 
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
@@ -58,7 +58,20 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
             $scope.data.push($scope.orderList[i]);
         }
     });
-
+    // 继续支付订单
+    $scope.toPay = function(projectId, orderId) {
+      OrderService.transfer.get({projectId: projectId, orderId: orderId}, function(response) {
+        if(response.ret == 1) {
+          var req = response.data.req;
+          var sign = response.data.sign;
+          var _f=new_form();//创建一个form表单
+          create_elements(_f,'req',req);//创建form中的input对象
+          create_elements(_f,'sign',sign);
+          _f.action= config.YEEPAY_ADDRESS + 'toTransfer';//form提交地址
+          _f.submit();//提交
+        }
+      });
+    };
     // 取消订单
     $scope.cancelOrder = function(orderId) {
       if($window.confirm('确定取消订单?')) {
@@ -223,19 +236,6 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$rootScope', '$s
       }
       e.value=eValue;
       return e;
-    }
-    $scope.toPay = function(projectId, orderId) {
-      OrderService.transfer.get({projectId: project.id, orderId: orderId}, function(response) {
-        if(response.ret == 1) {
-            var req = response.data.req;
-            var sign = response.data.sign;
-            var _f=new_form();//创建一个form表单
-            create_elements(_f,'req',req);//创建form中的input对象
-            create_elements(_f,'sign',sign);
-            _f.action= config.YEEPAY_ADDRESS + 'toTransfer';//form提交地址
-            _f.submit();//提交
-        }
-      });
     }
 }]);
 
