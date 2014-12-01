@@ -20,27 +20,51 @@
       </div>
     </li>
   </ul>
+
   <a href="lucky-draw.html" target="_blank">
     <img src="images/banner_advertising.png" alt="土豪标" width="100%">
   </a>
+
   <div class="hongbao-show">
     <p class="hongbao-title">宏包系列标<span>仅可用宏包投资  /  奖90%收益  /  每日更新</span></p>
     <a ui-sref="root.project-activity-group">更多></a>
     <ul>
       <li ng-repeat="item in activityList">
         <div class="hongbao-div bg-red-hongbao">
-          <!--<h4>{{ item.name }}</h4>-->
-          <h4>宏运当头标</h4>
+          <a ui-sref="root.activity-details({activityId: item.id, type: 2})"><h4>{{ item.name }}</h4></a>
           <p>2014-11-11</p>
           <p class="percent">10% + <span>90%</span></p>
           <p>年化收益</p>
-          <a ui-sref="root.activity-details({activityId: item.id, type: 2})">查看详情</a>
+          <a ui-sref="root.activity-details({activityId: item.id, type: 2})" class="a-button">查看详情</a>
         </div>
       </li>
     </ul>
   </div>
-</div>
 
+
+
+
+</div>
+  <div class="full-screen main-partner">
+    <p><strong>合作机构</strong></p>
+    <div class="">
+      <a><img src='images/hexing.png'></a>
+      <a><img src='images/tianchang_lawyer.png'></a>
+      <a><img src='images/partner_yeepay.png'></a>
+      <a><img src='images/zhaoshang_bank.png'></a>
+      <a><img src='images/hongshan.png'></a>
+      <a><img src='images/wangdaihome.png'></a>
+      <a><img src='images/wangdaieyes.png'></a>
+      <a><img src='images/minsheng_bank.png'></a>
+      <a><img src='images/gongshang_bank.png'></a>
+      <a><img src='images/jianshe_bank.png'></a>
+      <a><img src='images/youzheng_bank.png'></a>
+      <a><img src='images/china_bank.png'></a>
+      <a><img src='images/jiaotong_bank.png'></a>
+      <a><img src='images/nongye_bank.png'></a>
+      <a><img src='images/tencent_logo.png'></a>
+    </div>       
+  </div>
 <!--
     <br>
     <div class="col-xs-12 col-sm-8">
@@ -286,32 +310,7 @@
     </div>
   </div>
 </div>-->
-<!--<div class="container-fluid index-cooperation">
-  <div class="container">
-    <div class="row">
-      <div class="hidden-xs col-sm-12">
-        <p><strong>合作机构</strong></p>
-          <div class="cooperation-flow">
-            <a><img src='images/hexing.png'></a>
-            <a><img src='images/tianchang_lawyer.png'></a>
-            <a><img src='images/partner_yeepay.png'></a>
-            <a><img src='images/zhaoshang_bank.png'></a>
-            <a><img src='images/hongshan.png'></a>
-            <a><img src='images/wangdaihome.png'></a>
-            <a><img src='images/wangdaieyes.png'></a>
-            <a><img src='images/minsheng_bank.png'></a>
-            <a><img src='images/gongshang_bank.png'></a>
-            <a><img src='images/jianshe_bank.png'></a>
-            <a><img src='images/youzheng_bank.png'></a>
-            <a><img src='images/china_bank.png'></a>
-            <a><img src='images/jiaotong_bank.png'></a>
-            <a><img src='images/nongye_bank.png'></a>
-            <a><img src='images/tencent_logo.png'></a>
-          </div>
-      </div>
-    </div>
-  </div>
-</div>-->
+
 
 
 <!-- end 主体 -->

@@ -107,7 +107,7 @@ ul{
   .bg-white;
   .red-border;
 }
-.white-button:hover{
+.white-button-hover{
   .ft-white;
   .bg-red;
 }
@@ -325,7 +325,7 @@ input[type="checkbox"]:focus {
       width: 110px;
       padding: 10px 0 0 140px;
       margin: 20px 25px 0;
-      a{
+      .a-button{
         display: inline-block;
         .white-button;
         width: 110px;
@@ -333,6 +333,9 @@ input[type="checkbox"]:focus {
         .ft-center;
         line-height: 24px;
         margin-top:20px;
+      }
+      .a-button:hover{
+        .white-button-hover;
       }
     }
     .bg-grey-hongbao{
@@ -352,4 +355,11 @@ input[type="checkbox"]:focus {
     }
   }
 }
-
+.main-partner{
+  .bg-white;
+  p,div{
+    width: 980px;
+    position: relative;
+    margin: 0 auto;
+  }
+}
