@@ -242,16 +242,6 @@
  			}
  		}
  	})
-  .state('root.open-yeepay-account-success', {
-    url: '/yeepay-success/:status',
-    views: {
-      '': {
-        templateUrl: 'views/success.html',
-        controller: 'YeepaySuccessCtrl',
-        controllerUrl: 'scripts/controller/user-center/yeepay-success-ctrl'
-      }
-    }
-  })
  	.state('root.userCenter.recharge', {
  		url: '/recharge',
  		views: {
@@ -353,16 +343,25 @@
     }
   })
  	/*---------------------------------------------  yeepay  ---------------------------------------------*/
- 	.state('root.userCenter.yeepay-callback', {
- 		url: '/yeepay-callback/:yeepayService/:yeepayStatus',
- 		views: {
- 			'': {
- 				templateUrl: 'views/user-center/yeepay-callback.html',
- 				controller: 'YeepayCtrl',
- 				controllerUrl: 'scripts/controller/yeepay/yeepay-ctrl'
- 			}
- 		}
- 	})
+  .state('root.open-yeepay-account-success', {
+    url: '/yeepay-success/:status',
+    views: {
+      '': {
+        templateUrl: 'views/success.html',
+        controller: 'YeepaySuccessCtrl',
+        controllerUrl: 'scripts/controller/user-center/yeepay-success-ctrl'
+      }
+    }
+  })
+  .state('app-yeepay-callback', {
+    url: '/app-yeepay-register-callback',
+    views: {
+      '': {
+        templateUrl: 'views/wireless/register_ok_callback.html'
+      }
+    }
+  })
+
  	/*---------------------------------------------  project  ---------------------------------------------*/
   .state('root.project-category', {
     url: '/project-category',

@@ -21,16 +21,32 @@ hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams'
 
         if($('.slideshow').find('div').length == $scope.originalFile.length){
           $('.slideshow').slick({
-            dots: true,
-            arrows: false,
+            dots: false,
+            arrows: true,
             autoplay: true,
             autoplaySpeed: 1500,
             slidesToShow: 4,
             slidesToScroll: 4
           });
+
         }
 
     });
+
+    $scope.changeScale = function(){
+      if($('.fa').hasClass('fa-arrow-down')){
+        $('.sponsor-description').css({'height':'auto'});
+        $('.fa').removeClass('fa-arrow-down');
+        $('.fa').addClass('fa-arrow-up');
+        $('.fa').css({'right':'20px'});
+      }else {
+        $('.sponsor-description').css({'height':'363px'});
+        $('.fa').removeClass('fa-arrow-up');
+        $('.fa').addClass('fa-arrow-down');
+        $('.fa').css({'right':'33.4%'});
+      }
+      
+    }
   
 }]);
 

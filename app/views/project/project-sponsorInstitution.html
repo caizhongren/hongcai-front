@@ -1,9 +1,9 @@
 <div ui-view="project-sponsor-details" class="project-list-all bg-offWhite ng-scope">
 	<div class="container page-container sponsorInstitution bg-white">
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 sponsor-description">
 				<div class="row">
-			    <img src="{{guarantee.url}}" width="90" height="30" alt="logo"><!-- 数据绑定 -->
+			    <img class="margin-l-15" src="{{guarantee.url}}" width="90" height="30" alt="logo"><!-- 数据绑定 -->
 			    <label>{{guarantee.name}}</label>
 			    <hr>
 				</div>
@@ -37,10 +37,11 @@
 				    		</div>
 				    	</div>
 				</div>
+				<i class="fa fa-arrow-down" ng-click="changeScale()"></i>
 			   {{guarantee.description}}		    	
 			</div><!-- /.col-md-12 -->
 
-			<div class="col-md-12">
+			<div class="col-md-12 margin-t-15">
 				<div class="row">
 					<!-- <slick settings="slickConfig" control="slickHandle" media="media" src="views/modal/slick_slider_guarantee.html"></slick> -->
 					<div style="width:100%; background:#000;">
@@ -51,11 +52,12 @@
 								</a>
 							</div>
 						</div>
+
 					</div>
 				</div>
 			</div>
 
-			<div class="col-md-12">
+			<div class="col-md-12 padding-l-0">
 			    <div class="table-responsive">
 			    	<ul class="projects-list">
 			    		<li class="project-item row bg-row-success" ng-repeat="project in projectList">

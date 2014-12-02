@@ -1,3 +1,4 @@
+'use strict';
 
 hongcaiApp.controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$stateParams','$location', 'UserCenterService', function ($scope,$rootScope, $state, $stateParams, $location, UserCenterService) {
   $rootScope.selectSide = 'record';
@@ -10,7 +11,7 @@ hongcaiApp.controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$state
     dateStart = $scope.recFromDate;
   };
   $scope.untilDealDateChanged = function (type,dateInterval) {
-    dateEnd = $scope.recUntilDate;
+    dateEnd = moment($scope.recUntilDate).add(1,'day').subtract(1,'second').valueOf();
     $location.path('record/'+$scope.dateInterval+'/'+$scope.type+'/'+dateStart+'/'+dateEnd);
   };
 
