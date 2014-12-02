@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'ipCookie', function ($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, ipCookie) {
 
     if (ipCookie('userName')){

@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'config', function ($scope, $state, $rootScope, $stateParams, UserCenterService, config) {
         
     $rootScope.selectSide = 'security-settings';

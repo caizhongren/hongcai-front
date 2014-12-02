@@ -1,5 +1,4 @@
 'use strict';
-
 hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', function ($location,$scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config) {
 
     $rootScope.redirectUrl = $location.path();

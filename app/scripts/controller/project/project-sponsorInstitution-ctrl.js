@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams', '$location', 'ProjectService' ,function ($scope, $stateParams, $location, ProjectService) {
     $scope.sortType = $stateParams.sortType || false ;
 

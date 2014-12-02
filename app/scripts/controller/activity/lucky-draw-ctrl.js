@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$window', 'UserCenterService', function ($scope, $window, UserCenterService ) {
   $scope.status = 0;
   $scope.luckyDraw = function() {

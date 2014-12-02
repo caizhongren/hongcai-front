@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config', '$window', '$alert', function ($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config, $window, $alert) {
     $scope.giftCount = 0;
     $scope.checkFlag = true;
