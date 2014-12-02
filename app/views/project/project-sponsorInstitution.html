@@ -42,8 +42,16 @@
 
 			<div class="col-md-12">
 				<div class="row">
-					<!-- <div id="slider"></div> -->
-					<slick settings="slickConfig" control="slickHandle" media="media" src="views/modal/slick_slider_guarantee.html"></slick>
+					<!-- <slick settings="slickConfig" control="slickHandle" media="media" src="views/modal/slick_slider_guarantee.html"></slick> -->
+					<div style="width:100%; background:#000;">
+						<div class="slideshow">
+							<div ng-repeat="card in files" style="width:25%;">
+								<a href="{{ card.href }}" class="grouped_elements" rel="group1">
+									<img fancybox hc-preview-url="{{card.href}}" ng-src="{{ card.src }}" alt="" style="width:100%;height:125px;">
+								</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 
