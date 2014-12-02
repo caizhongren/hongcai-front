@@ -1,3 +1,5 @@
+'use strict';
+
 hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', function ($location,$scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config) {
 
     $rootScope.redirectUrl = $location.path();
@@ -180,10 +182,10 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
     // 等额本息  intType = 2
     var everyMonthInterestEq = function(invTotal,invInitDate,invStartDate,invEndDate,invCycle,invRate) {
       $scope.listInvPond = [];
-      var invDays, payDate, prevDate, invEarnings, currentMonthInterest; //每月的付费天数，付费日期，上次支付日期，该月的付款金额, 当月生成的的利息；
+      var invDays, payDate, prevDate, invEarnings, currentMonthInterest, payDiffDate; //每月的付费天数，付费日期，上次支付日期，该月的付款金额, 当月生成的的利息；
       var invList = {};
       invEarnings = (invTotal * invRate * Math.pow((1+invRate/invCycle),invCycle)) / (Math.pow((1+invRate/invCycle),invCycle) -1) / invCycle;
-      LastPayDate = moment(invStartDate).add(invCycle,'month').toString();
+      var LastPayDate = moment(invStartDate).add(invCycle,'month').toString();
       var diffDate = moment(LastPayDate).diff(moment(invEndDate),'days');
       if(diffDate === 0) {
         invCycle = invCycle -1;
@@ -192,7 +194,8 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
         var invList = {};
         payDate = moment(invStartDate).add(i,'month').toString();
         if (diffDate !== 0) {
-          if ( moment(payDate) > moment(invEndDate)) {
+          payDiffDate = moment(payDate).diff(moment(invEndDate),'days');
+          if ( payDiffDate > 0) {
             payDate = invEndDate;
             invDays = moment(payDate).diff(moment(prevDate), 'days', true);
             invEarnings = invTotal + invTotal*invRate*invDays/365;

@@ -1,15 +1,15 @@
-<div class="main">
-  <div class="change-area get-bg" ><!--style="display:none;">-->
-    <a href="javascript:;" class="get-lucky ab"></a>
+<div class="main" ng-controller="LuckyDrawCtrl">
+  <div class="change-area get-bg" ng-show="status === 0">
+    <a class="get-lucky ab" ng-click="luckyDraw();"></a>
     <div class="right-bg ab"></div>
   </div>
-  <div class="change-area hongbao-bg" style="display:none;">
+  <div class="change-area hongbao-bg" ng-show="status === 1">
     <p class="p-red ab">建议立即使用，宏包可用于以下内容</p>
     <p class="p-grey ab">*使用期限：自抽取日期至三个月后</p>
     <a href="javascript:;" class="a-red-button ab"></a>
     <a href="javascript:;" class="a-red-button ab"></a>
   </div>
-  <div class="change-area tuhao-bg" style="display:none;">
+  <div class="change-area tuhao-bg" ng-show="status === 2">
     <p class="p-red ab">建议立即使用，宏包可用于以下内容</p>
     <p class="p-grey ab">*使用期限：自抽取日期至三个月后</p>
     <a href="javascript:;" class="a-red-button ab"></a>

@@ -161,7 +161,7 @@
     views: {
       '': {
         templateUrl: 'views/success.html',
-        controller: 'RegisterMoblieSuccessCtrl',
+        controller: 'RegisterMobileSuccessCtrl',
         controllerUrl: 'scripts/controller/register/register-mobile-success-ctrl'
       }
     }
