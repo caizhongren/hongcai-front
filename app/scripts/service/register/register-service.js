@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.factory('RegisterService', function ($resource, DEFAULT_DOMAIN) {
 	return {
 		saveRegister: $resource(DEFAULT_DOMAIN + '/siteUser/register', {}, {

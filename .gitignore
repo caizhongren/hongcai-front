@@ -5,3 +5,5 @@ dist
 bower_components
 Gruntfile.js
 
+app/styles/bootstrap_overwrite.css
+app/styles/main_leo.css

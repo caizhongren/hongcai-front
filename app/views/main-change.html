@@ -29,9 +29,9 @@
     <p class="hongbao-title">宏包系列标<span>仅可用宏包投资  /  奖90%收益  /  每日更新</span></p>
     <a ui-sref="root.project-activity-group">更多></a>
     <ul>
-      <li ng-repeat="item in activityList">
+      <li ng-repeat="item in activityList | limitTo: 3">
         <div class="hongbao-div bg-red-hongbao">
-          <a ui-sref="root.activity-details({activityId: item.id, type: 2})"><h4>{{ item.name }}</h4></a>
+          <a ui-sref="root.activity-details({activityId: item.id, type: 2})"><h4>{{ item.name | limitTo: 5}}</h4></a>
           <p>2014-11-11</p>
           <p class="percent">10% + <span>90%</span></p>
           <p>年化收益</p>
@@ -45,7 +45,7 @@
     <div class="hot-sale-area">
       <div class="hot-sale-logo"></div>
       <a ui-sref="root.project-details({projectId: projectVo.id})">
-        <img src="{{projectVo.image}}" alt="" class="img-rounded" width="250" height="250">
+        <img ng-src="{{projectVo.image}}" alt="" class="img-rounded" width="250" height="250">
       </a>
       <div class="hot-sale-right" ng-if="projectVo">
         <a ui-sref="root.project-details({projectId: projectVo.id})" title="{{projectVo.name}}">
@@ -86,7 +86,7 @@
 
     <div class="recommended-area" ng-repeat="project in projectList | orderBy:project.sort">
       <a ui-sref="root.project-details({projectId: project.id})">
-        <img src="{{project.image}}" alt="{{project.name}}" class="img-rounded" width="230" height="230">
+        <img ng-src="{{project.image}}" alt="{{project.name}}" class="img-rounded" width="230" height="230">
       </a>
       <div class="recommended-area-right">
         <a ui-sref="root.project-details({projectId: project.id})" title="{{projectVo.name}}">{{project.name | limitTo: 10 }}...</a>

@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('UserCenterCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
 	
     $scope.selectedDate = '2014-10-16T08:50:36.394Z'; // <- [object Date]

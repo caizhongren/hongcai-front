@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('OrderCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'OrderService', 'SessionService', 'toaster', function ($scope, $state, $rootScope, $stateParams, OrderService, SessionService, toaster) {
     OrderService.investVerify.get({user: user.amount }, function(response) {
         if(response.msg == 'success') {

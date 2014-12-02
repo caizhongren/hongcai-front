@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="zh-cn" ng-app="hongcaiApp">
+<html class="no-js" lang="zh-cn" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="hongcaiApp">
   <head>
     <meta charset="utf-8">
     <title>宏财网 hongcai.com - 要理财，上宏财!</title>
@@ -25,8 +25,14 @@
     <!-- endbuild -->
 
     <!--[if lt IE 9]>
+      <script>
+        document.createElement('aboutsidebar');
+        document.createElement('helpsidebar');
+      </script>
     <script src="http://cdn.staticfile.org/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <script src="http://cdn.staticfile.org/json3/3.3.2/json3.min.js"></script>
+
     <![endif]-->
 
     <!-- build:css(.tmp) styles/main.css -->
@@ -37,7 +43,7 @@
     <link rel="stylesheet" href="styles/jquery.fullPage.css">
     <link rel="stylesheet" href="styles/newbie_guide.css">
     <link rel="stylesheet" href="styles/find_pwd_step_bar.css">
-    <!--<link rel="stylesheet"  href="styles/lucky_draw.css">-->
+    <link rel="stylesheet"  href="styles/lucky_draw.css">
 
     <!-- endbuild -->
   </head>
@@ -61,12 +67,6 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script> -->
-
-    <!-- build:js(.) scripts/oldieshim.js -->
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <![endif]-->
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->

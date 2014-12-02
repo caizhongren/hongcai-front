@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('ProjectCategoryCtrl', ['$scope', function ($scope) {
 
   $scope.projectTitle = '宏财网 - 产品介绍';

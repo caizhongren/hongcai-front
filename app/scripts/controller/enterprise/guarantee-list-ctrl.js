@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location', 'GuaranteeService' ,function ($scope, $stateParams, $location, GuaranteeService) {
     $scope.sortType = $stateParams.sortType || false ;
 

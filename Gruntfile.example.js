@@ -203,6 +203,7 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
+        exclude: ['bower_components/bootstrap/dist/css/bootstrap.css'],
         ignorePath:  /\.\.\//
       }
     },
@@ -369,12 +370,12 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        }, {
+        }, /*{
           expand: true,
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
-        }, {
+        },*/ {
           expand: true,
           cwd: 'bower_components/fontawesome',
           src: 'fonts/*',
@@ -441,6 +442,7 @@ module.exports = function (grunt) {
       'clean:server',
       'ngconstant:development',
       'wiredep',
+      'less',
       'concurrent:server',
       'autoprefixer',
       'configureProxies:server',
@@ -466,13 +468,14 @@ module.exports = function (grunt) {
     'clean:dist',
     'ngconstant:production',
     'wiredep',
+    'less',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
+    // 'cdnify',
     'cssmin',
     'uglify',
     'filerev',
@@ -484,13 +487,14 @@ module.exports = function (grunt) {
     'clean:dist',
     'ngconstant:development',
     'wiredep',
+    'less',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
+    // 'cdnify',
     'cssmin',
     'uglify',
     'filerev',
