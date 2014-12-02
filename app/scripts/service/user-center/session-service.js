@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.factory('SessionService', function ($http, $resource, $location, DEFAULT_DOMAIN) {
 	return {
 		set: function(key, value) {

@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', function ($scope, $state, $rootScope, $location, $stateParams) {
 	$scope.menus = {
             'left': [{

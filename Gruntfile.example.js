@@ -203,6 +203,7 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
+        exclude: ['bower_components/bootstrap/dist/css/bootstrap.css'],
         ignorePath:  /\.\.\//
       }
     },
@@ -369,12 +370,12 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        }, {
+        }, /*{
           expand: true,
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
-        }, {
+        },*/ {
           expand: true,
           cwd: 'bower_components/fontawesome',
           src: 'fonts/*',
@@ -445,6 +446,7 @@ module.exports = function (grunt) {
       'autoprefixer',
       'configureProxies:server',
       'connect:livereload',
+      'less',
       'watch'
     ]);
   });
@@ -472,7 +474,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
+    // 'cdnify',
     'cssmin',
     'uglify',
     'filerev',
@@ -490,7 +492,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
+    // 'cdnify',
     'cssmin',
     'uglify',
     'filerev',

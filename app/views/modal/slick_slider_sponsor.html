@@ -4,7 +4,7 @@
         <div class="cooperation-icon" ng-repeat="item in card.items">
           <a ui-sref="root.project-sponsorInstitution({guaranteeId : item.id})">
             <div class="sonsor-row margin-b-5">
-              <img src={{item.src}} width="35" height="35"/>
+              <img ng-src={{item.src}} width="35" height="35"/>
               <span class="sponsor-name">{{item.name}}</span>
             </div>
             <div class="sonsor-row bg-grey">

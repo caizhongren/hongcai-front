@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
   return {
     userSecurityInfo: $resource(DEFAULT_DOMAIN + '/siteUser/userSecurityInfo', {}),

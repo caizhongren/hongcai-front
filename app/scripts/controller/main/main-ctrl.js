@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService) {
     var loginName;
     var logout;

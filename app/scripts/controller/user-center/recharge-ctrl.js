@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config',  function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
 
     $rootScope.selectSide = 'recharge';

@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert) {
     $rootScope.redirectUrl = $location.path();
 

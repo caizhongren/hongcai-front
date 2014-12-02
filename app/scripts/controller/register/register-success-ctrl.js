@@ -1,3 +1,4 @@
+'use strict';
 hongcaiApp.controller('RegisterSuccessCtrl', ['$scope', '$timeout','$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', function ($scope, $timeout, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster) {
 
 

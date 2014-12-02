@@ -1,5 +1,4 @@
 'use strict';
-
 hongcaiApp.controller('ServiceCtrl', ['$scope', '$state', '$rootScope', '$stateParams', function ($scope, $state, $rootScope, $stateParams) {
 
     var $bottomTools = $('.bottom_tools');
