@@ -5,9 +5,8 @@
     <title>宏财网 hongcai.com - 要理财，上宏财!</title>
     <base href="/">
     <meta name="fragment" content="!">
-    <meta name="keywords" content="P2P, P2B, P2P网贷, P2B投资, P2P投资, 互联网金融, 宏财网, 投资理财, 高收益低风险, 安全理财"/>
-    <meta name="description" content="宏财网，高效、透明、增值、创新的互联网金融平台。严格的风控体系，100%本息担保，第三方资金托管，为用户提供全方位的安全理财服务。
-">
+    <meta name="keywords" content="P2P, P2B, P2P网贷, P2B投资, P2P投资, 互联网金融, 宏财网, 投资理财, 高收益低风险, 安全理财">
+    <meta name="description" content="宏财网，高效、透明、增值、创新的互联网金融平台。严格的风控体系，100%本息担保，第三方资金托管，为用户提供全方位的安全理财服务。">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +15,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
-    <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.css" />
+    <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.min.css" />
     <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css" />
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
@@ -24,18 +23,21 @@
     <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css" />
     <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
     <!-- endbuild -->
-    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.min.js"></script>
-    <!--[if lt IE 8]>
-        <script src="bower_components/firebug-lite/build/firebug-lite-debug.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="http://cdn.staticfile.org/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/dy_main.css">
     <link rel="stylesheet" href="styles/main_leo.css">
+    <!--<link rel="stylesheet"  href="styles/test.css">-->
     <link rel="stylesheet" href="styles/jquery.fullPage.css">
     <link rel="stylesheet" href="styles/newbie_guide.css">
     <link rel="stylesheet" href="styles/find_pwd_step_bar.css">
+    <!--<link rel="stylesheet"  href="styles/lucky_draw.css">-->
 
     <!-- endbuild -->
   </head>
@@ -44,7 +46,7 @@
 
     <!-- Add your site or application content here -->
 
-    <section ui-view="header" ></section>
+    <section ui-view="header"></section>
     <section ui-view class="bg-offWhite" autoscroll="true"></section>
     <section ui-view="service"></section>
     <section ui-view="footer"></section>
@@ -120,7 +122,8 @@
     <script src="scripts/controller/project/safe-ctrl.js"></script>
     <script src="scripts/controller/register/register-mail-ctrl.js"></script>
     <script src="scripts/controller/register/register-mobile-ctrl.js"></script>
-     <script src="scripts/controller/register/register-success-ctrl.js"></script>
+    <script src="scripts/controller/register/register-mobile-success-ctrl.js"></script>
+    <script src="scripts/controller/register/register-success-ctrl.js"></script>
     <script src="scripts/controller/user-center/login-ctrl.js"></script>
     <script src="scripts/controller/user-center/user-center-ctrl.js"></script>
     <script src="scripts/controller/user-center/bankcard-management-ctrl.js"></script>

@@ -6,6 +6,7 @@
 // 'test/spec/{,*/}*.js'
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
+//
 
 module.exports = function (grunt) {
 
@@ -74,7 +75,7 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css', '<%= yeoman.app %>/styles/themes/{,*/}*.less'],
+        files: ['<%= yeoman.app %>/styles/{,*/}*.css', '<%= yeoman.app %>/styles/{,*/}*.less'],
         tasks: ['newer:copy:styles', 'autoprefixer', 'less']
       },
       gruntfile: {
@@ -383,13 +384,13 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= yeoman.app %>/images',
           dest: 'newbie',
-          src: ['<%= yeoman.dist %>/images']          
+          src: ['<%= yeoman.dist %>/images']
         }, {
           //for newbie page
           expand: true,
           cwd: '<%= yeoman.app %>/scripts',
           dest: '<%= yeoman.dist %>/scripts',
-          src: '{,*/}*.js'          
+          src: '{,*/}*.js'
         }, {
           // for newbie page
           expand: true,
