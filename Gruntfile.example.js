@@ -442,11 +442,11 @@ module.exports = function (grunt) {
       'clean:server',
       'ngconstant:development',
       'wiredep',
+      'less',
       'concurrent:server',
       'autoprefixer',
       'configureProxies:server',
       'connect:livereload',
-      'less',
       'watch'
     ]);
   });
@@ -468,6 +468,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'ngconstant:production',
     'wiredep',
+    'less',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
@@ -486,6 +487,7 @@ module.exports = function (grunt) {
     'clean:dist',
     'ngconstant:development',
     'wiredep',
+    'less',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
