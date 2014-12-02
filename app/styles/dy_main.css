@@ -348,6 +348,9 @@ input:focus{
 
 .news-nav span,.news-nav span a,.friends-ship a,.a-regist,.tips-area,.p-title-dynamic{
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .news-details img,.news-details h1{

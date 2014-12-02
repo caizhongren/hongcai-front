@@ -5,7 +5,7 @@ hongcaiApp.controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location
     var sponsor = GuaranteeService.guaranteeList.get(function() {
         $scope.guaranteeList = sponsor.data.guaranteeList;
         $scope.media = [];
-
+        var arr = {};
         var m = Math.floor($scope.guaranteeList.length/9);
         var n = $scope.guaranteeList.length%9;
         

@@ -7,42 +7,47 @@ hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams'
         $scope.guarantee = sponsorInstitution.data.guarantee;
         $scope.guaranteeProjectVo = sponsorInstitution.data.guaranteeProjectVo;
         $scope.originalFile = sponsorInstitution.data.originalFile;
+        $scope.thumbnailFile = sponsorInstitution.data.thumbnailFile;
 
-        /*$scope.imgs = [];
+        //console.log(sponsorInstitution.data)
+
+        $scope.files = [];
         for(var i=0; i<$scope.originalFile.length;i++){
             var item = {};
             item.title = $scope.originalFile[i].uploadFile.originalName;
-            item.src = $scope.originalFile[i].uploadFile.url;
-            $scope.imgs.push(item);
+            item.src = $scope.thumbnailFile[i].uploadFile.url;
+            item.href = $scope.originalFile[i].uploadFile.url;
+            $scope.files.push(item);
         }
 
-        console.log($scope.imgs)
+        if($('.slideshow').find('div').length == $scope.originalFile.length){
+          $('.slideshow').slick({
+            dots: false,
+            arrows: true,
+            autoplay: true,
+            autoplaySpeed: 1500,
+            slidesToShow: 4,
+            slidesToScroll: 4
+          });
 
-        $(function(){
-            $('#slider').sudySlider($scope.imgs);
-        });*/
-
-        $scope.media = [
-          {mimeType: 'image/png', src:'images/banner-1.png', href:'' },
-          {mimeType: 'image/png', src:'images/banner-2.png', href:'' },
-          {mimeType: 'image/png', src:'images/banner-3.png', href:'banner-nine.html'},
-          {mimeType: 'image/png', src:'images/banner-4.png', href:'' },
-          {mimeType: 'image/png', src:'images/banner-5.png', href:'' }
-        ];
-        $scope.slickConfig = {
-          dots: true,
-          autoplay: true,
-          autoplaySpeed: 3000,
-          onAfterChange: function(slick, index) {
-              var slides = $('.slick-track').children().not('.slick-cloned');
-              if (index >= slides.length) return;
-              // $(slides[index]).find('video').each(playVideo);
-          }
-        };
-        $scope.slickHandle = {
-        };
+        }
 
     });
+
+    $scope.changeScale = function(){
+      if($('.fa').hasClass('fa-arrow-down')){
+        $('.sponsor-description').css({'height':'auto'});
+        $('.fa').removeClass('fa-arrow-down');
+        $('.fa').addClass('fa-arrow-up');
+        $('.fa').css({'right':'20px'});
+      }else {
+        $('.sponsor-description').css({'height':'363px'});
+        $('.fa').removeClass('fa-arrow-up');
+        $('.fa').addClass('fa-arrow-down');
+        $('.fa').css({'right':'33.4%'});
+      }
+      
+    }
   
 }]);
 
