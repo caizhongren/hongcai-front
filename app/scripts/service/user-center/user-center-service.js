@@ -26,6 +26,7 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
     getOrderBillByOrderId: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderBillByOrderId', {orderId: '$orderId'}),
     cancelOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/cancelOrder', {orderId: '$orderId'}),
     generateContractPDF: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDF', {projectId:'$projectId', orderId:'$orderId'}),
+    generateContractPDFModel: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDFModel', {}),
     luckyDraw: $resource(DEFAULT_DOMAIN + '/activity/luckyDraw', {}),
   };
 });
