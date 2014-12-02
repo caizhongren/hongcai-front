@@ -19,20 +19,26 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
       angular.element('#investment-detail').animate({width:'show'},300);
       $scope.getOrderBillByOrderId(orderId);
     }
+    $scope.generateContractPDF = function(projectId, orderId, status) {
+      if(status <= 3) {
+        UserCenterService.generateContractPDFModel.get(function(response) {
+          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel');
+        })
+      } else if( status > 3 && status <= 6){
+        UserCenterService.generateContractPDF.get({projectId: projectId, orderId: orderId}, function(response) {
+          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
+          // 简单的处理方式，可能被浏览器屏蔽。
+          // window.open('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId, '_blank', '');
+        })
+      }
 
-    $scope.generateContractPDF = function(projectId, orderId) {
-      UserCenterService.generateContractPDF.get({projectId: projectId, orderId: orderId}, function(response) {
-        $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
-        // 简单的处理方式，可能被浏览器屏蔽。
-        // window.open('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId, '_blank', '');
-      })
     };
     $scope.fromDateChanged = function () {
       dateStart = $scope.invFromDate;
     };
 
     $scope.untilDealDateChanged = function (status,dateInterval) {
-      dateEnd = $scope.invUntilDate;
+      dateEnd = moment($scope.invUntilDate).add(1,'day').subtract(1,'second').valueOf();
       $location.path('userCenter-investment/'+dateInterval+'/'+status+'/'+dateStart+'/'+dateEnd)
     };
 
