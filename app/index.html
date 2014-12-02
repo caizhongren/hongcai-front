@@ -23,15 +23,16 @@
     <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css" />
     <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
     <!-- endbuild -->
-     <!--[if lte IE 8]>
+
+    <!--[if lt IE 9]>
       <script>
         document.createElement('aboutsidebar');
         document.createElement('helpsidebar');
       </script>
-    <![endif]-->
-    <!--[if lt IE 9]>
     <script src="http://cdn.staticfile.org/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <script src="http://cdn.staticfile.org/json3/3.3.2/json3.min.js"></script>
+
     <![endif]-->
 
     <!-- build:css(.tmp) styles/main.css -->
@@ -66,12 +67,6 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script> -->
-
-    <!-- build:js(.) scripts/oldieshim.js -->
-    <!--[if lt IE 9]>
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <![endif]-->
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
