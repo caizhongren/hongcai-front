@@ -1,23 +1,13 @@
-html,body{
-    margin: 0;
-    padding: 0;
-    color: #333;
-    text-rendering: optimizelegibility;
-    _background-attachment: fixed;
-    _background-image: url(about:blank);
-    font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
-}
 .lucky-draw{
 .ab{
   position: absolute;
 }
 .main{
-  margin-top: 10px;
   width: 980px;
   height: 1050px;
   position: relative;
-  margin: 0 auto;
-  background: url(/images/get_lucky.png) -9px 10px no-repeat;
+  margin: 20px auto 0;
+  background: url(/images/get_lucky.png) -2px 0 no-repeat;
 }
 .get-lucky{
   height: 160px;
@@ -44,18 +34,19 @@ html,body{
   top: 258px;
 }
 .tips-area{
+  border: 0px solid #dbdbdb; 
   font-size: 14px;
   height: 500px;
   width: 380px;
-  top: 447px;
-  left: 400px;
+  top: 439px;
+  left: 390px;
 }
 .tips-area p{
   margin-bottom: 10px;
   line-height: 22px;
   font-weight: bold;
-  margin-top: 0px;
-  height: 30px;
+  margin: 0px;
+  height: 32px;
   padding: 0;
 }
 .get-rule-inline,.get-rule-inline:hover{
@@ -93,6 +84,7 @@ html,body{
   width: 100%;
   z-index: 2;
   font-size: 14px;
+  border: 0px solid #dbdbdb;
 }
 .get-bg{
   background: url(/images/lucky_sprite.png) -567px 32px no-repeat;
@@ -113,5 +105,8 @@ html,body{
   top: 140px;
   right: 205px;
   color: #a1a0a0;
+}
+.tips-area:hover{
+  background-color: inherit;
 }
 }
