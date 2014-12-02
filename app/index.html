@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="zh-cn" ng-app="hongcaiApp">
+<html class="no-js" lang="zh-cn" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="hongcaiApp">
   <head>
     <meta charset="utf-8">
     <title>宏财网 hongcai.com - 要理财，上宏财!</title>
@@ -23,7 +23,12 @@
     <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css" />
     <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
     <!-- endbuild -->
-
+     <!--[if lte IE 8]>
+      <script>
+        document.createElement('aboutsidebar');
+        document.createElement('helpsidebar');
+      </script>
+    <![endif]-->
     <!--[if lt IE 9]>
     <script src="http://cdn.staticfile.org/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
