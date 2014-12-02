@@ -45,7 +45,7 @@
     <div class="hot-sale-area">
       <div class="hot-sale-logo"></div>
       <a ui-sref="root.project-details({projectId: projectVo.id})">
-        <img src="{{projectVo.image}}" alt="" class="img-rounded" width="250" height="250">
+        <img ng-src="{{projectVo.image}}" alt="" class="img-rounded" width="250" height="250">
       </a>
       <div class="hot-sale-right" ng-if="projectVo">
         <a ui-sref="root.project-details({projectId: projectVo.id})" title="{{projectVo.name}}">
@@ -86,7 +86,7 @@
 
     <div class="recommended-area" ng-repeat="project in projectList | orderBy:project.sort">
       <a ui-sref="root.project-details({projectId: project.id})">
-        <img src="{{project.image}}" alt="{{project.name}}" class="img-rounded" width="230" height="230">
+        <img ng-src="{{project.image}}" alt="{{project.name}}" class="img-rounded" width="230" height="230">
       </a>
       <div class="recommended-area-right">
         <a ui-sref="root.project-details({projectId: project.id})" title="{{projectVo.name}}">{{project.name | limitTo: 10 }}...</a>

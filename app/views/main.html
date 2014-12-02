@@ -98,7 +98,7 @@
         <div class="panel-body">
           <div class="hot-sale"></div>
           <div class="hidden-xs hidden-md col-lg-5 padding-0">
-            <a ui-sref="root.project-details({projectId: projectVo.id})"><img src="{{projectVo.image}}" alt="" class="img-rounded" width="230" height="206"></a>
+            <a ui-sref="root.project-details({projectId: projectVo.id})"><img ng-src="{{projectVo.image}}" alt="" class="img-rounded" width="230" height="206"></a>
           </div>
 
           <div class="col-md-12 col-lg-7 padding-r-0 " ng-if="projectVo">
