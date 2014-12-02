@@ -4,14 +4,14 @@
     <div class="right-title">宏包奖励</div>
   </div>
   <div class="padd">
-    <span>当前账户宏包投资产品： <strong>{{orderCount.all}}</strong>个。</span>
-    <span>其中收益中： <strong>{{orderCount.returning}}</strong>个，</span>
-    <span>等待收益：<strong>{{orderCount.paying}}</strong>个。</span>
-    <span>已结清：<strong>{{orderCount.returned}}</strong>个。</span>
+    <span>当前账户宏包投资产品： <strong>{{orderCount.all || 0}}</strong>个。</span>
+    <span>其中收益中： <strong>{{orderCount.returning || 0}}</strong>个，</span>
+    <span>等待收益：<strong>{{orderCount.paying || 0}}</strong>个。</span>
+    <span>已结清：<strong>{{orderCount.returned || 0}}</strong>个。</span>
   </div>
   <div class="padd">
-    <span>宏包投资总额： <strong>{{amount.amount}}</strong>元，</span>
-    <span>宏包累计收益：<strong>{{amount.profit}}</strong>元。</span>
+    <span>宏包投资总额： <strong>{{amount.amount || 0}}</strong>元，</span>
+    <span>宏包累计收益：<strong>{{amount.profit || 0}}</strong>元。</span>
   </div>
   <div class="row">
     <div class="col-xs-12">
@@ -94,7 +94,7 @@
                     <div class="col-xs-2 text-nowrap">固定期限：</div>
                     <div class="form-group">
                       <i class="fa fa-calendar"></i>
-                      <input type="text" class="form-control" ng-model="invFromDate" data-max-date="{{ invUntilDate }}" placeholder="开始时间" data-date-format="yyyy-MM-dd" data-date-type="date" bs-datepicker ng-change="fromDateChanged();">
+                      <input type="text" class="form-control" ng-model="invFromDate" data-max-date="{{ invUntilDate }}" placeholder="开始时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="fromDateChanged();">
 
                       <i class="fa fa-arrows-h"></i>
                       <i class="fa fa-calendar"></i>
