@@ -203,7 +203,7 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        exclude: ['bower_components/bootstrap/dist/css/bootstrap.css'],
+        exclude: ['bower_components/bootstrap/dist/css/bootstrap.css', 'bower_components/angular-scenario/angular-scenario.js'],
         ignorePath:  /\.\.\//
       }
     },
