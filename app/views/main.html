@@ -268,7 +268,7 @@
             <div class="panel-body">
               <div class="row mediaList" ng-repeat="item in mediaList">
                 <div class="col-xs-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
-                <div class="col-xs-3 text-right">{{item.createTime * 1000 | date:'MM-dd'}}</div>
+                <div class="col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
               </div>
             </div>
           </div>
@@ -285,7 +285,7 @@
             <div class="panel-body">
               <div class="row noticeList" ng-repeat="item in noticeList track by $index">
                 <div class="col-xs-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
-                <div class="col-xs-3 text-right">{{item.createTime * 1000 | date:'MM-dd'}}</div>
+                <div class="col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
               </div>
             </div>
           </div>

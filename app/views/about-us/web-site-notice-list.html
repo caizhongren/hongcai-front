@@ -7,7 +7,7 @@
 		<div class="introduction-area col-md-12 col-lg-12">
 			<div class="web-show" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
 				<a ui-sref="root.about-us.web-site-notice-detail({textId: item.id})" >{{item.title| limitTo: 13 }}...</a>
-				<p class="p-date">{{item.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
+				<p class="p-date">{{item.createTime | date:'yyyy-MM-dd'}}</p>
 			</div>
 		</div>
 		<ul class="pager">

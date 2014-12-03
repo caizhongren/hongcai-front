@@ -343,7 +343,7 @@
                         </thead>
                         <tbody>
                           <tr  ng-repeat="order in orderList">
-                            <td>{{order.createTime * 1000 | date: "yy-MM-dd"}}</td>
+                            <td>{{order.createTime | date: "yy-MM-dd"}}</td>
                             <td>{{order.userName}}</td>
                             <td>{{order.orderAmount| number : 0}}元</td>
                           </tr>
@@ -363,7 +363,7 @@
                         </thead>
                         <tbody>
                           <tr  ng-repeat="preRepayment in preRepaymentList">
-                            <td>{{preRepayment.repaymentTime * 1000 | date: "yy-MM-dd"}}</td>
+                            <td>{{preRepayment.repaymentTime | date: "yy-MM-dd"}}</td>
                             <td ng-if="preRepayment.type==1">利息</td>
                             <td ng-if="preRepayment.type==2">本金</td>
                             <td ng-if="preRepayment.type==3">本金+利息</td>
