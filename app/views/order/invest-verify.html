@@ -46,9 +46,16 @@
 				<div class="row">
 					<div class="col-md-12">您当前的投资额度为：{{investAmount| number:2}} 元，最多可以使用{{giftCount}}个宏包</div>
 					<div class="col-md-3">宏包金额：100元</div>
-					<div class="col-md-6">宏包数量：
-						<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" placeholder="请选择使用数量" bs-select ng-init="selectedIcon = 0"><span class="caret"></span>
-						</button>
+					<div class="col-md-6">
+						<p class="col-md-3 col-lg-3">宏包数量：</p>
+						<!--<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" placeholder="请选择使用数量" bs-select ng-init="selectedIcon = 0"><span class="caret"></span>
+						</button>-->
+						<div class="row">
+							<div class="selectContainer col-md-3 col-lg-3 select-area-div">
+								<select name="language" class="form-control select-area" ng-model="selectVal">
+            		</select>
+           		</div>
+           </div>
 					</div>
 				</div>
 			</div>
@@ -57,10 +64,7 @@
 			<div class="col-md-12" ng-switch-default>	
 			</div>
 			<div class="col-md-12" ng-switch-when="true">
-				<div class=""></div>
-				<ul class="nav nav-pills">
-					<li class="invest-check"><input type="checkbox" checked="false" style="height:13px;"></li>同意《投资协议》以及《隐私条款》
-				</ul>
+					<input type="checkbox" checked="false"/>同意《投资协议》以及《隐私条款》
 			</div>
 		</div>
 		<div class="row list-item"  ng-switch="investAmount - capital.balance < 0">
@@ -76,7 +80,7 @@
 					<div class="form-group mgn-top">
 						您将要支付<span class="ftw-b ft-red">{{investAmount | number:2}}</span>元，核实信息无误后请确认
 					</div>
-					<input type="button" value="确认" class="red-button col-md-1 col-lg-1" ng-click="transfer(project, investAmount, selectedIcon)"/>
+					<input type="button" value="确认" class="red-button col-md-1 col-lg-1" ng-click="transfer(project, investAmount, selectVal)"/>
 					<input type="button" value="取消" class="white-button col-md-1 col-lg-1" style="margin-left:10px;" />
 				</form>
 			</div>

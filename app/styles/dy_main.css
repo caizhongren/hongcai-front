@@ -957,3 +957,11 @@ input:focus{
 .main-right{
   padding-right: 0 !important;
 }
+.select-area-div{
+  height: 20px;
+  margin-left: -40px;
+}
+.select-area-div select{
+  height: 100%;
+  padding: 0;
+}

@@ -268,7 +268,6 @@
                   </div>
 
                   <div class="row padding-t-0" ng-if="isLogged && project.progress < 100 && project.status != 6">
-                  <!--{{securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus}}-->
                     <div class="col-xs-12" ng-if="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus < 3">
                       <a ui-sref="root.userCenter.security-settings" class="btn btn-danger btn-lg btn-block">请完善资料</a>
                     </div>
@@ -276,7 +275,7 @@
                       <div ng-switch on="isAvailable">
                         <div class="col-xs-12" ng-switch-when="1">
                           <!-- 有未完成的订单时展示 -->
-                          <button class="btn btn-lg btn-danger btn-block"  data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即投资
+                          <button class="btn btn-lg btn-danger btn-block"  data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即投资</button>
                         </div>
                         <form ng-submit="isAvailableInvest(project);" ng-switch-default>
                           <input type="number" min="0" max="1000000" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required ng-switch-default>

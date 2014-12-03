@@ -8,27 +8,27 @@
                 <div class="row">
                   <div class="hidden-xs hidden-md col-lg-5">
                     <img ng-src="{{project.image}}" alt="" ph-img="240x240" class="img-rounded">
-                  </div> <!-- .hidden-xs.col-sm-4 -->
+                  </div> 
                   <div class="col-lg-7">
                     <div class="row">
                       <div class="col-xs-12">
                         <h1 class="project-name">{{ project.name || '项目名称'}}</h1>
                       </div>
-                    </div> <!-- .row -->
+                    </div> 
                     <div class="row">
                       <div class="col-xs-12 col-sm-4 border-r">
                         <h3 class="text-center text-nowrap hc-text-red"><small>10%+</small><strong>90%</strong></h3>
                         <h4 class="text-center text-nowrap">年化收益</h4>
-                      </div> <!-- .col-xs-12.col-sm-4 -->
+                      </div>
                       <div class="col-xs-12 col-sm-4 border-r">
                         <h3 class="text-center text-nowrap">无上限</h3>
                         <h4 class="text-center text-nowrap">项目规模</h4>
-                      </div> <!-- .col-xs-12.col-sm-4 -->
+                      </div> 
                       <div class="col-xs-12 col-sm-4">
                         <h3 class="text-center text-nowrap">3天</h3>
                         <h4 class="text-center text-nowrap">项目期限</h4>
-                      </div> <!-- .col-xs-12.col-sm-4 -->
-                    </div> <!-- .row -->
+                      </div> 
+                    </div> 
                     <hr style="margin-top: 9px;margin-bottom: 9px;">
                     <div class="row">
                       <div class="col-xs-12">
@@ -40,14 +40,14 @@
                       <div class="col-xs-12">
                         <h5>业务类型：促销活动</h5>
                       </div>
-                    </div> <!-- .row -->
-                  </div> <!-- .col-sm-8 -->
+                    </div> 
+                  </div> 
 
-                </div> <!-- .row -->
-              </div> <!-- .panel-body -->
-            </div> <!-- .panel.panel-default -->
-          </div> <!-- .col-xs-12 -->
-        </div> <!-- .row -->
+                </div> 
+              </div> 
+            </div> 
+          </div> 
+        </div> 
         <div class="row">
           <div class="hidden-xs col-sm-12">&nbsp;</div>
         </div>
@@ -56,8 +56,6 @@
             <div class="panel panel-default project-info" ng-init="activeTab=0;">
               <ul class="nav nav-pills nav-justified">
                 <li ng-class="{active: activeTab===$index}" ng-repeat="tab in tabs"><a ng-click="switchTab($index)">{{tab.title}}</a></li>
-                <!-- <li ng-class="{active: activeTab===2}"><a ng-click="activeTab=2;">activeTab: {{activeTab}}</a></li>
-                <li ng-class="{active: activeTab===3}"><a ng-click="activeTab=3;">activeTab: {{activeTab}}</a></li> -->
               </ul>
               <div class="tab-content">
                 <div class="tab-pane" ng-class="{active: activeTab===$index}" ng-repeat="tab in tabs">
@@ -78,7 +76,7 @@
                         </div>
                       </div>
                     </div>
-                  </section> <!-- section -->
+                  </section> 
                   <section ng-if="tab.title==='活动规则'">
                     <div class="container-fluid">
                       <div class="row">
@@ -97,7 +95,7 @@
                         </div>
                       </div>
                     </div>
-                  </section> <!-- section -->
+                  </section>
                   <section ng-if="tab.title==='活动历程'">
                     <div class="container-fluid">
                     <div class="container-fluid">
@@ -153,13 +151,13 @@
                         </div>
                       </div>
                     </div>
-                  </section> <!-- section -->
+                  </section> 
                 </div>
-              </div> <!-- .tab-content -->
-            </div> <!-- .panel -->
-          </div> <!-- .col-xs-12 -->
-        </div> <!-- .row -->
-      </div> <!-- .col-xs-12.col-md-8 -->
+              </div> 
+            </div>
+          </div> 
+        </div> 
+      </div> 
       <div class="col-xs-12 col-md-4">
         <div class="row">
           <div class="col-xs-12">
@@ -188,13 +186,6 @@
 
                     <a ui-sref="root.login({isRedirect: true})" class="btn btn-danger btn-lg btn-block">请先登录</a>
 
-                    <!-- <button class="btn btn-lg btn-danger" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-duration="3" data-animation="am-fade-and-slide-top" data-container="body" data-keyboard="true" bs-alert="alert">Custom alert
-                      <br>
-                      <small>(using data-template)</small>
-                    </button> -->
-
-
-
                   </div>
 
                   <div class="col-xs-12 padding-0" ng-if="isLogged && project.progress >= 100">
@@ -222,25 +213,17 @@
                   <div class="col-xs-12" ng-if="isLogged && project.status == 6">
                     <a href="javascript:;" class="btn btn-default btn-lg btn-block">即将开始</a>
                   </div>
-                  <!-- <div class="row">
-                    <div class="col-xs-12">
-                      <a href="" class="btn btn-danger btn-lg btn-block">立即投资</a>
-                    </div>
-                  </div> -->
-                </div> <!-- .panel-body -->
-              </div> <!-- .panel.panel-default -->
+                </div> 
+              </div> 
             </div>
-          </div> <!-- .col-xs-12 -->
-        </div> <!-- .row -->
+          </div> 
+        </div> 
         <div class="row">
           <div class="col-xs-12">
             <div class="panel panel-default" ng-init="activeTab_right=0;">
-              <!-- <div class="panel-heading ft-16 padding-tAb"> -->
-                <!-- <strong>投资记录</strong> -->
               <ul class="nav nav-pills nav-justified border-b">
                 <li ng-class="{active: activeTab_right===$index}" ng-repeat="tab_right in tabs_right"><a ng-click="switchTab_right($index)">{{tab_right.title}}</a></li>
               </ul>
-              <!-- </div> -->
               <div class="tab-content">
                 <div class="tab-pane" ng-class="{active: activeTab_right===$index}" ng-repeat="tab_right in tabs_right">
                   <section ng-if="tab_right.title==='投资记录'">
@@ -267,7 +250,7 @@
               </div>
             </div>
           </div>
-        </div> <!-- .row -->
-      </div> <!-- .col-xs-12.col-md-5 -->
+        </div> 
+      </div> 
     </div>
 </div>
