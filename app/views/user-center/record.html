@@ -117,7 +117,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-        <td>{{ item.createTime*1000 | date: 'yyyy-MM-dd'}}</td>
+        <td>{{ item.createTime | date: 'yyyy-MM-dd'}}</td>
         <td>{{ typeValue[item.type] }}</td>
         <td>{{item.description}}</td>
         <td>{{item.getAmount}}</td>

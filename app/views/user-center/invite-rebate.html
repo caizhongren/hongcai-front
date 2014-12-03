@@ -39,7 +39,7 @@
 		<tbody>
 			<tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
 				<td>{{item.user.name}}</td>
-				<td>{{item.user.createTime * 1000 | date:'yyyy-MM-dd'}}</td>
+				<td>{{item.user.createTime | date:'yyyy-MM-dd'}}</td>
 				<td>{{item.gift.amount}}</td>
 			</tr>
 		</tbody>

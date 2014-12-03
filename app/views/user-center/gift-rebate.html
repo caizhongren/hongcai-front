@@ -126,8 +126,8 @@
       <td>
         {{ item.projectName }}
       </td>
-        <td>{{ item.valueDate*1000 | date: 'yyyy-MM-dd' }}</td>
-        <td>{{ item.settlementDate*1000 | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ item.valueDate | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ item.settlementDate | date: 'yyyy-MM-dd' }}</td>
         <td>{{ item.orderAmount }}</td>
         <td>{{ item.profit }}</td>
         <td>

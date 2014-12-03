@@ -156,7 +156,7 @@
     <div class="statistical-area">
       <div class="media-report" ng-repeat="item in mediaList">
         <a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title | limitTo: 13}}...</a>
-        <p>{{item.createTime * 1000 | date:'MM-dd'}}</p>
+        <p>{{item.createTime | date:'MM-dd'}}</p>
       </div>
     </div>
 
@@ -169,7 +169,7 @@
     <div class="statistical-area">
       <div class="media-report" ng-repeat="item in noticeList track by $index">
         <a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title | limitTo: 13}}...</a>
-        <p>{{item.createTime * 1000 | date:'MM-dd'}}</p>
+        <p>{{item.createTime | date:'MM-dd'}}</p>
       </div>
     </div>
     

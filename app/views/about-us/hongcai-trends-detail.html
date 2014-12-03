@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="introduction-area col-md-12 col-lg-12">
 			<h3 class="details-title col-md-10 col-lg-10">{{text.title}}</h3>
-			<p class="p-date">{{text.createTime * 1000 | date:'yyyy-MM-dd'}}</p>
+			<p class="p-date">{{text.createTime | date:'yyyy-MM-dd'}}</p>
 			<div class="p-details" ta-bind ng-model="text.content"></div>
 		</div>
 	</div>
