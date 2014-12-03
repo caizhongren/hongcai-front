@@ -124,10 +124,10 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
             //   $window.alert('测试提示：首次付息日应该大于放款日期!,请珍惜张枫这个帐号。');
             //   return;
             // }
-            if (invType === 0 ) {
+            if (invType === 1 ) {
               // 先息后本
               everyMonthInterestPri(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
-            } else if (invType === 1) {
+            } else if (invType === 2) {
               everyMonthInterestEq(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
               // 等额本息
             }
