@@ -313,6 +313,23 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4>宏财动态 <small class="pull-right"><a href="/hongcai-trends">更多 &gt;</a></small></h4>
+            </div>
+
+            <div class="panel-body">
+              <div class="row trendList" ng-repeat="item in trendList track by $index">
+                <div class="col-xs-9"><a ui-sref="root.about-us.hongcai-trends-detail({textId: item.id})">{{item.title}}</a></div>
+                <div class="col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="row help">
         <div class="col-xs-12">
           <div class="panel panel-default">

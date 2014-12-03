@@ -37,6 +37,11 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
         $scope.noticeList = $scope.textList.slice(0, 4);
     });
 
+    AboutUsService.textList.get({category: 3}, function(response) {
+        $scope.textList = response.data.textList;
+        $scope.trendList = $scope.textList.slice(0, 4);
+    });
+
     $rootScope.selectPage = $location.path().split('/')[1];
 
 

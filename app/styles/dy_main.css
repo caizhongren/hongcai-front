@@ -453,6 +453,10 @@ input:focus{
   overflow: hidden;
 }
 
+.news-details p {
+  margin-bottom: 3px;
+}
+
 .verify-input:focus,.userCenter .form-group select{
   outline: none;
 }
