@@ -34,7 +34,9 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
         $scope.day = $scope.dateArray[2].split(' ')[0];
         $scope.timeArray = $scope.dateArray[2].split(' ')[1].split(':');
         $scope.statDate = new Date($scope.dateArray[0], $scope.dateArray[1]-1, $scope.day, $scope.timeArray[0],$scope.timeArray[1],$scope.timeArray[2]+30);
-       
+        
+        console.log($scope.statDate);
+
         /*$scope.statDate = new Date('2014', '10', '21', '20','17','10');*///假数据
 
         $scope.finished = function(){
