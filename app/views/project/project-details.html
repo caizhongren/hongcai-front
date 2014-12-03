@@ -268,7 +268,7 @@
                   </div>
 
                   <div class="row padding-t-0" ng-if="isLogged && project.progress < 100 && project.status != 6">
-                  {{securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus}}
+                  <!--{{securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus}}-->
                     <div class="col-xs-12" ng-if="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus < 3">
                       <a ui-sref="root.userCenter.security-settings" class="btn btn-danger btn-lg btn-block">请完善资料</a>
                     </div>

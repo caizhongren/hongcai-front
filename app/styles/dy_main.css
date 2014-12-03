@@ -927,4 +927,29 @@ input:focus{
 }
 .hongbao-area{
   border: 1px solid #dbdbdb;
+  background-color: #fff;
+  padding: 0 20px;
+}
+.hongbao-title a{
+  display: inline-block;
+  float: right;
+  margin-top: -30px;
+}
+.hongbao-title{
+  border-bottom: 1px solid #dbdbbd;
+}
+.hongcai-body{
+  margin:25px 0;
+}
+.hongcai-body a{
+  display: block;
+}
+.hongcai-body span{
+  color: #e94828;
+}
+.hongbao-img{
+  padding-left: 30px !important;
+}
+.main-right{
+  padding-right: 0 !important;
 }
