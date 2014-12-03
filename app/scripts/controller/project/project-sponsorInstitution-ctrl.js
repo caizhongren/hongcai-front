@@ -9,6 +9,17 @@ hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams'
         $scope.originalFile = sponsorInstitution.data.originalFile;
         $scope.thumbnailFile = sponsorInstitution.data.thumbnailFile;
 
+        $scope.currentPage = 0;
+        $scope.pageSize = 6;
+        $scope.data = [];
+
+        $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+        }
+        for (var i = 0; i < $scope.projectList.length; i++) {
+            $scope.data.push($scope.projectList[i]);
+        }
+
         //console.log(sponsorInstitution.data)
 
         $scope.files = [];
@@ -40,11 +51,13 @@ hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams'
         $('.fa').removeClass('fa-arrow-down');
         $('.fa').addClass('fa-arrow-up');
         $('.fa').css({'right':'20px'});
+        $('.fa').text('收起');
       }else {
         $('.sponsor-description').css({'height':'363px'});
         $('.fa').removeClass('fa-arrow-up');
         $('.fa').addClass('fa-arrow-down');
         $('.fa').css({'right':'33.4%'});
+        $('.fa').text('展开');
       }
       
     }
