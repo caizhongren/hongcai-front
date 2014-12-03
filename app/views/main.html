@@ -55,17 +55,17 @@
           <h3>宏包系列标 
           <small>仅可用宏包投资 | 奖90%收益 | 每日更新 | </small>
           </h3>
-          <a ui-sref="root.project-activity-group">更多...</a>
+          <a ui-sref="root.project-activity-group">更多&gt;</a>
         </div>
         <div class="col-xs-12 hongcai-body">
           <div class="col-xs-4" ng-repeat="item in activityList | limitTo: 3">
             <div class="row">
               <div class="col-xs-6 hongbao-img">
-                <img src="/images/main_hongbao_red.png" alt="">
+                <img src="/images/main_hongbao_red.png" alt="宏运标" >
               </div>
               <div class="col-xs-6">
                 <h4>{{ item.name | limitTo:5}}</h4>
-                <small>2014-00-11</small>
+                <small>{{ item.releaseStartTime | date: 'yyyy-MM-dd' }}</small>
                 <h4>10% + <span>90%</span></h4>
                 <small>年化收益</small>
                 <a ui-sref="root.activity-details({activityId: item.id, type: 2})" class="btn btn-primary" role="button">查看详情</a>

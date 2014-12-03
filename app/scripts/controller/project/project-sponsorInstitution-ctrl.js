@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams', '$location', 'ProjectService' ,function ($scope, $stateParams, $location, ProjectService) {
+hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams', '$location', '$timeout', 'ProjectService', function ($scope, $stateParams, $location, $timeout, ProjectService) {
     $scope.sortType = $stateParams.sortType || false ;
 
     var sponsorInstitution = ProjectService.sponsorInstitution.get({guaranteeId: $stateParams.guaranteeId}, function() {
@@ -31,34 +31,39 @@ hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams'
             $scope.files.push(item);
         }
 
-        if($('.slideshow').find('div').length == $scope.originalFile.length){
-          $('.slideshow').slick({
-            dots: false,
-            arrows: true,
-            autoplay: true,
-            autoplaySpeed: 1500,
-            slidesToShow: 4,
-            slidesToScroll: 4
-          });
+        var promise = $timeout(function(){
+            if($('.slideshow').find('div').length === $scope.originalFile.length){
+                $('.slideshow').slick({
+                    dots: false,
+                    arrows: true,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                    slidesToShow: 4,
+                    slidesToScroll: 4
+                });
+                $timeout.cancel(promise);
+            }
 
-        }
+        },10);
+
+
 
     });
 
     $scope.changeScale = function(){
-      if($('.fa').hasClass('fa-arrow-down')){
-        $('.sponsor-description').css({'height':'auto'});
-        $('.fa').removeClass('fa-arrow-down');
-        $('.fa').addClass('fa-arrow-up');
-        $('.fa').css({'right':'20px'});
-        $('.fa').text('收起');
-      }else {
-        $('.sponsor-description').css({'height':'363px'});
-        $('.fa').removeClass('fa-arrow-up');
-        $('.fa').addClass('fa-arrow-down');
-        $('.fa').css({'right':'33.4%'});
-        $('.fa').text('展开');
-      }
+        if($('.fa').hasClass('fa-arrow-down')){
+            $('.sponsor-description').css({'height':'auto'});
+            $('.fa').removeClass('fa-arrow-down');
+            $('.fa').addClass('fa-arrow-up');
+            $('.fa').css({'right':'20px'});
+            $('.fa').text('收起');
+        }else {
+            $('.sponsor-description').css({'height':'363px'});
+            $('.fa').removeClass('fa-arrow-up');
+            $('.fa').addClass('fa-arrow-down');
+            $('.fa').css({'right':'33.4%'});
+            $('.fa').text('展开');
+        }
       
     }
   

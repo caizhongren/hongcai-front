@@ -64,7 +64,7 @@
 			<div class="col-md-12" ng-switch-default>	
 			</div>
 			<div class="col-md-12" ng-switch-when="true">
-					<input type="checkbox" checked="false"/>同意《投资协议》以及《隐私条款》
+					<input type="checkbox" checked="false" ng-model="$parent.checkInvFlag"/>同意《投资协议》以及《隐私条款》
 			</div>
 		</div>
 		<div class="row list-item"  ng-switch="investAmount - capital.balance < 0">
@@ -80,7 +80,11 @@
 					<div class="form-group mgn-top">
 						您将要支付<span class="ftw-b ft-red">{{investAmount | number:2}}</span>元，核实信息无误后请确认
 					</div>
+<<<<<<< HEAD
 					<input type="button" value="确认" class="red-button col-md-1 col-lg-1" ng-click="transfer(project, investAmount, selectVal)"/>
+=======
+					<input type="button" value="确认" class="col-md-1 col-lg-1" ng-class="{'red-button': checkInvFlag}" ng-disabled="!checkInvFlag" ng-click="transfer(project, investAmount, selectedIcon)"/>
+>>>>>>> ef0ea47def323e49acedce2579ffe92b39afc07d
 					<input type="button" value="取消" class="white-button col-md-1 col-lg-1" style="margin-left:10px;" />
 				</form>
 			</div>

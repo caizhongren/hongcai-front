@@ -3,8 +3,8 @@ hongcaiApp.controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$state
   $rootScope.selectSide = 'record';
   var dateStart = 0;
   var dateEnd = 0;
-  $scope.type = $stateParams.type;
-  $scope.dateInterval = $stateParams.dateInterval;
+  $scope.type = $stateParams.type || 0;
+  $scope.dateInterval = $stateParams.dateInterval || 0;
   $scope.typeValue = { '1': '充值', '2': '提现', '3': '投资', '4,5': '回款' };
   $scope.fromDealDateChanged = function () {
     dateStart = $scope.recFromDate;
@@ -18,8 +18,8 @@ hongcaiApp.controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$state
     $scope.dealList = getDealByUser.data.dealList;
     // $scope.recFromDate = getDealByUser.data.dateStart;
     // $scope.recUntilDate = getDealByUser.data.dateEnd;
-    $scope.type = getDealByUser.data.type;
-    $scope.dateInterval = getDealByUser.data.dateInterval;
+    // $scope.type = getDealByUser.data.type;
+    // $scope.dateInterval = getDealByUser.data.dateInterval;
     $scope.userId = getDealByUser.data.userId;
     $scope.capital = getDealByUser.data.capital;
     $scope.currentPage = 0;
