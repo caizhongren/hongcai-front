@@ -1,6 +1,7 @@
 'use strict';
 hongcaiApp.controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config',function ($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config) {
     $scope.giftCount = 0;
+    $scope.checkInvFlag = true;
     OrderService.investVerify.get({projectId: $stateParams.projectId, amount: $stateParams.amount, }, function(response) {
 
         if(response.ret == 1) {
