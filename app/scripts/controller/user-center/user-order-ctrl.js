@@ -101,14 +101,14 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
           if(response.data.project) {
             var rdp = response.data.project;
              //总融资额
-            var invInitDate = moment.unix(rdp.valueDate).toString();
+            var invInitDate = moment(rdp.valueDate).toString();
             var accountDay = rdp.accountDay;
             var invStartDate = moment([moment(invInitDate).year(), moment(invInitDate).month(), accountDay]).toString();
             var idiffDay = moment(invStartDate).diff(moment(invInitDate), 'days');
             if (idiffDay <= 0) {
               invStartDate = moment(invStartDate).add(1,'month').toString();
             }
-            var invEndDate = moment.unix(rdp.repaymentDate).toString();
+            var invEndDate = moment(rdp.repaymentDate).toString();
             var invCycle = rdp.cycle;
             // console.log('invCycle: ' + invCycle);
             var invType = rdp.type;
@@ -217,9 +217,6 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
         $scope.listInvPond.push(invList);
       }
     };
-    var changeDateFromat = function(iDate) {
-      return moment([moment.unix(iDate).year(), moment.unix(iDate).month(), moment.unix(iDate).date()]);
-    }
 
     function new_form(){
       var f = document.createElement('form');

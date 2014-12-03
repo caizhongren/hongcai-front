@@ -37,7 +37,7 @@
 				    		</div>
 				    	</div>
 				</div>
-				<i class="fa fa-arrow-down" ng-click="changeScale()"></i>
+				<i class="fa fa-arrow-down" ng-click="changeScale()">展开</i>
 			   {{guarantee.description}}		    	
 			</div><!-- /.col-md-12 -->
 
@@ -60,7 +60,7 @@
 			<div class="col-md-12 padding-l-0">
 			    <div class="table-responsive">
 			    	<ul class="projects-list">
-			    		<li class="project-item row bg-row-success" ng-repeat="project in projectList">
+			    		<li class="project-item row bg-row-success" ng-repeat="project in projectList | startFrom:currentPage * pageSize | limitTo:pageSize">
 			    			<div class="col-md-8">
 
 			    				<div class="row">
@@ -93,7 +93,7 @@
 
 				    <ul class="pager ng-binding">
 					   <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1" disabled="disabled">上一页</button></li>
-					  1 / 1 共 6 条
+					  {{currentPage + 1 }} / {{numberOfPages()}} 共 {{data.length}} 条
 					  <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1" disabled="disabled">下一页</button></li>
 					</ul>
 				</div>
