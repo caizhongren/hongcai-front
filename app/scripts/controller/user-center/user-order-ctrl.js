@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', function ($location,$scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config) {
+hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function ($location,$scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
 
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
@@ -74,6 +74,8 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
           create_elements(_f,'sign',sign);
           _f.action= config.YEEPAY_ADDRESS + 'toTransfer';//form提交地址
           _f.submit();//提交
+        } else {
+          toaster.pop('warning', '提示:', response.msg);
         }
       });
     };
@@ -82,10 +84,11 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
       if($window.confirm('确定取消订单?')) {
       // 确定要删除订单的弹窗。
         UserCenterService.cancelOrder.get({orderId: orderId}, function(response){
-          if(response.ret == 1) {
+          if(response.ret === 1) {
             $window.location.reload();
             // 刷新页面
-            console.log('cancelOrder sucess!');
+          } else {
+            toaster.pop('warning', '提示:', '无法取消订单，请重试。');
           }
         });
       }
@@ -94,7 +97,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
 
     $scope.getOrderBillByOrderId = function(orderId) {
       UserCenterService.getOrderBillByOrderId.get({orderId: orderId}, function(response) {
-        if(response.ret == 1) {
+        if(response.ret === 1) {
           if(response.data.order) {
             var invTotal = response.data.order.orderAmount;
           }

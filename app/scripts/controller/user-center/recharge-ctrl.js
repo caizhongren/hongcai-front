@@ -1,8 +1,6 @@
 'use strict';
-hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config',  function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
-
+hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', function ( $location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
     $rootScope.selectSide = 'recharge';
-
     $scope.balance = 0;
     UserCenterService.getUserBalance.get({}, function(response) {
             if(response.ret == 1) {
@@ -49,7 +47,7 @@ hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', '$state', '$rootS
 
     $scope.recharge = function(amount) {
     	UserCenterService.yeepayRecharge.get({amount: amount}, function(response) {
-    		if(response.ret == 1) {
+    		if(response.ret === 1) {
     			var req = response.data.req;
     			var sign = response.data.sign;
                 var _f=new_form();
@@ -57,9 +55,9 @@ hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', '$state', '$rootS
                 create_elements(_f,'sign',sign);
                 _f.action=config.YEEPAY_ADDRESS + 'toRecharge';
                 _f.submit();
-
             } else {
-
+                toaster.pop('warning', '信息提示', response.msg);
+                $state.go('root.userCenter.security-settings');
             }
         });
     };   
