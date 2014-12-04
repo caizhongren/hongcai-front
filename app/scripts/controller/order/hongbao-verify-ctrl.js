@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config', '$window', '$alert', function ($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config, $window, $alert) {
+hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config', 'toaster', '$alert', function ($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config, toaster, $alert) {
     $scope.giftCount = 0;
     $scope.checkFlag = true;
     OrderService.hongbaoVerify.get({projectId: $stateParams.activityId, amount: $stateParams.amount, }, function(response) {
@@ -10,8 +10,12 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
            $scope.giftCount = response.data.giftCount;
            $scope.investAmount = $stateParams.amount;
            if($scope.investAmount > $scope.capital) {
-            alert('亲，宏包超额了');
+            // $scope.msg = '亲，宏包超额了！';
+            // var alertDialog = $modal({scope: $scope, template: 'views/modal/simple-dialog.html', show: true});
+            // alert('亲，宏包超额了');
+            toaster.pop('warning', '错误', '亲，宏包超额了');
             $location.path('activity/' + $stateParams.activityId + '/' + 2);
+            return;
            }
            $scope.icons = [
                 {value :'',label:''},
@@ -25,9 +29,11 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
             }
         }  else if (response.ret == -1){
             if (response.code == 1){
-                alert('已经卖光啦！');
+                toaster.pop('warning', '错误', '已经卖光啦！');
+                // alert('已经卖光啦！');
             } else {
-                alert(response.msg);
+                toaster.pop('warning', '错误', response.msg);
+                // alert(response.msg);
             }
             $location.path('project-activity-group');
         }
@@ -38,7 +44,8 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
           if(response.ret == 1) {
             // $scope.msg = '已支付' + investAmount + '！' + '感谢您使用。';
             // var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
-            $window.alert('支付成功,感谢您使用。');
+            toaster.pop('success', '提示', '支付成功,感谢您使用。');
+            // $window.alert('支付成功,感谢您使用。');
             $state.go('root.userCenter.gift-rebate', {type: 99});
 
           }
