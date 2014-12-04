@@ -78,9 +78,6 @@ hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$st
             if (invType === 1 ) {
               // 先息后本
               everyMonthInterestPri(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
-            } else if (invType === 2) {
-              everyMonthInterestEq(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
-              // 等额本息
             }
             if (response.billList) {
               var bill = response.billList;
@@ -127,42 +124,6 @@ hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$st
         // console.log('invDays: ' + invDays);
         invEarnings = invTotal * invRate * invDays / 365;   //计算利率
         // console.log('invEarnings: ' + invEarnings);
-        if (i === invCycle) {
-          invEarnings = invEarnings + invTotal;
-        }
-        prevDate = payDate;
-        invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
-        $scope.listInvPond.push(invList);
-      }
-    };
-    // 等额本息  intType = 2
-    var everyMonthInterestEq = function(invTotal,invInitDate,invStartDate,invEndDate,invCycle,invRate) {
-      $scope.listInvPond = [];
-      var invDays, payDate, prevDate, invEarnings, currentMonthInterest, payDiffDate; //每月的付费天数，付费日期，上次支付日期，该月的付款金额, 当月生成的的利息；
-      var invList = {};
-      invEarnings = (invTotal * invRate * Math.pow((1+invRate/invCycle),invCycle)) / (Math.pow((1+invRate/invCycle),invCycle) -1) / invCycle;
-      var LastPayDate = moment(invStartDate).add(invCycle,'month').toString();
-      var diffDate = moment(LastPayDate).diff(moment(invEndDate),'days');
-      if(diffDate === 0) {
-        invCycle = invCycle -1;
-      }
-      for(var i = 0; i <= invCycle; i++) {
-        var invList = {};
-        payDate = moment(invStartDate).add(i,'month').toString();
-        if (diffDate !== 0) {
-          payDiffDate = moment(payDate).diff(moment(invEndDate),'days');
-          if ( payDiffDate > 0) {
-            payDate = invEndDate;
-            invDays = moment(payDate).diff(moment(prevDate), 'days', true);
-            invEarnings = invTotal + invTotal*invRate*invDays/365;
-            invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
-            $scope.listInvPond.push(invList);
-            break;
-          } else {
-            currentMonthInterest = invTotal*invRate/12;
-            invTotal = invTotal - (invEarnings - currentMonthInterest);
-          }
-        }
         prevDate = payDate;
         invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
         $scope.listInvPond.push(invList);
