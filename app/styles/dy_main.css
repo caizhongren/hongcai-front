@@ -509,6 +509,8 @@ input:focus{
 .regist-check-img,
 .login-check-img{
   margin-top: -4px;
+  font-size: 18px;
+  color: #d8271c;
 }
 .regist-input-tips,
 .login-input-tips{
@@ -937,7 +939,7 @@ input:focus{
 .hongbao-title a{
   display: inline-block;
   float: right;
-  margin-top: -30px;
+  margin: -30px -20px 0 0;
 }
 .hongbao-title{
   border-bottom: 1px solid #dbdbbd;
@@ -964,4 +966,10 @@ input:focus{
 .select-area-div select{
   height: 100%;
   padding: 0;
+}
+.hongbao-grey{
+  background: url(/images/sprite.png) -260px -1625px no-repeat;
+}
+.hongbao-red{
+  background: url(/images/sprite.png) -260px -1855px no-repeat;
 }

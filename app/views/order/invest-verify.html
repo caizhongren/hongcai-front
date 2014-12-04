@@ -51,8 +51,9 @@
 						<!--<button type="button" class="btn btn-default" ng-model="selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in icons" placeholder="请选择使用数量" bs-select ng-init="selectedIcon = 0"><span class="caret"></span>
 						</button>-->
 						<div class="row">
-							<div class="selectContainer col-md-3 col-lg-3 select-area-div">
+							<div class="selectContainer col-md-4 col-lg-4 select-area-div">
 								<select name="language" class="form-control select-area" ng-model="selectVal">
+								<option value="" disabled selected>请选择使用数量</option>
             		</select>
            		</div>
            </div>
@@ -64,7 +65,7 @@
 			<div class="col-md-12" ng-switch-default>	
 			</div>
 			<div class="col-md-12" ng-switch-when="true">
-					<input type="checkbox" checked="false" ng-model="$parent.checkInvFlag"/>同意《投资协议》以及《隐私条款》
+					<input type="checkbox" ng-check="true" ng-model="$parent.checkInvFlag"/>同意《投资协议》以及《隐私条款》
 			</div>
 		</div>
 		<div class="row list-item"  ng-switch="investAmount - capital.balance < 0">
