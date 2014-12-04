@@ -965,3 +965,9 @@ input:focus{
   height: 100%;
   padding: 0;
 }
+.hongbao-grey{
+  background: url(/images/sprite.png) -290px -1743px no-repeat;
+}
+.hongbao-red{
+  background: url(/images/sprite.png) -290px -1869px no-repeat;
+}
