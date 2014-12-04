@@ -171,8 +171,8 @@
                     <div class="col-xs-12">
                       <strong>投资类型：宏包</strong>
                     </div>
-                    <div class="col-xs-12">
-                      <strong>可投金额：{{canInvestAmount || '0'}}元</strong>
+                    <div class="col-xs-12" ng-if="isLogged">
+                      <strong>可投宏包金额：{{canInvestAmount || '0'}}元</strong>
                     </div>
                   </div>
                   <br>
