@@ -56,9 +56,9 @@ hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$st
             var accountDay = rdp.accountDay;
             var invStartDate = moment([moment(invInitDate).year(), moment(invInitDate).month(), accountDay]).toString();
             var idiffDay = moment(invStartDate).diff(moment(invInitDate), 'days');
-            if (idiffDay <= 0) {
-              invStartDate = moment(invStartDate).add(1,'month').toString();
-            }
+            invStartDate = moment(invStartDate).add(1,'month').toString();
+            // if (idiffDay <= 0) {
+            // }
             var invEndDate = moment(rdp.repaymentDate).toString();
             var invCycle = rdp.cycle;
             // console.log('invCycle: ' + invCycle);
@@ -111,6 +111,7 @@ hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$st
       if(diffDate === 0) {
         invCycle = invCycle - 1;
       }
+      invCycle = invCycle - 1;
       for(var i = 0; i <= invCycle; i++) {
         payDate = moment(invStartDate).add(i,'month').toString();
         if (moment(payDate) > moment(invEndDate)) {
@@ -122,7 +123,7 @@ hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$st
           invDays = moment(payDate).diff(moment(prevDate), 'days', true);
         }
         // console.log('invDays: ' + invDays);
-        invEarnings = invTotal * invRate * invDays / 365;   //计算利率
+        invEarnings = invTotal * invRate * Math.round(invDays) / 365;   //计算利率
         // console.log('invEarnings: ' + invEarnings);
         prevDate = payDate;
         invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
