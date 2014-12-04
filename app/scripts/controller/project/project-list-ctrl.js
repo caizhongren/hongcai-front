@@ -9,8 +9,8 @@ hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope'
     $scope.toggleSort = function() {
       $scope.sortType = !$scope.sortType;
     };
-    console.log('status:'+ $stateParams.status);
-    console.log('type status:'+ typeof($stateParams.status));
+    //console.log('status:'+ $stateParams.status);
+    //console.log('type status:'+ typeof($stateParams.status));
     var response = ProjectService.projectList.get({status: $stateParams.status,
     												  minCycle: $stateParams.minCycle,
     												  maxCycle: $stateParams.maxCycle,

@@ -1,6 +1,8 @@
 'use strict';
-hongcaiApp.controller('ProjectCategoryCtrl', ['$scope', function ($scope) {
+hongcaiApp.controller('ProjectCategoryCtrl', ['$scope','$rootScope', '$location', function ($scope, $rootScope, $location) {
 
+  $rootScope.selectPage = $location.path().split('/')[1];
+  
   $scope.projectTitle = '宏财网 - 产品介绍';
   $scope.projectCategory = [{'title':'理财项目',
     'content':'平台提供担保保镖，实地认证登多类产品，用户根据审核后的信息，自选合适的劫镖。平台提供担保保镖，实地认证登多类产品，用户根据审核后的信息，自选合适的劫镖。',

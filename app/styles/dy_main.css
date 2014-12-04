@@ -937,7 +937,7 @@ input:focus{
 .hongbao-title a{
   display: inline-block;
   float: right;
-  margin-top: -30px;
+  margin: -30px -20px 0 0;
 }
 .hongbao-title{
   border-bottom: 1px solid #dbdbbd;
@@ -966,8 +966,8 @@ input:focus{
   padding: 0;
 }
 .hongbao-grey{
-  background: url(/images/sprite.png) -290px -1743px no-repeat;
+  background: url(/images/sprite.png) -260px -1625px no-repeat;
 }
 .hongbao-red{
-  background: url(/images/sprite.png) -290px -1869px no-repeat;
+  background: url(/images/sprite.png) -260px -1855px no-repeat;
 }

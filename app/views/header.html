@@ -42,10 +42,10 @@
           <a class="navbar-brand logo-img-1 hidden-xs" href="/">&nbsp;</a>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a ui-sref="root.main" class={{selectPage==''?'active':''}}>首页</a></li>
-          <li><a ui-sref="root.project-category" class={{selectPage=='project-list'?'active':''}}>我要理财</a></li>
-          <li><a ui-sref="root.safe" class={{selectPage=='safe'?'active':''}}>安全保障</a></li>
-          <li><a ui-sref="root.about-us.introduction-of-platform" class={{selectPage=='introduction-of-platform'?'active':''}}>关于我们</a></li>
+          <li><a ui-sref="root.main" ng-class="{'active' : selectPage == ''}">首页</a></li>
+          <li><a ui-sref="root.project-category" ng-class="{'active' : selectPage == 'project-list' || selectPage == 'project-category' }">我要理财</a></li>
+          <li><a ui-sref="root.safe" ng-class="{'active': selectPage == 'safe'}">安全保障</a></li>
+          <li><a ui-sref="root.about-us.introduction-of-platform" ng-class="{'active': selectPage == 'introduction-of-platform'}">关于我们</a></li>
         </ul>
       </div>
     </nav>
