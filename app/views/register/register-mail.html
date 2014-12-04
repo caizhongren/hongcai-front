@@ -27,15 +27,18 @@
 						autofocus />
 					<div ng-if="registerForm.email.$dirty && registerForm.email.$invalid && !registerForm.email.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 						<div ng-if="registerForm.email.$error.pattern" class="row">
-							<img ng-src="images/check_no.png" class="regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">邮箱格式不正确</p>
 						</div>
 						<div ng-if="registerForm.email.$error.unique" class="row">
-							<img ng-src="images/check_no.png" class="regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">邮箱已被占用</p>
 						</div>
 						<div ng-if="registerForm.email.$error.required" class="row">
-							<img ng-src="images/check_no.png" class="regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">请填写邮箱</p>
 						</div>
 					</div>
@@ -55,23 +58,28 @@
 						ng-focus />
 					<div ng-if="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 						<div ng-if="registerForm.name.$error.unique" class="row">
-							<img ng-src="images/check_no.png" class="regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">用户名已被占用</p>
 						</div>
 						<div ng-if="registerForm.name.$error.minlength" class="row">
-							<img ng-src="images/check_no.png" class="regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">不能小于3个字符</p>
 						</div>
 						<div ng-if="registerForm.name.$error.maxlength" class="row">
-							<img ng-src="images/check_no.png" class="regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">不能大于15个字符</p>
 						</div>
 						<div ng-if="registerForm.name.$error.pattern" class="row">
-							<img ng-src="images/check_no.png" class="regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">4-15位字符，以字母、中文开头，支持中文、字母、数字以及下划线</p>
 						</div>
 						<div ng-if="registerForm.name.$error.required" class="row">
-							<img ng-src="images/check_no.png" class="regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">请填写用户名</p>
 						</div>
 					</div>
@@ -90,15 +98,18 @@
 						ng-focus />
 					<div ng-if="registerForm.password.$dirty && registerForm.password.$invalid && !registerForm.password.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 						<div ng-if="registerForm.password.$error.minlength" class="row">
-							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="check-img regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">不能小于6个字符</p>
 						</div>
 						<div ng-if="registerForm.password.$error.maxlength" class="row">
-							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="check-img regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">不能大于22个字符</p>
 						</div>
 						<div ng-if="registerForm.password.$error.pattern" class="row">
-							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="check-img regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">数字或字母的组合，可以包含特殊字符，长度6-22</p>
 						</div>
 					</div>
@@ -114,7 +125,8 @@
 						required />
 					<div ng-if="registerForm.repeatPassword.$dirty && registerForm.repeatPassword.$error.passwordmatch && !registerForm.password.$focused && !registerForm.repeatPassword.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 						<div class="row">
-							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="check-img regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">密码不一致</p>
 						</div>
 					</div>
@@ -133,7 +145,8 @@
 					<div class="refresh-pic col-md-1 col-lg-1" ng-click="refreshCode()"></div>
 					<div ng-if="registerForm.captcha.$dirty && registerForm.captcha.$invalid && registerForm.captcha.$error.check && !registerForm.captcha.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 						<div class="row">
-							<img ng-src="images/check_no.png" class="regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">验证码错误!</p>
 						</div>
 					</div>
@@ -148,7 +161,8 @@
 						id='inviteCode' />
 					<div class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div" ng-if='registerForm.inviteCode.$error.isInviteCodeTrue'>
 						<div class="row">
-							<img ng-src="images/check_no.png" class="check-img regist-check-img">
+							<!-- <img ng-src="images/check_no.png" class="check-img regist-check-img"> -->
+							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">邀请码无效</p>
 						</div>
 					</div>

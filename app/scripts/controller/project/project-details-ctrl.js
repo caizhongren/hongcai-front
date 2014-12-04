@@ -49,7 +49,8 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
         $scope.isAvailableInvest = function(project){//验证用户权限
             if (project.amount <= $scope.project.minInvest){
                 // alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
-                $scope.msg = '投资金额必须大于最小投资金额' + $scope.project.minInvest + '！';
+                // $scope.msg = '投资金额必须大于最小投资金额' + $scope.project.minInvest + '！';
+                $scope.msg = '投资金额必须大于最小投资金额:100元！';
                 var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
                 return;
             } else if (project.amount%$scope.project.increaseAmount){

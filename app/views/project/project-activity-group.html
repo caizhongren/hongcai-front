@@ -10,8 +10,11 @@
         <li class="list-group-item">
           <div class="row">
             <div class="col-lg-2">
-              <div class="row">
+              <div class="row" ng-if="item.status === 7">
                 <img src="/images/main_hongbao_red.png" alt="宏运标" >
+              </div>
+              <div class="row" ng-if="item.status !== 7">
+                <img src="/images/main_hongbao_gray.png" alt="宏运标" >
               </div>
             </div>
             <div class="col-lg-6" style="margin-top:20px;">
@@ -33,11 +36,11 @@
               <div class="row" ng-show="item.status === 7">
                 <img style="float:right; width:20%;" src="/images/activity/activity_flag_1.png" alt="抢标中">
               </div>
-              <div class="row" ng-show="item.status === 8 || item.status === 9">
+              <div class="row" ng-show="item.status === 8 || item.status === 9 || item.status === 10">
                 <img style="float:right; width:20%;" src="/images/activity/activity_flag_3.png" alt="已完成">
               </div>
               <div class="row col-lg-10" style="margin-top: -25px;">
-                <a ui-sref="root.activity-details({activityId: item.id, type: 2})" class="btn btn-primary btn-lg btn-block">{{ valCategory[item.status] }}</a>
+                <a ui-sref="root.activity-details({activityId: item.id, type: 2})" class="btn btn-lg btn-block" ng-class="{'btn-primary': item.status === 7, 'btn-default': item.status !== 7}">{{ valCategory[item.status] }}</a>
               </div>
             </div>
           </div>
