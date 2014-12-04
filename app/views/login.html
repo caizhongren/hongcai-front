@@ -19,7 +19,8 @@
 							autofocus />
 						<div ng-if="loginForm.account.$dirty && loginForm.account.$invalid" class="form-div col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3">
 							<div ng-if="loginForm.account.$error.required" class="row">
-								<img ng-src="images/check_no.png" class="login-check-img">
+								<!-- <img ng-src="images/check_no.png" class="login-check-img"> -->
+								<i class="fa fa-times-circle-o login-check-img"></i>
 								<p class="input-tips login-input-tips">账号不能为空</p>
 							</div>
 						</div>
@@ -34,13 +35,15 @@
 							autofocus />
 						<div ng-if="loginForm.password.$dirty && loginForm.password.$invalid" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 							<div ng-if="loginForm.password.$error.required" class="row">
-								<img ng-src="images/check_no.png" class="login-check-img">
+								<!-- <img ng-src="images/check_no.png" class="login-check-img"> -->
+								<i class="fa fa-times-circle-o login-check-img"></i>
 								<p class="input-tips login-input-tips">密码不能为空</p>
 							</div>
 						</div>
 						<div ng-if="isPasswordError" ng-init="isPasswordError=false" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 							<div class="row">
-								<img ng-src="images/check_no.png" class="login-check-img">
+								<!-- <img ng-src="images/check_no.png" class="login-check-img"> -->
+								<i class="fa fa-times-circle-o login-check-img"></i>
 								<p class="input-tips login-input-tips">账号或密码错误</p>
 							</div>
 						</div>
