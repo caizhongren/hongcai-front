@@ -6,6 +6,9 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
     var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
         $scope.project = projectDetails.data.project;
         $scope.projectInfo = projectDetails.data.projectInfo;
+
+        console.log(projectDetails.data.projectInfo)
+
         // $scope.pledges = projectDetails.data.pledges;
         $scope.isAvailable = projectDetails.data.isAvailable;
         $scope.enterprise = projectDetails.data.enterprise;
