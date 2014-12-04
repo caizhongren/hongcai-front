@@ -128,8 +128,8 @@
       </td>
         <td>{{ item.valueDate | date: 'yyyy-MM-dd' }}</td>
         <td>{{ item.repaymentDate | date: 'yyyy-MM-dd' }}</td>
-        <td>{{ item.orderAmount }}</td>
-        <td>{{ item.profit }}</td>
+        <td>{{ item.orderAmount.toFixed(2) }}</td>
+        <td>{{ item.profit.toFixed(2) }}</td>
         <td>
           {{ item.returnProfit }}
           <span ng-if="item.status >= 3 && item.status <= 6">
