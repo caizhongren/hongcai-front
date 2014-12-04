@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.css" />
-    <link rel="stylesheet" href="bower_components/AngularJS-Toaster/toaster.css" />
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" href="bower_components/angularjs-toaster/toaster.css" />
     <!-- endbower -->
     <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css" />
     <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
@@ -81,6 +81,20 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script> -->
+    <toaster-container toaster-options="{
+      'close-button': true,
+      'debug': false,
+      'position-class': 'toast-top-center',
+      'onclick': null,
+      'show-duration': '200',
+      'hide-duration': '1000',
+      'time-out': '5000',
+      'extended-timeOut': '1000',
+      'show-easing': 'swing',
+      'hide-easing': 'linear',
+      'show-method': 'fadeIn',
+      'hide-method': 'fadeOut'
+    }"></toaster-container>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -99,7 +113,6 @@
     <script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
-    <script src="bower_components/AngularJS-Toaster/toaster.js"></script>
     <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
     <script src="bower_components/Chart.js/Chart.min.js"></script>
     <script src="bower_components/ng-chartjs/dist/angular-chartjs.min.js"></script>
@@ -112,6 +125,7 @@
     <script src="bower_components/angular-slick-carousel/dist/slick.js"></script>
     <script src="bower_components/matchmedia/matchMedia.js"></script>
     <script src="bower_components/angular-cookie/angular-cookie.js"></script>
+    <script src="bower_components/angularjs-toaster/toaster.js"></script>
     <!-- endbower -->
     <script src="bower_components/fancybox/source/jquery.fancybox.js"></script>
     <script src="bower_components/flexslider/jquery.flexslider.js"></script>

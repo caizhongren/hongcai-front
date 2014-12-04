@@ -18,8 +18,8 @@ hongcaiApp.controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$state
     $scope.dealList = getDealByUser.data.dealList;
     // $scope.recFromDate = getDealByUser.data.dateStart;
     // $scope.recUntilDate = getDealByUser.data.dateEnd;
-    // $scope.type = getDealByUser.data.type;
-    // $scope.dateInterval = getDealByUser.data.dateInterval;
+    $scope.type = getDealByUser.data.type;
+    $scope.dateInterval = getDealByUser.data.dateInterval;
     $scope.userId = getDealByUser.data.userId;
     $scope.capital = getDealByUser.data.capital;
     $scope.currentPage = 0;
