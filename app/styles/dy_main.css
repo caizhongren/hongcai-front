@@ -42,7 +42,8 @@ input:focus{
 .red-investment ,.grey-investment ,.tips-area:active .grey-investment,.tips-area:active .red-investment,
 .red-news ,.grey-news ,.tips-area:active .grey-news,.tips-area:active .red-news,.account-pic-bg,.help-ico,
 .open,.smile-bg,.bank-card-show,.red-package-overview,.grey-package-overview,.grey-invite-rebate,
-.red-invite-rebate{
+.red-invite-rebate,.red-gift-rebate,.grey-gift-rebate,.tips-area:active .red-gift-rebate,
+.tips-area:active .grey-gift-rebate{
   background: url(/images/sprite.png) no-repeat;
 }
 
@@ -215,6 +216,17 @@ input:focus{
 .tips-area:active .grey-investment,
 .tips-area:active .red-investment {
   background-position: -463px -709px;
+}
+
+.red-gift-rebate{
+  background-position: -423px -773px;
+}
+.grey-gift-rebate{
+  background-position: -390px -773px;
+}
+.tips-area:active .red-gift-rebate,
+.tips-area:active .grey-gift-rebate{
+  background-position: -460px -773px;
 }
 
 .red-news {
