@@ -84,10 +84,11 @@
                           <p>{{projectInfo.repaymentSource}}</p>
                         </div>
                         <div class="col-xs-12">
-                          <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目评级</h4>
+                          <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目评级
+                            <span ng-class="{'a3' : projectRank.symbol==='AAA','a2' : projectRank.symbol==='AA','a1' : projectRank.symbol==='A','b3' : projectRank.symbol==='BBB','b2' : projectRank.symbol==='BB','b1' : projectRank.symbol==='B','c' : projectRank.symbol==='C'}" class="project-rate">&nbsp;</span>
+                          </h4>
                         </div>
                         <div class="col-xs-12">
-                          <div ng-class="{'a3' : projectRank.symbol==='AAA','a2' : projectRank.symbol==='AA','a1' : projectRank.symbol==='A','b3' : projectRank.symbol==='BBB','b2' : projectRank.symbol==='BB','b1' : projectRank.symbol==='B','c' : projectRank.symbol==='C'}" class="project-rate">&nbsp;</div>
                           <p>{{projectRank.description}}</p>
                         </div>
                       </div>
@@ -280,7 +281,7 @@
                           <button class="btn btn-lg btn-danger btn-block"  data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即投资</button>
                         </div>
                         <form ng-submit="isAvailableInvest(project);" ng-switch-default>
-                          <input type="number" min="0" max="project.currentStock * project.increaseAmount" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required ng-switch-default>
+                          <input type="number" min="0" max="100000" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required ng-switch-default>
                           <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                           <button class="btn btn-danger btn-lg btn-block" ng-switch-default>立即投资</button>
                         </form>
