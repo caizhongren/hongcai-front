@@ -30,19 +30,19 @@
    */
   function normalizeToBase(text) {
     var rExps = [
-      {re: /[\xC0-\xC6]/g, ch: "A"},
-      {re: /[\xE0-\xE6]/g, ch: "a"},
-      {re: /[\xC8-\xCB]/g, ch: "E"},
-      {re: /[\xE8-\xEB]/g, ch: "e"},
-      {re: /[\xCC-\xCF]/g, ch: "I"},
-      {re: /[\xEC-\xEF]/g, ch: "i"},
-      {re: /[\xD2-\xD6]/g, ch: "O"},
-      {re: /[\xF2-\xF6]/g, ch: "o"},
-      {re: /[\xD9-\xDC]/g, ch: "U"},
-      {re: /[\xF9-\xFC]/g, ch: "u"},
-      {re: /[\xC7-\xE7]/g, ch: "c"},
-      {re: /[\xD1]/g, ch: "N"},
-      {re: /[\xF1]/g, ch: "n"}
+      {re: /[\xC0-\xC6]/g, ch: 'A'},
+      {re: /[\xE0-\xE6]/g, ch: 'a'},
+      {re: /[\xC8-\xCB]/g, ch: 'E'},
+      {re: /[\xE8-\xEB]/g, ch: 'e'},
+      {re: /[\xCC-\xCF]/g, ch: 'I'},
+      {re: /[\xEC-\xEF]/g, ch: 'i'},
+      {re: /[\xD2-\xD6]/g, ch: 'O'},
+      {re: /[\xF2-\xF6]/g, ch: 'o'},
+      {re: /[\xD9-\xDC]/g, ch: 'U'},
+      {re: /[\xF9-\xFC]/g, ch: 'u'},
+      {re: /[\xC7-\xE7]/g, ch: 'c'},
+      {re: /[\xD1]/g, ch: 'N'},
+      {re: /[\xF1]/g, ch: 'n'}
     ];
     $.each(rExps, function () {
       text = text.replace(this.re, this.ch);
@@ -110,7 +110,7 @@
     noneSelectedText: 'Nothing selected',
     noneResultsText: 'No results match',
     countSelectedText: function (numSelected, numTotal) {
-      return (numSelected == 1) ? "{0} item selected" : "{0} items selected";
+      return (numSelected == 1) ? '{0} item selected' : '{0} items selected';
     },
     maxOptionsText: function (numAll, numGroup) {
       var arr = [];
