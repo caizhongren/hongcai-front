@@ -42,7 +42,8 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
           $scope.project = response.data.project;
         }
         // 刷新页面
-        $state.go($state.current, {}, {reload: true});
+        window.location.reload();
+        // $state.go($state.current, {}, {reload: true});
       });
     };
 
