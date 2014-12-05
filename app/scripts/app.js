@@ -25,7 +25,8 @@
   'bardo.directives',
   'config',
   'sticky',
-  'ipCookie'
+  'ipCookie',
+  'angular-md5',
   ]);
 
  hongcaiApp

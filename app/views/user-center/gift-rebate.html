@@ -131,7 +131,7 @@
         <td>{{ item.orderAmount.toFixed(2) }}</td>
         <td>{{ item.profit.toFixed(2) }}</td>
         <td>
-          {{ item.returnProfit }}
+          {{ item.returnProfit.toFixed(2) }}
           <span ng-if="item.status >= 3 && item.status <= 6">
             <button style="padding:0px;outline:none;" class="btn btn-link" title="{{item.projectName}}" data-template="views/modal/popover-investment-list-details.html" data-animation="am-fade-and-slide-right" data-trigger="focus" data-placement="right"  bs-popover  ng-click="showListDetails(item.orderId);">[详情]</button>
           </span>

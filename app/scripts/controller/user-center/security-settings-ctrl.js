@@ -8,10 +8,10 @@ hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope',
             var user = response.data.user;
             $scope.email = user.email;
             $scope.mobile = user.mobile;
-            $scope.realName = userAuth.realName;
-            $scope.idNo = userAuth.idNo;
+            // $scope.realName = userAuth.realName;
+            // $scope.idNo = userAuth.idNo;
 
-            if(userAuth.yeepayAccountStatus == 1){
+            if(userAuth && userAuth.yeepayAccountStatus === 1){
                 $scope.haveTrusteeshipAccount = true;
             } else {
                 $scope.haveTrusteeshipAccount = false;

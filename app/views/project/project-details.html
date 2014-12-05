@@ -1,4 +1,5 @@
 <div id="project-detail" class="container">
+
   <div class="row">
       <div class="col-xs-12 col-md-8">
         <div class="row">
@@ -254,10 +255,10 @@
                   </div>
 
                   <div class="col-xs-12 padding-0" ng-if="!isLogged">
-                    <div class="row padding-t-0" ng-if="project.status == 6">
+                    <div class="row padding-t-0" ng-if="project.status === 6">
                       <div class="col-xs-12">开放投资倒计时：</div>
                       <div class="col-xs-12 project-timer">
-                        <timer end-time="statDate" finish-callback="finished()"><span>{{days}} 天,</span> <span>{{hours}} 小时,</span><span>{{minutes}} 分,</span> <span>{{seconds}} 秒</span></timer>
+                        <timer interval="1000" countdown="statSecond" finish-callback="finished()"><span> {{days}} 天,</span> <span>{{hours}} 小时,</span><span>{{minutes}} 分,</span> <span>{{seconds}} 秒</span></timer>
                       </div>
                     </div>
 
@@ -279,20 +280,20 @@
                           <button class="btn btn-lg btn-danger btn-block"  data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即投资</button>
                         </div>
                         <form ng-submit="isAvailableInvest(project);" ng-switch-default>
-                          <input type="number" min="0" max="1000000" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required ng-switch-default>
+                          <input type="number" min="0" max="project.currentStock * project.increaseAmount" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required ng-switch-default>
                           <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                           <button class="btn btn-danger btn-lg btn-block" ng-switch-default>立即投资</button>
                         </form>
                       </div>
                     </div>
                   </div>
-                  <div class="row padding-t-0" ng-if="isLogged && project.status == 6">
+                  <div class="row padding-t-0" ng-if="isLogged && project.status === 6">
                     <div class="col-xs-12">开放投资倒计时：</div>
                     <div class="col-xs-12 project-timer">
-                      <timer end-time="statDate" finish-callback="finished()"><span>{{days}} 天,</span> <span>{{hours}} 小时,</span><span>{{minutes}} 分,</span> <span>{{seconds}} 秒</span></timer>
+                      <timer interval="1000" countdown="statSecond" finish-callback="finished()"><span> {{days}} 天,</span> <span>{{hours}} 小时,</span><span>{{minutes}} 分,</span> <span>{{seconds}} 秒</span></timer>
                     </div>
                   </div>
-                  <div class="col-xs-12" ng-if="isLogged && project.status == 6">
+                  <div class="col-xs-12" ng-if="isLogged && project.status === 6">
                     <a href="javascript:;" class="btn btn-default btn-lg btn-block">即将开始</a>
                   </div>
                 </div> 
