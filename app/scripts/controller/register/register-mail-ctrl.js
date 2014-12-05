@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('RegisterMailCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster) {
+hongcaiApp.controller('RegisterMailCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'md5', function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5) {
 
 
     if ($stateParams.inviteCode){
@@ -11,7 +11,7 @@ hongcaiApp.controller('RegisterMailCtrl', ['$scope', '$state', '$rootScope', '$s
         RegisterService.saveRegister.save({name: user.name, 
                                             type: 1, 
                                             account: user.email, 
-                                            password: user.password, 
+                                            password: md5.createHash(user.password), 
                                             captcha: user.captcha, 
                                             inviteCode: user.inviteCode }, function(response) {
             console.log(response.ret);

@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'ipCookie', function ($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, ipCookie) {
+hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'ipCookie', 'md5', function ($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, ipCookie, md5) {
 
     if (ipCookie('userName')){
         $scope.user = [];
@@ -10,8 +10,8 @@ hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope'
         if ($scope.rememberUserName){
             ipCookie('userName', user.account, { expires: 60 })
         }
-
-        LoginService.userLogin.get({account: user.account, password: user.password }, function(response) {
+        var password = md5.createHash(user.password);
+        LoginService.userLogin.get({account: user.account, password: password }, function(response) {
             if(response.ret == 1) {
                 SessionService.set('user', response.data.user.name);
                 $rootScope.loginName = response.data.user.name;
