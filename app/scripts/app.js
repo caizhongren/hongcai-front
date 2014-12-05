@@ -693,9 +693,10 @@
   })
  	;
   // 导致IE8不兼容的地方。
- 	$urlRouterProvider.otherwise('/');
+ 	// $urlRouterProvider.otherwise('/');
  	$locationProvider.html5Mode(true);
  	$locationProvider.hashPrefix('!');
+  $urlRouterProvider.when('', '/');
 
  	//initialize get if not there
     if (!$httpProvider.defaults.headers.get) {
