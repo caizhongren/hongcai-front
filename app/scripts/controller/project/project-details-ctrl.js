@@ -5,7 +5,7 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
 
     var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
         if( projectDetails.ret === 1 ) {
-          $scope.statSecond = projectDetails.data.countDownTime/1000 || 1;
+          $scope.statSecond = (projectDetails.data.countDownTime/1000+1) || 1;
           $scope.project = projectDetails.data.project;
 
           $scope.projectInfo = projectDetails.data.projectInfo;
