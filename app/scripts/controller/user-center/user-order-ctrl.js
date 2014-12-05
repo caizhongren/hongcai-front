@@ -107,10 +107,11 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
             var invInitDate = moment(rdp.valueDate).toString();
             var accountDay = rdp.accountDay;
             var invStartDate = moment([moment(invInitDate).year(), moment(invInitDate).month(), accountDay]).toString();
-            var idiffDay = moment(invStartDate).diff(moment(invInitDate), 'days');
-            if (idiffDay <= 0) {
-              invStartDate = moment(invStartDate).add(1,'month').toString();
-            }
+            // 需求没沟通清楚，导致的问题。
+            // var idiffDay = moment(invStartDate).diff(moment(invInitDate), 'days');
+            // if (idiffDay <= 0) {
+            invStartDate = moment(invStartDate).add(1,'month').toString();
+            // }
             var invEndDate = moment(rdp.repaymentDate).toString();
             var invCycle = rdp.cycle;
             // console.log('invCycle: ' + invCycle);
@@ -134,8 +135,8 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
               everyMonthInterestEq(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
               // 等额本息
             }
-            if (response.billList) {
-              var bill = response.billList;
+            if (response.data.billList) {
+              var bill = response.data.billList;
               var billList = {};
               for(var i=0;i<bill.length; i++) {
                 billList = {'payDate': moment(bill[i].successTime).format('YYYY-MM-DD'), 'invEarnings': bill[i].amount, 'invStatus': bill[i].status}
@@ -146,7 +147,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
             $scope.unpaid = 0;
             for(var i=0; i<$scope.listInvPond.length; i++) {
               var status = $scope.listInvPond[i]['invStatus'];
-              if( status === '1') {
+              if( status === 1) {
                 $scope.paid += $scope.listInvPond[i]['invEarnings'];
               } else {
                 $scope.unpaid = $scope.unpaid + $scope.listInvPond[i]['invEarnings'];
@@ -166,6 +167,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
       if(diffDate === 0) {
         invCycle = invCycle - 1;
       }
+      invCycle = invCycle - 1;
       for(var i = 0; i <= invCycle; i++) {
         payDate = moment(invStartDate).add(i,'month').toString();
         if (moment(payDate) > moment(invEndDate)) {
@@ -177,7 +179,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
           invDays = moment(payDate).diff(moment(prevDate), 'days', true);
         }
         // console.log('invDays: ' + invDays);
-        invEarnings = invTotal * invRate * invDays / 365;   //计算利率
+        invEarnings = invTotal * invRate * Math.round(invDays) / 365;   //计算利率
         // console.log('invEarnings: ' + invEarnings);
         if (i === invCycle) {
           invEarnings = invEarnings + invTotal;
@@ -198,6 +200,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
       if(diffDate === 0) {
         invCycle = invCycle -1;
       }
+      invCycle = invCycle - 1;
       for(var i = 0; i <= invCycle; i++) {
         var invList = {};
         payDate = moment(invStartDate).add(i,'month').toString();
@@ -206,7 +209,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
           if ( payDiffDate > 0) {
             payDate = invEndDate;
             invDays = moment(payDate).diff(moment(prevDate), 'days', true);
-            invEarnings = invTotal + invTotal*invRate*invDays/365;
+            invEarnings = invTotal + invTotal* invRate * Math.round(invDays)/365;
             invList = {'payDate': moment(payDate).format('YYYY-MM-DD'), 'invEarnings': invEarnings, 'invStatus': '0'};
             $scope.listInvPond.push(invList);
             break;

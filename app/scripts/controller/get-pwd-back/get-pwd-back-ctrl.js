@@ -121,6 +121,9 @@ hongcaiApp.controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope
           }
         };
         var mytimeout = $timeout($scope.onTimeout,1000);
+        $scope.$on('$stateChangeStart', function(){
+          $timeout.cancel(mytimeout);
+        });
         // $scope.startTimer();
       } else {
       };
