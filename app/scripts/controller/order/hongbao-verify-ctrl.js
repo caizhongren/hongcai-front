@@ -17,7 +17,7 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
             $location.path('activity/' + $stateParams.activityId + '/' + 2);
             return;
            }
-           $scope.icons = [
+           /*$scope.icons = [
                 {value :'',label:''},
             ];
             $scope.icons= [];
@@ -26,7 +26,7 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
                 obj.value = '' + i + '';
                 obj.label = '' + i + '';
                 $scope.icons.push(obj);
-            }
+            }*/
         }  else if (response.ret == -1){
             if (response.code == 1){
                 toaster.pop('warning', '错误', '已经卖光啦！');
@@ -55,4 +55,5 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
         //window.location.href = 'project/' + $stateParams.projectId;
         $location.path('/project/' + $stateParams.projectId);
     }
+    //$scope.selectedIcon = 1;
 }]);

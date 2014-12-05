@@ -9,24 +9,19 @@ hongcaiApp.controller('investVerifyCtrl', ['$scope', '$location', '$state', '$ro
            $scope.capital = response.data.capital;
            $scope.giftCount = response.data.giftCount;
            $scope.investAmount = $stateParams.amount;
-           /*$scope.icons = [
+           $scope.icons = [
                 {value :'',label:''},
-            ];*/
-            /*$scope.icons = [];
+            ];
+            $scope.icons = [];
             for (var i= 0; i <= $scope.giftCount; i++){
                 var obj = {};
                 obj.value = '' + i + '';
                 obj.label = '' + i + '';
                 $scope.icons.push(obj);
             }
-            console.log($scope.icons);*/
-            /*$scope.icons = [
-                {value :'1',label:'1'},
-                {value :'2',label:'2'},
-            ];*/
-            for(var i= 0; i <= $scope.giftCount; i++){
+            /*for(var i= 0; i <= $scope.giftCount; i++){
                 angular.element('.select-area').append('<option value="' + i + '">'+ i +'</option>');
-            }
+            }*/
         }  else if (response.ret == -1){
             if (response.code == 1){
                 alert('已经卖光啦！');
@@ -95,6 +90,6 @@ hongcaiApp.controller('investVerifyCtrl', ['$scope', '$location', '$state', '$ro
         //window.location.href = 'project/' + $stateParams.projectId;
         $location.path('/project/' + $stateParams.projectId);
     }
-    //$scope.selectedIcon = 1;
+    $scope.selectedIcon = 1;
     //console.log(typeof($scope.selectedIcon));
 }]);
