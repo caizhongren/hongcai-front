@@ -696,6 +696,7 @@
  	// $urlRouterProvider.otherwise('/');
  	$locationProvider.html5Mode(true);
  	$locationProvider.hashPrefix('!');
+  $urlRouterProvider.when('', '/');
 
  	//initialize get if not there
     if (!$httpProvider.defaults.headers.get) {

@@ -86,7 +86,8 @@
                           <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目评级</h4>
                         </div>
                         <div class="col-xs-12">
-                          <p>{{projectInfo.riskManagementInfo}}</p>
+                          <div ng-class="{'a3' : projectRank.symbol==='AAA','a2' : projectRank.symbol==='AA','a1' : projectRank.symbol==='A','b3' : projectRank.symbol==='BBB','b2' : projectRank.symbol==='BB','b1' : projectRank.symbol==='B','c' : projectRank.symbol==='C'}" class="project-rate">&nbsp;</div>
+                          <p>{{projectRank.description}}</p>
                         </div>
                       </div>
                     </div>
