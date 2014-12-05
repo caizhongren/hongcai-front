@@ -46,10 +46,20 @@
 					<!-- <slick settings="slickConfig" control="slickHandle" media="media" src="views/modal/slick_slider_guarantee.html"></slick> -->
 					<div style="width:100%; background:#000;">
 						<div class="slideshow">
-							<div ng-repeat="card in files" style="width:25%;">
-								<a href="{{ card.href }}" class="grouped_elements" rel="group1">
+							<div class="slick-item" ng-repeat="card in files" style="width:25%;">
+								<!-- <a href="{{ card.href }}" class="grouped_elements" rel="group1">
 									<img fancybox hc-preview-url="{{card.href}}" ng-src="{{ card.src }}" alt="" style="width:100%;height:125px;">
-								</a>
+								</a> -->
+								<!-- fancybox single play start -->
+								<a class="grouped_elements" rel="group1" href="javascript:;" ng-click="openFancybox()">
+	                <img style="width:100%;height:125px;" hc-preview-url="{{card.href}}" ng-src="{{ card.src }}">
+	              </a>
+	              <div class="wrapper" fancybox style="display: none;">
+	                <div class="future_fancybox_content">
+	                  <img src="{{ card.href }}"/>
+	                </div>
+	              </div><!-- fancybox single play end-->
+
 							</div>
 						</div>
 

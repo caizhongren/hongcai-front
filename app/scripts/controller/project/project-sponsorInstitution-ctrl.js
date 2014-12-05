@@ -32,7 +32,7 @@ hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams'
         }
 
         var promise = $timeout(function(){
-            if($('.slideshow').find('div').length === $scope.originalFile.length){
+            if($('.slideshow').find('.slick-item').length === $scope.originalFile.length){
                 $('.slideshow').slick({
                     dots: false,
                     arrows: true,
