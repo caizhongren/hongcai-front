@@ -92,7 +92,8 @@ hongcaiApp.controller('investVerifyCtrl', ['$scope', '$location', '$state', '$ro
         $location.path('/invest-verify/' + $stateParams.projectId + '/' + investAmount);
     }
     $scope.backTo = function(){
-        window.location.href = 'project/' + $stateParams.projectId;;
+        //window.location.href = 'project/' + $stateParams.projectId;
+        $location.path('/project/' + $stateParams.projectId);
     }
     //$scope.selectedIcon = 1;
     //console.log(typeof($scope.selectedIcon));
