@@ -8,7 +8,7 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
         $scope.projectInfo = projectDetails.data.projectInfo;
         $scope.projectRank = projectDetails.data.projectRank;
 
-        console.log(projectDetails)
+        //console.log(projectDetails)
 
         // $scope.pledges = projectDetails.data.pledges;
         $scope.isAvailable = projectDetails.data.isAvailable;
