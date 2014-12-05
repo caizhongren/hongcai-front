@@ -178,14 +178,14 @@
 						<label class="col-md-3 col-lg-3"></label>
 	          <input type="submit" 
 	          	class="col-md-6 col-lg-6 red-button {{registerForm.$invalid ? 'grey' : ''}} {{user.checkFlag == false ? 'grey' : ''}}" 
-	          	ng-disabled="registerForm.$invalid || user.checkFlag != true" 
+	          	ng-disabled="registerForm.$invalid || user.checkFlag == false" 
 	          	value="立即注册" />
 				</div>			
 			</form>
 			</div>
 		</div>
 		<div class="regist-right-area col-md-5 col-lg-5">
-			<p class="p-regist-right col-md-12 col-lg-12">已有宏财帐号？<a ui-sref="root.login">立即登录</a></p>
+			<p class="p-regist-right col-md-12 col-lg-12">已有宏财账号？<a ui-sref="root.login">立即登录</a></p>
 		</div>
 	</div>
 </div>

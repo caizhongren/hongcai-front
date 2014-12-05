@@ -6,7 +6,7 @@ hongcaiApp.controller('RegisterMobileSuccessCtrl', ['$scope', '$timeout', '$stat
       $scope.counter--;
       mytimeout = $timeout($scope.onTimeout,1000);
       if($scope.counter === 0) {
-        window.location.href = 'newbie-guide.html';
+        $state.go('root.userCenter.security-settings');
       }
     }
     var mytimeout = $timeout($scope.onTimeout,1000);
