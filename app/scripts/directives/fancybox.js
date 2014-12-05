@@ -7,18 +7,31 @@
  * # fancybox
  */
 angular.module('hongcaiApp')
-  .directive('fancybox', function () {
+  .directive('fancybox', function ($compile) {
     return {
-      // template: '<div></div>',
-      restrict: 'A',
+      /*restrict: 'A',
       link: function(scope, element) {
         element.bind('click', function () {
-          // var url = attrs.hcPreviewUrl;
-          // var opt = attra.hcOption;
-          // $window.$.fancybox.open(url);
-          // angular.element('img[fancybox]').fancybox();
+          
           angular.element('a.grouped_elements').fancybox();
         });
+      }*/
+
+      restrict: 'A',
+      replace: false,
+      link: function($scope, element) {
+
+        $scope.openFancybox = function() {
+          
+          var el = angular.element(element.html()),
+
+          compiled = $compile(el);
+          
+          angular.element.fancybox.open(el);
+
+          compiled($scope);
+       
+        };
       }
     };
   });

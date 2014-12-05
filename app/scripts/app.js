@@ -694,7 +694,7 @@
   })
  	;
   // 导致IE8不兼容的地方。
- 	// $urlRouterProvider.otherwise('/');
+ 	$urlRouterProvider.otherwise('/');
  	$locationProvider.html5Mode(true);
  	$locationProvider.hashPrefix('!');
   $urlRouterProvider.when('', '/');
