@@ -26,7 +26,6 @@ input:focus{
 .bg{
   padding-top: 18px;
 }
-
 .login-right-area,.regist-right-area,.refresh-pic,.triangle,.right-title,
 .check-ok,.right-user-head,.grey-safe-pwd,.grey-safe-phone,.grey-safe-mail,
 .grey-safe-realname,.red-safe-pwd,.red-safe-phone,.red-safe-mail,.red-safe-realname,
@@ -405,8 +404,8 @@ input:focus{
   color: #e94828;
 }
 
-.right-area,.about-left-area,.left-area,.right-area,.account-number span,.p-forget,.view-more{
-  color: #888181;
+.right-area,.about-left-area,.left-area,.right-area,.account-number span,.p-forget,.view-more,.ft-grey{
+  color: #888181 !important;
 }
 
 .input-tips{

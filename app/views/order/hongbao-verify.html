@@ -23,12 +23,9 @@
         </div>
       </div>
     </div>
-    <div class="row list-item border-b" >
+    <div class="row list-item border-b">
       <div class="col-md-12">
-        <div class=""></div>
-        <ul class="nav nav-pills">
-          <li class="invest-check"><input type="checkbox" ng-model="checkFlag" checked="true" style="height:13px;"></li>同意《投资协议》以及《隐私条款》
-        </ul>
+        <input type="checkbox" ng-model="checkFlag" ng-checked="true">同意《投资协议》以及《隐私条款》
       </div>
     </div>
     <div class="row list-item">
@@ -38,7 +35,7 @@
             您将要支付宏包<span class="ftw-b ft-red">{{investAmount | number:2}}</span>元，核实信息无误后请确认
           </div>
           <input type="button" value="确认" class="col-md-1 col-lg-1" ng-class="{'red-button':checkFlag}" ng-disabled="!checkFlag" ng-click="saveHongYunOrder(project, investAmount)"/>
-          <input type="button" value="取消" class="white-button col-md-1 col-lg-1" style="margin-left:10px;" />
+          <input type="button" value="取消" class="white-button col-md-1 col-lg-1" style="margin-left:10px;" ng-click="backTo()"/>
         </form>
       </div>
     </div>

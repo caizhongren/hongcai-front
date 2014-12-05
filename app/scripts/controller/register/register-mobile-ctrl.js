@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('RegisterMobileCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster) {
+hongcaiApp.controller('RegisterMobileCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'md5', function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5) {
 
 
     if ($stateParams.inviteCode){
@@ -10,7 +10,7 @@ hongcaiApp.controller('RegisterMobileCtrl', ['$scope', '$state', '$rootScope', '
                                             type:0, 
                                             account: user.mobile, 
                                             captcha: user.mobileCaptcha, 
-                                            password: user.password, 
+                                            password: md5.createHash(user.password), 
                                             inviteCode: user.inviteCode }, function(response) {
             if(response.ret == 1) {
                 SessionService.set('user', response.data.user.name);

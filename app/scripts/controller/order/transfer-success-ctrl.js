@@ -10,5 +10,8 @@ hongcaiApp.controller('TransferSuccessCtrl', ['$scope', '$timeout', '$state', '$
       }
     }
     var mytimeout = $timeout($scope.onTimeout,1000);
+    $scope.$on('$stateChangeStart', function(){
+      $timeout.cancel(mytimeout);
+    });
 }]);
  
