@@ -152,6 +152,10 @@ hongcaiApp.controller('SetNewPwdCtrl', ['$scope', '$state', '$rootScope', '$stat
             $state.go('root.login');
           }
         }
+        var mytimeout = $timeout($scope.onTimeout,1000);
+        $scope.$on('$stateChangeStart', function(){
+          $timeout.cancel(mytimeout);
+        });
       }
     });
   }

@@ -11,5 +11,8 @@ hongcaiApp.controller('YeepaySuccessCtrl', ["$scope", "$state", '$timeout', "$ro
       }
     }
     var mytimeout = $timeout($scope.onTimeout,1000);
+    $scope.$on('$stateChangeStart', function(){
+      $timeout.cancel(mytimeout);
+    });
 }]);
  

@@ -51,4 +51,8 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
           }
       });
     }
+    $scope.backTo = function(){
+        //window.location.href = 'project/' + $stateParams.projectId;
+        $location.path('/project/' + $stateParams.projectId);
+    }
 }]);
