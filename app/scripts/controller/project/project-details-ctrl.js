@@ -5,7 +5,7 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
 
     var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
         if( projectDetails.ret === 1 ) {
-          $scope.serverTime = projectDetails.serverTime;
+          $scope.statSecond = projectDetails.data.countDownTime/1000 || 1;
           $scope.project = projectDetails.data.project;
 
           $scope.projectInfo = projectDetails.data.projectInfo;
@@ -23,7 +23,13 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
           $scope.remainInterest = projectDetails.data.remainInterest;
           $scope.remainPrincipal = projectDetails.data.remainPrincipal;
           // 绑定Timer timer-set-countdown对应的变量
-          $scope.statSecond = moment($scope.project.releaseStartTime).diff(moment($scope.serverTime),'second');
+          // $scope.statSecond = moment($scope.project.releaseStartTime).diff(moment($scope.serverTime),'second');
+          // $scope.statSecond = moment($scope.project.releaseStartTime).diff(moment($scope.serverTime),'second');
+
+          // console.log('releaseStartTime:' + moment($scope.project.releaseStartTime).format());
+          // console.log('serverTime:' + moment($scope.serverTime).format());
+          console.log('statSecond: ' + $scope.statSecond);
+
           $scope.$broadcast('timer-set-countdown', $scope.statSecond);
           // TODO 上线后删掉
           //设置时间大于releaseStartTime 30秒
@@ -35,6 +41,7 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
           toaster.pop('warning', '提示', projectDetails.msg);
         }
     });
+    // $scope.currentAmount = $scope.project.currentStock * $scope.project.increaseAmount
     /*$scope.statDate = new Date('2014', '10', '21', '20','17','10');*///假数据
     $scope.finished = function(){
       ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function(response) {
@@ -42,8 +49,9 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
           $scope.project = response.data.project;
         }
         // 刷新页面
-        window.location.reload();
-        // $state.go($state.current, {}, {reload: true});
+        if ($scope.statSecond === 0) {
+          window.location.reload();
+        }
       });
     };
 
