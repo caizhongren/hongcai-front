@@ -8,6 +8,7 @@ hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams'
         $scope.guaranteeProjectVo = sponsorInstitution.data.guaranteeProjectVo;
         $scope.originalFile = sponsorInstitution.data.originalFile;
         $scope.thumbnailFile = sponsorInstitution.data.thumbnailFile;
+        $scope.baseFileUrl = sponsorInstitution.data.baseFileUrl;
 
         $scope.currentPage = 0;
         $scope.pageSize = 6;
