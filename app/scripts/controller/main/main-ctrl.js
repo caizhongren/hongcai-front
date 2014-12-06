@@ -3,6 +3,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {
+        $scope.baseFileUrl = projectList.data.baseFileUrl;
         $scope.projectList = projectList.data.recommend;
         $scope.projectVo = projectList.data.specialRecommend[0];
 
