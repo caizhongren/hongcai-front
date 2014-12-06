@@ -22,6 +22,7 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
           $scope.billCount = projectDetails.data.billCount;
           $scope.remainInterest = projectDetails.data.remainInterest;
           $scope.remainPrincipal = projectDetails.data.remainPrincipal;
+          $scope.baseFileUrl = projectDetails.data.baseFileUrl;
           // 绑定Timer timer-set-countdown对应的变量
           // $scope.statSecond = moment($scope.project.releaseStartTime).diff(moment($scope.serverTime),'second');
           // $scope.statSecond = moment($scope.project.releaseStartTime).diff(moment($scope.serverTime),'second');
