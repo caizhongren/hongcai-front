@@ -61,12 +61,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="row list-item border-b" ng-switch="investAmount - capital.balance < 0">
+		<div class="row list-item border-b" ng-switch="investAmount - capital.balance <= 0">
 			<div class="col-md-12" ng-switch-when="true">
 					<input type="checkbox" ng-checked="true" ng-model="$parent.checkInvFlag"/>同意《投资协议》以及《隐私条款》
 			</div>
 		</div>
-		<div class="row list-item"  ng-switch="investAmount - capital.balance < 0">
+		<div class="row list-item"  ng-switch="investAmount - capital.balance <= 0">
 			<div class="col-md-12" ng-switch-when="false">
 				<div class="form-group mgn-top">您的余额不足</div>
 				<input type="button" value="充值" class="red-button col-md-1 col-lg-1" ui-sref="root.userCenter.recharge"/>
