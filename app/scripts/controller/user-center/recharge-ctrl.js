@@ -58,6 +58,7 @@ hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', 'toaster', '$stat
             } else {
                 toaster.pop('warning', '信息提示', response.msg);
                 $state.go('root.userCenter.security-settings');
+                //$rootScope.openTrusteeshipAccount = true;//跳转之后直接打开身份验证
             }
         });
     };   

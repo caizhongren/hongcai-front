@@ -21,18 +21,24 @@
     <!-- endbower -->
     <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css" />
     <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
+
     <!-- endbuild -->
 
+    <script type='text/javascript' src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.min.js"></script>
+
     <!--[if lt IE 9]>
-      <script>
+      <script type='text/javascript'>
         document.createElement('aboutsidebar');
         document.createElement('helpsidebar');
         document.createElement('slick');
       </script>
-    <script src="http://cdn.staticfile.org/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-    <script src="http://cdn.staticfile.org/json3/3.3.2/json3.min.js"></script>
-    <script src="scripts/util/excanvas.compiled.js"></script>
+    <script type='text/javascript' src="http://cdn.staticfile.org/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script type='text/javascript' src="http://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <script type='text/javascript' src="http://cdn.staticfile.org/json3/3.3.2/json3.min.js"></script>
+    <link href="scripts/util/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+    <link href="scripts/util/respond.proxy.gif" id="respond-redirect" rel="respond-redirect">
+    <script type='text/javascript' src="scripts/util/respond.proxy.js"></script>
+
     <style>
         .slick-prev{
             left:0;
@@ -177,6 +183,9 @@
     <script src="scripts/controller/help-center/help-center-ctrl.js"></script>
     <script src="scripts/controller/user-center/gift-overview-ctrl.js"></script>
     <script src="scripts/controller/user-center/invite-rebate-ctrl.js"></script>
+    <script src="scripts/controller/user-center/bankcard-success-ctrl.js"></script>
+    <script src="scripts/controller/user-center/recharge-success-ctrl.js"></script>
+    <script src="scripts/controller/user-center/withdraw-success-ctrl.js"></script>
 
 
     <script src="scripts/service/main/main-service.js"></script>

@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'SessionService', 'DEFAULT_DOMAIN', 'toaster','GetPwdService', 'UserCenterService', function ($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster,GetPwdService, UserCenterService) {
+hongcaiApp.controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'SessionService', 'DEFAULT_DOMAIN', 'toaster','GetPwdService', 'UserCenterService', 'md5', function ($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster,GetPwdService, UserCenterService, md5) {
   $scope.areaFlag = 1;
   $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?';
   $scope.refreshCode = function() {
@@ -109,7 +109,8 @@ hongcaiApp.controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope
     } else {
       var mobile = user.account;
     }
-    UserCenterService.resetMobilePassword.get({mobile: mobile, captcha: user.mobileCaptcha, password: newPwd.password }, function(response) {
+    var md5MobPassword = md5.createHash(newPwd.password);
+    UserCenterService.resetMobilePassword.get({mobile: mobile, captcha: user.mobileCaptcha, password: md5MobPassword }, function(response) {
       if(response.ret == 1) {
         $scope.areaFlag = 4;
         $scope.counter = 5;
@@ -131,7 +132,7 @@ hongcaiApp.controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope
   };
 }]);
 
-hongcaiApp.controller('SetNewPwdCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'SessionService', 'toaster','GetPwdService','UserCenterService', '$timeout', function ($scope, $state, $rootScope, $stateParams, SessionService, toaster, GetPwdService, UserCenterService, $timeout) {
+hongcaiApp.controller('SetNewPwdCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'SessionService', 'toaster','GetPwdService','UserCenterService', '$timeout', 'md5', function ($scope, $state, $rootScope, $stateParams, SessionService, toaster, GetPwdService, UserCenterService, $timeout, md5) {
   $scope.areaFlag = 3;
 
   $scope.uuId = $stateParams.uuid;
@@ -141,7 +142,8 @@ hongcaiApp.controller('SetNewPwdCtrl', ['$scope', '$state', '$rootScope', '$stat
     if(user.password != user.repeatPassword) {
       return;
     }
-    UserCenterService.resetEmailPassword.get({uuid: $scope.uuId, token: $scope.token, password: user.password }, function(response){
+    var md5EmailPassword = md5.createHash(user.password);
+    UserCenterService.resetEmailPassword.get({uuid: $scope.uuId, token: $scope.token, password: md5EmailPassword }, function(response){
       if(response.ret == 1) {
         $scope.areaFlag = 4;
         $scope.counter = 5;

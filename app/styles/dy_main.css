@@ -1,6 +1,6 @@
-body{
+body,html{
     margin: 0;
-    color: #333;
+    color: #333 !important;
     text-rendering: optimizelegibility;
     _background-attachment: fixed;
     _background-image: url(about:blank);
@@ -318,7 +318,7 @@ input:focus{
   height: 34px;
 }
 
-.verify-input,.userCenter .form-group select,.bank-card-show,.agreement-area,.about-left-area,
+.verify-input,.userCenter .form-group select,.agreement-area,.about-left-area,
 .left-area,.right-area,.right-area,.change-area,.news-nav span{
   border: 1px solid #dbdbdb;
 }
@@ -821,14 +821,15 @@ input:focus{
 .safe-card-tips{
   margin: 0 0 20px 0; 
 }
-.bank-card-show{
-  height: 142px;
-  width: 214px;
-  background-color: #fdfbfb;
-  background-position: -795px -1380px;
+.bank-card-show{  
+  height: 230px;
+  width: 346px;
+  background-position: -776px -1100px;
+  padding-top: 60px;
 }
 .add-card{
-  margin: 90px 0 0 71px;
+  font-size: 26px;
+  text-align: center;
 }
 .border-end{
   border-bottom: 1px solid #dbdbdb;
