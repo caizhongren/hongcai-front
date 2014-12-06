@@ -28,8 +28,6 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
 
           // console.log('releaseStartTime:' + moment($scope.project.releaseStartTime).format());
           // console.log('serverTime:' + moment($scope.serverTime).format());
-          console.log('statSecond: ' + $scope.statSecond);
-
           $scope.$broadcast('timer-set-countdown', $scope.statSecond);
           // TODO 上线后删掉
           //设置时间大于releaseStartTime 30秒
