@@ -3,8 +3,10 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {
-        $scope.projectList = projectList.data.recommend;
-        $scope.projectVo = projectList.data.specialRecommend[0];
+      if(response.ret === 1){
+          $scope.projectList = projectList.data.recommend;
+          $scope.projectVo = projectList.data.specialRecommend[0];
+        }
 
        /* $scope.orderProp = 'id';
         $scope.currentPage = 0;
@@ -24,22 +26,30 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     });
 
     var indexStatistics = MainService.indexStatistics.get(function(response) {
+      if(response.ret === 1) {
         $scope.indexStatic = indexStatistics.data.indexStatic;
+      }
     });
 
     AboutUsService.textList.get({category: 1}, function(response) {
+      if(response.ret === 1){
         $scope.textList = response.data.textList;
         $scope.mediaList = $scope.textList.slice(0, 4);
+      }
     });
 
     AboutUsService.textList.get({category: 2}, function(response) {
+      if(response.ret === 1) {
         $scope.textList = response.data.textList;
         $scope.noticeList = $scope.textList.slice(0, 4);
+      }
     });
 
     AboutUsService.textList.get({category: 3}, function(response) {
+      if(response.ret === 1) {
         $scope.textList = response.data.textList;
         $scope.trendList = $scope.textList.slice(0, 4);
+      }
     });
 
     $rootScope.selectPage = $location.path().split('/')[1];

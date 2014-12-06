@@ -4,8 +4,6 @@ hongcaiApp.controller('ProjectActivityGroupCtrl', ['$scope', 'ProjectService', '
   var activityGroup = ProjectService.getGiftProjectList.get(function() {
     if(activityGroup.ret == 1) {
       $scope.projectList = activityGroup.data.projectList;
-    } else {
-      toaster.pop('warning', '信息提示', response.msg);
     }
   })
 }]);
