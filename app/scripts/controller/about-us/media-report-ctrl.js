@@ -2,6 +2,7 @@
 hongcaiApp.controller('MediaReportsCtrl', ['$scope', '$state', '$stateParams', 'AboutUsService', function ($scope, $state, $stateParams, AboutUsService) {
 	AboutUsService.textList.get({category: 1}, function(response) {
         $scope.textList = response.data;
+        $scope.baseFileUrl = response.data.baseFileUrl;
         $scope.orderProp = 'id';
         $scope.currentPage = 0;
         $scope.pageSize = 6;
