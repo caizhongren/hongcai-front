@@ -21,6 +21,7 @@ hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope'
     												  sortCondition: $stateParams.sortCondition,
     												  sortType: $scope.sortType}, function() {
         $scope.projectList = response.data.projectList;
+        $scope.baseFileUrl = response.data.baseFileUrl;
         $scope.status = $stateParams.status;
         $scope.minCycle = $stateParams.minCycle;
         $scope.maxCycle = $stateParams.maxCycle;
