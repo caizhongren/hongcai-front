@@ -187,6 +187,26 @@
       }
     }
   })
+  .state('root.recharge-success', {
+    url: '/recharge-success',
+    views: {
+      '': {
+        templateUrl: 'views/success.html',
+        controller: 'RechargeSuccessCtrl',
+        controllerUrl: 'scripts/controller/user-center/recharge-success-ctrl'
+      }
+    }
+  })
+  .state('root.withdraw-success', {
+     url: '/withdraw-success',
+     views: {
+       '': {
+         templateUrl: 'views/success.html',
+         controller: 'WithdrawSuccessCtrl',
+         controllerUrl: 'scripts/controller/user-center/withdraw-success-ctrl'
+       }
+     }
+   })
  	/*------------------------------------------  lucky-draw  -----------------------------------------------*/
   .state('root.lucky-draw', {
     url: '/lucky-draw',
