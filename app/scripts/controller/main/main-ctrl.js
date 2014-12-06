@@ -6,8 +6,10 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
       if(response.ret === 1){
           $scope.projectList = projectList.data.recommend;
           $scope.projectVo = projectList.data.specialRecommend[0];
+          $scope.baseFileUrl = projectList.data.baseFileUrl;
+          $scope.projectList = projectList.data.recommend;
+          $scope.projectVo = projectList.data.specialRecommend[0];
         }
-
        /* $scope.orderProp = 'id';
         $scope.currentPage = 0;
         $scope.pageSize = 15;
