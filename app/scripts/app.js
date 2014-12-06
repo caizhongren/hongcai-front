@@ -177,6 +177,16 @@
       }
     }
   })
+  .state('root.bankcard-success', {
+    url: '/bankcard-success',
+    views: {
+      '': {
+        templateUrl: 'views/success.html',
+        controller: 'BankcardSuccessCtrl',
+        controllerUrl: 'scripts/controller/user-center/bankcard-success-ctrl'
+      }
+    }
+  })
  	/*------------------------------------------  lucky-draw  -----------------------------------------------*/
   .state('root.lucky-draw', {
     url: '/lucky-draw',
