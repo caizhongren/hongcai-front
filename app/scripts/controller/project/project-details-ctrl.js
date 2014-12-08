@@ -2,13 +2,13 @@
 hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster) {
     $rootScope.redirectUrl = $location.path();
 
-
     var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
         if( projectDetails.ret === 1 ) {
           $scope.statSecond = (projectDetails.data.countDownTime/1000+1) || 1;
           $scope.project = projectDetails.data.project;
 
           $scope.projectInfo = projectDetails.data.projectInfo;
+          $scope.projectRank = projectDetails.data.projectRank;
 
           // $scope.pledges = projectDetails.data.pledges;
           $scope.isAvailable = projectDetails.data.isAvailable;
