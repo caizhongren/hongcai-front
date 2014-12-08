@@ -1,8 +1,9 @@
-<div class="container" style="padding-top: 30px;">
+<div class="container projectCategory" style="padding-top: 30px;">
   <div class="row">
+    <div class="col-xs-12 projectCategory-title"><h2> {{ projectTitle }}</h2></div>
     <div class="col-xs-12 panel panel-default">
-      <div class="panel panel-title"><h2> {{ projectTitle }}</h2></div>
-      <div class="panel panel-body projectCategory">
+      <!-- <div class="panel panel-title"><h2> {{ projectTitle }}</h2></div> -->
+      <div class="panel panel-body">
         <ul class="list-group" ng-repeat="item in projectCategory">
           <li class="list-group-item">
             <div class="row" ng-if="$index === 0">
@@ -20,7 +21,7 @@
                 </div>
               </div>
               <div class="col-lg-6">
-                <ul>
+                <ul class="padding-l-58">
                   <li ng-repeat="tip in item.tips"><i class="fa fa-check-square-o">&nbsp;</i><p>{{ tip }}</p></li>
                 </ul>
               </div>
