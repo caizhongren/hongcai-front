@@ -248,7 +248,19 @@ module.exports = function (grunt) {
               js: ['concat', 'uglifyjs'],
               css: ['cssmin']
             },
-            post: {}
+            post: {
+              css: [{
+                name: 'cssmin',
+                createConfig: function (context) {
+                  var generated = context.options.generated;
+                  generated.options = {
+                    keepSpecialComments: 0,
+                    banner: '/*! All Rights Reserved by hongcai.com. */',
+                    compatibility: 'ie8'
+                  }
+                }
+              }]
+            }
           }
         }
       }
