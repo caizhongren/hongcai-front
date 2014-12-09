@@ -9,7 +9,8 @@
         </span>
         <div class="media-body">
           <h3 class="media-heading" style="padding-top: 6px;">安全保障</h3>
-          <p class="text-nowrap line-h-27">国有担保公司担保或再担保<br>9重风控，36道安全认证</p>
+          <!-- <p class="text-nowrap line-h-27">国有担保公司担保或再担保<br>9重风控，36道安全认证</p> -->
+          <p class="line-h-27">国有担保公司担保或再担保<br>9重风控，36道安全认证</p>
         </div>
       </div>
     </div>
@@ -20,7 +21,8 @@
         </span>
         <div class="media-body">
           <h3 class="media-heading" style="padding-top: 6px;">投资收益</h3>
-          <p class="text-nowrap line-h-27">100元起投<br>40倍银行同期活期收益</p>
+          <!-- <p class="text-nowrap line-h-27">100元起投<br>40倍银行同期活期收益</p> -->
+          <p class="line-h-27">100元起投<br>40倍银行同期活期收益</p>
         </div>
       </div>
     </div>
@@ -31,7 +33,8 @@
         </span>
         <div class="media-body">
           <h3 class="media-heading" style="padding-top: 6px;">灵活便捷</h3>
-          <p class="text-nowrap line-h-27">7×24小时全天候理财服务<br>随时随地完成财富增值</p>
+          <!-- <p class="text-nowrap line-h-27">7×24小时全天候理财服务<br>随时随地完成财富增值</p> -->
+          <p class="line-h-27">7×24小时全天候理财服务<br>随时随地完成财富增值</p>
         </div>
       </div>
     </div>
@@ -60,8 +63,8 @@
         <div class="col-xs-12 hongcai-body">
           <div class="col-xs-4" ng-repeat="item in activityList | limitTo: 3">
             <div class="row {{item.status === 7 ? 'hongbao-red' : 'hongbao-grey'}}">
-              <div class="col-xs-6 col-xs-offset-6">
-                <h4>{{ item.name | limitTo:5}}</h4>
+              <div class="col-xs-7 col-xs-offset-6">
+                <h4><a class="txt-overflow" ui-sref="root.activity-details({activityId: item.id, type: 2})" title="{{ item.name }}">{{ item.name}}</a></h4>
                 <small>{{ item.releaseStartTime | date: 'yyyy-MM-dd' }}</small>
                 <h4>10% + <span>90%</span></h4>
                 <small>年化收益</small>
@@ -79,7 +82,8 @@
       <div class="row panel panel-danger special-recommend">
         <div class="panel-body">
           <div class="hot-sale"></div>
-          <div class="hidden-xs hidden-md col-lg-5 padding-0">
+          <!-- <div class="hidden-xs hidden-md col-lg-5 padding-0"> -->
+          <div class="hidden-xs hidden col-lg-5 padding-0">
             <a ui-sref="root.project-details({projectId: projectVo.id})">
               <img ng-src="{{baseFileUrl + projectVo.image}}" alt="" class="img-rounded" width="230" height="206">
             </a>
@@ -341,6 +345,11 @@
       <div class="hidden-xs col-sm-12">
         <p><strong>合作机构</strong></p>
           <div class="cooperation-flow">
+            <a><img src='images/changchun_gc.png'></a>
+            <a><img src='images/changchun_jilian_gc.png'></a>
+            <a><img src='images/gs_rongzi_gc.png'></a>
+            <a><img src='images/minsheng_bank.png'></a>
+            <a><img src='images/zhongdong_cgc.png'></a>
             <a><img src='images/hexing.png'></a>
             <a><img src='images/tianchang_lawyer.png'></a>
             <a><img src='images/partner_yeepay.png'></a>
@@ -356,11 +365,6 @@
             <a><img src='images/jiaotong_bank.png'></a>
             <a><img src='images/nongye_bank.png'></a>
             <a><img src='images/tencent_logo.png'></a>
-            <a><img src='images/changchun_gc.png'></a>
-            <a><img src='images/changchun_jilian_gc.png'></a>
-            <a><img src='images/gs_rongzi_gc.png'></a>
-            <a><img src='images/minsheng_bank.png'></a>
-            <a><img src='images/zhongdong_cgc.png'></a>
           </div>
       </div>
     </div>
