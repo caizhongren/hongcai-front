@@ -10,6 +10,10 @@ hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams'
         $scope.thumbnailFile = sponsorInstitution.data.thumbnailFile;
         $scope.baseFileUrl = sponsorInstitution.data.baseFileUrl;
 
+        //控制展开按钮展示
+        var arr = $scope.guarantee.description.split('');
+        arr.length <= 709 ? $('.fa').hide() : $('.fa').show();
+
         $scope.currentPage = 0;
         $scope.pageSize = 6;
         $scope.data = [];
