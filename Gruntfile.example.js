@@ -281,6 +281,16 @@ module.exports = function (grunt) {
       }
     },
 
+    cssmin: {
+      generated: {
+        options: {
+          keepSpecialComments: 0,
+          banner: '/*! 2014-2015 All Rights Reserved by hongcai.com. */',
+          compatibility: 'ie8'
+        }
+      }
+    },
+
     // The following *-min tasks will produce minified files in the dist folder
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
