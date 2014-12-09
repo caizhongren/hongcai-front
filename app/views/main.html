@@ -110,17 +110,10 @@
             </div>
 
             <div class="row">
-              <div class="col-xs-12" ng-show="projectVo.progress < 100">
+              <div class="col-xs-12">
                 <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: projectVo.id})">
-                <i class="fa fa-shopping-cart"></i> 
-                立即投资
-                </a>
-              </div>
-
-              <div class="col-xs-12" ng-show="projectVo.progress >= 100">
-                <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: projectVo.id})">
-                <i class="fa fa-shopping-cart"></i> 
-                融资完成
+                <i class="fa fa-shopping-cart"></i>
+                {{ projectVo.statusText }}
                 </a>
               </div>
             </div>
@@ -179,17 +172,10 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-xs-12" ng-show="project.progress < 100">
-                      <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: project.id})">
-                      <i class="fa fa-shopping-cart"></i> 
-                      立即投资
-                      </a>
-                    </div>
-
-                    <div class="col-xs-12" ng-show="project.progress >= 100">
+                    <div class="col-xs-12">
                       <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: project.id})">
                       <i class="fa fa-shopping-cart"></i>
-                      融资完成
+                      {{ project.statusText }}
                       </a>
                     </div>
                   </div>
