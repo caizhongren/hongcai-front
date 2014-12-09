@@ -20,10 +20,12 @@ hongcaiApp.controller('InviteRebateCtrl', [ '$scope', '$state', '$rootScope', 'U
 	        }
 
 		} else {
-            
+
         }
-        
+
     });
+
+
 
 }]);
 

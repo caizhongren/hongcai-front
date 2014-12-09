@@ -643,7 +643,7 @@
  	})
   /*------------------------------------------  set-new-pwd  -----------------------------------------------*/
   .state('root.set-new-pwd', {
-    url: '/set-new-pwd/:uuid/:token/',
+    url: '/set-new-pwd/:uuid/:etoken',
     views: {
       '': {
         templateUrl: 'views/get-pwd-back/set-new-pwd.html',

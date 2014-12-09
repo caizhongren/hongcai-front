@@ -136,14 +136,14 @@ hongcaiApp.controller('SetNewPwdCtrl', ['$scope', '$state', '$rootScope', '$stat
   $scope.areaFlag = 3;
 
   $scope.uuId = $stateParams.uuid;
-  $scope.token = $stateParams.token;
+  $scope.etoken = $stateParams.etoken;
   // 通过邮件的方式找回密码
   $scope.setEmailNewPwd = function(user) {
     if(user.password != user.repeatPassword) {
       return;
     }
     var md5EmailPassword = md5.createHash(user.password);
-    UserCenterService.resetEmailPassword.get({uuid: $scope.uuId, token: $scope.token, password: md5EmailPassword }, function(response){
+    UserCenterService.resetEmailPassword.get({uuid: $scope.uuId, token: $scope.etoken, password: md5EmailPassword }, function(response){
       if(response.ret == 1) {
         $scope.areaFlag = 4;
         $scope.counter = 5;
