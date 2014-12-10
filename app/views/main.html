@@ -84,7 +84,7 @@
           <div class="hot-sale"></div>
           <div class="hidden-xs hidden-md col-lg-5 padding-0">
             <a ui-sref="root.project-details({projectId: projectVo.id})">
-              <img ng-src="{{baseFileUrl + projectVo.image}}" alt="" class="img-rounded" width="230" height="206">
+              <img ng-show="projectVo.image" ng-src="{{baseFileUrl + projectVo.image}}" alt="" class="img-rounded" width="230" height="206">
             </a>
           </div>
 
