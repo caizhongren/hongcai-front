@@ -23,6 +23,17 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
           $scope.remainInterest = projectDetails.data.remainInterest;
           $scope.remainPrincipal = projectDetails.data.remainPrincipal;
           $scope.baseFileUrl = projectDetails.data.baseFileUrl;
+          // 处理投资记录分页
+          $scope.currentPage = 0;
+          $scope.pageSize = 10;
+          $scope.data = [];
+
+          $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+          }
+          for (var i = 0; i < $scope.orderList.length; i++) {
+            $scope.data.push($scope.orderList[i]);
+          }
           // 绑定Timer timer-set-countdown对应的变量
           // $scope.statSecond = moment($scope.project.releaseStartTime).diff(moment($scope.serverTime),'second');
           // $scope.statSecond = moment($scope.project.releaseStartTime).diff(moment($scope.serverTime),'second');
@@ -87,7 +98,7 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
-    
+
     $scope.tabs = [{
             title: '项目信息',
             // url: 'one.tpl.html'
@@ -142,7 +153,7 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
         myOtherModal.$promise.then(myOtherModal.show);
     };
 
-    
+
 
 
 }]);
