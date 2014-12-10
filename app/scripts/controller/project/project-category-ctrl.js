@@ -5,7 +5,7 @@ hongcaiApp.controller('ProjectCategoryCtrl', ['$scope','$rootScope', '$location'
   
   $scope.projectTitle = '宏财网 - 产品介绍';
   $scope.projectCategory = [{'title':'理财项目',
-    'content':'平台提供机构担保标、实地认证标等多类产品，用户根据审核后的信息，自选合适的借款标的，构建符合个人意愿的投资组合。',
+    'content':'平台提供优质担保机构（信用评级A级以上，政府重点扶持的担保机构）担保的项目标，所有项目要求抵押物必须足值，用户根据审核后的信息，自选合适的借款标的，构建符合个人意愿的投资组合。',
     'tips':['项目收益率10% - 18%','期限灵活1-12个月','100元起投，可小额多笔投资，分散风险','100%本息保障'],
     'url': "root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })"},
    {'title':'宏运当头标',
