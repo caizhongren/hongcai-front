@@ -94,12 +94,12 @@
                     <div class="col-xs-2 text-nowrap">固定期限：</div>
                     <div class="form-group">
                       <i class="fa fa-calendar"></i>
-                      <input type="text" class="form-control" ng-model="invFromDate" data-max-date="{{ invUntilDate }}" placeholder="开始时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="fromDateChanged();">
-
+                      <input class="form-control" ui-date ng-model="invFromDate" placeholder="开始时间" ng-change="fromDateChanged();">
+                      <!-- <input type="text" class="form-control" ng-model="invFromDate" data-max-date="{{ invUntilDate }}" placeholder="开始时间" data-date-format="yyyy-MM-dd" data-date-type="number" bs-datepicker ng-change="fromDateChanged();"> -->
                       <i class="fa fa-arrows-h"></i>
                       <i class="fa fa-calendar"></i>
-
-                      <input type="text" class="form-control" ng-model="invUntilDate" data-min-date="{{ invFromDate }}" data-date-format="yyyy-MM-dd" placeholder="结束时间" data-date-type="number" bs-datepicker ng-change="untilDealDateChanged({{status}},{{dateInterval}});">
+                      <input class="form-control" ui-date ng-model="invUntilDate" placeholder="开始时间" ng-change="untilDealDateChanged({{status}},{{dateInterval}});">
+                      <!-- <input type="text" class="form-control" ng-model="invUntilDate" data-min-date="{{ invFromDate }}" data-date-format="yyyy-MM-dd" placeholder="结束时间" data-date-type="number" bs-datepicker ng-change="untilDealDateChanged({{status}},{{dateInterval}});"> -->
                     </div>
                   </form>
                 </div>
