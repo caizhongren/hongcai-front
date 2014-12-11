@@ -1,5 +1,9 @@
 'use strict';
+<<<<<<< HEAD
+hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'MsgService', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, MsgService) {
+=======
 hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie) {
+>>>>>>> 8c168f45d9d54836095d2596170eed0bc083d691
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {
@@ -77,6 +81,12 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     $scope.slickHandle = {
     };
 
+    MsgService.getUnreadMsgCount.get(function(response) {
+      if(response.ret === 1) {
+        $scope.unreadCount = response.data.unreadCount;
+      }
+    });
+
     /**
      * 处理推广流量统计
      */
@@ -85,7 +95,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
         ipCookie('utm_from', from, { expires: 60 })
         MainService.trafficStats.get({from: from});
      }
-
+     
 }]);
 
 
