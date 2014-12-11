@@ -55,10 +55,10 @@ hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope'
         if(SessionService.get('user')) return true;
     };
 
-    angular.element('.dropdown').hover(function(){
+    /*angular.element('.dropdown').hover(function(){
         angular.element('#dropdown').css({"display":"block"});
     },function(){
         angular.element('#dropdown').css({"display":"none"});
-    });
+    });*/
 
 }]);
