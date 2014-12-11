@@ -655,6 +655,10 @@ input:focus{
   padding:0px 72px !important;
   color: #9a9595;
 }
+.introduction-content{
+  margin-top: -25px;
+  margin-bottom: 60px;
+}
 .img-area{
   margin-top: 20px; 
   height: 300px;
@@ -689,10 +693,24 @@ input:focus{
 .magn {
   margin-left: 72px;
 }
+.magn-1{
+  margin-left: 100px;
+}
+.magn-2{
+  margin-left: 320px;
+}
 .aboutUs-introduction-area {
   word-wrap: break-word;
   word-break: break-all;
   text-indent: 2em;
+
+}
+.aboutUs-introduction-pct{
+  text-align: center;
+}
+.aboutUs-introduction-p{
+  padding-left: 60px;
+  padding-top: 20px;
 }
 .p-right{
   height: 20px;

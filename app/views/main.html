@@ -5,7 +5,7 @@
     <div class="hidden-xs col-xs-4">
       <div class="media margin-b-30">
         <span class="pull-left hc-text-red ft-4em">
-        <img src="images/main_safe.png" alt="">
+        <a href="/banner-nine.html" target="_blank"><img src="images/main_safe.png" alt=""></a>
         </span>
         <div class="media-body">
           <h3 class="media-heading" style="padding-top: 6px;">安全保障</h3>
@@ -17,7 +17,7 @@
     <div class="hidden-xs col-xs-4">
       <div class="media margin-b-30">
         <span class="pull-left hc-text-red ft-4em" >
-        <img src="images/main_inv.png" alt="">
+        <a ui-sref="root.banner-fourty"><img src="images/main_inv.png" alt=""></a>
         </span>
         <div class="media-body">
           <h3 class="media-heading" style="padding-top: 6px;">投资收益</h3>
@@ -29,7 +29,7 @@
     <div class="hidden-xs col-xs-4">
       <div class="media margin-b-30">
         <span class="pull-left hc-text-red ft-4em">
-        <img src="images/main_sweet.png" alt="">
+        <a href="/newbie-guide.html#page4" target="_blank"><img src="images/main_sweet.png" alt=""></a>
         </span>
         <div class="media-body">
           <h3 class="media-heading" style="padding-top: 6px;">灵活便捷</h3>
@@ -51,7 +51,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" ng-if="activityList">
     <div class="col-xs-12">
       <div class="hongbao-area row">
         <div class="col-xs-12 hongbao-title">
@@ -137,7 +137,7 @@
               <div class="row">
                 <div class="hidden-xs hidden-md col-lg-5">
                   <a ui-sref="root.project-details({projectId: project.id})">
-                    <img ng-src="{{project.image}}" alt="{{project.name}}" class="img-rounded" width="230" height="206">
+                    <img ng-show="project.image" ng-src="{{baseFileUrl + project.image}}" alt="{{project.name}}" class="img-rounded" width="230" height="206">
                   </a>
                 </div>
 
@@ -238,8 +238,8 @@
         </div>
         <div class="panel-body">
           <div class="row mediaList" ng-repeat="item in mediaList">
-            <div class="col-xs-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
-            <div class="col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
+            <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a></div>
+            <div class="hidden-xs hidden-md col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
           </div>
         </div>
       </div>
@@ -251,8 +251,8 @@
 
         <div class="panel-body">
           <div class="row noticeList" ng-repeat="item in noticeList track by $index">
-            <div class="col-xs-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})">{{item.title}}</a></div>
-            <div class="col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
+            <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a></div>
+            <div class="hidden-xs hidden-md col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
           </div>
         </div>
       </div>
@@ -266,8 +266,8 @@
 
             <div class="panel-body">
               <div class="row trendList" ng-repeat="item in trendList track by $index">
-                <div class="col-xs-9"><a ui-sref="root.about-us.hongcai-trends-detail({textId: item.id})">{{item.title}}</a></div>
-                <div class="col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
+                <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref="root.about-us.hongcai-trends-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a></div>
+                <div class="hidden-xs hidden-md col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
               </div>
             </div>
           </div>
@@ -283,15 +283,15 @@
 
             <div class="panel-body">
               <div class="row">
-                <div class="col-xs-9"><a ui-sref='root.help-center.introduce'>宏财网是做什么的网站？</a></div>
+                <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref='root.help-center.introduce'>宏财网是做什么的网站？</a></div>
               </div>
 
               <div class="row">
-                <div class="col-xs-9"><a ui-sref='root.help-center.introduce'>宏财网安全吗？</a></div>
+                <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref='root.help-center.introduce'>宏财网安全吗？</a></div>
               </div>
 
               <div class="row">
-                <div class="col-xs-9"><a ui-sref='root.help-center.introduce'>一旦借款人无法偿还怎么办？</a></div>
+                <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref='root.help-center.introduce'>一旦借款人无法偿还怎么办？</a></div>
               </div>
             </div>
           </div>
@@ -330,26 +330,26 @@
       <div class="hidden-xs col-sm-12">
         <p><strong>合作机构</strong></p>
           <div class="cooperation-flow">
-            <a><img src='images/changchun_gc.png'></a>
-            <a><img src='images/changchun_jilian_gc.png'></a>
-            <a><img src='images/gs_rongzi_gc.png'></a>
-            <a><img src='images/minsheng_bank.png'></a>
-            <a><img src='images/zhongdong_cgc.png'></a>
-            <a><img src='images/hexing.png'></a>
-            <a><img src='images/tianchang_lawyer.png'></a>
-            <a><img src='images/partner_yeepay.png'></a>
-            <a><img src='images/zhaoshang_bank.png'></a>
-            <a><img src='images/hongshan.png'></a>
-            <a><img src='images/wangdaihome.png'></a>
-            <a><img src='images/wangdaieyes.png'></a>
-            <a><img src='images/minsheng_bank.png'></a>
-            <a><img src='images/gongshang_bank.png'></a>
-            <a><img src='images/jianshe_bank.png'></a>
-            <a><img src='images/youzheng_bank.png'></a>
-            <a><img src='images/china_bank.png'></a>
-            <a><img src='images/jiaotong_bank.png'></a>
-            <a><img src='images/nongye_bank.png'></a>
-            <a><img src='images/tencent_logo.png'></a>
+            <a class="col-xs-2 col-xs-offset-1"><img src='images/changchun_gc.png'></a>
+            <a class="col-xs-2"><img src='images/changchun_jilian_gc.png'></a>
+            <a class="col-xs-2"><img src='images/gs_rongzi_gc.png'></a>
+            <a class="col-xs-2"><img src='images/minsheng_bank.png'></a>
+            <a class="col-xs-2"><img src='images/zhongdong_cgc.png'></a>
+            <a class="col-xs-2 col-xs-offset-1"><img src='images/hexing.png'></a>
+            <a class="col-xs-2"><img src='images/tianchang_lawyer.png'></a>
+            <a class="col-xs-2"><img src='images/partner_yeepay.png'></a>
+            <a class="col-xs-2"><img src='images/zhaoshang_bank.png'></a>
+            <a class="col-xs-2"><img src='images/hongshan.png'></a>
+            <a class="col-xs-2 col-xs-offset-1"><img src='images/wangdaihome.png'></a>
+            <a class="col-xs-2"><img src='images/wangdaieyes.png'></a>
+            <a class="col-xs-2"><img src='images/minsheng_bank.png'></a>
+            <a class="col-xs-2"><img src='images/gongshang_bank.png'></a>
+            <a class="col-xs-2"><img src='images/jianshe_bank.png'></a>
+            <a class="col-xs-2 col-xs-offset-1"><img src='images/youzheng_bank.png'></a>
+            <a class="col-xs-2"><img src='images/china_bank.png'></a>
+            <a class="col-xs-2"><img src='images/jiaotong_bank.png'></a>
+            <a class="col-xs-2"><img src='images/nongye_bank.png'></a>
+            <a class="col-xs-2"><img src='images/tencent_logo.png'></a>
           </div>
       </div>
     </div>

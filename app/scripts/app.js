@@ -82,6 +82,15 @@
  			}*/
  		}
  	})
+
+  .state('root.banner-fourty', {
+    url: '/banner-fourty',
+    views: {
+      '': {
+        templateUrl: 'views/banner-fourty.html',
+      }
+    }
+  })
  	.state('root.login', {
  		url: '/login/:isRedirect',
  		views: {
