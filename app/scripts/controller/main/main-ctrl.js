@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService) {
+hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'MsgService', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, MsgService) {
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {
@@ -76,6 +76,12 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     };
     $scope.slickHandle = {
     };
+
+    MsgService.getUnreadMsgCount.get(function(response) {
+      if(response.ret === 1) {
+        $scope.unreadCount = response.data.unreadCount;
+      }
+    });
 }]);
 
 
