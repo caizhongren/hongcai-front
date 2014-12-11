@@ -1,9 +1,5 @@
 'use strict';
-<<<<<<< HEAD
-hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'MsgService', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, MsgService) {
-=======
-hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie) {
->>>>>>> 8c168f45d9d54836095d2596170eed0bc083d691
+hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'MsgService', 'ipCookie', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, MsgService, ipCookie) {
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {
@@ -95,7 +91,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
         ipCookie('utm_from', from, { expires: 60 })
         MainService.trafficStats.get({from: from});
      }
-     
+
 }]);
 
 
