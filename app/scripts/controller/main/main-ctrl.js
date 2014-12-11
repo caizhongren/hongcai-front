@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService) {
+hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie) {
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {
@@ -76,6 +76,16 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     };
     $scope.slickHandle = {
     };
+
+    /**
+     * 处理推广流量统计
+     */
+     var from = $stateParams.from;
+     if (from){
+        ipCookie('utm_from', from, { expires: 60 })
+        MainService.trafficStats.get({from: from});
+     }
+
 }]);
 
 

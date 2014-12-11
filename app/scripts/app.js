@@ -64,7 +64,7 @@
  		}
  	})
  	.state('root.main', {
- 		url: '/',
+ 		url: '/:from',
  		views: {
  			'': {
  				templateUrl: 'views/main.html',
