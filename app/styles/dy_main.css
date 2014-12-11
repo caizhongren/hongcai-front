@@ -1003,3 +1003,30 @@ input:focus{
 .hongbao-red{
   background: url(/images/sprite.png) -260px -1855px no-repeat;
 }
+.success-re{
+  font-size: 30px;
+  color: #c4dea5;
+}
+.fa-check{
+  font-size: 70px;
+}
+.success-p{
+  font-size: 19px;
+  font-weight: bold;
+  color: #9d9d9d;
+}
+.success-link{
+  display: block;
+  background:#FE0000;
+  color: #e94828;
+  font-weight: bold;
+  font-size: 15px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.success-linkr{
+  background: #ff9900;
+}
