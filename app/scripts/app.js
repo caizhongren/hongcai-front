@@ -64,7 +64,7 @@
  		}
  	})
  	.state('root.main', {
- 		url: '/:from',
+ 		url: '/',
  		views: {
  			'': {
  				templateUrl: 'views/main.html',
@@ -82,7 +82,25 @@
  			}*/
  		}
  	})
-
+  .state('root.mainRedirect', {
+    url: '/third/:from',
+    views: {
+      '': {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl',
+        controllerUrl: 'scripts/controller/main/main-ctrl'
+      },
+      'slider': {
+        templateUrl: 'views/slider.html',
+        controllerUrl: 'scripts/controller/main/main-ctrl'
+      },
+      /*'sponsor': {
+        templateUrl: 'views/project/project-sponsor-list.html',
+        controller: 'GuaranteeListCtrl',
+        controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
+      }*/
+    }
+  })
   .state('root.banner-fourty', {
     url: '/banner-fourty',
     views: {
