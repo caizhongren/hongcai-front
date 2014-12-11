@@ -1003,20 +1003,26 @@ input:focus{
 .hongbao-red{
   background: url(/images/sprite.png) -260px -1855px no-repeat;
 }
-.fa-check{
-  font-size: 70px;
-}
-.success-re{color: #C4DEA5;
-  font-size: 30px;
-}
 .success-revi{
   font-size: 19px;
   font-weight: bold;
   color: #9D9D9D;
 }
+.success-re{
+  font-size: 30px;
+  color: #c4dea5;
+}
+.fa-check{
+  font-size: 70px;
+}
+.success-p{
+  font-size: 19px;
+  font-weight: bold;
+  color: #9d9d9d;
+}
 .success-link{
   display: block;
-  background:#E94828;
+  background:#e94828;
   color: #ffffff;
   font-weight: bold;
   font-size: 15px;
@@ -1029,3 +1035,5 @@ input:focus{
 .success-linkr{
   background: #FF9900;
 }
+
+

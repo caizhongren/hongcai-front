@@ -64,7 +64,7 @@
  		}
  	})
  	.state('root.main', {
- 		url: '/:from',
+ 		url: '/',
  		views: {
  			'': {
  				templateUrl: 'views/main.html',
@@ -87,7 +87,7 @@
     url: '/banner-fourty',
     views: {
       '': {
-        templateUrl: 'views/banner-fourty.html',
+        templateUrl: 'views/banner-fourty.html'
       }
     }
   })
