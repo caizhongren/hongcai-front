@@ -10,6 +10,17 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
         $scope.orderList = activityDetails.data.orderList;
         $scope.canInvestAmount = activityDetails.data.canInvestAmount;
         $scope.project.amount = $scope.canInvestAmount;
+        // 处理投资记录分页
+        $scope.currentPage = 0;
+        $scope.pageSize = 10;
+        $scope.data = [];
+
+        $scope.numberOfPages = function() {
+          return Math.ceil($scope.data.length / $scope.pageSize);
+        }
+        for (var i = 0; i < $scope.orderList.length; i++) {
+          $scope.data.push($scope.orderList[i]);
+        }
         $scope.finished = function(){
             if($scope.project.status == 6){
                 window.location.reload();

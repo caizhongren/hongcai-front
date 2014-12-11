@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'config', 'md5', function ($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5) {
+hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'config', 'md5', '$alert', function ($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5, $alert) {
 
     $rootScope.selectSide = 'security-settings';
     UserCenterService.userSecurityInfo.get({}, function(response) {
@@ -29,7 +29,7 @@ hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope',
                 console.log('sendMobileCaptcha success');
             }
         });
-    }; 
+    };
 
     $scope.bindMobile = function(mobileNo, captcha){
         UserCenterService.bindMobile.get({mobile: mobileNo, captcha: captcha},function(response){
@@ -113,10 +113,11 @@ hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope',
     }
 
     $scope.checkEmailAndMobile = function(){
-        if(!$scope.email || !$scope.mobile){
-            $scope.openTrusteeshipAccount = false;
-            alert('请先绑定邮箱和手机号码');
-        }
+      if(!$scope.email || !$scope.mobile){
+        $scope.openTrusteeshipAccount = false;
+        $scope.msg = '请先绑定邮箱和手机号码';
+        var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
+      }
     }
 
     $scope.realNameAuth = function(user) {
@@ -134,8 +135,8 @@ hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope',
 
             }
         });
-    };   
+    };
 }]);
 
 
- 
+

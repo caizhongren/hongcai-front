@@ -1,11 +1,11 @@
 'use strict';
-hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', function ( $location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
+hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', '$alert', function ( $location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $alert) {
     $rootScope.selectSide = 'recharge';
     $scope.balance = 0;
     UserCenterService.getUserBalance.get({}, function(response) {
             if(response.ret == 1) {
                 $scope.balance = response.data.balance;
-            } 
+            }
     });
 
     $scope.checkAmount = function(amount){
@@ -15,7 +15,7 @@ hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', 'toaster', '$stat
             return false;
         }
     }
-    
+
 	function new_form(){
 		var f = document.createElement('form');
 		document.body.appendChild(f);
@@ -56,10 +56,12 @@ hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', 'toaster', '$stat
                 _f.action=config.YEEPAY_ADDRESS + 'toRecharge';
                 _f.submit();
             } else {
-                toaster.pop('warning', '信息提示', response.msg);
+                // $scope.msg = response.msg;
+                // var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
+                toaster.pop('warning', response.msg);
                 $state.go('root.userCenter.security-settings');
-                //$rootScope.openTrusteeshipAccount = true;//跳转之后直接打开身份验证
+                $rootScope.openTrusteeshipAccount = true;//跳转之后直接打开身份验证
             }
         });
-    };   
+    };
 }]);

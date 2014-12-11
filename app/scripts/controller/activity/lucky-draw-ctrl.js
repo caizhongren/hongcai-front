@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$window', 'UserCenterService', function ($scope, $window, UserCenterService ) {
+hongcaiApp.controller('LuckyDrawCtrl', ['$scope', 'UserCenterService', '$alert', function ($scope, UserCenterService, $alert ) {
   $scope.status = 0;
   $scope.luckyDraw = function() {
     UserCenterService.luckyDraw.get(function(response){
@@ -13,7 +13,8 @@ hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$window', 'UserCenterService'
           $scope.status = 1;
         }
       } else {
-        $window.alert(response.msg);
+        $scope.msg = response.msg;
+        var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
       }
     })
   };
