@@ -4,13 +4,12 @@ hongcaiApp.controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location
 
     var sponsor = GuaranteeService.guaranteeList.get(function() {
         $scope.guaranteeList = sponsor.data.guaranteeList;
-        console.log($scope.guaranteeList)
 
         $scope.media = [];
         var arr = {};
         var m = Math.floor($scope.guaranteeList.length/9);
         var n = $scope.guaranteeList.length%9;
-        
+
         if (m === 0 && n !== 0){
             var s = $scope.guaranteeList.slice(0,n);
             var card = {};
