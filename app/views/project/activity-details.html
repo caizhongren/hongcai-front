@@ -237,7 +237,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr  ng-repeat="order in orderList">
+                          <tr ng-repeat="order in orderList | startFrom:currentPage * pageSize | limitTo:pageSize">
                             <td>{{order.createTime | date: "yy-MM-dd"}}</td>
                             <td>{{order.userName}}</td>
                             <td>{{order.orderAmount| number : 0}}元</td>
@@ -245,15 +245,17 @@
                         </tbody>
                       </table>
                     </div>
-                    <li class="list-group-item">
-                      <div class="row">
-                        <div class="col-sx-12 text-center">
-                          <button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1" disabled="disabled">上一页</button>
-                          {{currentPage + 1 }} / {{numberOfPages()}} 共 {{data.length}} 条
-                          <button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1" disabled="disabled">下一页</button>
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <div class="row">
+                          <div class="col-sx-12 text-center">
+                            <button class="btn btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1" disabled="disabled">上一页</button>
+                            {{currentPage + 1 }} / {{numberOfPages()}} 共 {{data.length}} 条
+                            <button class="btn btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1" disabled="disabled">下一页</button>
+                          </div>
                         </div>
-                      </div>
-                    </li>
+                      </li>
+                    </ul>
                   </section>
                 </div>
               </div>
