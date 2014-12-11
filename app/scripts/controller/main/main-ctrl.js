@@ -67,7 +67,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     $scope.slickConfig = {
       dots: true,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 6000,
       onAfterChange: function(slick, index) {
           var slides = $('.slick-track').children().not('.slick-cloned');
           if (index >= slides.length) return;
