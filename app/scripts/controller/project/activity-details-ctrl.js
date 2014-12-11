@@ -61,12 +61,12 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
 
 
     $scope.tabs = [{
-            title: '活动简介',
-        }, {
+            title: '活动详情'
+        }/*, {
             title: '活动规则',
         }, {
            title: '活动历程',
-        }
+        }*/
     ];
 
     $scope.tabs_right = [{

@@ -520,16 +520,16 @@
  	})
 
  	/*---------------------------------------------  upload  ---------------------------------------------*/
- 	.state('root.upload', {
- 		url: '/upload',
- 		views: {
- 			'': {
- 				templateUrl: 'views/upload/upload.html',
- 				controller: 'UploadCtrl',
- 				controllerUrl: 'scripts/controller/upload/upload-ctrl'
- 			}
- 		}
- 	})
+ 	// .state('root.upload', {
+ 	// 	url: '/upload',
+ 	// 	views: {
+ 	// 		'': {
+ 	// 			templateUrl: 'views/upload/upload.html',
+ 	// 			controller: 'UploadCtrl',
+ 	// 			controllerUrl: 'scripts/controller/upload/upload-ctrl'
+ 	// 		}
+ 	// 	}
+ 	// })
  	/*---------------------------------------------  order  ---------------------------------------------*/
   // 投资信息确认页面:购物车
  	.state('root.invest-verify', {
