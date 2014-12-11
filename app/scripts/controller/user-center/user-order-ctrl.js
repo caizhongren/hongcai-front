@@ -33,7 +33,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
 
     };
     $scope.fromDateChanged = function () {
-      dateStart = $scope.invFromDate;
+      dateStart = moment($scope.invFromDate).valueOf();
     };
 
     $scope.untilDealDateChanged = function (status,dateInterval) {

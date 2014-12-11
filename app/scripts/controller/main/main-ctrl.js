@@ -1,5 +1,9 @@
 'use strict';
+<<<<<<< HEAD
 hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'MsgService', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, MsgService) {
+=======
+hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie) {
+>>>>>>> 8c168f45d9d54836095d2596170eed0bc083d691
     var loginName;
     var logout;
     var projectList = MainService.projectList.get(function(response) {
@@ -59,7 +63,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
 
     $scope.media = [
       {mimeType: 'image/png', src:'images/banner-1.png', href:'/project-sponsorInstitution/137' },
-      {mimeType: 'image/png', src:'images/banner-2.png', href:'banner-fourty.html' },
+      {mimeType: 'image/png', src:'images/banner-2.png', href:'/banner-fourty' },
       {mimeType: 'image/png', src:'images/banner-3.png', href:'banner-nine.html'},
       {mimeType: 'image/png', src:'images/banner-4.png', href:'/project-activity-group' },
       {mimeType: 'image/png', src:'images/banner-5.png', href:'banner-partner.html' }
@@ -67,7 +71,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     $scope.slickConfig = {
       dots: true,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 6000,
       onAfterChange: function(slick, index) {
           var slides = $('.slick-track').children().not('.slick-cloned');
           if (index >= slides.length) return;
@@ -82,6 +86,16 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
         $scope.unreadCount = response.data.unreadCount;
       }
     });
+
+    /**
+     * 处理推广流量统计
+     */
+     var from = $stateParams.from;
+     if (from){
+        ipCookie('utm_from', from, { expires: 60 })
+        MainService.trafficStats.get({from: from});
+     }
+     
 }]);
 
 

@@ -10,12 +10,12 @@
  */
 angular.module('hongcaiApp')
   .filter('menoyFormat', function () {
-    return function (input, formatNo) {
-      input = input || '';
-      if(input.length > formatNo ){
+    return function (input) {
+      input = input.toString() || '';
+      if(input.length >= 5 ){
         return (input/10000).toString() + '万';
       } else {
-        return;
+        return input;
       }
     };
   });

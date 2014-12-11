@@ -531,7 +531,6 @@ a:link {
     right: 197px;
     height: 100%;
     .handle{
-        float:left;
         position: relative;
         top: -1px;
         width:18px;
@@ -556,7 +555,7 @@ a:link {
 
     .slide{
         position: relative;
-        top: -257px;
+        top: -257px; 
         z-index: -1;
         width:375px;
         height:100%;
@@ -1185,9 +1184,11 @@ a:link {
     }
     a{
         display: inline-block;
-        width: 19%;
+        padding: 0;
+        // width: 19%;
         img {
             margin-left: 0;
+            width: 100%;
         }
     }
     .cooperation-flow {
@@ -1437,6 +1438,24 @@ a:link {
     a:hover,
     a:focus {
         color: #333;
+    }
+}
+
+#dropdown {
+    background-color: #e94828;
+    margin-top: 0;
+    left: -17%;
+    top: auto;
+    a {
+        padding: 5px;
+    }
+    .arrow {
+        position: absolute;
+        top: -11px;
+        left: 50%;
+        margin-left: -8px;
+        border-top-width: 0;
+        border-bottom-color: #e94828;
     }
 }
 

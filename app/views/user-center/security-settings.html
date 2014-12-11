@@ -14,7 +14,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="safe-part col-md-12 col-lg-12"> 
+		<div class="safe-part col-md-12 col-lg-12">
 			<div class="row">
 				<p class="tips col-md-4 col-lg-4">用户名</p>
 				<p class="message col-md-4 col-lg-4">{{ loginName || "游客"}}</p>
@@ -39,20 +39,20 @@
 			<div class="col-md-8 col-lg-6 col-md-offset-2 col-lg-offset-3">
 				<div class="safe-form-group row">
 					<label for="oldPwd" class="col-md-4 col-lg-4">原始密码：</label>
-					<input type="password" class="verify-input col-md-6 col-lg-6"  
+					<input type="password" class="verify-input col-md-6 col-lg-6"
 						name="oldPwd"
 						id = "oldPwd"
-						ng-model="password.oldPassword" 
+						ng-model="password.oldPassword"
 						check-password="oldPwd"
 						required
-						ng-focus				
+						ng-focus
 						autofocus/>
-					<div class="user-tips-area safe-tips-area" 
+					<div class="user-tips-area safe-tips-area"
 							ng-show="changePwdForm.oldPwd.$dirty && changePwdForm.oldPwd.$invalid && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.required">
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">不能为空</p>
 					</div>
-					<div class="user-tips-area safe-tips-area" 
+					<div class="user-tips-area safe-tips-area"
 							ng-show="changePwdForm.oldPwd.$dirty && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.isPasswordTrue && !changePwdForm.oldPwd.$error.required">
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">密码错误</p>
@@ -62,11 +62,11 @@
 					<label class="col-md-4 col-lg-4">新密码：</label>
 					<input type="password" class="verify-input col-md-6 col-lg-6"
 						name = "newPwd"
-						id = "newPwd" 
+						id = "newPwd"
 						ng-model="password.newPassword"
 						ng-focus
 						required/>
-					<div class="user-tips-area safe-tips-area" 
+					<div class="user-tips-area safe-tips-area"
 							ng-show="changePwdForm.newPwd.$dirty && changePwdForm.newPwd.$invalid && !changePwdForm.newPwd.$focused">
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">不能为空</p>
@@ -77,7 +77,7 @@
 					<input type="password" class="verify-input col-md-6 col-lg-6"
 						name = "confirmPwd"
 						id = "confirmPwd"
-						ng-focus 
+						ng-focus
 						ng-model="password.repeatNewPassword" required/>
 					<div  class="user-tips-area safe-tips-area"
 							ng-show="changePwdForm.confirmPwd.$dirty && changePwdForm.confirmPwd.$invalid && !changePwdForm.confirmPwd.$focused">
@@ -113,29 +113,30 @@
 				<div class="safe-form-group row">
 					<label class="col-md-3 col-lg-3">手机号码：</label>
 					<input type="text" class="verify-input col-md-3 col-lg-3"
-						id = "mobileNo" 
-						name = "mobileNo"  
-					    ng-model="mobileNo" 
+						id = "mobileNo"
+						name = "mobileNo"
+            ng-model="mobileNo"
 						ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678]))\d{8}$/"
-						ensure-unique-mobile="mobileNo" 
+						ensure-unique-mobile="mobileNo"
 						ng-focus required autofocus/>
+
 					<input type="button" value="获取验证码"
-						class="{{changeMobileForm.mobileNo.$invalid ? 'white-button verify-index grey' : 'white-button verify-index'}} col-md-3 col-lg-3"
+						class="{{changeMobileForm.mobileNo.$invalid ? 'white-button verify-index grey' : 'white-button verify-index'}} col-md-offset-1 col-lg-offset-1 col-md-2 col-lg-2"
 						ng-click="sendMobileCaptcha(mobileNo)" onclick="countDown(this,60);" id="getVerify" ng-disabled="changeMobileForm.mobileNo.$invalid"/>
 					<div ng-show="changeMobileForm.mobileNo.$dirty && changeMobileForm.mobileNo.$invalid && !changeMobileForm.mobileNo.$focused" class="col-lg-2 col-md-2">
-						<div  class="user-tips-area row" 
+						<div  class="user-tips-area row"
 								ng-show="changeMobileForm.mobileNo.$error.required &&
 									 	!changeMobileForm.mobileNo.$focused">
 							<img ng-src="images/check_no.png"class="user-check-img">
 							<p class="input-tips user-input-tips">不能为空</p>
 						</div>
-						<div  class="user-tips-area row" 
-									ng-show="changeMobileForm.mobileNo.$error.pattern && 
+						<div  class="user-tips-area row"
+									ng-show="changeMobileForm.mobileNo.$error.pattern &&
 									 		!changeMobileForm.mobileNo.$focused">
 							<img ng-src="images/check_no.png" class="user-check-img">
 							<p class="input-tips user-input-tips">格式错误</p>
 						</div>
-						<div  class="user-tips-area row" 
+						<div  class="user-tips-area row"
 									ng-show="changeMobileForm.mobileNo.$error.unique">
 							<img ng-src="images/check_no.png" class="user-check-img">
 							<p class="input-tips user-input-tips">已被占用</p>
@@ -144,12 +145,12 @@
 				</div>
 				<div class="safe-form-group row">
 					<label class="col-md-3 col-lg-3">短信验证码：</label>
-					<input type="text" class="verify-input col-md-3 col-lg-3" 
+					<input type="text" class="verify-input col-md-3 col-lg-3"
 						name = "inputCaptcha"
 						ng-model="inputCaptcha"
-						ng-focus 
+						ng-focus
 						required/>
-					<div  class="user-tips-area safe-tips-area" 
+					<div  class="user-tips-area safe-tips-area"
 						ng-show="changeMobileForm.inputCaptcha.$error.required &&changeMobileForm.inputCaptcha.$dirty">
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">不能为空</p>
@@ -178,14 +179,14 @@
 				<div class="safe-form-group row">
 					<label class="col-md-4 col-lg-5">邮箱：</label>
 					<input type="text" class="verify-input col-md-6 col-lg-6"
-							id="newEmail" 
-							name="newEmail" 
-							ng-model="newEmail" 
-							ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/" 
+							id="newEmail"
+							name="newEmail"
+							ng-model="newEmail"
+							ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/"
 							ensure-unique-email="newEmail" required ng-focus autofocus/>
 					<div ng-show="
-							bindEmailForm.newEmail.$dirty && 
-							bindEmailForm.newEmail.$invalid && 
+							bindEmailForm.newEmail.$dirty &&
+							bindEmailForm.newEmail.$invalid &&
 							!bindEmailForm.newEmail.$focused">
 						<div class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.pattern">
 							<img ng-src="images/check_no.png" class="user-check-img">
@@ -230,7 +231,7 @@
 					<input type="text" class="verify-input col-md-6 col-lg-6" name = "realName" ng-model="user.realName"
 						ng-focus
 						required/>
-					<div  class="user-tips-area safe-tips-area" 
+					<div  class="user-tips-area safe-tips-area"
 							ng-show="openTrusteeshipAccountForm.realName.$dirty && openTrusteeshipAccountForm.realName.$error.required">
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">不能为空</p>
@@ -242,7 +243,7 @@
 						ng-focus
 						required/>
 					<div  class="user-tips-area safe-tips-area"
-							ng-show="openTrusteeshipAccountForm.idCardNo.$dirty && openTrusteeshipAccountForm.idCardNo.$error.required"> 
+							ng-show="openTrusteeshipAccountForm.idCardNo.$dirty && openTrusteeshipAccountForm.idCardNo.$error.required">
 						<img ng-src="images/check_no.png" class="user-check-img">
 						<p class="input-tips user-input-tips">不能为空</p>
 					</div>
@@ -265,7 +266,7 @@
 	            buttonDefaultValue =  obj.defaultValue;
 	        }
 	        // 按钮置为不可点击状态
-	        obj.disabled = true;            
+	        obj.disabled = true;
 	        // 按钮里的内容呈现倒计时状态
 	        //obj.value = buttonDefaultValue + '(' + second + ')';
 	        obj.value = second + "s 后重新发送";
@@ -277,10 +278,10 @@
 	    // 否则，按钮重置为初始状态
 	    }else{
 	        // 按钮置未可点击状态
-	        obj.disabled = false;   
+	        obj.disabled = false;
 	        // 按钮里的内容恢复初始状态
 	        obj.className = 'white-button';
 	        obj.value = buttonDefaultValue;
-	    }   
+	    }
 	}
 </script>

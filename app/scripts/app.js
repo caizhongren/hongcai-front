@@ -26,7 +26,8 @@
   'config',
   'sticky',
   'ipCookie',
-  'angular-md5'
+  'angular-md5',
+  'ui.date'
   ]);
 
  hongcaiApp
@@ -81,6 +82,15 @@
  			}*/
  		}
  	})
+
+  .state('root.banner-fourty', {
+    url: '/banner-fourty',
+    views: {
+      '': {
+        templateUrl: 'views/banner-fourty.html'
+      }
+    }
+  })
  	.state('root.login', {
  		url: '/login/:isRedirect',
  		views: {

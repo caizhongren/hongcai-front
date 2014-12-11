@@ -7,7 +7,7 @@ hongcaiApp.controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$state
   $scope.dateInterval = $stateParams.dateInterval || 0;
   $scope.typeValue = { '1': '充值', '2': '提现', '3': '投资', '4,5': '回款' };
   $scope.fromDealDateChanged = function () {
-    dateStart = $scope.recFromDate;
+    dateStart = moment($scope.recFromDate).valueOf();
   };
   $scope.untilDealDateChanged = function (type,dateInterval) {
     dateEnd = moment($scope.recUntilDate).add(1,'day').subtract(1,'second').valueOf();

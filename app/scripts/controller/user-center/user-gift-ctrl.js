@@ -8,7 +8,7 @@ hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$st
     $scope.status = $stateParams.status || 0;
     $scope.dateInterval = $stateParams.dateInterval || 0;
     $scope.fromDateChanged = function () {
-      dateStart = $scope.invFromDate;
+      dateStart = moment($scope.invFromDate).valueOf();
     };
     $scope.untilDealDateChanged = function (status,dateInterval) {
       dateEnd = moment($scope.invUntilDate).add(1,'day').subtract(1,'second').valueOf();
