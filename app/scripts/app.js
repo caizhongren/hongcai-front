@@ -520,16 +520,16 @@
  	})
 
  	/*---------------------------------------------  upload  ---------------------------------------------*/
- 	.state('root.upload', {
- 		url: '/upload',
- 		views: {
- 			'': {
- 				templateUrl: 'views/upload/upload.html',
- 				controller: 'UploadCtrl',
- 				controllerUrl: 'scripts/controller/upload/upload-ctrl'
- 			}
- 		}
- 	})
+ 	// .state('root.upload', {
+ 	// 	url: '/upload',
+ 	// 	views: {
+ 	// 		'': {
+ 	// 			templateUrl: 'views/upload/upload.html',
+ 	// 			controller: 'UploadCtrl',
+ 	// 			controllerUrl: 'scripts/controller/upload/upload-ctrl'
+ 	// 		}
+ 	// 	}
+ 	// })
  	/*---------------------------------------------  order  ---------------------------------------------*/
   // 投资信息确认页面:购物车
  	.state('root.invest-verify', {
@@ -767,6 +767,27 @@
  }]);
 
 hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
+  // Array 在IE8下没有indexOf 方法。
+  if (!Array.prototype.indexOf)
+  {
+    Array.prototype.indexOf = function(elt /*, from*/)
+    {
+      var len = this.length >>> 0;
+      var from = Number(arguments[1]) || 0;
+      from = (from < 0)
+           ? Math.ceil(from)
+           : Math.floor(from);
+      if (from < 0)
+        from += len;
+      for (; from < len; from++)
+      {
+        if (from in this && this[from] === elt)
+          return from;
+      }
+      return -1;
+    };
+  }
+
   var routespermission = ['/account-overview',
               '/assets-overview',
               '/realname-authentication',

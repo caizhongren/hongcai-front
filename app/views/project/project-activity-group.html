@@ -5,10 +5,10 @@
   </div>
   <br>
   <div class="row">
-    <div class="panel panel-default">
+    <div class="panel panel-default hongbao-list">
       <div class="panel panel-body">
-        <ul class="list-group" ng-repeat="item in projectList">
-          <li class="list-group-item">
+        <ul class="list-group">
+          <li class="list-group-item"  ng-repeat="item in projectList">
             <div class="row">
               <div class="col-xs-2">
                 <div class="row" ng-if="item.status === 7">
@@ -18,7 +18,7 @@
                   <img src="/images/main_hongbao_gray.png" alt="宏运标" >
                 </div>
               </div>
-              <div class="col-xs-6" style="margin-top:20px;">
+              <div class="col-xs-6">
                 <div class="row">
                   <h4>{{ item.name }}</h4>
                 </div>
