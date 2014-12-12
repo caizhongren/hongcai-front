@@ -266,8 +266,8 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
         success = true;
       } catch(ex)
       {
-        console.log("saveBlob method failed with the following exception:");
-        console.log(ex);
+        // console.log("saveBlob method failed with the following exception:");
+        // console.log(ex);
       }
       if(!success)
       {
@@ -292,35 +292,35 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
               link.dispatchEvent(event);
               success = true;
             } catch(ex) {
-              console.log("Download link method with simulated click failed with the following exception:");
-              console.log(ex);
+              // console.log("Download link method with simulated click failed with the following exception:");
+              // console.log(ex);
             }
           }
           if(!success)
           {
             try
             {
-              console.log("Trying download link method with window.location ...");
+              // console.log("Trying download link method with window.location ...");
               var blob = new Blob([data], { type: octetStreamMime });
               var url = urlCreator.createObjectURL(blob);
               window.location = url;
               success = true;
             } catch(ex) {
-              console.log("Download link method with window.location failed with the following exception:");
-              console.log(ex);
+              // console.log("Download link method with window.location failed with the following exception:");
+              // console.log(ex);
             }
           }
         }
       }
       if(!success)
       {
-        console.log("No methods worked for saving the arraybuffer, using last resort window.open");
-        var w = window.open(httpPath, '_blank', '');
+        // console.log("No methods worked for saving the arraybuffer, using last resort window.open");
+        var w = $window.open(httpPath, '_blank', '');
         w.location.href = httpPath;
       }
     })
     .error(function(data, status) {
-      console.log("Request failed with status: " + status);
+      // console.log("Request failed with status: " + status);
       // Optionally write the error out to scope
       $scope.errorDetails = "Request failed with status: " + status;
     });
