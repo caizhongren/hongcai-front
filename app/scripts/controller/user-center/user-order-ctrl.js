@@ -43,7 +43,8 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
 
     var getOrderByUser = UserCenterService.getOrderByUser.get({type: $stateParams.type, dateInterval: $stateParams.dateInterval,
     															status: $stateParams.status,dateStart: $stateParams.dateStart,dateEnd: $stateParams.dateEnd},
-    															function(response) {
+    															function() {
+      if (getOrderByUser.ret === 1) {
         $scope.orderList = getOrderByUser.data.orderVoList;
         $scope.orderCount = getOrderByUser.data.orderCount;
         $scope.amount = getOrderByUser.data.amount;
@@ -51,17 +52,18 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
         $scope.status = getOrderByUser.data.status;
         // $scope.invFromDate = getOrderByUser.data.dateStart;
         // $scope.invUntilDate = getOrderByUser.data.dateEnd;
-
         $scope.currentPage = 0;
         $scope.pageSize = 6;
         $scope.data = [];
-
         $scope.numberOfPages = function() {
             return Math.ceil($scope.data.length / $scope.pageSize);
         }
         for (var i = 0; i < $scope.orderList.length; i++) {
             $scope.data.push($scope.orderList[i]);
         }
+      } else {
+        console.log('ask investment, why getOrderByUser did not load data...');
+      }
     });
     // 继续支付订单
     $scope.toPay = function(projectId, orderId) {
@@ -75,7 +77,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
           _f.action= config.YEEPAY_ADDRESS + 'toTransfer';//form提交地址
           _f.submit();//提交
         } else {
-          toaster.pop('warning', '提示:', response.msg);
+          toaster.pop('warning', response.msg);
         }
       });
     };
@@ -88,7 +90,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
             $window.location.reload();
             // 刷新页面
           } else {
-            toaster.pop('warning', '提示:', '无法取消订单，请重试。');
+            toaster.pop('warning', '无法取消订单，请重试。');
           }
         });
       }
@@ -108,26 +110,10 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
             var accountDay = rdp.accountDay;
             var invStartDate = moment([moment(invInitDate).year(), moment(invInitDate).month(), accountDay]).toString();
             invStartDate = moment(invStartDate).add(1,'month').toString();
-            // 需求没沟通清楚，导致的问题。
-            // var idiffDay = moment(invStartDate).diff(moment(invInitDate), 'days');
-            // if (idiffDay <= 0) {
-            // }
             var invEndDate = moment(rdp.repaymentDate).toString();
             var invCycle = rdp.cycle;
-            // console.log('invCycle: ' + invCycle);
             var invType = rdp.type;
             var invRate = rdp.annualEarnings / 100;
-            // TODO 最后去掉调试用的console
-            // console.log('invRate:' + invRate);
-            // console.log('invTotal:' + invTotal);
-            // console.log('invType:' + invType);
-
-            // var rdiffDay = moment(invStartDate).diff(moment(invInitDate))
-            // if(rdiffDay <= 0) {
-            //   // TODO
-            //   $window.alert('测试提示：首次付息日应该大于放款日期!,请珍惜张枫这个帐号。');
-            //   return;
-            // }
             if (invType === 1 ) {
               // 先息后本
               everyMonthInterestPri(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
@@ -329,7 +315,8 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
       if(!success)
       {
         console.log("No methods worked for saving the arraybuffer, using last resort window.open");
-        window.open(httpPath, '_blank', '');
+        var w = window.open(httpPath, '_blank', '');
+        w.location.href = httpPath;
       }
     })
     .error(function(data, status) {

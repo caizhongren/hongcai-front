@@ -9,14 +9,14 @@ hongcaiApp.controller('AssetsOverviewCtrl', [ '$scope', '$state', '$rootScope', 
     var receivedProfit = 0;
     var amount = 0;
     UserCenterService.getUserCapital.get(function(response) {
-    	if(response.ret == 1) {
+    	if(response.ret === 1) {
     		balance = response.data.userCapital.balance;
     		waitingProfit = response.data.userCapital.waitingProfit;
     		waitingCapital = response.data.userCapital.waitingCapital;
     		freezeCapital = response.data.userCapital.freezeCapital;
     		receivedProfit = response.data.userCapital.receivedProfit;
     		amount = response.data.userCapital.amount;
-    		
+
 		    $scope.capital = response.data;
 		    if(balance == 0 && waitingProfit == 0 && waitingCapital == 0 && freezeCapital == 0 && receivedProfit == 0 && amount == 0) {
  				$scope.doughnutAssetsData = [{
@@ -62,39 +62,36 @@ hongcaiApp.controller('AssetsOverviewCtrl', [ '$scope', '$state', '$rootScope', 
 				}]
 		    }
 
-		} else {
-            //toaster.pop('warning', '提示', response.msg);
-            //$scope.errorMessage = response.msg;
-            //$scope.warning = true;
-            $state.go('root.login');
-        }
+  		} else {
+        console.log('ask assets-overview, why getUserCapital did not load data...');
+        $state.go('root.login');
+      }
     });
 
     if(balance > 0 && waitingProfit > 0 && waitingCapital > 0 && freezeCapital > 0 && receivedProfit > 0 && amount > 0) {
     	$scope.doughnutOptions = {
-	        segmentShowStroke : false,
-	        segmentStrokeColor : '#fff',
-	        segmentStrokeWidth : 2,
-	        percentageInnerCutout : 65,
-	        animation : true,
-	        animationSteps : 100,
-	        animationEasing : 'easeOutQuart',
-	        animateRotate : true,
-	        animateScale : false
-	    };
+        segmentShowStroke : false,
+        segmentStrokeColor : '#fff',
+        segmentStrokeWidth : 2,
+        percentageInnerCutout : 65,
+        animation : true,
+        animationSteps : 100,
+        animationEasing : 'easeOutQuart',
+        animateRotate : true,
+        animateScale : false
+      };
     } else {
-    	$scope.doughnutOptions = {
-	        segmentShowStroke : false,
-	        segmentStrokeColor : '#fff',
-	        segmentStrokeWidth : 2,
-	        percentageInnerCutout : 65,
-	        animation : true,
-	        animationSteps : 100,
-	        animationEasing : 'easeOutQuart',
-	        animateRotate : true,
-	        animateScale : false, 
-	        showTooltips: false
-	    };
+      $scope.doughnutOptions = {
+        segmentShowStroke : false,
+        segmentStrokeColor : '#fff',
+        segmentStrokeWidth : 2,
+        percentageInnerCutout : 65,
+        animation : true,
+        animationSteps : 100,
+        animationEasing : 'easeOutQuart',
+        animateRotate : true,
+        animateScale : false,
+        showTooltips: false
+      };
     }
-
 }]);

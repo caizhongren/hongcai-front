@@ -3,17 +3,18 @@ hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', 'toaster', '$stat
     $rootScope.selectSide = 'recharge';
     $scope.balance = 0;
     UserCenterService.getUserBalance.get({}, function(response) {
-            if(response.ret == 1) {
-                $scope.balance = response.data.balance;
-            }
+      if(response.ret === 1) {
+        $scope.balance = response.data.balance;
+      } else {
+        console.log('ask recharge, why getUserBalance did not load data...');
+      }
     });
-
     $scope.checkAmount = function(amount){
-        if(!angular.isNumber(amount)){
-            $scope.amountErrMsg = '只能输入数字';
-            console.log('只能输入数字');
-            return false;
-        }
+      if(!angular.isNumber(amount)){
+        $scope.amountErrMsg = '只能输入数字';
+        console.log('只能输入数字');
+        return false;
+      }
     }
 
 	function new_form(){
@@ -21,7 +22,7 @@ hongcaiApp.controller('RechargeCtrl', [ '$location', '$scope', 'toaster', '$stat
 		document.body.appendChild(f);
 		f.method = 'post';
         //f.target = '_blank';
-        return f;
+      return f;
     }
 
     function create_elements(eForm,eName,eValue){
