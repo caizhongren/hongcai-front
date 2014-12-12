@@ -38,11 +38,17 @@
 	  			<span>年化收益率：{{params.displayRate}}</span>
           <span>项目期限：{{params.selectedIcon.allottedTime}}</span>
 	  		</div>
-			  <div class="cal-input">投资金额：<input type="number" min="0" ng-model="params.inputValue" placeholder="输入投资金额" ng-change="capitalValueChange();"></div>
-			  <div class="cal-input">年化收益率：<input type="number" min="0" ng-model="params.rate" placeholder="输入年化收益率" ng-change="rateValueChange();"></div>
+			  <div class="cal-input"><label>投资金额：</label>
+          <input type="number" min="0" ng-model="params.inputValue" placeholder="输入投资金额" ng-change="capitalValueChange();">
+        </div>
+			  <div class="cal-input">
+          <label>年化收益率：</label>
+          <input type="number" min="0" ng-model="params.rate" placeholder="输入年化收益率" ng-change="rateValueChange();">
+        </div>
 	    	<!-- <button type="button" class="btn btn-default" ng-model="params.selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in params.icons" placeholder="选择项目期限" ng-change="colorCtrl()" bs-select><span class="caret"></span>
         </button> -->
-        <div class="cal-input">项目期限：
+        <div class="cal-input">
+          <label>项目期限：</label>
           <select ng-model="params.selectedIcon" ng-options="m.allottedTime for m in params.icons">
             <option value="">-- 选择项目期限 --</option>
           </select>
