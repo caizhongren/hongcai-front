@@ -109,6 +109,14 @@
       }
     }
   })
+  .state('root.banner-nine', {
+    url: '/banner-nine',
+    views: {
+      '': {
+        templateUrl: 'views/banner-nine.html'
+      }
+    }
+  })
  	.state('root.login', {
  		url: '/login/:isRedirect',
  		views: {
@@ -150,14 +158,14 @@
  		}
  	})
   /*------------------------------------------  banner  -----------------------------------------------*/
-  .state('root.banner-nine', {
-    url: '/nine-security',
-    views: {
-      '': {
-        templateUrl: 'banner-nine.html'
-      }
-    }
-  })
+  // .state('root.banner-nine', {
+  //   url: '/nine-security',
+  //   views: {
+  //     '': {
+  //       templateUrl: 'banner-nine.html'
+  //     }
+  //   }
+  // })
   .state('root.friends-ship', {
     url: '/friends',
     views: {
