@@ -41,6 +41,31 @@ hongcaiApp.controller('ServiceCtrl', ['$scope', '$state', '$rootScope', '$stateP
         'payback' : ''
     };
 
+    /*$scope.params = {
+        'inputValue' : '',
+        'displayValue' : '100-100万',
+        'rate' : '',
+        'displayrate' : 'XX%',
+        'selectedIcon' : '',
+        'icons' : [
+            {value: '3个月', label: '3个月'},
+            {value: '6个月', label: '6个月'},
+            {value: '12个月', label: '12个月'}
+        ],
+        'interest' : '',
+        'payback' : ''
+    };
+
+    $scope.selected = '';
+ 
+    $scope.model = [{
+        allottedTime: '3个月'
+    }, {
+        allottedTime: '6个月'
+    }, {
+        allottedTime: '12个月'
+    }];*/
+
     $scope.isResultShow = false;
     $scope.arrow = $scope.isResultShow ? '>>' : '<<';
 
