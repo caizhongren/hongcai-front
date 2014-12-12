@@ -6,7 +6,7 @@ hongcaiApp.controller('AccountOverviewCtrl', [ '$scope', '$state', '$rootScope',
     var receivedProfit = 0;
     var balance = 0;
     UserCenterService.getUserCapital.get(function(response) {
-    	if(response.ret == 1) {
+    	if(response.ret === 1) {
     		totalAssets = response.data.totalAssets
     		receivedProfit = response.data.userCapital.receivedProfit;
     		balance = response.data.userCapital.balance;
@@ -48,12 +48,13 @@ hongcaiApp.controller('AccountOverviewCtrl', [ '$scope', '$state', '$rootScope',
 				}]
 		    }
 
-		} else {
-            //toaster.pop('warning', '提示', response.msg);
-            //$scope.errorMessage = response.msg;
-            //$scope.warning = true;
-            $state.go('root.login');
-        }
+		  } else {
+        //toaster.pop('warning', '提示', response.msg);
+        //$scope.errorMessage = response.msg;
+        //$scope.warning = true;
+        console.log('ask account-overview, why getUserCapital did not load data...');
+        $state.go('root.login');
+      }
     });
 
     if(totalAssets > 0 && receivedProfit > 0 && balance > 0) {
@@ -70,16 +71,16 @@ hongcaiApp.controller('AccountOverviewCtrl', [ '$scope', '$state', '$rootScope',
 	    };
     } else {
     	$scope.doughnutOptions = {
-	        segmentShowStroke : false,
-	        segmentStrokeColor : '#fff',
-	        segmentStrokeWidth : 2,
-	        percentageInnerCutout : 65,
-	        animation : true,
-	        animationSteps : 100,
-	        animationEasing : 'easeOutQuart',
-	        animateRotate : true,
-	        animateScale : false, 
-	        showTooltips: false
+        segmentShowStroke : false,
+        segmentStrokeColor : '#fff',
+        segmentStrokeWidth : 2,
+        percentageInnerCutout : 65,
+        animation : true,
+        animationSteps : 100,
+        animationEasing : 'easeOutQuart',
+        animateRotate : true,
+        animateScale : false,
+        showTooltips: false
 	    };
     }
 
@@ -91,9 +92,9 @@ hongcaiApp.controller('AccountOverviewCtrl', [ '$scope', '$state', '$rootScope',
     			$scope.investedNum = orderNum.overInve;
     			$scope.investNum = orderNum.allInve;
     		};
-    		
+
     	};
     });
-    
+
 
 }]);

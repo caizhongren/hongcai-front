@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'ProjectService', function ($scope, $stateParams, $rootScope, $location, ProjectService) {
+hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'ProjectService', 'toaster', function ($scope, $stateParams, $rootScope, $location, ProjectService, toaster) {
     $scope.sortType = $stateParams.sortType || false ;
     if($scope.sortType === 'true'){
       $scope.sortType = true;
@@ -20,6 +20,7 @@ hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope'
     												  maxTotalAmount: $stateParams.maxTotalAmount,
     												  sortCondition: $stateParams.sortCondition,
     												  sortType: $scope.sortType}, function() {
+      if(response.ret === 1) {
         $scope.projectList = response.data.projectList;
         $scope.baseFileUrl = response.data.baseFileUrl;
         $scope.status = $stateParams.status;
@@ -34,13 +35,18 @@ hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope'
         $scope.currentPage = 0;
         $scope.pageSize = 6;
         $scope.data = [];
-
         $scope.numberOfPages = function() {
             return Math.ceil($scope.data.length / $scope.pageSize);
         }
         for (var i = 0; i < $scope.projectList.length; i++) {
             $scope.data.push($scope.projectList[i]);
         }
+      } else {
+        $scope.projectList = [];
+        toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+        console.log('ask project-list, why projectList did not load data...');
+      }
+
 	});
     $rootScope.selectPage = $location.path().split('/')[1];
 }]);

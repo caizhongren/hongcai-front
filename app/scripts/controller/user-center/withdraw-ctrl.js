@@ -2,23 +2,22 @@
 hongcaiApp.controller('WithdrawCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
 
     $rootScope.selectSide = $location.path().substr($location.path().indexOf('/') + 1);
-
     $scope.availableCash = 0;
     UserCenterService.getUserAvailableCash.get({}, function(response) {
-            if(response.ret == 1) {
-                $scope.availableCash = response.data.availableCash;
-            } 
+      if(response.ret === 1) {
+          $scope.availableCash = response.data.availableCash;
+      } else {
+        console.log('ask withdraw, why getUserAvailableCash did not load data...');
+      }
     });
-
-
     $scope.checkLargestAmount = function(amount){
-        if(amount > $scope.availableCash){
-            return true;
-        } else {
-            return false;
-        }
+      if(amount > $scope.availableCash){
+        return true;
+      } else {
+        return false;
+      }
     }
-    
+
 	function new_form(){
 		var f = document.createElement('form');
 		document.body.appendChild(f);
@@ -50,7 +49,7 @@ hongcaiApp.controller('WithdrawCtrl', [ '$location', '$scope', '$state', '$rootS
 
     $scope.withdraw = function(amount, captcha) {
     	UserCenterService.yeepayWithdraw.get({amount: amount, captcha: captcha}, function(response) {
-    		if(response.ret == 1) {
+    		if(response.ret === 1) {
     			var req = response.data.req;
     			var sign = response.data.sign;
                 var _f=new_form();
@@ -60,8 +59,10 @@ hongcaiApp.controller('WithdrawCtrl', [ '$location', '$scope', '$state', '$rootS
                 _f.submit();
 
             } else if (response.ret == -1){
-                alert(response.msg);
+              alert(response.msg);
+            } else {
+              console.log('ask withdraw, why yeepayWithdraw did not load data...');
             }
         });
-    };   
+    };
 }]);
