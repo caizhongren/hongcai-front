@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('UserCenterCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
+hongcaiApp.controller('UserCenterCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'MsgService', 'DEFAULT_DOMAIN', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, MsgService, DEFAULT_DOMAIN) {
 	
     $scope.selectedDate = '2014-10-16T08:50:36.394Z'; // <- [object Date]
     $scope.selectedDateAsNumber = 509414400000; // <- [object Number]
@@ -80,5 +80,13 @@ hongcaiApp.controller('UserCenterCtrl', [ '$location', '$scope', '$state', '$roo
             }
         });
     };
+
+    if(sessionStorage.getItem('user') != undefined) {
+      MsgService.getUnreadMsgCount.get(function(response) {
+        if(response.ret === 1) {
+          $scope.unreadCount = response.data.unreadCount;
+        }
+      });
+    }
 
 }]);

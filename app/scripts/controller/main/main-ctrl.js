@@ -77,12 +77,6 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     $scope.slickHandle = {
     };
 
-    // MsgService.getUnreadMsgCount.get(function(response) {
-    //   if(response.ret === 1) {
-    //     $scope.unreadCount = response.data.unreadCount;
-    //   }
-    // });
-
     /**
      * 处理推广流量统计
      */
