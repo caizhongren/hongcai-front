@@ -58,7 +58,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
 
 
     $scope.media = [
-      {mimeType: 'image/png', src:'images/banner-1.png', href:'/project-sponsorInstitution/137' },
+      {mimeType: 'image/png', src:'images/banner-1.png', href:'/project-sponsorInstitution/140' },
       {mimeType: 'image/png', src:'images/banner-2.png', href:'/banner-fourty' },
       {mimeType: 'image/png', src:'images/banner-3.png', href:'/banner-nine'},
       {mimeType: 'image/png', src:'images/banner-4.png', href:'/project-activity-group' },
