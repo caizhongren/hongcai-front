@@ -26,21 +26,6 @@ hongcaiApp.controller('ServiceCtrl', ['$scope', '$state', '$rootScope', '$stateP
 
     //计算器
     // $scope.inputValue = 0;
-    $scope.params = {
-        'inputValue' : '',
-        'displayValue' : '100-100万',
-        'rate' : '',
-        'displayrate' : 'XX%',
-        'selectedIcon' : '',
-        'icons' : [
-            {value: '3个月', label: '3个月'},
-            {value: '6个月', label: '6个月'},
-            {value: '12个月', label: '12个月'}
-        ],
-        'interest' : '',
-        'payback' : ''
-    };
-
     /*$scope.params = {
         'inputValue' : '',
         'displayValue' : '100-100万',
@@ -54,27 +39,34 @@ hongcaiApp.controller('ServiceCtrl', ['$scope', '$state', '$rootScope', '$stateP
         ],
         'interest' : '',
         'payback' : ''
-    };
+    };*/
 
-    $scope.selected = '';
- 
-    $scope.model = [{
-        allottedTime: '3个月'
-    }, {
-        allottedTime: '6个月'
-    }, {
-        allottedTime: '12个月'
-    }];*/
+    $scope.params = {
+        'inputValue' : '',
+        'displayValue' : '100-100万',
+        'rate' : '',
+        'displayrate' : 'XX%',
+        'selectedIcon' : '',
+        'icons' : [{
+            allottedTime: '3个月'
+        }, {
+            allottedTime: '6个月'
+        }, {
+            allottedTime: '12个月'
+        }],
+        'interest' : '',
+        'payback' : ''
+    };
 
     $scope.isResultShow = false;
     $scope.arrow = $scope.isResultShow ? '>>' : '<<';
 
    	$scope.calculate = function() {
    		// popover.saved=true;
-        $scope.targetSelectedIcon = $scope.params.selectedIcon.replace(/个月/g,'');
+        $scope.targetSelectedIcon = $scope.params.selectedIcon.allottedTime.replace(/个月/g,'');
         if($scope.params.displayValue &&  $scope.params.rate && $scope.params.selectedIcon){
             $scope.params.interest = $scope.params.inputValue * $scope.params.rate/1200 * $scope.targetSelectedIcon;
-            $scope.params.payback = $scope.params.inputValue + $scope.params.interest;
+            $scope.params.payback = parseInt($scope.params.inputValue) + parseInt($scope.params.interest);
             $scope.isResultShow = $scope.isResultShow ? false : true;
             $scope.arrow = '>>';
             if($scope.isResultShow){
@@ -94,9 +86,8 @@ hongcaiApp.controller('ServiceCtrl', ['$scope', '$state', '$rootScope', '$stateP
     };
 
     $scope.rateValueChange = function() {
-        $scope.params.displayrate = $scope.params.rate === '' || $scope.params.rate === null || $scope.params.rate == undefined ? 'XX%' : $scope.params.rate + '%';
+        $scope.params.displayRate = $scope.params.rate === '' || $scope.params.rate === null || $scope.params.rate == undefined ? 'XX%' : $scope.params.rate + '%';
     };
-
 
     $scope.switchResult = function() {
         $scope.isResultShow = $scope.isResultShow ? false : true;

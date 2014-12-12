@@ -35,16 +35,16 @@
 	  	<form name="popoverForm" class="ng-pristine ng-valid">
 	  		<div class="preview">
 	  			<span>投资金额：{{params.displayValue}}</span>
-	  			<span>年化收益率：{{params.displayrate}}</span>
-	  			<span>项目期限：{{params.selectedIcon}}</span>
+	  			<span>年化收益率：{{params.displayRate}}</span>
+          <span>项目期限：{{params.selectedIcon.allottedTime}}</span>
 	  		</div>
 			<input type="number" min="0" ng-model="params.inputValue" placeholder="输入投资金额" ng-change="capitalValueChange();">
 			<input type="number" min="0" ng-model="params.rate" placeholder="输入年化收益率" ng-change="rateValueChange();">
-	    	<button type="button" class="btn btn-default" ng-model="params.selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in params.icons" placeholder="选择项目期限" ng-change="colorCtrl()" bs-select><span class="caret"></span>
-	    	</button>
-        <!-- <select ng-model="selected" ng-options="m.allottedTime for m in model">
+	    	<!-- <button type="button" class="btn btn-default" ng-model="params.selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in params.icons" placeholder="选择项目期限" ng-change="colorCtrl()" bs-select><span class="caret"></span>
+        </button> -->
+        <select ng-model="params.selectedIcon" ng-options="m.allottedTime for m in params.icons">
           <option value="">-- 选择项目期限 --</option>
-        </select> -->
+        </select>
 
 	  		<div class="form-actions">
 	  			<button type="button" class="btn btn-danger" ng-click="$hide()">关闭</button> 
