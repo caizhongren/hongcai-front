@@ -656,11 +656,11 @@ input:focus{
   color: #9a9595;
 }
 .introduction-content{
-  margin-top: -25px;
+  margin-top: 15px;
   margin-bottom: 60px;
 }
 .img-area{
-  margin-top: 20px; 
+  margin-top: 20px;
   height: 300px;
 }
 .help-ico{
