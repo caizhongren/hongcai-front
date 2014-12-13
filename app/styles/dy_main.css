@@ -40,7 +40,7 @@ input:focus{
 .red-record, .grey-record ,.tips-area:active .grey-record,.tips-area:active .red-record,
 .red-investment ,.grey-investment ,.tips-area:active .grey-investment,.tips-area:active .red-investment,
 .red-news ,.grey-news ,.tips-area:active .grey-news,.tips-area:active .red-news,.account-pic-bg,.help-ico,
-.open,.smile-bg,.bank-card-show,.red-package-overview,.grey-package-overview,.grey-invite-rebate,
+.open,.smile-bg,.bank-card-show,.bank-card-show-verify,.red-package-overview,.grey-package-overview,.grey-invite-rebate,
 .red-invite-rebate,.red-gift-rebate,.grey-gift-rebate,.tips-area:active .red-gift-rebate,
 .tips-area:active .grey-gift-rebate{
   background: url(/images/sprite.png) no-repeat;
@@ -277,7 +277,7 @@ input:focus{
 .safe-part p,.right-user-message p,.check-ok,.right-user-head,.right-user-message,.account-pic,
 .left-message,.assets-ico,.account-investment-show,.read,.read-check,.user-check-img,.mid-line,
 .news-nav span,.user-input-tips,.help-ico,.friends-ship a,.smile-bg,.details-img{
-  float:left; 
+  float:left;
 }
 
 .p-forget,.p-date,.p-right,.a-up-level,.view-more{
@@ -329,7 +329,7 @@ input:focus{
 
 .web-show a,.web-show p,.news-nav span a,.add-card,.red-button,.right-area,.about-left-area,.tips-area p,
 .p-date,.p-dynamic-show,.table-link-us,.right-area{
-  font-size: 14px;  
+  font-size: 14px;
 }
 
 .table-title,.assets-money small,.asset-money small{
@@ -348,7 +348,7 @@ input:focus{
   border-radius: 5px;
 }
 
-.assets-ico,.bank-img,.real-name .set-transactionPwd,.bank-card-show,.red-button,.white-button{
+.assets-ico,.bank-img,.real-name .set-transactionPwd,.bank-card-show,.bank-card-show-verify,.red-button,.white-button{
   border-radius: 3px;
 }
 
@@ -483,8 +483,8 @@ input:focus{
   height: 380px;
 }
 .login-left-area,
-.regist-left-area{ 
-  margin-top: 20px; 
+.regist-left-area{
+  margin-top: 20px;
   min-height: 92% !important;
   border: 2px solid #d9d5d6;
   border-radius: 8px;
@@ -837,17 +837,24 @@ input:focus{
   padding-left: 15px;
 }
 .safe-card-tips{
-  margin: 0 0 20px 0; 
+  margin: 0 0 20px 0;
 }
-.bank-card-show{  
+.bank-card-show{
   height: 230px;
   width: 346px;
-  background-position: -776px -1100px;
+  background-position: -765px -612px;
+  padding-top: 60px;
+}
+.bank-card-show-verify{
+  height: 230px;
+  width: 346px;
+  background-position: -780px -874px;
   padding-top: 60px;
 }
 .add-card{
   font-size: 26px;
   text-align: center;
+  padding-top: 15px;
 }
 .border-end{
   border-bottom: 1px solid #dbdbdb;
