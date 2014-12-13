@@ -244,7 +244,7 @@
      }
    })
  	/*------------------------------------------  lucky-draw  -----------------------------------------------*/
-  .state('root.lucky-draw', {
+  /*.state('root.lucky-draw', {
     url: '/lucky-draw',
     views: {
       '': {
@@ -253,7 +253,7 @@
         controllerUrl: 'scripts/controller/activity/lucky-draw-ctrl'
       }
     }
-  })
+  })*/
   /*------------------------------------------  user-center  -----------------------------------------------*/
  	.state('root.userCenter', {
  		views: {
