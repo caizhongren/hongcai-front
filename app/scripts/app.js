@@ -596,6 +596,42 @@
  			}
  		}
  	})
+    /*------------------------------------------  partner  -----------------------------------------------*/
+  .state('root.partner', {
+    abstract: true,
+    views: {
+      'partner-right': {
+        templateUrl: 'views/partner/partner.html',
+        controller: 'PartnerCtrl',
+        controllerUrl: 'scripts/controller/partner/partner-ctrl'
+      },
+      'partner-sidebar': {
+        templateUrl: 'views/partner/partner-sidebar.html',
+        controller: 'PartnerCtrl',
+        controllerUrl: 'scripts/controller/partner/partner-ctrl'
+      }
+    }
+  })
+  .state('root.partner.partner-introduction-of-platform', {
+    url: '/partner-introduction-of-platform',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/introduction-of-platform.html'
+      }
+    }
+  })
+  // .state('root.partner.company-profile', {
+  //   url: '/partner-company-profile',
+  //   views: {
+  //     'partner-right-show': {
+  //       templateUrl: 'views/partner/company-profile.html',
+  //       controller: 'HelpCenterCtrl',
+  //       controllerUrl: 'scripts/controller/partner/help-center-ctrl'
+  //     }
+  //   }
+  // })
+
+
  	/*------------------------------------------  media-reports  -----------------------------------------------*/
  	.state('root.about-us.media-reports', {
  		url: '/media-reports',
