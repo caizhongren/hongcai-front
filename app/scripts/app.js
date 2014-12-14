@@ -222,7 +222,7 @@
     }
   })
   .state('root.bankcard-success', {
-    url: '/bankcard-success',
+    url: '/bankcard-success/:status',
     views: {
       '': {
         templateUrl: 'views/success.html',
@@ -232,7 +232,7 @@
     }
   })
   .state('root.recharge-success', {
-    url: '/recharge-success',
+    url: '/recharge-success/:status',
     views: {
       '': {
         templateUrl: 'views/success.html',
@@ -242,7 +242,7 @@
     }
   })
   .state('root.withdraw-success', {
-     url: '/withdraw-success',
+     url: '/withdraw-success/:status',
      views: {
        '': {
          templateUrl: 'views/success.html',
@@ -512,12 +512,12 @@
  				templateUrl: 'views/safe.html',
  				controller: 'SafeCtrl',
         controllerUrl: 'scripts/controller/project/safe-ctrl'
- 			},
+ 			}/*,
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
  				controller: 'GuaranteeListCtrl',
  				controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
- 			}
+ 			}*/
  		}
  	})
  	.state('root.safe-nav', {
@@ -527,12 +527,12 @@
  				templateUrl: 'views/safe.html',
  				controller: 'SafeCtrl',
  				controllerUrl: 'scripts/controller/project/safe-ctrl'
- 			},
+ 			}/*,
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
  				controller: 'GuaranteeListCtrl',
  				controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
- 			}
+ 			}*/
  		}
  	})
 
@@ -604,6 +604,90 @@
  			}
  		}
  	})
+    /*------------------------------------------  partner  -----------------------------------------------*/
+  .state('root.partner', {
+    abstract: true,
+    views: {
+      'partner-right': {
+        templateUrl: 'views/partner/partner.html',
+        controller: 'PartnerCtrl',
+        controllerUrl: 'scripts/controller/partner/partner-ctrl'
+      },
+      'partner-sidebar': {
+        templateUrl: 'views/partner/partner-sidebar.html',
+        controller: 'PartnerCtrl',
+        controllerUrl: 'scripts/controller/partner/partner-ctrl'
+      }
+    }
+  })
+  .state('root.partner.partner-platform', {
+    url: '/partner-platform',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/platform.html'
+      }
+    }
+  })
+  // .state('root.partner.company-profile', {
+  //   url: '/partner-company-profile',
+  //   views: {
+  //     'partner-right-show': {
+  //       templateUrl: 'views/partner/company-profile.html',
+  //       controller: 'HelpCenterCtrl',
+  //       controllerUrl: 'scripts/controller/partner/help-center-ctrl'
+  //     }
+  //   }
+  // })
+  .state('root.partner.partner-zhongdong', {
+    url: '/partner-zhongdong',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/zhongdong.html',
+      }
+    }
+  })
+  .state('root.partner.partner-jilian', {
+    url: '/partner-jilian',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/jilian.html',
+      }
+    }
+  })
+  .state('root.partner.partner-jibei', {
+    url: '/partner-jibei',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/jibei.html',
+      }
+    }
+  })
+  // yeepay
+  .state('root.partner.partner-yeepay', {
+    url: '/partner-yeepay',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/yeepay.html',
+      }
+    }
+  })
+  .state('root.partner.partner-tianchang', {
+    url: '/partner-tianchang',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/tianchang.html',
+      }
+    }
+  })
+  .state('root.partner.partner-hexing', {
+    url: '/partner-hexing',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/hexing.html',
+      }
+    }
+  })
+
  	/*------------------------------------------  media-reports  -----------------------------------------------*/
  	.state('root.about-us.media-reports', {
  		url: '/media-reports',
@@ -791,21 +875,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
         if (this[i] === obj) { return i; }
      }
      return -1;
-    }
-    // Array.prototype.indexOf = function(elt /*, from*/) {
-    //   var len = this.length >>> 0;
-    //   var from = Number(arguments[1]) || 0;
-    //   from = (from < 0) ? Math.ceil(from) : Math.floor(from);
-    //   if (from < 0) {
-    //     from += len;
-    //   }
-    //   for (; from < len; from++) {
-    //     if (from in this && this[from] === elt) {
-    //       return from;
-    //     }
-    //   }
-    //   return -1;
-    // };
+    };
   }
 
   var routespermission = ['/account-overview',

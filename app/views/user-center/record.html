@@ -5,13 +5,13 @@
   </div>
 	<div class="padd border-end">
     <span>当前账户资产总计：
-      <strong>{{capital.waitingCapital + capital.balance + capital.waitingProfit + capital.freezeCapital}}</strong>元。
+      <strong>{{capital.waitingCapital + capital.balance + capital.waitingProfit + capital.freezeCapital | number: 2}}</strong>元。
     </span>
     <span>其中可用资产：
-      <strong>{{capital.balance}}</strong>元，
+      <strong>{{capital.balance | number: 2}}</strong>元，
     </span>
     <span>冻结资产：
-      <strong>{{capital.freezeCapital}}</strong>元。
+      <strong>{{capital.freezeCapital | number: 2}}</strong>元。
     </span>
   </div>
   <div class="panel panel-defaul">
@@ -122,9 +122,9 @@
         <td>{{ item.createTime | date: 'yyyy-MM-dd'}}</td>
         <td>{{ typeValue[item.type] }}</td>
         <td>{{item.description}}</td>
-        <td>{{item.getAmount}}</td>
-        <td>{{item.payAmount}}</td>
-        <td>{{item.balance}}</td>
+        <td>{{item.getAmount | number: 2}}</td>
+        <td>{{item.payAmount | number: 2}}</td>
+        <td>{{item.balance | number: 2}}</td>
       </tr>
     </tbody>
   </table>

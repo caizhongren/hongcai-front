@@ -8,11 +8,15 @@ hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$st
     $scope.status = $stateParams.status || 0;
     $scope.dateInterval = $stateParams.dateInterval || 0;
     $scope.fromDateChanged = function () {
-      dateStart = moment($scope.invFromDate).valueOf();
+      if($scope.invFromDate !== null) {
+        dateStart = moment($scope.invFromDate).valueOf();
+      }
     };
     $scope.untilDealDateChanged = function (status,dateInterval) {
-      dateEnd = moment($scope.invUntilDate).add(1,'day').subtract(1,'second').valueOf();
-      $location.path('gift-rebate/'+'99'+'/'+dateInterval+'/'+status+'/'+dateStart+'/'+dateEnd);
+      if($scope.invUntilDate !== null){
+        dateEnd = moment($scope.invUntilDate).add(1,'day').subtract(1,'second').valueOf();
+        $location.path('gift-rebate/'+'99'+'/'+dateInterval+'/'+status+'/'+dateStart+'/'+dateEnd);
+      }
     };
 
     var getOrderByUser = UserCenterService.getOrderByUser.get({ type: $stateParams.type,dateInterval: $stateParams.dateInterval,
