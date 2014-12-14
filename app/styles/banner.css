@@ -108,10 +108,10 @@ html,body{
   width: 980px;
   margin: 0 auto;
 }
-.message-show{
+/* .message-show{
   height: 830px;
   padding: 40px 0;
-}
+} */
 .border-bottom{
   border-bottom: 1px solid #dbdbdb;
 }
@@ -121,14 +121,15 @@ html,body{
 }
 .word-area{
   color: #777;
-  width: 800px;
-  float: right;
+  /*width: 800px;*/
+  /*float: right;*/
 }
 .word-area h2{
   margin-top: 0;
 }
 .word-area p{
   line-height: 26px;
+  margin-bottom: 0;
 }
 .p-left-show{
   width: 45%;
