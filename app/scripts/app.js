@@ -604,6 +604,90 @@
  			}
  		}
  	})
+    /*------------------------------------------  partner  -----------------------------------------------*/
+  .state('root.partner', {
+    abstract: true,
+    views: {
+      'partner-right': {
+        templateUrl: 'views/partner/partner.html',
+        controller: 'PartnerCtrl',
+        controllerUrl: 'scripts/controller/partner/partner-ctrl'
+      },
+      'partner-sidebar': {
+        templateUrl: 'views/partner/partner-sidebar.html',
+        controller: 'PartnerCtrl',
+        controllerUrl: 'scripts/controller/partner/partner-ctrl'
+      }
+    }
+  })
+  .state('root.partner.partner-platform', {
+    url: '/partner-platform',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/platform.html'
+      }
+    }
+  })
+  // .state('root.partner.company-profile', {
+  //   url: '/partner-company-profile',
+  //   views: {
+  //     'partner-right-show': {
+  //       templateUrl: 'views/partner/company-profile.html',
+  //       controller: 'HelpCenterCtrl',
+  //       controllerUrl: 'scripts/controller/partner/help-center-ctrl'
+  //     }
+  //   }
+  // })
+  .state('root.partner.partner-zhongdong', {
+    url: '/partner-zhongdong',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/zhongdong.html',
+      }
+    }
+  })
+  .state('root.partner.partner-jilian', {
+    url: '/partner-jilian',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/jilian.html',
+      }
+    }
+  })
+  .state('root.partner.partner-jibei', {
+    url: '/partner-jibei',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/jibei.html',
+      }
+    }
+  })
+  // yeepay
+  .state('root.partner.partner-yeepay', {
+    url: '/partner-yeepay',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/yeepay.html',
+      }
+    }
+  })
+  .state('root.partner.partner-tianchang', {
+    url: '/partner-tianchang',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/tianchang.html',
+      }
+    }
+  })
+  .state('root.partner.partner-hexing', {
+    url: '/partner-hexing',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/hexing.html',
+      }
+    }
+  })
+
  	/*------------------------------------------  media-reports  -----------------------------------------------*/
  	.state('root.about-us.media-reports', {
  		url: '/media-reports',
