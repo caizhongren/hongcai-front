@@ -8,35 +8,42 @@
 			<div class="col-md-6 border-r">
 				<p class="account-number-message">您的邀请码</p>
 				<p class="account-number">{{ voucher.inviteCode || "0"}}<span class="ft-14"></span></p>
-        <input type="text" id='inviteCode' ng-model="voucher.inviteCode" ng-show="false"/>
+        <input type="text" id='inviteCode' value="{{voucher.inviteCode}}" ng-show="false"/>
 			</div>
 			<div class="col-md-6">
 				<p class="account-number-message">通过社交网站</p>
-        <!-- JiaThis Button BEGIN -->
-        <div class="jiathis_style_32x32">
-        <a class="jiathis_button_qzone"></a>
-        <a class="jiathis_button_tsina"></a>
-        <a class="jiathis_button_tqq"></a>
-        <a class="jiathis_button_weixin"></a>
-        <a class="jiathis_button_renren"></a>
-        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-        <a class="jiathis_counter_style"></a>
-        </div>
-
-      <script type="text/javascript">
-        console.log('邀请码' + $("inviteCode").val());
-        var jiathis_config={
-          url:"http://test321.hongcai.com/register-mobile/" + document.getElementById('inviteCode').value,
-          summary:"宏财网，高效、透明、增值、创新的互联网金融平台。严格的风控体系，100%本息担保，第三方资金托管，为用户提供全方位的安全理财服务。",
-          title:"要理财，上宏财 ##",
-          shortUrl:false,
-          hideMore:false
-        }
-
-      </script>
-      <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
-      <!-- JiaThis Button END -->
-		</div>
+          <div class="bdsharebuttonbox">
+            <a href="#" class="bds_more" data-cmd="more"></a>
+            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+            <!-- <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> -->
+            </div>
+          <script>
+            window._bd_share_config={
+              "common":{
+                "bdText":"要理财，上宏财 ##宏财网，高效、透明、增值、创新的互联网金融平台。严格的风控体系，100%本息担保，第三方资金托管，为用户提供全方位的安全理财服务。",
+                "bdMini":"2",
+                "bdMiniList":false,
+                "bdStyle":"0",
+                "bdSize":"32",
+                onBeforeClick: function(cmd, config) {
+                  return {"bdUrl": "http://localhost:9000/register-mobile/" + angular.element('#inviteCode').val()}
+                }
+              },
+              "share":{},
+              "image":{
+                "viewList":["qzone","tsina","tqq","renren"],
+                "viewText":"分享到：","viewSize":"16"
+              },
+              "selectShare":{
+                "bdContainerClass":null,
+                "bdSelectMiniList":["qzone","tsina","tqq","renren"]}
+              };
+            with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+            </script>
+          </div>
 	</div>
 	<div class="row">
 		<div class="right-title">我的邀请</div>
