@@ -82,6 +82,7 @@
       <div class="row panel panel-danger special-recommend">
         <div class="panel-body">
           <div class="hot-sale"></div>
+          <img class="type-flag" src="/images/test-icon.png">
           <div class="hidden-xs hidden-md col-lg-5 padding-0">
             <a ui-sref="root.project-details({projectId: projectVo.id})">
               <img ng-show="projectVo.image" ng-src="{{baseFileUrl + projectVo.image}}" alt="" class="img-rounded" width="230" height="206">
@@ -134,6 +135,7 @@
 
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="project in projectList | orderBy:project.sort">
+              <img class="type-flag" src="/images/test-icon.png">
               <div class="row">
                 <div class="hidden-xs hidden-md col-lg-5">
                   <a ui-sref="root.project-details({projectId: project.id})">
