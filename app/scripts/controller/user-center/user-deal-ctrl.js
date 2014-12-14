@@ -7,11 +7,15 @@ hongcaiApp.controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$state
   $scope.dateInterval = $stateParams.dateInterval || 0;
   $scope.typeValue = { '1': '充值', '2': '提现', '3': '投资', '4': '收益', '5': '回收本金', '6': '放款' };
   $scope.fromDealDateChanged = function () {
-    dateStart = moment($scope.recFromDate).valueOf();
+    if($scope.recFromDate !== null) {
+      dateStart = moment($scope.recFromDate).valueOf();
+    }
   };
   $scope.untilDealDateChanged = function (type,dateInterval) {
-    dateEnd = moment($scope.recUntilDate).add(1,'day').subtract(1,'second').valueOf();
-    $location.path('record/'+$scope.dateInterval+'/'+$scope.type+'/'+dateStart+'/'+dateEnd);
+    if ($scope.recUntilDate !== null) {
+      dateEnd = moment($scope.recUntilDate).add(1,'day').subtract(1,'second').valueOf();
+      $location.path('record/'+$scope.dateInterval+'/'+$scope.type+'/'+dateStart+'/'+dateEnd);
+    }
   };
 
   var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval,type: $stateParams.type,dateStart: $stateParams.dateStart, dateEnd: $stateParams.dateEnd},function() {

@@ -10,8 +10,8 @@
     <span>已结清：<strong>{{orderCount.returned || 0}}</strong>个。</span>
   </div>
   <div class="padd">
-    <span>宏包投资总额： <strong>{{amount.amount || 0}}</strong>元，</span>
-    <span>宏包累计收益：<strong>{{amount.profit || 0}}</strong>元。</span>
+    <span>宏包投资总额： <strong>{{amount.amount | number:2 }}</strong>元，</span>
+    <span>宏包累计收益：<strong>{{amount.profit | number:2 }}</strong>元。</span>
   </div>
   <div class="row">
     <div class="col-xs-12">
