@@ -612,11 +612,11 @@
       }
     }
   })
-  .state('root.partner.partner-introduction-of-platform', {
-    url: '/partner-introduction-of-platform',
+  .state('root.partner.partner-platform', {
+    url: '/partner-platform',
     views: {
       'partner-right-show': {
-        templateUrl: 'views/partner/introduction-of-platform.html'
+        templateUrl: 'views/partner/platform.html'
       }
     }
   })
@@ -630,7 +630,55 @@
   //     }
   //   }
   // })
-
+  .state('root.partner.partner-zhongdong', {
+    url: '/partner-zhongdong',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/zhongdong.html',
+      }
+    }
+  })
+  .state('root.partner.partner-jilian', {
+    url: '/partner-jilian',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/jilian.html',
+      }
+    }
+  })
+  .state('root.partner.partner-jibei', {
+    url: '/partner-jibei',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/jibei.html',
+      }
+    }
+  })
+  // yeepay
+  .state('root.partner.partner-yeepay', {
+    url: '/partner-yeepay',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/yeepay.html',
+      }
+    }
+  })
+  .state('root.partner.partner-tianchang', {
+    url: '/partner-tianchang',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/tianchang.html',
+      }
+    }
+  })
+  .state('root.partner.partner-hexing', {
+    url: '/partner-hexing',
+    views: {
+      'partner-right-show': {
+        templateUrl: 'views/partner/hexing.html',
+      }
+    }
+  })
 
  	/*------------------------------------------  media-reports  -----------------------------------------------*/
  	.state('root.about-us.media-reports', {

@@ -2,29 +2,33 @@
 hongcaiApp.controller('PartnerCtrl', ['$scope', '$state', '$rootScope', '$stateParams', '$location', function ($scope, $state, $rootScope, $stateParams, $location) {
 	$scope.menus = {
             'left': [{
-            	'href': '/introduction-of-platform',
-                'link': 'root.about-us.introduction-of-platform',
-                'text': '宏财简介'},
+            	'href': '/partner-platform',
+              'link': 'root.partner.partner-platform',
+              'text': '甘肃担保'},
             {
-                'href': '/hongcai-trends',
-                'link': 'root.about-us.hongcai-trends',
-                'text': '宏财动态'},
+              'href': '/partner-zhongdong',
+              'link': 'root.partner.partner-zhongdong',
+              'text': '中东担保'},
             {
-                'href': '/web-site-notice',
-                'link': 'root.about-us.web-site-notice',
-                'text': '网站公告'},
+              'href': '/partner-jilian',
+              'link': 'root.partner.partner-jilian',
+              'text': '吉联担保'},
             {
-            	'href': '/company-profile',
-                'link': 'root.about-us.company-profile',
-                'text': '加入宏财'},
+            	'href': '/partner-jibei',
+              'link': 'root.partner.partner-jibei',
+              'text': '吉林北方'},
             {
-            	'href': '/media-reports',
-                'link': 'root.about-us.media-reports',
-                'text': '媒体报道'},
+            	'href': '/partner-yeepay',
+              'link': 'root.partner.partner-yeepay',
+              'text': '易宝支付'},
             {
-            	'href': '/link-us',
-                'link': 'root.about-us.link-us',
-                'text': '联系我们'}]
+            	'href': '/partner-tianchang',
+              'link': 'root.partner.partner-tianchang',
+              'text': '天畅律所'},
+            {
+              'href': '/partner-hexing',
+              'link': 'root.partner.partner-hexing',
+              'text': '和兴会所'}]
         };
 
     $rootScope.selectPage = $location.path().split('/')[1];
