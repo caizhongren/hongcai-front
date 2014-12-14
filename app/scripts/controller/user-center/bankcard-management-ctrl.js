@@ -1,6 +1,7 @@
 'use strict';
-hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
+hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', 'toaster', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, toaster) {
   $rootScope.selectSide = 'bankcard-management';
+  $scope.dosi = true;
   UserCenterService.getUserBankCard.get({}, function(response) {
     if(response.ret === 1) {
       var card = response.data.card;
@@ -51,6 +52,7 @@ hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state
           create_elements(_f,'req',req);
           create_elements(_f,'sign',sign);
           _f.action= config.YEEPAY_ADDRESS + 'toBindBankCard';
+          $scope.dosi = false;
           _f.submit();
       } else {
         console.log('ask bankcard-management, why bindBankCard did not load data...');
