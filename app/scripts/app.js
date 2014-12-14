@@ -222,7 +222,7 @@
     }
   })
   .state('root.bankcard-success', {
-    url: '/bankcard-success',
+    url: '/bankcard-success/:status',
     views: {
       '': {
         templateUrl: 'views/success.html',
@@ -232,7 +232,7 @@
     }
   })
   .state('root.recharge-success', {
-    url: '/recharge-success',
+    url: '/recharge-success/:status',
     views: {
       '': {
         templateUrl: 'views/success.html',
@@ -242,7 +242,7 @@
     }
   })
   .state('root.withdraw-success', {
-     url: '/withdraw-success',
+     url: '/withdraw-success/:status',
      views: {
        '': {
          templateUrl: 'views/success.html',
