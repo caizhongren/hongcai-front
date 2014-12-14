@@ -512,12 +512,12 @@
  				templateUrl: 'views/safe.html',
  				controller: 'SafeCtrl',
         controllerUrl: 'scripts/controller/project/safe-ctrl'
- 			},
+ 			}/*,
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
  				controller: 'GuaranteeListCtrl',
  				controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
- 			}
+ 			}*/
  		}
  	})
  	.state('root.safe-nav', {
@@ -527,12 +527,12 @@
  				templateUrl: 'views/safe.html',
  				controller: 'SafeCtrl',
  				controllerUrl: 'scripts/controller/project/safe-ctrl'
- 			},
+ 			}/*,
  			'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
  				controller: 'GuaranteeListCtrl',
  				controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
- 			}
+ 			}*/
  		}
  	})
 
