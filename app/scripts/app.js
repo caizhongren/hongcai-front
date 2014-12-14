@@ -101,22 +101,6 @@
       }*/
     }
   })
-  .state('root.banner-fourty', {
-    url: '/banner-fourty',
-    views: {
-      '': {
-        templateUrl: 'views/banner-fourty.html'
-      }
-    }
-  })
-  .state('root.banner-nine', {
-    url: '/banner-nine',
-    views: {
-      '': {
-        templateUrl: 'views/banner-nine.html'
-      }
-    }
-  })
  	.state('root.login', {
  		url: '/login/:isRedirect',
  		views: {
@@ -158,14 +142,38 @@
  		}
  	})
   /*------------------------------------------  banner  -----------------------------------------------*/
-  // .state('root.banner-nine', {
-  //   url: '/nine-security',
-  //   views: {
-  //     '': {
-  //       templateUrl: 'banner-nine.html'
-  //     }
-  //   }
-  // })
+  .state('root.banner-fourty', {
+    url: '/banner-fourty',
+    views: {
+      '': {
+        templateUrl: 'views/banner-fourty.html'
+      }
+    }
+  })
+  .state('root.banner-nine', {
+    url: '/banner-nine',
+    views: {
+      '': {
+        templateUrl: 'views/banner-nine.html'
+      }
+    }
+  })
+  .state('root.banner-P2B', {
+    url: '/banner-P2B',
+    views: {
+      '': {
+        templateUrl: 'views/banner-P2B.html'
+      }
+    }
+  })
+  .state('root.banner-partner', {
+    url: '/banner-partner',
+    views: {
+      '': {
+        templateUrl: 'views/banner-partner.html'
+      }
+    }
+  })
   .state('root.friends-ship', {
     url: '/friends',
     views: {
@@ -244,16 +252,17 @@
      }
    })
  	/*------------------------------------------  lucky-draw  -----------------------------------------------*/
-  .state('root.lucky-draw', {
-    url: '/lucky-draw',
-    views: {
-      '': {
-        templateUrl: 'views/activity/lucky-draw.html',
-        controller: 'LuckyDrawCtrl',
-        controllerUrl: 'scripts/controller/activity/lucky-draw-ctrl'
-      }
-    }
-  })
+  // 土豪活动，暂时不上线。
+  // .state('root.lucky-draw', {
+  //   url: '/lucky-draw',
+  //   views: {
+  //     '': {
+  //       templateUrl: 'views/activity/lucky-draw.html',
+  //       controller: 'LuckyDrawCtrl',
+  //       controllerUrl: 'scripts/controller/activity/lucky-draw-ctrl'
+  //     }
+  //   }
+  // })
   /*------------------------------------------  user-center  -----------------------------------------------*/
  	.state('root.userCenter', {
  		views: {

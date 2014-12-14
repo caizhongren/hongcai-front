@@ -267,3 +267,29 @@ html,body{
 .right-five{
   background-position: -1613px -1727px;
 }
+.banner-p2b p{
+  line-height: 30px;
+  color: #858080;
+  text-align:Justify;
+  text-justify:inter-ideograph;
+
+}
+
+.banner-p2b h5 {
+  color: #858080;
+}
+
+.banner-p2b .row {
+  text-align: center;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .banner-p2b p{ 
+    letter-spacing:1px;
+  }
+}
+
+hr {
+  border: 1px solid #ccc;
+}
+

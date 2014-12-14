@@ -2,6 +2,7 @@
 hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie) {
     var loginName;
     var logout;
+    $scope.tuhaoActivity = false; //土豪抽奖活动，暂时不开放。
     var projectList = MainService.projectList.get(function(response) {
       if(response.ret === 1){
           $scope.projectList = projectList.data.recommend;
@@ -58,11 +59,12 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
 
 
     $scope.media = [
-      {mimeType: 'image/png', src:'images/banner-1.png', href:'/project-sponsorInstitution/140' },
-      {mimeType: 'image/png', src:'images/banner-2.png', href:'/banner-fourty' },
+      // {mimeType: 'image/png', src:'images/banner-1.png', href:'/project-sponsorInstitution/140' },
+      // {mimeType: 'image/png', src:'images/banner-2.png', href:'/banner-fourty' },
+      {mimeType: 'image/png', src:'images/banner-6.png', href:'/banner-P2B' },
       {mimeType: 'image/png', src:'images/banner-3.png', href:'/banner-nine'},
       {mimeType: 'image/png', src:'images/banner-4.png', href:'/project-activity-group' },
-      {mimeType: 'image/png', src:'images/banner-5.png', href:'banner-partner.html' }
+      {mimeType: 'image/png', src:'images/banner-5.png', href:'banner-partner' }
     ];
     $scope.slickConfig = {
       dots: true,

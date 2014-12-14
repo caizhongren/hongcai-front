@@ -1,34 +1,34 @@
 <!--银行卡管理-->
 <div class="right-area col-md-8 col-lg-9">
-    <div class="row">
-        <div class="right-title">银行卡管理</div>
-    </div>
-    <div class="verify-area introduction-area border-none row">
-        <a href="javacscript:;" ng-show="isVerifying" ng-init="isAuth=false;haveCard=false;">
-            <div class="bank-card-show">
-                <p class="add-card">认证中</p>
-            </div>
-        </a>
-        <a href="javacscript:;" ng-show="isAuth && !haveCard && !isVerifying" ng-init="isAuth=false" ng-click="bindBankCard()">
-            <div class="bank-card-show">
-                <p class="add-card" >添加银行卡</p>
-            </div>
-        </a>
-        <a href="javacscript:;" ng-show="isAuth && haveCard && !isVerifying" >
-            <div class="bank-card-show">
-                <p>{{bankName}}</p>
-            </div>
-        </a>
-        <!--start 安全认证提示 -->
-        <p class="verify-tip safe-card-tips" ng-show="!isAuth">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
-        <!--end 安全认证提示 -->
-        <p class="ft-12">
-            温馨提示
-            <br>
-            为确保您的资金划转安全高效，宏财建议您完善开户行信息。您只需在分支行框内输入分支行关键词。
-            <br>
-            比如您的开户行名称为“工商银行北京宣武门支行”，只需输入关键词“宣武”即可。如果推荐列表中没有符合关键词的信息，请您务必在列表中选择开户城市的的银行分行，如：工商银行北京市分行营业部。
-        </p>
-    </div>
+  <div class="row">
+      <div class="right-title">银行卡管理</div>
+  </div>
+  <div class="verify-area introduction-area border-none row">
+    <a href="javacscript:;" ng-show="isVerifying" ng-init="isAuth=false;haveCard=false;">
+      <div class="bank-card-show-verify">
+        <p class="add-card">认证中</p>
+      </div>
+    </a>
+    <a href="#" ng-show="isAuth && !haveCard && !isVerifying" ng-init="isAuth=false" ng-click="bindBankCard()">
+      <div class="bank-card-show">
+        <p class="add-card" ></p>
+      </div>
+    </a>
+    <a href="javacscript:;" ng-show="isAuth && haveCard && !isVerifying" >
+      <div class="bank-card-show-verify">
+        <p class="add-card">{{bankName}}</p>
+      </div>
+    </a>
+    <!--start 安全认证提示 -->
+    <p class="verify-tip safe-card-tips" ng-show="!isAuth">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
+    <!--end 安全认证提示 -->
+    <p class="ft-12">
+      温馨提示
+      <br>
+      为确保您的资金划转安全高效，宏财网建议您完善开户行信息。务必将银行卡开户行精确到支行（或营业室或储蓄所）。
+      <br>
+      例如：“工商银行北京分行宣武门支行”"招商银行北京分行方庄支行""陕西省西安市农业银行西安分行人民东路储蓄所“。
+    </p>
+  </div>
     <!--end 添加银行卡 -->
 </div>
