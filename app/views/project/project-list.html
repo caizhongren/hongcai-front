@@ -179,6 +179,7 @@
             </div>
           </li>
 					<li class="list-group-item" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+            <img class="type-flag" src="/images/test-icon.png">
 						<div class="row">
 							<div class="hidden-md col-lg-2">
 								<img ng-src={{baseFileUrl}}{{item.image}} class="img-rounded" width="160" height="165">

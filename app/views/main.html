@@ -135,6 +135,7 @@
 
           <ul class="list-group">
             <li class="list-group-item" ng-repeat="project in projectList | orderBy:project.sort">
+              <img class="type-flag" src="/images/test-icon.png">
               <div class="row">
                 <div class="hidden-xs hidden-md col-lg-5">
                   <a ui-sref="root.project-details({projectId: project.id})">
