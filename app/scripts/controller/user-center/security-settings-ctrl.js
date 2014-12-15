@@ -50,7 +50,8 @@ hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope',
     $scope.bindEmail = function(email){
       UserCenterService.bindEmail.get({email: email},function(response){
         if (response.ret === 1){
-          alert("操作成功！");
+          $scope.msg = '操作成功';
+          var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
           $scope.email = email.substr(0,2) + '****' + email.substr(email.indexOf('@'));
           $scope.changeEmail = false;
           $scope.newEmail = null;
