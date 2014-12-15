@@ -1,14 +1,14 @@
 'use strict';
 hongcaiApp.controller('UserCenterCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'MsgService', 'DEFAULT_DOMAIN', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, MsgService, DEFAULT_DOMAIN) {
-	
+
     $scope.selectedDate = '2014-10-16T08:50:36.394Z'; // <- [object Date]
     $scope.selectedDateAsNumber = 509414400000; // <- [object Number]
-    $scope.fromDate = new Date(2014, 9, 20); 
+    $scope.fromDate = new Date(2014, 9, 20);
     $scope.untilDate = new Date(2014, 10, 7);
-    
+
     $scope.fromDateChanged = function () {
         console.log($scope.fromDate);
-        $location.path('userCenter-investment/6') 
+        $location.path('userCenter-investment/6')
 
     };
 
@@ -31,7 +31,7 @@ hongcaiApp.controller('UserCenterCtrl', [ '$location', '$scope', '$state', '$roo
     }else{
         $scope.welcomeTip = '晚安~';
     }
-    
+
 
 	function new_form(){
 		var f = document.createElement('form');
@@ -80,7 +80,6 @@ hongcaiApp.controller('UserCenterCtrl', [ '$location', '$scope', '$state', '$roo
             }
         });
     };
-
     // if(sessionStorage.getItem('user') != undefined) {
     //   MsgService.getUnreadMsgCount.get(function(response) {
     //     if(response.ret === 1) {
