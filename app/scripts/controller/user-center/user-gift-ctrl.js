@@ -15,7 +15,7 @@ hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$st
     $scope.untilDealDateChanged = function (status,dateInterval) {
       if($scope.invUntilDate !== null){
         dateEnd = moment($scope.invUntilDate).add(1,'day').subtract(1,'second').valueOf();
-        $location.path('gift-rebate/'+'99'+'/'+dateInterval+'/'+status+'/'+dateStart+'/'+dateEnd);
+        $location.path('gift-rebate/99'+'/'+dateInterval+'/'+status+'/'+dateStart+'/'+dateEnd);
       }
     };
 

@@ -54,8 +54,8 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
         $scope.amount = getOrderByUser.data.amount;
         $scope.dateInterval = getOrderByUser.data.dateInterval;
         $scope.status = getOrderByUser.data.status;
-        $scope.invFromDate = getOrderByUser.data.dateStart || 0;
-        $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
+        // $scope.invFromDate = getOrderByUser.data.dateStart || 0;
+        // $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
         $scope.currentPage = 0;
         $scope.pageSize = 6;
         $scope.data = [];
