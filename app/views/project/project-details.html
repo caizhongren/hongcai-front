@@ -226,7 +226,7 @@
                                   <h4 class="timeline-title">项目放款</h4>
                                 </div>
                                 <div class="timeline-body">
-                                  <p>已还：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest)}}（{{billCount}}期）</p>
+                                  <p>已还：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest) | number:2 }}（{{billCount}}期）</p>
                                 </div>
                               </div>
                             </li>
@@ -237,7 +237,7 @@
                                   <h4 class="timeline-title">项目还款</h4>
                                 </div>
                                 <div class="timeline-body">
-                                  <p>待还款：{{remainPrincipal + remainInterest}}（{{project.cycle - billCount}}期）</p>
+                                  <p>待还款：{{remainPrincipal + remainInterest | number:2 }}（{{project.cycle - billCount}}期）</p>
                                 </div>
                               </div>
                             </li>
