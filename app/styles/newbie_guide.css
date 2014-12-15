@@ -11,11 +11,11 @@
 .section .bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; padding-top:0;}
 .section .bg img { display: block; width: 100%; height: 100%;}
 
-.bg21 { position: absolute; left: 35%; bottom: 15%; width: 20%; height: 360px; margin-left: -608px; margin-bottom: 40px; /*background: url(/images/newbie/bg21.png) 0 0 no-repeat;*/ transition: all 1s;  opacity: 0; margin-left: -1108px;}
-.bg22 { position: absolute; left: 66%; bottom: 15%; width: 20%; height: 299px; margin-left: -280px; margin-bottom: 70px; /*background: url(/images/newbie/bg22.png) right 0 no-repeat;*/ transition: all 1s; opacity: 0; margin-left: 320px;}
-.bg23 { position: absolute; left: 63%; bottom: 0.5%; width: 48%;; height: 690px; margin-left: -409px; /*background: url(/images/newbie/bg23.png) 50% 0 no-repeat;*/ transition: all 1s;  bottom: -40%;}
+.bg21 { position: absolute; left: 35%; bottom: 15%; width: 20%; /*height: 360px;*/ margin-left: -608px; margin-bottom: 40px; /*background: url(/images/newbie/bg21.png) 0 0 no-repeat;*/ transition: all 1s;  opacity: 0; margin-left: -1108px;}
+.bg22 { position: absolute; left: 66%; bottom: 15%; width: 20%; /*height: 299px;*/ margin-left: -280px; margin-bottom: 70px; /*background: url(/images/newbie/bg22.png) right 0 no-repeat;*/ transition: all 1s; opacity: 0; margin-left: 320px;}
+.bg23 { position: absolute; left: 63%; bottom: 0.5%; width: 48%; /*height: 690px;*/ margin-left: -409px; /*background: url(/images/newbie/bg23.png) 50% 0 no-repeat;*/ transition: all 1s;  bottom: -40%;}
 .section strong { position: absolute; left: 50%; top: 15%; z-index: 10; width: 512px; height: 45px; margin-left: -256px; font-size: 24px; font-weight: 500; color: #748A9E; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
-.section h3 { position: absolute; left: 50%; top: 15%; z-index: 10; width: 561px; height: 126px; margin-left: -256px; margin-top: 60px; text-indent: -9999px; background-repeat: no-repeat; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
+.section h3 { position: absolute; left: 50%; top: 15%; z-index: 10; width: 30%; height: 126px; margin-left: -256px; margin-top: 60px; text-indent: -9999px; background-repeat: no-repeat; opacity: 0; -webkit-transform:scale(0.5, 0.5); transform:scale(0.5, 0.5); transition: all 1s;}
 .p1 { position: absolute; left: 50%; top: 15%; width: 510px; margin-left: -255px; margin-top: 130px; font-size: 16px; color: #727F8C; opacity: 0; transition: all 1s;}
 
 .section2 h3 { background-image: url(/images/newbie/t2.png); left: 35%; top: 13%;}
