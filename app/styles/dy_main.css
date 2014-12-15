@@ -712,6 +712,10 @@ input:focus{
   padding-left: 60px;
   padding-top: 20px;
 }
+.aboutUs-introduction-pc{
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
 .p-right{
   height: 20px;
   padding: 5px 0;
