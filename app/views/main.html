@@ -113,11 +113,18 @@
               <div class="col-xs-12">&nbsp;</div>
             </div>
 
-            <div class="row">
-              <div class="col-xs-12">
+            <div class="row" >
+              <div class="col-xs-12" ng-show="voCountDown < 0">
                 <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: projectVo.id})">
                 <i class="fa fa-shopping-cart"></i>
                 {{ projectVo.statusText }}
+                </a>
+              </div>
+              <div class="col-xs-12" ng-show="voCountDown > 0">
+                <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: project.id})">
+                <i class="fa fa-shopping-cart"></i>
+                {{ projectVo.statusText }} |
+                <timer interval="1000" countdown="voCountDown">{{days}} <small>天 </small> {{hours}} <small>小时</small> {{minutes}} <small>分</small> {{seconds}}<small>秒 </small></timer>
                 </a>
               </div>
             </div>
@@ -134,7 +141,7 @@
           </div>
 
           <ul class="list-group">
-            <li class="list-group-item" ng-repeat="project in projectList | orderBy:project.sort">
+            <li class="list-group-item" ng-repeat="project in data | orderBy:project.sort">
               <img class="type-flag" src="/images/test-icon.png">
               <div class="row">
                 <div class="hidden-xs hidden-md col-lg-5">
@@ -177,10 +184,17 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-xs-12">
+                    <div class="col-xs-12" ng-show="project.countdown < 0">
                       <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: project.id})">
                       <i class="fa fa-shopping-cart"></i>
                       {{ project.statusText }}
+                      </a>
+                    </div>
+                    <div class="col-xs-12" ng-show="project.countdown > 0">
+                      <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: project.id})">
+                      <i class="fa fa-shopping-cart"></i>
+                      {{ project.statusText }} |
+                      <timer interval="1000" countdown="project.countdown">{{days}} <small>天 </small> {{hours}} <small>小时</small> {{minutes}} <small>分</small> {{seconds}}<small>秒 </small></timer>
                       </a>
                     </div>
                   </div>
