@@ -191,6 +191,16 @@
       }
     }
   })
+  .state('root.active-email', {
+    url: '/active-email?etoken',
+    views: {
+      '': {
+        templateUrl: 'views/register/active-email.html',
+        controller: 'ActiveEmailCtrl',
+        controllerUrl: 'scripts/controller/register/active-email-ctrl'
+      }
+    }
+  })
   .state('root.register-success', {
     url: '/register-success/:etoken',
     views: {
