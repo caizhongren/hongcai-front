@@ -850,16 +850,32 @@ input:focus{
   padding-top: 60px;
 }
 .bank-card-show-verify{
-  height: 230px;
-  width: 346px;
-  background-position: -780px -874px;
+  height: 213px;
+  width: 336px;
+  background-position: -773px -858px;
   padding-top: 60px;
 }
 .add-card{
   font-size: 20px;
   text-align: center;
-  padding-top: 20px;
+  padding-top: 25px;
   padding-left: 65px;
+}
+.bankCard{
+  position: relative;
+}
+.bankCard a{
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+  display: inline-block;
+  width: 330px;
+  height: 0px;
+  background: url(/images/sprite.png) no-repeat -762px -481px;
+  -webkit-transition:0.3s ease-in-out;
+  -moz-transition:0.3s ease-in-out;
+  -o-transition:0.3s ease-in-out;
+  -ms-transition:0.3s ease-in-out;
 }
 .border-end{
   border-bottom: 1px solid #dbdbdb;

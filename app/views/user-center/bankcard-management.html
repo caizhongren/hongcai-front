@@ -1,4 +1,4 @@
-<!--银行卡管理-->
+ <!--银行卡管理-->
 <div class="right-area col-md-8 col-lg-9">
   <div class="row">
       <div class="right-title">银行卡管理</div>
@@ -19,11 +19,12 @@
         <p class="add-card">正在绑定，请稍后....</p>
       </div>
     </a>
-    <a ng-show="isAuth && haveCard && !isVerifying" >
+    <div class="bankCard" ng-show="isAuth && haveCard && !isVerifying">
       <div class="bank-card-show-verify">
         <p class="add-card">{{bankName}}</p>
       </div>
-    </a>
+      <a ng-click="unbindBankCard()">&nbsp;</a>
+    </div>
     <!--start 安全认证提示 -->
     <p class="verify-tip safe-card-tips" ng-show="!isAuth">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
     <!--end 安全认证提示 -->
