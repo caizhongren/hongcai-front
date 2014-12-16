@@ -25,7 +25,7 @@ hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state
 		f.method = 'post';
       //f.target = '_blank';
       return f;
-    }
+  }
 
   function create_elements(eForm,eName,eValue){
   	var e=document.createElement('input');
@@ -44,10 +44,10 @@ hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state
   }
 
   $scope.bindBankCard = function() {
-  	UserCenterService.bindBankCard.get({}, function(response) {
-  		if(response.ret === 1) {
-  			var req = response.data.req;
-  			var sign = response.data.sign;
+    UserCenterService.bindBankCard.get({}, function(response) {
+      if(response.ret === 1) {
+        var req = response.data.req;
+        var sign = response.data.sign;
           var _f=new_form();
           create_elements(_f,'req',req);
           create_elements(_f,'sign',sign);
@@ -59,4 +59,28 @@ hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state
       }
     });
   };
+
+  $scope.unbindBankCard = function() {
+  	UserCenterService.unbindBankCard.get({}, function(response) {
+  		if(response.ret === 1) {
+  			var req = response.data.req;
+  			var sign = response.data.sign;
+          var _f=new_form();
+          create_elements(_f,'req',req);
+          create_elements(_f,'sign',sign);
+          _f.action= config.YEEPAY_ADDRESS + 'toUnbindBankCard';
+          $scope.dosi = false;
+          _f.submit();
+      } else {
+        console.log('ask bankcard-management, why bindBankCard did not load data...');
+      }
+    });
+  };
+
+  angular.element('.bankCard').hover(function(event){
+      $(event.target).find('a').height('78px');
+  },function(event){
+      $(event.target).find('a').height('0');
+  });
+
 }]);
