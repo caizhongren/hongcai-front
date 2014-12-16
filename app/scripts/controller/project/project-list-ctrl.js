@@ -21,6 +21,8 @@ hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope'
     												  sortCondition: $stateParams.sortCondition,
     												  sortType: $scope.sortType}, function() {
       if(response.ret === 1) {
+        $scope.serverTime = response.data.serverTime;
+        console.log('serverTime:' + $scope.serverTime);
         $scope.projectList = response.data.projectList;
         $scope.baseFileUrl = response.data.baseFileUrl;
         $scope.status = $stateParams.status;
@@ -39,7 +41,8 @@ hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope'
             return Math.ceil($scope.data.length / $scope.pageSize);
         }
         for (var i = 0; i < $scope.projectList.length; i++) {
-            $scope.data.push($scope.projectList[i]);
+          $scope.projectList[i].countdown = moment($scope.projectList[i].releaseStartTime).diff(moment($scope.serverTime), 'seconds');
+          $scope.data.push($scope.projectList[i]);
         }
       } else {
         $scope.projectList = [];

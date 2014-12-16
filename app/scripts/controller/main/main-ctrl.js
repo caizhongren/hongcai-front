@@ -6,10 +6,16 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     var projectList = MainService.projectList.get(function(response) {
       if(response.ret === 1){
           $scope.projectList = projectList.data.recommend;
+          $scope.serverTime = projectList.data.serverTime;
           $scope.projectVo = projectList.data.specialRecommend[0];
           $scope.baseFileUrl = projectList.data.baseFileUrl;
-          $scope.projectList = projectList.data.recommend;
           $scope.projectVo = projectList.data.specialRecommend[0];
+          $scope.voCountDown = moment($scope.projectVo.releaseStartTime).diff(moment($scope.serverTime), 'seconds');
+          $scope.data = [];
+          for (var i = 0; i < $scope.projectList.length; i++) {
+            $scope.projectList[i].countdown = moment($scope.projectList[i].releaseStartTime).diff(moment($scope.serverTime), 'seconds');
+            $scope.data.push($scope.projectList[i]);
+          }
         }
        /* $scope.orderProp = 'id';
         $scope.currentPage = 0;

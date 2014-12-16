@@ -1055,3 +1055,7 @@ input:focus{
 .list-g{
   margin: 15px 0px 15px 0;
 }
+.countdown-word {
+  font-size: 25px;
+  color: #eb5c3f;
+}
