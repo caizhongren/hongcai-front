@@ -26,8 +26,7 @@
   'config',
   'sticky',
   'ipCookie',
-  'angular-md5',
-  'ui.date'
+  'angular-md5'
   ]);
 
  hongcaiApp
