@@ -112,11 +112,21 @@
  		}
  	})
  	.state('root.registerMobile', {
- 		url: '/register-mobile/:inviteCode',
+    url: '/register-mobile/:inviteCode',
+    views: {
+      '': {
+        templateUrl: 'views/register/register-mobile.html',
+        controller: 'RegisterMobileCtrl',
+        controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
+      }
+    }
+  })
+  .state('root.registerMobile-sanGuo', {
+ 		url: '/register-mobile-sanGuo',
  		views: {
  			'': {
- 				templateUrl: 'views/register/register-mobile.html',
- 				controller: 'RegisterMobileCtrl',
+ 				templateUrl: 'views/register/register-mobile-sanGuo.html',
+ 				controller: 'RegisterMobileSanGuoCtrl',
  				controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
  			}
  		}
