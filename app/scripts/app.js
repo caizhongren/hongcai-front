@@ -272,17 +272,17 @@
      }
    })
  	/*------------------------------------------  lucky-draw  -----------------------------------------------*/
-  // 土豪活动，暂时不上线。
-  // .state('root.lucky-draw', {
-  //   url: '/lucky-draw',
-  //   views: {
-  //     '': {
-  //       templateUrl: 'views/activity/lucky-draw.html',
-  //       controller: 'LuckyDrawCtrl',
-  //       controllerUrl: 'scripts/controller/activity/lucky-draw-ctrl'
-  //     }
-  //   }
-  // })
+  //土豪活动，暂时不上线。
+  .state('root.lucky-draw', {
+    url: '/lucky-draw',
+    views: {
+      '': {
+        templateUrl: 'views/activity/lucky-draw.html',
+        controller: 'LuckyDrawCtrl',
+        controllerUrl: 'scripts/controller/activity/lucky-draw-ctrl'
+      }
+    }
+  })
   /*------------------------------------------  user-center  -----------------------------------------------*/
  	.state('root.userCenter', {
  		views: {

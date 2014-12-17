@@ -18,4 +18,5 @@ hongcaiApp.controller('LuckyDrawCtrl', ['$scope', 'UserCenterService', '$alert',
       }
     })
   };
+  console.log(0)
 }]);
