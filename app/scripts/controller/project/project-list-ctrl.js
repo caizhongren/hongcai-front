@@ -22,7 +22,6 @@ hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope'
     												  sortType: $scope.sortType}, function() {
       if(response.ret === 1) {
         $scope.serverTime = response.data.serverTime;
-        console.log('serverTime:' + $scope.serverTime);
         $scope.projectList = response.data.projectList;
         $scope.baseFileUrl = response.data.baseFileUrl;
         $scope.status = $stateParams.status;
