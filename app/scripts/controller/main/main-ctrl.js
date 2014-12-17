@@ -29,7 +29,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
         }*/
     });
     var activityGroup = ProjectService.getGiftProjectList.get(function() {
-      if(activityGroup.ret == 1) {
+      if(activityGroup.ret === 1) {
         $scope.activityList = activityGroup.data.projectList;
       }
     });

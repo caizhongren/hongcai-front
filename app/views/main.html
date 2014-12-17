@@ -122,7 +122,7 @@
                 <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: projectVo.id})">
                 <i class="fa fa-shopping-cart"></i>
                 {{ projectVo.statusText }} |
-                <timer interval="1000" countdown="voCountDown">{{days}} <small>天 </small> {{hours}} <small>小时</small> {{minutes}} <small>分</small> {{seconds}}<small>秒 </small></timer>
+                <timer id="voCountDown" interval="1000" countdown="voCountDown">{{days}} <small>天 </small> {{hours}} <small>小时</small> {{minutes}} <small>分</small> {{seconds}}<small>秒 </small></timer>
                 </a>
               </div>
             </div>
@@ -192,7 +192,7 @@
                       <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: project.id})">
                       <i class="fa fa-shopping-cart"></i>
                       {{ project.statusText }} |
-                      <timer interval="1000" countdown="project.countdown">{{days}} <small>天 </small> {{hours}} <small>小时</small> {{minutes}} <small>分</small> {{seconds}}<small>秒 </small></timer>
+                      <timer id="project.countdown" interval="1000" countdown="project.countdown">{{days}} <small>天 </small> {{hours}} <small>小时</small> {{minutes}} <small>分</small> {{seconds}}<small>秒 </small></timer>
                       </a>
                     </div>
                   </div>
