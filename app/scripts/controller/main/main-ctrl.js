@@ -90,7 +90,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
      */
      var from = $stateParams.from;
      if (from){
-        ipCookie('utm_from', from, { expires: 60 })
+        ipCookie('utm_from', from, { expires: 1 })
         MainService.trafficStats.get({from: from});
      }
 

@@ -39,5 +39,14 @@ hongcaiApp.controller('RegisterMobileCtrl', ['$scope', '$state', '$rootScope', '
             }
         });
     };
+
+    /**
+     * 处理推广流量统计
+     */
+     var from = $stateParams.from;
+     if (from){
+        ipCookie('utm_from', from, { expires: 1 })
+        MainService.trafficStats.get({from: from});
+     };
 }]);
 

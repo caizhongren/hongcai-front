@@ -122,7 +122,7 @@
     }
   })
   .state('root.registerMobile-sanGuo', {
- 		url: '/register-mobile-sanGuo',
+ 		url: '/register-mobile-sanGuo/:from',
  		views: {
  			'': {
  				templateUrl: 'views/register/register-mobile-sanGuo.html',
