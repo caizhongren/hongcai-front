@@ -54,7 +54,7 @@
         <!--<p class="text-title">{{message}}</p>-->
         <div class="row">
           <div class="success-page col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
-            <div class="col-lg-2 col-md-2 col-lg-offset-1 col-md-offset-1">
+            <div class="col-lg-2 col-md-2">
               <img src="images/register-success.png">
             </div>
             <p class=" success-tips success-re col-lg-9 col-md-9">恭喜您成功注册宏财！</p>
@@ -66,7 +66,7 @@
             <div>
               <botton type="botton" class="btn btn-danger btn-lg active btn-t" ui-sref="root.main" style="margin-left:35px;">逛逛首页</botton>
               <botton type="botton" class="btn btn-warning btn-lg active btn-t" ui-sref="root.userCenter.security-settings" style="margin-left:15px;">安全设置</botton>
-            </div>  
+            </div>
             </div>
           </div>
         </div>
@@ -113,6 +113,21 @@
           <div class="success-page col-lg-8 col-md-8 col-lg-offset-3 col-md-offset-2">
             <div class="smile-bg col-lg-offset-1 col-md-offset-1"></div>
             <p class="success-tips col-lg-8 col-md-8">恭喜提现成功~<br>{{counter}}秒后进入个人中心~</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container bg" ng-switch-when="7">
+    <div class="agreement-area row introduction-height">
+      <div class="col-md-12 col-lg-12">
+        <p class="text-title">取消绑卡成功</p>
+        <!--<p class="text-title">{{message}}</p>-->
+        <div class="row">
+          <div class="success-page col-lg-8 col-md-8 col-lg-offset-3 col-md-offset-2">
+            <div class="smile-bg col-lg-offset-1 col-md-offset-1"></div>
+            <p class="success-tips col-lg-8 col-md-8">取消绑定银行卡成功~<br>{{counter}}秒后进入个人中心~</p>
           </div>
         </div>
       </div>

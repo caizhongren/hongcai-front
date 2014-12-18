@@ -65,11 +65,13 @@ hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state
   		if(response.ret === 1) {
   			var req = response.data.req;
   			var sign = response.data.sign;
+        console.log(req)
+        console.log(sign)
           var _f=new_form();
           create_elements(_f,'req',req);
           create_elements(_f,'sign',sign);
           _f.action= config.YEEPAY_ADDRESS + 'toUnbindBankCard';
-          $scope.dosi = false;
+          $scope.dosi = true;
           _f.submit();
       } else {
         console.log('ask bankcard-management, why bindBankCard did not load data...');
@@ -77,10 +79,10 @@ hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state
     });
   };
 
-  angular.element('.bankCard').hover(function(event){
-      $(event.target).find('a').height('78px');
+  angular.element('.bankCard .bank-card-show-verify').hover(function(event){
+      $(event.target).parent().find('a').height('78px');
   },function(event){
-      $(event.target).find('a').height('0');
+      $(event.target).parent().find('a').height('0');
   });
 
 }]);

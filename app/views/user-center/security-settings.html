@@ -50,14 +50,12 @@
           <div class="user-tips-area safe-tips-area"
               ng-show="changePwdForm.oldPwd.$dirty && changePwdForm.oldPwd.$invalid && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.required">
             <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-            <i class="fa fa-times-circle-o login-check-img"></i>
-            <p class="input-tips user-input-tips">不能为空</p>
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
           </div>
           <div class="user-tips-area safe-tips-area"
               ng-show="changePwdForm.oldPwd.$dirty && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.isPasswordTrue && !changePwdForm.oldPwd.$error.required">
             <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-            <i class="fa fa-times-circle-o login-check-img"></i>
-            <p class="input-tips user-input-tips">密码错误</p>
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>密码错误</p>
           </div>
         </div>
         <div class="safe-form-group row">
@@ -71,8 +69,7 @@
           <div class="user-tips-area safe-tips-area"
               ng-show="changePwdForm.newPwd.$dirty && changePwdForm.newPwd.$invalid && !changePwdForm.newPwd.$focused">
             <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-            <i class="fa fa-times-circle-o login-check-img"></i>
-            <p class="input-tips user-input-tips">不能为空</p>
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
           </div>
         </div>
         <div class="safe-form-group row">
@@ -85,14 +82,12 @@
           <div  class="user-tips-area safe-tips-area"
               ng-show="changePwdForm.confirmPwd.$dirty && changePwdForm.confirmPwd.$invalid && !changePwdForm.confirmPwd.$focused">
             <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-            <i class="fa fa-times-circle-o login-check-img"></i>
-            <p class="input-tips user-input-tips">不能为空</p>
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
           </div>
           <div class="user-tips-area safe-tips-area"
               ng-show="changePwdForm.confirmPwd.$dirty && !checkTwoPassword(password) && !changePwdForm.confirmPwd.$focused && !changePwdForm.confirmPwd.$error.required" >
             <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-            <i class="fa fa-times-circle-o login-check-img"></i>
-            <p class="input-tips user-input-tips">密码不一致</p>
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>密码不一致</p>
           </div>
         </div>
         <div class="safe-form-group row">
@@ -133,21 +128,18 @@
                 ng-show="changeMobileForm.mobileNo.$error.required &&
                     !changeMobileForm.mobileNo.$focused">
               <!-- <img ng-src="images/check_no.png"class="user-check-img"> -->
-              <i class="fa fa-times-circle-o login-check-img"></i>
-              <p class="input-tips user-input-tips">不能为空</p>
+              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
             </div>
             <div  class="user-tips-area row"
                   ng-show="changeMobileForm.mobileNo.$error.pattern &&
                       !changeMobileForm.mobileNo.$focused">
               <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-              <i class="fa fa-times-circle-o login-check-img"></i>
-              <p class="input-tips user-input-tips">格式错误</p>
+              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>格式错误</p>
             </div>
             <div  class="user-tips-area row"
                   ng-show="changeMobileForm.mobileNo.$error.unique">
               <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-              <i class="fa fa-times-circle-o login-check-img"></i>
-              <p class="input-tips user-input-tips">已被占用</p>
+              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>已被占用</p>
             </div>
           </div>
         </div>
@@ -161,8 +153,7 @@
           <div  class="user-tips-area safe-tips-area"
             ng-show="changeMobileForm.inputCaptcha.$error.required &&changeMobileForm.inputCaptcha.$dirty">
             <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-            <i class="fa fa-times-circle-o login-check-img"></i>
-            <p class="input-tips user-input-tips">不能为空</p>
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
           </div>
         </div>
         <div class="safe-form-group row">
@@ -199,18 +190,15 @@
               !bindEmailForm.newEmail.$focused">
             <div class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.pattern">
               <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-              <i class="fa fa-times-circle-o login-check-img"></i>
-              <p class="input-tips user-input-tips">格式错误</p>
+              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>格式错误</p>
             </div>
             <div  class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.unique">
               <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-              <i class="fa fa-times-circle-o login-check-img"></i>
-              <p class="input-tips user-input-tips">已被占用</p>
+              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>已被占用</p>
             </div>
             <div  class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.required">
               <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-              <i class="fa fa-times-circle-o login-check-img"></i>
-              <p class="input-tips user-input-tips">不能为空</p>
+              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
             </div>
           </div>
         </div>
@@ -247,8 +235,7 @@
           <div  class="user-tips-area safe-tips-area"
               ng-show="openTrusteeshipAccountForm.realName.$dirty && openTrusteeshipAccountForm.realName.$error.required">
             <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-            <i class="fa fa-times-circle-o login-check-img"></i>
-            <p class="input-tips user-input-tips">不能为空</p>
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
           </div>
         </div>
         <div class="safe-form-group row">
@@ -259,8 +246,7 @@
           <div  class="user-tips-area safe-tips-area"
               ng-show="openTrusteeshipAccountForm.idCardNo.$dirty && openTrusteeshipAccountForm.idCardNo.$error.required">
             <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-            <i class="fa fa-times-circle-o login-check-img"></i>
-            <p class="input-tips user-input-tips">不能为空</p>
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
           </div>
         </div>
         <div class="safe-form-group row">
