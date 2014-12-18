@@ -251,6 +251,16 @@
       }
     }
   })
+   .state('root.unbind-bankcard-success', {
+    url: '/unBindbankcard-success/:status',
+    views: {
+      '': {
+        templateUrl: 'views/success.html',
+        controller: 'UnBindBankcardSuccessCtrl',
+        controllerUrl: 'scripts/controller/user-center/unbind-bankcard-success-ctrl'
+      }
+    }
+  })
   .state('root.recharge-success', {
     url: '/recharge-success/:status',
     views: {

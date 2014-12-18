@@ -32,6 +32,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
       }
 
     };
+
     $scope.fromDateChanged = function () {
       if ($scope.invFromDate !== null) {
         dateStart = moment($scope.invFromDate).valueOf();
