@@ -112,11 +112,21 @@
  		}
  	})
  	.state('root.registerMobile', {
- 		url: '/register-mobile/:inviteCode',
+    url: '/register-mobile/:inviteCode',
+    views: {
+      '': {
+        templateUrl: 'views/register/register-mobile.html',
+        controller: 'RegisterMobileCtrl',
+        controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
+      }
+    }
+  })
+  .state('root.registerMobile-sanGuo', {
+ 		url: '/register-mobile-sanGuo',
  		views: {
  			'': {
- 				templateUrl: 'views/register/register-mobile.html',
- 				controller: 'RegisterMobileCtrl',
+ 				templateUrl: 'views/register/register-mobile-sanGuo.html',
+ 				controller: 'RegisterMobileSanGuoCtrl',
  				controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
  			}
  		}
@@ -877,7 +887,7 @@
 
  }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
+hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_DOMAIN) {
   // Array 在IE8下没有indexOf 方法。
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(obj, start) {
@@ -899,10 +909,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, DEFAULT_DOMAIN) {
               '/userCenter-investment',
               '/record',
               '/gift-overview',
-              '/invite-rebate'];
+              '/invite-rebate',
+              '/userCenter-investment',
+              '/gift-rebate',
+              '/invite-rebate',
+              '/gift-overview'];
   $rootScope.$on('$stateChangeStart', function() {
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
-    if(routespermission.indexOf($location.path()) !== -1) {
+    if(routespermission.indexOf('/'  + $location.path().split("/")[1]) !== -1) {
       $checkSessionServer.then(function(response){
         if(response.data.data && response.data.data.name !== '' && response.data.data.name !== undefined && response.data.data.name !== null) {
           $rootScope.isLogged = true;
