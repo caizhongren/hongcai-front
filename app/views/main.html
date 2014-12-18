@@ -8,7 +8,7 @@
      <!--    <a href="/banner-nine.html" target="_blank"><img src="images/main_safe.png" alt=""></a> -->
      <a ui-sref="root.banner-nine"><img src="images/main_safe.png" alt=""></a>
         </span>
-        <div class="media-body">
+        <div class="media-body" ui-sref="root.banner-nine" style="cursor: pointer;">
           <h3 class="media-heading" style="padding-top: 6px;">安全保障</h3>
           <!-- <p class="text-nowrap line-h-27">国有担保公司担保或再担保<br>9重风控，36道安全认证</p> -->
           <p class="line-h-27">A级以上优质担保公司担保<br>9重风控，36道安全认证</p>
@@ -20,7 +20,7 @@
         <span class="pull-left hc-text-red ft-4em" >
         <a ui-sref="root.banner-fourty"><img src="images/main_inv.png" alt=""></a>
         </span>
-        <div class="media-body">
+        <div class="media-body" ui-sref="root.banner-fourty" style="cursor: pointer;">
           <h3 class="media-heading" style="padding-top: 6px;">投资收益</h3>
           <!-- <p class="text-nowrap line-h-27">100元起投<br>40倍银行同期活期收益</p> -->
           <p class="line-h-27">100元起投<br>40倍银行同期活期收益</p>
@@ -32,11 +32,13 @@
         <span class="pull-left hc-text-red ft-4em">
         <a href="/newbie-guide.html#page4" target="_blank"><img src="images/main_sweet.png" alt=""></a>
         </span>
-        <div class="media-body">
-          <h3 class="media-heading" style="padding-top: 6px;">灵活便捷</h3>
-          <!-- <p class="text-nowrap line-h-27">7×24小时全天候理财服务<br>随时随地完成财富增值</p> -->
-          <p class="line-h-27">7×24小时全天候理财服务<br>随时随地完成财富增值</p>
-        </div>
+        <a class="cancel-red" href="/newbie-guide.html#page4" target="_blank">
+          <div class="media-body">
+            <h3 class="media-heading" style="padding-top: 6px;">灵活便捷</h3>
+            <!-- <p class="text-nowrap line-h-27">7×24小时全天候理财服务<br>随时随地完成财富增值</p> -->
+            <p class="line-h-27">7×24小时全天候理财服务<br>随时随地完成财富增值</p>
+          </div>
+        </a>
       </div>
     </div>
   </div>
@@ -155,7 +157,7 @@
 
                   <div class="row margin-t-15">
                     <div class="col-xs-5 text-nowrap">
-                      <a class="project-icon" ui-sref="root.project-sponsorInstitution({guaranteeId: item.guaranteeId})" title="{{project.guaranteeName}}" target="_blank">保</a>
+                      <a class="project-icon" ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" title="{{project.guaranteeName}}" target="_blank">保{{item.guaranteeId}}</a>
                       <a class="project-icon cursor-d" href="javascript:;" title="{{project.repaymentName}}">月</a>
                       <a class="project-icon cursor-d" href="javascript:;" title="{{ project.statusText }}" ng-if="project.status == 6">预</a>
                       <a class="project-icon cursor-d" href="javascript:;" title="{{ project.statusText }}" ng-if="project.status == 7">融</a>
