@@ -7,14 +7,14 @@
     <div class="change-area hongbao-bg" ng-show="status === 1">
       <p class="p-red ab">建议立即使用，宏包可用于以下内容</p>
       <p class="p-grey ab">*使用期限：自抽取日期至三个月后</p>
-      <a href="javascript:;" class="a-red-button ab"></a>
-      <a href="javascript:;" class="a-red-button ab"></a>
+      <a ui-sref="root.project-activity-group" class="a-red-button ab hongBao"></a><!-- 链接待更改 -->
+      <a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="a-red-button ab liCai"></a>
     </div>
     <div class="change-area tuhao-bg" ng-show="status === 2">
       <p class="p-red ab">建议立即使用，宏包可用于以下内容</p>
       <p class="p-grey ab">*使用期限：自抽取日期至三个月后</p>
-      <a href="javascript:;" class="a-red-button ab"></a>
-      <a href="javascript:;" class="a-red-button ab"></a>
+      <a ui-sref="root.project-activity-group" class="a-red-button ab tuHao"></a><!-- 链接待更改 -->
+      <a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="a-red-button ab liCai"></a>
     </div>
     <div class="share-area ab">
       <p>分享给好友：</p>
@@ -28,11 +28,16 @@
     </div>
     <div class="winners ab">
       <strong class="winners-tit">最新中奖名单：</strong>
-      <marquee id="affiche" align="left" behavior="scroll" direction="left" width="560" hspace="50" vspace="20" loop="-1" scrollamount="10" scrolldelay="100" onMouseOut="this.start()" onMouseOver="this.stop()">
-        <span>恭喜<strong>crystal</strong><!-- 数据绑定 -->抽中<strong>10000</strong><!-- 数据绑定 -->元宏包一个！</span>
-        <span>恭喜<strong>crystal</strong><!-- 数据绑定 -->抽中<strong>10000</strong><!-- 数据绑定 -->元宏包一个！</span>
-        <span>恭喜<strong>crystal</strong><!-- 数据绑定 -->抽中<strong>10000</strong><!-- 数据绑定 -->元宏包一个！</span>
-      </marquee>
+      <!-- <div style="width:560px;height:34px;float:left;overflow:hidden;"> -->
+        <marquee id="affiche" align="left" behavior="scroll" direction="left" width="620" loop="-1" scrollamount="10" scrolldelay="100" onMouseOut="this.start()" onMouseOver="this.stop()">
+          <span ng-repeat="winner in lotteryRecords">
+            恭喜<strong>{{winner.userName}}</strong>
+            抽中<strong ng-if="winner.prizeLevel===0">10000</strong>
+            <strong ng-if="winner.prizeLevel===1">100</strong>
+            元宏包一个！</span>
+        </marquee>
+      <!-- </div> -->
+      
     </div>
     <div class="tips-area ab">
       <p>抽奖活动时间：2014年12月22日至2014年12月28日/p>
@@ -47,7 +52,7 @@
       <p>宏包使用规则请查看“<a ui-sref="root.userCenter.gift-overview" class="get-rule-inline">宏包使用规则</a>”</p>
       <p>在法律允许的范围内，宏财网拥有对本活动的解释权</p>
 
-      <a href="javascript:;" class="get-rule ab">&nbsp;</a>
+      <a href="javascript:;" class="get-rule ab">&nbsp;</a><!-- 链接待更改 -->
     </div>
   </div>
 </div>

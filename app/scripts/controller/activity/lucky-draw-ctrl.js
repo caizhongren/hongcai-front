@@ -2,15 +2,17 @@
 hongcaiApp.controller('LuckyDrawCtrl', ['$scope', 'UserCenterService', '$alert', function ($scope, UserCenterService, $alert ) {
   $scope.status = 0;
 
-  /*UserCenterService.luckyDraw.get(function(response){
+  UserCenterService.getLuckyList.get(function(response){
     if(response.ret === 1) {
-      console.log(response.data) 
+      $scope.lotteryRecords = response.data.lotteryRecords;
+      console.log($scope.lotteryRecords) 
+
       
     } else {
       $scope.msg = response.msg;
       var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
     }
-  });*/
+  });
 
   $scope.luckyDraw = function() {
     UserCenterService.luckyDraw.get(function(response){
