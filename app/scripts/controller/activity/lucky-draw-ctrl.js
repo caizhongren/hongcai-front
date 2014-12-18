@@ -1,6 +1,17 @@
 'use strict';
 hongcaiApp.controller('LuckyDrawCtrl', ['$scope', 'UserCenterService', '$alert', function ($scope, UserCenterService, $alert ) {
   $scope.status = 0;
+
+  /*UserCenterService.luckyDraw.get(function(response){
+    if(response.ret === 1) {
+      console.log(response.data) 
+      
+    } else {
+      $scope.msg = response.msg;
+      var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
+    }
+  });*/
+
   $scope.luckyDraw = function() {
     UserCenterService.luckyDraw.get(function(response){
       if(response.ret === 1) {
@@ -18,5 +29,4 @@ hongcaiApp.controller('LuckyDrawCtrl', ['$scope', 'UserCenterService', '$alert',
       }
     })
   };
-  console.log(0)
 }]);
