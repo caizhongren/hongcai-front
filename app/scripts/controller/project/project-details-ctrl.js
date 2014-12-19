@@ -1,10 +1,29 @@
 'use strict';
-hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster) {
+hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout) {
     $rootScope.redirectUrl = $location.path();
 
     var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
         if( projectDetails.ret === 1 ) {
-          $scope.statSecond = (projectDetails.data.countDownTime/1000+1) || 1;
+          $scope.statSecond = parseInt(projectDetails.data.countDownTime/1000+1) || 1;
+          console.log('statSecond:' + typeof($scope.statSecond));
+          $scope.onTimeout = function(){
+            $scope.statSecond --;
+            mytimeout = $timeout($scope.onTimeout, 1000);
+            $scope.statDay = moment().startOf('month').seconds($scope.statSecond).format('DD') - 1 + '天,';
+            $scope.statTime = moment().startOf('month').seconds($scope.statSecond).format('HH时,mm分,ss秒');
+            if($scope.statSecond === 0) {
+              ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function(response) {
+                if(response.ret === 1) {
+                  $scope.project = response.data.project;
+                }
+              });
+              window.location.reload();
+            }
+          }
+          var mytimeout = $timeout($scope.onTimeout,1000);
+          $scope.$on('$stateChangeStart', function() {
+            $timeout.cancel(mytimeout);
+          });
           $scope.project = projectDetails.data.project;
 
           $scope.projectInfo = projectDetails.data.projectInfo;
@@ -51,6 +70,7 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
           toaster.pop('warning', projectDetails.msg);
         }
     });
+
     // $scope.currentAmount = $scope.project.currentStock * $scope.project.increaseAmount
     /*$scope.statDate = new Date('2014', '10', '21', '20','17','10');*///假数据
     $scope.finished = function(){
