@@ -23,14 +23,14 @@
               </div>
             </div>
           </li>
-          <li class="list-group-item border-none read-flag">
+          <li class="list-group-item border-none read-flag" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
             <div class="row">
               <div class="col-xs-12">
-                <div class="pull-left"><a href="javascript:;" title="标记为已读"><input type="checkbox"></a>系统通知</div>
-                <div class="pull-right">2014-12-15 17:50<!-- 数据绑定 --></div>
+                <div class="pull-left"><a href="javascript:;" title="标记为已读"><input type="checkbox"></a>{{item.title}}</div>
+                <div class="pull-right">{{item.createTime | date: "yy-MM-dd HH:mm"}}</div>
               </div>
               <div class="col-xs-12">
-                <p class="border-b">【宏财网】尊敬的用户，符合减肥减肥减肥快if覅风控ifififif解放军覅覅覅覅分</p>
+                <p class="border-b">{{item.content}}</p>
               </div>
             </div>
           </li>

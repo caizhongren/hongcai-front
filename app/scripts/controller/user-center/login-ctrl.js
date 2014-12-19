@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'ipCookie', 'md5', 'toaster', function ($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, ipCookie, md5, toaster) {
+hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'ipCookie', 'md5', 'toaster', 'UserCenterService', function ($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, ipCookie, md5, toaster, UserCenterService) {
 
   if (ipCookie('userName')){
     $scope.user = [];
@@ -18,6 +18,11 @@ hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope'
         $rootScope.isLogged = true;
         $rootScope.securityStatus = response.data.securityStatus;
         toaster.pop('success','恭喜您，登录成功！');
+        UserCenterService.pushAllUnpullMessages.get(function(response) {
+          if(response.ret === 1) {
+            console.info('pushmessage');
+          }
+        });
         if($stateParams.isRedirect){
             $location.path($rootScope.redirectUrl);
         } else {
