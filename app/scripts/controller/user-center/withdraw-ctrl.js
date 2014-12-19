@@ -6,12 +6,13 @@ hongcaiApp.controller('WithdrawCtrl', [ '$location', '$scope', '$state', '$rootS
     UserCenterService.getUserAvailableCash.get({}, function(response) {
       if(response.ret === 1) {
           $scope.availableCash = response.data.availableCash;
+          $scope.availableCash_dele2 = $scope.availableCash >=2 ? $scope.availableCash-2 : $scope.availableCash;
       } else {
         console.log('ask withdraw, why getUserAvailableCash did not load data...');
       }
     });
     $scope.checkLargestAmount = function(amount){
-      if(amount > $scope.availableCash){
+      if(amount > $scope.availableCash_dele2){
         return true;
       } else {
         return false;
