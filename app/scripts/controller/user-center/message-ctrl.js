@@ -17,6 +17,37 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 			}
 
 			console.log($scope.data)
+
+			$scope.changeStatus = function(status,id){
+				var target = angular.element(event.target);
+				if(target.hasClass('msg-con')){
+					
+					if(target.hasClass('unfold')){
+						target.removeClass('unfold');
+					}else{
+						target.addClass('unfold');
+					}
+					
+				}else{
+
+					if(target.find('p').hasClass('unfold')){
+						target.removeClass('unfold');
+					}else{
+						target.addClass('unfold');
+					}
+				}
+				console.log(status,id)
+				if(status===0){
+					//请求接口改status=1
+					status = 1;
+					console.log(angular.element(event.target))
+					
+					
+
+				}else {
+
+				}
+			}
 		}
 	});
 
