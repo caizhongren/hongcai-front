@@ -15,6 +15,8 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 			for (var i = 0; i < $scope.userMsgList.length; i++) {
 				$scope.data.push($scope.userMsgList[i]);
 			}
+
+			console.log($scope.data)
 		}
 	});
 

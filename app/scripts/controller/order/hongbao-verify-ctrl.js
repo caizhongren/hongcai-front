@@ -40,7 +40,8 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
     });
 
     $scope.saveHongYunOrder = function(project, investAmount){
-      OrderService.saveHongYunOrder.get({projectId: project.id, investAmount: investAmount}, function(response) {
+      if(project.type === 2){
+        OrderService.saveHongYunOrder.get({projectId: project.id, investAmount: investAmount}, function(response) {
           if(response.ret == 1) {
             // $scope.msg = '已支付' + investAmount + '！' + '感谢您使用。';
             // var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
@@ -49,7 +50,20 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
             $state.go('root.userCenter.gift-rebate', {type: 99});
 
           }
-      });
+        });
+      }else {
+        OrderService.saveTuhaoOrder.get({projectId: project.id, investAmount: investAmount}, function(response) {
+          if(response.ret == 1) {
+            // $scope.msg = '已支付' + investAmount + '！' + '感谢您使用。';
+            // var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
+            toaster.pop('success', '支付成功,感谢您使用。');
+            // $window.alert('支付成功,感谢您使用。');
+            $state.go('root.userCenter.gift-rebate', {type: 99});
+
+          }
+        });
+      }
+      
     }
     $scope.backTo = function(){
         //window.location.href = 'project/' + $stateParams.projectId;
