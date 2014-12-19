@@ -42,7 +42,7 @@ input:focus{
 .red-news ,.grey-news ,.tips-area:active .grey-news,.tips-area:active .red-news,.account-pic-bg,.help-ico,
 .open,.smile-bg,.bank-card-show,.bank-card-show-verify,.red-package-overview,.grey-package-overview,.grey-invite-rebate,
 .red-invite-rebate,.red-gift-rebate,.grey-gift-rebate,.tips-area:active .red-gift-rebate,
-.tips-area:active .grey-gift-rebate{
+.tips-area:active .grey-gift-rebate,.red-message,.grey-message{
   background: url(/images/sprite.png) no-repeat;
 }
 
@@ -90,6 +90,12 @@ input:focus{
 }
 .red-safe-realname{
   background-position: -400px -1390px;
+}
+.grey-message {
+  background-position: -395px -742px;
+}
+.red-message {
+  background-position: -429px -742px;
 }
 .blue-safe-pwd{
   background-position: -12px -1485px;
@@ -218,10 +224,10 @@ input:focus{
 }
 
 .red-gift-rebate{
-  background-position: -423px -773px;
+  background-position: -429px -773px;
 }
 .grey-gift-rebate{
-  background-position: -390px -773px;
+  background-position: -396px -773px;
 }
 .tips-area:active .red-gift-rebate,
 .tips-area:active .grey-gift-rebate{
@@ -240,10 +246,10 @@ input:focus{
 }
 
 .red-package-overview {
-  background-position: -425px -384px;
+  background-position: -426px -384px;
 }
 .grey-package-overview{
-  background-position: -391px -384px;
+  background-position: -393px -384px;
 }
 .tips-area:active .grey-package-overview,
 .tips-area:active .red-package-overview{
@@ -251,10 +257,10 @@ input:focus{
 }
 
 .red-invite-rebate {
-  background-position: -424px -425px;
+  background-position: -427px -425px;
 }
 .grey-invite-rebate {
-  background-position: -390px -425px;
+  background-position: -394px -425px;
 }
 .tips-area:active .grey-invite-rebate,
 .tips-area:active .red-invite-rebate{
@@ -599,9 +605,9 @@ input:focus{
 .success-tips{
   font-size: 22px;
 }
-.left-area{
+/* .left-area{
     height: 685px;
-}
+} */
 .about-us div,
 .help-center div{
   line-height: 23px;
@@ -1066,3 +1072,27 @@ input:focus{
 .success-bdown{
   margin-bottom: 25px;
 }
+
+
+
+
+.projects-filter .row > .col-xs-12 > .row .col-xs-1 .project-check, .projects-filter .row > .col-xs-12 > .row .col-xs-2 .project-check{
+  display: block;
+  background-color: #eb5c3f;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: white;
+}
+.project-noncheck{
+  display: block;
+  background-color: white;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+}
+.project-stl{
+  margin-top:7px;
+  margin-left:40px;
+}
+
