@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'ProjectService', 'toaster', function ($scope, $stateParams, $rootScope, $location, ProjectService, toaster) {
+hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'ProjectService', 'toaster', '$timeout', function ($scope, $stateParams, $rootScope, $location, ProjectService, toaster, $timeout) {
     $scope.sortType = $stateParams.sortType || false ;
     if($scope.sortType === 'true'){
       $scope.sortType = true;
@@ -9,8 +9,6 @@ hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope'
     $scope.toggleSort = function() {
       $scope.sortType = !$scope.sortType;
     };
-    //console.log('status:'+ $stateParams.status);
-    //console.log('type status:'+ typeof($stateParams.status));
     var response = ProjectService.projectList.get({status: $stateParams.status,
     												  minCycle: $stateParams.minCycle,
     												  maxCycle: $stateParams.maxCycle,
@@ -43,13 +41,42 @@ hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope'
           $scope.projectList[i].countdown = moment($scope.projectList[i].releaseStartTime).diff(moment($scope.serverTime), 'seconds');
           $scope.data.push($scope.projectList[i]);
         }
+        $scope._timeDown = [];
+        $scope.counter = 0;
+        var interval = window.setInterval(function() {
+          $scope.counter ++;
+          for (var i=0; i< $scope.data.length; i++) {
+            $scope._timeDown[i] = $scope.timeUntil($scope.data[i].countdown);
+          }
+          $scope.$apply();
+        }, 1000);
+
+        $scope.$on('$stateChangeStart', function() {
+          clearInterval(interval);
+        });
       } else {
-        $scope.projectList = [];
+        $scope.data = [];
         toaster.pop('warning', '服务器正在努力的加载....请稍等。');
         console.log('ask project-list, why projectList did not load data...');
       }
+    });
 
-	});
+    $scope.timeUntil = function(stDate) {
+      stDate = stDate - $scope.counter;
+      return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
+      // function z(n) {
+      //   return (n < 10 ? '0' : '') + n;
+      // }
+      // var d = new Date(stDate);
+      // var diff = d - new Date();
+      // var sign = diff < 0 ? '-' : '';
+      // diff = Math.abs(diff);
+      // var days = diff / 3.6e6 / 24 | 0;
+      // var hours = (diff - days*3.6e6*24) / 3.6e6 | 0;
+      // var mins = diff % 3.6e6 / 6e4 | 0;
+      // var secs = Math.round(diff % 6e4 / 1e3);
+      // return sign + days + '天,' + z(hours) + '时,' + z(mins) + '分,' + z(secs) + '秒';
+    }
     $rootScope.selectPage = $location.path().split('/')[1];
 }]);
 
