@@ -499,6 +499,16 @@
       }
     }
   })
+  /*.state('root.activity-tuHao-details', {
+    url: '/activity/:activityId/:type',
+    views: {
+      '': {
+        templateUrl: 'views/project/activity-details.html',
+        controller: 'ActivityDetailsCtrl',
+        controllerUrl: 'scripts/controller/project/activity-details-ctrl'
+      }
+    }
+  })*/
  	.state('root.project-details', {
  		url: '/project/:projectId',
  		views: {

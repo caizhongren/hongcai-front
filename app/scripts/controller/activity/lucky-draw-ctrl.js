@@ -5,9 +5,6 @@ hongcaiApp.controller('LuckyDrawCtrl', ['$scope', 'UserCenterService', '$alert',
   UserCenterService.getLuckyList.get(function(response){
     if(response.ret === 1) {
       $scope.lotteryRecords = response.data.lotteryRecords;
-      console.log($scope.lotteryRecords) 
-
-      
     } else {
       $scope.msg = response.msg;
       var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
