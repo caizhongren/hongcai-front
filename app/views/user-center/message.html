@@ -23,10 +23,10 @@
               </div>
             </div>
           </li>
-          <li class="list-group-item border-none read-flag" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+          <li class="list-group-item border-none unread-flag" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
             <div class="row">
               <div class="col-xs-12">
-                <div class="pull-left"><a href="javascript:;" title="标记为已读"><input type="checkbox"></a>{{item.title}}</div>
+                <div class="pull-left"><a href="javascript:;" title="标记为已读"><!-- <input type="checkbox"> --></a>{{item.title}}</div>
                 <div class="pull-right">{{item.createTime | date: "yy-MM-dd HH:mm"}}</div>
               </div>
               <div class="col-xs-12">
@@ -34,7 +34,7 @@
               </div>
             </div>
           </li>
-          <li class="list-group-item border-none unread-flag">
+          <li class="list-group-item border-none read-flag">
             <div class="row">
               <div class="col-xs-12">
                 <div class="pull-left"><input type="checkbox">系统通知</div>
