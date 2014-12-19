@@ -147,9 +147,9 @@
                   <div class="row">
                     <div class="col-xs-1 text-nowrap" style="padding: 0px; padding-top: 7px;">排　　序：</div>
                     <div class="col-xs-11 text-nowrap">
-                      <div class="col-xs-1" style="margin-top:7px;"> 
+                      <div class="col-xs-1" style="margin-top:7px;">
                         <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'release_start_time', sortType: sortType})" ng-click="toggleSort()">
-                        发布时间 
+                        发布时间
                           <i style="color: #e94828;" class="fa" ng-class="{'fa-arrow-up': (sortCondition ==='release_start_time' && sortType === true) , 'fa-arrow-down': (sortCondition === 'release_start_time' && sortType === false) }"></i></a>
                       </div>
                       <div class="col-xs-1 project-stl">
@@ -164,7 +164,7 @@
                       </div>
                       <div class="col-xs-1 project-stl">
                         <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'repayment_date', sortType: sortType})" ng-click="toggleSort()">
-                        还款日期 
+                        还款日期
                           <i style="color: #e94828;" class="fa" ng-class="{'fa-arrow-up': (sortCondition ==='repayment_date' && sortType === true) , 'fa-arrow-down': (sortCondition === 'repayment_date' && sortType === false)}"></i></a>
                       </div>
                     </div>
@@ -174,6 +174,7 @@
           </li>
 					<li class="list-group-item" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
             <img class="type-flag" src="/images/test-icon.png">
+
 						<div class="row">
 							<div class="hidden-md col-lg-2">
 								<img ng-src={{baseFileUrl}}{{item.image}} class="img-rounded" width="160" height="165">
@@ -200,9 +201,8 @@
 							</div>
 							<div class="col-xs-5 col-lg-3">
 								<div class="row" >
-<!-- 									<div class="col-xs-12" ng-show="item.countdown > 0"><p class="text-right"><timer interval="1000" countdown="item.countdown"><span class="countdown-word"> {{days}}</span>天 <span class="countdown-word">{{hours}}</span>小时 <span class="countdown-word">{{minutes}}</span>分 <span class="countdown-word">{{seconds}}</span>秒 </timer></p></div> -->
-                  <!-- <div class="col-xs-12" ng-show="item.countdown < 0"><h6>&nbsp;</h6></div> -->
-                  <div class="col-xs-12"><h6>&nbsp;</h6></div>
+									<div class="col-xs-12" ng-show="item.status === 6"><p class="text-right countdown-word">{{ _timeDown[$index] }}</p></div>
+                  <div class="col-xs-12" ng-show="item.status !== 6"><h6>&nbsp;</h6></div>
 								</div>
 
 								<div class="row">

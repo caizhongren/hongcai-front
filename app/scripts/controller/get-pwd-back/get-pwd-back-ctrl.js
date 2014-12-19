@@ -117,7 +117,7 @@ hongcaiApp.controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope
         $scope.onTimeout = function(){
           $scope.counter--;
           mytimeout = $timeout($scope.onTimeout,1000);
-          if($scope.counter == 0) {
+          if($scope.counter === 0) {
             $state.go('root.login');
           }
         };
