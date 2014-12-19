@@ -11,12 +11,11 @@
                   <div class="row">
                     <div class="col-xs-12 text-nowrap border-b" style="position: relative;">
                       <div class="btn-group">
-                        <a role="button" class="btn btn-default border-b-none active"  ui-sref="" ng-click="toggleSort()">全部 <i style="color: #e94828;" class="fa" ng-class="{'fa-angle-up': (sortCondition ==='release_start_time' && sortType === true) , 'fa-angle-down': (sortCondition === 'release_start_time' && sortType === false) }"></i></a>
+                        <a role="button" class="btn btn-default border-b-none" ng-class="{active: status===0,1}" ui-sref="root.userCenter.message({status:'0,1'})">全部{{status}}</a>
                       
-                        <a type="button" class="btn btn-default border-b-none" ui-sref="" ng-click="toggleSort()">未读 <i style="color: #e94828;" class="fa" ng-class="{'fa-angle-up': (sortCondition ==='total' && sortType === true), 'fa-angle-down': (sortCondition === 'total' && sortType === false)}"></i></a>
-                      
-                        <a type="button" class="btn btn-default border-b-none" ui-sref="" ng-click="toggleSort()">已读 <i style="color: #e94828;" class="fa" ng-class="{'fa-angle-up': (sortCondition === 'annual_earnings' && sortType === true), 'fa-angle-down': (sortCondition === 'annual_earnings' && sortType === false)}"></i></a>
-                      
+                        <a type="button" class="btn btn-default border-b-none" ng-class="{active: status===0}" ui-sref="root.userCenter.message({status:'0'})">未读</a>
+                        
+                        <a type="button" class="btn btn-default border-b-none" ng-class="{active: status===1}" ui-sref="root.userCenter.message({status:'1'})">已读</a>
                       </div>
                       <span class="pull-right" style="line-height:34px;">全部标记为已读</span>
                   </div>

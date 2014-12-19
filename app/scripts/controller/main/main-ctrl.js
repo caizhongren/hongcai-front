@@ -31,9 +31,6 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
         var interval = window.setInterval(function() {
           $scope.counter ++;
           for (var i=0; i< $scope.data.length; i++) {
-            console.log($scope.data[i].name);
-            console.log('11111:' + $scope.data[i].countdown);
-            console.log('------');
             $scope._timeDown[i] = $scope.mainTimeUntil($scope.data[i].countdown);
           }
           $scope.$apply();

@@ -449,7 +449,7 @@
   })
 
   .state('root.userCenter.message', {
-    url: '/message',
+    url: '/message/:status',
     views: {
       'user-center-right': {
         templateUrl: 'views/user-center/message.html',
