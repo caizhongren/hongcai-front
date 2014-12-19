@@ -30,5 +30,9 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
     generateContractPDF: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDF', {projectId:'$projectId', orderId:'$orderId'}),
     generateContractPDFModel: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDFModel', {}),
     luckyDraw: $resource(DEFAULT_DOMAIN + '/activity/luckyDraw', {}),
+    getUserMsgStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/getUserMsgByStatus', {status: '$status'}),
+    updateOneUserMsgReadByUserMsgId: $resource(DEFAULT_DOMAIN + '/siteMsg/updateOneUserMsgReadByUserMsgId', {userMsgId: '$userMsgId'}),
+    updateAllUserMsgReadByUserId: $resource(DEFAULT_DOMAIN+ '/siteMsg/updateAllUserMsgReadByUserId', {})
+
   };
 });

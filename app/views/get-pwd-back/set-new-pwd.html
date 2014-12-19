@@ -65,8 +65,8 @@
             <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" ng-model="setEmail.repeatPassword" password-match="password" required />
           </div>
           <div ng-show="Step3SetPwd.password.$dirty && Step3SetPwd.password.$invalid && !Step3SetPwd.password.$focused && Step3SetPwd.password.$error.unique" class="user-tips-area get-pwd-tips-area">
-            <img ng-src="images/check_no.png" class="user-check-img">
-            <p class="input-tips user-input-tips">密码输入不一致</p>
+
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>密码输入不一致</p>
           </div>
         </div>
         <div class="form-group">
