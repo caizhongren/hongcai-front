@@ -596,7 +596,7 @@
       '': {
         templateUrl: 'views/order/hongbao-verify.html',
         controller: 'hongbaoVerifyCtrl',
-        controllerUrl: 'scripts/controller/order/hongboa-verify-ctrl'
+        controllerUrl: 'scripts/controller/order/hongbao-verify-ctrl'
       }
     }
   })

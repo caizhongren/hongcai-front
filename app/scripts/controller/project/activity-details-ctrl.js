@@ -6,6 +6,11 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
 
     var activityDetails = ProjectService.activityDetails.get({projectId: $stateParams.activityId, type: $stateParams.type}, function() {
         $scope.project = activityDetails.data.project;
+
+        $scope.projectType = activityDetails.data.type;//项目类型
+        /*$scope.projectType = 3;
+        console.log($scope.project)*/
+
         $scope.isAvailable = activityDetails.data.isAvailable;
         $scope.orderList = activityDetails.data.orderList;
         $scope.canInvestAmount = activityDetails.data.canInvestAmount;
