@@ -1066,3 +1066,27 @@ input:focus{
 .success-bdown{
   margin-bottom: 25px;
 }
+
+
+
+
+.projects-filter .row > .col-xs-12 > .row .col-xs-1 .project-check, .projects-filter .row > .col-xs-12 > .row .col-xs-2 .project-check{
+  display: block;
+  background-color: #eb5c3f;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  color: white;
+}
+.project-noncheck{
+  display: block;
+  background-color: white;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+}
+.project-stl{
+  margin-top:7px;
+  margin-left:40px;
+}
+
