@@ -47,7 +47,7 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
             // var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
             toaster.pop('success', '支付成功,感谢您使用。');
             // $window.alert('支付成功,感谢您使用。');
-            $state.go('root.userCenter.gift-rebate', {type: '98,99'});
+            $state.go('root.userCenter.gift-rebate', {type: 99});
 
           }
         });
@@ -58,7 +58,7 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
             // var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
             toaster.pop('success', '支付成功,感谢您使用。');
             // $window.alert('支付成功,感谢您使用。');
-            $state.go('root.userCenter.gift-rebate', {type: '98,99'});
+            $state.go('root.userCenter.gift-rebate', {type: 99});
 
           }
         });
