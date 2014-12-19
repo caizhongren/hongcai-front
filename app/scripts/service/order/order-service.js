@@ -8,5 +8,6 @@ hongcaiApp.factory('OrderService', function ($resource, DEFAULT_DOMAIN) {
     getOrderListByProject: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderListByProject', {projectId: '@projectId'}),
     saveOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/saveOrder', {projectId: '@projectId', investAmount: '@investAmount', giftCount: '@giftCount'}),
     saveHongYunOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/saveHongYunOrder', {projectId: '@projectId', investAmount: '@investAmount'}),
+    saveTuhaoOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/saveTuhaoOrder', {projectId: '@projectId', investAmount: '@investAmount'}),
   };
 });

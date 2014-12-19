@@ -1,6 +1,16 @@
 'use strict';
 hongcaiApp.controller('LuckyDrawCtrl', ['$scope', 'UserCenterService', '$alert', function ($scope, UserCenterService, $alert ) {
   $scope.status = 0;
+
+  UserCenterService.getLuckyList.get(function(response){
+    if(response.ret === 1) {
+      $scope.lotteryRecords = response.data.lotteryRecords;
+    } else {
+      $scope.msg = response.msg;
+      var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
+    }
+  });
+
   $scope.luckyDraw = function() {
     UserCenterService.luckyDraw.get(function(response){
       if(response.ret === 1) {
