@@ -448,16 +448,16 @@
     }
   })
 
-  .state('root.userCenter.message', {
-    url: '/message',
-    views: {
-      'user-center-right': {
-        templateUrl: 'views/user-center/message.html',
-        controller: 'MessageCtrl',
-        controllerUrl: 'scripts/controller/user-center/message-ctrl'
-      }
-    }
-  })
+  // .state('root.userCenter.message', {
+  //   url: '/message',
+  //   views: {
+  //     'user-center-right': {
+  //       templateUrl: 'views/user-center/message.html',
+  //       controller: 'MessageCtrl',
+  //       controllerUrl: 'scripts/controller/user-center/message-ctrl'
+  //     }
+  //   }
+  // })
  	/*---------------------------------------------  yeepay  ---------------------------------------------*/
   .state('root.open-yeepay-account-success', {
     url: '/yeepay-success/:status',
