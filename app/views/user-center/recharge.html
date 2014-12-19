@@ -19,20 +19,18 @@
 				<div class="row">
 					<div class="form-group">
 						<label class="col-md-3 col-lg-2">充值金额：</label>
-						<input name="amount" 
-							type="text" 
-							class="verify-input"  
-							ng-model="rechargeAmount" 
+						<input name="amount"
+							type="text"
+							class="verify-input"
+							ng-model="rechargeAmount"
 							ng-pattern="/^0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*$/"
-							ng-foucus 
+							ng-foucus
 							required tips
 							autofocus/>&nbsp;&nbsp;元
 						<div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.pattern" >
-							<!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
 							<p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>只能输入数字</p>
 						</div>
 						<div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">
-							<!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
 							<p class="input-tips user-input-tips" ><i class="fa fa-times-circle-o login-check-img"></i>充值金额不能为空</p>
 						</div>
 					</div>

@@ -1501,3 +1501,33 @@ a.cancel-red:hover,
 a.cancel-red:focus {
     color: #333;
 }
+
+.userMessage {
+    .border-b-none {
+        border-bottom: none;
+    }
+    .btn-group {
+        position: absolute;
+        top: 1px;
+        a {
+            position: relative;
+        }
+        a.active {
+            line-height: 21px;
+            background: #fff;
+        }
+    }
+    .list-group-item {
+        p {
+            margin-top: 10px;
+            padding-bottom: 10px;
+            margin-bottom: 0;
+        }
+    }
+    .read-flag {
+        font-weight: bold;
+    }
+    .unread-flag {
+        font-weight: normal;
+    }
+}

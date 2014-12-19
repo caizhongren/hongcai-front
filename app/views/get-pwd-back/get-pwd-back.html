@@ -60,9 +60,8 @@
             <div class="col-xs-5">
               <input type="text" class="form-control" name="account" ng-model="getPwd.account" find-account="account" required ng-focnus id="account" placeholder="用户名/邮箱/手机号码">
               <div ng-show="getPwdUserForm.account.$dirty && getPwdUserForm.account.$invalid && !getPwdUserForm.account.$focused && getPwdUserForm.account.$error.unique" class="user-tips-area get-pwd-tips-area">
-                <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-                <i class="fa fa-times-circle-o login-check-img"></i>
-                <p class="input-tips user-input-tips">该账号不存在</p>
+
+                <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>该账号不存在</p>
               </div>
             </div>
           </div>
@@ -71,9 +70,8 @@
             <div class="col-xs-2 ">
               <input type="text" class="form-control" name="captcha" ng-model="user.captcha" ensure-captcha="captcha" id="captcha" placeholder="请输入验证码" required ng-focus />
               <div ng-show="getPwdUserForm.captcha.$dirty && getPwdUserForm.captcha.$invalid && !getPwdUserForm.captcha.$focused && getPwdUserForm.captcha.$error.check">
-                <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-                <i class="fa fa-times-circle-o login-check-img"></i>
-                <p class="input-tips user-input-tips">验证码错误</p>
+
+                <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>验证码错误</p>
               </div>
             </div>
             <img ng-src="{{getPicCaptcha}}" class="" id="checkCaptcha" ng-click="refreshCode()">
@@ -197,9 +195,8 @@
               <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" ng-model="user.repeatPassword" password-match="password" required />
             </div>
             <div ng-show="Step3SetPhonePwd.password.$dirty && Step3SetPhonePwd.password.$invalid && !Step3SetPhonePwd.password.$focused && Step3SetPhonePwd.password.$error.unique" class="user-tips-area get-pwd-tips-area">
-              <!-- <img ng-src="images/check_no.png" class="user-check-img"> -->
-              <i class="fa fa-times-circle-o login-check-img"></i>
-              <p class="input-tips user-input-tips">密码输入不一致</p>
+
+              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>密码输入不一致</p>
             </div>
           </div>
           <div class="form-group">

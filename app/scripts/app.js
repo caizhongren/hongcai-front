@@ -26,8 +26,7 @@
   'config',
   'sticky',
   'ipCookie',
-  'angular-md5',
-  'ui.date'
+  'angular-md5'
   ]);
 
  hongcaiApp
@@ -445,6 +444,17 @@
         templateUrl: 'views/user-center/invite-rebate.html',
         controller: 'InviteRebateCtrl',
         controllerUrl: 'scripts/controller/user-center/invite-rebate-ctrl'
+      }
+    }
+  })
+
+  .state('root.userCenter.message', {
+    url: '/message',
+    views: {
+      'user-center-right': {
+        templateUrl: 'views/user-center/message.html',
+        controller: 'MessageCtrl',
+        controllerUrl: 'scripts/controller/user-center/message-ctrl'
       }
     }
   })
