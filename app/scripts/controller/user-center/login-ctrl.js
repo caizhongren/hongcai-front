@@ -24,8 +24,10 @@ hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope'
            $state.go('root.userCenter.account-overview');
         }
       } else {
-        if (response.code == -1009){
-          $scope.isPasswordError = true;
+        $scope.isPasswordError = true;
+        if (response.code === -1009){
+          toaster.pop('error', response.msg);
+        } else if ( response.code === -1008) {
           toaster.pop('error', response.msg);
         }
       }

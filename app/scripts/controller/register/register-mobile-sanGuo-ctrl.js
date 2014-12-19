@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('RegisterMobileSanGuoCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'md5', 'ipCookie', function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie) {
+hongcaiApp.controller('RegisterMobileSanGuoCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'md5', 'ipCookie', 'MainService', function ($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie, MainService) {
 
 
     /**
@@ -39,5 +39,14 @@ hongcaiApp.controller('RegisterMobileSanGuoCtrl', ['$scope', '$state', '$rootSco
             }
         });
     };
+
+    /**
+     * 处理推广流量统计
+     */
+     var from = $stateParams.from;
+     if (from){
+        ipCookie('utm_from', from, { expires: 1 })
+        MainService.trafficStats.get({from: from});
+     };
 }]);
 

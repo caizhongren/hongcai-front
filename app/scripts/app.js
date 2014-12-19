@@ -26,8 +26,7 @@
   'config',
   'sticky',
   'ipCookie',
-  'angular-md5',
-  'ui.date'
+  'angular-md5'
   ]);
 
  hongcaiApp
@@ -122,7 +121,7 @@
     }
   })
   .state('root.registerMobile-sanGuo', {
- 		url: '/register-mobile-sanGuo',
+ 		url: '/register-mobile-sanGuo/:from',
  		views: {
  			'': {
  				templateUrl: 'views/register/register-mobile-sanGuo.html',
@@ -248,6 +247,16 @@
         templateUrl: 'views/success.html',
         controller: 'BankcardSuccessCtrl',
         controllerUrl: 'scripts/controller/user-center/bankcard-success-ctrl'
+      }
+    }
+  })
+   .state('root.unbind-bankcard-success', {
+    url: '/unBindbankcard-success/:status',
+    views: {
+      '': {
+        templateUrl: 'views/success.html',
+        controller: 'UnBindBankcardSuccessCtrl',
+        controllerUrl: 'scripts/controller/user-center/unbind-bankcard-success-ctrl'
       }
     }
   })
@@ -438,6 +447,17 @@
       }
     }
   })
+
+  // .state('root.userCenter.message', {
+  //   url: '/message',
+  //   views: {
+  //     'user-center-right': {
+  //       templateUrl: 'views/user-center/message.html',
+  //       controller: 'MessageCtrl',
+  //       controllerUrl: 'scripts/controller/user-center/message-ctrl'
+  //     }
+  //   }
+  // })
  	/*---------------------------------------------  yeepay  ---------------------------------------------*/
   .state('root.open-yeepay-account-success', {
     url: '/yeepay-success/:status',
