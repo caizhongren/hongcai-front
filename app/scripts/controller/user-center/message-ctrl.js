@@ -2,7 +2,8 @@
 hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', function ($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService) {
 	$rootScope.selectSide = 'message';
 
-	UserCenterService.getUserMsgByStatus.get({status: '0,1'}, function(response) {
+	UserCenterService.getUserMsgByStatus.get({status: $stateParams.status}, function(response) {
+		$scope.status = $stateParams.status;
 		if(response.ret === 1) {
 			$scope.userMsgList = response.data.userMsgList;
 			$scope.orderProp = 'id';
