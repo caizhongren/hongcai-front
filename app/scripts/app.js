@@ -281,17 +281,17 @@
      }
    })
  	/*------------------------------------------  lucky-draw  -----------------------------------------------*/
-  // 土豪活动，暂时不上线。
-  // .state('root.lucky-draw', {
-  //   url: '/lucky-draw',
-  //   views: {
-  //     '': {
-  //       templateUrl: 'views/activity/lucky-draw.html',
-  //       controller: 'LuckyDrawCtrl',
-  //       controllerUrl: 'scripts/controller/activity/lucky-draw-ctrl'
-  //     }
-  //   }
-  // })
+  //土豪活动，暂时不上线。
+  .state('root.lucky-draw', {
+    url: '/lucky-draw',
+    views: {
+      '': {
+        templateUrl: 'views/activity/lucky-draw.html',
+        controller: 'LuckyDrawCtrl',
+        controllerUrl: 'scripts/controller/activity/lucky-draw-ctrl'
+      }
+    }
+  })
   /*------------------------------------------  user-center  -----------------------------------------------*/
  	.state('root.userCenter', {
  		views: {
@@ -519,6 +519,16 @@
       }
     }
   })
+  /*.state('root.activity-tuHao-details', {
+    url: '/activity/:activityId/:type',
+    views: {
+      '': {
+        templateUrl: 'views/project/activity-details.html',
+        controller: 'ActivityDetailsCtrl',
+        controllerUrl: 'scripts/controller/project/activity-details-ctrl'
+      }
+    }
+  })*/
  	.state('root.project-details', {
  		url: '/project/:projectId',
  		views: {
@@ -606,7 +616,7 @@
       '': {
         templateUrl: 'views/order/hongbao-verify.html',
         controller: 'hongbaoVerifyCtrl',
-        controllerUrl: 'scripts/controller/order/hongboa-verify-ctrl'
+        controllerUrl: 'scripts/controller/order/hongbao-verify-ctrl'
       }
     }
   })
