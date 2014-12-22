@@ -297,7 +297,7 @@
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/user-center.html',
- 				controller: 'UserCenterCtrl',
+ 				// controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center-ctrl'
  			},
  			'sidebar': {
