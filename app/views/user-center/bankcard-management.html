@@ -22,6 +22,7 @@
     <div class="bankCard" ng-show="isAuth && haveCard && !isVerifying">
       <div class="bank-card-show-verify">
         <p class="add-card">{{bankName}}</p>
+        <p class="add-cardNo">{{ cardNo }}</p>
         <a ng-click="unbindBankCard()">&nbsp;</a>
       </div>
     </div>
