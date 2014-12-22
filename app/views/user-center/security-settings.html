@@ -49,13 +49,14 @@
             autofocus/>
           <div class="user-tips-area safe-tips-area"
               ng-show="changePwdForm.oldPwd.$dirty && changePwdForm.oldPwd.$invalid && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.required">
-            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
+            <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
           </div>
           <div class="user-tips-area safe-tips-area"
               ng-show="changePwdForm.oldPwd.$dirty && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.isPasswordTrue && !changePwdForm.oldPwd.$error.required">
-            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>密码错误</p>
+            <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>密码错误</p>
           </div>
         </div>
+
         <div class="safe-form-group row">
           <label class="col-md-4 col-lg-4">新密码：</label>
           <input type="password" class="verify-input col-md-6 col-lg-6"
@@ -66,7 +67,7 @@
             required/>
           <div class="user-tips-area safe-tips-area"
               ng-show="changePwdForm.newPwd.$dirty && changePwdForm.newPwd.$invalid && !changePwdForm.newPwd.$focused">
-            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
+            <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
           </div>
         </div>
         <div class="safe-form-group row">
@@ -78,11 +79,11 @@
             ng-model="password.repeatNewPassword" required/>
           <div  class="user-tips-area safe-tips-area"
               ng-show="changePwdForm.confirmPwd.$dirty && changePwdForm.confirmPwd.$invalid && !changePwdForm.confirmPwd.$focused">
-            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
+            <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
           </div>
           <div class="user-tips-area safe-tips-area"
               ng-show="changePwdForm.confirmPwd.$dirty && !checkTwoPassword(password) && !changePwdForm.confirmPwd.$focused && !changePwdForm.confirmPwd.$error.required" >
-            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>密码不一致</p>
+            <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>密码不一致</p>
 
           </div>
         </div>
@@ -123,17 +124,17 @@
             <div  class="user-tips-area row"
                 ng-show="changeMobileForm.mobileNo.$error.required &&
                     !changeMobileForm.mobileNo.$focused">
-              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
+              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
 
             </div>
             <div  class="user-tips-area row"
                   ng-show="changeMobileForm.mobileNo.$error.pattern &&
                       !changeMobileForm.mobileNo.$focused">
-              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>格式错误</p>
+              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>格式错误</p>
             </div>
             <div  class="user-tips-area row"
                   ng-show="changeMobileForm.mobileNo.$error.unique">
-              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>已被占用</p>
+              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>已被占用</p>
 
             </div>
           </div>
@@ -147,7 +148,7 @@
             required/>
           <div  class="user-tips-area safe-tips-area"
             ng-show="changeMobileForm.inputCaptcha.$error.required &&changeMobileForm.inputCaptcha.$dirty">
-            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
+            <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
           </div>
         </div>
         <div class="safe-form-group row">
@@ -183,13 +184,13 @@
               bindEmailForm.newEmail.$invalid &&
               !bindEmailForm.newEmail.$focused">
             <div class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.pattern">
-              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>格式错误</p>
+              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>格式错误</p>
             </div>
             <div  class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.unique">
-              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>已被占用</p>
+              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>已被占用</p>
             </div>
             <div  class="user-tips-area safe-tips-area safe-email-change" ng-show="bindEmailForm.newEmail.$error.required">
-              <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
+              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
             </div>
           </div>
         </div>
