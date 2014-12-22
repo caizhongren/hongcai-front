@@ -33,13 +33,13 @@
 							ng-pattern="/^0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*$/"
 							ng-focus
 							required autofocus/>&nbsp;&nbsp;元
-					<div class="user-tips-area col-md-offset-2 col-lg-offset-2"  ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">
+					<div class="user-tips-area col-md-offset-3 col-lg-offset-3"  ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">
 						<p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>只能输入数字</p>
 					</div>
-					<div class="user-tips-area col-md-offset-2 col-lg-offset-2"  ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">
+					<div class="user-tips-area col-md-offset-3 col-lg-offset-3"  ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">
 						<p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能大于可提现金额</p>
 					</div>
-					<div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">
+					<div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">
 						<p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>提现金额不能为空</p>
 					</div>
 				</div>
