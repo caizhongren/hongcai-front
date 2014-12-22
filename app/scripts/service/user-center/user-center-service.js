@@ -31,7 +31,6 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
     generateContractPDFModel: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDFModel', {}),
     luckyDraw: $resource(DEFAULT_DOMAIN + '/activity/luckyDraw', {}),
     getLuckyList: $resource(DEFAULT_DOMAIN + '/activity/getLuckyList', {}),
-    
     getUnreadMsgCount: $resource(DEFAULT_DOMAIN+ '/siteMsg/getUnreadMsgCount'),
     getUserMsgByStatus: $resource(DEFAULT_DOMAIN+ '/siteMsg/getUserMsgByStatus', {status: '$status'}),
     updateSingleUserMsgStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/updateOneUserMsgReadByUserMsgId', {userMsgId: '$userMsgId'}),
