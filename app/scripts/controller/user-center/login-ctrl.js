@@ -20,7 +20,7 @@ hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope'
         toaster.pop('success','恭喜您，登录成功！');
         UserCenterService.pushAllUnpullMessages.get(function(response) {
           if(response.ret === 1) {
-            console.info('pushmessage');
+            //console.info('pushmessage');
           }
         });
         if($stateParams.isRedirect){

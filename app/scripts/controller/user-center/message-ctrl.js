@@ -41,6 +41,11 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 					//markSingleMsgRead
 					UserCenterService.updateSingleUserMsgStatus.get({'userMsgId':id},function(response){
 						if(response.ret === 1){
+							UserCenterService.getUnreadMsgCount.get(function(response) {
+				        if(response.ret === 1) {
+				          $rootScope.unreadCount = response.data.unreadCount;
+				        }
+				      });
 						}else{
 							toaster.pop('error', response.msg);
 						}
@@ -48,7 +53,6 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 
 					if(target.hasClass('list-group-item')){
 							target.removeClass('unread-flag');
-
 					}else{
 						target.closest('li').removeClass('unread-flag');
 					}
@@ -60,6 +64,12 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 			$scope.updateAllMsgStatus = function(){
 				UserCenterService.updateAllUserMsgStatus.get({},function(response){
 					if(response.ret === 1){
+						angular.element('li[class]').removeClass('unread-flag');
+						UserCenterService.getUnreadMsgCount.get(function(response) {
+			        if(response.ret === 1) {
+			          $rootScope.unreadCount = response.data.unreadCount;
+			        }
+			      });
 					}else{
 						toaster.pop('error', response.msg);
 					};
