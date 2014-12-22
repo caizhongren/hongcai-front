@@ -63,6 +63,15 @@ hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope'
 
     $scope.timeUntil = function(stDate) {
       stDate = stDate - $scope.counter;
+      if (stDate === 0) {
+        ProjectService.projectList.get({status: $stateParams.status, minCycle: $stateParams.minCycle, maxCycle: $stateParams.maxCycle,
+          minEarning: $stateParams.minEarning, maxEarning: $stateParams.maxEarning, minTotalAmount: $stateParams.minTotalAmount, maxTotalAmount: $stateParams.maxTotalAmount,
+          sortCondition: $stateParams.sortCondition, sortType: $scope.sortType}, function() {
+            if(response.ret === 1) {
+              $scope.projectList = response.data.projectList;
+            }
+        });
+      }
       return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
       // function z(n) {
       //   return (n < 10 ? '0' : '') + n;
