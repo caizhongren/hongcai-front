@@ -23,32 +23,27 @@
                 <div class="row">
                   <div class="col-xs-2 pull-left text-nowrap">项目状态：</div>
                   <div class="col-xs-2 text-nowrap">
-                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'0', dateStart:invFromDate,dateEnd:invUntilDate})">
-                      <i class="fa" ng-class="{'fa-check-square-o': status === '0', 'fa-square-o': status !== '0'}"></i>
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'0', dateStart:invFromDate,dateEnd:invUntilDate})" class="project-noncheck" ng-class="{'project-check': status === '0', 'project-noncheck': status !== '0'}">
                         全部
                     </a>
                   </div>
                   <div class="col-xs-2">
-                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'4,5',dateStart:invFromDate,dateEnd:invUntilDate})">
-                      <i class="fa" ng-class="{'fa-check-square-o': status === '4,5', 'fa-square-o': status !== '4,5'}"></i>
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'4,5',dateStart:invFromDate,dateEnd:invUntilDate})" class="project-noncheck" ng-class="{'project-check': status === '4,5', 'project-noncheck': status !== '4,5'}">
                       还款中
                     </a>
                   </div>
                   <div class="col-xs-2">
-                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'2,3',dateStart:invFromDate,dateEnd:invUntilDate})">
-                      <i class="fa" ng-class="{'fa-check-square-o': status === '2,3', 'fa-square-o': status !== '2,3'}"></i>
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'2,3',dateStart:invFromDate,dateEnd:invUntilDate})" class="project-noncheck" ng-class="{'project-check': status === '2,3', 'project-noncheck': status !== '2,3'}">
                       投资中的
                     </a>
                   </div>
                   <div class="col-xs-2">
-                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'6',dateStart:invFromDate,dateEnd:invUntilDate})">
-                      <i class="fa" ng-class="{'fa-check-square-o': status === '6', 'fa-square-o': status !== '6'}"></i>
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'6',dateStart:invFromDate,dateEnd:invUntilDate})" class="project-noncheck" ng-class="{'project-check': status === '6', 'project-noncheck': status !== '6'}">
                       已结清
                     </a>
                   </div>
                   <div class="col-xs-2">
-                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'97',dateStart:invFromDate,dateEnd:invUntilDate})">
-                      <i class="fa" ng-class="{'fa-check-square-o': status === '97', 'fa-square-o': status !== '97'}"></i>
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:dateInterval,status:'97',dateStart:invFromDate,dateEnd:invUntilDate})" class="project-noncheck" ng-class="{'project-check': status === '97', 'project-noncheck': status !== '97'}">
                       已取消
                     </a>
                   </div>
@@ -61,26 +56,22 @@
                 <div class="row">
                   <div class="col-xs-2 text-nowrap">计息日期：</div>
                   <div class="col-xs-2">
-                    <a ui-sref="root.userCenter.investment-query({dateInterval:'0',status:status, dateStart:invFromDate, dateEnd:invUntilDate})" >
-                      <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval === 0, 'fa-square-o': dateInterval !== 0 }"></i>
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:'0',status:status, dateStart:invFromDate, dateEnd:invUntilDate})" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 0, 'project-noncheck': dateInterval !== 0 }">
                       全部
                     </a>
                   </div>
                   <div class="col-xs-2">
-                    <a ui-sref="root.userCenter.investment-query({dateInterval:'7',status:status, dateStart:invFromDate, dateEnd:invUntilDate})" >
-                      <i class="fa" ng-class="{ 'fa-check-square-o': dateInterval === 7, 'fa-square-o': dateInterval !== 7 }"></i>
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:'7',status:status, dateStart:invFromDate, dateEnd:invUntilDate})" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 7, 'project-noncheck': dateInterval !== 7 }">
                       最近七天
                     </a>
                   </div>
                   <div class="col-xs-2">
-                    <a ui-sref="root.userCenter.investment-query({dateInterval:'30',status:status, dateStart:invFromDate, dateEnd:invUntilDate})" >
-                      <i class="fa" ng-class="{'fa-check-square-o': dateInterval === 30, 'fa-square-o': dateInterval !== 30 }"></i>
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:'30',status:status, dateStart:invFromDate, dateEnd:invUntilDate})" class="project-noncheck" ng-class="{'project-check': dateInterval === 30, 'project-noncheck': dateInterval !== 30 }">
                       一个月
                     </a>
                   </div>
                   <div class="col-xs-2">
-                    <a ui-sref="root.userCenter.investment-query({dateInterval:'90',status:status, dateStart:invFromDate, dateEnd:invUntilDate})" >
-                      <i class="fa" ng-class="{'fa-check-square-o': dateInterval === 90, 'fa-square-o': dateInterval !== 90 }"></i>
+                    <a ui-sref="root.userCenter.investment-query({dateInterval:'90',status:status, dateStart:invFromDate, dateEnd:invUntilDate})" class="project-noncheck" ng-class="{'project-check': dateInterval === 90, 'project-noncheck': dateInterval !== 90 }">
                       三个月
                     </a>
                   </div>

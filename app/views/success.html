@@ -50,24 +50,26 @@
   <div class="container bg" ng-switch-when="3">
     <div class="agreement-area row introduction-height">
       <div class="col-md-12 col-lg-12">
-        <p class="text-title">注册成功</p>
-        <!--<p class="text-title">{{message}}</p>-->
+        <!-- <p class="text-title">注册成功</p>
+        <p class="text-title">{{message}}</p> -->
         <div class="row">
           <div class="success-page col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
-            <div class="col-lg-2 col-md-2">
+            <div class="col-lg-2 col-md-2 col-lg-offset-1 col-md-offset-1">
               <img src="images/register-success.png">
             </div>
-            <p class=" success-tips success-re col-lg-9 col-md-9">恭喜您成功注册宏财！</p>
-            <div class="col-lg-8 col-md-8 border-b list-l"></div>
-            <div class="col-lg-11 col-md-11 col-lg-offset-2 col-md-offset-2" style="margin-top:20px;">
-              <p class="success-p col-lg-10 col-md-10" style="margin-left:20px;">完成安全设置，即可使用宏包赚取收益。</p>
-              <p class="success-p col-lg-10 col-md-10" style="margin-left:20px;">
-              想要查看获得的宏包，<a ui-sref="root.userCenter.gift-overview" style="color:#e94828;">请点击这里</a></p>
-            <div>
-              <botton type="botton" class="btn btn-danger btn-lg active btn-t" ui-sref="root.main" style="margin-left:35px;">逛逛首页</botton>
-              <botton type="botton" class="btn btn-warning btn-lg active btn-t" ui-sref="root.userCenter.security-settings" style="margin-left:15px;">安全设置</botton>
-            </div>
-            </div>
+            <div class="success-re col-lg-9 col-md-9">
+              <div class="col-lg-12 col-md-12">
+                <p ><strong>恭喜您成功注册宏财！</strong></p>
+                <div class="border-b list-l col-lg-12 col-md-12"></div>
+              </div>
+              <div class="col-lg-12 col-md-12 list-l">
+                <p class="success-p">完成安全设置，即可使用宏包赚取收益。</p>
+                <p class="success-p">想要查看获得的宏包，<a ui-sref="root.userCenter.gift-overview" style="color:#e94828;">请点击这里</a></p>
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <botton class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</botton>
+                <botton class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.security-settings">安全设置</botton>
+              </div>
           </div>
         </div>
       </div>
@@ -134,3 +136,4 @@
     </div>
   </div>
 </div>
+

@@ -30,9 +30,12 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
     generateContractPDF: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDF', {projectId:'$projectId', orderId:'$orderId'}),
     generateContractPDFModel: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDFModel', {}),
     luckyDraw: $resource(DEFAULT_DOMAIN + '/activity/luckyDraw', {}),
-    getUserMsgStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/getUserMsgByStatus', {status: '$status'}),
-    updateOneUserMsgReadByUserMsgId: $resource(DEFAULT_DOMAIN + '/siteMsg/updateOneUserMsgReadByUserMsgId', {userMsgId: '$userMsgId'}),
-    updateAllUserMsgReadByUserId: $resource(DEFAULT_DOMAIN+ '/siteMsg/updateAllUserMsgReadByUserId', {})
+    getLuckyList: $resource(DEFAULT_DOMAIN + '/activity/getLuckyList', {}),
+    getUnreadMsgCount: $resource(DEFAULT_DOMAIN+ '/siteMsg/getUnreadMsgCount'),
+    getUserMsgByStatus: $resource(DEFAULT_DOMAIN+ '/siteMsg/getUserMsgByStatus', {status: '$status'}),
+    updateSingleUserMsgStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/updateOneUserMsgReadByUserMsgId', {userMsgId: '$userMsgId'}),
+    updateAllUserMsgStatus: $resource(DEFAULT_DOMAIN+ '/siteMsg/updateAllUserMsgReadByUserId', {}),
+    pushAllUnpullMessages: $resource(DEFAULT_DOMAIN+ '/siteMsg/pushAllUnpullMessages')
 
   };
 });

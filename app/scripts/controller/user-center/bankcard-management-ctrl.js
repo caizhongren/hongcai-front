@@ -8,9 +8,10 @@ hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state
       if(card){
         $scope.haveCard = (card.status == 'VERIFIED');
         $scope.bankName = card.openBank;
+        $scope.cardNo = card.cardNo;
         $scope.isVerifying = (card.status == 'VERIFYING');
       } else {
-        $scope.haveCard = false
+        $scope.haveCard = false;
         $scope.isVerifying = false;
       }
       $scope.isAuth = response.data.isAuth;
@@ -48,12 +49,13 @@ hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state
       if(response.ret === 1) {
         var req = response.data.req;
         var sign = response.data.sign;
-          var _f=new_form();
-          create_elements(_f,'req',req);
-          create_elements(_f,'sign',sign);
-          _f.action= config.YEEPAY_ADDRESS + 'toBindBankCard';
-          $scope.dosi = false;
-          _f.submit();
+        var _f=new_form();
+        create_elements(_f,'req',req);
+        create_elements(_f,'sign',sign);
+        _f.action= config.YEEPAY_ADDRESS + 'toBindBankCard';
+        $scope.dosi = false;
+        $scope.page = 5;
+        _f.submit();
       } else {
         console.log('ask bankcard-management, why bindBankCard did not load data...');
       }
@@ -65,14 +67,14 @@ hongcaiApp.controller('BankCardManagementCtrl', [ '$location', '$scope', '$state
   		if(response.ret === 1) {
   			var req = response.data.req;
   			var sign = response.data.sign;
-        console.log(req)
-        console.log(sign)
-          var _f=new_form();
-          create_elements(_f,'req',req);
-          create_elements(_f,'sign',sign);
-          _f.action= config.YEEPAY_ADDRESS + 'toUnbindBankCard';
-          $scope.dosi = true;
-          _f.submit();
+        // console.log(req)
+        // console.log(sign)
+        var _f=new_form();
+        create_elements(_f,'req',req);
+        create_elements(_f,'sign',sign);
+        _f.action= config.YEEPAY_ADDRESS + 'toUnbindBankCard';
+        $scope.dosi = true;
+        _f.submit();
       } else {
         console.log('ask bankcard-management, why bindBankCard did not load data...');
       }

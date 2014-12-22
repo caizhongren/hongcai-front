@@ -1,6 +1,38 @@
-<div class="right-area right-assets-height recharge col-md-8 col-lg-9">
+<div class="right-area right-assets-height recharge userMessage col-md-8 col-lg-9">
   <div class="row">
     <div class="right-title word-less-title">站内消息</div>
   </div>
-
+  <div class="row">
+    <div class="col-xs-12">
+        <ul class="list-group">
+          <li class="list-group-item border-none cursor-d">
+            <div class="row">
+              <div class="col-xs-12">
+                  <div class="row">
+                    <div class="col-xs-12 text-nowrap border-b" style="position: relative;">
+                      <div class="btn-group">
+                        <a role="button" class="btn btn-default border-b-none" ng-class="{active: status==='0,1'}" ui-sref="root.userCenter.message({status:'0,1'})">全部</a>
+                        <a type="button" class="btn btn-default border-b-none" ng-class="{active: status=== '0'}" ui-sref="root.userCenter.message({status:'0'})">未读</a>
+                        <a type="button" class="btn btn-default border-b-none" ng-class="{active: status=== '1'}" ui-sref="root.userCenter.message({status:'1'})">已读</a>
+                      </div>
+                      <span class="pull-right" style="line-height:34px;" ng-click="updateAllMsgStatus()">全部标记为已读</span>
+                  </div>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item border-none" ng-class="{'unread-flag':item.status===0,'read-flag':item.status===1}" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize" ng-click="changeStatus(item.status,item.id,event)">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="pull-left"><!-- <a href="javascript:;" title="标记为已读"><input type="checkbox"></a> -->{{item.title}}</div>
+                <div class="pull-right">{{item.createTime | date: "yy-MM-dd HH:mm"}}</div>
+              </div>
+              <div class="col-xs-12">
+                <p class="msg-con">{{item.content}}</p>
+                <div class="border-b" style="height:10px;"></div>
+              </div>
+            </div>
+          </li>
+        </ul>
+    </div>
+  </div>
 </div>

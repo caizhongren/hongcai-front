@@ -1,6 +1,19 @@
 'use strict';
-hongcaiApp.controller('LuckyDrawCtrl', ['$scope', 'UserCenterService', '$alert', function ($scope, UserCenterService, $alert ) {
-  $scope.status = 0;
+hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$state', 'UserCenterService', '$alert', function ($scope, $state, UserCenterService, $alert ) {
+  $scope.status = 1;
+
+  UserCenterService.getLuckyList.get(function(response){
+    if(response.ret === 1) {
+      $scope.lotteryRecords = response.data.lotteryRecords;
+      $scope.hongYunProject = response.data.hongYunProject;
+      $scope.tuhaoProject = response.data.tuhaoProject;
+      console.log(response)
+    } else {
+      $scope.msg = response.msg;
+      var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
+    }
+  });
+
   $scope.luckyDraw = function() {
     UserCenterService.luckyDraw.get(function(response){
       if(response.ret === 1) {
@@ -18,4 +31,9 @@ hongcaiApp.controller('LuckyDrawCtrl', ['$scope', 'UserCenterService', '$alert',
       }
     })
   };
+
+  $scope.goToRule = function() {
+    $state.go($scope.isLogged === true?'root.userCenter.gift-overview':'root.login');
+  }
+
 }]);

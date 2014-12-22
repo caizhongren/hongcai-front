@@ -20,5 +20,5 @@ angular.module('hongcaiApp')
           }
         }, 500);
       }
-    }
+    };
   });

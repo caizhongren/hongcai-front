@@ -16,12 +16,8 @@
   'angularMoment',
   'toaster',
   'chartjs',
-  'angularFileUpload',
   'placeholders',
-  'textAngular',
-  'angular-flexslider',
   'angular-loading-bar',
-  'timer',
   'bardo.directives',
   'config',
   'sticky',
@@ -281,23 +277,23 @@
      }
    })
  	/*------------------------------------------  lucky-draw  -----------------------------------------------*/
-  // 土豪活动，暂时不上线。
-  // .state('root.lucky-draw', {
-  //   url: '/lucky-draw',
-  //   views: {
-  //     '': {
-  //       templateUrl: 'views/activity/lucky-draw.html',
-  //       controller: 'LuckyDrawCtrl',
-  //       controllerUrl: 'scripts/controller/activity/lucky-draw-ctrl'
-  //     }
-  //   }
-  // })
+  //土豪活动，暂时不上线。
+  .state('root.lucky-draw', {
+    url: '/lucky-draw',
+    views: {
+      '': {
+        templateUrl: 'views/activity/lucky-draw.html',
+        controller: 'LuckyDrawCtrl',
+        controllerUrl: 'scripts/controller/activity/lucky-draw-ctrl'
+      }
+    }
+  })
   /*------------------------------------------  user-center  -----------------------------------------------*/
  	.state('root.userCenter', {
  		views: {
  			'user-center': {
  				templateUrl: 'views/user-center/user-center.html',
- 				controller: 'UserCenterCtrl',
+ 				// controller: 'UserCenterCtrl',
  				controllerUrl: 'scripts/controller/user-center-ctrl'
  			},
  			'sidebar': {
@@ -448,16 +444,16 @@
     }
   })
 
-  // .state('root.userCenter.message', {
-  //   url: '/message',
-  //   views: {
-  //     'user-center-right': {
-  //       templateUrl: 'views/user-center/message.html',
-  //       controller: 'MessageCtrl',
-  //       controllerUrl: 'scripts/controller/user-center/message-ctrl'
-  //     }
-  //   }
-  // })
+  .state('root.userCenter.message', {
+    url: '/message/:status',
+    views: {
+      'user-center-right': {
+        templateUrl: 'views/user-center/message.html',
+        controller: 'MessageCtrl',
+        controllerUrl: 'scripts/controller/user-center/message-ctrl'
+      }
+    }
+  })
  	/*---------------------------------------------  yeepay  ---------------------------------------------*/
   .state('root.open-yeepay-account-success', {
     url: '/yeepay-success/:status',
@@ -519,6 +515,16 @@
       }
     }
   })
+  /*.state('root.activity-tuHao-details', {
+    url: '/activity/:activityId/:type',
+    views: {
+      '': {
+        templateUrl: 'views/project/activity-details.html',
+        controller: 'ActivityDetailsCtrl',
+        controllerUrl: 'scripts/controller/project/activity-details-ctrl'
+      }
+    }
+  })*/
  	.state('root.project-details', {
  		url: '/project/:projectId',
  		views: {
@@ -606,7 +612,7 @@
       '': {
         templateUrl: 'views/order/hongbao-verify.html',
         controller: 'hongbaoVerifyCtrl',
-        controllerUrl: 'scripts/controller/order/hongboa-verify-ctrl'
+        controllerUrl: 'scripts/controller/order/hongbao-verify-ctrl'
       }
     }
   })
@@ -936,13 +942,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
               '/gift-overview'];
   $rootScope.$on('$stateChangeStart', function() {
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
-    if(routespermission.indexOf('/'  + $location.path().split("/")[1]) !== -1) {
+    if(routespermission.indexOf('/'  + $location.path().split('/')[1]) !== -1) {
       $checkSessionServer.then(function(response){
         if(response.data.data && response.data.data.name !== '' && response.data.data.name !== undefined && response.data.data.name !== null) {
           $rootScope.isLogged = true;
           $rootScope.loginName = response.data.data.name;
           $rootScope.securityStatus = response.data.data.securityStatus;
           $rootScope.userCapital = response.data.data.userCapital;
+          $rootScope.unreadCount = response.data.data.unreadCount;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
@@ -956,6 +963,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
           $rootScope.loginName = response.data.data.name;
           $rootScope.securityStatus = response.data.data.securityStatus;
           $rootScope.userCapital = response.data.data.userCapital;
+          $rootScope.unreadCount = response.data.data.unreadCount;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';

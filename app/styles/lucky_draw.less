@@ -7,7 +7,7 @@
   height: 1050px;
   position: relative;
   margin: 20px auto 0;
-  background: url(/images/get_lucky.png) -2px 0 no-repeat;
+  background: url(/images/get_lucky.png) 0 0 no-repeat;
 }
 .get-lucky{
   height: 160px;
@@ -28,6 +28,25 @@
   top: 200px;
   left: 555px;
 }
+.winners {
+  width:788px;
+  height: 34px;
+  border: 1px solid #b8381e;
+  top: 283px;
+  left: 96px;
+  color: #e94828;
+  .winners-tit {
+    line-height: 34px;
+    padding-left: 67px;
+    float: left;
+  }
+}
+#affiche {
+  padding: 0;
+  margin: 0;
+  line-height: 32px;
+  background: #fff;
+}
 .tips-bg{
   width: 100%;
   height: 792px;
@@ -37,17 +56,17 @@
   border: 0px solid #dbdbdb; 
   font-size: 14px;
   height: 500px;
-  width: 380px;
-  top: 439px;
-  left: 390px;
+  width: 410px;
+  top: 452px;
+  left: 410px;
+  line-height: 40px;
 }
 .tips-area p{
-  margin-bottom: 10px;
-  line-height: 22px;
   font-weight: bold;
-  margin: 0px;
   height: 32px;
   padding: 0;
+  margin-top: 3px;
+  line-height: 40px;
 }
 .get-rule-inline,.get-rule-inline:hover{
   color: #e94828;
@@ -59,14 +78,14 @@
   text-decoration: underline;
 }
 .get-rule{
-  background: url(/images/lucky_sprite.png) -245px -8px no-repeat;
+  // background: url(/images/lucky_sprite.png) -245px -8px no-repeat;
   height: 45px;
-  width: 205px;
-  margin: 40px 0 0 95px;
+  width: 200px;
   color: white;
   font-size: 16px;
-  padding: 11px 0 0 62px;
   text-decoration: none;
+  left: 104px;
+  bottom: 25px;
 }
 .get-rule:hover{
   color: white;
@@ -108,5 +127,19 @@
 }
 .tips-area:hover{
   background-color: inherit;
+}
+.hongbao-bg a,
+.tuhao-bg a {
+  display: inline-block;
+  width: 117px;
+  height: 45px;
+  top: 95px;
+}
+.hongBao,
+.tuHao {
+  left: 545px;
+}
+.liCai {
+  left: 677px;
 }
 }
