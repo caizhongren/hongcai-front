@@ -16,28 +16,39 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 			for (var i = 0; i < $scope.userMsgList.length; i++) {
 				$scope.data.push($scope.userMsgList[i]);
 			}
+
+			console.log($scope.data)
+
 			$scope.changeStatus = function(status,id){
 				var target = angular.element(event.target);
-				if(target.hasClass('msg-con')){
-
-					if(target.hasClass('unfold')){
-						target.removeClass('unfold');
-					}else{
-						target.addClass('unfold');
-					}
-				}else{
+				if(target.hasClass('list-group-item')){
 
 					if(target.find('p').hasClass('unfold')){
-						target.removeClass('unfold');
+						target.find('p').removeClass('unfold');
 					}else{
-						target.addClass('unfold');
+						target.find('p').addClass('unfold');
+					}
+					
+				}else{
+
+					if(target.closest('li').find('p').hasClass('unfold')){
+						target.closest('li').find('p').removeClass('unfold');
+					}else{
+						target.closest('li').find('p').addClass('unfold');
 					};
 
 				}
 				console.log(status,id)
 				if(status===0){
 
-					//请求后端接口，改变项目status
+					//请求后端接口，改变single消息status
+					UserCenterService.updateSingleUserMsgStatus.get({'userMsgId':id},function(response){
+						if(response.ret === 1){
+
+						}else{
+							toaster.pop('error', response.msg);
+						}
+					});
 
 					if(target.hasClass('list-group-item')){
 							target.removeClass('unread-flag');
