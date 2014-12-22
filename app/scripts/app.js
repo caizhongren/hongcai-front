@@ -946,7 +946,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
               '/gift-overview'];
   $rootScope.$on('$stateChangeStart', function() {
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
-    if(routespermission.indexOf('/'  + $location.path().split("/")[1]) !== -1) {
+    if(routespermission.indexOf('/'  + $location.path().split('/')[1]) !== -1) {
       $checkSessionServer.then(function(response){
         if(response.data.data && response.data.data.name !== '' && response.data.data.name !== undefined && response.data.data.name !== null) {
           $rootScope.isLogged = true;
