@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-xs-12">
         <ul class="list-group">
-          <li class="list-group-item border-none">
+          <li class="list-group-item border-none cursor-d">
             <div class="row">
               <div class="col-xs-12">
                   <div class="row">
@@ -15,7 +15,7 @@
                         <a type="button" class="btn btn-default border-b-none" ng-class="{active: status=== '0'}" ui-sref="root.userCenter.message({status:'0'})">未读</a>
                         <a type="button" class="btn btn-default border-b-none" ng-class="{active: status=== '1'}" ui-sref="root.userCenter.message({status:'1'})">已读</a>
                       </div>
-                      <span class="pull-right" style="line-height:34px;">全部标记为已读</span>
+                      <span class="pull-right" style="line-height:34px;" ng-click="updateAllMsgStatus()">全部标记为已读</span>
                   </div>
               </div>
             </div>

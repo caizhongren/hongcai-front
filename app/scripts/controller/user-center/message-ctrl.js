@@ -17,8 +17,6 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 				$scope.data.push($scope.userMsgList[i]);
 			}
 
-			console.log($scope.data)
-
 			$scope.changeStatus = function(status,id){
 				var target = angular.element(event.target);
 				if(target.hasClass('list-group-item')){
@@ -38,13 +36,11 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 					};
 
 				}
-				console.log(status,id)
-				if(status===0){
 
-					//请求后端接口，改变single消息status
+				if(status===0){
+					//markSingleMsgRead
 					UserCenterService.updateSingleUserMsgStatus.get({'userMsgId':id},function(response){
 						if(response.ret === 1){
-
 						}else{
 							toaster.pop('error', response.msg);
 						}
@@ -58,7 +54,19 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 					}
 
 				}
+			};
+
+			//markAllMsgRead
+			$scope.updateAllMsgStatus = function(){
+				UserCenterService.updateAllUserMsgStatus.get({},function(response){
+					if(response.ret === 1){
+					}else{
+						toaster.pop('error', response.msg);
+					};
+				});
 			}
+
+
 		}
 	});
 
