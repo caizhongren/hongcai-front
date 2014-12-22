@@ -81,12 +81,4 @@ hongcaiApp.controller('UserCenterCtrl', [ '$location', '$scope', '$state', '$roo
         });
     };
 
-    if(sessionStorage.getItem('user') != undefined) {
-      UserCenterService.getUnreadMsgCount.get(function(response) {
-        if(response.ret === 1) {
-          $rootScope.unreadCount = response.data.unreadCount;
-        }
-      });
-    }
-
 }]);

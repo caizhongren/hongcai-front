@@ -949,6 +949,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
           $rootScope.loginName = response.data.data.name;
           $rootScope.securityStatus = response.data.data.securityStatus;
           $rootScope.userCapital = response.data.data.userCapital;
+          $rootScope.unreadCount = response.data.data.unreadCount;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
@@ -962,6 +963,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
           $rootScope.loginName = response.data.data.name;
           $rootScope.securityStatus = response.data.data.securityStatus;
           $rootScope.userCapital = response.data.data.userCapital;
+          $rootScope.unreadCount = response.data.data.unreadCount;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
