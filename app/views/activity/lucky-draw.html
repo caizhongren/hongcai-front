@@ -7,13 +7,13 @@
     <div class="change-area hongbao-bg" ng-show="status === 1">
       <p class="p-red ab">建议立即使用，宏包可用于以下内容</p>
       <p class="p-grey ab">*使用期限：自抽取日期至三个月后</p>
-      <a ui-sref="root.project-activity-group" class="a-red-button ab hongBao"></a><!-- 链接待更改 -->
+      <a ui-sref="root.activity-details({activityId:hongYunProject.id,type:hongYunProject.type})" class="a-red-button ab hongBao"></a>
       <a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="a-red-button ab liCai"></a>
     </div>
     <div class="change-area tuhao-bg" ng-show="status === 2">
       <p class="p-red ab">建议立即使用，宏包可用于以下内容</p>
       <p class="p-grey ab">*使用期限：自抽取日期至三个月后</p>
-      <a ui-sref="root.project-activity-group" class="a-red-button ab tuHao"></a><!-- 链接待更改 -->
+      <a ui-sref="root.activity-details({activityId:tuhaoProject.id,type:tuhaoProject.type})" class="a-red-button ab tuHao"></a>
       <a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="a-red-button ab liCai"></a>
     </div>
     <div class="share-area ab">
@@ -52,7 +52,7 @@
       <p>宏包使用规则请查看“<a href="javascript:;" class="get-rule-inline" ng-click="goToRule()">宏包使用规则</a>”</p>
       <p>在法律允许的范围内，宏财网拥有对本活动的解释权</p>
 
-      <a ui-sref="root.activity-details({activityId:385,type:3})" class="get-rule ab">&nbsp;</a><!-- 链接待更改 -->
+      <a ui-sref="root.activity-details({activityId:tuhaoProject.id,type:tuhaoProject.type})" class="get-rule ab">&nbsp;</a>
     </div>
   </div>
 </div>
