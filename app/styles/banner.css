@@ -18,7 +18,7 @@ html,body{
   width: 100%;
 }
 .nine-bg{
-  background: url(/images/nine-sprite.png) -10px 0 no-repeat;
+  background: url(/images/nine-sprite.png) -1px 0 no-repeat;
   width: 980px;
   margin: 0 auto;
   height: 3695px;

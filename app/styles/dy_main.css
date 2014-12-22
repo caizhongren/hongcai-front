@@ -1031,10 +1031,10 @@ input:focus{
   padding: 0;
 }
 .hongbao-grey{
-  background: url(/images/sprite.png) -260px -1625px no-repeat;
+  background: url(/images/sprite.png) -280px -1625px no-repeat;
 }
 .hongbao-red{
-  background: url(/images/sprite.png) -260px -1855px no-repeat;
+  background: url(/images/sprite.png) -280px -1855px no-repeat;
 }
 .success-revi{
   font-size: 1.1em;
