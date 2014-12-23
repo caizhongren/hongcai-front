@@ -22,7 +22,8 @@
   'config',
   'sticky',
   'ipCookie',
-  'angular-md5'
+  'angular-md5',
+  'textAngular'
   ]);
 
  hongcaiApp
