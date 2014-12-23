@@ -69,7 +69,8 @@ hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope'
           sortCondition: $stateParams.sortCondition, sortType: $scope.sortType}, function() {
             if(response.ret === 1) {
               $scope.projectList = response.data.projectList;
-            }
+            };
+            window.location.reload();
         });
       }
       return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
