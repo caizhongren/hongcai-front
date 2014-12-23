@@ -81,4 +81,6 @@ hongcaiApp.controller('UserCenterCtrl', [ '$location', '$scope', '$state', '$roo
         });
     };
 
+    $rootScope.selectPage = $location.path().split('/')[1];
+
 }]);
