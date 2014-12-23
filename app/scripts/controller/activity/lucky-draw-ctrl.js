@@ -1,6 +1,6 @@
 'use strict';
 hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$state', 'UserCenterService', '$alert', function ($scope, $state, UserCenterService, $alert ) {
-  $scope.status = 1;
+  $scope.status = 0;
 
   UserCenterService.getLuckyList.get(function(response){
     if(response.ret === 1) {
