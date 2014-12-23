@@ -29,7 +29,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
         // var mytimeout = $timeout($scope.onTimeout,1000);
         $scope.data = [];
         for (var i = 0; i < $scope.projectList.length; i++) {
-          $scope.projectList[i].countdown = moment($scope.projectList[i].releaseStartTime).diff(moment($scope.serverTime), 'seconds');
+          $scope.projectList[i].countdown = moment($scope.projectList[i].releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 1;
           $scope.data.push($scope.projectList[i]);
         }
 
@@ -65,6 +65,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
             $scope.projectList = projectList.data.recommend;
           }
         });
+        window.location.reload();
       }
       return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
       // function z(n) {

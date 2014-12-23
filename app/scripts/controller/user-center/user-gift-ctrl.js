@@ -3,24 +3,11 @@ hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$st
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'gift-rebate';
     $scope.typeInvStatus = { '0': '未支付', '1': '已支付'};
-    var dateStart = 0;
-    var dateEnd = 0;
     $scope.status = $stateParams.status || 0;
     $scope.dateInterval = $stateParams.dateInterval || 0;
-    $scope.fromDateChanged = function () {
-      if($scope.invFromDate !== null) {
-        dateStart = moment($scope.invFromDate).valueOf();
-      }
-    };
-    $scope.untilDealDateChanged = function (status,dateInterval) {
-      if($scope.invUntilDate !== null){
-        dateEnd = moment($scope.invUntilDate).add(1,'day').subtract(1,'second').valueOf();
-        $location.path('gift-rebate/99'+'/'+dateInterval+'/'+status+'/'+dateStart+'/'+dateEnd);
-      }
-    };
 
-    var getOrderByUser = UserCenterService.getGiftOrderByUser.get({ type: $stateParams.type,dateInterval: $stateParams.dateInterval,
-    															status: $stateParams.status,dateStart: $stateParams.dateStart,dateEnd: $stateParams.dateEnd},
+    var getOrderByUser = UserCenterService.getOrderByUser.get({ type: $stateParams.type,dateInterval: $stateParams.dateInterval,
+    															status: $stateParams.status},
     															function() {
       if (getOrderByUser.ret === 1 ) {
         $scope.orderList = getOrderByUser.data.orderVoList;
@@ -28,8 +15,6 @@ hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$st
         $scope.amount = getOrderByUser.data.amount;
         $scope.dateInterval = getOrderByUser.data.dateInterval;
         $scope.status = getOrderByUser.data.status;
-        // $scope.invFromDate = getOrderByUser.data.dateStart;
-        // $scope.invUntilDate = getOrderByUser.data.dateEnd;
         $scope.currentPage = 0;
         $scope.pageSize = 6;
         $scope.data = [];
