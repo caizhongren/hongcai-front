@@ -2,7 +2,7 @@
 hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', '$timeout', function ($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie, $timeout) {
     var loginName;
     var logout;
-    $scope.tuhaoActivity = true; //土豪抽奖活动，暂时不开放。
+    $scope.tuhaoActivity = false; //土豪抽奖活动，暂时不开放。
     var projectList = MainService.projectList.get(function(response) {
       if(response.ret === 1){
         $scope.projectList = projectList.data.recommend;
