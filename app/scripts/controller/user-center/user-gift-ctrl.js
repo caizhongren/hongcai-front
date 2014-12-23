@@ -6,7 +6,7 @@ hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$st
     $scope.status = $stateParams.status || 0;
     $scope.dateInterval = $stateParams.dateInterval || 0;
 
-    var getOrderByUser = UserCenterService.getGiftOrderByUser.get({ type: $stateParams.type,dateInterval: $stateParams.dateInterval,
+    var getOrderByUser = UserCenterService.getOrderByUser.get({ type: $stateParams.type,dateInterval: $stateParams.dateInterval,
     															status: $stateParams.status},
     															function() {
       if (getOrderByUser.ret === 1 ) {

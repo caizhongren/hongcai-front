@@ -69,7 +69,8 @@
  			},
  			'slider': {
  				templateUrl: 'views/slider.html',
- 				controllerUrl: 'scripts/controller/main/main-ctrl'
+        controller: 'SliderCtrl',
+ 				controllerUrl: 'scripts/controller/main/slider-ctrl'
  			},
  			/*'sponsor': {
  				templateUrl: 'views/project/project-sponsor-list.html',
