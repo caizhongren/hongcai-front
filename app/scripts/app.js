@@ -375,7 +375,7 @@
  		}
  	})
  	.state('root.userCenter.record-query', {
- 		url: '/record/:dateInterval/:type/:dateStart/:dateEnd',
+ 		url: '/record/:dateInterval/:type',
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/record.html',
@@ -395,7 +395,7 @@
  		}
  	})
  	.state('root.userCenter.investment-query', {
- 		url: '/userCenter-investment/:dateInterval/:status/:dateStart/:dateEnd',
+ 		url: '/userCenter-investment/:dateInterval/:status',
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/investment.html',
@@ -415,7 +415,7 @@
  		}
  	})
  	.state('root.userCenter.gift-rebate-query', {
- 		url: '/gift-rebate/:type/:dateInterval/:status/:dateStart/:dateEnd',
+ 		url: '/gift-rebate/:type/:dateInterval/:status',
  		views: {
  			'user-center-right': {
  				templateUrl: 'views/user-center/gift-rebate.html',

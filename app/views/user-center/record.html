@@ -22,22 +22,22 @@
             <div class="row">
               <div class="col-xs-2 pull-left text-nowrap">项目状态：</div>
               <div class="col-xs-2 text-nowrap">
-                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'0', dateStart:recFromDate, dateEnd:recUntilDate})" class="project-noncheck" ng-class="{'project-check': type === '0', 'project-noncheck': type !== '0'}">
+                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'0'})" class="project-noncheck" ng-class="{'project-check': type === '0', 'project-noncheck': type !== '0'}">
                   全部
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'1', dateStart:recFromDate, dateEnd:recUntilDate})" class="project-noncheck" ng-class="{'project-check': type === '1', 'project-noncheck': type !== '1'}">
+                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'1'})" class="project-noncheck" ng-class="{'project-check': type === '1', 'project-noncheck': type !== '1'}">
                   充值
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'2', dateStart:recFromDate,dateEnd:recUntilDate})" class="project-noncheck" ng-class="{'project-check': type === '2', 'project-noncheck': type !== '2'}">
+                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'2'})" class="project-noncheck" ng-class="{'project-check': type === '2', 'project-noncheck': type !== '2'}">
                   提现
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'3', dateStart:recFromDate, dateEnd:recUntilDate})" class="project-noncheck" ng-class="{'project-check': type === '3', 'project-noncheck': type !== '3'}">
+                <a ui-sref="root.userCenter.record-query({dateInterval:dateInterval, type:'3'})" class="project-noncheck" ng-class="{'project-check': type === '3', 'project-noncheck': type !== '3'}">
                   投资
                 </a>
               </div>
@@ -54,44 +54,28 @@
             <div class="row">
               <div class="col-xs-2 text-nowrap">计息日期：</div>
               <div class="col-xs-2 text-nowrap">
-                <a ui-sref="root.userCenter.record-query({dateInterval:0, type:type, dateStart:recFromDate, dateEnd:recUntilDate})" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 0, 'project-noncheck': dateInterval !== 0 }">
+                <a ui-sref="root.userCenter.record-query({dateInterval:0, type:type})" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 0, 'project-noncheck': dateInterval !== 0 }">
                   全部
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.record-query({dateInterval:7, type:type, dateStart:recFromDate, dateEnd:recUntilDate})" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 7, 'project-noncheck': dateInterval !== 7 }">
+                <a ui-sref="root.userCenter.record-query({dateInterval:7, type:type})" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 7, 'project-noncheck': dateInterval !== 7 }">
                   最近七天
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.record-query({dateInterval:30, type:type, dateStart:recFromDate, dateEnd:recUntilDate})" class="project-noncheck" ng-class="{'project-check': dateInterval === 30, 'project-noncheck': dateInterval !== 30 }">
+                <a ui-sref="root.userCenter.record-query({dateInterval:30, type:type})" class="project-noncheck" ng-class="{'project-check': dateInterval === 30, 'project-noncheck': dateInterval !== 30 }">
                   一个月
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.record-query({dateInterval:90, type:type, dateStart:recFromDate, dateEnd:recUntilDate})" class="project-noncheck" ng-class="{'project-check': dateInterval === 90, 'project-noncheck': dateInterval !== 90 }">
+                <a ui-sref="root.userCenter.record-query({dateInterval:90, type:type})" class="project-noncheck" ng-class="{'project-check': dateInterval === 90, 'project-noncheck': dateInterval !== 90 }">
                 三个月
                 </a>
               </div>
             </div>
           </div>
         </div>
-<!--         <div class="row">
-          <div class="col-xs-12">
-            <div class="row">
-              <form name="datepickerForm" class="form-inline" role="form">
-                <div class="col-xs-2 text-nowrap">固定期限：</div>
-                <div class="form-group">
-                  <i class="fa fa-calendar"></i>
-                  <input ui-date class="form-control" ng-model="recFromDate" placeholder="开始时间" ng-change="fromDealDateChanged();">
-                  <i class="fa fa-arrows-h"></i>
-                  <i class="fa fa-calendar"></i>
-                  <input ui-date class="form-control" ng-model="recUntilDate" placeholder="结束时间" ng-change="untilDealDateChanged({{type}},{{dateInterval}});">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div> -->
       </li>
     </ul>
   </div>
