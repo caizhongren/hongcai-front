@@ -405,6 +405,11 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>'
         },*/ {
           expand: true,
+          cwd: 'bower_components/slick-carousel/slick',
+          src: 'fonts/*',
+          dest: '<%= yeoman.dist %>'
+        }, {
+          expand: true,
           cwd: 'bower_components/fontawesome',
           src: 'fonts/*',
           dest: '<%= yeoman.dist %>'
