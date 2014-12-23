@@ -3,5 +3,6 @@ hongcaiApp.controller('HongcaiTrendsDetailCtrl', ['$scope', '$state', '$statePar
     AboutUsService.textDetail.get({textId: $stateParams.textId}, function(response) {
         $scope.text = response.data.text;
         $scope.baseFileUrl = response.data.baseFileUrl;
+        console.log(response.data)
     });
 }]);
