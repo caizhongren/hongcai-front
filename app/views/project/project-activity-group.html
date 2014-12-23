@@ -41,7 +41,7 @@
                   <img style="float:right; width:20%;" src="/images/activity/activity_flag_3.png" alt="已完成">
                 </div>
                 <div class="row col-xs-10" style="margin-top: -25px;">
-                  <a ui-sref="root.activity-details({activityId: item.id, type: 2})" class="btn btn-lg btn-block" ng-class="{'btn-primary': item.status === 7, 'btn-default': item.status !== 7}">{{ valCategory[item.status] }}</a>
+                  <a ui-sref="root.activity-details({activityId: item.id, type: item.type})" class="btn btn-lg btn-block" ng-class="{'btn-primary': item.status === 7, 'btn-default': item.status !== 7}">{{ valCategory[item.status] }}</a>
                 </div>
               </div>
             </div>
