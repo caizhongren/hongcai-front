@@ -8,7 +8,7 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 			$scope.userMsgList = response.data.userMsgList;
 			$scope.orderProp = 'id';
 			$scope.currentPage = 0;
-			$scope.pageSize = 6;
+			$scope.pageSize = 10;
 			$scope.data = [];
 			$scope.numberOfPages = function() {
 				return Math.ceil($scope.data.length / $scope.pageSize);

@@ -20,7 +20,7 @@
                 <span>
                   <a class="ft-white" ui-sref="root.userCenter.account-overview">{{loginName}}</a>
                   <a ng-href="#" ng-click="logout();" class="logout ft-white">退出 </a>
-                  <a class="ft-white msg" ui-sref="root.userCenter.message({status:'0,1'})"><i class="fa fa-bell"></i><span ng-bind="unreadCount || 0 "></span></a>
+                  <a class="ft-white msg" ui-sref="root.userCenter.message({status:'0,1'})">消息(<span ng-bind="unreadCount || 0 "></span>)</a>
                 </span>
             </li>
             <li ng-if="isLogged !== true">
