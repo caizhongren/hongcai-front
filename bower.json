@@ -22,7 +22,8 @@
     "ngSticky": "~1.7.5",
     "angular-cookie": "~4.0.6",
     "angularjs-toaster": "~0.4.9",
-    "angular-md5": "~0.1.7"
+    "angular-md5": "~0.1.7",
+    "textAngular": "~1.2.2"
   },
   "devDependencies": {
     "firebug-lite": "~1.5.1",
