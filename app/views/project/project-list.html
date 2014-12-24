@@ -140,7 +140,7 @@
               </div>
             </div> <!-- .row -->
 					</li>
-          <li class="list-group-item">
+          <li class="list-group-item" style="padding-top:0;padding-bottom:7px;">
             <div class="row">
               <div class="col-xs-12">
                 <!-- <ul class="list-inline"> -->
@@ -150,22 +150,22 @@
                       <div class="col-xs-1" style="margin-top:7px;">
                         <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'release_start_time', sortType: sortType})" ng-click="toggleSort()">
                         发布时间
-                          <i style="color: #e94828;" class="fa" ng-class="{'fa-arrow-up': (sortCondition ==='release_start_time' && sortType === true) , 'fa-arrow-down': (sortCondition === 'release_start_time' && sortType === false) }"></i></a>
+                          <i style="color: #e94828;" class="fa" ng-class="{'fa-angle-up': (sortCondition ==='release_start_time' && sortType === true) , 'fa-angle-down': (sortCondition === 'release_start_time' && sortType === false) }"></i></a>
                       </div>
                       <div class="col-xs-1 project-stl">
                         <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'total', sortType: sortType})" ng-click="toggleSort()">
                         项目规模
-                          <i style="color: #e94828;" class="fa" ng-class="{'fa-arrow-up': (sortCondition ==='total' && sortType === true), 'fa-arrow-down': (sortCondition === 'total' && sortType === false)}"></i></a>
+                          <i style="color: #e94828;" class="fa" ng-class="{'fa-angle-up': (sortCondition ==='total' && sortType === true), 'fa-angle-down': (sortCondition === 'total' && sortType === false)}"></i></a>
                       </div>
                       <div class="col-xs-1 project-stl">
                         <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'annual_earnings', sortType: sortType})" ng-click="toggleSort()">
                         年化收益
-                          <i style="color: #e94828;" class="fa" ng-class="{'fa-arrow-up': (sortCondition === 'annual_earnings' && sortType === true), 'fa-arrow-down': (sortCondition === 'annual_earnings' && sortType === false)}"></i></a>
+                          <i style="color: #e94828;" class="fa" ng-class="{'fa-angle-up': (sortCondition === 'annual_earnings' && sortType === true), 'fa-angle-down': (sortCondition === 'annual_earnings' && sortType === false)}"></i></a>
                       </div>
                       <div class="col-xs-1 project-stl">
                         <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'repayment_date', sortType: sortType})" ng-click="toggleSort()">
                         还款日期
-                          <i style="color: #e94828;" class="fa" ng-class="{'fa-arrow-up': (sortCondition ==='repayment_date' && sortType === true) , 'fa-arrow-down': (sortCondition === 'repayment_date' && sortType === false)}"></i></a>
+                          <i style="color: #e94828;" class="fa" ng-class="{'fa-angle-up': (sortCondition ==='repayment_date' && sortType === true) , 'fa-angle-down': (sortCondition === 'repayment_date' && sortType === false)}"></i></a>
                       </div>
                     </div>
                   </div>
