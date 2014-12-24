@@ -3,6 +3,11 @@
   <div class="row">
     <div class="right-title">安全设置</div>
   </div>
+  <div class="row"  style="padding-bottom:5%;">
+    <p class="ft-12 text-alg-c">
+      *温馨提示*<br>为了您的投资安全，请您务必完成：<span ng-class="{'hc-text-red':!mobile}">手机号码绑定</span>，<span ng-class="{'hc-text-red':!email}">邮箱绑定</span>，和<span ng-class="{'hc-text-red':!haveTrusteeshipAccount}">开通第三方托管账户</span>。
+    </p>
+  </div>
   <div class="row">
     <div class="safe-process col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
       <div class="row">
@@ -99,7 +104,7 @@
       <div class="row">
         <p class="tips col-md-4 col-lg-4">手机号码</p>
         <p class="message col-md-4 col-lg-4">{{ mobile || "未设置"}}</p>
-        <p class="activity col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1" ng-show="!mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">设置</p>
+        <p class="activity col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1 hc-text-red" ng-show="!mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">设置</p>
         <p class="activity col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1" ng-show="mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">修改</p>
       </div>
     </div>
@@ -163,7 +168,7 @@
       <div class="row">
         <p class="tips col-md-4 col-lg-4">邮箱</p>
         <p class="message col-md-4 col-lg-4">{{ email || "未设置"}}</p>
-        <p class="activity col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1" ng-show="!email" ng-click="changeEmail=!changeEmail;changPwd =false;changeMobile=false">设置</p>
+        <p class="activity col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1 hc-text-red" ng-show="!email" ng-click="changeEmail=!changeEmail;changPwd =false;changeMobile=false">设置</p>
         <p class="activity col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1" ng-show="email" ng-click="changeEmail=!changeEmail;changPwd =false;changeMobile=false">修改</p>
       </div>
     </div>
@@ -208,7 +213,7 @@
         <p class="message col-md-4 col-lg-4" ng-show="!haveTrusteeshipAccount">未开通</p>
         <p class="message col-md-4 col-lg-4" ng-show="haveTrusteeshipAccount">已开通</p>
         <div class="col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1">
-          <p class="activity" ng-show="!haveTrusteeshipAccount"><a href="javascript:;" ng-click="openTrusteeshipAccount = !openTrusteeshipAccount;changeMobile=false;changeEmail=false;changPwd =false;checkEmailAndMobile()">开通</a></p>
+          <p class="activity" ng-show="!haveTrusteeshipAccount"><a href="javascript:;" class="hc-text-red" ng-click="openTrusteeshipAccount = !openTrusteeshipAccount;changeMobile=false;changeEmail=false;changPwd =false;checkEmailAndMobile()">开通</a></p>
           <p class="activity hadset" ng-show="haveTrusteeshipAccount">已开通</p>
           <div class="check-ok" ng-show="haveTrusteeshipAccount"></div>
         </div>
@@ -246,13 +251,11 @@
       </div>
     </form>
   </div>
-  <div class="row"  style="padding-right:35px;">
-    <p class="col-xs-offset-1 ft-12">
-      温馨提示
-      <br>
-      为了您的投资安全，请您务必完成：手机号码绑定，邮箱绑定，和开通第三方托管账户。
+  <!-- <div class="row"  style="padding-top:5%;">
+    <p class="ft-12 hc-text-red text-alg-c">
+      *温馨提示*<br>为了您的投资安全，请您务必完成：手机号码绑定，邮箱绑定，和开通第三方托管账户。
     </p>
-  </div>
+  </div> -->
 </div>
 
 <script>
