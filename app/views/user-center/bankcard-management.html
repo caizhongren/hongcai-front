@@ -1,7 +1,7 @@
- <!--银行卡管理-->
+<!--银行卡管理-->
 <div class="right-area col-md-8 col-lg-9">
   <div class="row">
-      <div class="right-title">银行卡管理</div>
+    <div class="right-title">银行卡管理</div>
   </div>
   <div class="verify-area introduction-area border-none row">
     <a ng-show="isVerifying" ng-init="isAuth=false;haveCard=false;">
@@ -11,10 +11,10 @@
     </a>
     <a ng-show="isAuth && !haveCard && !isVerifying && dosi" ng-init="isAuth=false" ng-click="bindBankCard()">
       <div class="bank-card-show">
-        <p class="add-card" ></p>
+        <p class="add-card"></p>
       </div>
     </a>
-    <a ng-show="dosi === false" >
+    <a ng-show="dosi === false">
       <div class="bank-card-show-verify">
         <p class="add-card">正在绑定，请稍后...</p>
       </div>
@@ -31,11 +31,9 @@
     <!--end 安全认证提示 -->
     <p class="ft-12">
       温馨提示
-      <br>
-      为确保您的资金划转安全高效，宏财网建议您完善开户行信息。务必将银行卡开户行精确到支行（或营业室或储蓄所）。
-      <br>
-      例如：“工商银行北京分行宣武门支行”"招商银行北京分行方庄支行""陕西省西安市农业银行西安分行人民东路储蓄所“。
+      <br> 为确保您的资金划转安全高效，宏财网建议您完善开户行信息。务必将银行卡开户行精确到支行（或营业室或储蓄所）。
+      <br> 例如：“工商银行北京分行宣武门支行”"招商银行北京分行方庄支行""陕西省西安市农业银行西安分行人民东路储蓄所“。
     </p>
   </div>
-    <!--end 添加银行卡 -->
+  <!--end 添加银行卡 -->
 </div>
