@@ -982,7 +982,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
   if (config.ignoreFlAG) {
     angular.forEach(config.ignoreFlAG, function(value, key) {
         $rootScope[key] = value;
-      })
+      });
   }
   $rootScope.$on('$stateChangeSuccess', function() {
     // branch_switch， 当该路由关联的功能已开发完成，但并没有对外发布。
