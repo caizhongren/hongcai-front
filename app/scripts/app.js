@@ -905,7 +905,6 @@ hongcaiApp
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
     $urlRouterProvider.when('', '/');
->>>>>>> feature/success-info
 
     //initialize get if not there
     if (!$httpProvider.defaults.headers.get) {
