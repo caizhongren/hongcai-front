@@ -131,9 +131,9 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     ipCookie('utm_from', from, {
       expires: 1
     })
-    MainService.trafficStats.get({
-      from: from
-    });
-  }
+  };
+  MainService.trafficStats.get({
+    from: from
+  });
 
 }]);
