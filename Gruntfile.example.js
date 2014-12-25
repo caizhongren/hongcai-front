@@ -8,7 +8,7 @@
 // 'test/spec/**/*.js'
 //
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
@@ -32,27 +32,27 @@ module.exports = function (grunt) {
 
     ngconstant: {
 
-          development: {
-            options: {
-              dest: '.tmp/scripts/config.js',
-              name: 'config',
-              constants: {
-                config: grunt.file.readJSON('config_dev.json')
-              }
-            }
-          },
-
-
-          production: {
-            options: {
-              dest: '.tmp/scripts/config.js',
-              name: 'config',
-              constants: {
-                config: grunt.file.readJSON('config_pro.json')
-              }
-            }
+      development: {
+        options: {
+          dest: '.tmp/scripts/config.js',
+          name: 'config',
+          constants: {
+            config: grunt.file.readJSON('config_dev.json')
           }
-        },
+        }
+      },
+
+
+      production: {
+        options: {
+          dest: '.tmp/scripts/config.js',
+          name: 'config',
+          constants: {
+            config: grunt.file.readJSON('config_pro.json')
+          }
+        }
+      }
+    },
 
     // Project settings
     yeoman: appConfig,
@@ -101,17 +101,15 @@ module.exports = function (grunt) {
         hostname: 'localhost',
         livereload: 35729
       },
-      proxies: [
-        {
-          context: '/hongcai/api/v1',
-          host: '192.168.1.43',
-          port: 8000
-        }
-      ],
+      proxies: [{
+        context: '/hongcai/api/v1',
+        host: '192.168.1.43',
+        port: 8000
+      }],
       livereload: {
         options: {
           open: true,
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               require('grunt-connect-proxy/lib/utils').proxyRequest,
               modRewrite(['^[^\\.]*$ /index.html [L]']),
@@ -128,7 +126,7 @@ module.exports = function (grunt) {
       test: {
         options: {
           port: 9001,
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               connect.static('.tmp'),
               connect.static('test'),
@@ -204,7 +202,7 @@ module.exports = function (grunt) {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
         exclude: ['bower_components/bootstrap/dist/css/bootstrap.css', 'bower_components/angular-scenario/angular-scenario.js'],
-        ignorePath:  /\.\.\//
+        ignorePath: /\.\.\//
       }
     },
 
@@ -251,13 +249,13 @@ module.exports = function (grunt) {
             post: {
               css: [{
                 name: 'cssmin',
-                createConfig: function (context) {
+                createConfig: function(context) {
                   var generated = context.options.generated;
                   generated.options = {
                     keepSpecialComments: 0,
                     banner: '/*! All Rights Reserved by hongcai.com. */',
                     compatibility: 'ie8'
-                  }
+                  };
                 }
               }]
             }
@@ -272,7 +270,7 @@ module.exports = function (grunt) {
       css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
       js: '<%= yeoman.dist %>/scripts/*.js',
       options: {
-        assetsDirs: ['<%= yeoman.dist %>','<%= yeoman.dist %>/images'],
+        assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images'],
         patterns: {
           js: [
             [/(images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update the JS to reference our revved images']
@@ -381,52 +379,55 @@ module.exports = function (grunt) {
     copy: {
       dist: {
         files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
-          src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            '*.html',
-            'views/{,*/}*.html',
-            'images/{,*/}*.{webp}',
-            'fonts/*'
-          ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
-        }, /*{
-          expand: true,
-          cwd: 'bower_components/bootstrap/dist',
-          src: 'fonts/*',
-          dest: '<%= yeoman.dist %>'
-        },*/ {
-          expand: true,
-          cwd: 'bower_components/fontawesome',
-          src: 'fonts/*',
-          dest: '<%= yeoman.dist %>'
-        }, {
-          // for newbie page
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          dest: 'newbie',
-          src: ['<%= yeoman.dist %>/images']
-        }, {
-          //for newbie page
-          expand: true,
-          cwd: '<%= yeoman.app %>/scripts',
-          dest: '<%= yeoman.dist %>/scripts',
-          src: '{,*/}*.js'
-        }, {
-          // for newbie page
-          expand: true,
-          cwd: '<%= yeoman.app %>/styles',
-          dest: '<%= yeoman.dist %>/styles',
-          src: '{,*/}*.css'
-        }]
+            expand: true,
+            dot: true,
+            cwd: '<%= yeoman.app %>',
+            dest: '<%= yeoman.dist %>',
+            src: [
+              '*.{ico,png,txt}',
+              '.htaccess',
+              '*.html',
+              'views/{,*/}*.html',
+              'images/{,*/}*.{webp}',
+              'fonts/*'
+            ]
+          }, {
+            expand: true,
+            cwd: '.tmp/images',
+            dest: '<%= yeoman.dist %>/images',
+            src: ['generated/*']
+          },
+          /*{
+                    expand: true,
+                    cwd: 'bower_components/bootstrap/dist',
+                    src: 'fonts/*',
+                    dest: '<%= yeoman.dist %>'
+                  },*/
+          {
+            expand: true,
+            cwd: 'bower_components/fontawesome',
+            src: 'fonts/*',
+            dest: '<%= yeoman.dist %>'
+          }, {
+            // for newbie page
+            expand: true,
+            cwd: '<%= yeoman.app %>/images',
+            dest: 'newbie',
+            src: ['<%= yeoman.dist %>/images']
+          }, {
+            //for newbie page
+            expand: true,
+            cwd: '<%= yeoman.app %>/scripts',
+            dest: '<%= yeoman.dist %>/scripts',
+            src: '{,*/}*.js'
+          }, {
+            // for newbie page
+            expand: true,
+            cwd: '<%= yeoman.app %>/styles',
+            dest: '<%= yeoman.dist %>/styles',
+            src: '{,*/}*.css'
+          }
+        ]
       },
       styles: {
         expand: true,
@@ -461,7 +462,7 @@ module.exports = function (grunt) {
   });
 
 
-  grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
+  grunt.registerTask('serve', 'Compile then start a connect web server', function(target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
@@ -479,7 +480,7 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function (target) {
+  grunt.registerTask('server', 'DEPRECATED TASK. Use the "serve" task instead', function(target) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve:' + target]);
   });
@@ -511,7 +512,7 @@ module.exports = function (grunt) {
     'htmlmin'
   ]);
 
-     grunt.registerTask('buildTest43', [
+  grunt.registerTask('buildTest43', [
     'clean:dist',
     'ngconstant:development',
     'wiredep',
