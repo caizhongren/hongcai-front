@@ -1,7 +1,7 @@
 {
   "YEEPAY_ADDRESS": "http://qa.yeepay.com/member/bha/",
   "ignoreFlAG": {
-    "tuhaoShowFlAG": false
+    "tuhaoShowFlAG": true
   },
   "ignorePATH": ["/lucky-draw"]
 }
