@@ -976,11 +976,11 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
       });
     }
   });
-  // ignoreFlAG view层面的显示与否的判断，比如main.html的土豪标图片不显示，在ignoreFlAG里添加, tuhaoShowFLAG: false (变量注入的是rootScope，FLAG保持全部大写)，然后在main.html做一个ng-show, no-hide的判断即可。
+  // viewFlAG view层面的显示与否的判断，比如main.html的土豪标图片不显示，在viewFlAG里添加, tuhaoShowFLAG: false (变量注入的是rootScope，FLAG保持全部大写)，然后在main.html做一个ng-show, no-hide的判断即可。
   // ignorePATH route层面的显示与否的判断，比如/lucky-draw抽奖活动咱不对外公布(未上线)，在ignorePATH添加路径/lucky-draw。
   // branch_switch,当该标识关联的功能已开发完成，但并没有对外发布。
-  if (config.ignoreFlAG) {
-    angular.forEach(config.ignoreFlAG, function(value, key) {
+  if (config.viewFlAG) {
+    angular.forEach(config.viewFlAG, function(value, key) {
         $rootScope[key] = value;
       });
   }
