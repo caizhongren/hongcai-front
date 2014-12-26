@@ -75,7 +75,7 @@
 
                           <p ng-if="projectType === 2">宏财网于2014年12月15日至2015年1月31日发起宏包标，每个标的仅限于宏包投资。<br>宏包标固定发标时间为0:00。投标时限为24小时。<br>宏包标总投资金额不限，投资人数不限。</p>
 
-                          <p ng-if="projectType === 3"> 宏财网发起的宏包投资活动。<br>土豪标投资总额为：30万元宏包。<br>土豪标投标时间：2015年01月04日 —— 募满即止（如未能募满，将于2015年01月10日23时59分59秒自动关标并计息）。<br> 投资资格：通过<span class="hc-text-red">抽奖</span>所获10,000元宏包的用户。</p>
+                          <p ng-if="projectType === 3"> 宏财网发起的宏包投资活动。<br>土豪标投资总额为：30万元宏包。<br>土豪标投标时间：2015年01月04日 —— 募满即止（如未能募满，将于2015年01月10日23时59分59秒自动关标并计息）。<br> 投资资格：通过<a class="hc-text-red" ui-sref="root.lucky-draw">抽奖</a>所获10,000元宏包的用户。</p>
 
                         </div>
                         <div class="col-xs-12">
@@ -225,7 +225,7 @@
                         <timer end-time="statDate" finish-callback="finished()"><span>{{days}} 天,</span> <span>{{hours}} 小时,</span><span>{{minutes}} 分,</span> <span>{{seconds}} 秒</span></timer>
                       </div>
                     </div> -->
-                  </div>
+
 
                     <a ui-sref="root.login({isRedirect: true})" class="btn btn-danger btn-lg btn-block">请先登录</a>
 
@@ -252,7 +252,9 @@
                       </form>
                     </div>
                   </div>
+
                   <!-- <div class="row padding-t-0" ng-if="isLogged && project.status == 6">
+
                     <div class="col-xs-12">开放投资倒计时：</div>
                     <div class="col-xs-12 project-timer">
                       <timer end-time="statDate" finish-callback="finished()"><span>{{days}} 天,</span> <span>{{hours}} 小时,</span><span>{{minutes}} 分,</span> <span>{{seconds}} 秒</span></timer>
