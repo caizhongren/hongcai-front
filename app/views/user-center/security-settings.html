@@ -3,7 +3,7 @@
   <div class="row">
     <div class="right-title">安全设置</div>
   </div>
-  <div class="row"  style="padding-bottom:5%;">
+  <div class="row"  style="padding-bottom:5%;" ng-hide="mobile && email && haveTrusteeshipAccount">
     <p class="ft-12 text-alg-c">
       *温馨提示*<br>为了您的投资安全，请您务必完成：<span ng-class="{'hc-text-red':!mobile}">手机号码绑定</span>，<span ng-class="{'hc-text-red':!email}">邮箱绑定</span>，和<span ng-class="{'hc-text-red':!haveTrusteeshipAccount}">开通第三方托管账户</span>。
     </p>
