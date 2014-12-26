@@ -39,9 +39,9 @@
                       <div class="col-xs-12" ng-if="projectType === 3">
                         <h5>开始日期：2015年01月04日</h5>
                       </div>
-                      <div class="col-xs-12">
+                      <!-- <div class="col-xs-12">
                         <h5>截止日期：{{ project.releaseEndTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}</h5>
-                      </div>
+                      </div> -->
                       <div class="col-xs-12">
                         <h5>业务类型：促销活动</h5>
                       </div>
@@ -72,9 +72,10 @@
                         </div>
                         <div class="col-xs-12">
 
-                          <p ng-if="projectType === 2">宏财网于2014年12月15日至2015年1月31日发起宏包标，每个标的仅限于宏包投资。<br>宏包标固定发标时间为0:00。投标时限为24小时。<br>宏包标总投资金额不限，投资人数不限。</p>
+                          <p ng-if="projectType === 2">宏财网于2014年12月15日至2015年01月31日发起宏包标，每个标的仅限于宏包投资。<br>宏包标固定发标时间为0:00。投标时限为24小时。<br>宏包标总投资金额不限，投资人数不限。</p>
 
-                          <p ng-if="projectType === 3"> 宏财网发起的宏包投资活动。<br>土豪标投资总额为：30万元宏包。<br>土豪标投标时间：2015年01月04日 —— 募满即止（如未能募满，将于2015年01月10日23时59分59秒自动关标并计息）。<br> 投资资格：通过<a class="hc-text-red" ui-sref="root.lucky-draw">抽奖</a>所获10,000元宏包的用户。</p>
+                          <p ng-if="projectType === 3">宏财网将于2015年01月04日至2015年01月10日发起土豪标投资活动。
+<br>土豪标投资总额为：30万元宏包。<br>土豪标投标时间：2015年01月04日 —— 募满即止（如未能募满，将于2015年01月10日23时59分59秒自动关标并计息）。<br> 投资资格：通过<a class="hc-text-red" ui-sref="root.lucky-draw">抽奖</a>所获10,000元宏包的用户。</p>
 
                         </div>
                         <div class="col-xs-12">
@@ -82,8 +83,8 @@
                         </div>
                         <div class="col-xs-12">
 
-                          <p ng-if="projectType === 2">投资期限为3日。<br>投资收益率为基础利率10%+奖励利率90%。</p>
-                          <p ng-if="projectType === 3">年化收益10%+活动利率90%，投资期限为3日。</p>
+                          <p ng-if="projectType === 2">项目期限为3日。<br>投资收益率为基础利率10%+奖励利率90%。</p>
+                          <p ng-if="projectType === 3">年化收益10%+活动利率90%，项目期限为3日。</p>
 
                         </div>
                         <div class="col-xs-12">
@@ -92,14 +93,16 @@
                         <div class="col-xs-12">
                           <ul style="padding-left: 15px;" ng-if="projectType === 2">
                             <li>本标的只能使用宏包投资，不得使用现金；</li>
-                            <li>宏包标活动每位投资人投资宏包总数最高为10张（<span class="hc-text-red"> 土豪标、理财项目</span>不计算入内）;</li>
+                            <li>宏包标活动每位投资人投资宏包总数最高为10张（<a ui-sref="root.activity-details({activityId: 425, type: 3})" class="get-rule-inline"style="color:red;">土豪标</a>、<a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="get-rule-inline"style="color:red;">理财项目</a>
+                            
+                            不计算入内）;</li>
                             <li>宏包为虚拟体验金，不可提现，不可转账；</li>
                             <li>通过宏包投资所得收益为人民币，可取现或再投资；</li>
                             <li>宏包使用规则请查看<a ui-sref="root.userCenter.gift-overview" class="hc-text-red">“宏包使用规则”</a>；</li>
                             <li>在法律允许的范围内，宏财网拥有对本活动的解释权。</li>
                           </ul>
                           <ul style="padding-left: 15px;" ng-if="projectType === 3">
-                            <li>土豪标投资资格为通过抽奖所获10,000元宏包的用户；</li>
+                            <li>土豪标投资资格为通过<a class="hc-text-red" ui-sref="root.lucky-draw">抽奖</a>所获10,000元宏包的用户；</li>
                             <li>宏包为虚拟体验金，不可提现，不可转账；</li>
                             <li>通过宏包投资所得收益为人民币，可取现或再投资；</li>
                             <li>宏包使用规则请查看<a ui-sref="root.userCenter.gift-overview" class="hc-text-red">“宏包使用规则”</a>；</li>
