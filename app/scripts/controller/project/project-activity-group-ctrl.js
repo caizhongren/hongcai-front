@@ -4,6 +4,10 @@ hongcaiApp.controller('ProjectActivityGroupCtrl', ['$scope', 'ProjectService', '
   var activityGroup = ProjectService.getGiftProjectList.get(function() {
     if(activityGroup.ret === 1) {
       $scope.projectList = activityGroup.data.projectList;
+      /*for(var i=0;i<projectList.length;i++){
+        $scope.projectList.status= 6;
+      }*/
+
     } else {
       $scope.projectList = [];
       toaster.pop('warning', '服务器正在努力的加载....请稍等。');
