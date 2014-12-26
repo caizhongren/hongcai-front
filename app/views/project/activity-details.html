@@ -28,7 +28,7 @@
                       </div>
                       <div class="col-xs-12 col-sm-4">
                         <h3 class="text-center text-nowrap" ng-if="projectType === 2">3天</h3>
-                        <h3 class="text-center text-nowrap" ng-if="projectType === 3">7天</h3>
+                        <h3 class="text-center text-nowrap" ng-if="projectType === 3">3天</h3>
                         <h4 class="text-center text-nowrap">项目期限</h4>
                       </div>
                     </div>
@@ -72,7 +72,7 @@
 
                           <p ng-if="projectType === 2">宏财网于2014年12月15日至2015年1月31日发起宏包标，每个标的仅限于宏包投资。<br>宏包标固定发标时间为0:00。投标时限为24小时。<br>宏包标总投资金额不限，投资人数不限。</p>
 
-                          <p ng-if="projectType === 3"> 宏财网发起的宏包投资活动。<br>土豪标投资总额为：30万元宏包。<br>土豪标发布时间：2015年01月04日 —— 募满即止（如未能募满，将于2015年01月10日23时59分59秒自动关标并计息）。<br> 投资资格：通过<span class="hc-text-red">抽奖</span>所获10,000元宏包的用户。</p>
+                          <p ng-if="projectType === 3"> 宏财网发起的宏包投资活动。<br>土豪标投资总额为：30万元宏包。<br>土豪标投标时间：2015年01月04日 —— 募满即止（如未能募满，将于2015年01月10日23时59分59秒自动关标并计息）。<br> 投资资格：通过<span class="hc-text-red">抽奖</span>所获10,000元宏包的用户。</p>
 
                         </div>
                         <div class="col-xs-12">
@@ -81,7 +81,7 @@
                         <div class="col-xs-12">
 
                           <p ng-if="projectType === 2">投资期限为3日。<br>投资收益率为基础利率10%+奖励利率90%。</p>
-                          <p ng-if="projectType === 3">投资总额不限，年化收益10%+活动利率90%，投资期限为3日。</p>
+                          <p ng-if="projectType === 3">年化收益10%+活动利率90%，投资期限为3日。</p>
 
                         </div>
                         <div class="col-xs-12">
@@ -97,7 +97,7 @@
                             <li>在法律允许的范围内，宏财网拥有对本活动的解释权。</li>
                           </ul>
                           <ul style="padding-left: 15px;" ng-if="projectType === 3">
-                            <li>土豪标投资资格为通过<span class="hc-text-red">抽奖</span>所获10,000元宏包的用户；</li>
+                            <li>土豪标投资资格为通过抽奖所获10,000元宏包的用户；</li>
                             <li>宏包为虚拟体验金，不可提现，不可转账；</li>
                             <li>通过宏包投资所得收益为人民币，可取现或再投资；</li>
                             <li>宏包使用规则请查看<a ui-sref="root.userCenter.gift-overview" class="hc-text-red">“宏包使用规则”</a>；</li>
@@ -202,7 +202,8 @@
                       <strong ng-if="projectType === 3">投资类型：通过抽奖所获10,000元宏包</strong>
                     </div>
                     <div class="col-xs-12" ng-if="isLogged">
-                      <strong>可投宏包金额：{{canInvestAmount || '0'}}元</strong>
+                      <strong ng-if="projectType === 2">可投宏包金额：{{canInvestAmount || '0'}}元</strong>
+                      <strong ng-if="projectType === 3">可投宏包金额：10000元</strong>
                     </div>
                   </div>
                   <div class="row" ng-if="projectType === 3">
@@ -236,7 +237,12 @@
                     </div>
                     <div class="col-xs-12" ng-if="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus == 3">
                       <form ng-submit="isAvailableInvest(project);" >
-                        <input type="number" min="0" max="{{canInvestAmount}}" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required>
+                        <div ng-if="projectType === 3">
+                          <input type="number" min="10000" max="{{canInvestAmount}}" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required>
+                        </div>
+                        <div ng-if="projectType === 2">
+                          <input type="number" min="100" max="{{canInvestAmount}}" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required>
+                        </div>
                         <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                         <button class="btn btn-danger btn-lg btn-block" >立即投资</button>
                       </form>
