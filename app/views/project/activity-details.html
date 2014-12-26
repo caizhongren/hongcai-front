@@ -203,7 +203,7 @@
                     </div>
                     <div class="col-xs-12" ng-if="isLogged">
                       <strong ng-if="projectType === 2">可投宏包金额：{{canInvestAmount || '0'}}元</strong>
-                      <strong ng-if="projectType === 3">可投宏包金额：10000元</strong>
+                      <strong ng-if="projectType === 3">可投宏包金额：{{canInvestAmount | invAmountFormat}}元</strong>
                     </div>
                   </div>
                   <div class="row" ng-if="projectType === 3">
@@ -238,7 +238,7 @@
                     <div class="col-xs-12" ng-if="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus == 3">
                       <form ng-submit="isAvailableInvest(project);" >
                         <div ng-if="projectType === 3">
-                          <input type="number" min="10000" max="{{canInvestAmount}}" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required>
+                          <input type="number" min="0" max="{{canInvestAmount | invAmountFormat}}" step="10000" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required>
                         </div>
                         <div ng-if="projectType === 2">
                           <input type="number" min="100" max="{{canInvestAmount}}" step="100" name="project.amount" ng-model="project.amount" class="form-control margin-b-0" placeholder="投资金额（元）" required>
