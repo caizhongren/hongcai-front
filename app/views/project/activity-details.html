@@ -231,7 +231,12 @@
                   </div>
 
                   <div class="col-xs-12 padding-0" ng-if="isLogged && project.status  >= 8 && project.status <= 10">
-                    <input type='button'  value="已过期" class="btn btn-danger btn-lg btn-block" disabled="disabled"/>
+                    <div ng-if="projectType === 2">
+                      <input type='button' value="已过期" class="btn btn-danger btn-lg btn-block" disabled="disabled"/>
+                    </div>
+                    <div ng-if="projectType === 3">
+                      <input type='button' value="已满标" class="btn btn-danger btn-lg btn-block" disabled="disabled"/>
+                    </div>
                   </div>
 
                   <div class="row padding-t-0" ng-if="isLogged && project.status === 7">
