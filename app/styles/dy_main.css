@@ -1104,4 +1104,19 @@ input:focus{
 .security-stl{
   margin-left: 2px;
 }
-
+.under-margin{
+  margin-bottom: 12px;
+}
+.gray-font{
+  color: gray;
+  font-size: 15px;
+}
+.under-margin1{
+  margin-bottom: 10px;
+}
+.right-margin{
+  margin-right: 6px;
+}
+.hr-color{
+  border-top: none;
+}
