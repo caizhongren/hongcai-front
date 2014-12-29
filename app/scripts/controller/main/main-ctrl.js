@@ -2,6 +2,7 @@
 hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', '$timeout', function($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie, $timeout) {
   var loginName;
   var logout;
+  $scope.spCountDown = -1;
   var projectList = MainService.projectList.get(function(response) {
     if (response.ret === 1) {
       $scope.projectList = projectList.data.recommend;
@@ -10,7 +11,9 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
       $scope.baseFileUrl = projectList.data.baseFileUrl;
       $scope.projectVo = projectList.data.specialRecommend[0];
       // 特别推荐倒计时 (倒计时需要提炼出来)
-      $scope.spCountDown = moment($scope.projectVo.releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 1;
+      if ($scope.projectVo.releaseStartTime) {
+        $scope.spCountDown = moment($scope.projectVo.releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 1;
+      }
       // 第一代倒计时
       // $scope.onTimeout = function() {
       //   $scope.spCountDown --;

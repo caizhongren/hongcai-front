@@ -11,11 +11,12 @@
           <li class="list-group-item"  ng-repeat="item in projectList">
             <div class="row">
               <div class="col-xs-2">
-                <div class="row" ng-if="item.status === 7">
-                  <img src="/images/main_hongbao_red.png" alt="宏运标" >
+                <div class="row" ng-show="item.type===2">
+                  <img src="/images/main_hongbao_red.png" alt="宏运标" ng-if="item.status === 7" >
+                  <img src="/images/main_hongbao_gray.png" alt="宏运标" ng-if="item.status !== 7">
                 </div>
-                <div class="row" ng-if="item.status !== 7">
-                  <img src="/images/main_hongbao_gray.png" alt="宏运标" >
+                <div class="row" ng-show="item.type===3">
+                  <img src="/images/main_hao.png" alt="土豪标">
                 </div>
               </div>
               <div class="col-xs-6">
@@ -34,6 +35,9 @@
                 </div>
               </div>
               <div class="col-xs-4">
+                <div class="row" ng-show="item.status === 6">
+                  <img style="float:right; width:20%;" src="/images/activity/activity_flag_2.png" alt="预发布">
+                </div>
                 <div class="row" ng-show="item.status === 7">
                   <img style="float:right; width:20%;" src="/images/activity/activity_flag_1.png" alt="抢标中">
                 </div>
@@ -41,7 +45,7 @@
                   <img style="float:right; width:20%;" src="/images/activity/activity_flag_3.png" alt="已完成">
                 </div>
                 <div class="row col-xs-10" style="margin-top: -25px;">
-                  <a ui-sref="root.activity-details({activityId: item.id, type: item.type})" class="btn btn-lg btn-block" ng-class="{'btn-primary': item.status === 7, 'btn-default': item.status !== 7}">{{ valCategory[item.status] }}</a>
+                  <a ui-sref="root.activity-details({activityId: item.id, type: item.type})" class="btn btn-lg btn-block" ng-class="{'btn-primary': item.status === 6|| item.status === 7, 'btn-default': item.status !== 7}">{{ valCategory[item.status] }}</a>
                 </div>
               </div>
             </div>

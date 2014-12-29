@@ -2,10 +2,10 @@
 hongcaiApp.controller('SliderCtrl', ['$scope', '$stateParams', '$rootScope', '$location', function ($scope, $stateParams, $rootScope, $location) {
     $rootScope.selectPage = $location.path().split('/')[1];
     $scope.media = [
-      {mimeType: 'image/png', src:'images/banner-6.png', href:'/banner-P2B' },
-      {mimeType: 'image/png', src:'images/banner-3.png', href:'/banner-nine'},
-      {mimeType: 'image/png', src:'images/banner-4.png', href:'/project-activity-group' },
-      {mimeType: 'image/png', src:'images/banner-5.png', href:'banner-partner' }
+      {mimeType: 'image/jpg', src:'images/banner-6.jpg', href:'/banner-P2B' },
+      {mimeType: 'image/jpg', src:'images/banner-3.jpg', href:'/banner-nine'},
+      {mimeType: 'image/jpg', src:'images/banner-4.jpg', href:'/project-activity-group' },
+      {mimeType: 'image/jpg', src:'images/banner-5.jpg', href:'banner-partner' }
     ];
     $scope.slickConfig = {
       dots: true,

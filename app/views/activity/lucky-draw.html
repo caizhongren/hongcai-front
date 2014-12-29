@@ -6,15 +6,15 @@
     </div>
     <div class="change-area hongbao-bg" ng-show="status === 1">
       <p class="p-red ab">建议立即使用，宏包可用于以下内容</p>
-      <p class="p-grey ab">*使用期限：自抽取日期至三个月后</p>
+      <p class="p-grey ab">*使用期限：自抽取之日起三个月以内</p>
       <a ui-sref="root.activity-details({activityId:hongYunProject.id,type:hongYunProject.type})" class="a-red-button ab hongBao"></a>
       <a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="a-red-button ab liCai"></a>
     </div>
     <div class="change-area tuhao-bg" ng-show="status === 2">
       <p class="p-red ab">建议立即使用，宏包可用于以下内容</p>
-      <p class="p-grey ab">*使用期限：自抽取日期至三个月后</p>
+      <p class="p-grey ab">*使用期限：自抽取之日起三个月以内</p>
       <a ui-sref="root.activity-details({activityId:tuhaoProject.id,type:tuhaoProject.type})" class="a-red-button ab tuHao"></a>
-      <a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="a-red-button ab liCai"></a>
+      <!-- <a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="a-red-button ab liCai"></a> -->
     </div>
     <div class="share-area ab">
       <p>分享给好友：</p>
@@ -40,10 +40,10 @@
       
     </div>
     <div class="tips-area ab">
-      <p>抽奖活动时间：2014年12月22日至2014年12月28日</p>
+      <p>抽奖活动时间：2014年12月29日至2015年01月03日</p>
       <p>参与对象：宏财网注册用户</p>
       <p>每个用户每天仅能抽取1次，每日0:00后可以再次抽取</p>
-      <p>获得10,000元宏包的用户推荐投入 <a href="javascript:;" class="get-rule-inline">土豪标</a>；获得100元宏包的<br>用户推荐投资 <a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="get-rule-inline">理财项目</a></p>
+      <p>获得10,000元宏包的用户推荐投入 <a ui-sref="root.activity-details({activityId:tuhaoProject.id,type:tuhaoProject.type})" class="get-rule-inline">土豪标</a>；获得100元宏包的<br>用户推荐投资 <a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="get-rule-inline">理财项目</a></p>
       <br>
       <p>宏包不可转赠他人使用，且不能与其他优惠同享</p>
       <p>10,000元宏包中奖概率为1%</p>
