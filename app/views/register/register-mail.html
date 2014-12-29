@@ -26,7 +26,7 @@
 						required
 						ng-focus
 						autofocus/>
-					<div ng-if="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
+					<div ng-if="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$blur" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 						<div ng-if="registerForm.name.$error.unique" class="row">
 							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">用户名已被占用</p>
@@ -123,7 +123,7 @@
 						required
 						ng-focus
 						/>
-					<div ng-if="registerForm.email.$dirty && registerForm.email.$invalid && !registerForm.email.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
+					<div ng-if="registerForm.email.$dirty && registerForm.email.$invalid && !registerForm.email.$blur" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
 						<div ng-if="registerForm.email.$error.pattern" class="row">
 							<i class="fa fa-times-circle-o regist-check-img"></i>
 							<p class="input-tips regist-input-tips">邮箱格式不正确</p>
