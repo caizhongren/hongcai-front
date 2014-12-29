@@ -94,8 +94,9 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
         myOtherModal.$promise.then(myOtherModal.show);
     };
 
-
-
+    $scope.goToRule = function() {
+      $state.go($scope.isLogged === true ? 'root.userCenter.gift-overview' : 'root.login');
+    };
 
 }]);
 
