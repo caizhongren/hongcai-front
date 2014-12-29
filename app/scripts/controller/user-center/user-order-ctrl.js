@@ -119,9 +119,7 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
           var rdp = response.data.project;
           //总融资额
           var invInitDate = moment(rdp.valueDate).toString();
-          console.log('invInitDate:' + invInitDate);
           var accountDay = rdp.accountDay;
-          console.log('accountDay:' + accountDay);
           var invStartDate = moment([moment(invInitDate).year(), moment(invInitDate).month(), accountDay]).toString();
           invStartDate = moment(invStartDate).add(1, 'month').toString();
           var invEndDate = moment(rdp.repaymentDate).toString();
