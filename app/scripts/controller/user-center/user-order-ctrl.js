@@ -49,7 +49,9 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
             return Math.ceil($scope.data.length / $scope.pageSize);
         }
         for (var i = 0; i < $scope.orderList.length; i++) {
-            $scope.data.push($scope.orderList[i]);
+            var item = $scope.orderList[i];
+            item.url = item.type === 1?'root.project-details({projectId: ' + item.projectId + '})':'root.activity-details({activityId: '+ item.projectId + ', type:' + item.type + '})';
+            $scope.data.push(item);
         }
       } else {
         console.log('ask investment, why getOrderByUser did not load data...');
