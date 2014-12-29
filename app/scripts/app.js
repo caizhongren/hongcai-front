@@ -23,7 +23,8 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'sticky',
   'ipCookie',
   'angular-md5',
-  'textAngular'
+  'textAngular',
+  'piwik'
 ]);
 
 hongcaiApp
