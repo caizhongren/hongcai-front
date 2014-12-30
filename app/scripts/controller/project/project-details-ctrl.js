@@ -69,7 +69,6 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
           toaster.pop('warning', projectDetails.msg);
         }
     });
-
     // $scope.currentAmount = $scope.project.currentStock * $scope.project.increaseAmount
     /*$scope.statDate = new Date('2014', '10', '21', '20','17','10');*///假数据
     $scope.finished = function(){
@@ -83,7 +82,9 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
         }
       });
     };
-
+    $scope.Alertdata = function(){
+      var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-perfectinformation.html', show: true});
+    }
     $scope.isAvailableInvest = function(project){//验证用户权限
         if (project.amount <= $scope.project.minInvest){
             // alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
