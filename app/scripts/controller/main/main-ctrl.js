@@ -9,6 +9,9 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
       $scope.serverTime = projectList.data.serverTime;
       $scope.projectVo = projectList.data.specialRecommend[0];
       $scope.baseFileUrl = projectList.data.baseFileUrl;
+      if ($location.protocol() === 'https') {
+        $scope.baseFileUrl = $location.protocol() + '://' + $scope.baseFileUrl.split('://')[1];
+      }
       $scope.projectVo = projectList.data.specialRecommend[0];
       // 特别推荐倒计时 (倒计时需要提炼出来)
       if ($scope.projectVo.releaseStartTime) {
