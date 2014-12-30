@@ -24,23 +24,17 @@ hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$state', 'UserCenterService',
       $scope.lotteryRecords = response.data.lotteryRecords;
       $scope.hongYunProject = response.data.hongYunProject;
       $scope.tuhaoProject = response.data.tuhaoProject;
-      // console.log(response)
-
-      console.log(angular.element('scroll_begin').length,$scope.lotteryRecords.length)
-
+      
       var winnerNum = $scope.lotteryRecords.length;
       $scope.checkRender = function() {
         $timeout.cancel(mytimeout);
-        if(winnerNum !== 0 && angular.element('#scroll_begin span').length === winnerNum){
-          console.log(1)
+        if(winnerNum > 4 && angular.element('#scroll_begin span').length === winnerNum){
           $scope.ScrollImgLeft();
         } else {
           var mytimeout = $timeout($scope.checkRender,50);
         }
       }
-      
-      var mytimeout = $timeout($scope.checkRender,50);
-
+      var mytimeout = $timeout($scope.checkRender,1);
     } else {
       $scope.msg = response.msg;
       var alertDialog = $alert({
