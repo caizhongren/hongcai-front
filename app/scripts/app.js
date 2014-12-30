@@ -550,7 +550,7 @@ hongcaiApp
           'sponsor': {
             templateUrl: 'views/project/project-sponsor-list.html',
             controller: 'ProjectSponsorInstitutionCtrl',
-            controllerUrl: 'scripts/controller/project/guarantee-sponsorInstitution-ctrl'
+            controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
           }
         }
       })
