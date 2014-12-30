@@ -1,13 +1,40 @@
 'use strict';
-hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$state', 'UserCenterService', '$alert', function($scope, $state, UserCenterService, $alert) {
+hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$state', 'UserCenterService', '$alert', '$timeout', function($scope, $state, UserCenterService, $alert, $timeout) {
   $scope.status = 0;
+
+  $scope.ScrollImgLeft = function() { 
+    var speed=30; 
+    var scroll_begin = document.getElementById("scroll_begin"); 
+    var scroll_end = document.getElementById("scroll_end"); 
+    var scroll_div = document.getElementById("scroll_div"); 
+    scroll_end.innerHTML=scroll_begin.innerHTML; 
+    function Marquee(){ 
+    if(scroll_end.offsetWidth-scroll_div.scrollLeft<=0) 
+    scroll_div.scrollLeft-=scroll_begin.offsetWidth; 
+    else 
+    scroll_div.scrollLeft++; 
+    } 
+    var MyMar=setInterval(Marquee,speed); 
+    scroll_div.onmouseover=function() {clearInterval(MyMar);} 
+    scroll_div.onmouseout=function() {MyMar=setInterval(Marquee,speed);} 
+  };
 
   UserCenterService.getLuckyList.get(function(response) {
     if (response.ret === 1) {
       $scope.lotteryRecords = response.data.lotteryRecords;
       $scope.hongYunProject = response.data.hongYunProject;
       $scope.tuhaoProject = response.data.tuhaoProject;
-      console.log(response)
+      
+      var winnerNum = $scope.lotteryRecords.length;
+      $scope.checkRender = function() {
+        $timeout.cancel(mytimeout);
+        if(winnerNum > 4 && angular.element('#scroll_begin span').length === winnerNum){
+          $scope.ScrollImgLeft();
+        } else {
+          var mytimeout = $timeout($scope.checkRender,50);
+        }
+      }
+      var mytimeout = $timeout($scope.checkRender,1);
     } else {
       $scope.msg = response.msg;
       var alertDialog = $alert({
@@ -43,5 +70,9 @@ hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$state', 'UserCenterService',
   $scope.goToRule = function() {
     $state.go($scope.isLogged === true ? 'root.userCenter.gift-overview' : 'root.login');
   }
+
+  
+
+
 
 }]);
