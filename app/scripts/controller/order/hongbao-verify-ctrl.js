@@ -7,6 +7,7 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
         if(response.ret == 1) {
            $scope.project = response.data.project;
            $scope.capital = response.data.capital;
+           $scope.project.typeText = $scope.project.type===2?'宏运':'土豪';
            $scope.giftCount = response.data.giftCount;
            $scope.investAmount = $stateParams.amount;
            if($scope.investAmount > $scope.capital) {
@@ -38,8 +39,9 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
             $location.path('project-activity-group');
         }
     });
-
+    
     $scope.saveHongYunOrder = function(project, investAmount){
+      $scope.checkFlag = false;
       if(project.type === 2){
         OrderService.saveHongYunOrder.get({projectId: project.id, investAmount: investAmount}, function(response) {
           if(response.ret == 1) {
@@ -66,8 +68,7 @@ hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$r
       
     }
     $scope.backTo = function(){
-        //window.location.href = 'project/' + $stateParams.projectId;
-        $location.path('/project/' + $stateParams.projectId);
+        $location.path('/activity/' + $stateParams.activityId + '/' + $scope.project.type);
     }
     //$scope.selectedIcon = 1;
 }]);
