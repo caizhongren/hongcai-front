@@ -17,25 +17,18 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 				$scope.data.push($scope.userMsgList[i]);
 			}
 
-			$scope.changeStatus = function(status,id){
-				var target = angular.element(event.target);
-				if(target.hasClass('list-group-item')){
+			// $scope.changeStatus = function(status,id,$event,$index){
+			$scope.changeStatus = function(status,id,$index){
+				var index = $index+1;
+				var targetP = $('.list-group-item').eq(index).find('p');
 
-					if(target.find('p').hasClass('unfold')){
-						target.find('p').removeClass('unfold');
-					}else{
-						target.find('p').addClass('unfold');
-					}
-					
+				if(targetP.hasClass('unfold')){
+					targetP.removeClass('unfold');
 				}else{
-
-					if(target.closest('li').find('p').hasClass('unfold')){
-						target.closest('li').find('p').removeClass('unfold');
-					}else{
-						target.closest('li').find('p').addClass('unfold');
-					};
-
+					targetP.addClass('unfold');
 				}
+					
+			
 
 				if(status===0){
 					//markSingleMsgRead
@@ -51,11 +44,7 @@ hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state'
 						}
 					});
 
-					if(target.hasClass('list-group-item')){
-							target.removeClass('unread-flag');
-					}else{
-						target.closest('li').removeClass('unread-flag');
-					}
+					$('.list-group-item').eq(index).removeClass('unread-flag');
 
 				}
 			};

@@ -20,7 +20,7 @@
               </div>
             </div>
         </li>
-        <li class="list-group-item border-none" ng-class="{'unread-flag':item.status===0,'read-flag':item.status===1}" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize" ng-click="changeStatus(item.status,item.id,event)">
+        <li class="list-group-item border-none padding-b-0" ng-class="{'unread-flag':item.status===0,'read-flag':item.status===1}" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize" ng-click="changeStatus(item.status,item.id,$index)">
           <div class="row">
             <div class="col-xs-12">
               <div class="pull-left">
