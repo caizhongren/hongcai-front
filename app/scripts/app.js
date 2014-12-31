@@ -12,6 +12,7 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'ngSanitize',
   'mgcrea.ngStrap',
   'ui.router',
+  'ngRoute',
   'ngResource',
   'angularMoment',
   'toaster',
@@ -23,7 +24,8 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'sticky',
   'ipCookie',
   'angular-md5',
-  'textAngular'
+  'textAngular',
+  'analytics'
 ]);
 
 hongcaiApp
@@ -35,7 +37,7 @@ hongcaiApp
   // $locationProvider.html5Mode(true);
   // $routeProvider.when 'carousel-example-generic';
   // }])
-  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider) {
+  .config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', function($routeProvider, $stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider) {
     $uiViewScrollProvider.useAnchorScroll();
     $stateProvider
       .state('root', {
