@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('BankCardManagementCtrl', ['$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', 'toaster', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, toaster) {
+hongcaiApp.controller('BankCardManagementCtrl', ['$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', 'toaster', '$http', 'analytics', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, toaster, $http, analytics) {
   $rootScope.selectSide = 'bankcard-management';
   $scope.dosi = true;
   UserCenterService.getUserBankCard.get({}, function(response) {

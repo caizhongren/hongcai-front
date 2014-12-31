@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', function ($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService) {
+hongcaiApp.controller('MessageCtrl', ['$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', '$http', 'analytics', function ($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService, $http, analytics) {
 	$rootScope.selectSide = 'message';
 
 	UserCenterService.getUserMsgByStatus.get({status: $stateParams.status}, function(response) {

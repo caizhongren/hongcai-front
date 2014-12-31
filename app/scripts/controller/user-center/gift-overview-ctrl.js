@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('GiftOverviewCtrl', [ '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'OrderService', 'DEFAULT_DOMAIN', function ($scope, $state, $rootScope, $stateParams, UserCenterService, OrderService, DEFAULT_DOMAIN) {
+hongcaiApp.controller('GiftOverviewCtrl', [ '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'OrderService', 'DEFAULT_DOMAIN', '$http', 'analytics', function ($scope, $state, $rootScope, $stateParams, UserCenterService, OrderService, DEFAULT_DOMAIN, $http, analytics) {
 
     $rootScope.selectSide = 'gift-overview';
     UserCenterService.getGiftListByUserId.get(function(response) {

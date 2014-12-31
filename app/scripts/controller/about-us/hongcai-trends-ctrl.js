@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('HongcaiTrendsCtrl', ['$scope', '$state', '$stateParams', 'AboutUsService', function ($scope, $state, $stateParams, AboutUsService) {
+hongcaiApp.controller('HongcaiTrendsCtrl', ['$scope', '$state', '$stateParams', 'AboutUsService', '$http', 'analytics', function ($scope, $state, $stateParams, AboutUsService, $http, analytics) {
 	AboutUsService.textList.get({category: 3}, function(response) {
         $scope.textList = response.data;
         $scope.baseFileUrl = response.data.baseFileUrl;

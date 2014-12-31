@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config', 'toaster', '$alert', function ($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config, toaster, $alert) {
+hongcaiApp.controller('hongbaoVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config', 'toaster', '$alert', '$http', 'analytics', function ($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config, toaster, $alert, $http, analytics) {
     $scope.giftCount = 0;
     $scope.checkFlag = true;
     OrderService.hongbaoVerify.get({projectId: $stateParams.activityId, amount: $stateParams.amount, }, function(response) {

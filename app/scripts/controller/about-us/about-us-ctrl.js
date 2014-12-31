@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('AboutUsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'AboutUsService', function ($scope, $state, $rootScope, $location, $stateParams, AboutUsService) {
+hongcaiApp.controller('AboutUsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'AboutUsService', '$http', 'analytics', function ($scope, $state, $rootScope, $location, $stateParams, AboutUsService, $http, analytics) {
 	$scope.menus = {
             'left': [{
             	'href': '/introduction-of-platform',

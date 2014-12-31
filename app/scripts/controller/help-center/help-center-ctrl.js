@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', function ($scope, $state, $rootScope, $location, $stateParams) {
+hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', '$http', 'analytics', function ($scope, $state, $rootScope, $location, $stateParams, $http, analytics) {
 	$scope.menus = {
             'left': [{
             	'href': '/introduce',
