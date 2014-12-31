@@ -1169,3 +1169,15 @@ input:focus{
 .spangray{
   color: #999999;
 }
+.countdown-background{
+  background: url(/images/projectdetail_03.png);
+  background-repeat: no-repeat;
+  height: 49px;
+  margin-left: 5%;
+}
+.countdown-fontsize{
+  margin-top: 8px;
+  margin-left: -12px;
+  color: #ffffff;
+  font-size: 16px;
+}
