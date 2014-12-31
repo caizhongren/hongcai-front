@@ -277,7 +277,7 @@
 
         <div class="panel-body">
           <div class="row noticeList" ng-repeat="item in noticeList track by $index">
-            <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a>
+            <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref="root.about-us.web-site-notice-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a>
             </div>
             <div class="hidden-xs hidden-md col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
           </div>
