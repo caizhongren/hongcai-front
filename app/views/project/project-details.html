@@ -46,6 +46,16 @@
                       <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
                         <strong>发布日期：{{ project.publishTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}</strong>
                       </div>
+                      <div ng-if="project.progress >= 100 && project.status === 9">
+                        <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
+                        <strong>还款日期：{{ project.repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</strong>
+                        </div>
+                      </div>
+                      <div ng-if="project.progress >= 100 && project.status === 10">
+                       <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
+                        <strong>还款日期：{{ project.repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</strong>
+                      </div>
+                      </div>
                     </div>
                   </div>
 
