@@ -902,6 +902,63 @@ hongcaiApp
             templateUrl: 'views/help-center/other-question.html'
           }
         }
+      })
+      /*------------------------------------------  app-help-center  -----------------------------------------------*/
+      .state('app-help-center', {
+        abstract: true,
+        views: {
+          '': {
+            templateUrl: 'views/help-center/help-center.html'
+          }
+        }
+      })
+      .state('app-help-center.introduce', {
+        url: '/introduce-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/introduce-app.html'
+          }
+        }
+      })
+      .state('app-help-center.investors', {
+        url: '/investors-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/investors-app.html'
+          }
+        }
+      })
+      .state('app-help-center.account-management', {
+        url: '/account-management-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/account-management-app.html'
+          }
+        }
+      })
+      .state('app-help-center.safety-certification', {
+        url: '/safety-certification-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/safety-certification-app.html'
+          }
+        }
+      })
+      .state('app-help-center.law-and-policy-guarantee', {
+        url: '/law-and-policy-guarantee-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/law-and-policy-guarantee-app.html'
+          }
+        }
+      })
+      .state('app-help-center.other-question', {
+        url: '/other-question-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/other-question-app.html'
+          }
+        }
       });
     // 导致IE8不兼容的地方。
     $urlRouterProvider.otherwise('/');
