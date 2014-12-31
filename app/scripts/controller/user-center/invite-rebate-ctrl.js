@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('InviteRebateCtrl', [ '$scope', '$state', '$rootScope', 'UserCenterService', function ($scope, $state, $rootScope, UserCenterService) {
+hongcaiApp.controller('InviteRebateCtrl', [ '$scope', '$state', '$rootScope', 'UserCenterService', '$http', 'analytics', function ($scope, $state, $rootScope, UserCenterService, $http, analytics) {
   $rootScope.selectSide = 'invite-rebate';
   UserCenterService.getInviteList.get(function(response) {
   	if(response.ret === 1) {

@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', '$timeout', function($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie, $timeout) {
+hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', '$timeout', '$http', 'analytics', function($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie, $timeout, $http, analytics) {
   var loginName;
   var logout;
   $scope.spCountDown = -1;
@@ -100,7 +100,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     }
   });
 
-  AboutUsService.textList.get({
+  AboutUsService.indexTextList.get({
     category: 1
   }, function(response) {
     if (response.ret === 1) {
@@ -109,7 +109,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     }
   });
 
-  AboutUsService.textList.get({
+  AboutUsService.indexTextList.get({
     category: 2
   }, function(response) {
     if (response.ret === 1) {
@@ -118,7 +118,7 @@ hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$loc
     }
   });
 
-  AboutUsService.textList.get({
+  AboutUsService.indexTextList.get({
     category: 3
   }, function(response) {
     if (response.ret === 1) {

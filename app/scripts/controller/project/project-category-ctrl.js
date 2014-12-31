@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('ProjectCategoryCtrl', ['$scope','$rootScope', '$location', function ($scope, $rootScope, $location) {
+hongcaiApp.controller('ProjectCategoryCtrl', ['$scope','$rootScope', '$location', '$http', 'analytics', function ($scope, $rootScope, $location, $http, analytics) {
 
   $rootScope.selectPage = $location.path().split('/')[1];
   

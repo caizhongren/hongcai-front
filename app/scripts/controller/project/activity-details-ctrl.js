@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', '$timeout', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, $timeout) {
+hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', '$timeout', '$http', 'analytics', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, $timeout, $http, analytics) {
   $rootScope.redirectUrl = $location.path();
 
   var activityDetails = ProjectService.activityDetails.get({

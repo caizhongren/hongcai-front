@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('WebSiteNoticeCtrl', ['$scope', '$state', '$stateParams', 'AboutUsService', function ($scope, $state, $stateParams, AboutUsService) {
+hongcaiApp.controller('WebSiteNoticeCtrl', ['$scope', '$state', '$stateParams', 'AboutUsService', '$http', 'analytics', function ($scope, $state, $stateParams, AboutUsService, $http, analytics) {
 	AboutUsService.textList.get({category: 2}, function(response) {
         $scope.textList = response.data;
         $scope.orderProp = 'id';

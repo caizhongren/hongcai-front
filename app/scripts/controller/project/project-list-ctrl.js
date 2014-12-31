@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'ProjectService', 'toaster', '$timeout', function ($scope, $stateParams, $rootScope, $location, ProjectService, toaster, $timeout) {
+hongcaiApp.controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'ProjectService', 'toaster', '$timeout', '$http', 'analytics', function ($scope, $stateParams, $rootScope, $location, ProjectService, toaster, $timeout, $http, analytics) {
     $scope.sortType = $stateParams.sortType || false ;
     if($scope.sortType === 'true'){
       $scope.sortType = true;
