@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('UnBindBankcardSuccessCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', function ($scope, $timeout, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster) {
+hongcaiApp.controller('UnBindBankcardSuccessCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', '$http', 'analytics', function ($scope, $timeout, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, $http, analytics) {
     $scope.page = 7;
     $scope.counter = 10;
     // $scope.onTimeout = function(){

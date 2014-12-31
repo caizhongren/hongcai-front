@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('YeepaySuccessCtrl', ["$scope", "$state", '$timeout', "$rootScope", "$stateParams", "RegisterService", "SessionService", "DEFAULT_DOMAIN", "toaster", function ($scope, $state, $timeout, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster) {
+hongcaiApp.controller('YeepaySuccessCtrl', ["$scope", "$state", '$timeout', "$rootScope", "$stateParams", "RegisterService", "SessionService", "DEFAULT_DOMAIN", "toaster", '$http', 'analytics', function ($scope, $state, $timeout, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, $http, analytics) {
   $scope.page = 1;
 
   // $scope.counter = 5;

@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'SessionService', 'DEFAULT_DOMAIN', 'toaster','GetPwdService', 'UserCenterService', 'md5', function ($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster,GetPwdService, UserCenterService, md5) {
+hongcaiApp.controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'SessionService', 'DEFAULT_DOMAIN', 'toaster','GetPwdService', 'UserCenterService', 'md5', '$http', 'analytics', function ($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster,GetPwdService, UserCenterService, md5, $http, analytics) {
   $scope.areaFlag = 1;
   $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?';
   $scope.refreshCode = function() {

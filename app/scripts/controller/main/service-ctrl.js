@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('ServiceCtrl', ['$scope', '$state', '$rootScope', '$stateParams', function ($scope, $state, $rootScope, $stateParams) {
+hongcaiApp.controller('ServiceCtrl', ['$scope', '$state', '$rootScope', '$stateParams', '$http', 'analytics', function ($scope, $state, $rootScope, $stateParams, $http, analytics) {
 
     var $bottomTools = $('.bottom_tools');
     var $qrTools = $('.qr_tool');

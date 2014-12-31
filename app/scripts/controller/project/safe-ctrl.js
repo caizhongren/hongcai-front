@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('SafeCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', function ($scope, $state, $rootScope, $location, $stateParams) {
+hongcaiApp.controller('SafeCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', '$http', 'analytics', function ($scope, $state, $rootScope, $location, $stateParams, $http, analytics) {
        
   $rootScope.selectPage = $location.path().split('/')[1];
 

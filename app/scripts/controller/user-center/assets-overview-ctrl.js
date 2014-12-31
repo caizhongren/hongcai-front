@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('AssetsOverviewCtrl', [ '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', function ($scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
+hongcaiApp.controller('AssetsOverviewCtrl', [ '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', '$http', 'analytics', function ($scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, $http, analytics) {
 
 	$rootScope.selectSide = 'assets-overview';
     var balance = 0;
