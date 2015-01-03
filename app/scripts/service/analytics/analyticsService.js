@@ -2,7 +2,7 @@ var _gaq = _gaq || [];
 
 angular.module('analytics', []).run(['$http', function($http) {
 
-	_gaq.push(['_setAccount', 'jinxiao522@gmail.com']);
+	_gaq.push(['_setAccount', 'UA-58099495-1']);
 	_gaq.push(['_trackPageview']);
 
 	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
