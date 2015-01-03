@@ -23,7 +23,8 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'sticky',
   'ipCookie',
   'angular-md5',
-  'textAngular'
+  'textAngular',
+  'angular-google-analytics'
 ]);
 
 hongcaiApp
@@ -35,7 +36,7 @@ hongcaiApp
   // $locationProvider.html5Mode(true);
   // $routeProvider.when 'carousel-example-generic';
   // }])
-  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', 'AnalyticsProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider, AnalyticsProvider) {
     $uiViewScrollProvider.useAnchorScroll();
     $stateProvider
       .state('root', {
@@ -549,7 +550,7 @@ hongcaiApp
           'sponsor': {
             templateUrl: 'views/project/project-sponsor-list.html',
             controller: 'ProjectSponsorInstitutionCtrl',
-            controllerUrl: 'scripts/controller/project/guarantee-sponsorInstitution-ctrl'
+            controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
           }
         }
       })
@@ -900,6 +901,63 @@ hongcaiApp
             templateUrl: 'views/help-center/other-question.html'
           }
         }
+      })
+      /*------------------------------------------  app-help-center  -----------------------------------------------*/
+      .state('app-help-center', {
+        abstract: true,
+        views: {
+          '': {
+            templateUrl: 'views/help-center/help-center.html'
+          }
+        }
+      })
+      .state('app-help-center.introduce', {
+        url: '/introduce-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/introduce-app.html'
+          }
+        }
+      })
+      .state('app-help-center.investors', {
+        url: '/investors-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/investors-app.html'
+          }
+        }
+      })
+      .state('app-help-center.account-management', {
+        url: '/account-management-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/account-management-app.html'
+          }
+        }
+      })
+      .state('app-help-center.safety-certification', {
+        url: '/safety-certification-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/safety-certification-app.html'
+          }
+        }
+      })
+      .state('app-help-center.law-and-policy-guarantee', {
+        url: '/law-and-policy-guarantee-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/law-and-policy-guarantee-app.html'
+          }
+        }
+      })
+      .state('app-help-center.other-question', {
+        url: '/other-question-app',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/other-question-app.html'
+          }
+        }
       });
     // 导致IE8不兼容的地方。
     $urlRouterProvider.otherwise('/');
@@ -914,9 +972,15 @@ hongcaiApp
     //disable IE ajax request caching
     $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
 
+    AnalyticsProvider.setAccount('UA-58181412-1');
+    AnalyticsProvider.trackPages(true);
+    AnalyticsProvider.useDisplayFeatures(true);
+    AnalyticsProvider.useAnalytics(true);
+    AnalyticsProvider.setPageEvent('$stateChangeSuccess');
+
   }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_DOMAIN, toaster, config) {
+hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_DOMAIN, toaster, config, Analytics) {
   // Array 在IE8下没有indexOf 方法。
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(obj, start) {

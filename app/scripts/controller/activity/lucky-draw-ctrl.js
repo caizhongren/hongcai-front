@@ -71,4 +71,8 @@ hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$state', 'UserCenterService',
     $state.go($scope.isLogged === true ? 'root.userCenter.gift-overview' : 'root.login');
   }
 
+  
+
+
+
 }]);

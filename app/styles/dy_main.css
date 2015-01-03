@@ -863,12 +863,16 @@ input:focus{
 .add-card{
   font-size: 20px;
   text-align: center;
-  padding-top: 35px;
-  padding-left: 65px;
+  padding-left: 90px;
+}
+.add-cardnum{
+  color: #cccccc;
+  font-size: 28px;
 }
 .add-cardNo {
-  font-size: 35px;
+  font-size: 34px;
   text-align: center;
+  color: #333333;
 }
 .bankCard{
   position: relative;
@@ -1117,6 +1121,63 @@ input:focus{
 .right-margin{
   margin-right: 6px;
 }
-.hr-color{
-  border-top: none;
+.project-bianju{
+  margin-left:10px;
+  margin-top:-5px;
+}
+.investment-fontsize{
+  font-size: 16px;
+}
+.investment-fontred{
+  color: red;
+  font-size: 24px;
+}
+.investment-fontblack{
+  font-size: 24px;
+}
+.investment-fontgray{
+  font-size: 17px;
+  color: #999999;
+}
+.fa-gray{
+  color: gray;
+}
+.negative-margin{
+  margin-top: -13px;
+}
+.positive-margin{
+  margin-top: 5px;
+}
+.positive-margin1{
+  margin-top: 12px;
+}
+.positive-leftmargin{
+  margin-left: 20%;
+}
+.nagtive-leftmargin{
+  margin-left: -6%;
+}
+.positive-bottommargin{
+  margin-bottom: 12px;
+}
+.project-leftmargin{
+  margin-right: 5px;
+}
+.i-rightmargin{
+  margin-right: 6px;
+}
+.spangray{
+  color: #999999;
+}
+.countdown-background{
+  background: url(/images/projectdetail_03.png);
+  background-repeat: no-repeat;
+  height: 49px;
+  margin-left: 5%;
+}
+.countdown-fontsize{
+  margin-top: 8px;
+  margin-left: -12px;
+  color: #ffffff;
+  font-size: 16px;
 }
