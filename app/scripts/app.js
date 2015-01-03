@@ -972,7 +972,7 @@ hongcaiApp
     //disable IE ajax request caching
     $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
 
-    AnalyticsProvider.setAccount('UA-58099495-1');
+    AnalyticsProvider.setAccount('UA-58181412-1');
     AnalyticsProvider.trackPages(true);
     AnalyticsProvider.useDisplayFeatures(true);
     AnalyticsProvider.useAnalytics(true);
