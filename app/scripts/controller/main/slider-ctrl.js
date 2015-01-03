@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('SliderCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$http', 'analytics', function ($scope, $stateParams, $rootScope, $location, $http, analytics) {
+hongcaiApp.controller('SliderCtrl', ['$scope', '$stateParams', '$rootScope', '$location', function ($scope, $stateParams, $rootScope, $location) {
     $rootScope.selectPage = $location.path().split('/')[1];
     $scope.media = [
       {mimeType: 'image/jpg', src:'images/banner-6.jpg', href:'/banner-P2B' },

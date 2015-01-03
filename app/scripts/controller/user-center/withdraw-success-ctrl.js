@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('WithdrawSuccessCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', '$http', 'analytics', function ($scope, $timeout, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, $http, analytics) {
+hongcaiApp.controller('WithdrawSuccessCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', function ($scope, $timeout, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster) {
     $scope.page = 6;
     $scope.counter = 5;
     // $scope.onTimeout = function(){

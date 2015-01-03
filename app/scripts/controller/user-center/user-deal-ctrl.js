@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$stateParams','$location', 'UserCenterService', '$http', 'analytics', function ($scope,$rootScope, $state, $stateParams, $location, UserCenterService, $http, analytics) {
+hongcaiApp.controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$stateParams','$location', 'UserCenterService', function ($scope,$rootScope, $state, $stateParams, $location, UserCenterService) {
   $rootScope.selectSide = 'record';
   $scope.type = $stateParams.type || 0;
   $scope.dateInterval = $stateParams.dateInterval || 0;

@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$state', 'UserCenterService', '$alert', '$timeout', '$http', 'analytics', function($scope, $state, UserCenterService, $alert, $timeout, $http, analytics) {
+hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$state', 'UserCenterService', '$alert', '$timeout', function($scope, $state, UserCenterService, $alert, $timeout) {
   $scope.status = 0;
 
   $scope.ScrollImgLeft = function() { 

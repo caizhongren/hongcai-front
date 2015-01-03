@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$http', 'analytics', function($location, $scope, $rootScope, $state, $stateParams, UserCenterService, $http, analytics) {
+hongcaiApp.controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$state', '$stateParams', 'UserCenterService', function($location, $scope, $rootScope, $state, $stateParams, UserCenterService) {
   $rootScope.redirectUrl = $location.path();
   $rootScope.selectSide = 'gift-rebate';
   $scope.typeInvStatus = {

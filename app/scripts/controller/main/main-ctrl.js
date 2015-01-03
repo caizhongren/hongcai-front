@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', '$timeout', '$http', 'analytics', function($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie, $timeout, $http, analytics) {
+hongcaiApp.controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', '$timeout', function($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie, $timeout) {
   var loginName;
   var logout;
   $scope.spCountDown = -1;

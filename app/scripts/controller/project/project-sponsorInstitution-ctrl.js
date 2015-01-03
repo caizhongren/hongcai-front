@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams', '$location', '$timeout', 'ProjectService', '$http', 'analytics', function ($scope, $stateParams, $location, $timeout, ProjectService, $http, analytics) {
+hongcaiApp.controller('ProjectSponsorInstitutionCtrl', ['$scope', '$stateParams', '$location', '$timeout', 'ProjectService', function ($scope, $stateParams, $location, $timeout, ProjectService) {
     $scope.sortType = $stateParams.sortType || false ;
 
     var sponsorInstitution = ProjectService.sponsorInstitution.get({guaranteeId: $stateParams.guaranteeId}, function() {

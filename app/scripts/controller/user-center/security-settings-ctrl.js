@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'config', 'md5', '$alert', '$http', 'analytics', function($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5, $alert, $http, analytics) {
+hongcaiApp.controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'config', 'md5', '$alert', function($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5, $alert) {
 
   $rootScope.selectSide = 'security-settings';
   UserCenterService.userSecurityInfo.get({}, function(response) {

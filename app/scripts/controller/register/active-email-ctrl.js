@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('ActiveEmailCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'DEFAULT_DOMAIN', 'toaster', 'md5', 'ipCookie', '$http', 'analytics', function ($scope, $state, $rootScope, $stateParams, RegisterService, DEFAULT_DOMAIN, toaster, md5, ipCookie, $http, analytics) {
+hongcaiApp.controller('ActiveEmailCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'DEFAULT_DOMAIN', 'toaster', 'md5', 'ipCookie', function ($scope, $state, $rootScope, $stateParams, RegisterService, DEFAULT_DOMAIN, toaster, md5, ipCookie) {
 
     if ($stateParams.etoken){
         RegisterService.activeEmail.get({etoken: $stateParams.etoken},function(response){

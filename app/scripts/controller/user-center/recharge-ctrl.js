@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('RechargeCtrl', ['$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', '$alert', '$http', 'analytics', function($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $alert, $http, analytics) {
+hongcaiApp.controller('RechargeCtrl', ['$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', '$alert', function($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $alert) {
   $rootScope.selectSide = 'recharge';
   $scope.balance = 0;
   UserCenterService.getUserBalance.get({}, function(response) {
