@@ -84,7 +84,7 @@
           </div>
           <div class="form-group col-md-12 col-lg-12">
             <label for="mobileCaptcha" class="col-md-3 col-lg-3">验证码：</label>
-            <input type="text" class="col-md-3 col-lg-3" id="mobileCaptcha" name="mobileCaptcha" ng-model="user.mobileCaptcha" required ng-focus />
+            <input type="text" class="col-md-3 col-lg-3" id="mobileCaptcha" ensure-captcha="mobileCaptcha" name="mobileCaptcha" ng-model="user.mobileCaptcha" required ng-focus />
             <input type="button" class="col-md-3 col-lg-3 {{registerForm.mobile.$invalid ? 'white-button grey' : 'white-button'}}" value="获取验证码" onclick="countDown(this,60);" ng-click="sendMobileCaptcha();" ng-disabled="registerForm.mobile.$invalid" style="margin-left:5px" />
             <div ng-if="registerForm.mobileCaptcha.$dirty && registerForm.mobileCaptcha.$invalid && registerForm.mobileCaptcha.$error.check && !registerForm.mobileCaptcha.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3  form-div">
               <div class="row">
