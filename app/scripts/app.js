@@ -980,7 +980,7 @@ hongcaiApp
 
   }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_DOMAIN, toaster, config, Analytics) {
+hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_DOMAIN, toaster, config) {
   // Array 在IE8下没有indexOf 方法。
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(obj, start) {
