@@ -4,6 +4,8 @@ hongcaiApp.controller('ServiceCtrl', ['$scope', '$state', '$rootScope', '$stateP
     var $bottomTools = $('.bottom_tools');
     var $qrTools = $('.qr_tool');
     var qrImg = $('.qr_img');
+    var qqImg = $('.qqBox');
+    var $feedback = $('#feedback');
 
     $(window).scroll(function () {
         var scrollHeight = $(document).height();
@@ -22,6 +24,14 @@ hongcaiApp.controller('ServiceCtrl', ['$scope', '$state', '$rootScope', '$stateP
         qrImg.fadeIn();
     }, function(){
          qrImg.fadeOut();
+    });
+
+    $feedback.focus(function () {
+        qqImg.fadeIn();
+    });
+
+    $feedback.blur(function () {
+        qqImg.fadeOut();
     });
 
     //计算器
