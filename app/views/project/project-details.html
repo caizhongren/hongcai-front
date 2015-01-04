@@ -295,9 +295,8 @@
                 <div class="col-xs-12 padding-0 positive-margin" ng-if="!isLogged">
                   <span class="investment-fontsize">可用余额：</span><span class="investment-fontgray">(登录后查看)</span>
                 </div>
-                <div class="col-xs-12 padding-0" ng-if="!isLogged">
-                  <div class="row padding-t-0" ng-if=" statSecond > 1 && project.status === 6 ">
-                    <!-- <div class="col-xs-12">开放投资倒计时：</div> -->
+                <div class="col-xs-12 padding-0" ng-show="!isLogged && project.status === 6 ">
+                  <div class="row padding-t-0">
                     <div class="col-xs-12 project-timer countdown-background" style="margin-top:10px;">
                       <p class="countdown-fontsize">{{ statDay }}{{ statTime }}</p>
                     </div>
@@ -307,7 +306,8 @@
                   <div class="positive-margin1 positive-leftmargin"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">请先登录，再进行投资</span>
                   </div>
                 </div>
-                <div class="col-xs-12 padding-0" ng-if="!isLogged && project.status != 6">
+
+                <div class="col-xs-12 padding-0" ng-show="!isLogged && project.status !== 6">
                   <div class="positive-margin1">
                     <input type="number" placeholder="请输入投资金额" disabled='disabled' class="form-control margin-b-20">
                   </div>
