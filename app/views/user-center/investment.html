@@ -117,8 +117,8 @@
           </div>
         </td>
         <td>
-          <button ng-show="item.status <= 3 " type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button>
-          <button ng-show="item.status > 3 && item.status <= 6" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">下载合同</button>
+          <button ng-show="item.status === 1 " type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button>
+          <button ng-show="item.status >= 2 && item.status <= 6" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">下载合同</button>
         </td>
       </tr>
     </tbody>
