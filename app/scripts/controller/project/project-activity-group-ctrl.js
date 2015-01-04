@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('ProjectActivityGroupCtrl', ['$scope', 'ProjectService', 'toaster', '$http', 'analytics', function ($scope, ProjectService, toaster, $http, analytics) {
+hongcaiApp.controller('ProjectActivityGroupCtrl', ['$scope', 'ProjectService', 'toaster', function ($scope, ProjectService, toaster) {
   $scope.valCategory = {6:'预发布', 7: '立即投资', 8: '查看详情', 9:'查看详情', 10:'查看详情'};
   var activityGroup = ProjectService.getGiftProjectList.get(function() {
     if(activityGroup.ret === 1) {

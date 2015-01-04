@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('AccountOverviewCtrl', [ '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'OrderService', 'DEFAULT_DOMAIN', '$http', 'analytics', function ($scope, $state, $rootScope, $stateParams, UserCenterService, OrderService, DEFAULT_DOMAIN, $http, analytics) {
+hongcaiApp.controller('AccountOverviewCtrl', [ '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'OrderService', 'DEFAULT_DOMAIN', function ($scope, $state, $rootScope, $stateParams, UserCenterService, OrderService, DEFAULT_DOMAIN) {
 
     $rootScope.selectSide = 'account-overview';
     var totalAssets = 0;

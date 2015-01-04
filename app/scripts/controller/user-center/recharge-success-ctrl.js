@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('RechargeSuccessCtrl', ['$scope', '$http', 'analytics', function ($scope, $http, analytics) {
+hongcaiApp.controller('RechargeSuccessCtrl', ['$scope', function ($scope) {
     $scope.page = 4;
     console.log('page:' + $scope.page);
     // $scope.counter = 5;

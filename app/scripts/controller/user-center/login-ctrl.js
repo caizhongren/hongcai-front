@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'ipCookie', 'md5', 'toaster', 'UserCenterService', '$http', 'analytics', function ($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, ipCookie, md5, toaster, UserCenterService, $http, analytics) {
+hongcaiApp.controller('LoginCtrl', ['$scope', '$location','$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'ipCookie', 'md5', 'toaster', 'UserCenterService', function ($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, ipCookie, md5, toaster, UserCenterService) {
 
   if (ipCookie('userName')){
     $scope.user = [];

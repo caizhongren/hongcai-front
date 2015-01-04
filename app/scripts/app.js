@@ -12,7 +12,6 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'ngSanitize',
   'mgcrea.ngStrap',
   'ui.router',
-  'ngRoute',
   'ngResource',
   'angularMoment',
   'toaster',
@@ -25,7 +24,7 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'ipCookie',
   'angular-md5',
   'textAngular',
-  'analytics'
+  'angular-google-analytics'
 ]);
 
 hongcaiApp
@@ -37,7 +36,7 @@ hongcaiApp
   // $locationProvider.html5Mode(true);
   // $routeProvider.when 'carousel-example-generic';
   // }])
-  .config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', function($routeProvider, $stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', 'AnalyticsProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider, AnalyticsProvider) {
     $uiViewScrollProvider.useAnchorScroll();
     $stateProvider
       .state('root', {
@@ -973,9 +972,15 @@ hongcaiApp
     //disable IE ajax request caching
     $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
 
+    AnalyticsProvider.setAccount('UA-58181412-1');
+    AnalyticsProvider.trackPages(true);
+    AnalyticsProvider.useDisplayFeatures(true);
+    AnalyticsProvider.useAnalytics(true);
+    AnalyticsProvider.setPageEvent('$stateChangeSuccess');
+
   }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_DOMAIN, toaster, config) {
+hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_DOMAIN, toaster, config, Analytics) {
   // Array 在IE8下没有indexOf 方法。
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(obj, start) {

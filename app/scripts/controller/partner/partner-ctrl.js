@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('PartnerCtrl', ['$scope', '$state', '$rootScope', '$stateParams', '$location', '$http', 'analytics', function ($scope, $state, $rootScope, $stateParams, $location, $http, analytics) {
+hongcaiApp.controller('PartnerCtrl', ['$scope', '$state', '$rootScope', '$stateParams', '$location', function ($scope, $state, $rootScope, $stateParams, $location) {
 	$scope.menus = {
             'left': [{
             	'href': '/partner-platform',

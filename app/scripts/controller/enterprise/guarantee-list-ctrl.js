@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location', 'GuaranteeService', '$http', 'analytics', function ($scope, $stateParams, $location, GuaranteeService, $http, analytics) {
+hongcaiApp.controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location', 'GuaranteeService' ,function ($scope, $stateParams, $location, GuaranteeService) {
     $scope.sortType = $stateParams.sortType || false ;
 
     var sponsor = GuaranteeService.guaranteeList.get(function() {

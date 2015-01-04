@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('WithdrawCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', '$http', 'analytics', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $http, analytics) {
+hongcaiApp.controller('WithdrawCtrl', [ '$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', function ( $location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
 
     $rootScope.selectSide = $location.path().substr($location.path().indexOf('/') + 1);
     $scope.availableCash = 0;
