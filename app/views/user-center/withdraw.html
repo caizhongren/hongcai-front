@@ -1,68 +1,67 @@
 <!--提现-->
 <div class="right-area withdraw col-md-8 col-lg-9">
-	<div class="row">
-		<div class="right-title word-less-title">提现</div>
-	</div>
-	<div class="row">
-		<p class="verify-tip safe-card-tips col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="!isSecurityAuth" ng-init="isSecurityAuth=true">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
-	</div>
-	<div class="row">
-		<form class="col-md-offset-1 col-lg-offset-1" name="withdrawForm" ng-show="isSecurityAuth">
-			<div class="row">
-				<div class="form-group mgn-top">
-					<label class="col-md-3 col-lg-3">可用余额：</label>
-					<p>{{availableCash | number:2}}元</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group mgn-top">
-					<label class="col-md-3 col-lg-3">手续费：<br><small>(第三方支付收取)</small></label>
-					<p>2元</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group mgn-top">
-					<label class="col-md-3 col-lg-3">可提现金额：</label>
-					<p>{{availableCash_dele2 | number:2}}元</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group">
-					<label class="col-md-3 col-lg-3">提现金额：</label>
-					<input name="amount" type="text" class="verify-input" ng-model="amount"
-							ng-pattern="/^0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*$/"
-							ng-focus
-							required autofocus/>&nbsp;&nbsp;元
-					<div class="user-tips-area col-md-offset-3 col-lg-offset-3"  ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">
-						<p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>只能输入数字</p>
-					</div>
-					<div class="user-tips-area col-md-offset-3 col-lg-offset-3"  ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">
-						<p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能大于可提现金额</p>
-					</div>
-					<div class="user-tips-area col-md-offset-3 col-lg-offset-3"  ng-show="withdrawForm.amount.$dirty && amount<1">
-						<p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>提现金额不能小于1</p>
-					</div>
-					<div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">
-						<p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>提现金额不能为空</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group">
-					<label class="col-md-3 col-lg-3"></label>
-					<input type="button" value="确认提现" class="shite-button" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'white-button':withdrawForm.$invalid || checkLargestAmount(amount), 'blue-button':!withdrawForm.$invalid && !checkLargestAmount(amount)}"
-/>
-				</div>
-			</div>
-		</form>
-	</div>
-	<div class="row">
-		<div class="ft-12 col-md-offset-2 col-lg-offset-2" style="padding-right:85px;padding-top:5%;">
-			<p>温馨提示</p>
-			<p>1. 目前提现是由三方支付平台收取2元每笔的提现费用。提现金额的最小额度为1元，即额度大于或等于1元。宏财网平台不收取任何提现费用；</p>
-			<p>2. 三方支付平台收到用户提现申请即对提现进行转账操作，由于不同银行处理速度不同，提现资金将会当天或下个工作日到账（如遇双休日或法定节假日顺延）。</p>
-			<p>3. 如果用户迟迟未收到提现资金，可能为银行卡信息填写有误，银行做正在退票操作，预计会在7个工作日内完成退票，请用户耐心等候。用户还可以联系客服（400-990-7626），寻求帮助；</p>
-			<p>4. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>
-		</div>
-	</div>
+  <div class="row">
+    <div class="right-title word-less-title">提现</div>
+  </div>
+  <div class="row">
+    <p class="verify-tip safe-card-tips col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="!isSecurityAuth" ng-init="isSecurityAuth=true">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
+  </div>
+  <div class="row">
+    <form class="col-md-offset-1 col-lg-offset-1" name="withdrawForm" ng-show="isSecurityAuth">
+      <div class="row">
+        <div class="form-group mgn-top">
+          <label class="col-md-3 col-lg-3">可用余额：</label>
+          <p>{{availableCash | number:2}}元</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group mgn-top">
+          <label class="col-md-3 col-lg-3">手续费：
+            <br><small>(第三方支付收取)</small>
+          </label>
+          <p>2元</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group mgn-top">
+          <label class="col-md-3 col-lg-3">可提现金额：</label>
+          <p>{{availableCash_dele2 | number:2}}元</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-md-3 col-lg-3">提现金额：</label>
+          <input name="amount" type="text" class="verify-input" ng-model="amount" ng-pattern="/^0*[1-9][0-9]*(\.[0-9]{2})?|0+\.[0-9]*[1-9][0-9]*$/" ng-focus ng-disabled="availableCash_dele2 <= 0" required autofocus/>&nbsp;&nbsp;元
+
+          <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img">输入有误</i></p>
+          </div>
+          <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能大于可提现金额</p>
+          </div>
+          <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && amount<1">
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>提现金额不能小于1元</p>
+          </div>
+          <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">
+            <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>提现金额不能为空</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-md-3 col-lg-3"></label>
+          <input type="button" value="确认提现" class="white-button" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'white-button':withdrawForm.$invalid || checkLargestAmount(amount), 'red-button':!withdrawForm.$invalid && !checkLargestAmount(amount)}" />
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="ft-12 col-md-offset-2 col-lg-offset-2" style="padding-right:85px;padding-top:5%;">
+      <p>温馨提示</p>
+      <p>1. 目前提现是由三方支付平台收取2元每笔的提现费用。提现金额的最小额度为1元，即额度大于或等于1元。宏财网平台不收取任何提现费用；</p>
+      <p>2. 三方支付平台收到用户提现申请即对提现进行转账操作，由于不同银行处理速度不同，提现资金将会当天或下个工作日到账（如遇双休日或法定节假日顺延）。</p>
+      <p>3. 如果用户迟迟未收到提现资金，可能为银行卡信息填写有误，银行做正在退票操作，预计会在7个工作日内完成退票，请用户耐心等候。用户还可以联系客服（400-990-7626），寻求帮助；</p>
+      <p>4. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>
+    </div>
+  </div>
 </div>
