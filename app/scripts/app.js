@@ -24,7 +24,8 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'ipCookie',
   'angular-md5',
   'textAngular',
-  'angular-google-analytics'
+  'angular-google-analytics',
+  'bgf.paginateAnything'
 ]);
 
 hongcaiApp
@@ -36,7 +37,7 @@ hongcaiApp
   // $locationProvider.html5Mode(true);
   // $routeProvider.when 'carousel-example-generic';
   // }])
-  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', 'AnalyticsProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider, AnalyticsProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', 'AnalyticsProvider', '$sceDelegateProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider, AnalyticsProvider, $sceDelegateProvider) {
     $uiViewScrollProvider.useAnchorScroll();
     $stateProvider
       .state('root', {
@@ -959,6 +960,9 @@ hongcaiApp
           }
         }
       });
+
+    //$sceDelegateProvider.resourceUrlWhitelist(['self', 'http://192.168.80.29:9001/hongcai/**']);
+
     // 导致IE8不兼容的地方。
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);

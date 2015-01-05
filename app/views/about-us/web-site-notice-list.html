@@ -5,15 +5,22 @@
 	</div>
 	<div class="row">
 		<div class="introduction-area col-md-12 col-lg-12">
-			<div class="web-show" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+			<div class="web-show" ng-repeat="item in list.list">
 				<a ui-sref="root.about-us.web-site-notice-detail({textId: item.id})" >{{item.title| limitTo: 13 }}...</a>
 				<p class="p-date">{{item.createTime | date:'yyyy-MM-dd'}}</p>
 			</div>
 		</div>
 		<ul class="pager">
-		  <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
-		  {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
-		  <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+		  <bgf-pagination
+	            page="page"
+	            per-page="perPage"
+	            client-limit="clientLimit"
+	            url="'hongcai/api/v1/siteText/getTextList'"
+	            url-params="urlParams"
+	            link-group-size="2"
+	            collection="list"
+	            template-url="/views/tpl/paginate-anything.html">
+	        </bgf-pagination>
 		</ul>
 	</div>
 </div>
