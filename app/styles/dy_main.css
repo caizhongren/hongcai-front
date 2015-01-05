@@ -529,11 +529,11 @@ input:focus{
   font-size: 18px;
   color: #d8271c;
 }
-.regist-input-tips,
+/*.regist-input-tips,
 .login-input-tips{
   margin-top: -19px;
   margin-left: 19px;
-}
+}*/
 .login-input-tips{
   margin-right: -60px;
 }
@@ -1181,3 +1181,20 @@ input:focus{
   color: #ffffff;
   font-size: 16px;
 }
+/*TODO START*/
+.borderwhite{
+  border: 1px solid #dbdbdb;
+}
+/*END*/
+/*TODO START*/
+.borderred{
+  border: 1px solid red;
+}
+/*END*/
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+
+
+
+
+
+
