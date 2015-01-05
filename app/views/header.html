@@ -1,73 +1,58 @@
 <!-- start header -->
-    <!-- Static navbar -->
-    <nav id="mini-bar" class="navbar navbar-default navbar-static-top hidden-xs" role="navigation" style="">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!-- <a class="navbar-brand" href="#">Project name</a> -->
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <p class="navbar-text">您好，欢迎来到宏财！<i class="fa fa-phone"></i>400-990-7626</p>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li ng-if="isLogged === true">
-                <span>
-                  <a class="ft-white" ui-sref="root.userCenter.account-overview">{{loginName}}</a>
-                  <a ng-href="#" ng-click="logout();" class="logout ft-white">退出 </a>
-                  <a ui-sref="root.userCenter.assets-overview" class="ft-white msg"><img src="images/use-money.png"> 可用余额：{{userCapital.balance | number: 2}}元</a>
-                  <a class="ft-white msg" ui-sref="root.userCenter.message({status:'0,1'})">消息(<span ng-bind="unreadCount || 0 "></span>)</a>
-                </span>
-            </li>
-            <li ng-if="isLogged !== true">
-                <a ui-sref="root.login">登录</a>
-            </li>
-            <li ng-if="isLogged !== true">
-                <a ui-sref="root.registerMobile">注册</a>
-            </li>
-            <li><a href="newbie-guide.html" target="_blank">新手引导</a></li>
-            <!-- <li><a class="ft-red" href="newbie-guide.html" onclick="window.location.reload()">新手引导</a></li> -->
-            <li><a ui-sref="root.help-center.introduce" class="help">帮助中心</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <!-- Static navbar -->
-<!-- <div id="major-bar"> -->
-
-    <nav id="major-bar" class="navbar navbar-default navbar-static-top" role="navigation">
-      <div class="container">
-        <ul class="nav navbar-nav">
-          <a class="navbar-brand logo-img-1 hidden-xs" href="/">&nbsp;</a>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a ui-sref="root.main" ng-class="{'active' : selectPage == ''}">首页</a></li>
-          <li><a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" ng-class="{'active' : selectPage == 'project-list'}" >我要理财</a></li>
-<!--           <li class="dropdown"><a href="javascript:;" ng-class="{'active' : selectPage == 'project-list' || selectPage == 'project-category' }" >我要理财</a>
-            <div id="dropdown" class="popover">
-              <div class="arrow"></div>
-              <div class="popover-content">
-                <a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="btn btn-primary btn-lg btn-block">理财项目</a>
-                <a ui-sref="root.project-activity-group" class="btn btn-primary btn-lg btn-block">宏包标产品</a>
-              </div>
-            </div>
-          </li>
-          <!-- <li class="dropdown"><a href="javascript:;" data-trigger="click" data-placement="bottom" data-template="views/modal/popover-dropdown.html" data-animation="am-flip-x" bs-popover >我要理财</a>
-          </li> -->
-
-          <!-- <li><a href="javascript:;">担保知识</a></li> -->
-          <li><a ui-sref="root.safe" ng-class="{'active': selectPage == 'safe'}">安全保障</a></li>
-          <li><a ui-sref="root.partner.partner-platform" ng-class="{'active': selectPage == 'partner-platform'}">战略伙伴</a></li>
-          <li><a ui-sref="root.about-us.introduction-of-platform" ng-class="{'active': selectPage == 'introduction-of-platform'}">关于我们</a></li>
-        </ul>
-      </div>
-    </nav>
-
-<!-- </div> -->
-<!-- end header -->
+<!-- Static navbar -->
+<nav id="mini-bar" class="navbar navbar-default navbar-static-top hidden-xs" role="navigation" style="">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <p class="navbar-text">您好，欢迎来到宏财！<i class="fa fa-phone"></i>400-990-7626</p>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-if="isLogged === true">
+          <span>
+            <a class="ft-white" ui-sref="root.userCenter.account-overview">{{loginName}}</a>
+            <a ng-href="#" ng-click="logout();" class="logout ft-white">退出 </a>
+            <a ui-sref="root.userCenter.assets-overview" class="ft-white msg"><img src="images/use-money.png"> 可用余额：{{userCapital.balance | number: 2}}元</a>
+            <a class="ft-white msg" ui-sref="root.userCenter.message({status:'0,1'})">消息(<span ng-bind="unreadCount || 0 "></span>)</a>
+          </span>
+        </li>
+        <li ng-if="isLogged !== true">
+          <a ui-sref="root.login">登录</a>
+        </li>
+        <li ng-if="isLogged !== true">
+          <a ui-sref="root.registerMobile">注册</a>
+        </li>
+        <li><a href="newbie-guide.html" target="_blank">新手引导</a>
+        </li>
+        <li><a ui-sref="root.help-center.introduce" class="help">帮助中心</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<nav id="major-bar" class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <a class="navbar-brand logo-img-1 hidden-xs" href="/">&nbsp;</a>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a ui-sref="root.main" ng-class="{'active' : selectPage == ''}">首页</a>
+      </li>
+      <li><a ui-sref="root.project-list-query({status: '6,7,8,9,10', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" ng-class="{'active' : selectPage == 'project-list'}">我要理财</a>
+      </li>
+      <li><a ui-sref="root.safe" ng-class="{'active': selectPage == 'safe'}">安全保障</a>
+      </li>
+      <li><a ui-sref="root.partner.partner-platform" ng-class="{'active': selectPage == 'partner-platform'}">战略伙伴</a>
+      </li>
+      <li><a ui-sref="root.about-us.introduction-of-platform" ng-class="{'active': selectPage == 'introduction-of-platform'}">关于我们</a>
+      </li>
+    </ul>
+  </div>
+</nav>
