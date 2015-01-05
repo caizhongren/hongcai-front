@@ -51,9 +51,7 @@
     margin-left: 45px;
   }
   .account-pic {
-    // margin: -15px 0 0 0px;
     height: 313px;
-    // margin: 0px auto 30px auto;
   }
 }
 .account-investment {
@@ -134,15 +132,11 @@
   height: 35px;
   line-height: 35px;
   background-color: #e4e4e4;
-/*   margin-top: 150px; */
+  // margin-top: 150px;
   padding-left: 15px;
   a {
     color: #e94828;
   }
-}
-// withdraw
-.safe-card-tips {
-  margin: 0 0 20px 0;
 }
 
 // -------- security-settings
@@ -153,6 +147,7 @@
   margin-bottom: 25px;
   border-bottom: 1px solid #cecdcd;
   height: 135px;
+  margin-left: 25px;
 }
 .process-tips {
   text-align: center;
@@ -163,35 +158,32 @@
   background: url(/images/sprite.png) no-repeat;
   background-position: -12px -1390px;
 }
-.hc-text-red {
-  // color: @brand-danger;
-  // &:hover {
-  //   color: @brand-primary;
-  // }
+
+.process-tips {
+  background: url(/images/sprite.png) no-repeat;
 }
+
 .grey-safe-phone {
-  background: url(/images/sprite.png) no-repeat;
   background-position: -140px -1277px;
-}
-.red-safe-phone {
-  background: url(/images/sprite.png) no-repeat;
-  background-position: -140px -1390px;
 }
 
 .grey-safe-mail {
-  background: url(/images/sprite.png) no-repeat;
   background-position: -269px -1277px;
 }
-.red-safe-mail {
-  background: url(/images/sprite.png) no-repeat;
-  background-position: -269px -1390px;
-}
+
 .grey-safe-realname {
-  background: url(/images/sprite.png) no-repeat;
   background-position: -400px -1277px;
 }
+
+.red-safe-phone {
+  background-position: -140px -1390px;
+}
+
+.red-safe-mail {
+  background-position: -269px -1390px;
+}
+
 .red-safe-realname {
-  background: url(/images/sprite.png) no-repeat;
   background-position: -400px -1390px;
 }
 
@@ -234,23 +226,23 @@
 
 .change-area {
   margin: -15px auto 10px auto;
-  border: 1px solid #dbdbdb;
 }
 
 .real-name {
   text-align: center;
   border-radius: 3px;
- /*  display: inline-block;
- height: 30px;
- color: #fff; */
- /*  line-height: 30px;
- margin-left: 10px;
- background-color: #e94828; */
-  margin-top: 0; 
+  display: inline-block;
+  height: 30px;
+  color: #fff;
+  line-height: 30px;
+  margin-left: 10px;
+  background-color: #e94828;
+  margin-top: 0;
 }
 
 .safe-form-group {
   height: 50px;
+  margin: 0 auto;
 }
 // recharge
 .verify-input {
@@ -323,6 +315,7 @@
     padding-top: 45px;
   }
 }
+
 // recharge && withdraw
 .mgn-top {
   margin-top: 10px;
@@ -337,6 +330,9 @@
     padding-left: 201px;
     padding-top: 45px;
   }
+}
+.safe-card-tips {
+  margin: 0 0 20px 0;
 }
 
 // ------- record -------
@@ -367,7 +363,7 @@
   border: none !important;
 }
 
-//消息中心
+// -------- message --------
 
 .userMessage {
   .border-b-none {
@@ -409,10 +405,8 @@
   .unread-flag {
     font-weight: bold;
   }
- /*  .pull-right {
-   cursor: pointer;
- } */
 }
+
 // --------security-settings--------
 .change-pwd-height {
   height: 240px;
