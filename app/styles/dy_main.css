@@ -529,11 +529,10 @@ input:focus{
   font-size: 18px;
   color: #d8271c;
 }
-/*.regist-input-tips,
 .login-input-tips{
   margin-top: -19px;
   margin-left: 19px;
-}*/
+}
 .login-input-tips{
   margin-right: -60px;
 }
@@ -1191,6 +1190,18 @@ input:focus{
   border: 1px solid red;
 }
 /*END*/
+.agree-mg{
+  margin-left: 28px;
+}
+.agree-tx{
+  text-indent: 2em;
+}
+.shinl{
+  display: inline;
+}
+.tbl{
+  margin-bottom: 10px;
+}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
 
