@@ -842,6 +842,14 @@ hongcaiApp
           }
         }
       })
+      .state('root.loan-security-agreement', {
+        url: '/loan-security-agreement',
+        views: {
+          '': {
+            templateUrl: 'views/agreement/loan-security-agreement.html'
+          }
+        }
+      })
       /*------------------------------------------  help-center  -----------------------------------------------*/
       .state('root.help-center', {
         views: {
