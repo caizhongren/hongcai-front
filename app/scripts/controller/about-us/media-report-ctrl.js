@@ -1,7 +1,7 @@
 'use strict';
 hongcaiApp.controller('MediaReportsCtrl', ['$scope', '$state', '$location', '$stateParams', 'AboutUsService', function ($scope, $state, $location, $stateParams, AboutUsService) {
-	
-    $scope.perPage = parseInt($location.search().perPage, 10) || 5;
+
+    $scope.perPage = parseInt($location.search().perPage, 10) || 15;
     $scope.page = parseInt($location.search().page, 10) || 0;
     $scope.clientLimit = 250;
     $scope.urlParams = {
