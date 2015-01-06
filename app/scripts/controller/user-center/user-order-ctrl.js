@@ -24,9 +24,16 @@ hongcaiApp.controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootSc
     $scope.getOrderBillByOrderId(orderId);
   }
   $scope.generateContractPDF = function(projectId, orderId, status) {
-    if (status <= 3) {
+    if (status === 1) {
       UserCenterService.generateContractPDFModel.get(function(response) {
         $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel');
+      })
+    } else if (status === 2) {
+      UserCenterService.generatePartContractPDF.get({
+        projectId: projectId,
+        orderId: orderId
+      }, function(response) {
+        $scope.downloadPDF('hongcai/api/v1/siteProject/generatePartContractPDF?orderId=' + orderId + '&projectId=' + projectId);
       })
     } else if (status > 3 && status <= 6) {
       UserCenterService.generateContractPDF.get({

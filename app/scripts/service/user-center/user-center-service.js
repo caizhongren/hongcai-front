@@ -30,6 +30,7 @@ hongcaiApp.factory('UserCenterService', function ($resource, DEFAULT_DOMAIN) {
     cancelOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/cancelOrder', {orderId: '$orderId'}),
     generateContractPDF: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDF', {projectId:'$projectId', orderId:'$orderId'}),
     generateContractPDFModel: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDFModel', {}),
+    generatePartContractPDF: $resource(DEFAULT_DOMAIN + '/siteProject/generatePartContractPDF', {projectId:'$projectId', orderId:'$orderId'}),
     luckyDraw: $resource(DEFAULT_DOMAIN + '/activity/luckyDraw', {}),
     getLuckyList: $resource(DEFAULT_DOMAIN + '/activity/getLuckyList', {}),
     getUnreadMsgCount: $resource(DEFAULT_DOMAIN+ '/siteMsg/getUnreadMsgCount'),
