@@ -42,6 +42,16 @@ module.exports = function(grunt) {
         }
       },
 
+     developmentTest321: {
+        options: {
+          dest: '.tmp/scripts/config.js',
+          name: 'config',
+          constants: {
+            config: grunt.file.readJSON('config_dev_test321.json')
+          }
+        }
+      },
+
 
       production: {
         options: {
@@ -530,6 +540,28 @@ module.exports = function(grunt) {
     'usemin',
     'htmlmin'
   ]);
+
+
+  grunt.registerTask('buildTest321', [
+    'clean:dist',
+    'ngconstant:developmentTest321',
+    'wiredep',
+    'less',
+    'useminPrepare',
+    'concurrent:dist',
+    'autoprefixer',
+    'concat',
+    'ngAnnotate',
+    'copy:dist',
+    // 'cdnify',
+    'cssmin',
+    'uglify',
+    'filerev',
+    'usemin',
+    'htmlmin'
+  ]);
+
+
 
   grunt.registerTask('default', [
     'newer:jshint',

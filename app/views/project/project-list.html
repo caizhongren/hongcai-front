@@ -178,7 +178,7 @@
             </div>
           </li>
 					<li class="list-group-item" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-            <img class="type-flag" src="/images/test-icon.png">
+            <img class="type-flag" src="/images/test-icon.png" ng-show="item.isStamp === 1">
 
 						<div class="row">
 							<div class="hidden-md col-lg-2">

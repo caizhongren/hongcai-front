@@ -24,7 +24,8 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'ipCookie',
   'angular-md5',
   'textAngular',
-  'angular-google-analytics'
+  'angular-google-analytics',
+  'bgf.paginateAnything'
 ]);
 
 hongcaiApp
@@ -36,7 +37,7 @@ hongcaiApp
   // $locationProvider.html5Mode(true);
   // $routeProvider.when 'carousel-example-generic';
   // }])
-  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', 'AnalyticsProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider, AnalyticsProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', 'AnalyticsProvider', '$sceDelegateProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider, AnalyticsProvider, $sceDelegateProvider) {
     $uiViewScrollProvider.useAnchorScroll();
     $stateProvider
       .state('root', {
@@ -739,8 +740,8 @@ hongcaiApp
           }
         }
       })
-    /*------------------------------------------  media-reports  -----------------------------------------------*/
-    .state('root.about-us.media-reports', {
+      /*------------------------------------------  media-reports  -----------------------------------------------*/
+      .state('root.about-us.media-reports', {
         url: '/media-reports',
         views: {
           'about-us-right-show': {
@@ -838,6 +839,14 @@ hongcaiApp
         views: {
           '': {
             templateUrl: 'views/agreement/registration-agreement.html'
+          }
+        }
+      })
+      .state('root.loan-security-agreement', {
+        url: '/loan-security-agreement',
+        views: {
+          '': {
+            templateUrl: 'views/agreement/loan-security-agreement.html'
           }
         }
       })
@@ -959,6 +968,9 @@ hongcaiApp
           }
         }
       });
+
+    //$sceDelegateProvider.resourceUrlWhitelist(['self', 'http://192.168.80.29:9001/hongcai/**']);
+
     // 导致IE8不兼容的地方。
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
@@ -1046,14 +1058,18 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
   // branch_switch,当该标识关联的功能已开发完成，但并没有对外发布。
   if (config.viewFlAG) {
     angular.forEach(config.viewFlAG, function(value, key) {
-        $rootScope[key] = value;
-      });
+      $rootScope[key] = value;
+    });
   }
   $rootScope.$on('$stateChangeSuccess', function() {
     // branch_switch， 当该路由关联的功能已开发完成，但并没有对外发布。
     if (config.ignorePATH && config.ignorePATH.indexOf('/' + $location.path().split('/')[1]) !== -1) {
       // toaster.pop('error', '别闹，这个功能还没开放那');
       $location.path('//');
+    }
+    // 跳转HTTPS的全局配置
+    if ($location.protocol() === 'http' && config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
+      $window.location.href = 'https://' + $location.absUrl().split('://')[1];
     }
   });
 });

@@ -15,98 +15,79 @@
         <form class="form-regist col-md-12 col-lg-12" name="registerForm" ng-submit="submitRegisterMobile(user);">
           <div class="form-group col-md-12 col-lg-12">
             <label for="userName" class="col-md-3 col-lg-3">用户名：</label>
-            <input type="text" class="col-md-6 col-lg-6" id="name" name="name" ng-model="user.name" ng-minlength="2" ng-maxlength="15" ng-pattern="/^[\u4e00-\u9fa5|a-z|A-Z][\u4e00-\u9fa5|a-z|A-Z|_|0-9|\-]{0,}$/" ensure-unique-name="name" required ng-focus autofocus/>
+            <input type="text" class="col-md-6 col-lg-6 borderwhite" id="name" name="name" ng-model="user.name" ng-minlength="2" ng-maxlength="15" ng-pattern="/^[\u4e00-\u9fa5|a-z|A-Z][\u4e00-\u9fa5|a-z|A-Z|_|0-9|\-]{0,}$/" ensure-unique-name="name" ng-class="{'borderred':registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused}" required ng-focus autofocus/>
             <!-- <div ng-if="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div"> -->
             <div ng-if="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
               <div ng-if="registerForm.name.$error.unique" class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
                 <p class="input-tips regist-input-tips">用户名已被占用</p>
               </div>
               <div ng-if="registerForm.name.$error.minlength" class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
                 <p class="input-tips regist-input-tips">不能小于2个字符</p>
               </div>
               <div ng-if="registerForm.name.$error.maxlength" class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
                 <p class="input-tips regist-input-tips">不能大于15个字符</p>
               </div>
               <div ng-if="registerForm.name.$error.pattern" class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
                 <p class="input-tips regist-input-tips">2-15位字符，以字母、中文开头，支持中文、字母、数字以及下划线</p>
               </div>
               <div ng-if="registerForm.name.$error.required" class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
                 <p class="input-tips regist-input-tips">请填写用户名</p>
               </div>
             </div>
           </div>
           <div class="form-group col-md-12 col-lg-12">
             <label for="password" class="col-md-3 col-lg-3">密码：</label>
-            <input type="password" class="col-md-6 col-lg-6" id="password" name="password" ng-model="user.password" ng-minlength="6" ng-maxlength="22" ng-pattern="/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/" required ng-focus />
+            <input type="password" class="col-md-6 col-lg-6 borderwhite" id="password" name="password" ng-model="user.password" ng-minlength="6" ng-maxlength="22" ng-pattern="/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/" ng-class="{'borderred':registerForm.password.$dirty && registerForm.password.$invalid && !registerForm.password.$focused,'borderwhite':!registerForm.password.$dirty || !registerForm.password.$invalid || registerForm.password.$focused}" required ng-focus />
             <div ng-if="registerForm.password.$dirty && registerForm.password.$invalid && !registerForm.password.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
               <div ng-if="registerForm.password.$error.minlength" class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
                 <p class="input-tips regist-input-tips">不能小于6个字符</p>
               </div>
               <div ng-if="registerForm.password.$error.maxlength" class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
                 <p class="input-tips regist-input-tips">不能大于22个字符</p>
               </div>
               <div ng-if="registerForm.password.$error.pattern" class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
-                <p class="input-tips regist-input-tips">数字或字母的组合，可以包含特殊字符，长度6-22</p>
+                <p class="input-tips regist-input-tips">长度6-22，数字或字母的组合，可以包含特殊字符</p>
               </div>
             </div>
           </div>
           <div class="form-group col-md-12 col-lg-12">
             <label for="repeatPassword" class="col-md-3 col-lg-3">确认密码：</label>
-            <input type="password" class="col-md-6 col-lg-6" name="repeatPassword" id="repeatPassword" ng-model="user.repeatPassword" password-match="password" required ng-focus/>
+            <input type="password" class="col-md-6 col-lg-6 borderwhite" name="repeatPassword" id="repeatPassword" ng-model="user.repeatPassword" password-match="password" ng-class="{'borderred':registerForm.repeatPassword.$dirty && registerForm.$error && registerForm.repeatPassword.$error.passwordmatch && !registerForm.password.$focused && !registerForm.repeatPassword.$focused, 'borderwhite':!registerForm.repeatPassword.$dirty || !registerForm.$error || !registerForm.repeatPassword.$error.passwordmatch ||registerForm.password.$focused || registerForm.repeatPassword.$focused}" required ng-focus/>
             <div ng-if="registerForm.repeatPassword.$dirty && registerForm.$error && registerForm.repeatPassword.$error.passwordmatch && !registerForm.password.$focused && !registerForm.repeatPassword.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
               <div class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
                 <p class="input-tips regist-input-tips">密码不一致</p>
               </div>
             </div>
           </div>
           <div class="form-group col-md-12 col-lg-12">
             <label for="mobile" class="col-md-3 col-lg-3">手机号：</label>
-            <input type="text" class="col-md-6 col-lg-6" id="mobile" name="mobile" ng-model="user.mobile" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobile" required ng-focus />
+            <input type="text" class="col-md-6 col-lg-6 borderwhite" id="mobile" name="mobile" ng-model="user.mobile" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobile" ng-class="{'borderred':registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused,'borderwhite':!registerForm.mobile.$dirty || !registerForm.mobile.$invalid || registerForm.mobile.$focused}" required ng-focus />
             <div ng-if="registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
               <div ng-if="registerForm.mobile.$error.unique" class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
                 <p class="input-tips regist-input-tips">手机号码已被占用</p>
               </div>
               <div ng-if="registerForm.mobile.$error.pattern" class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
                 <p class="input-tips regist-input-tips">手机号码格式不正确</p>
               </div>
             </div>
           </div>
           <div class="form-group col-md-12 col-lg-12">
             <label for="mobileCaptcha" class="col-md-3 col-lg-3">验证码：</label>
-            <input type="text" class="col-md-3 col-lg-3" id="mobileCaptcha" name="mobileCaptcha" ng-model="user.mobileCaptcha" required ng-focus />
+            <input type="text" class="col-md-3 col-lg-3" id="mobileCaptcha" check-mobile-captcha="mobileCaptcha" name="mobileCaptcha" ng-model="user.mobileCaptcha" ng-class="{'borderred':registerForm.mobileCaptcha.$dirty && registerForm.mobileCaptcha.$invalid && registerForm.mobileCaptcha.$error.check && !registerForm.mobileCaptcha.$focused}" required ng-focus />
             <input type="button" class="col-md-3 col-lg-3 {{registerForm.mobile.$invalid ? 'white-button grey' : 'white-button'}}" value="获取验证码" onclick="countDown(this,60);" ng-click="sendMobileCaptcha();" ng-disabled="registerForm.mobile.$invalid" style="margin-left:5px" />
             <div ng-if="registerForm.mobileCaptcha.$dirty && registerForm.mobileCaptcha.$invalid && registerForm.mobileCaptcha.$error.check && !registerForm.mobileCaptcha.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3  form-div">
               <div class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
-                <p class="input-tips regist-input-tips">验证码错误!</p>
-              </div>
-            </div>
-            <div ng-if="registerForm.mobileCaptcha.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused && !registerForm.mobileCaptcha.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
-              <div class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
-                <p class="input-tips regist-input-tips">验证码格式有误!</p>
+                <p class="input-tips regist-input-tips">验证码错误</p>
               </div>
             </div>
           </div>
           <div class="form-group col-md-12 col-lg-12">
-            <label class="col-md-3 col-lg-3">邀请码：
+            <label class="col-md-3 col-lg-3" style="margin-bottom:0;padding-bottom:0">邀请码：
               <br>（选填）</label>
-            <input type="text" class="col-md-6 col-lg-6" ng-model="user.inviteCode" check-invite-code='inviteCode' name='inviteCode' id='inviteCode' />
+            <input type="text" class="col-md-6 col-lg-6 borderwhite" ng-model="user.inviteCode" check-invite-code='inviteCode' name='inviteCode' id='inviteCode' ng-class="{'borderred':registerForm.inviteCode.$error.isInviteCodeTrue}" />
             <div class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div" ng-if='registerForm.inviteCode.$error.isInviteCodeTrue'>
               <div class="row">
-                <i class="fa fa-times-circle-o regist-check-img"></i>
-                <p class="input-tips regist-input-tips">邀请码无效</p>
+                <p class="input-tips regist-input-tips" style="margin-top:-12px;">邀请码无效</p>
               </div>
             </div>
           </div>

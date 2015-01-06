@@ -529,7 +529,6 @@ input:focus{
   font-size: 18px;
   color: #d8271c;
 }
-.regist-input-tips,
 .login-input-tips{
   margin-top: -19px;
   margin-left: 19px;
@@ -1181,3 +1180,36 @@ input:focus{
   color: #ffffff;
   font-size: 16px;
 }
+/*TODO START*/
+.borderwhite{
+  border: 1px solid #dbdbdb;
+}
+/*END*/
+/*TODO START*/
+.borderred{
+  border: 1px solid red;
+}
+/*END*/
+.agree-mg{
+  margin-left: 28px;
+}
+.agree-tx{
+  text-indent: 2em;
+}
+.invest-verify .shinl{
+  display: inline; 
+}
+.tbl{
+  margin-bottom: 10px;
+}
+.invest-verify .colr:hover{
+  color: #eb5c3f;
+}
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+
+
+
+
+
+
