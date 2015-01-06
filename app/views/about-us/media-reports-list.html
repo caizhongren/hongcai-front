@@ -6,7 +6,7 @@
 		<div class="introduction-area col-md-12 col-lg-12" ng-repeat="item in list.list">
 			<div class="dynamic-show">
 				<a ui-sref="root.about-us.media-reports-detail({textId: item.id})">
-					<img ng-src="{{baseFileUrl + item.image}}" width="120" height="120" class="details-img">
+					<img ng-src="{{list.baseFileUrl + item.image}}" width="120" height="120" class="details-img">
 				</a>
 				<a class="p-title-dynamic col-md-6 col-lg-6" ui-sref="root.about-us.media-reports-detail({textId: item.id})" title="{{item.title}}">{{item.title}}...</a>
 				<p class=" col-md-3 col-lg-3">{{item.createTime | date:'yyyy-MM-dd'}}</p>
