@@ -1068,7 +1068,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
       $location.path('//');
     }
     // 跳转HTTPS的全局配置
-    if (config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
+    if ($location.protocol() === 'http' && config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
       $window.location.href = 'https://' + $location.absUrl().split('://')[1];
     }
   });
