@@ -121,16 +121,6 @@ hongcaiApp
           }
         }
       })
-      .state('root.registerMobile-sanGuo', {
-        url: '/register-mobile-sanGuo/:from',
-        views: {
-          '': {
-            templateUrl: 'views/register/register-mobile-sanGuo.html',
-            controller: 'RegisterMobileSanGuoCtrl',
-            controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
-          }
-        }
-      })
       .state('root.registerMail', {
         url: '/register-mail/:inviteCode',
         views: {
@@ -965,6 +955,28 @@ hongcaiApp
         views: {
           'help-center-right-show': {
             templateUrl: 'views/help-center/other-question-app.html'
+          }
+        }
+      })
+
+      /*-------------------------------------------  traffic import route  -----------------------------------------*/
+      .state('root.registerMobile-sanGuo', {
+        url: '/register-mobile-sanGuo/:from',
+        views: {
+          '': {
+            templateUrl: 'views/register/register-mobile-sanGuo.html',
+            controller: 'RegisterMobileSanGuoCtrl',
+            controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
+          }
+        }
+      })
+      .state('root.project-details-traffic', {
+        url: '/project/:projectId/:from',
+        views: {
+          '': {
+            templateUrl: 'views/project/project-details.html',
+            controller: 'ProjectDetailsCtrl',
+            controllerUrl: 'scripts/controller/project/project-details-ctrl'
           }
         }
       });

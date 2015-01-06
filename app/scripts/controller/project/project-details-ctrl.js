@@ -1,5 +1,5 @@
 'use strict';
-hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout) {
+hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', function ($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
     $rootScope.redirectUrl = $location.path();
 
     var projectDetails = ProjectService.projectDetails.get({projectId: $stateParams.projectId}, function() {
@@ -173,7 +173,16 @@ hongcaiApp.controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '
         myOtherModal.$promise.then(myOtherModal.show);
     };
 
-
+    // 处理推广流量统计
+  var from = $stateParams.from;
+  if (from) {
+    ipCookie('utm_from', from, {
+      expires: 1
+    })
+    MainService.trafficStats.get({
+      from: from
+    });
+  };
 
 
 }]);
