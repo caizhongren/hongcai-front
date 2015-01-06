@@ -3,6 +3,6 @@
   "viewFlAG": {
     "tuhaoIsShowedFlAG": false
   },
-  "jumpHttpsPath": ["/register-mobile", "/login", "/register-mail"]
+  "jumpHttpsPath": []
 }
 
