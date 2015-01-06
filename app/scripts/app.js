@@ -120,6 +120,8 @@ hongcaiApp
           }
         }
       })
+
+      /*------------------------------------------------  流量导入  -----------------------------------------*/
       .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',
         views: {
@@ -130,6 +132,17 @@ hongcaiApp
           }
         }
       })
+      .state('root.project-details-traffic', {
+        url: '/project/:projectId/:from',
+        views: {
+          '': {
+            templateUrl: 'views/project/project-details.html',
+            controller: 'ProjectDetailsCtrl',
+            controllerUrl: 'scripts/controller/project/project-details-ctrl'
+          }
+        }
+      })
+
       .state('root.registerMail', {
         url: '/register-mail/:inviteCode',
         views: {
