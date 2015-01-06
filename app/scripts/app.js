@@ -121,29 +121,6 @@ hongcaiApp
           }
         }
       })
-
-      /*------------------------------------------------  流量导入  -----------------------------------------*/
-      .state('root.registerMobile-sanGuo', {
-        url: '/register-mobile-sanGuo/:from',
-        views: {
-          '': {
-            templateUrl: 'views/register/register-mobile-sanGuo.html',
-            controller: 'RegisterMobileSanGuoCtrl',
-            controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
-          }
-        }
-      })
-      .state('root.project-details-traffic', {
-        url: '/project/:projectId/:from',
-        views: {
-          '': {
-            templateUrl: 'views/project/project-details.html',
-            controller: 'ProjectDetailsCtrl',
-            controllerUrl: 'scripts/controller/project/project-details-ctrl'
-          }
-        }
-      })
-
       .state('root.registerMail', {
         url: '/register-mail/:inviteCode',
         views: {
@@ -981,6 +958,28 @@ hongcaiApp
           }
         }
       });
+
+      /*-------------------------------------------  traffic import route  -----------------------------------------*/
+      .state('root.registerMobile-sanGuo', {
+        url: '/register-mobile-sanGuo/:from',
+        views: {
+          '': {
+            templateUrl: 'views/register/register-mobile-sanGuo.html',
+            controller: 'RegisterMobileSanGuoCtrl',
+            controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
+          }
+        }
+      })
+      .state('root.project-details-traffic', {
+        url: '/project/:projectId/:from',
+        views: {
+          '': {
+            templateUrl: 'views/project/project-details.html',
+            controller: 'ProjectDetailsCtrl',
+            controllerUrl: 'scripts/controller/project/project-details-ctrl'
+          }
+        }
+      })
 
     //$sceDelegateProvider.resourceUrlWhitelist(['self', 'http://192.168.80.29:9001/hongcai/**']);
 
