@@ -31,7 +31,7 @@
       <div class="row">
         <div class="form-group">
           <label class="col-md-3 col-lg-3">提现金额：</label>
-          <input type="text" name="amount" class="verify-input" ng-model="amount" ng-pattern="/^0*[1-9][0-9]*(\.[0-9]{1,2})?$/" ng-focus ng-disabled="availableCash_dele2 <= 0" required autofocus/>&nbsp;&nbsp;元
+          <input type="text" name="amount" class="verify-input" ng-model="amount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus ng-disabled="availableCash_dele2 <= 0" required autofocus/>&nbsp;&nbsp;元
 
           <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">
             <p class="input-tips user-input-tips">请输入数字(最多精确到小数点后两位)</p>
