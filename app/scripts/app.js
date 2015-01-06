@@ -957,7 +957,7 @@ hongcaiApp
             templateUrl: 'views/help-center/other-question-app.html'
           }
         }
-      });
+      })
 
       /*-------------------------------------------  traffic import route  -----------------------------------------*/
       .state('root.registerMobile-sanGuo', {
@@ -979,7 +979,7 @@ hongcaiApp
             controllerUrl: 'scripts/controller/project/project-details-ctrl'
           }
         }
-      })
+      });
 
     //$sceDelegateProvider.resourceUrlWhitelist(['self', 'http://192.168.80.29:9001/hongcai/**']);
 
