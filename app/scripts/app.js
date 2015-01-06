@@ -740,8 +740,8 @@ hongcaiApp
           }
         }
       })
-    /*------------------------------------------  media-reports  -----------------------------------------------*/
-    .state('root.about-us.media-reports', {
+      /*------------------------------------------  media-reports  -----------------------------------------------*/
+      .state('root.about-us.media-reports', {
         url: '/media-reports',
         views: {
           'about-us-right-show': {
@@ -1058,14 +1058,18 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
   // branch_switch,当该标识关联的功能已开发完成，但并没有对外发布。
   if (config.viewFlAG) {
     angular.forEach(config.viewFlAG, function(value, key) {
-        $rootScope[key] = value;
-      });
+      $rootScope[key] = value;
+    });
   }
   $rootScope.$on('$stateChangeSuccess', function() {
     // branch_switch， 当该路由关联的功能已开发完成，但并没有对外发布。
     if (config.ignorePATH && config.ignorePATH.indexOf('/' + $location.path().split('/')[1]) !== -1) {
       // toaster.pop('error', '别闹，这个功能还没开放那');
       $location.path('//');
+    }
+    // 跳转HTTPS的全局配置
+    if (config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
+      $window.location.href = 'https://' + $location.absUrl().split('://')[1];
     }
   });
 });
