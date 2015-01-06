@@ -194,7 +194,8 @@
         </div>
         <div class="safe-form-group row">
           <label class="col-md-4 col-lg-4">身份证号：</label>
-          <input type="text" class="verify-input col-md-6 col-lg-6" name="idCardNo" ng-pattern="/^([0-9]{17}[0-9X]{1})|([0-9]{15})$/" ng-model="user.idCardNo" ng-focus required/>
+          <!-- FIX -->
+          <input type="text" ng-maxlength="18" class="verify-input col-md-6 col-lg-6" name="idCardNo" ng-pattern="/^([0-9]{17}[0-9X]{1})|([0-9]{15})$/" ng-model="user.idCardNo" ng-focus required/>
           <div class="user-tips-area safe-tips-area" ng-show="openTrusteeshipAccountForm.idCardNo.$dirty && openTrusteeshipAccountForm.idCardNo.$error.required">
             <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
           </div>
