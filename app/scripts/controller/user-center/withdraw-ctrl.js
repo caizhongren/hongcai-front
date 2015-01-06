@@ -12,7 +12,7 @@ hongcaiApp.controller('WithdrawCtrl', ['$location', '$scope', '$state', '$rootSc
     }
   });
   $scope.checkLargestAmount = function(amount) {
-    if (amount > $scope.availableCash_dele2) {
+    if (amount >= $scope.availableCash_dele2) {
       return true;
     } else {
       return false;
