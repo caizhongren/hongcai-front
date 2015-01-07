@@ -124,5 +124,6 @@ hongcaiApp.controller('ServiceCtrl', ['$scope', '$state', '$rootScope', '$stateP
         }
     }
 
+    $scope.online = online;
 
 }]);

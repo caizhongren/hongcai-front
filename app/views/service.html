@@ -9,19 +9,37 @@
     <a id="weiBo" target="_blank" href="http://weibo.com/u/5321725208" title="微博"></a>
     <a id="scrollUp" href="javascript:;" title="飞回顶部"></a>
     <ul class="qqBox">
-      <li>
+      <li class="qqBox-header ft-16">
+        <i class="fa fa-user"></i>&nbsp;&nbsp;在线客服
+      </li>
+      <li class="margin-t-45">
         <a target="_self" href="tencent://message/?uin=2981432700&Site=qq&Menu=yes">
-          <img border="0" src="/images/button_old_41.gif" alt="客服一" width="23" height="16" />&nbsp;客服一
-        </a>
+         <span ng-if="online[0] === 0" >
+           <img border="0" src="/images/qq_offline.gif" alt="客服一" />&nbsp;客服一
+         </span>
+         <span  ng-if="online[0] === 1">
+           <img border="0" src="/images/qq_online.gif" alt="客服一" />&nbsp;客服一
+         </span>
+       </a>
       </li>
       <li>
         <a target="_self" href="tencent://message/?uin=2880787006&Site=qq&Menu=yes">
-          <img border="0" src="/images/button_old_41.gif" alt="客服二" width="23" height="16" />&nbsp;客服二
+          <span ng-if="online[1] === 0" >
+            <img border="0" src="/images/qq_offline.gif" alt="客服二" />&nbsp;客服二
+          </span>
+          <span  ng-if="online[1] === 1">
+            <img border="0" src="/images/qq_online.gif" alt="客服二" />&nbsp;客服二
+          </span>
         </a>
       </li>
-      <li>
+      <li class="margin-b-45">
         <a target="_self" href="tencent://message/?uin=2880787009&Site=qq&Menu=yes">
-          <img border="0" src="/images/button_old_41.gif" alt="客服三" width="23" height="16" />&nbsp;客服三
+          <span ng-if="online[2] === 0" >
+            <img border="0" src="/images/qq_offline.gif" alt="客服三" />&nbsp;客服三
+          </span>
+          <span  ng-if="online[2] === 1">
+            <img border="0" src="/images/qq_online.gif" alt="客服三" />&nbsp;客服三
+          </span>
         </a>
       </li>
     </ul>
