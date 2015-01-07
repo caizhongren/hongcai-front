@@ -8,7 +8,7 @@
             <div class="panel-body">
               <div class="row">
                 <div class="hidden-xs hidden-md col-lg-5">
-                  <img ng-src="{{baseFileUrl + project.image}}" alt="" width="230" height="206" class="img-rounded">
+                  <img ng-src="{{baseFileUrl + project.image}}" alt="" width="230" height="225" class="img-rounded">
                 </div>
                 <div class="col-lg-7">
                   <div class="row">
@@ -35,7 +35,7 @@
                         发布日期：{{ project.publishTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}
                       </div>
                     </div> -->
-                  <hr style="margin-top: 10px;margin-bottom: 19px;">
+                  <hr style="margin-top: 3px;margin-bottom: 12px;">
                   <div class="row">
                     <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
                       <strong>保荐机构：<a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" target="_blank">{{project.guaranteeName}}</a></strong>
@@ -43,16 +43,11 @@
                     <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
                       <strong>还款方式：{{project.repaymentName}}</strong>
                     </div>
-                    <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
+                    <div class="col-xs-12" ng-class="{'under-margin1': project.status === 9 || project.status === 10}"><i class="fa fa-circle hc-text-red right-margin"></i>
                       <strong>发布日期：{{ project.publishTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}</strong>
                     </div>
-                    <div ng-if="project.progress >= 100 && project.status === 9">
-                      <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
-                        <strong>还款日期：{{ project.repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</strong>
-                      </div>
-                    </div>
-                    <div ng-if="project.progress >= 100 && project.status === 10">
-                      <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
+                    <div ng-if="project.progress >= 100 && project.status === 9 || project.status === 10">
+                      <div class="col-xs-12"><i class="fa fa-circle hc-text-red right-margin"></i>
                         <strong>还款日期：{{ project.repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</strong>
                       </div>
                     </div>
@@ -449,10 +444,10 @@
                       <tbody>
                         <tr ng-repeat="preRepayment in preRepaymentList">
                           <td>{{preRepayment.repaymentTime | date: "yy-MM-dd"}}</td>
-                          <td ng-if="preRepayment.type==1">利息</td>
-                          <td ng-if="preRepayment.type==2">本金</td>
-                          <td ng-if="preRepayment.type==3">本金+利息</td>
-                          <td>{{preRepayment.repaymentAmount| number : 0}}元</td>
+                          <td ng-show="preRepayment.type==1">利息</td>
+                          <td ng-show="preRepayment.type==2">本金</td>
+                          <td ng-show="preRepayment.type==3">本金+利息</td>
+                          <td>{{preRepayment.repaymentAmount| number:2}}元</td>
                         </tr>
                       </tbody>
                     </table>
