@@ -1,0 +1,112 @@
+.alert {
+  width: 40%;
+  position: fixed;
+  top: 15%;
+  left: 30%;
+  z-index: 1005;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  padding: 0;
+  .title {
+    padding: 10px 15px;
+    background: #f5f5f5;
+    font-size: 16px;
+    color: #e94828;
+    border-radius: 6px;
+  }
+  .close {
+    margin-right: 15px;
+    margin-top: 5px;
+    font-size: 32px;
+    color: #e94828;
+  }
+  .content {
+    padding: 25px 15px;
+    p {
+      text-align: center;
+    }
+  }
+  .bottom {
+    margin-bottom: 20px;
+    .btn-block {
+      width: 35%;
+      margin-top: 0;
+    }
+    .margin-l {
+      margin-left: 30%;
+    }
+  }
+}
+
+.mask_layer {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  _position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background: #b2b2b2;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#calculater {
+  width: 200px;
+  height: 318px;
+  .preview {
+    display: block;
+    padding: 9.5px 6px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #333333;
+    background-color: #f5f5f5;
+    border: 1px solid #cccccc;
+    border-radius: 0;
+    span {
+      display: block;
+    }
+  }
+  .btn-primary {
+    width: 110px;
+    background-color: #ff9a17;
+  }
+  background-color: #e94828;
+  .arrow, .arrow:after {
+    border-left-color: #e94828;
+  }
+  .popover-content {
+    input, .btn-default {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+    .btn-default {
+      text-align: left;
+      padding-left: 6px;
+      color: #9f9d9c;
+      position: relative;
+    }
+  }
+  select {
+    width: 100%;
+    padding: 6px;
+    border: none;
+    margin-bottom: 5px;
+    outline: none;
+    color: #333;
+  }
+  .cal-input {
+    label {
+      color: #fff;
+      margin: 0;
+      padding: 0 !important;
+      font-size: 12px;
+    }
+  }
+}
