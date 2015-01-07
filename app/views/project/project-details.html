@@ -8,7 +8,7 @@
             <div class="panel-body">
               <div class="row">
                 <div class="hidden-xs hidden-md col-lg-5">
-                  <img ng-src="{{baseFileUrl + project.image}}" alt="" width="230" height="206" class="img-rounded">
+                  <img ng-src="{{baseFileUrl + project.image}}" alt="" width="230" height="225" class="img-rounded">
                 </div>
                 <div class="col-lg-7">
                   <div class="row">
@@ -449,10 +449,10 @@
                       <tbody>
                         <tr ng-repeat="preRepayment in preRepaymentList">
                           <td>{{preRepayment.repaymentTime | date: "yy-MM-dd"}}</td>
-                          <td ng-if="preRepayment.type==1">利息</td>
-                          <td ng-if="preRepayment.type==2">本金</td>
-                          <td ng-if="preRepayment.type==3">本金+利息</td>
-                          <td>{{preRepayment.repaymentAmount| number : 0}}元</td>
+                          <td ng-show="preRepayment.type==1">利息</td>
+                          <td ng-show="preRepayment.type==2">本金</td>
+                          <td ng-show="preRepayment.type==3">本金+利息</td>
+                          <td>{{preRepayment.repaymentAmount| number:2}}元</td>
                         </tr>
                       </tbody>
                     </table>
