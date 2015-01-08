@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           dest: '.tmp/scripts/config.js',
           name: 'config',
           constants: {
-            config: grunt.file.readJSON('config_dev.json')
+            config: grunt.file.readJSON('config_buildTest43.json')
           }
         }
       },
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
           dest: '.tmp/scripts/config.js',
           name: 'config',
           constants: {
-            config: grunt.file.readJSON('config_dev_test321.json')
+            config: grunt.file.readJSON('config_buildTest321.json')
           }
         }
       },
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
           dest: '.tmp/scripts/config.js',
           name: 'config',
           constants: {
-            config: grunt.file.readJSON('config_pro.json')
+            config: grunt.file.readJSON('config_build.json')
           }
         }
       }
