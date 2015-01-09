@@ -1,7 +1,8 @@
 'use strict';
-hongcaiApp.controller('AssetsOverviewCtrl', [ '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', function ($scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
+angular.module('hongcaiApp')
+  .controller('AssetsOverviewCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', function($scope, $state, $rootScope, $stateParams, UserCenterService) {
 
-	$rootScope.selectSide = 'assets-overview';
+    $rootScope.selectSide = 'assets-overview';
     var balance = 0;
     var waitingProfit = 0;
     var waitingCapital = 0;
@@ -9,89 +10,83 @@ hongcaiApp.controller('AssetsOverviewCtrl', [ '$scope', '$state', '$rootScope', 
     var receivedProfit = 0;
     var amount = 0;
     UserCenterService.getUserCapital.get(function(response) {
-    	if(response.ret === 1) {
-    		balance = response.data.userCapital.balance;
-    		waitingProfit = response.data.userCapital.waitingProfit;
-    		waitingCapital = response.data.userCapital.waitingCapital;
-    		freezeCapital = response.data.userCapital.freezeCapital;
-    		receivedProfit = response.data.userCapital.receivedProfit;
-    		amount = response.data.userCapital.amount;
+      if (response.ret === 1) {
+        balance = response.data.userCapital.balance;
+        waitingProfit = response.data.userCapital.waitingProfit;
+        waitingCapital = response.data.userCapital.waitingCapital;
+        freezeCapital = response.data.userCapital.freezeCapital;
+        receivedProfit = response.data.userCapital.receivedProfit;
+        amount = response.data.userCapital.amount;
 
-		    $scope.capital = response.data;
-		    if(balance == 0 && waitingProfit == 0 && waitingCapital == 0 && freezeCapital == 0 && receivedProfit == 0 && amount == 0) {
- 				$scope.doughnutAssetsData = [{
-					value : 20,
-					label: '可用余额',
-					color : '#d2cb3f'
-				},
-				{
-					value : 20,
-					label: '待收收益',
-					color : '#62cbc6'
-				},
-				{
-					value : 20,
-					label: '待收本金',
-					color : '#f9b81e'
-				},
-				{
-					value : 20,
-					label: '冻结资金',
-					color : '#6aabe1'
-				}]
-		    } else {
-				$scope.doughnutAssetsData = [{
-					value : response.data.userCapital.balance,
-					label: '可用余额',
-					color : '#d2cb3f'
-				},
-				{
-					value : response.data.userCapital.waitingProfit,
-					label: '待收收益',
-					color : '#62cbc6'
-				},
-				{
-					value : response.data.userCapital.waitingCapital,
-					label: '待收本金',
-					color : '#f9b81e'
-				},
-				{
-					value : response.data.userCapital.freezeCapital,
-					label: '冻结资金',
-					color : '#6aabe1'
-				}]
-		    }
+        $scope.capital = response.data;
+        if (balance === 0 && waitingProfit === 0 && waitingCapital === 0 && freezeCapital === 0 && receivedProfit === 0 && amount === 0) {
+          $scope.doughnutAssetsData = [{
+            value: 20,
+            label: '可用余额',
+            color: '#d2cb3f'
+          }, {
+            value: 20,
+            label: '待收收益',
+            color: '#62cbc6'
+          }, {
+            value: 20,
+            label: '待收本金',
+            color: '#f9b81e'
+          }, {
+            value: 20,
+            label: '冻结资金',
+            color: '#6aabe1'
+          }];
+        } else {
+          $scope.doughnutAssetsData = [{
+            value: response.data.userCapital.balance,
+            label: '可用余额',
+            color: '#d2cb3f'
+          }, {
+            value: response.data.userCapital.waitingProfit,
+            label: '待收收益',
+            color: '#62cbc6'
+          }, {
+            value: response.data.userCapital.waitingCapital,
+            label: '待收本金',
+            color: '#f9b81e'
+          }, {
+            value: response.data.userCapital.freezeCapital,
+            label: '冻结资金',
+            color: '#6aabe1'
+          }];
+        }
 
-  		} else {
+      } else {
         console.log('ask assets-overview, why getUserCapital did not load data...');
         $state.go('root.login');
       }
     });
 
-    if(balance > 0 && waitingProfit > 0 && waitingCapital > 0 && freezeCapital > 0 && receivedProfit > 0 && amount > 0) {
-    	$scope.doughnutOptions = {
-        segmentShowStroke : false,
-        segmentStrokeColor : '#fff',
-        segmentStrokeWidth : 2,
-        percentageInnerCutout : 65,
-        animation : true,
-        animationSteps : 100,
-        animationEasing : 'easeOutQuart',
-        animateRotate : true,
-        animateScale : false
+    if (balance > 0 && waitingProfit > 0 && waitingCapital > 0 && freezeCapital > 0 && receivedProfit > 0 && amount > 0) {
+      $scope.doughnutOptions = {
+        segmentShowStroke: false,
+        segmentStrokeColor: '#fff',
+        segmentStrokeWidth: 2,
+        percentageInnerCutout: 65,
+        animation: true,
+        animationSteps: 100,
+        animationEasing: 'easeOutQuart',
+        animateRotate: true,
+        animateScale: false
       };
     } else {
       $scope.doughnutOptions = {
-        segmentShowStroke : false,
-        segmentStrokeColor : '#fff',
-        segmentStrokeWidth : 2,
-        percentageInnerCutout : 65,
-        animation : true,
-        animationSteps : 100,
-        animationEasing : 'easeOutQuart',
-        animateRotate : true,
-        animateScale : false,
+        segmentShowStroke: false,
+        segmentStrokeColor: '#fff',
+        segmentStrokeWidth: 2,
+        percentageInnerCutout: 65,
+        animation: true,
+        animationSteps: 100,
+        animationEasing: 'easeOutQuart',
+        animateRotate: true,
+        animateScale: false,
         showTooltips: false
       };
     }
-}]);
+  }]);
