@@ -279,13 +279,13 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <div class="panel panel-default" ng-init="activeTab_right=0;">
+          <div class="panel panel-default" ng-init="activeTabRight=0;">
             <ul class="nav nav-pills nav-justified border-b">
-              <li ng-class="{active: activeTab_right===$index}" ng-repeat="tab_right in tabs_right"><a ng-click="switchTab_right($index)">{{tab_right.title}}</a>
+              <li ng-class="{active: activeTabRight===$index}" ng-repeat="tab_right in tabsRight"><a ng-click="switchTabRight($index)">{{tab_right.title}}</a>
               </li>
             </ul>
             <div class="tab-content">
-              <div class="tab-pane" ng-class="{active: activeTab_right===$index}" ng-repeat="tab_right in tabs_right">
+              <div class="tab-pane" ng-class="{active: activeTabRight===$index}" ng-repeat="tab_right in tabsRight">
                 <section ng-if="tab_right.title==='投资记录'">
                   <div class="panel-body">
                     <table class="table table-hover">
