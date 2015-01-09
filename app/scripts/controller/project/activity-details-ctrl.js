@@ -1,5 +1,6 @@
 'use strict';
-hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', '$timeout', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, $timeout) {
+angular.module('hongcaiApp')
+  .controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', '$timeout', 'toaster', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, $timeout, toaster) {
   $rootScope.redirectUrl = $location.path();
 
   var activityDetails = ProjectService.activityDetails.get({
@@ -7,23 +8,24 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
     type: $stateParams.type
   }, function() {
     if (activityDetails.ret === 1) {
-      $scope.statSecond = parseInt(activityDetails.data.countDownTime/1000+1) || -1;
-      console.log('statSecond: ' + $scope.statSecond);
-      $scope.onTimeout = function(){
-        $scope.statSecond --;
+      $scope.statSecond = parseInt(activityDetails.data.countDownTime / 1000 + 1) || -1;
+      $scope.onTimeout = function() {
+        $scope.statSecond--;
         mytimeout = $timeout($scope.onTimeout, 1000);
         $scope.statDay = moment().startOf('month').seconds($scope.statSecond).format('DD') - 1 + '天,';
         $scope.statTime = moment().startOf('month').seconds($scope.statSecond).format('HH时,mm分,ss秒');
-        if($scope.statSecond === 0) {
-          ProjectService.activityDetails.get({projectId: $stateParams.projectId}, function(response) {
-            if(response.ret === 1) {
+        if ($scope.statSecond === 0) {
+          ProjectService.activityDetails.get({
+            projectId: $stateParams.projectId
+          }, function(response) {
+            if (response.ret === 1) {
               $scope.project = response.data.project;
             }
           });
           window.location.reload();
         }
-      }
-      var mytimeout = $timeout($scope.onTimeout,1000);
+      };
+      var mytimeout = $timeout($scope.onTimeout, 1000);
       $scope.$on('$stateChangeStart', function() {
         $timeout.cancel(mytimeout);
       });
@@ -40,7 +42,7 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
 
       $scope.numberOfPages = function() {
         return Math.ceil($scope.data.length / $scope.pageSize);
-      }
+      };
       for (var i = 0; i < $scope.orderList.length; i++) {
         $scope.data.push($scope.orderList[i]);
       }
@@ -52,7 +54,7 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
   $scope.isAvailableInvest = function(project) { //验证用户权限
     if (project.amount <= $scope.project.minInvest) {
       $scope.msg = '投资金额必须大于最小投资金额' + $scope.project.minInvest + '！';
-      var alertDialog = $alert({
+      $alert({
         scope: $scope,
         template: 'views/modal/alert-dialog.html',
         show: true
@@ -60,7 +62,7 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
       return;
     } else if (project.amount % $scope.project.increaseAmount) {
       $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍！';
-      var alertDialog = $alert({
+      $alert({
         scope: $scope,
         template: 'views/modal/alert-dialog.html',
         show: true
@@ -68,7 +70,7 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
       return;
     } else if (project.amount > $scope.canInvestAmount) {
       $scope.msg = '投资金额必须小于宏包总值' + $scope.canInvestAmount + '!';
-      var alertDialog = $alert({
+      $alert({
         scope: $scope,
         template: 'views/modal/alert-dialog.html',
         show: true
@@ -105,21 +107,20 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
 
 
   $scope.tabs = [{
-      title: '活动详情'
-    }
-  ];
+    title: '活动详情'
+  }];
 
-  $scope.tabs_right = [{
+  $scope.tabsRight = [{
     title: '投资记录',
   }];
 
   $scope.switchTab = function(tabIndex) {
     $scope.activeTab = tabIndex;
-  }
+  };
 
-  $scope.switchTab_right = function(tabIndex_right) {
-    $scope.activeTab_right = tabIndex_right;
-  }
+  $scope.switchTabRight = function(tabIndexRight) {
+    $scope.activeTabRight = tabIndexRight;
+  };
 
   $scope.image = 'images/test/0.png';
   var myOtherModal = $modal({
@@ -136,3 +137,4 @@ hongcaiApp.controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', 
     $state.go($scope.isLogged === true ? 'root.userCenter.gift-overview' : 'root.login');
   };
 }]);
+
