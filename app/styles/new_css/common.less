@@ -23,6 +23,11 @@ input:focus {
   outline: none;
   background-color: #fdfbfb;
 }
+@border: 1px solid #dbdbdb;
+.border {
+  border: @border;
+  border-radius: 2px;
+}
 
 /* .bg {
   padding-top: 18px;
@@ -1171,9 +1176,10 @@ a:link {
 .padding-l-0 {
   padding-left: 0;
 }
-/* .margin-b-30 {
+.margin-b-30 {
   margin-bottom: 30px;
-} */
+
+} 
 /*.margin-b-0 {
   margin-bottom: 0;
 }*/
@@ -2118,19 +2124,19 @@ a:link {
   background-color: rgba(0, 0, 0, .2);
   color: #fff;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .2);
- /*  .pull-right {
+  .pull-right {
    margin-right: 15px;
- } */
+ } 
   p {
     margin-top: 2%;
   }
   .btn {
     margin-left: 4%;
   }
-/*   .pull-right {
-  margin-top: 2%;
-}
- */}
+  .pull-right {
+    margin-top: 2%;
+  }
+ }
 .mediaList, .noticeList, .trendList, .help {
   a {
     display: inline-block;
@@ -2385,7 +2391,9 @@ a:link {
   }
 } */
 //invest-verify
-.invest-verify {
+/* .invest-verify {
+	padding-top: 20px;
+	padding-bottom: 25px;
   a {
     display: inline-block;
     width: 100%;
@@ -2396,7 +2404,7 @@ a:link {
   a:hover, a:focus {
     color: #333;
   }
-}
+} */
 #dropdown {
   background-color: #e94828;
   margin-top: 0;
