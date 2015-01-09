@@ -5,8 +5,12 @@ body, html {
   _background-attachment: fixed;
   _background-image: url(about:blank);
 }
-a:hover {
+a,
+a:hover,
+a:link {
   text-decoration: none !important;
+  cursor: pointer;
+  outline: none;
 }
 label {
   font-weight: normal !important;
@@ -23,11 +27,45 @@ input:focus {
   outline: none;
   background-color: #fdfbfb;
 }
+hr {
+  border-top: 1px solid #d8d8d8;
+}
 @border: 1px solid #dbdbdb;
 .border {
   border: @border;
   border-radius: 2px;
 }
+.border-r {
+  border-right: @border;
+}
+.border-b {
+  border-bottom: @border;
+} 
+.border-l {
+  border-left: @border;
+}
+.ft-offWhite {
+  color: #878484;
+}
+.bg-grey {
+  background-color: #ebebeb;
+}
+.bg-white {
+  background-color: #fff;
+}
+.mgn-left-0 {
+  margin-left: 0;
+}
+.modal-open {
+  overflow: visible;
+  .btn, .btn:hover {
+    border-color: #f27b64;
+  }
+}
+.modal-open .btn-default {
+  width: 85px;
+}
+
 
 /* .bg {
   padding-top: 18px;
@@ -94,8 +132,7 @@ input:focus {
       padding: 3px 0;
     }
     .row .project-name {
-      padding-bottom: 10px;
-      padding-top: 0;
+      padding: 0 0 10px 0;
     }
     .project-progress {
       padding-left: 150px;
@@ -1224,7 +1261,7 @@ a {
 }
 a:link {
   text-decoration: none;
-  outline: none;
+  
 }
 .bg-grey-l {
   background-color: #ccc;
@@ -1835,6 +1872,7 @@ a:link {
     }
   }
 } */
+
 // project detail page
 #project-detail {
   padding: 30px;
@@ -1847,7 +1885,7 @@ a:link {
   .project-name {
     font-size: 24px;
     margin-top: 0;
-    padding-top: 0;
+    padding: 0 0 10px 0;
   }
   .status {
     .row {
@@ -2153,7 +2191,7 @@ a:link {
   font-weight: bold;
 }
 .ft-red {
-  color: #eb5c3f;
+  color: #ea5430;
 }
 .ft-36 {
   font-size: 36px;
@@ -2175,6 +2213,9 @@ a:link {
 }
 .ft-14 {
   font-size: 14px;
+}
+.ft-12 {
+  font-size: 12px;
 }
 .project-icon {
   display: inline-block;
@@ -2269,6 +2310,10 @@ a:link {
   .margin-l-15 {
     margin-left: 15px;
   }
+  .col-md-8 .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
   .sponsor-description {
     position: relative;
     height: 363px;
@@ -2285,18 +2330,11 @@ a:link {
     }
   }
   .project-item {
+    .border-b;
     height: 90px;
-    .col-md-8 {
-      padding-left: 0;
-      padding-right: 0;
-      .col-md-3, .col-md-4 {
-        padding-left: 0;
-        padding-right: 0;
-        span {
-          font-size: 14px;
-        }
-      }
-    }
+    .col-md-8,
+    .col-md-3,
+    .col-md-4,
     .col-md-1 {
       padding-left: 0;
       padding-right: 0;
@@ -2307,6 +2345,9 @@ a:link {
     }
     .btn-danger:hover {
       background-color: #b0a8a8;
+    }
+    .project-name {
+      padding: 20px 0 10px 0;
     }
   }
   .slick-prev {
@@ -2422,45 +2463,8 @@ a:link {
     padding: 30px 0 75px 0;
   }
 }
-.carousel-control {
-  .fa-chevron-left, .fa-chevron-right {
-    position: absolute;
-    top: 45%;
-    z-index: 5;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    font-size: 60px;
-    margin-top: -15px;
-  }
-}
-//projectCategory
-.projectCategory {
-  .projectCategory-title {
-    background-color: #f5f5f5;
-    border: 1px solid #ddd;
-    border-bottom: none;
-    h2 {
-      font-size: 18px;
-      padding-left: 30px;
-      margin-top: 10px;
-    }
-  }
-  .list-group-item ul {
-    padding-top: 69px;
-    list-style: none;
-    color: red;
-    font-size: 16px;
-    i {
-      line-height: 20px;
-      float: left;
-      font-weight: bold;
-    }
-  }
-  .padding-l-58 {
-    padding-left: 58px;
-  }
-}
+
+
 //invest-verify
 /* .invest-verify {
 	padding-top: 20px;
@@ -2508,65 +2512,35 @@ a:link {
     margin-top: 10px;
   }
 }
-.special-recommend {
-  position: relative;
-}
+
 a.cancel-red:hover, a.cancel-red:focus {
   color: #333;
 }
-.userMessage {
-  .border-b-none {
-    border-bottom: none;
-  }
-  .padding-b-0 {
-    padding-bottom: 0;
-  }
-  ul .cursor-d {
-    cursor: default;
-  }
-  .btn-group {
-    position: absolute;
-    top: 1px;
-    a {
-      position: relative;
-    }
-    a.active {
-      line-height: 21px;
-      background: #fff;
-    }
-  }
-  .list-group-item {
-    cursor: pointer;
-    p {
-      margin-top: 10px;
-      // padding-bottom: 10px;
-      margin-bottom: 0;
-      height: 20px;
-      overflow: hidden;
-    }
-    .unfold {
-      height: auto;
-    }
-  }
-  .read-flag {
-    font-weight: normal;
-  }
-  .unread-flag {
-    font-weight: bold;
-  }
- /*  .pull-right {
-   cursor: pointer;
- } */
-}
+
 .tuhao-mess {
   line-height: 26px;
   font-size: 18px;
+}
+
+//slick 组件 start
+.carousel-control {
+  .fa-chevron-left, .fa-chevron-right {
+    position: absolute;
+    top: 45%;
+    z-index: 5;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-size: 60px;
+    margin-top: -15px;
+  }
 }
 //overwrite slick.css
 .slick-dots li button:before {
   font-family: "Microsoft YaHei";
   font-size: 40px;
 }
+//slick 组件 end
 
 //原main.less里的类
 .user-center .right-area, .left-area {
