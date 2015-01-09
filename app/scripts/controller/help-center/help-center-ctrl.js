@@ -1,31 +1,33 @@
 'use strict';
-hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', function ($scope, $state, $rootScope, $location, $stateParams) {
-	$scope.menus = {
-            'left': [{
-            	'href': '/introduce',
-                'link': 'root.help-center.introduce',
-                'text': '宏财介绍'},
-            {
-            	'href': '/investors',
-                'link': 'root.help-center.investors',
-                'text': '投资介绍'},
-            {
-            	'href': '/account-management',
-                'link': 'root.help-center.account-management',
-                'text': '账户管理'},
-            {
-            	'href': '/safety-certification',
-                'link': 'root.help-center.safety-certification',
-                'text': '安全认证'},
-            {
-            	'href': '/law-and-policy-guarantee',
-                'link': 'root.help-center.law-and-policy-guarantee',
-                'text': '法律保障'},
-            {
-                'href': '/other-question',
-                'link': 'root.help-center.other-question',
-                'text': '其他问题'}]
-        };
+angular.module('hongcaiApp')
+  .controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$location', function($scope, $state, $rootScope, $location) {
+    $scope.menus = {
+      'left': [{
+        'href': '/introduce',
+        'link': 'root.help-center.introduce',
+        'text': '宏财介绍'
+      }, {
+        'href': '/investors',
+        'link': 'root.help-center.investors',
+        'text': '投资介绍'
+      }, {
+        'href': '/account-management',
+        'link': 'root.help-center.account-management',
+        'text': '账户管理'
+      }, {
+        'href': '/safety-certification',
+        'link': 'root.help-center.safety-certification',
+        'text': '安全认证'
+      }, {
+        'href': '/law-and-policy-guarantee',
+        'link': 'root.help-center.law-and-policy-guarantee',
+        'text': '法律保障'
+      }, {
+        'href': '/other-question',
+        'link': 'root.help-center.other-question',
+        'text': '其他问题'
+      }]
+    };
 
     $rootScope.selectPage = $location.path().split('/')[1];
     $scope.changeIntroduceQ1 = false;
@@ -89,4 +91,4 @@ hongcaiApp.controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$loc
     $scope.changeOther2 = false;
     $scope.changeOther3 = false;
 
-}]);
+  }]);

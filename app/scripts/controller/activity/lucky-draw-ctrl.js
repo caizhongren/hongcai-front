@@ -1,89 +1,91 @@
 'use strict';
-hongcaiApp.controller('LuckyDrawCtrl', ['$scope', '$state', 'UserCenterService', '$alert', '$timeout', function($scope, $state, UserCenterService, $alert, $timeout) {
-  $scope.status = 0;
+angular.module('hongcaiApp')
+  .controller('LuckyDrawCtrl', ['$scope', '$state', 'UserCenterService', '$alert', '$timeout', function($scope, $state, UserCenterService, $alert, $timeout) {
+    $scope.status = 0;
 
-  $scope.ScrollImgLeft = function() { 
-    var speed=30; 
-    var scroll_begin = document.getElementById("scroll_begin"); 
-    var scroll_end = document.getElementById("scroll_end"); 
-    var scroll_div = document.getElementById("scroll_div"); 
-    scroll_end.innerHTML=scroll_begin.innerHTML; 
-    function Marquee(){ 
-    if(scroll_end.offsetWidth-scroll_div.scrollLeft<=0) 
-    scroll_div.scrollLeft-=scroll_begin.offsetWidth; 
-    else 
-    scroll_div.scrollLeft++; 
-    } 
-    var MyMar=setInterval(Marquee,speed); 
-    scroll_div.onmouseover=function() {clearInterval(MyMar);} 
-    scroll_div.onmouseout=function() {MyMar=setInterval(Marquee,speed);} 
-  };
+    $scope.ScrollImgLeft = function() {
+      var speed = 30;
+      var scrollBegin = document.getElementById('scroll_begin');
+      var scrollEnd = document.getElementById('scroll_end');
+      var scrollDiv = document.getElementById('scroll_div');
+      scrollEnd.innerHTML = scrollBegin.innerHTML;
 
-  UserCenterService.getLuckyList.get(function(response) {
-    if (response.ret === 1) {
-      $scope.lotteryRecords = response.data.lotteryRecords;
-      $scope.hongYunProject = response.data.hongYunProject;
-      $scope.tuhaoProject = response.data.tuhaoProject;
-      
-      var winnerNum = $scope.lotteryRecords.length;
-      $scope.checkRender = function() {
-        $timeout.cancel(mytimeout);
-        if(winnerNum > 4 && angular.element('#scroll_begin span').length === winnerNum){
-          $scope.ScrollImgLeft();
+      function Marquee() {
+        if (scrollEnd.offsetWidth - scrollDiv.scrollLeft <= 0) {
+          scrollDiv.scrollLeft -= scrollBegin.offsetWidth;
         } else {
-          var mytimeout = $timeout($scope.checkRender,50);
+          scrollDiv.scrollLeft++;
         }
       }
-      var mytimeout = $timeout($scope.checkRender,1);
-    } else {
-      $scope.msg = response.msg;
-      var alertDialog = $alert({
-        scope: $scope,
-        template: 'views/modal/alert-dialog.html',
-        show: true
-      });
-    }
-  });
+      var MyMar = setInterval(Marquee, speed);
+      scrollDiv.onmouseover = function() {
+        clearInterval(MyMar);
+      };
+      scrollDiv.onmouseout = function() {
+        MyMar = setInterval(Marquee, speed);
+      };
+    };
 
-  var luckyDraw_on = false;
-  $scope.luckyDraw = function() {
-    if(!luckyDraw_on){
-      $scope.msg = "活动已过期";
-      var alertDialog = $alert({
-        scope: $scope,
-        template: 'views/modal/alert-dialog.html',
-        show: true
-      });
-    }else {
-      UserCenterService.luckyDraw.get(function(response) {
-        if (response.ret === 1) {
-          var hongbaoLevel = response.data.userHongbaoLottery.prizeLevel;
-          if (hongbaoLevel === 0) {
-            // 土豪状态
-            $scope.status = 2;
-          } else if (hongbaoLevel === 1) {
-            // 普通宏包状态。
-            $scope.status = 1;
+    UserCenterService.getLuckyList.get(function(response) {
+      if (response.ret === 1) {
+        $scope.lotteryRecords = response.data.lotteryRecords;
+        $scope.hongYunProject = response.data.hongYunProject;
+        $scope.tuhaoProject = response.data.tuhaoProject;
+
+        var winnerNum = $scope.lotteryRecords.length;
+        $scope.checkRender = function() {
+          $timeout.cancel(mytimeout);
+          if (winnerNum > 4 && angular.element('#scroll_begin span').length === winnerNum) {
+            $scope.ScrollImgLeft();
+          } else {
+            mytimeout = $timeout($scope.checkRender, 50);
           }
-        } else {
-          $scope.msg = response.msg;
-          var alertDialog = $alert({
-            scope: $scope,
-            template: 'views/modal/alert-dialog.html',
-            show: true
-          });
-        }
-      })
-    }
-    
-  };
+        };
+        var mytimeout = $timeout($scope.checkRender, 1);
+      } else {
+        $scope.msg = response.msg;
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alert-dialog.html',
+          show: true
+        });
+      }
+    });
 
-  $scope.goToRule = function() {
-    $state.go($scope.isLogged === true ? 'root.userCenter.gift-overview' : 'root.login');
-  }
+    var luckyDrawOn = false;
+    $scope.luckyDraw = function() {
+      if (!luckyDrawOn) {
+        $scope.msg = '活动已过期';
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alert-dialog.html',
+          show: true
+        });
+      } else {
+        UserCenterService.luckyDraw.get(function(response) {
+          if (response.ret === 1) {
+            var hongbaoLevel = response.data.userHongbaoLottery.prizeLevel;
+            if (hongbaoLevel === 0) {
+              // 土豪状态
+              $scope.status = 2;
+            } else if (hongbaoLevel === 1) {
+              // 普通宏包状态。
+              $scope.status = 1;
+            }
+          } else {
+            $scope.msg = response.msg;
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-dialog.html',
+              show: true
+            });
+          }
+        });
+      }
+    };
 
-  
+    $scope.goToRule = function() {
+      $state.go($scope.isLogged === true ? 'root.userCenter.gift-overview' : 'root.login');
+    };
 
-
-
-}]);
+  }]);
