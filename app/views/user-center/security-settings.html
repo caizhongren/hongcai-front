@@ -44,7 +44,7 @@
   <div class="change-area change-pwd-height" ng-show="changPwd" ng-init="changPwd=false">
     <form class="real-name row" name="changePwdForm" ng-submit="changePassword(password)">
       <div class="col-md-8 col-lg-6 col-md-offset-2 col-lg-offset-3">
-        <div class="safe-form-group row">
+        <div class="row safe-form-group">
           <label for="oldPwd" class="col-md-4 col-lg-4">原始密码：</label>
           <input type="password" class="verify-input col-md-6 col-lg-6" name="oldPwd" id="oldPwd" ng-model="password.oldPassword" check-password="oldPwd" required ng-focus autofocus/>
           <div class="user-tips-area safe-tips-area" ng-show="changePwdForm.oldPwd.$dirty && changePwdForm.oldPwd.$invalid && !changePwdForm.oldPwd.$focused && changePwdForm.oldPwd.$error.required">
