@@ -8,7 +8,6 @@ Gruntfile.js
 config_dev.json
 config_pro.json
 config_dev_test321.json
-
 app/styles/bootstrap_overwrite.css
 app/styles/main_leo.css
 app/styles/test.css

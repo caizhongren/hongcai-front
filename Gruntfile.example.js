@@ -37,7 +37,7 @@ module.exports = function(grunt) {
           dest: '.tmp/scripts/config.js',
           name: 'config',
           constants: {
-            config: grunt.file.readJSON('config_dev.json')
+            config: grunt.file.readJSON('config_buildTest43.json')
           }
         }
       },
@@ -47,7 +47,7 @@ module.exports = function(grunt) {
           dest: '.tmp/scripts/config.js',
           name: 'config',
           constants: {
-            config: grunt.file.readJSON('config_dev_test321.json')
+            config: grunt.file.readJSON('config_buildTest321.json')
           }
         }
       },
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
           dest: '.tmp/scripts/config.js',
           name: 'config',
           constants: {
-            config: grunt.file.readJSON('config_pro.json')
+            config: grunt.file.readJSON('config_build.json')
           }
         }
       }
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/scripts/{,*/}*{,*/}*.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -166,7 +166,9 @@ module.exports = function(grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/{,*/}*.js'
+          '<%= yeoman.app %>/scripts/{,*/}*{,*/}*.js',
+          // 忽略兼容IE8的JS文件
+          '!<%= yeoman.app %>/scripts/util/respond.proxy.js'
         ]
       },
       test: {

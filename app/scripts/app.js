@@ -980,8 +980,7 @@ hongcaiApp
           }
         }
       });
-
-    //$sceDelegateProvider.resourceUrlWhitelist(['self', 'http://192.168.80.29:9001/hongcai/**']);
+    $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://www.hongcai.com/hongcai/api/**']);
 
     // 导致IE8不兼容的地方。
     $urlRouterProvider.otherwise('/');
@@ -1005,6 +1004,7 @@ hongcaiApp
   }]);
 
 hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_DOMAIN, toaster, config, Analytics) {
+  Analytics.trackPage('/', '宏财网 hongcai.com - 要理财，上宏财!');
   // Array 在IE8下没有indexOf 方法。
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(obj, start) {

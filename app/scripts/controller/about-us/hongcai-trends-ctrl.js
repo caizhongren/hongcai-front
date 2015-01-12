@@ -1,20 +1,29 @@
 'use strict';
-hongcaiApp.controller('HongcaiTrendsCtrl', ['$scope', '$state', '$location', '$stateParams', 'AboutUsService', function ($scope, $state, $location, $stateParams, AboutUsService) {
-	
+angular.module('hongcaiApp')
+  .controller('HongcaiTrendsCtrl', ['$scope', '$state', '$location', function($scope, $state, $location) {
+
     $scope.perPage = parseInt($location.search().perPage, 10) || 5;
     $scope.page = parseInt($location.search().page, 10) || 0;
     $scope.clientLimit = 250;
     $scope.urlParams = {
-      category: "3"
+      category: '3'
     };
 
-    $scope.$watch('page', function(page) { $location.search('page', page); });
-    $scope.$watch('perPage', function(page) { $location.search('perPage', page); });
+    $scope.$watch('page', function(page) {
+      $location.search('page', page);
+    });
+    $scope.$watch('perPage', function(page) {
+      $location.search('perPage', page);
+    });
     $scope.$on('$locationChangeSuccess', function() {
-        var page = +$location.search().page,
+      var page = +$location.search().page,
         perPage = +$location.search().perPage;
-        if(page >= 0) { $scope.page = page; };
-        if(perPage >= 0) { $scope.perPage = perPage; };
+      if (page >= 0) {
+        $scope.page = page;
+      }
+      if (perPage >= 0) {
+        $scope.perPage = perPage;
+      }
     });
 
     // AboutUsService.textList.get({category: 3}, function(response) {
@@ -32,4 +41,4 @@ hongcaiApp.controller('HongcaiTrendsCtrl', ['$scope', '$state', '$location', '$s
     //     }
     // });
 
-}]);
+  }]);
