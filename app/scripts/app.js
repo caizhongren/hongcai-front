@@ -34,9 +34,6 @@ hongcaiApp
     cfpLoadingBarProvider.includeSpinner = true;
     cfpLoadingBarProvider.includeBar = true;
   }])
-  .config(['ngClipProvider', function(ngClipProvider) {
-    ngClipProvider.setPath('bower_components/zeroclipboard/dist/ZeroClipboard.swf');
-  }])
   // .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   // $locationProvider.html5Mode(true);
   // $routeProvider.when 'carousel-example-generic';
