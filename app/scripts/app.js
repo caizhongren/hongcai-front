@@ -25,7 +25,8 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'angular-md5',
   'textAngular',
   'angular-google-analytics',
-  'bgf.paginateAnything'
+  'bgf.paginateAnything',
+  'ngClipboard'
 ]);
 
 hongcaiApp
