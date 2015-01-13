@@ -194,7 +194,7 @@ angular.module('hongcaiApp')
             payDate = invEndDate;
           }
           if (i === 0) {
-            invDays = moment(payDate).diff(moment(invInitDate), 'days', true);
+            invDays = moment(payDate).diff(moment(invInitDate), 'days', true) + 1;
           } else {
             invDays = moment(payDate).diff(moment(prevDate), 'days', true);
           }
