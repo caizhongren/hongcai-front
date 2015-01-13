@@ -40,6 +40,8 @@ angular.module('hongcaiApp')
       qqImg.fadeOut();
     });
 
+    $scope.online = online;//获取qq客服离在线状态
+
     //计算器
     // $scope.inputValue = 0;
     /*$scope.params = {
