@@ -180,7 +180,7 @@ angular.module('hongcaiApp')
         };
         $scope.listInvPond.push(invList);
       } else {
-        var LastPayDate = moment(invStartDate).add((invCycle - 1), 'month').toString();
+        // var LastPayDate = moment(invStartDate).add((invCycle - 1), 'month').toString();
         // LastPayDate 永远等于 invEndDate?
         // var diffDate = moment(LastPayDate).diff(moment(invEndDate), 'days');
         // if (diffDate === 0) {
