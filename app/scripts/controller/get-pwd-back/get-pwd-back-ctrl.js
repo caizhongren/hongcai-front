@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'GetPwdService', 'UserCenterService', 'md5', function($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster, GetPwdService, UserCenterService, md5) {
+  .controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'UserCenterService', 'md5', function($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster, UserCenterService, md5) {
     $scope.areaFlag = 1;
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?';
     $scope.refreshCode = function() {
@@ -164,7 +164,7 @@ angular.module('hongcaiApp')
     };
   }])
 
-  .controller('SetNewPwdCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'SessionService', 'toaster', 'GetPwdService', 'UserCenterService', '$timeout', 'md5', function($scope, $state, $rootScope, $stateParams, SessionService, toaster, GetPwdService, UserCenterService, $timeout, md5) {
+  .controller('SetNewPwdCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'SessionService', 'toaster', 'UserCenterService', '$timeout', 'md5', function($scope, $state, $rootScope, $stateParams, SessionService, toaster, UserCenterService, $timeout, md5) {
     $scope.areaFlag = 3;
 
     $scope.uuId = $stateParams.uuid;
