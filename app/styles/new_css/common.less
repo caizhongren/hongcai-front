@@ -1,17 +1,23 @@
+@import 'bootstrap_overwrite.less';
 body, html {
   margin: 0;
   color: #333 !important;
   text-rendering: optimizelegibility;
   _background-attachment: fixed;
   _background-image: url(about:blank);
+  cursor: default;
+  font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  background-color: #F0F0F0;
 }
-a,
-a:hover,
-a:link {
-  text-decoration: none !important;
+
+a {
+  color: #333;
   cursor: pointer;
+  text-decoration: none !important;
   outline: none;
+
 }
+
 label {
   font-weight: normal !important;
   padding: 5px 8px 0 !important;
@@ -27,8 +33,70 @@ input:focus {
   outline: none;
   background-color: #fdfbfb;
 }
+
+input[type="checkbox"] {
+  border: none;
+  background-color: #fff;
+  outline: none;
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+}
+
+
 hr {
   border-top: 1px solid #d8d8d8;
+}
+
+.ft-12 {
+  font-size: 12px;
+}
+.ft-16 {
+  font-size: 16px;
+}
+.ft-14 {
+  font-size: 14px;
+}
+.ft-18 {
+  font-size: 18px;
+}
+.ft-20 {
+  font-size: 20px;
+}
+.ft-24 {
+  font-size: 24px;
+}
+.ft-red {
+  color: #ea5430;
+}
+@red: #e94828;
+.ftw-b {
+  font-weight: bold;
+}
+.ft-offWhite {
+  color: #878484;
+}
+.ft-grey {
+  color: #807979;
+}
+.ft-grey2 {
+  color: #625a5a;
+}
+.bg-grey {
+  background-color: #ebebeb;
+}
+.bg-offWhite {
+  background-color: #f0f0f0;
+}
+/* .bg-white {
+  background-color: #fff;
+} */
+.mgn-top {
+  margin-top: 20px;
+}
+.mgn-left-0 {
+  margin-left: 0;
 }
 @border: 1px solid #dbdbdb;
 .border {
@@ -614,30 +682,7 @@ hr {
   margin-left: 2px;
 }
 
-// mian_leo.less
-@import 'bootstrap_overwrite.less';
-html, body {
-  color: @gray-light;
-  cursor: default;
-  font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
-  background-color: #F0F0F0;
-}
-input[type="checkbox"] {
-  border: none;
-  background-color: #fff;
-  outline: none;
-}
-input[type="checkbox"]:focus {
-  outline: none;
-}
-a {
-  color: #333;
-  text-decoration: none;
-}
-a:link {
-  text-decoration: none;
-  
-}
+
 .bg-grey-l {
   background-color: #ccc;
 }
@@ -657,6 +702,9 @@ a:link {
 
 .padding-l-0 {
   padding-left: 0;
+}
+.padding-r-0 {
+  padding-right: 0;
 }
 .margin-b-30 {
   margin-bottom: 30px;
