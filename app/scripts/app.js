@@ -284,16 +284,16 @@ hongcaiApp
           }
         }
       })
-       /*------------------------------------------  app view  -----------------------------------------------*/
-      .state('root.appview.apprechrage-success', {
-        url: '/apprecharge-success',
-        views: {
-          '': {
-            templateUrl: 'views/appview/apprecharge-success.html'
-          }
-        }
-      })
-      // .state('root.appview.appinvestment-success', {
+      //  /*------------------------------------------  app view  -----------------------------------------------*/
+      // .state('root.apprechrage-success', {
+      //   url: '/apprecharge-success',
+      //   views: {
+      //     '': {
+      //       templateUrl: 'views/appview/apprecharge-success.html'
+      //     }
+      //   }
+      // })
+      // .state('root.appinvestment-success', {
       //   url: '/appinvestment-success',
       //   views: {
       //     '': {
@@ -301,7 +301,7 @@ hongcaiApp
       //     }
       //   }
       // })
-      // .state('root.appview.appregistration-yeepay', {
+      // .state('root.appregistration-yeepay', {
       //   url: '/appregistration-yeepay',
       //   views: {
       //     '': {
@@ -309,7 +309,7 @@ hongcaiApp
       //     }
       //   }
       // })
-      // .state('root.appview.appwithdrawals-success', {
+      // .state('root.appwithdrawals-success', {
       //   url: '/appwithdrawals-success',
       //   views: {
       //     '': {
