@@ -1,3 +1,4 @@
+@import 'common.less';
 // -------- public
 .assets-pic {
   height: 313px;
@@ -6,11 +7,15 @@
 .account-pic-bg {
   background-position: -1300px -304px;
 }
+.user-center .right-area, .left-area {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
 // account-overview && assets-overview
 .left-message-show {
   height: 90px;
   border-bottom: 1px solid #f5f5f5;
-  margin-left: 40px;
   .net-income {
     background-color: #f9b81e;
   }
@@ -41,6 +46,9 @@
   height: 260px;
   .last-show {
     border-bottom: 0px solid #f5f5f5;
+  }
+  .left-message-show {
+    margin-left: 40px;
   }
 }
 // -------- account-overview
@@ -150,22 +158,17 @@
 .process-tips {
   text-align: center;
   height: 80px;
+  background: url(/images/sprite.png) no-repeat;
   padding-top: 70px;
 }
 .red-safe-pwd {
-  background: url(/images/sprite.png) no-repeat;
   background-position: -12px -1390px;
-}
-
-.process-tips {
-  background: url(/images/sprite.png) no-repeat;
 }
 
 .grey-safe-phone {
   background-position: -140px -1277px;
 }
 .red-safe-phone {
-  background: url(/images/sprite.png) no-repeat;
   background-position: -140px -1390px;
 }
 
@@ -177,7 +180,6 @@
   background-position: -400px -1277px;
 }
 .red-safe-realname {
-  background: url(/images/sprite.png) no-repeat;
   background-position: -400px -1390px;
 }
 
@@ -361,6 +363,15 @@
   height: 25px;
   line-height: 25px;
   text-align: center;
+}
+.record, .investment, .userCenter-news { 
+  .padd {
+    padding-left: 75px;
+    padding-bottom: 20px;
+    strong {
+      .ft-red;
+    }
+  }
 }
 
 // -------- userCenter-investment --------
