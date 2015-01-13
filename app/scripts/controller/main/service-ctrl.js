@@ -40,6 +40,8 @@ angular.module('hongcaiApp')
       qqImg.fadeOut();
     });
 
+    $scope.online = online;
+
     //计算器
     // $scope.inputValue = 0;
     /*$scope.params = {
