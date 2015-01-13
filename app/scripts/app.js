@@ -284,6 +284,39 @@ hongcaiApp
           }
         }
       })
+       /*------------------------------------------  app view  -----------------------------------------------*/
+      .state('root.appview.apprechrage-success', {
+        url: '/apprecharge-success',
+        views: {
+          '': {
+            templateUrl: 'views/appview/apprecharge-success.html'
+          }
+        }
+      })
+      // .state('root.appview.appinvestment-success', {
+      //   url: '/appinvestment-success',
+      //   views: {
+      //     '': {
+      //       templateUrl: 'views/appview/appinvestment-success.html'
+      //     }
+      //   }
+      // })
+      // .state('root.appview.appregistration-yeepay', {
+      //   url: '/appregistration-yeepay',
+      //   views: {
+      //     '': {
+      //       templateUrl: 'views/appview/appregistration-yeepay.html'
+      //     }
+      //   }
+      // })
+      // .state('root.appview.appwithdrawals-success', {
+      //   url: '/appwithdrawals-success',
+      //   views: {
+      //     '': {
+      //       templateUrl: 'views/appview/appwithdrawals-success.html'
+      //     }
+      //   }
+      // })
       /*------------------------------------------  user-center  -----------------------------------------------*/
       .state('root.userCenter', {
         views: {
