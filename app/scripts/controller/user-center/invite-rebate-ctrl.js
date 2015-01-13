@@ -1,8 +1,5 @@
 'use strict';
 angular.module('hongcaiApp')
-  .config(['ngClipProvider', function(ngClipProvider) {
-    ngClipProvider.setPath('bower_components/zeroclipboard/dist/ZeroClipboard.swf');
-  }])
   .controller('InviteRebateCtrl', ['$scope', '$state', '$rootScope', 'UserCenterService', '$alert', function($scope, $state, $rootScope, UserCenterService, $alert) {
     $rootScope.selectSide = 'invite-rebate';
     UserCenterService.getInviteList.get(function(response) {
