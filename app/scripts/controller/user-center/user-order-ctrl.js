@@ -181,10 +181,11 @@ angular.module('hongcaiApp')
         $scope.listInvPond.push(invList);
       } else {
         var LastPayDate = moment(invStartDate).add((invCycle - 1), 'month').toString();
-        var diffDate = moment(LastPayDate).diff(moment(invEndDate), 'days');
-        if (diffDate === 0) {
-          invCycle = invCycle - 1;
-        }
+        // LastPayDate 永远等于 invEndDate?
+        // var diffDate = moment(LastPayDate).diff(moment(invEndDate), 'days');
+        // if (diffDate === 0) {
+        //   invCycle = invCycle - 1;
+        // }
         // 原先是这样
         invCycle = invCycle - 1;
         for (var i = 0; i <= invCycle; i++) {
