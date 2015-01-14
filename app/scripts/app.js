@@ -283,6 +283,7 @@ hongcaiApp
           }
         }
       })
+
       /*------------------------------------------  user-center  -----------------------------------------------*/
       .state('root.userCenter', {
         views: {
@@ -439,7 +440,7 @@ hongcaiApp
         }
       })
 
-    .state('root.userCenter.message', {
+      .state('root.userCenter.message', {
         url: '/message/:status',
         views: {
           'user-center-right': {
@@ -901,7 +902,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  app-help-center  -----------------------------------------------*/
+      /*------------------------------------------  app help-center  -----------------------------------------------*/
       .state('app-help-center', {
         abstract: true,
         views: {
@@ -958,9 +959,49 @@ hongcaiApp
           }
         }
       })
-
-      /*-------------------------------------------  traffic import route  -----------------------------------------*/
-      .state('root.registerMobile-sanGuo', {
+      /*------------------------------------------  app callback view  -----------------------------------------------*/
+      .state('app-callback', {
+        abstract: true,
+        views: {
+          '': {
+            templateUrl: 'views/appview/main.html'
+          }
+        }
+      })
+      .state('app-callback.apprechrage-success', {
+        url: '/apprecharge-success',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/apprecharge-success.html'
+          }
+        }
+      })
+      .state('app-callback.appinvestment-success', {
+        url: '/appinvestment-success',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appinvestment-success.html'
+          }
+        }
+      })
+      .state('app-callback.appregistration-yeepay', {
+        url: '/appregistration-yeepay',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appregistration-yeepay.html'
+          }
+        }
+      })
+      .state('app-callback.appwithdrawals-success', {
+        url: '/appwithdrawals-success',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appwithdrawals-success.html'
+          }
+        }
+      })
+    /*-------------------------------------------  traffic import route  -----------------------------------------*/
+    .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',
         views: {
           '': {
