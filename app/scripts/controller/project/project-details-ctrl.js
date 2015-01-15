@@ -142,10 +142,15 @@ angular.module('hongcaiApp')
               $state.go('root.userCenter.account-overview');
             }
           } else {
-            //$scope.errorMessage = response.msg;
+            // $scope.errorMessage = response.msg;
             //$scope.warning = true;
             // $state.go('root.login');
-            alert('预约error!')
+            $scope.msg = response.msg;
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-dialog.html',
+              show: true
+            });
           }
         });
       } else {
