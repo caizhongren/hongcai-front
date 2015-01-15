@@ -450,6 +450,26 @@ hongcaiApp
           }
         }
       })
+      .state('root.userCenter.reservation', {
+        url: '/reservation/:status',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/reservation.html',
+            controller: 'ReservationCtrl',
+            controllerUrl: 'scripts/controller/user-center/reservation-ctrl'
+          }
+        }
+      })
+      .state('root.userCenter.reservation-query', {
+        url: '/reservation/:dateInterval/:type',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/reservation.html',
+            controller: 'ReservationCtrl',
+            controllerUrl: 'scripts/controller/user-center/reservation-ctrl'
+          }
+        }
+      })
       /*---------------------------------------------  yeepay  ---------------------------------------------*/
       .state('root.open-yeepay-account-success', {
         url: '/yeepay-success/:status',
