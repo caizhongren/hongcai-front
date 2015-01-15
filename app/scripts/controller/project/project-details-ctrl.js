@@ -29,6 +29,9 @@ angular.module('hongcaiApp')
           $timeout.cancel(mytimeout);
         });
         $scope.project = projectDetails.data.project;
+
+        $scope.totalType = $scope.project.status === 6 && $scope.project.progress < 100 ? '可预约金额':'可投金额';
+        console.log($scope.project);
         // 项目可投金额
         $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
         // 用户可用金额
@@ -43,6 +46,7 @@ angular.module('hongcaiApp')
 
         // $scope.pledges = projectDetails.data.pledges;
         $scope.isAvailable = projectDetails.data.isAvailable;
+        console.log($scope.isAvailable);
         $scope.enterprise = projectDetails.data.enterprise;
         $scope.orderList = projectDetails.data.orderList;
         $scope.enterpriseThumbnailFileList = projectDetails.data.enterpriseThumbnailFileList;
@@ -91,8 +95,9 @@ angular.module('hongcaiApp')
         show: true
       });
     };
-    $scope.isAvailableInvest = function(project) { //验证用户权限
-      if (project.amount <= $scope.project.minInvest) {
+    $scope.toInvest = function(project) { //验证用户权限
+      $scope.amount = project.status === 6? project.reserveAmount : project.amount;
+      if ($scope.amount <= $scope.project.minInvest) {
         // alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
         // $scope.msg = '投资金额必须大于最小投资金额' + $scope.project.minInvest + '！';
         $scope.msg = '投资金额必须大于最小投资金额:100元！';
@@ -102,7 +107,7 @@ angular.module('hongcaiApp')
           show: true
         });
         return;
-      } else if (project.amount % $scope.project.increaseAmount) {
+      } else if ($scope.amount % $scope.project.increaseAmount) {
         // alert('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
         $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍！';
         $alert({
@@ -112,32 +117,69 @@ angular.module('hongcaiApp')
         });
         return;
       }
-      ProjectService.isAvailableInvest.get({
-        amount: project.amount,
-        projectId: project.id
-      }, function(response) {
-        if (response.ret === 1) {
-          if (response.data.flag) {
-            if (response.data.isBalance) {
-              $state.go('root.invest-verify', {
-                projectId: response.data.projectId,
-                amount: response.data.amount
-              });
+
+      if (project.status === 6) {
+        // 预约项目投资
+        console.log(project.reserveAmount,project.id)
+        ProjectService.reserve.get({
+          amount:  project.reserveAmount,
+          projectId: project.id
+        }, function(response) {
+          if (response.ret === 1) {
+            if (response.data.flag) {
+              if (response.data.isBalance) {
+                $state.go('root.invest-verify', {
+                  projectId: response.data.projectId,
+                  amount: response.data.amount
+                });
+              } else {
+                $state.go('root.invest-verify', {
+                  projectId: response.data.projectId,
+                  amount: response.data.amount
+                });
+              }
             } else {
-              $state.go('root.invest-verify', {
-                projectId: response.data.projectId,
-                amount: response.data.amount
-              });
+              $state.go('root.userCenter.account-overview');
             }
           } else {
-            $state.go('root.userCenter.account-overview');
+            //$scope.errorMessage = response.msg;
+            //$scope.warning = true;
+            // $state.go('root.login');
+            alert('预约error!')
           }
-        } else {
-          //$scope.errorMessage = response.msg;
-          //$scope.warning = true;
-          $state.go('root.login');
-        }
-      });
+        });
+      } else {
+        // 非预约项目投资
+        ProjectService.isAvailableInvest.get({
+          amount:  project.amount,
+          projectId: project.id
+        }, function(response) {
+          if (response.ret === 1) {
+            if (response.data.flag) {
+              if (response.data.isBalance) {
+                $state.go('root.invest-verify', {
+                  projectId: response.data.projectId,
+                  amount: response.data.amount
+                });
+              } else {
+                $state.go('root.invest-verify', {
+                  projectId: response.data.projectId,
+                  amount: response.data.amount
+                });
+              }
+            } else {
+              $state.go('root.userCenter.account-overview');
+            }
+          } else {
+            //$scope.errorMessage = response.msg;
+            //$scope.warning = true;
+            // $state.go('root.login');
+            alert('非预约')
+          }
+        });
+      }
+      
+      
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
