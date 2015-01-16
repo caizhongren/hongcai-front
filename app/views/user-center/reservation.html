@@ -106,20 +106,20 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-        <td>{{ item.createTime | date: 'yyyy-MM-dd'}}</td>
-        <td>{{ item.createTime | date: 'yyyy-MM-dd'}}</td>
-        <td>{{ item.createTime | date: 'yyyy-MM-dd'}}</td>
-        <td>{{ item.createTime | date: 'yyyy-MM-dd'}}</td>
-        <td>{{ item.createTime | date: 'yyyy-MM-dd'}}</td>
-        <td>{{ item.createTime | date: 'yyyy-MM-dd'}}</td>
+      <tr ng-repeat="item in orderList">
+        <td>{{ item.project.name }}</td>
+        <td>{{ item.project.reserveStartTime | date: 'yyyy-MM-dd'}}</td>
+        <td>{{ item.project.reserveEndTime | date: 'yyyy-MM-dd'}}</td>
+        <td>{{ item.reserveOrder.reserveAmount | number:2}}</td>
+        <td>{{ item.reserveOrder.yuebaoRate | number:2}}</td>
+        <td>{{ item.reserveOrder.returnProfit | number:2 }}</td>
         <td><button type="button" class="btn btn-info btn-sm" ng-click="cancelReservation(item.id);">撤销</button></td>
       </tr>
     </tbody>
   </table>
   <ul class="pager">
-    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
-    {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
-    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage <= 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+    {{currentPage +1 }} / {{pageCount}} 共 {{orderList.length}} 条
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= pageCount" ng-click="currentPage = currentPage + 1">下一页</button></li>
   </ul>
 </div>
