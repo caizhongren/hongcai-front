@@ -470,6 +470,17 @@ hongcaiApp
           }
         }
       })
+
+      .state('root.reservation-success', {
+        url: '/reservation-success/:status',
+        views: {
+          '': {
+            templateUrl: 'views/success.html',
+            controller: 'ReservationSuccessCtrl',
+            controllerUrl: 'scripts/controller/user-center/reservation-success-ctrl'
+          }
+        }
+      })
       /*---------------------------------------------  yeepay  ---------------------------------------------*/
       .state('root.open-yeepay-account-success', {
         url: '/yeepay-success/:status',
