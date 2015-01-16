@@ -387,7 +387,7 @@
                         <button class="btn btn-danger btn-lg btn-block" ng-switch-default><i class="fa fa-shopping-cart project-leftmargin"></i>立即投资</button>
                       </form>
                       <form ng-submit="toInvest(project);" ng-switch-default ng-show="project.status === 6">
-                        <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.amount" ng-model="project.reserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required ng-switch-default>
+                        <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.reserveAmount" ng-model="project.reserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required ng-switch-default>
                         <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                         <button class="btn btn-danger btn-lg btn-block" ng-switch-default><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
                       </form>
