@@ -163,4 +163,9 @@ angular.module('hongcaiApp')
         }
       });
     };
+    $scope.openReservation = function() {
+      // 调用预约的方法，当预约开通后
+      $scope.openTrustReservation = true;
+
+    };
   }]);
