@@ -127,17 +127,17 @@ angular.module('hongcaiApp')
         }, function(response) {
           if (response.ret === 1) {
             if (response.data.flag) {
-              if (response.data.isBalance) {
+              // if (response.data.isBalance) {
                 $state.go('root.invest-verify', {
                   projectId: response.data.projectId,
                   amount: response.data.amount
                 });
-              } else {
+              /*} else {
                 $state.go('root.invest-verify', {
                   projectId: response.data.projectId,
                   amount: response.data.amount
                 });
-              }
+              }*/
             } else {
               $state.go('root.userCenter.account-overview');
             }
