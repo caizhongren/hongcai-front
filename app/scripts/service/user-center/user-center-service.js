@@ -98,7 +98,8 @@ angular.module('hongcaiApp')
         userMsgId: '$userMsgId'
       }),
       updateAllUserMsgStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/updateAllUserMsgReadByUserId', {}),
-      pushAllUnpullMessages: $resource(DEFAULT_DOMAIN + '/siteMsg/pushAllUnpullMessages')
+      pushAllUnpullMessages: $resource(DEFAULT_DOMAIN + '/siteMsg/pushAllUnpullMessages'),
+      getUserReserveRecords: $resource(DEFAULT_DOMAIN + '/siteReserve/getUserReserveRecords', {})
 
     };
   });

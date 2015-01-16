@@ -118,7 +118,7 @@ angular.module('hongcaiApp')
         return;
       }
 
-      if (project.status === 6) {
+      if (project.status === 11) {
         // 预约项目投资
         console.log(project.reserveAmount,project.id)
         ProjectService.reserve.get({
