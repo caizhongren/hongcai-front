@@ -95,6 +95,24 @@ angular.module('hongcaiApp')
         show: true
       });
     };
+
+    ProjectService.getReserveRecords.get({
+      projectId: $stateParams.projectId
+    }, function(response) {
+      if (response.ret === 1) {
+        console.log(response);
+        $scope.reserveData = response.data;
+      } else {
+        $scope.msg = response.msg;
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alert-dialog.html',
+          show: true
+        });
+        return;
+      }
+    });
+
     $scope.toInvest = function(project) { //验证用户权限
       $scope.amount = project.status === 11? project.toReserveAmount : project.amount;
       if ($scope.amount <= $scope.project.minInvest) {
@@ -205,6 +223,14 @@ angular.module('hongcaiApp')
       // url: 'one.tpl.html'
     }, {
       title: '还款计划',
+      // url: 'two.tpl.html'
+    }];
+
+    $scope.tabsRightReserve = [{
+      title: '我的预约',
+      // url: 'one.tpl.html'
+    }, {
+      title: '预约记录',
       // url: 'two.tpl.html'
     }];
 
