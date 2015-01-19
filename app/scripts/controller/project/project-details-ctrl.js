@@ -96,12 +96,13 @@ angular.module('hongcaiApp')
       });
     };
 
-    ProjectService.getReserveRecords.get({
+    var reserveRecords = ProjectService.getReserveRecords.get({
       projectId: $stateParams.projectId
     }, function(response) {
       if (response.ret === 1) {
         console.log(response);
         $scope.reserveData = response.data;
+        $scope.singleReserveCounts = response.data.reserveOrders.length;
       } else {
         $scope.msg = response.msg;
         $alert({
@@ -140,19 +141,17 @@ angular.module('hongcaiApp')
         // 预约项目投资
         console.log(project.toReserveAmount,project.id)
         ProjectService.reserve.get({
-          amount:  project.toReserveAmount,
+          reserveAmount:  project.toReserveAmount,
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
-            if (response.data.flag) {
-                $state.go('root.invest-verify', {
-                  projectId: response.data.projectId,
-                  amount: response.data.amount
-                });
-              
-            } else {
-              $state.go('root.userCenter.account-overview');
-            }
+            console.log(response)
+            $scope.msg = response.msg;
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-dialog.html',
+              show: true
+            });
           } else {
             // $scope.errorMessage = response.msg;
             //$scope.warning = true;
@@ -278,8 +277,51 @@ angular.module('hongcaiApp')
 
     // 某宝宝的收益率
     // 接口在这里。参照account-overview-ctrl.js line: 9-55
+    ProjectService.getYuebaoInterestRatesByDate.get(function(response) {
+      if (response.ret === 1) {
+        var interestRates = response.data.yuebaoInterestRates;
+        var rateLabels = [];
+        var yuebaoRate = [];
+        var selfRate = [];
+        for (var i = 0; i < interestRates.length; i++) {
+          rateLabels.push(moment(interestRates[i].interestDate).format('YYYY/MM/DD'));
+          yuebaoRate.push(interestRates[i].yuebaoRate);
+          selfRate.push(interestRates[i].rate);
+        }
+        console.log("rateLabels:" + rateLabels);
+        console.log("yuebaoRate:" + yuebaoRate);
+        console.log("selfRate:" + selfRate);
+      }
+      if (rateLabels.length !== 0 && yuebaoRate.length !== 0 && selfRate.length !== 0) {
+        $scope.lineProjectData = {
+          labels: rateLabels,
+          datasets: [{
+            label: 'My yuebaoRate dataset',
+            fillColor: 'rgba(220,220,220,0.2)',
+            strokeColor: 'rgba(220,220,220,1)',
+            pointColor: 'rgba(220,220,220,1)',
+            pointStrokeColor: '#fff',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
+            data: yuebaoRate
+          }, {
+            label: 'My selfRate dataset',
+            fillColor: 'rgba(151,187,205,0.2)',
+            strokeColor: 'rgba(151,187,205,1)',
+            pointColor: 'rgba(151,187,205,1)',
+            pointStrokeColor: '#fff',
+            pointHighlightFill: '#fff',
+            pointHighlightStroke: 'rgba(151,187,205,1)',
+            data: selfRate
+          }]
+        }
+      //
+      } else {
+      }
+    })
+
     $scope.lineProjectData = {
-      labels: ['January', 'February', 'March'],
+      labels: [],
       datasets: [{
         label: 'My First dataset',
         fillColor: 'rgba(220,220,220,0.2)',
@@ -288,7 +330,7 @@ angular.module('hongcaiApp')
         pointStrokeColor: '#fff',
         pointHighlightFill: '#fff',
         pointHighlightStroke: 'rgba(220,220,220,1)',
-        data: [65, 59, 80]
+        data: []
       }, {
         label: 'My Second dataset',
         fillColor: 'rgba(151,187,205,0.2)',
@@ -297,14 +339,14 @@ angular.module('hongcaiApp')
         pointStrokeColor: '#fff',
         pointHighlightFill: '#fff',
         pointHighlightStroke: 'rgba(151,187,205,1)',
-        data: [28, 48, 40]
+        data: []
       }]
     }
 
     $scope.lineProjectOptions = {
-
+      scaleGridLineWidth : 1,
+      pointDotRadius : 4,
+      datasetFill : true
     }
-
-
   }]);
 
