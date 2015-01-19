@@ -30,7 +30,7 @@ angular.module('hongcaiApp')
         });
         $scope.project = projectDetails.data.project;
 
-        $scope.totalType = $scope.project.status === 6 && $scope.project.progress < 100 ? '可预约金额':'可投金额';
+        $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额':'可投金额';
         console.log($scope.project);
         // 项目可投金额
         $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
@@ -96,7 +96,7 @@ angular.module('hongcaiApp')
       });
     };
     $scope.toInvest = function(project) { //验证用户权限
-      $scope.amount = project.status === 6? project.reserveAmount : project.amount;
+      $scope.amount = project.status === 11? project.toReserveAmount : project.amount;
       if ($scope.amount <= $scope.project.minInvest) {
         // alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
         // $scope.msg = '投资金额必须大于最小投资金额' + $scope.project.minInvest + '！';
@@ -120,9 +120,9 @@ angular.module('hongcaiApp')
 
       if (project.status === 11) {
         // 预约项目投资
-        console.log(project.reserveAmount,project.id)
+        console.log(project.toReserveAmount,project.id)
         ProjectService.reserve.get({
-          amount:  project.reserveAmount,
+          amount:  project.toReserveAmount,
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
