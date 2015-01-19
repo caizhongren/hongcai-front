@@ -289,7 +289,7 @@
                     <span class="investment-fontblack">元</span>
                   </div>
                   <div class="col-xs-12 positive-margin" ng-show="project.status === 11">
-                    <span class="investment-fontsize">预约到期日：</span><span>{{ project.releaseStartTime }}</span>
+                    <span class="investment-fontsize">预约到期日：</span><span>{{ project.reserveEndTime | amDateFormat: 'YYYY-MM-DD- hh:mm:ss'}}</span>
                   </div>
                 </div>
                 <!-- 未登录状态 可用余额展示-->

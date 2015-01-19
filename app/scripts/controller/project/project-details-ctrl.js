@@ -154,7 +154,7 @@ angular.module('hongcaiApp')
             $scope.msg = response.msg;
             $alert({
               scope: $scope,
-              template: 'views/modal/alert-dialog.html',
+              template: 'views/modal/alert-reserve-success.html',
               show: true
             });
           } else {
