@@ -96,12 +96,13 @@ angular.module('hongcaiApp')
       });
     };
 
-    ProjectService.getReserveRecords.get({
+    var reserveRecords = ProjectService.getReserveRecords.get({
       projectId: $stateParams.projectId
     }, function(response) {
       if (response.ret === 1) {
         console.log(response);
         $scope.reserveData = response.data;
+        $scope.singleReserveCounts = response.data.reserveOrders.length;
       } else {
         $scope.msg = response.msg;
         $alert({
@@ -144,15 +145,13 @@ angular.module('hongcaiApp')
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
-            if (response.data.flag) {
-                $state.go('root.invest-verify', {
-                  projectId: response.data.projectId,
-                  amount: response.data.amount
-                });
-              
-            } else {
-              $state.go('root.userCenter.account-overview');
-            }
+            console.log(response)
+            $scope.msg = response.msg;
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-dialog.html',
+              show: true
+            });
           } else {
             // $scope.errorMessage = response.msg;
             //$scope.warning = true;
