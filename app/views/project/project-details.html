@@ -514,62 +514,35 @@
           </div>
           <div class="panel panel-default" ng-if="project.status === 11">
             <ul class="nav nav-pills nav-justified border-b">
-              <li class="active" ><a href="javascript:;">预约记录</a>
+              <li ng-class="{active: activeTabRight===$index}" ng-repeat="tab_rightReserve in tabsRightReserve"><a ng-click="switchTabRight($index)">{{tab_rightReserve.title}}</a>
               </li>
             </ul>
             <div class="tab-content">
-              <div class="tab-pane" ng-class="{active: activeTabRight===$index}" ng-repeat="tab_right in tabsRight">
-                <section ng-if="tab_right.title==='投资记录'">
+              <div class="tab-pane" ng-class="{active: activeTabRight===$index}" ng-repeat="tab_rightReserve in tabsRightReserve">
+                <section ng-if="tab_rightReserve.title==='我的预约'">
                   <div class="panel-body">
-                    <table class="table table-hover">
-                      <tbody>
-                        <tr>
-                          <td colspan="2">您是第24位投资者</td>
-                        </tr>
-                        <tr>
-                          <td colspan="2">共有132位宏财迷预约</td>
-                        </tr>
-                        <tr>
-                          <td colspan="2">您共有2次预约</td>
-                        </tr>
-                        <tr>
-                          <td>预约时间：</td>
-                          <td>2015年1月6日 15:23:52</td>
-
-                        </tr>
-                        <tr>
-                          <td>预付金额：</td>
-                          <td>5000元</td>
-                        </tr>
-                        <tr>
-                          <td>预约总额：</td>
-                          <td>50000元</td>
-                        </tr>
-                        <tr>
-                          <td>预约期收益：</td>
-                          <td>54.32元</td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <span>您是第<strong class="ft-red">{{reserveData.ranking}}</strong>位投资者，共有<strong class="ft-red">{{reserveData.totalReserveCounts}}</strong></span>位宏财迷预约。
+                    <p class="positive-margin">预付金额：{{reserveData.userReserveOrder.totalFreezeAmount}}元</p>
+                    <p>预约总额：{{reserveData.userReserveOrder.totalReserveAmount}}元</p>
+                    <p>预约期收益：{{reserveData.userReserveOrder.totalReturnProfit}}元</p>
                   </div>
                 </section>
-                <section ng-if="tab_right.title==='还款计划'">
+                <section ng-if="tab_rightReserve.title==='预约记录'">
                   <div class="panel-body">
+                    <span>您共有<strong class="ft-red">{{singleReserveCounts}}</strong>次预约</span>
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th>预期还款时间</th>
-                          <th>类型</th>
-                          <th>还款金额</th>
+                          <th width="25%" class="ft-12 margin-t-30">预约时间</th>
+                          <th width="48%" class="ft-12">预付金额/预约总额</th>
+                          <th width="32%" class="ft-12">预约状态</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr ng-repeat="preRepayment in preRepaymentList">
-                          <td>{{preRepayment.repaymentTime | date: "yy-MM-dd"}}</td>
-                          <td ng-show="preRepayment.type==1">利息</td>
-                          <td ng-show="preRepayment.type==2">本金</td>
-                          <td ng-show="preRepayment.type==3">本金+利息</td>
-                          <td>{{preRepayment.repaymentAmount| number:2}}元</td>
+                        <tr ng-repeat="item in reserveData.reserveOrders">
+                          <td>{{item.create_time}}</td>
+                          <td>{{item.totalFreezeAmount}}/{{item.totalReserveAmount}}</td>
+                          <td>{{item.status}}</td>
                         </tr>
                       </tbody>
                     </table>

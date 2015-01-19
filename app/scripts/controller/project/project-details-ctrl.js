@@ -95,6 +95,25 @@ angular.module('hongcaiApp')
         show: true
       });
     };
+
+    var reserveRecords = ProjectService.getReserveRecords.get({
+      projectId: $stateParams.projectId
+    }, function(response) {
+      if (response.ret === 1) {
+        console.log(response);
+        $scope.reserveData = response.data;
+        $scope.singleReserveCounts = response.data.reserveOrders.length;
+      } else {
+        $scope.msg = response.msg;
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alert-dialog.html',
+          show: true
+        });
+        return;
+      }
+    });
+
     $scope.toInvest = function(project) { //验证用户权限
       $scope.amount = project.status === 11? project.toReserveAmount : project.amount;
       if ($scope.amount <= $scope.project.minInvest) {
@@ -122,19 +141,17 @@ angular.module('hongcaiApp')
         // 预约项目投资
         console.log(project.toReserveAmount,project.id)
         ProjectService.reserve.get({
-          amount:  project.toReserveAmount,
+          reserveAmount:  project.toReserveAmount,
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
-            if (response.data.flag) {
-                $state.go('root.invest-verify', {
-                  projectId: response.data.projectId,
-                  amount: response.data.amount
-                });
-              
-            } else {
-              $state.go('root.userCenter.account-overview');
-            }
+            console.log(response)
+            $scope.msg = response.msg;
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-dialog.html',
+              show: true
+            });
           } else {
             // $scope.errorMessage = response.msg;
             //$scope.warning = true;
@@ -205,6 +222,14 @@ angular.module('hongcaiApp')
       // url: 'one.tpl.html'
     }, {
       title: '还款计划',
+      // url: 'two.tpl.html'
+    }];
+
+    $scope.tabsRightReserve = [{
+      title: '我的预约',
+      // url: 'one.tpl.html'
+    }, {
+      title: '预约记录',
       // url: 'two.tpl.html'
     }];
 
