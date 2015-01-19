@@ -139,15 +139,15 @@ html,body{
   float: right;
   margin-top: -65px;
 }
-.fourty-title{
+/* .fourty-title{
   width: 100%;
   background-color: #efefef;
   color: #777;
   margin-top: -5px;
   height: 290px;
   border-bottom: 1px solid #dbdbdb;
-}
-.fourty-title h2{
+} */
+/* .fourty-title h2{
   margin: 0;
 }
 .fourty-title-show,.fourty-area{
@@ -184,8 +184,8 @@ html,body{
 .first-area{
   margin-top: 20px;
   border-top: 0px solid #aaa;
-}
-.banner-red-button{
+} */
+/* .banner-red-button{
   color: #fff;
   background-color: #e94828;
   display: block;
@@ -293,4 +293,4 @@ html,body{
 hr {
   border-top: 1px solid #ccc;
 }
-
+ */
