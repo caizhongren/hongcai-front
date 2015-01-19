@@ -1104,7 +1104,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
     '/userCenter-investment',
     '/gift-rebate',
     '/invite-rebate',
-    '/gift-overview'
+    '/gift-overview',
+    '/reservation'
   ];
   $rootScope.$on('$stateChangeStart', function() {
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
