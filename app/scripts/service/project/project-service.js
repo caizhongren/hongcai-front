@@ -26,5 +26,6 @@ angular.module('hongcaiApp')
         projectId: '@activityId',
         type: '@type'
       }),
+      getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {})
     };
   });
