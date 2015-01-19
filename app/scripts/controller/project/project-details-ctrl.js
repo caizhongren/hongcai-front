@@ -141,7 +141,7 @@ angular.module('hongcaiApp')
         // 预约项目投资
         console.log(project.toReserveAmount,project.id)
         ProjectService.reserve.get({
-          amount:  project.toReserveAmount,
+          reserveAmount:  project.toReserveAmount,
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
