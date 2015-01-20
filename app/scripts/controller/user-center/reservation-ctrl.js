@@ -38,11 +38,11 @@ angular.module('hongcaiApp')
       $scope.reserveAmount = reserveOrder.reserveAmount;
       $scope.returnProfit = reserveOrder.returnProfit;
       $scope.reserveOrder = reserveOrder;
+      $scope.cancelNum = $scope.statistics.cancelNum;
       $modal({scope: $scope, template: 'views/modal/modal-canel-reservation.html', show: true});
     };
 
     $scope.reserveCancel = function(reserveOrder){
-        console.log(reserveOrder);
         UserCenterService.reserveCancel.get({reserveOrderId: reserveOrder.id, projectId: reserveOrder.projectId}, function(response){
             if (response.ret === 1){
                 $state.reload();

@@ -9,7 +9,7 @@
         <p class="text-center">
           预付金额：{{ freezeAmount || 0 | number:2 }}元，预约总额：{{ reserveAmount || 0 | number: 2 }}元。
           <br> 您的预约期收益为: {{returnProfit || 0 | number:2}}元,撤销将无法获得收益。
-          <br> 这是您第{{ 2 }}次撤销，为了您的投资信誉，请谨慎撤销！</p>
+          <br> 这是您第{{ cancelNum + 1 || 1 }}次撤销，为了您的投资信誉，请谨慎撤销！</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default col-xs-offset-2 col-xs-4 button-w200" ng-click="reserveCancel(reserveOrder);$hide()">撤销</button>
