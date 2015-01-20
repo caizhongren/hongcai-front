@@ -194,8 +194,8 @@ angular.module('hongcaiApp')
           }
         });
       }
-      
-      
+
+
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
@@ -280,21 +280,18 @@ angular.module('hongcaiApp')
     ProjectService.getYuebaoInterestRatesByDate.get(function(response) {
       if (response.ret === 1) {
         var interestRates = response.data.yuebaoInterestRates;
-        var rateLabels = [];
-        var yuebaoRate = [];
-        var selfRate = [];
+        $scope.rateLabels = [];
+        $scope.yuebaoRate = [];
+        $scope.selfRate = [];
         for (var i = 0; i < interestRates.length; i++) {
-          rateLabels.push(moment(interestRates[i].interestDate).format('YYYY/MM/DD'));
-          yuebaoRate.push(interestRates[i].yuebaoRate);
-          selfRate.push(interestRates[i].rate);
+          $scope.rateLabels.push(moment(interestRates[i].interestDate).format('YYYY/MM/DD'));
+          $scope.yuebaoRate.push(interestRates[i].yuebaoRate);
+          $scope.selfRate.push(interestRates[i].rate);
         }
-        console.log("rateLabels:" + rateLabels);
-        console.log("yuebaoRate:" + yuebaoRate);
-        console.log("selfRate:" + selfRate);
       }
-      if (rateLabels.length !== 0 && yuebaoRate.length !== 0 && selfRate.length !== 0) {
+      if ($scope.rateLabels.length !== 0 && $scope.yuebaoRate.length !== 0 && $scope.selfRate.length !== 0) {
         $scope.lineProjectData = {
-          labels: rateLabels,
+          labels: $scope.rateLabels,
           datasets: [{
             label: 'My yuebaoRate dataset',
             fillColor: 'rgba(220,220,220,0.2)',
@@ -303,7 +300,7 @@ angular.module('hongcaiApp')
             pointStrokeColor: '#fff',
             pointHighlightFill: '#fff',
             pointHighlightStroke: 'rgba(220,220,220,1)',
-            data: yuebaoRate
+            data: $scope.yuebaoRate
           }, {
             label: 'My selfRate dataset',
             fillColor: 'rgba(151,187,205,0.2)',
@@ -312,13 +309,13 @@ angular.module('hongcaiApp')
             pointStrokeColor: '#fff',
             pointHighlightFill: '#fff',
             pointHighlightStroke: 'rgba(151,187,205,1)',
-            data: selfRate
+            data: $scope.selfRate
           }]
-        }
+        };
       //
       } else {
       }
-    })
+    });
 
     $scope.lineProjectData = {
       labels: [],
@@ -341,12 +338,12 @@ angular.module('hongcaiApp')
         pointHighlightStroke: 'rgba(151,187,205,1)',
         data: []
       }]
-    }
+    };
 
     $scope.lineProjectOptions = {
       scaleGridLineWidth : 1,
       pointDotRadius : 4,
       datasetFill : true
-    }
+    };
   }]);
 
