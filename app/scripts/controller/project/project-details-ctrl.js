@@ -248,6 +248,10 @@ angular.module('hongcaiApp')
       // $scope.currentTab = tab.url;
     };
 
+    $scope.switchTabRightReserve = function(tabIndexRightReserve) {
+      $scope.activeTabRightReserve = tabIndexRightReserve;
+    };
+
     // $scope.currentTab = 'one.tpl.html';
 
     // $scope.onClickTab = function (tab) {

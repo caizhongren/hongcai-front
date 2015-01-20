@@ -289,7 +289,7 @@
                     <span class="investment-fontblack">元</span>
                   </div>
                   <div class="col-xs-12 positive-margin" ng-show="project.status === 11">
-                    <span class="investment-fontsize">预约到期日：</span><span>{{ project.reserveEndTime | amDateFormat: 'YYYY-MM-DD- hh:mm:ss'}}</span>
+                    <span class="investment-fontsize">预约到期日：</span><span>{{ project.reserveEndTime | amDateFormat: 'YYYY/MM/DD hh:mm:ss'}}</span>
                   </div>
                 </div>
                 <!-- 未登录状态 可用余额展示-->
@@ -407,7 +407,7 @@
                         <span class="investment-fontsize nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | number:2}}</span><span class="investment-fontblack">元</span>
                       </div>
                       <div class="col-xs-12 positive-bottommargin pull-n">
-                        <span class="investment-fontsize nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount?project.toReserveAmount/10:10 | number:2}}</span>元
+                        <span class="investment-fontsize nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount/10 || 10 | number:2}}</span>元
                       </div>
                       <!-- <form ng-submit="toInvest(project);" ng-switch-default ng-show="project.status !== 6">
                         <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.amount" ng-model="project.amount" class="form-control margin-b-20" placeholder="投资金额（元）" required ng-switch-default>
@@ -447,7 +447,7 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <div class="panel panel-default" ng-init="activeTabRight=0;" ng-if="project.status !== 11">
+          <div class="panel panel-default" ng-init="activeTabRight=0;" ng-show="project.status !== 11">
             <ul class="nav nav-pills nav-justified border-b">
               <li ng-class="{active: activeTabRight===$index}" ng-repeat="tab_right in tabsRight"><a ng-click="switchTabRight($index)">{{tab_right.title}}</a>
               </li>
@@ -512,13 +512,13 @@
             </div>
 
           </div>
-          <div class="panel panel-default" ng-if="project.status === 11">
+          <div class="panel panel-default" ng-init="activeTabRightReserve=0;" ng-show="project.status === 11">
             <ul class="nav nav-pills nav-justified border-b">
-              <li ng-class="{active: activeTabRight===$index}" ng-repeat="tab_rightReserve in tabsRightReserve"><a ng-click="switchTabRight($index)">{{tab_rightReserve.title}}</a>
+              <li ng-class="{active: activeTabRightReserve===$index}" ng-repeat="tab_rightReserve in tabsRightReserve"><a ng-click="switchTabRightReserve($index)">{{tab_rightReserve.title}}</a>
               </li>
             </ul>
             <div class="tab-content">
-              <div class="tab-pane" ng-class="{active: activeTabRight===$index}" ng-repeat="tab_rightReserve in tabsRightReserve">
+              <div class="tab-pane" ng-class="{active: activeTabRightReserve===$index}" ng-repeat="tab_rightReserve in tabsRightReserve">
                 <section ng-if="tab_rightReserve.title==='我的预约'">
                   <div class="panel-body">
                     <span>您是第<strong class="ft-red">{{reserveData.ranking}}</strong>位投资者，共有<strong class="ft-red">{{reserveData.totalReserveCounts}}</strong></span>位宏财迷预约。
