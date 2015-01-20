@@ -7,6 +7,7 @@ angular.module('hongcaiApp')
         realName: '@realName',
         idNo: '@idNo'
       }),
+      authorizeAutoTransfer: $resource(DEFAULT_DOMAIN + '/yeepay/authorizeAutoTransfer', {}),
       yeepayRecharge: $resource(DEFAULT_DOMAIN + '/yeepay/recharge', {
         amount: '@amount'
       }),

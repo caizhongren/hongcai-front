@@ -165,7 +165,27 @@ angular.module('hongcaiApp')
     };
     $scope.openReservation = function() {
       // 调用预约的方法，当预约开通后
-      $scope.openTrustReservation = true;
+      UserCenterService.authorizeAutoTransfer.get({
+      }, function(response) {
+        if (response.ret === 1) {
+          if(!$rootScope.securityStatus.realNameAuthStatus) {
+            //
+          }
+          var req = response.data.req;
+          var sign = response.data.sign;
+          var _f = newForm();
+          createElements(_f, 'req', req);
+          createElements(_f, 'sign', sign);
+          _f.action = config.YEEPAY_ADDRESS + 'toAuthorizeAutoTransfer';
+          _f.submit();
+
+          // 这块应该如何判断？ TODO
+          $scope.openTrustReservation = true;
+          // $rootScope.securityStatus.openTrustReservation = 1;
+        } else {
+          console.log('ask security-settings, why authorizeAutoTransfer did not load data...');
+        }
+      });
 
     };
   }]);
