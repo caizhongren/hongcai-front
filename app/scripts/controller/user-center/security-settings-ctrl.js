@@ -13,6 +13,7 @@ angular.module('hongcaiApp')
         // $scope.idNo = userAuth.idNo;
         if (userAuth && userAuth.yeepayAccountStatus === 1) {
           $scope.haveTrusteeshipAccount = true;
+          $scope.openTrustReservation = userAuth.autoTransfer;
         } else {
           $scope.haveTrusteeshipAccount = false;
         }
@@ -163,6 +164,7 @@ angular.module('hongcaiApp')
         }
       });
     };
+
     $scope.openReservation = function() {
       // 调用预约的方法，当预约开通后
       UserCenterService.authorizeAutoTransfer.get({
