@@ -289,7 +289,7 @@
                     <span class="investment-fontblack">元</span>
                   </div>
                   <div class="col-xs-12 positive-margin" ng-show="project.status === 11">
-                    <span class="investment-fontsize">预约到期日：</span><span>{{ project.releaseStartTime }}</span>
+                    <span class="investment-fontsize">预约到期日：</span><span>{{ project.reserveEndTime | amDateFormat: 'YYYY-MM-DD- hh:mm:ss'}}</span>
                   </div>
                 </div>
                 <!-- 未登录状态 可用余额展示-->
@@ -407,7 +407,7 @@
                         <span class="investment-fontsize nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | number:2}}</span><span class="investment-fontblack">元</span>
                       </div>
                       <div class="col-xs-12 positive-bottommargin pull-n">
-                        <span class="investment-fontsize nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount?project.toReserveAmount/10:0 | number:2}}</span>元
+                        <span class="investment-fontsize nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount?project.toReserveAmount/10:10 | number:2}}</span>元
                       </div>
                       <!-- <form ng-submit="toInvest(project);" ng-switch-default ng-show="project.status !== 6">
                         <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.amount" ng-model="project.amount" class="form-control margin-b-20" placeholder="投资金额（元）" required ng-switch-default>
@@ -540,9 +540,9 @@
                       </thead>
                       <tbody>
                         <tr ng-repeat="item in reserveData.reserveOrders">
-                          <td>{{item.create_time}}</td>
-                          <td>{{item.totalFreezeAmount}}/{{item.totalReserveAmount}}</td>
-                          <td>{{item.status}}</td>
+                          <td class="ft-12">{{item.createTime | amDateFormat: 'YYYY-MM-DD- hh:mm:ss'}}</td>
+                          <td class="ft-12">{{item.freezeAmount}}/{{item.reserveAmount}}</td>
+                          <td class="ft-12">{{item.statusTxt}}</td>
                         </tr>
                       </tbody>
                     </table>

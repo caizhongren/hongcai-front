@@ -102,7 +102,12 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         console.log(response);
         $scope.reserveData = response.data;
-        $scope.singleReserveCounts = response.data.reserveOrders.length;
+        $scope.reserveOrders = response.data.reserveOrders;
+        $scope.singleReserveCounts = $scope.reserveOrders.length;
+        for(var i=0;i<$scope.singleReserveCounts;i++){
+          var $index = $scope.reserveOrders[i].status;
+          $scope.reserveOrders[i].statusTxt = response.data.statusMap[$index];
+        }
       } else {
         $scope.msg = response.msg;
         $alert({
@@ -149,7 +154,7 @@ angular.module('hongcaiApp')
             $scope.msg = response.msg;
             $alert({
               scope: $scope,
-              template: 'views/modal/alert-dialog.html',
+              template: 'views/modal/alert-reserve-success.html',
               show: true
             });
           } else {
