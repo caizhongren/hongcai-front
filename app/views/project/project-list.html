@@ -206,7 +206,7 @@
 							</div>
 							<div class="col-xs-5 col-lg-3">
 								<div class="row" >
-									<div class="col-xs-12" ng-show="item.status === 11"><p class="text-right countdown-word">{{ _timeDown[$index] }}</p></div>
+									<div class="col-xs-12" ng-show="item.status === 11"><p class="text-left countdown-word">{{ _timeDown[$index] }}</p></div>
                   <div class="col-xs-12" ng-show="item.status !== 11"><h6>&nbsp;</h6></div>
 								</div>
 
@@ -220,10 +220,10 @@
 										</div>
 									</div>
                   <div class="col-xs-12 text-nowrap" ng-show="item.status == 11"><span class="pull-left">
-                    预约到期：</span>{{ item.releaseStartTime }}
+                    预约到期：</span>{{ item.reserveEndTime | amDateFormat: 'YYYY/MM/DD hh:mm:ss'}}
                   </div>
                   <div class="col-xs-12 text-nowrap" ng-show="item.status == 11"><span class="pull-left">
-                    可预约额：</span>(120万元)
+                    可预约额：</span>{{item.reserveAmount}}元
                   </div>
 								</div>
 								<div class="row">
