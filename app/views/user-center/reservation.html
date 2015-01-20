@@ -36,22 +36,22 @@
             <div class="row">
               <div class="col-xs-2 pull-left text-nowrap">项目状态：</div>
               <div class="col-xs-2 text-nowrap">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'2,3,5,6'})" ng-class="{'project-check': type === '2,3,5,6', 'project-noncheck': type !== '2,3,5,6'}">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'2,3,5,6'})" ng-class="type === '2,3,5,6' ? 'project-check':'project-noncheck'">
                   全部
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'2'})" ng-class="{'project-check': type === '2', 'project-noncheck': type !== '2'}">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'2'})" ng-class="type === '2' ? 'project-check':'project-noncheck'">
                   预约中
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'3'})" ng-class="{'project-check': type === '3', 'project-noncheck': type !== '3'}">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'3'})" ng-class="type === '3' ? 'project-check':'project-noncheck'">
                   预约成功
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'5,6'})" ng-class="{'project-check': type === '5,6', 'project-noncheck': type !== '5,6'}">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'5,6'})" ng-class="type === '5,6' ? 'project-check':'project-noncheck'">
                   已撤销
                 </a>
               </div>
@@ -63,22 +63,22 @@
             <div class="row">
               <div class="col-xs-2 text-nowrap">创建日期：</div>
               <div class="col-xs-2 text-nowrap">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:0, type:type})" ng-class="{ 'project-check': dateInterval === '0', 'project-noncheck': dateInterval !== '0' }">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:'0', type:type})" ng-class="dateInterval === '0'?'project-check':'project-noncheck'">
                   全部
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:7, type:type})" ng-class="{ 'project-check': dateInterval === '7', 'project-noncheck': dateInterval !== '7' }">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:'7', type:type})" ng-class="dateInterval === '7'?'project-check':'project-noncheck'">
                   最近七天
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:30, type:type})" ng-class="{'project-check': dateInterval === '30', 'project-noncheck': dateInterval !== '30' }">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:'30', type:type})" ng-class="dateInterval === '30'?'project-check':'project-noncheck'">
                   一个月
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:90, type:type})" ng-class="{'project-check': dateInterval === '90', 'project-noncheck': dateInterval !== '90' }">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:'90', type:type})" ng-class="dateInterval === '90'?'project-check':'project-noncheck'">
                 三个月
                 </a>
               </div>
@@ -115,8 +115,8 @@
     </tbody>
   </table>
   <ul class="pager">
-    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage <= 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
-    {{currentPage + 1 }} / {{pageCount}} 共 {{orderList.length}} 条
-    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= pageCount" ng-click="currentPage = currentPage + 1">下一页</button></li>
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage <= 1" ng-click="currentPage = currentPage - 1;getReserveOrders();">上一页</button></li>
+    {{currentPage}} / {{pageCount}} 共 {{orderList.length}} 条
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= pageCount" ng-click="currentPage = currentPage + 1;getReserveOrders();">下一页</button></li>
   </ul>
 </div>
