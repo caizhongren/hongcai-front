@@ -115,8 +115,8 @@
     </tbody>
   </table>
   <ul class="pager">
-    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage <= 1" ng-click="currentPage = currentPage - 1;changePage();">上一页</button></li>
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage <= 1" ng-click="currentPage = currentPage - 1;getReserveOrders();">上一页</button></li>
     {{currentPage}} / {{pageCount}} 共 {{orderList.length}} 条
-    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= pageCount" ng-click="currentPage = currentPage + 1;changePage();">下一页</button></li>
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= pageCount" ng-click="currentPage = currentPage + 1;getReserveOrders();">下一页</button></li>
   </ul>
 </div>

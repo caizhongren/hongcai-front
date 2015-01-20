@@ -3,10 +3,11 @@ angular.module('hongcaiApp')
   .controller('ReservationCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$location', '$window', 'toaster', '$modal', 'UserCenterService', function($scope, $rootScope, $state, $stateParams, $location, $window, toaster, $modal, UserCenterService) {
 
     $rootScope.selectSide = 'reservation';
+    $scope.type = $stateParams.type || '2,3,5,6';
+    $scope.dateInterval = $stateParams.dateInterval || '0';
     $scope.currentPage = $scope.currentPage || 1;
+
     $scope.getReserveOrders = function(){
-        $scope.type = $stateParams.type || '2,3,5,6';
-        $scope.dateInterval = $stateParams.dateInterval || '0';
         $scope.orderList = [];
         var startTime = 0;
         if ($scope.dateInterval === '7') {
@@ -61,9 +62,5 @@ angular.module('hongcaiApp')
         }
       });
     };
-
-    $scope.changePage = function(){
-        $scope.getReserveOrders();
-    }
 
   }]);
