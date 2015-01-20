@@ -3,38 +3,44 @@ angular.module('hongcaiApp')
   .controller('ReservationCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$location', '$window', 'toaster', '$modal', 'UserCenterService', function($scope, $rootScope, $state, $stateParams, $location, $window, toaster, $modal, UserCenterService) {
 
     $rootScope.selectSide = 'reservation';
-    $scope.type = $stateParams.type || '2,3,5,6';
-    $scope.dateInterval = $stateParams.dateInterval || 0;
-    $scope.orderList = [];
-    var startTime = 0;
-    if ($scope.dateInterval === 7) {
-      startTime = new Date().getTime() - 7 * 24 * 60 * 60 * 1000;
-    } else if ($scope.dateInterval === 30) {
-      startTime = new Date().getTime() - 30 * 24 * 60 * 60 * 1000;
-    } else if ($scope.dateInterval === 90) {
-      startTime = new Date().getTime() - 90 * 24 * 60 * 60 * 1000;
-    }
-    UserCenterService.getUserReserveRecords.get({
-      type: $scope.type,
-      startTime: startTime
-    }, function(response) {
-      if (response.ret === 1) {
-        var orderList = response.data.reserveOrders;
-        for (var i = orderList.length - 1; i >= 0; i--) {
-          for (var j = orderList[i].reserveOrders.length - 1; j >= 0; j--) {
-            var order = [];
-            order.project = orderList[i].project;
-            order.reserveOrder = orderList[i].reserveOrders[j];
-            $scope.orderList.push(order);
-          }
+    $scope.currentPage = $scope.currentPage || 1;
+    $scope.getReserveOrders = function(){
+        $scope.type = $stateParams.type || '2,3,5,6';
+        $scope.dateInterval = $stateParams.dateInterval || '0';
+        $scope.orderList = [];
+        var startTime = 0;
+        if ($scope.dateInterval === '7') {
+          startTime = new Date().getTime() - 7 * 24 * 60 * 60 * 1000;
+        } else if ($scope.dateInterval === '30') {
+          startTime = new Date().getTime() - 30 * 24 * 60 * 60 * 1000;
+        } else if ($scope.dateInterval === '90') {
+          startTime = new Date().getTime() - 90 * 24 * 60 * 60 * 1000;
         }
-        $scope.pageCount = response.data.pageCount;
-        $scope.statistics = response.data.statistics;
-      } else {
-        console.log('ask reservation, why getUserReserveRecords did not load data...');
-      }
-    });
+        UserCenterService.getUserReserveRecords.get({
+            page: $scope.currentPage,
+            type: $scope.type,
+            startTime: startTime
+        }, function(response) {
+          if (response.ret === 1) {
+            var orderList = response.data.reserveOrders;
+            for (var i = orderList.length - 1; i >= 0; i--) {
+              for (var j = orderList[i].reserveOrders.length - 1; j >= 0; j--) {
+                var order = [];
+                order.project = orderList[i].project;
+                order.reserveOrder = orderList[i].reserveOrders[j];
+                $scope.orderList.push(order);
+              }
+            }
+            $scope.currentPage = response.data.page;
+            $scope.pageCount = response.data.pageCount;
+            $scope.statistics = response.data.statistics;
+          } else {
+            console.log('ask reservation, why getUserReserveRecords did not load data...');
+          }
+        });
+    }
 
+    $scope.getReserveOrders();
 
     $scope.cancelReservation = function(reserveOrder) {
       $scope.freezeAmount = reserveOrder.freezeAmount;
@@ -51,9 +57,13 @@ angular.module('hongcaiApp')
         projectId: reserveOrder.projectId
       }, function(response) {
         if (response.ret === 1) {
-          $state.reload();
+          $scope.getReserveOrders();
         }
       });
     };
+
+    $scope.changePage = function(){
+        $scope.getReserveOrders();
+    }
 
   }]);

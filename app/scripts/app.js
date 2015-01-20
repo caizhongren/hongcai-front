@@ -451,7 +451,7 @@ hongcaiApp
         }
       })
       .state('root.userCenter.reservation', {
-        url: '/reservation',
+        url: '/reservation/:status',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/reservation.html',
