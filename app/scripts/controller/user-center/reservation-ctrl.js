@@ -35,6 +35,7 @@ angular.module('hongcaiApp')
             $scope.currentPage = response.data.page;
             $scope.pageCount = response.data.pageCount;
             $scope.statistics = response.data.statistics;
+            $scope.statusMap = response.data.statusMap;
           } else {
             console.log('ask reservation, why getUserReserveRecords did not load data...');
           }
