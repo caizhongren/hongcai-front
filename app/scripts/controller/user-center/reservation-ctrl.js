@@ -31,6 +31,7 @@ angular.module('hongcaiApp')
               order.reserveOrder = orderList[i].reserveOrders[j];
               $scope.orderList.push(order);
             }
+          }
             $scope.currentPage = response.data.page;
             $scope.pageCount = response.data.pageCount;
             $scope.statistics = response.data.statistics;
