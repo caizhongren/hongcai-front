@@ -231,10 +231,10 @@ angular.module('hongcaiApp')
     }];
 
     $scope.tabsRightReserve = [{
-      title: '我的预约',
+      title: '当前预约',
       // url: 'one.tpl.html'
     }, {
-      title: '预约记录',
+      title: '我的预约记录',
       // url: 'two.tpl.html'
     }];
 
