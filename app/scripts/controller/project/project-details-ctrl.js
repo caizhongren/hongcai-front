@@ -100,28 +100,32 @@ angular.module('hongcaiApp')
       });
     };
 
-    ProjectService.getReserveRecords.get({
-      projectId: $stateParams.projectId
-    }, function(response) {
-      if (response.ret === 1) {
-        console.log(response);
-        $scope.reserveData = response.data;
-        $scope.reserveOrders = response.data.reserveOrders;
-        $scope.singleReserveCounts = $scope.reserveOrders.length;
-        for(var i=0;i<$scope.singleReserveCounts;i++){
-          var $index = $scope.reserveOrders[i].status;
-          $scope.reserveOrders[i].statusTxt = response.data.statusMap[$index];
+    $scope.getReserveRecords = function () {
+      ProjectService.getReserveRecords.get({
+        projectId: $stateParams.projectId
+      }, function(response) {
+        if (response.ret === 1) {
+          console.log(response);
+          $scope.reserveData = response.data;
+          $scope.reserveOrders = response.data.reserveOrders;
+          $scope.singleReserveCounts = $scope.reserveOrders.length;
+          for(var i=0;i<$scope.singleReserveCounts;i++){
+            var $index = $scope.reserveOrders[i].status;
+            $scope.reserveOrders[i].statusTxt = response.data.statusMap[$index];
+          }
+        } else {
+          $scope.msg = response.msg;
+          $alert({
+            scope: $scope,
+            template: 'views/modal/alert-dialog.html',
+            show: true
+          });
+          return;
         }
-      } else {
-        $scope.msg = response.msg;
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-dialog.html',
-          show: true
-        });
-        return;
-      }
-    });
+      });
+    };
+
+    $scope.getReserveRecords ();
 
     $scope.toInvest = function(project) { //验证用户权限
       $scope.amount = project.status === 11? project.toReserveAmount : project.amount;
@@ -153,12 +157,14 @@ angular.module('hongcaiApp')
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
+            console.log(response)
             $scope.msg = response.msg;
             $alert({
               scope: $scope,
               template: 'views/modal/alert-reserve-success.html',
               show: true
             });
+            $scope.getReserveRecords();//更新预约记录
           } else {
             // $scope.errorMessage = response.msg;
             //$scope.warning = true;
