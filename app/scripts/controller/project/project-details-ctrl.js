@@ -157,7 +157,7 @@ angular.module('hongcaiApp')
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
-            console.log(response)
+            console.log(response);
             $scope.msg = response.msg;
             $alert({
               scope: $scope,
