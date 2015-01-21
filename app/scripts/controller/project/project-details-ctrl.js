@@ -36,7 +36,11 @@ angular.module('hongcaiApp')
         $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
         // 用户可用金额
         if ($rootScope.userCapital) {
-          $scope.userCanInvestNum = $scope.projectInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.projectInvestNum;
+          if($scope.project.status === 11){
+            $scope.userCanInvestNum = $scope.project.reserveAmount > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.project.reserveAmount;
+          } else {
+            $scope.userCanInvestNum = $scope.projectInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.projectInvestNum;
+          }
         } else {
           $scope.userCanInvestNum = 0;
         }
@@ -96,7 +100,7 @@ angular.module('hongcaiApp')
       });
     };
 
-    var reserveRecords = ProjectService.getReserveRecords.get({
+    ProjectService.getReserveRecords.get({
       projectId: $stateParams.projectId
     }, function(response) {
       if (response.ret === 1) {
@@ -144,13 +148,11 @@ angular.module('hongcaiApp')
 
       if (project.status === 11) {
         // 预约项目投资
-        console.log(project.toReserveAmount,project.id)
         ProjectService.reserve.get({
           reserveAmount:  project.toReserveAmount,
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
-            console.log(response)
             $scope.msg = response.msg;
             $alert({
               scope: $scope,
@@ -192,10 +194,12 @@ angular.module('hongcaiApp')
               $state.go('root.userCenter.account-overview');
             }
           } else {
-            //$scope.errorMessage = response.msg;
-            //$scope.warning = true;
-            // $state.go('root.login');
-            alert('非预约')
+            $scope.msg = response.msg;
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-dialog.html',
+              show: true
+            });
           }
         });
       }
