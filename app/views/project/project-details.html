@@ -272,7 +272,9 @@
           <div class="form-horizontal">
             <div class="panel panel-default status">
               <div class="panel-heading ft-16 padding-tAb">
-                <strong>投资状态</strong><img src="images/zengliang_03.png" class="project-bianju">
+                <strong>投资状态</strong>
+                <img src="images/zengliang_03.png" class="project-bianju pull-right" ng-if="project.status !== 11">
+                <img src="images/zengliang_04.png" class="project-bianju pull-right" ng-if="project.status === 11">
               </div>
               <div class="panel-body">
                 <div class="row">
@@ -407,7 +409,7 @@
                         <span class="investment-fontsize nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | number:2}}</span><span class="investment-fontblack">元</span>
                       </div>
                       <div class="col-xs-12 positive-bottommargin pull-n">
-                        <span class="investment-fontsize nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount/10 || 10 | number:2}}</span>元
+                        <span class="investment-fontsize nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount/10 || 100 | number:2}}</span>元
                       </div>
                       <!-- <form ng-submit="toInvest(project);" ng-switch-default ng-show="project.status !== 6">
                         <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.amount" ng-model="project.amount" class="form-control margin-b-20" placeholder="投资金额（元）" required ng-switch-default>
@@ -415,7 +417,8 @@
                         <button class="btn btn-danger btn-lg btn-block" ng-switch-default><i class="fa fa-shopping-cart project-leftmargin"></i>立即投资</button>
                       </form> -->
                       <form ng-submit="toInvest(project);">
-                        <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required>
+                        <!-- <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required> -->
+                        <input type="number" min="1000" max="{{userCanInvestNum}}" step="1000" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required>
                         <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                         <button class="btn btn-danger btn-lg btn-block"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
                       </form>
@@ -519,7 +522,7 @@
             </ul>
             <div class="tab-content">
               <div class="tab-pane" ng-class="{active: activeTabRightReserve===$index}" ng-repeat="tab_rightReserve in tabsRightReserve">
-                <section ng-if="tab_rightReserve.title==='我的预约'">
+                <section ng-if="tab_rightReserve.title==='当前预约'">
                   <div class="panel-body">
                     <span>您是第<strong class="ft-red">{{reserveData.ranking}}</strong>位投资者，共有<strong class="ft-red">{{reserveData.totalReserveCounts}}</strong></span>位宏财迷预约。
                     <p class="positive-margin">预付金额：{{reserveData.userReserveOrder.totalFreezeAmount}}元</p>
@@ -527,10 +530,10 @@
                     <p>预约期收益：{{reserveData.userReserveOrder.totalReturnProfit}}元</p>
                   </div>
                 </section>
-                <section ng-if="tab_rightReserve.title==='预约记录'">
+                <section ng-if="tab_rightReserve.title==='我的预约记录'">
                   <div class="panel-body">
-                    <span>您共有<strong class="ft-red">{{singleReserveCounts}}</strong>次预约</span>
-                    <table class="table table-hover">
+                    <span>您共有<strong class="ft-red">{{singleReserveCounts || 0}}</strong>次预约</span>
+                    <table class="table table-hover" ng-show="singleReserveCounts">
                       <thead>
                         <tr>
                           <th width="25%" class="ft-12 margin-t-30">预约时间</th>
@@ -539,14 +542,25 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr ng-repeat="item in reserveData.reserveOrders">
-                          <td class="ft-12">{{item.createTime | amDateFormat: 'YYYY-MM-DD- hh:mm:ss'}}</td>
+                        <tr ng-repeat="item in reserveData.reserveOrders | startFrom:currentPage * pageSize | limitTo:pageSize">
+                          <td class="ft-12">{{item.createTime | amDateFormat: 'YYYY/MM/DD hh:mm:ss'}}</td>
                           <td class="ft-12">{{item.freezeAmount}}/{{item.reserveAmount}}</td>
                           <td class="ft-12">{{item.statusTxt}}</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
+                  <ul class="list-group" ng-show="singleReserveCounts">
+                    <li class="list-group-item">
+                      <div class="row">
+                        <div class="col-sx-12 text-center">
+                          <button class="btn btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1" disabled="disabled">上一页</button>
+                          {{currentPage + 1 }} / {{numberOfPages()}} 共 {{singleReserveCounts}} 条
+                          <button class="btn btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1" disabled="disabled">下一页</button>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
                 </section>
               </div>
             </div>
