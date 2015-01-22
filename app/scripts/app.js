@@ -1015,8 +1015,8 @@ hongcaiApp
           }
         }
       })
-      .state('app-callback.appregistration-yeepay', {
-        url: '/appregistration-yeepay',
+      .state('app-callback.appregistration-success', {
+        url: '/appregistration-success',
         views: {
           'app-callback-view': {
             templateUrl: 'views/appview/appregistration-yeepay.html'
