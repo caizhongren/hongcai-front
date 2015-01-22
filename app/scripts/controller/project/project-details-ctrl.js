@@ -31,7 +31,6 @@ angular.module('hongcaiApp')
           $scope.project = projectDetails.data.project;
 
           $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额':'可投金额';
-          console.log($scope.project);
           // 项目可投金额
           $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
           // 用户可用金额
@@ -50,7 +49,6 @@ angular.module('hongcaiApp')
 
           // $scope.pledges = projectDetails.data.pledges;
           $scope.isAvailable = projectDetails.data.isAvailable;
-          console.log($scope.isAvailable);
           $scope.enterprise = projectDetails.data.enterprise;
           $scope.orderList = projectDetails.data.orderList;
           $scope.enterpriseThumbnailFileList = projectDetails.data.enterpriseThumbnailFileList;
@@ -107,7 +105,6 @@ angular.module('hongcaiApp')
         projectId: $stateParams.projectId
       }, function(response) {
         if (response.ret === 1) {
-          console.log(response);
           $scope.reserveData = response.data;
           $scope.reserveOrders = response.data.reserveOrders;
           $scope.singleReserveCounts = $scope.reserveOrders.length;
@@ -159,7 +156,6 @@ angular.module('hongcaiApp')
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
-            console.log(response);
             $scope.msg = response.msg;
             $alert({
               scope: $scope,
