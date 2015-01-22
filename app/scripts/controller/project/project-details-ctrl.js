@@ -2,81 +2,83 @@
 angular.module('hongcaiApp')
   .controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
     $rootScope.redirectUrl = $location.path();
+    $scope.getProjectDetails = function (){
+      var projectDetails = ProjectService.projectDetails.get({
+        projectId: $stateParams.projectId
+      }, function() {
+        if (projectDetails.ret === 1) {
+          $scope.statSecond = parseInt(projectDetails.data.countDownTime / 1000 + 1) || 1;
+          $scope.onTimeout = function() {
+            $scope.statSecond--;
+            mytimeout = $timeout($scope.onTimeout, 1000);
+            $scope.statDay = moment().startOf('month').seconds($scope.statSecond).format('DD') - 1 + '天,';
+            $scope.statTime = moment().startOf('month').seconds($scope.statSecond).format('HH时,mm分,ss秒');
+            if ($scope.statSecond === 0) {
+              ProjectService.projectDetails.get({
+                projectId: $stateParams.projectId
+              }, function(response) {
+                if (response.ret === 1) {
+                  $scope.project = response.data.project;
+                }
+              });
+              window.location.reload();
+            }
+          };
+          var mytimeout = $timeout($scope.onTimeout, 1000);
+          $scope.$on('$stateChangeStart', function() {
+            $timeout.cancel(mytimeout);
+          });
+          $scope.project = projectDetails.data.project;
 
-    var projectDetails = ProjectService.projectDetails.get({
-      projectId: $stateParams.projectId
-    }, function() {
-      if (projectDetails.ret === 1) {
-        $scope.statSecond = parseInt(projectDetails.data.countDownTime / 1000 + 1) || 1;
-        $scope.onTimeout = function() {
-          $scope.statSecond--;
-          mytimeout = $timeout($scope.onTimeout, 1000);
-          $scope.statDay = moment().startOf('month').seconds($scope.statSecond).format('DD') - 1 + '天,';
-          $scope.statTime = moment().startOf('month').seconds($scope.statSecond).format('HH时,mm分,ss秒');
-          if ($scope.statSecond === 0) {
-            ProjectService.projectDetails.get({
-              projectId: $stateParams.projectId
-            }, function(response) {
-              if (response.ret === 1) {
-                $scope.project = response.data.project;
-              }
-            });
-            window.location.reload();
-          }
-        };
-        var mytimeout = $timeout($scope.onTimeout, 1000);
-        $scope.$on('$stateChangeStart', function() {
-          $timeout.cancel(mytimeout);
-        });
-        $scope.project = projectDetails.data.project;
-
-        $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额':'可投金额';
-        console.log($scope.project);
-        // 项目可投金额
-        $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
-        // 用户可用金额
-        if ($rootScope.userCapital) {
-          if($scope.project.status === 11){
-            $scope.userCanInvestNum = $scope.project.reserveAmount > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.project.reserveAmount;
+          $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额':'可投金额';
+          console.log($scope.project);
+          // 项目可投金额
+          $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
+          // 用户可用金额
+          if ($rootScope.userCapital) {
+            if($scope.project.status === 11){
+              $scope.userCanInvestNum = $scope.project.reserveAmount > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.project.reserveAmount;
+            } else {
+              $scope.userCanInvestNum = $scope.projectInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.projectInvestNum;
+            }
           } else {
-            $scope.userCanInvestNum = $scope.projectInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.projectInvestNum;
+            $scope.userCanInvestNum = 0;
+          }
+
+          $scope.projectInfo = projectDetails.data.projectInfo;
+          $scope.projectRank = projectDetails.data.projectRank;
+
+          // $scope.pledges = projectDetails.data.pledges;
+          $scope.isAvailable = projectDetails.data.isAvailable;
+          console.log($scope.isAvailable);
+          $scope.enterprise = projectDetails.data.enterprise;
+          $scope.orderList = projectDetails.data.orderList;
+          $scope.enterpriseThumbnailFileList = projectDetails.data.enterpriseThumbnailFileList;
+          $scope.enterpriseOriginalFileList = projectDetails.data.enterpriseOriginalFileList;
+          $scope.contractOriginalFileList = projectDetails.data.contractOriginalFileList;
+          $scope.contractThumbnailFileList = projectDetails.data.contractThumbnailFileList;
+          $scope.preRepaymentList = projectDetails.data.preRepaymentList;
+          $scope.billCount = projectDetails.data.billCount;
+          $scope.remainInterest = projectDetails.data.remainInterest;
+          $scope.remainPrincipal = projectDetails.data.remainPrincipal;
+          $scope.baseFileUrl = projectDetails.data.baseFileUrl;
+          // 处理投资记录分页
+          $scope.currentPage = 0;
+          $scope.pageSize = 10;
+          $scope.data = [];
+
+          $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+          };
+          for (var i = 0; i < $scope.orderList.length; i++) {
+            $scope.data.push($scope.orderList[i]);
           }
         } else {
-          $scope.userCanInvestNum = 0;
+          toaster.pop('warning', projectDetails.msg);
         }
-
-        $scope.projectInfo = projectDetails.data.projectInfo;
-        $scope.projectRank = projectDetails.data.projectRank;
-
-        // $scope.pledges = projectDetails.data.pledges;
-        $scope.isAvailable = projectDetails.data.isAvailable;
-        console.log($scope.isAvailable);
-        $scope.enterprise = projectDetails.data.enterprise;
-        $scope.orderList = projectDetails.data.orderList;
-        $scope.enterpriseThumbnailFileList = projectDetails.data.enterpriseThumbnailFileList;
-        $scope.enterpriseOriginalFileList = projectDetails.data.enterpriseOriginalFileList;
-        $scope.contractOriginalFileList = projectDetails.data.contractOriginalFileList;
-        $scope.contractThumbnailFileList = projectDetails.data.contractThumbnailFileList;
-        $scope.preRepaymentList = projectDetails.data.preRepaymentList;
-        $scope.billCount = projectDetails.data.billCount;
-        $scope.remainInterest = projectDetails.data.remainInterest;
-        $scope.remainPrincipal = projectDetails.data.remainPrincipal;
-        $scope.baseFileUrl = projectDetails.data.baseFileUrl;
-        // 处理投资记录分页
-        $scope.currentPage = 0;
-        $scope.pageSize = 10;
-        $scope.data = [];
-
-        $scope.numberOfPages = function() {
-          return Math.ceil($scope.data.length / $scope.pageSize);
-        };
-        for (var i = 0; i < $scope.orderList.length; i++) {
-          $scope.data.push($scope.orderList[i]);
-        }
-      } else {
-        toaster.pop('warning', projectDetails.msg);
-      }
-    });
+      });
+    };
+    $scope.getProjectDetails ();
     // $scope.currentAmount = $scope.project.currentStock * $scope.project.increaseAmount
     /*$scope.statDate = new Date('2014', '10', '21', '20','17','10');*/ //假数据
     $scope.finished = function() {
@@ -164,6 +166,9 @@ angular.module('hongcaiApp')
               template: 'views/modal/alert-reserve-success.html',
               show: true
             });
+            var balance = $rootScope.userCapital.balance;
+            $rootScope.userCapital.balance = balance - 100;
+            $scope.getProjectDetails();//更新投资模块
             $scope.getReserveRecords();//更新预约记录
           } else {
             // $scope.errorMessage = response.msg;
