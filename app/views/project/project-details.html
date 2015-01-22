@@ -342,17 +342,17 @@
                   </div>
                   <div ng-if="project.status === 8">
                     <button class="btn btn-danger btn-lg btn-block positive-bottommargin" disabled="disabled"><i class="fa fa-check-circle fa-lg project-leftmargin"></i>融资成功</button>
-                    <div class="positive-margin1" style="margin-left:12%"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">项目已融资成功，等待放款</span>
+                    <div class="positive-margin1 text-center"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">项目已融资成功，等待放款</span>
                     </div>
                   </div>
                   <div ng-if="project.status === 10">
                     <button class="btn btn-danger btn-lg btn-block positive-bottommargin" disabled="disabled"><i class="fa fa-jpy fa-lg project-leftmargin"></i>还款完成</button>
-                    <div class="positive-margin1" style="margin-left:19%"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">企业已完成项目还款</span>
+                    <div class="positive-margin1 text-center"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">企业已完成项目还款</span>
                     </div>
                   </div>
                   <div ng-if="project.status === 9">
                     <button class="btn btn-danger btn-lg btn-block positive-bottommargin" disabled="disabled"><i class="fa fa-jpy fa-lg project-leftmargin"></i>还款中</button>
-                    <div class="positive-margin1" style="margin-left:8%"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">企业按照计划，正常还款中</span>
+                    <div class="positive-margin1 text-center"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">企业按照计划，正常还款中</span>
                     </div>
                   </div>
                   <div ng-if="project.currentStock === 0 && project.status === 7">
@@ -373,7 +373,7 @@
                       <input ng-show="project.status === 11" type="number" placeholder="请输入预约总额" disabled='disabled' class="form-control margin-b-20">
                     </div>
                     <button class="btn btn-danger btn-lg btn-block positive-bottommargin" ng-click="Alertdata()"><i class="fa fa-shopping-cart fa-lg project-leftmargin"></i>立即投资</button>
-                    <div class="positive-margin1" style="margin-left:10%"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">请先完善资料，再进行投资</span>
+                    <div class="positive-margin1 text-center"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">请先完善资料，再进行投资</span>
                     </div>
                   </div>
                   <!-- 资料完善已登录 -->
@@ -396,7 +396,7 @@
                         <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                         <button class="btn btn-danger btn-lg btn-block" ng-switch-default><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
                       </form> -->
-                      <div class="positive-margin1" style="margin-left:12%;">
+                      <div class="positive-margin1 text-center">
                         <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
                         <span class="spangray">优质项目，抓紧时间投资吧~~</span>
                         <!-- <span ng-if="project.status === 6" class="spangray">优质项目，抓紧时间预约吧~~</span> -->
@@ -425,7 +425,7 @@
                         <button class="btn btn-danger btn-lg btn-block" ng-if="project.reserveAmount !== 0.00"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
                         <button class="btn btn-danger btn-lg btn-block" ng-if="project.reserveAmount === 0.00" disabled="disabled"><i class="fa fa-shopping-cart project-leftmargin"></i>预约已满</button>
                       </form>
-                      <div class="positive-margin1" style="margin-left:12%;">
+                      <div class="positive-margin1 text-center">
                         <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
                         <!-- <span ng-if="project.status !== 6" class="spangray">优质项目，抓紧时间投资吧~~</span> -->
                         <span class="spangray" ng-if="userCapital.balance !== 0">优质项目，抓紧时间预约吧~~</span>
@@ -443,7 +443,7 @@
                 </div> -->
                 <div ng-if="isLogged && project.status === 6">
                   <button class="btn btn-danger btn-lg btn-block " disabled="disabled"><i class="fa fa-clock-o fa-lg project-leftmargin"></i>预发布</button>
-                  <div class="positive-margin1" style="margin-left:22%"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">优质项目，敬请期待</span>
+                  <div class="positive-margin1 text-center"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">优质项目，敬请期待</span>
                   </div>
                 </div>
               </div>
@@ -529,14 +529,14 @@
                 <section ng-if="tab_rightReserve.title==='当前预约'">
                   <div class="panel-body">
                     <span>您是第<strong class="ft-red">{{reserveData.ranking}}</strong>位投资者，共有<strong class="ft-red">{{reserveData.totalReserveCounts}}</strong></span>位宏财迷预约。
-                    <p class="positive-margin">预付金额：{{reserveData.userReserveOrder.totalFreezeAmount}}元</p>
-                    <p>预约总额：{{reserveData.userReserveOrder.totalReserveAmount}}元</p>
-                    <p>预约期收益：{{reserveData.userReserveOrder.totalReturnProfit}}元</p>
+                    <p class="margin-t-15"><i class="fa fa-asterisk fa-gray"></i>&nbsp;预付金额：{{reserveData.userReserveOrder.totalFreezeAmount}}元</p>
+                    <p><i class="fa fa-asterisk fa-gray"></i>&nbsp;预约总额：{{reserveData.userReserveOrder.totalReserveAmount}}元</p>
+                    <p><i class="fa fa-asterisk fa-gray"></i>&nbsp;预约期收益：{{reserveData.userReserveOrder.totalReturnProfit}}元</p>
                   </div>
                 </section>
                 <section ng-if="tab_rightReserve.title==='我的预约记录'">
                   <div class="panel-body text-alg-c">
-                    <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
+                    <i class="fa fa-asterisk fa-gray"></i>
                     <span>您共有<strong class="ft-red">{{singleReserveCounts || 0}}</strong>次预约</span>
                     <table class="table table-hover" ng-show="singleReserveCounts">
                       <thead>
