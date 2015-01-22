@@ -418,14 +418,18 @@
                       </form> -->
                       <form ng-submit="toInvest(project);">
                         <!-- <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required> -->
-                        <input type="number" min="1000" max="{{userCanInvestNum}}" step="1000" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required>
+                        <input type="number" min="1000" max="{{userCanInvestNum}}" step="1000" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required disabled="disabled" ng-if="userCanInvestNum === 0">
+
+                        <input type="number" min="1000" max="{{userCanInvestNum}}" step="1000" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required ng-if="userCanInvestNum !== 0">
                         <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
-                        <button class="btn btn-danger btn-lg btn-block"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
+                        <button class="btn btn-danger btn-lg btn-block" ng-if="project.reserveAmount !== 0.00"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
+                        <button class="btn btn-danger btn-lg btn-block" ng-if="project.reserveAmount === 0.00" disabled="disabled"><i class="fa fa-shopping-cart project-leftmargin"></i>预约已满</button>
                       </form>
                       <div class="positive-margin1" style="margin-left:12%;">
                         <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
                         <!-- <span ng-if="project.status !== 6" class="spangray">优质项目，抓紧时间投资吧~~</span> -->
-                        <span class="spangray">优质项目，抓紧时间预约吧~~</span>
+                        <span class="spangray" ng-if="userCapital.balance !== 0">优质项目，抓紧时间预约吧~~</span>
+                        <span class="spangray" ng-if="userCapital.balance === 0">您的余额不足，请先<a class="ft-red" ui-sref="root.userCenter.recharge">充值</a>~~</span>
                       </div>
                     </div>
                   </div>
