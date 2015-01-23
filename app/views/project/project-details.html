@@ -545,21 +545,21 @@
                     <table class="table table-hover" ng-show="singleReserveCounts">
                       <thead>
                         <tr>
-                          <th width="25%" class="ft-12 margin-t-30">预约时间</th>
-                          <th width="48%" class="ft-12">预付金额/预约总额</th>
-                          <th width="32%" class="ft-12">预约状态</th>
+                          <th width="25%" class="ft-12 margin-t-30" style="padding-left: 0;text-align: left;">预约时间</th>
+                          <th width="48%" class="ft-12" style="padding-left: 0;text-align: center;">预付金额/预约总额</th>
+                          <th width="32%" class="ft-12" style="padding-right: 0;text-align: right;">预约状态</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr ng-repeat="item in reserveData.reserveOrders | startFrom:currentPage * pageSize | limitTo:pageSize">
-                          <td class="ft-12">{{item.createTime | amDateFormat: 'YYYY/MM/DD hh:mm:ss'}}</td>
+                          <td class="ft-12" style="padding-left: 0;text-align: left;">{{item.createTime | amDateFormat: 'YYYY/MM/DD hh:mm:ss'}}</td>
                           <td class="ft-12">{{item.freezeAmount}}/{{item.reserveAmount}}</td>
-                          <td class="ft-12">{{item.statusTxt}}</td>
+                          <td class="ft-12" style="padding-right: 0;text-align: right;">{{item.statusTxt}}</td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
-                  <ul class="list-group" ng-show="singleReserveCounts">
+                  <!-- <ul class="list-group" ng-show="singleReserveCounts">
                     <li class="list-group-item">
                       <div class="row">
                         <div class="col-sx-12 text-center">
@@ -569,7 +569,7 @@
                         </div>
                       </div>
                     </li>
-                  </ul>
+                  </ul> -->
                 </section>
               </div>
             </div>
