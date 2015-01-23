@@ -29,6 +29,7 @@ angular.module('hongcaiApp')
             $timeout.cancel(mytimeout);
           });
           $scope.project = projectDetails.data.project;
+          $scope.repaymentDate = projectDetails.data.repaymentDate;
 
           $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额':'可投金额';
           // 项目可投金额

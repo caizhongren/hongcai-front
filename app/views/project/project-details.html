@@ -48,7 +48,7 @@
                     </div>
                     <div ng-if="project.progress >= 100 && project.status === 9 || project.status === 10">
                       <div class="col-xs-12"><i class="fa fa-circle hc-text-red right-margin"></i>
-                        <strong>还款日期：{{ project.repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</strong>
+                        <strong>还款日期：{{ repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</strong>
                       </div>
                     </div>
                   </div>
@@ -273,8 +273,7 @@
             <div class="panel panel-default status">
               <div class="panel-heading ft-16 padding-tAb">
                 <strong>投资状态</strong>
-                <img src="images/zengliang_03.png" class="project-bianju pull-right" ng-if="project.status !== 11">
-                <img src="images/zengliang_04.png" class="project-bianju pull-right" ng-if="project.status === 11">
+                <img src="images/zengliang_03.png" class="project-bianju pull-right">
               </div>
               <div class="panel-body">
                 <div class="row">
@@ -315,15 +314,15 @@
                 <!-- 未登录状态 输入框及提示语展示 -->
                 <div class="col-xs-12 padding-0" ng-show="!isLogged">
                   <div class="positive-margin1">
-                    <input ng-show="project.status !== 6 && project.status !== 11" type="number" placeholder="请输入投资金额" disabled='disabled' class="form-control margin-b-20">
-                    <input ng-show="project.status === 6 || project.status === 11" type="number" placeholder="请输入预约总额" disabled='disabled' class="form-control margin-b-20">
+                    <input ng-show="project.status !== 11" type="number" placeholder="请输入投资金额" disabled='disabled' class="form-control margin-b-20">
+                    <input ng-show="project.status === 11" type="number" placeholder="请输入预约总额" disabled='disabled' class="form-control margin-b-20">
                   </div>
                   <div class="positive-margin1"><a ui-sref="root.login({isRedirect: true})" class="btn btn-danger btn-lg btn-block"><i class="fa fa-user project-leftmargin"></i>请先登录</a>
                   </div>
-                  <div class="positive-margin1 positive-leftmargin">
+                  <div class="positive-margin1 text-center">
                     <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
-                    <span class="spangray" ng-show="project.status !== 6 && project.status !== 11">请先登录，再进行投资</span>
-                    <span class="spangray" ng-show="project.status === 6 || project.status === 11">请先登录，再进行预约投资</span>
+                    <span class="spangray" ng-show="project.status !== 11">请先登录，再进行投资</span>
+                    <span class="spangray" ng-show="project.status === 11">请先登录，再进行预约投资</span>
                   </div>
                 </div>
 
@@ -372,8 +371,11 @@
                       <input ng-show="project.status !== 6 && project.status !== 11" type="number" placeholder="请输入投资金额" disabled='disabled' class="form-control margin-b-20">
                       <input ng-show="project.status === 11" type="number" placeholder="请输入预约总额" disabled='disabled' class="form-control margin-b-20">
                     </div>
-                    <button class="btn btn-danger btn-lg btn-block positive-bottommargin" ng-click="Alertdata()"><i class="fa fa-shopping-cart fa-lg project-leftmargin"></i>立即投资</button>
-                    <div class="positive-margin1 text-center"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">请先完善资料，再进行投资</span>
+                    <button class="btn btn-danger btn-lg btn-block positive-bottommargin" ng-click="Alertdata()" ng-show="project.status !== 6"><i class="fa fa-shopping-cart fa-lg project-leftmargin"></i>立即投资</button>
+                    <div class="positive-margin1 text-center" ng-show="project.status !== 6">
+                      <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
+                      <span class="spangray" ng-show="project.status !== 11">请先<a class="ft-red" ui-sref="root.userCenter.security-settings">完善资料</a>，再进行投资</span>
+                      <span class="spangray" ng-show="project.status === 11">请先<a ui-sref="root.userCenter.security-settings">完善资料</a>，再进行预约投资</span>
                     </div>
                   </div>
                   <!-- 资料完善已登录 -->
@@ -409,7 +411,7 @@
                         <span class="investment-fontsize nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | number:2}}</span><span class="investment-fontblack">元</span>
                       </div>
                       <div class="col-xs-12 positive-bottommargin pull-n">
-                        <span class="investment-fontsize nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount/10 || 100 | number:2}}</span>元
+                        <span class="investment-fontsize nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount/10 || 10 | number:2}}</span>元
                       </div>
                       <!-- <form ng-submit="toInvest(project);" ng-switch-default ng-show="project.status !== 6">
                         <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.amount" ng-model="project.amount" class="form-control margin-b-20" placeholder="投资金额（元）" required ng-switch-default>
@@ -418,18 +420,19 @@
                       </form> -->
                       <form ng-submit="toInvest(project);">
                         <!-- <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required> -->
-                        <input type="number" min="1000" max="{{userCanInvestNum}}" step="1000" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required disabled="disabled" ng-if="userCanInvestNum === 0">
+                        <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required disabled="disabled" ng-if="userCanInvestNum === 0">
 
-                        <input type="number" min="1000" max="{{userCanInvestNum}}" step="1000" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required ng-if="userCanInvestNum !== 0">
+                        <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required ng-if="userCanInvestNum !== 0">
                         <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                         <button class="btn btn-danger btn-lg btn-block" ng-if="project.reserveAmount !== 0.00"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
-                        <button class="btn btn-danger btn-lg btn-block" ng-if="project.reserveAmount === 0.00" disabled="disabled"><i class="fa fa-shopping-cart project-leftmargin"></i>预约已满</button>
+                        <button class="btn btn-danger btn-lg btn-block" ng-if="project.reserveAmount === 0.00" disabled="disabled"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
                       </form>
                       <div class="positive-margin1 text-center">
                         <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
                         <!-- <span ng-if="project.status !== 6" class="spangray">优质项目，抓紧时间投资吧~~</span> -->
                         <span class="spangray" ng-if="userCapital.balance !== 0">优质项目，抓紧时间预约吧~~</span>
-                        <span class="spangray" ng-if="userCapital.balance === 0">您的余额不足，请先<a class="ft-red" ui-sref="root.userCenter.recharge">充值</a>~~</span>
+                        <span class="spangray" ng-if="userCapital.balance === 0 && project.reserveAmount !== 0">您的余额不足，请先<a class="ft-red" ui-sref="root.userCenter.recharge">充值</a>~~</span>
+                        <span class="spangray" ng-if="userCapital.balance === 0 && project.reserveAmount !== 0">您的余额不足，请先<a class="ft-red" ui-sref="root.userCenter.recharge">充值</a>~~</span>
                       </div>
                     </div>
                   </div>
@@ -528,7 +531,7 @@
               <div class="tab-pane" ng-class="{active: activeTabRightReserve===$index}" ng-repeat="tab_rightReserve in tabsRightReserve">
                 <section ng-if="tab_rightReserve.title==='当前预约'">
                   <div class="panel-body">
-                    <span>您是第<strong class="ft-red">{{reserveData.ranking}}</strong>位投资者，共有<strong class="ft-red">{{reserveData.totalReserveCounts}}</strong></span>位宏财迷预约。
+                    <span>您是第<strong class="ft-red">{{reserveData.ranking}}</strong>位投资者，<!-- 共有<strong class="ft-red">{{reserveData.totalReserveCounts}}</strong></span>位宏财迷预约。 -->当前预约金额如下：
                     <p class="margin-t-15"><i class="fa fa-asterisk fa-gray"></i>&nbsp;预付金额：{{reserveData.userReserveOrder.totalFreezeAmount}}元</p>
                     <p><i class="fa fa-asterisk fa-gray"></i>&nbsp;预约总额：{{reserveData.userReserveOrder.totalReserveAmount}}元</p>
                     <p><i class="fa fa-asterisk fa-gray"></i>&nbsp;预约期收益：{{reserveData.userReserveOrder.totalReturnProfit}}元</p>
