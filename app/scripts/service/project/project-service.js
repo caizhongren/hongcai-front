@@ -14,6 +14,10 @@ angular.module('hongcaiApp')
         reserveAmount: '@reserveAmount',
         projectId: '@projectId'
       }),
+      getProfit: $resource(DEFAULT_DOMAIN + '/siteReserve/getReserveInterest', {
+        reserveAmount: '@reserveAmount',
+        projectId: '@projectId'
+      }),
       getReserveRecords: $resource(DEFAULT_DOMAIN + '/siteReserve/getProjectReserveRecords', {
         projectId: '@projectId'
       }),

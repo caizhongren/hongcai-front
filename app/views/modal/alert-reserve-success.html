@@ -1,17 +1,17 @@
 <div class="alert" ng-class="[type ? 'alert-' + type : null]">
   <button type="button" class="close" ng-if="dismissable" ng-click="$hide()">&times;</button>
   <div class="title">
-    <strong >亲爱的{{loginName}}，恭喜您预约投资成功！</strong>
+    <strong >亲爱的{{loginName}}，您是否要进行预约？</strong>
   </div>
   
   <div class="content">
-    <p>预付金额：<strong class="ft-red">{{project.toReserveAmount?project.toReserveAmount/10:10 | number:2}}</strong>元，预约总额：<strong class="ft-red">{{project.toReserveAmount}}</strong>元。</p>
-    <p>您的预约期收益为：{{reserveData.userReserveOrder.totalReturnProfit}}元</p>
+    <p>预付金额：<strong class="ft-red">{{alert.toReserveAmount/10 | number:2}}</strong>元，预约总额：<strong class="ft-red">{{alert.toReserveAmount}}</strong>元。</p>
+    <p>您的预约期收益为：{{reserveProfit}}元</p>
   </div>
 
   <div class="bottom col-xs-10 col-xs-offset-1">
-    <a class="btn btn-danger btn-block pull-left" ui-sref="root.userCenter.reservation" ng-click="$hide()">撤销</a>
-    <a class="btn btn-danger btn-block pull-left margin-l" href="javascript:;" ng-click="$hide()">确认</a>
+    <a class="btn btn-danger btn-block pull-left" ng-click="$hide()">取消</a>
+    <a class="btn btn-danger btn-block pull-left margin-l" href="javascript:;" ng-click="toInvest(project);">确认</a>
   </div>
   
 </div>

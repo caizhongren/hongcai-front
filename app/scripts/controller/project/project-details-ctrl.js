@@ -127,6 +127,35 @@ angular.module('hongcaiApp')
 
     $scope.getReserveRecords ();
 
+    //获取预约收益
+    $scope.getProfit = function(project) {
+      $scope.alert = {
+        toReserveAmount : project.toReserveAmount
+      }
+      ProjectService.getProfit.get({
+        reserveAmount:  project.toReserveAmount,
+        projectId: project.id
+      }, function(response) {
+        if (response.ret === 1) {
+          console.log(response);
+          $scope.reserveProfit = response.data.reserveProfit;
+          $alert({
+            scope: $scope,
+            template: 'views/modal/alert-reserve-success.html',
+            show: true
+          });
+          
+        } else {
+          $scope.msg = response.msg;
+          $alert({
+            scope: $scope,
+            template: 'views/modal/alert-dialog.html',
+            show: true
+          });
+        }
+      });
+    }
+
     $scope.toInvest = function(project) { //验证用户权限
       $scope.amount = project.status === 11? project.toReserveAmount : project.amount;
       if ($scope.amount <= $scope.project.minInvest) {
@@ -157,20 +186,14 @@ angular.module('hongcaiApp')
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
-            $scope.msg = response.msg;
-            $alert({
-              scope: $scope,
-              template: 'views/modal/alert-reserve-success.html',
-              show: true
-            });
+            console.log(response);
+            angular.element('.alert').remove();
+            angular.element('.mask_layer').remove();
             var balance = $rootScope.userCapital.balance;
-            $rootScope.userCapital.balance = balance - 100;
+            $rootScope.userCapital.balance = balance - (project.toReserveAmount/10);
             $scope.getProjectDetails();//更新投资模块
             $scope.getReserveRecords();//更新预约记录
           } else {
-            // $scope.errorMessage = response.msg;
-            //$scope.warning = true;
-            // $state.go('root.login');
             $scope.msg = response.msg;
             $alert({
               scope: $scope,
