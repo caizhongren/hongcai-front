@@ -1,0 +1,92 @@
+<div class="container ">
+  <div class="panel panel-default appointment1">
+    <div class="panel-heading panel-head1">
+      <h4><img src="images/project/appoin_01.png" class="panel-head2">预约流程</h4>
+    </div>
+    <div class="panel-body">
+      <img src="images/project/appoint_process.png" width="100%" alt="项目流程">
+    </div>
+  </div>
+
+  <div class="row appointment2">
+    <div class="col-md-12"><img src="images/project/appointmentpic.png" width="100%"></div>
+  </div>
+
+  <div class="row appointment2">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="row">
+          <div class="hidden-md col-lg-2">
+            <img ng-src={{baseFileUrl}}{{item.image}} class="img-rounded" width="160" height="165">
+          </div>
+          <div class="col-xs-7 col-lg-7">
+            <div class="row">
+              <div class="col-xs-12"><h3><a ui-sref="root.project-details({projectId: item.id})" title="{{item.name}}">{{item.name}}</a></h3></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12"><a ui-sref="root.project-sponsorInstitution({guaranteeId: item.guaranteeId})" target="_blank">保荐机构：{{item.guaranteeName}}</a></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 text-nowrap">还款方式：{{item.repaymentName}}</div>
+              <div class="col-xs-12 col-sm-6">100%本息担保</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">项目规模：<strong class="ft-18">{{item.total | menoyFormat}}</strong>元</div>
+              <div class="col-xs-12 col-sm-6">可投金额：<strong class="ft-18">{{item.currentStock * item.increaseAmount || 0 | number : 0}}</strong>元</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6">年化收益：<strong class="ft-red ft-24">{{item.annualEarnings | number : 2}}%</strong></div>
+              <div class="col-xs-12 col-sm-6">项目期限：<strong class="ft-24">{{item.cycle}}</strong>个月</div>
+            </div>
+          </div>
+          <div class="col-xs-5 col-lg-3">
+            <div class="row" >
+              <div class="col-xs-12" ng-show="item.status === 6"><p class="text-right countdown-word">{{ _timeDown[$index] }}</p></div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">项目状态：{{ item.statusText }}</div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 text-nowrap"><span class="pull-left">投资进度：</span>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-info hc-bg-red" role="progressbar" aria-valuenow="{{item.progress || 0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{item.progress||0 }}%">{{item.progress||0 | number : 2}}%</div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12" ng-show="item.progress < 100">
+                <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})" ng-show="item.status == '6'"><i class="fa fa-shopping-cart"></i> 了解详情</a>
+              </div>
+              <div class="col-xs-12" ng-show="item.progress >= 100">
+                  <a class="btn list-btn-default btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})"><i class="fa fa-shopping-cart"></i> 了解详情</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-11 end-line"></div>
+        <div class="row">
+          <div class="appointment3 appoint-1 col-md-3 col-md-offset-1 col-xs-10 col-xs-offset-3">
+            <img src="images/project/appoin_02.png">
+          </div>
+          <div class="appointment4 appoint-1 col-md-7 col-xs-10 col-xs-offset-1">
+            <h3 class="word-color1 word-mar"><strong>什么是预约项目</strong></h3>
+            <p class="word-color2 word-height">宏财网致力于为个人、借款企业和担保公司搭建一个高效、安全的投融资桥梁，构筑更轻松自由、安全高收益的投融资环境，寻找个人与企业之间安全与效率的平衡点，实现投资人、借款企业和担保公司多方共赢</p>
+            <p class="word-color1"><strong>以宏财为代表的P2B 2.0时代已经正式到来</strong></p>
+          </div>
+          <div class="col-md-11 end-line"></div>
+          <div class="appointment4 col-md-7 col-md-offset-1 col-xs-10 col-xs-offset-1">
+            <h3 class="word-color1 word-mar"><strong>资金不站岗</strong></h3>
+            <p class="word-color2 word-height">宏财网致力于为个人、借款企业和担保公司搭建一个高效、安全的投融资桥梁，构筑更轻松自由、安全高收益的投融资环境，寻找个人与企业之间安全与效率的平衡点，实现投资人、借款企业和担保公司多方共赢</p>
+            <p class="word-color1"><strong>以宏财为代表的P2B 2.0时代已经正式到来</strong></p>
+          </div>
+          <div class="appointment3 appoint-1 col-md-4">
+            <img src="images/project/appoin_03.png">
+          </div>
+        </div>
+        <div class="appoint-rule">
+          <p class="panel-head1 apprule-stl">详细规则请见<a ui-sref="root.appointment-project-activityrule" target="_blank" class="word-color1">《预约项目规则》</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
