@@ -550,7 +550,9 @@ hongcaiApp
         url: '/appointment-project',
         views: {
           '': {
-            templateUrl: 'views/project/appointment-project.html'
+            templateUrl: 'views/project/appointment-project.html',
+            controller: 'AppointmentProjectCtrl',
+            controllerUrl: 'scripts/controller/project/appointment-project-ctrl'
           }
         }
       })
