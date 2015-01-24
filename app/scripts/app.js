@@ -1000,6 +1000,17 @@ hongcaiApp
           }
         }
       })
+    /*-------------------------------------------  load page  route  -----------------------------------------*/
+          .state('root.load-page', {
+        url: '/load-page',
+        views: {
+          '': {
+            templateUrl: 'views/load-page.html',
+            controller: 'LoadPageCtrl',
+            controllerUrl: 'scripts/controller/main/load-page-ctrl'
+          }
+        }
+      })
     /*-------------------------------------------  traffic import route  -----------------------------------------*/
     .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',
