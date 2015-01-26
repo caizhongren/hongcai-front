@@ -29,11 +29,11 @@
                 <div class="col-xs-12 app-col-12"><a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" target="_blank">保荐机构：{{project.guaranteeName}}</a></div>
               </div>
               <div class="row">
-                <div class="col-xs-12 app-col-12 col-sm-6 text-nowrap">还款方式：()</div>
+                <div class="col-xs-12 app-col-12 col-sm-6 text-nowrap">还款方式：{{project.repaymentName}}</div>
                 <div class="col-xs-12 app-col-12 col-sm-6">100%本息担保</div>
               </div>
               <div class="row">
-                <!-- <div class="col-xs-12 app-col-12 col-sm-6">项目规模：<strong class="ft-18">{{project.total | menoyFormat}}</strong>元</div> -->
+                <div class="col-xs-12 app-col-12 col-sm-6">项目规模：<strong class="ft-18">{{project.total || 0 | menoyFormat}}</strong>元</div>
                 <div class="col-xs-12 app-col-12 col-sm-6">可投金额：<strong class="ft-18">{{project.currentStock * project.increaseAmount || 0 | number : 0}}</strong>元</div>
               </div>
               <div class="row">
@@ -43,13 +43,13 @@
             </div>
             <div class="col-xs-5 col-lg-3">
               <div class="row" >
-                <div class="col-xs-12 app-col-12"><p class="text-right countdown-word">0天，13小时12分5秒</p></div>
+                <div class="col-xs-12 app-col-12"><p class="text-left countdown-word">{{ _timeDown}}</p></div>
               </div>
               <div class="row">
-                <div class="col-xs-12 app-col-12">项目状态：{{ project.statusText }}</div>
+                <div class="col-xs-12 app-col-12">项目状态：{{ statusText }}</div>
               </div>
               <div class="row">
-                <div class="col-xs-12 app-col-12">预约到期：{{ project.reserveEndTime | amDateFormat: 'YYYY/MM/DD hh:mm:ss'}}
+                <div class="col-xs-12 app-col-12 padding-r-0">预约到期：{{ project.reserveEndTime | amDateFormat: 'YYYY/MM/DD hh:mm:ss'}}
                 </div>
               </div>
               <div class="row">
