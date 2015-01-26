@@ -24,8 +24,8 @@ angular.module('hongcaiApp')
       }, function(response) {
         if (response.ret === 1) {
           var orderList = response.data.reserveOrders;
-          for (var i = orderList.length - 1; i >= 0; i--) {
-            for (var j = orderList[i].reserveOrders.length - 1; j >= 0; j--) {
+          for (var i = 0; i <= orderList.length - 1; i++) {
+            for (var j = 0; j <= orderList[i].reserveOrders.length - 1; j++) {
               var order = [];
               order.project = orderList[i].project;
               order.reserveOrder = orderList[i].reserveOrders[j];
@@ -58,14 +58,14 @@ angular.module('hongcaiApp')
     };
 
     $scope.reserveCancel = function(reserveOrder) {
-      UserCenterService.reserveCancel.get({
+      /*UserCenterService.reserveCancel.get({
         reserveOrderId: reserveOrder.id,
         projectId: reserveOrder.projectId
       }, function(response) {
         if (response.ret === 1) {
           $scope.getReserveOrders();
         }
-      });
+      });*/
     };
 
   }]);
