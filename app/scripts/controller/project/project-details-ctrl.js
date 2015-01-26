@@ -37,7 +37,7 @@ angular.module('hongcaiApp')
           // 用户可用金额
           if ($rootScope.userCapital) {
             if($scope.project.status === 11){
-              $scope.userCanInvestNum = $scope.project.reserveAmount > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.project.reserveAmount;
+              $scope.userCanInvestNum = $scope.project.reserveAmount > $rootScope.userCapital.balance*10 ? $rootScope.userCapital.balance*10 : $scope.project.reserveAmount;
             } else {
               $scope.userCanInvestNum = $scope.projectInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.projectInvestNum;
             }
