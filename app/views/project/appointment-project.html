@@ -19,7 +19,7 @@
           <div class="mar-2">
           <div class="row">
             <div class="hidden-md col-lg-2" style="margin-left: -15px;">
-               <img ng-src="" class="img-rounded" width="160" height="165">
+               <img ng-src={{baseFileUrl}}{{project.image}} class="img-rounded" width="160" height="165">
             </div>
             <div class="col-xs-7 col-lg-7 app-col-7">
               <div class="row">
@@ -29,7 +29,7 @@
                 <div class="col-xs-12 app-col-12"><a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" target="_blank">保荐机构：{{project.guaranteeName}}</a></div>
               </div>
               <div class="row">
-                <div class="col-xs-12 app-col-12 col-sm-6 text-nowrap">还款方式：{{project.repaymentName}}</div>
+                <div class="col-xs-12 app-col-12 col-sm-6 text-nowrap">还款方式：{{repaymentName}}</div>
                 <div class="col-xs-12 app-col-12 col-sm-6">100%本息担保</div>
               </div>
               <div class="row">

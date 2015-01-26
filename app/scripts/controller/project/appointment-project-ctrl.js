@@ -4,8 +4,11 @@ angular.module('hongcaiApp')
     var response = ProjectService.appointmentProject.get({}, function() {
       if (response.ret === 1) {
         $scope.project = response.data.project;
+        $scope.baseFileUrl = response.data.baseFileUrl;
         $scope.statusMap = response.data.statusMap;
         $scope.statusText = $scope.statusMap[$scope.project.status];
+        $scope.repaymentTypeMap = response.data.repaymentTypeMap;
+        $scope.repaymentName = $scope.repaymentTypeMap[$scope.project.repaymentType];
         console.log(response);
 
         $scope.project.countdown = moment($scope.project.releaseStartTime).diff(moment(response.data.serverTime), 'seconds') + 2;
