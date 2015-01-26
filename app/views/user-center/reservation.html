@@ -103,7 +103,7 @@
     <tbody>
       <tr ng-repeat="item in orderList">
         <td>{{ item.project.name }}</td>
-        <td>{{ item.project.reserveStartTime | date: 'yyyy-MM-dd'}}</td>
+        <td>{{ item.reserveOrder.createTime | date: 'yyyy-MM-dd'}}</td>
         <td>{{ item.project.reserveEndTime | date: 'yyyy-MM-dd'}}</td>
         <td>{{ item.reserveOrder.reserveAmount | number:2}}</td>
         <td>{{ item.reserveOrder.yuebaoRate | number:2}}%</td>
