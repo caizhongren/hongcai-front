@@ -131,7 +131,7 @@ angular.module('hongcaiApp')
     $scope.getProfit = function(project) {
       $scope.alert = {
         toReserveAmount : project.toReserveAmount
-      }
+      };
       ProjectService.getProfit.get({
         reserveAmount:  project.toReserveAmount,
         projectId: project.id
@@ -154,7 +154,7 @@ angular.module('hongcaiApp')
           });
         }
       });
-    }
+    };
 
     $scope.toInvest = function(project) { //验证用户权限
       $scope.amount = project.status === 11? project.toReserveAmount : project.amount;
