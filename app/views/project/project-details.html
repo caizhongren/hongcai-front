@@ -429,8 +429,10 @@
                         <button class="btn btn-danger btn-lg btn-block" ng-if="project.reserveAmount === 0.00" disabled="disabled"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
                       </form>
                       <div class="positive-margin1 text-center">
+                        <span><input class="rule-check" type="checkbox" ng-model="chk" ng-click="check(chk)">我已阅读并同意<a ui-sref="root.appointment-project" class="ft-red">《项目预约规则》</a></span>
+                      </div>
+                      <div class="positive-margin1 text-center">
                         <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
-                        <!-- <span ng-if="project.status !== 6" class="spangray">优质项目，抓紧时间投资吧~~</span> -->
                         <span class="spangray" ng-if="userCapital.balance !== 0">优质项目，抓紧时间预约吧~~</span>
                         <span class="spangray" ng-if="userCapital.balance === 0 && project.reserveAmount !== 0">您的余额不足，请先<a class="ft-red" ui-sref="root.userCenter.recharge">充值</a>~~</span>
                       </div>

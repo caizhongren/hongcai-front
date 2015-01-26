@@ -2,6 +2,11 @@
 angular.module('hongcaiApp')
   .controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
     $rootScope.redirectUrl = $location.path();
+    $scope.chk = true;
+    $scope.checkFlag = true;
+    $scope.check = function (val) {
+      $scope.checkFlag = !val?true:false;
+    }
     $scope.getProjectDetails = function (){
       var projectDetails = ProjectService.projectDetails.get({
         projectId: $stateParams.projectId
@@ -132,28 +137,38 @@ angular.module('hongcaiApp')
       $scope.alert = {
         toReserveAmount : project.toReserveAmount
       };
-      ProjectService.getProfit.get({
-        reserveAmount:  project.toReserveAmount,
-        projectId: project.id
-      }, function(response) {
-        if (response.ret === 1) {
-          console.log(response);
-          $scope.reserveProfit = response.data.reserveProfit;
-          $alert({
-            scope: $scope,
-            template: 'views/modal/alert-reserve-success.html',
-            show: true
-          });
-          
-        } else {
-          $scope.msg = response.msg;
-          $alert({
-            scope: $scope,
-            template: 'views/modal/alert-dialog.html',
-            show: true
-          });
-        }
-      });
+      if($scope.checkFlag){
+        ProjectService.getProfit.get({
+          reserveAmount:  project.toReserveAmount,
+          projectId: project.id
+        }, function(response) {
+          if (response.ret === 1) {
+            console.log(response);
+            $scope.reserveProfit = response.data.reserveProfit;
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-reserve-success.html',
+              show: true
+            });
+            
+          } else {
+            $scope.msg = response.msg;
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-dialog.html',
+              show: true
+            });
+          }
+        });
+      } else {
+        $scope.msg = '您还没有同意《项目预约规则》';
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alert-dialog.html',
+          show: true
+        });
+        return;
+      }
     };
 
     $scope.toInvest = function(project) { //验证用户权限
