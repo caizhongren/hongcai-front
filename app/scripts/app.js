@@ -546,6 +546,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.appointment-project', {
+        url: '/appointment-project',
+        views: {
+          '': {
+            templateUrl: 'views/project/appointment-project.html',
+            controller: 'AppointmentProjectCtrl',
+            controllerUrl: 'scripts/controller/project/appointment-project-ctrl'
+          }
+        }
+      })
       /*---------------------------------------------  safe  ---------------------------------------------*/
       .state('root.safe', {
         url: '/safe',
@@ -838,6 +848,14 @@ hongcaiApp
         views: {
           '': {
             templateUrl: 'views/agreement/loan-security-agreement.html'
+          }
+        }
+      })
+      .state('root.appointment-project-activityrule', {
+        url: '/appointment-project-activityrule',
+        views: {
+          '': {
+            templateUrl: 'views/agreement/appointment-project-activityrule.html'
           }
         }
       })
