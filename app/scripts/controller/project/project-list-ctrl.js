@@ -44,6 +44,7 @@ angular.module('hongcaiApp')
           $scope.projectList[i].countdown = moment($scope.projectList[i].releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 2;
           $scope.data.push($scope.projectList[i]);
         }
+        console.log($scope.projectList)
         $scope._timeDown = [];
         $scope.counter = 0;
         var interval = window.setInterval(function() {
