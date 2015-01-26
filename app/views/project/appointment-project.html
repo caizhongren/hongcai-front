@@ -26,7 +26,7 @@
                 <div class="col-xs-12 app-col-12"><h3 class="app-h3"><a href="">{{project.name}}</a></h3></div>
               </div>
               <div class="row">
-                <div class="col-xs-12 app-col-12"><a href="">保荐机构：{{project.guaranteeName}}</a></div>
+                <div class="col-xs-12 app-col-12"><a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" target="_blank">保荐机构：{{project.guaranteeName}}</a></div>
               </div>
               <div class="row">
                 <div class="col-xs-12 app-col-12 col-sm-6 text-nowrap">还款方式：()</div>
@@ -43,7 +43,24 @@
             </div>
             <div class="col-xs-5 col-lg-3">
               <div class="row" >
-                <div class="col-xs-12"><p class="text-right countdown-word">0天，13小时12分5秒</p></div>
+                <div class="col-xs-12 app-col-12"><p class="text-right countdown-word">0天，13小时12分5秒</p></div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 app-col-12">项目状态：{{ project.statusText }}</div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 app-col-12">预约到期：{{ project.reserveEndTime | amDateFormat: 'YYYY/MM/DD hh:mm:ss'}}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 app-col-12">
+                  <span class="pull-left">可预约额：</span>{{project.reserveAmount}}元
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 app-col-12">
+                  <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: project.id})"><i class="fa fa-shopping-cart"></i> 立即预约</a>
+                </div>
               </div>
             </div>
           </div>
