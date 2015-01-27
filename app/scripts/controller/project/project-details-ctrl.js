@@ -167,7 +167,7 @@ angular.module('hongcaiApp')
               });
             }
           });
-        };
+        }
         
       } else {
         $scope.msg = '您还没有同意《项目预约规则》';
