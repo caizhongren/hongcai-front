@@ -1,13 +1,13 @@
 // @import "../../bower_components/bootstrap/less/bootstrap.less";
 // Core variables and mixins
+// @import "../../bower_components/bootswatch/united/variables.less";
+// @import "../../bower_components/bootswatch/united/bootswatch.less";
 @import "../../bower_components/bootstrap/less/variables.less";
 @import "../../bower_components/bootstrap/less/mixins.less";
-
 // Reset and dependencies
 @import "../../bower_components/bootstrap/less/normalize.less";
 @import "../../bower_components/bootstrap/less/print.less";
 // @import "../../bower_components/bootstrap/less/glyphicons.less";
-
 // Core CSS
 @import "../../bower_components/bootstrap/less/scaffolding.less";
 @import "../../bower_components/bootstrap/less/type.less";
@@ -16,7 +16,6 @@
 @import "../../bower_components/bootstrap/less/tables.less";
 @import "../../bower_components/bootstrap/less/forms.less";
 @import "../../bower_components/bootstrap/less/buttons.less";
-
 // Components
 @import "../../bower_components/bootstrap/less/component-animations.less";
 @import "../../bower_components/bootstrap/less/dropdowns.less";
@@ -39,17 +38,14 @@
 @import "../../bower_components/bootstrap/less/responsive-embed.less";
 @import "../../bower_components/bootstrap/less/wells.less";
 @import "../../bower_components/bootstrap/less/close.less";
-
 // Components w/ JavaScript
 @import "../../bower_components/bootstrap/less/modals.less";
 @import "../../bower_components/bootstrap/less/tooltip.less";
 @import "../../bower_components/bootstrap/less/popovers.less";
 @import "../../bower_components/bootstrap/less/carousel.less";
-
 // Utility classes
 @import "../../bower_components/bootstrap/less/utilities.less";
 @import "../../bower_components/bootstrap/less/responsive-utilities.less";
-
 @media (min-width: 768px) {
   .container {
     width: 560px;
@@ -65,50 +61,41 @@
     width: 980px;
   }
 }
-
-// .panel {
-// 	padding-right: 35px;
-// 	padding-left: 35px;
-//
-// }
-
-@brand-danger:              #e94828;
-// @brand-primary:          darken(@brand-danger, 5%);
-@brand-primary:             lighten(@brand-danger, 5%);
-@brand-default:             #428bca;
-@input-border-focus:        lighten(@brand-danger, 5%);
-
+@brand-danger: #e94828;
+@brand-primary: darken(@brand-danger, 5%);
+@brand-primary: lighten(@brand-danger, 5%);
+@brand-default: #428bca;
+@input-border-focus: lighten(@brand-danger, 5%);
 @border-radius-base: 0;
 @border-radius-large: 0;
 @border-radius-small: 0;
-
 @state-danger-border: darken(@brand-danger, 5%);
-
 .panel-heading {
   padding-top: 1px;
   padding-bottom: 1px;
 }
-
 .panel-default > .panel-heading {
   color: #807979;
 }
-
 .slick-dots li.slick-active button:before {
   color: #c93315;
   opacity: 1;
 }
-
 .slick-dots li button:hover:before, .slick-dots li button:focus:before {
   opacity: 1;
   color: #c93315;
 }
-
 .cooperation .slick-slider {
   width: 95%;
   margin: 0 auto;
 }
-
-.carousel-control.left,
-.carousel-control.right {
+.carousel-control.left, .carousel-control.right {
   background-image: none;
+}
+.table-responsive {
+  overflow-x: inherit;
+}
+//隐藏textAngular在webkit下默认生成的input
+#textAngular-editableFix-010203040506070809 {
+  display: none;
 }

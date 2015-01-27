@@ -283,6 +283,7 @@ hongcaiApp
           }
         }
       })
+
       /*------------------------------------------  user-center  -----------------------------------------------*/
       .state('root.userCenter', {
         views: {
@@ -439,7 +440,7 @@ hongcaiApp
         }
       })
 
-    .state('root.userCenter.message', {
+      .state('root.userCenter.message', {
         url: '/message/:status',
         views: {
           'user-center-right': {
@@ -542,6 +543,16 @@ hongcaiApp
             templateUrl: 'views/project/project-sponsor-list.html',
             controller: 'ProjectSponsorInstitutionCtrl',
             controllerUrl: 'scripts/controller/enterprise/guarantee-list-ctrl'
+          }
+        }
+      })
+      .state('root.appointment-project', {
+        url: '/appointment-project',
+        views: {
+          '': {
+            templateUrl: 'views/project/appointment-project.html',
+            controller: 'AppointmentProjectCtrl',
+            controllerUrl: 'scripts/controller/project/appointment-project-ctrl'
           }
         }
       })
@@ -840,6 +851,14 @@ hongcaiApp
           }
         }
       })
+      .state('root.appointment-project-activityrule', {
+        url: '/appointment-project-activityrule',
+        views: {
+          '': {
+            templateUrl: 'views/agreement/appointment-project-activityrule.html'
+          }
+        }
+      })
       /*------------------------------------------  help-center  -----------------------------------------------*/
       .state('root.help-center', {
         views: {
@@ -901,7 +920,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  app-help-center  -----------------------------------------------*/
+      /*------------------------------------------  app help-center  -----------------------------------------------*/
       .state('app-help-center', {
         abstract: true,
         views: {
@@ -958,9 +977,49 @@ hongcaiApp
           }
         }
       })
-
-      /*-------------------------------------------  traffic import route  -----------------------------------------*/
-      .state('root.registerMobile-sanGuo', {
+      /*------------------------------------------  app callback view  -----------------------------------------------*/
+      .state('app-callback', {
+        abstract: true,
+        views: {
+          '': {
+            templateUrl: 'views/appview/main.html'
+          }
+        }
+      })
+      .state('app-callback.apprechrage-success', {
+        url: '/apprecharge-success',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/apprecharge-success.html'
+          }
+        }
+      })
+      .state('app-callback.appinvestment-success', {
+        url: '/appinvestment-success',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appinvestment-success.html'
+          }
+        }
+      })
+      .state('app-callback.appregistration-success', {
+        url: '/appregistration-success',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appregistration-yeepay.html'
+          }
+        }
+      })
+      .state('app-callback.appwithdrawals-success', {
+        url: '/appwithdrawals-success',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appwithdrawals-success.html'
+          }
+        }
+      })
+    /*-------------------------------------------  traffic import route  -----------------------------------------*/
+    .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',
         views: {
           '': {

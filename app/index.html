@@ -8,11 +8,16 @@
     <meta name="keywords" content="P2P, P2B, P2P网贷, P2B投资, P2P投资, 互联网金融, 宏财网, 投资理财, 高收益低风险, 安全理财">
     <meta name="description" content="宏财网，高效、透明、增值、创新的互联网金融平台。严格的风控体系，100%本息保障，第三方资金托管，为用户提供全方位的安全理财服务。">
     <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
     <link rel="stylesheet" href="bower_components/angular-motion/dist/angular-motion.css" />
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
@@ -67,12 +72,23 @@
 
 
     <!-- build:css(.tmp) styles/main.css -->
+    <!-- online css start -->
+    <!-- online css end -->
+    <!-- 重构 css start -->
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/commonq.css">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/dy_main.css">
-    <link rel="stylesheet" href="styles/main_leo.css">
-    <link rel="stylesheet" href="styles/find_pwd_step_bar.css">
-    <link rel="stylesheet" href="styles/lucky_draw.css">
+    <link rel="stylesheet" href="styles/user_center.css">
+    <link rel="stylesheet" href="styles/about_help_partner.css">
+    <link rel="stylesheet" href="styles/template.css">
+    <link rel="stylesheet" href="styles/agreement.css">
+    <link rel="stylesheet" href="styles/login_and_register.css">
+    <link rel="stylesheet" href="styles/safe.css">
     <link rel="stylesheet" href="styles/banner.css">
+    <link rel="stylesheet" href="styles/project.css">
+    <link rel="stylesheet" href="styles/order.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <!-- 重构 css end -->
 
     <!-- endbuild -->
   </head>
@@ -154,6 +170,7 @@
     <script src="scripts/controller/main/slider-ctrl.js"></script>
     <script src="scripts/controller/main/service-ctrl.js"></script>
     <script src="scripts/controller/project/project-list-ctrl.js"></script>
+    <script src="scripts/controller/project/appointment-project-ctrl.js"></script>
     <script src="scripts/controller/project/project-category-ctrl.js"></script>
     <script src="scripts/controller/project/project-activity-group-ctrl.js"></script>
     <script src="scripts/controller/project/activity-details-ctrl.js"></script>
@@ -238,6 +255,5 @@
     <!-- endbuild -->
     <script type= "text/javascript"> var online = new Array();</script>
     <script src="http://webpresence.qq.com/getonline?Type=1&2981432700:2880787006:2880787009:" ></script>
-
 </body>
 </html>
