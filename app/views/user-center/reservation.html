@@ -1,0 +1,122 @@
+<!--预约记录-->
+<div class="right-area reservation col-md-8 col-lg-9" >
+  <div class="row">
+   <div class="right-title">预约记录</div>
+  </div>
+  <div class="padd">
+    <span>当前账户总计预约产品
+      <strong>{{ statistics.num || 0 }}</strong>个,
+    </span>
+    <span>其中预约中：
+      <strong>{{ statistics.reservingNum || 0 }}</strong>个，
+    </span>
+    <span>预约成功：
+      <strong>{{ statistics.successNum || 0 }}</strong>个,
+    </span>
+    <span>已撤销：
+      <strong>{{ statistics.cancelNum || 0 }}</strong>个。
+    </span>
+  </div>
+  <div class="padd border-end">
+    <span>投资总额
+      <strong>{{ statistics.reserveAmount || 0  | number: 2 }}</strong>元,
+    </span>
+    <span>预约期的累计收益：
+      <strong>{{ statistics.returnProfit || 0  | number: 2 }}</strong>元，
+    </span>
+    <span>超过同期余额宝：
+      <strong>{{ statistics.returnProfit * 0.1 || 0 | number: 2 }}</strong>元。
+    </span>
+  </div>
+  <div class="panel panel-defaul">
+    <ul class="list-group">
+      <li class="list-group-item projects-filter">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="col-xs-2 pull-left text-nowrap">项目状态：</div>
+              <div class="col-xs-2 text-nowrap">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'2,3,5,6'})" ng-class="type === '2,3,5,6' ? 'project-check':'project-noncheck'">
+                  全部
+                </a>
+              </div>
+              <div class="col-xs-2">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'2'})" ng-class="type === '2' ? 'project-check':'project-noncheck'">
+                  预约中
+                </a>
+              </div>
+              <div class="col-xs-2">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'3'})" ng-class="type === '3' ? 'project-check':'project-noncheck'">
+                  预约成功
+                </a>
+              </div>
+              <div class="col-xs-2">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'5,6'})" ng-class="type === '5,6' ? 'project-check':'project-noncheck'">
+                  已撤销
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="col-xs-2 text-nowrap">创建日期：</div>
+              <div class="col-xs-2 text-nowrap">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:'0', type:type})" ng-class="dateInterval === '0'?'project-check':'project-noncheck'">
+                  全部
+                </a>
+              </div>
+              <div class="col-xs-2">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:'7', type:type})" ng-class="dateInterval === '7'?'project-check':'project-noncheck'">
+                  最近七天
+                </a>
+              </div>
+              <div class="col-xs-2">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:'30', type:type})" ng-class="dateInterval === '30'?'project-check':'project-noncheck'">
+                  一个月
+                </a>
+              </div>
+              <div class="col-xs-2">
+                <a ui-sref="root.userCenter.reservation-query({dateInterval:'90', type:type})" ng-class="dateInterval === '90'?'project-check':'project-noncheck'">
+                三个月
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>项目名称</th>
+        <th>预约起始日</th>
+        <th>预约截止日</th>
+        <th>预约金额(元)</th>
+        <th>预约期收益率</th>
+        <th>预约收益(元)</th>
+        <th>状态</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in orderList">
+        <td>{{ item.project.name }}</td>
+        <td>{{ item.reserveOrder.createTime | date: 'yyyy-MM-dd'}}</td>
+        <td>{{ item.project.reserveEndTime | date: 'yyyy-MM-dd'}}</td>
+        <td>{{ item.reserveOrder.reserveAmount | number:2}}</td>
+        <td>{{ item.reserveOrder.yuebaoRate | number:2}}%</td>
+        <td>{{ item.reserveOrder.returnProfit | number:2 }}</td>
+        <td ng-if="item.reserveOrder.status===2"><button type="button" class="btn btn-info btn-sm" ng-click="cancelReservation(item.reserveOrder)">撤销</button></td>
+        <td ng-if="item.reserveOrder.status!==2">{{statusMap[item.reserveOrder.status]}}</td>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="pager">
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage <= 1" ng-click="currentPage = currentPage - 1;getReserveOrders();">上一页</button></li>
+    {{currentPage}} / {{pageCount}} 共 {{orderList.length}} 条
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= pageCount" ng-click="currentPage = currentPage + 1;getReserveOrders();">下一页</button></li>
+  </ul>
+</div>

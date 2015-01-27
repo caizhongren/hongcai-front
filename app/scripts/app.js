@@ -450,6 +450,37 @@ hongcaiApp
           }
         }
       })
+      .state('root.userCenter.reservation', {
+        url: '/reservation/:status',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/reservation.html',
+            controller: 'ReservationCtrl',
+            controllerUrl: 'scripts/controller/user-center/reservation-ctrl'
+          }
+        }
+      })
+      .state('root.userCenter.reservation-query', {
+        url: '/reservation/:dateInterval/:type',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/reservation.html',
+            controller: 'ReservationCtrl',
+            controllerUrl: 'scripts/controller/user-center/reservation-ctrl'
+          }
+        }
+      })
+
+      .state('root.reservation-success', {
+        url: '/reservation-success/:status',
+        views: {
+          '': {
+            templateUrl: 'views/success.html',
+            controller: 'ReservationSuccessCtrl',
+            controllerUrl: 'scripts/controller/user-center/reservation-success-ctrl'
+          }
+        }
+      })
       /*---------------------------------------------  yeepay  ---------------------------------------------*/
       .state('root.open-yeepay-account-success', {
         url: '/yeepay-success/:status',
@@ -1091,7 +1122,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
     '/userCenter-investment',
     '/gift-rebate',
     '/invite-rebate',
-    '/gift-overview'
+    '/gift-overview',
+    '/reservation'
   ];
   $rootScope.$on('$stateChangeStart', function() {
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');

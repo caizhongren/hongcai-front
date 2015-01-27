@@ -7,6 +7,7 @@ angular.module('hongcaiApp')
         realName: '@realName',
         idNo: '@idNo'
       }),
+      authorizeAutoTransfer: $resource(DEFAULT_DOMAIN + '/yeepay/authorizeAutoTransfer', {}),
       yeepayRecharge: $resource(DEFAULT_DOMAIN + '/yeepay/recharge', {
         amount: '@amount'
       }),
@@ -98,7 +99,12 @@ angular.module('hongcaiApp')
         userMsgId: '$userMsgId'
       }),
       updateAllUserMsgStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/updateAllUserMsgReadByUserId', {}),
-      pushAllUnpullMessages: $resource(DEFAULT_DOMAIN + '/siteMsg/pushAllUnpullMessages')
+      pushAllUnpullMessages: $resource(DEFAULT_DOMAIN + '/siteMsg/pushAllUnpullMessages'),
+      getUserReserveRecords: $resource(DEFAULT_DOMAIN + '/siteReserve/getUserReserveRecords', {}),
+      reserveCancel: $resource(DEFAULT_DOMAIN + '/siteReserve/reserveCancel', {
+        reserveOrderId: '@reserveOrderId',
+        projectId: '@projectId'
+      }),
 
     };
   });

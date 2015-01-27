@@ -14,12 +14,12 @@
                   <div class="row">
                     <div class="col-xs-1 pull-left text-nowrap">项目状态：</div>
                     <div class="col-xs-1 text-nowrap">
-                      <a ui-sref="root.project-list-query({status:'6,7,8,9,10', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': status === '6,7,8,9,10', 'project-noncheck': status !== '6,7,8,9,10'}">
+                      <a ui-sref="root.project-list-query({status:'6,7,8,9,10,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': status === '6,7,8,9,10,11,12', 'project-noncheck': status !== '6,7,8,9,10,11,12'}">
                         全部
                       </a>
                     </div>
                     <div class="col-xs-2">
-                      <a ui-sref="root.project-list-query({status:'7', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': status === '7', 'project-noncheck': status !== '7'}">
+                      <a ui-sref="root.project-list-query({status:'6,7,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': status === '6,7,11,12', 'project-noncheck': status !== '6,7,11,12'}">
                         投标中
                       </a>
                     </div>
@@ -206,24 +206,31 @@
 							</div>
 							<div class="col-xs-5 col-lg-3">
 								<div class="row" >
-									<div class="col-xs-12" ng-show="item.status === 6"><p class="text-right countdown-word">{{ _timeDown[$index] }}</p></div>
-                  <div class="col-xs-12" ng-show="item.status !== 6"><h6>&nbsp;</h6></div>
+									<div class="col-xs-12" ng-show="item.status === 6|| item.status === 11"><p class="text-left countdown-word">{{ _timeDown[$index] }}</p></div>
+                  <div class="col-xs-12" ng-show="item.status !== 6 && item.status !== 11"><h6>&nbsp;</h6></div>
 								</div>
 
 								<div class="row">
 									<div class="col-xs-12">项目状态：{{ item.statusText }}</div>
 								</div>
 								<div class="row">
-									<div class="col-xs-12 text-nowrap"><span class="pull-left">投资进度：</span>
+									<div class="col-xs-12 text-nowrap" ng-show="item.status !== 11"><span class="pull-left">投资进度：</span>
 										<div class="progress">
 											<div class="progress-bar progress-bar-info hc-bg-red" role="progressbar" aria-valuenow="{{item.progress || 0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{item.progress||0 }}%">{{item.progress||0 | number : 2}}%</div>
 										</div>
 									</div>
+                  <div class="col-xs-12 text-nowrap" ng-show="item.status == 11"><span class="pull-left">
+                    预约到期：</span>{{ item.reserveEndTime | amDateFormat: 'YYYY/MM/DD hh:mm:ss'}}
+                  </div>
+                  <div class="col-xs-12 text-nowrap" ng-show="item.status == 11"><span class="pull-left">
+                    可预约额：</span>{{item.reserveAmount}}元
+                  </div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12" ng-show="item.progress < 100">
-										<a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})" ng-show="item.status != '6'"><i class="fa fa-shopping-cart"></i> 立即投资</a>
+										<a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})" ng-show="item.status != '6' &&item.status != '11'"><i class="fa fa-shopping-cart"></i> 立即投资</a>
                     <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})" ng-show="item.status == '6'"><i class="fa fa-shopping-cart"></i> 了解详情</a>
+                    <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})" ng-show="item.status == '11'"><i class="fa fa-shopping-cart"></i> 立即预约</a>
 									</div>
                   <div class="col-xs-12" ng-show="item.progress >= 100">
                     <a class="btn list-btn-default btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})"><i class="fa fa-shopping-cart"></i> 了解详情</a>

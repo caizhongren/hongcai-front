@@ -11,6 +11,17 @@ angular.module('hongcaiApp')
         projectId: '@projectId'
       }),
       appointmentProject: $resource(DEFAULT_DOMAIN + '/siteReserve/getLatestSingleReserveProject'),
+      reserve: $resource(DEFAULT_DOMAIN + '/siteReserve/reserve', {
+        reserveAmount: '@reserveAmount',
+        projectId: '@projectId'
+      }),
+      getProfit: $resource(DEFAULT_DOMAIN + '/siteReserve/getReserveInterest', {
+        reserveAmount: '@reserveAmount',
+        projectId: '@projectId'
+      }),
+      getReserveRecords: $resource(DEFAULT_DOMAIN + '/siteReserve/getProjectReserveRecords', {
+        projectId: '@projectId'
+      }),
       projectShop: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectShop', {
         projectId: '@projectId',
         amount: '@amount'
@@ -23,5 +34,6 @@ angular.module('hongcaiApp')
         projectId: '@activityId',
         type: '@type'
       }),
+      getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {})
     };
   });
