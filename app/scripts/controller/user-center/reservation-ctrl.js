@@ -58,14 +58,14 @@ angular.module('hongcaiApp')
     };
 
     $scope.reserveCancel = function(reserveOrder) {
-      /*UserCenterService.reserveCancel.get({
+      UserCenterService.reserveCancel.get({
         reserveOrderId: reserveOrder.id,
         projectId: reserveOrder.projectId
       }, function(response) {
         if (response.ret === 1) {
           $scope.getReserveOrders();
         }
-      });*/
+      });
     };
 
   }]);
