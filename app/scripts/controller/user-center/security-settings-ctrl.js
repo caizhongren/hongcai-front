@@ -170,7 +170,6 @@ angular.module('hongcaiApp')
       UserCenterService.authorizeAutoTransfer.get({
       }, function(response) {
         if (response.ret === 1) {
-          console.log('realNameAuthStatus:' + $rootScope.securityStatus.realNameAuthStatus );
           if($rootScope.securityStatus.realNameAuthStatus === 0 || !$rootScope.securityStatus.realNameAuthStatus) {
             $scope.msg = '请先开通托管账户';
             $alert({
