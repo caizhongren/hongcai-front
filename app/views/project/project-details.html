@@ -426,7 +426,8 @@
                         <input type="number" min="{{project.minInvest}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required ng-if="userCanInvestNum !== 0">
                         <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                         <button class="btn btn-danger btn-lg btn-block" ng-if="userCanInvestNum !== 0"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
-                        <button class="btn btn-danger btn-lg btn-block" ng-if="userCanInvestNum === 0" disabled="disabled"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
+                        <button class="btn btn-danger btn-lg btn-block" ng-if="userCapital.balance === 0" disabled="disabled"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
+                        <button class="btn btn-danger btn-lg btn-block" ng-if="project.reserveAmount === 0" disabled="disabled"><i class="fa fa-shopping-cart project-leftmargin"></i>预约已满</button>
                       </form>
                       <div class="positive-margin1 text-center">
                         <span><input class="rule-check" type="checkbox" ng-model="chk" ng-click="check(chk)">我已阅读并同意<a ui-sref="root.appointment-project-activityrule" class="ft-red" target="_blank">《项目预约规则》</a></span>
@@ -533,7 +534,7 @@
               <div class="tab-pane" ng-class="{active: activeTabRightReserve===$index}" ng-repeat="tab_rightReserve in tabsRightReserve">
                 <section ng-if="tab_rightReserve.title==='当前预约'">
                   <div class="panel-body">
-                    <span>您是第<strong class="ft-red">{{reserveData.ranking}}</strong>位投资者，<!-- 共有<strong class="ft-red">{{reserveData.totalReserveCounts}}</strong></span>位宏财迷预约。 -->当前预约金额如下：
+                    <span>您<span ng-if="singleReserveCounts !==0">是第<strong class="ft-red">{{reserveData.ranking}}</strong>位投资者，</span>当前预约金额如下：</span>
                     <p class="margin-t-15"><i class="fa fa-asterisk fa-gray"></i>&nbsp;预付金额：{{reserveData.userReserveOrder.totalFreezeAmount}}元</p>
                     <p><i class="fa fa-asterisk fa-gray"></i>&nbsp;预约总额：{{reserveData.userReserveOrder.totalReserveAmount}}元</p>
                     <p><i class="fa fa-asterisk fa-gray"></i>&nbsp;预约期收益：{{reserveData.userReserveOrder.totalReturnProfit}}元</p>
