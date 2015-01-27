@@ -143,14 +143,13 @@ angular.module('hongcaiApp')
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
-            console.log(response);
             $scope.reserveProfit = response.data.reserveProfit;
             $alert({
               scope: $scope,
               template: 'views/modal/alert-reserve-success.html',
               show: true
             });
-            
+
           } else {
             $scope.msg = response.msg;
             $alert({
@@ -201,7 +200,6 @@ angular.module('hongcaiApp')
           projectId: project.id
         }, function(response) {
           if (response.ret === 1) {
-            console.log(response);
             angular.element('.alert').remove();
             angular.element('.mask_layer').remove();
             var balance = $rootScope.userCapital.balance;
