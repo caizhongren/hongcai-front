@@ -138,27 +138,37 @@ angular.module('hongcaiApp')
         toReserveAmount : project.toReserveAmount
       };
       if($scope.checkFlag){
-        ProjectService.getProfit.get({
-          reserveAmount:  project.toReserveAmount,
-          projectId: project.id
-        }, function(response) {
-          if (response.ret === 1) {
-            $scope.reserveProfit = response.data.reserveProfit;
-            $alert({
-              scope: $scope,
-              template: 'views/modal/alert-reserve-success.html',
-              show: true
-            });
+        if(project.toReserveAmount > $scope.userCanInvestNum){
+          $scope.msg = $scope.project.reserveAmount > $rootScope.userCapital.balance*10 ? '您输入的金额高于可用余额！':'您输入的金额高于可预约金额！';
+          $alert({
+            scope: $scope,
+            template: 'views/modal/alert-dialog.html',
+            show: true
+          });
+        } else {
+          ProjectService.getProfit.get({
+            reserveAmount:  project.toReserveAmount,
+            projectId: project.id
+          }, function(response) {
+            if (response.ret === 1) {
+              $scope.reserveProfit = response.data.reserveProfit;
+              $alert({
+                scope: $scope,
+                template: 'views/modal/alert-reserve-success.html',
+                show: true
+              });
 
-          } else {
-            $scope.msg = response.msg;
-            $alert({
-              scope: $scope,
-              template: 'views/modal/alert-dialog.html',
-              show: true
-            });
-          }
-        });
+            } else {
+              $scope.msg = response.msg;
+              $alert({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            }
+          });
+        };
+        
       } else {
         $scope.msg = '您还没有同意《项目预约规则》';
         $alert({

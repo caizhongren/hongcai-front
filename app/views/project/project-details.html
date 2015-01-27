@@ -423,10 +423,10 @@
                         <!-- <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required> -->
                         <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required disabled="disabled" ng-if="userCanInvestNum === 0">
 
-                        <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required ng-if="userCanInvestNum !== 0">
+                        <input type="number" min="{{project.minInvest}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required ng-if="userCanInvestNum !== 0">
                         <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
-                        <button class="btn btn-danger btn-lg btn-block" ng-if="project.reserveAmount !== 0.00"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
-                        <button class="btn btn-danger btn-lg btn-block" ng-if="project.reserveAmount === 0.00" disabled="disabled"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
+                        <button class="btn btn-danger btn-lg btn-block" ng-if="userCanInvestNum !== 0"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
+                        <button class="btn btn-danger btn-lg btn-block" ng-if="userCanInvestNum === 0" disabled="disabled"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
                       </form>
                       <div class="positive-margin1 text-center">
                         <span><input class="rule-check" type="checkbox" ng-model="chk" ng-click="check(chk)">我已阅读并同意<a ui-sref="root.appointment-project-activityrule" class="ft-red">《项目预约规则》</a></span>
