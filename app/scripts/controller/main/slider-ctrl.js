@@ -6,14 +6,14 @@ angular.module('hongcaiApp')
       mimeType: 'image/jpg',
       src: 'images/banner-6.jpg',
       href: '/banner-P2B'
-    }, {
-      mimeType: 'image/jpg',
-      src: 'images/banner-3.jpg',
-      href: '/banner-nine'
-    }, {
+    },  {
       mimeType: 'image/jpg',
       src: 'images/banner-4.jpg',
       href: '/project-activity-group'
+    },{
+      mimeType: 'image/jpg',
+      src: 'images/banner-3.jpg',
+      href: '/banner-nine'
     }, {
       mimeType: 'image/jpg',
       src: 'images/banner-5.jpg',
