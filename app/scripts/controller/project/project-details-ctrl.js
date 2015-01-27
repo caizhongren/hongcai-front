@@ -6,7 +6,7 @@ angular.module('hongcaiApp')
     $scope.checkFlag = true;
     $scope.check = function (val) {
       $scope.checkFlag = !val?true:false;
-    }
+    };
     $scope.getProjectDetails = function (){
       var projectDetails = ProjectService.projectDetails.get({
         projectId: $stateParams.projectId
