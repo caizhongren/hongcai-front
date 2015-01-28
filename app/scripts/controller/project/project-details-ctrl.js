@@ -163,6 +163,14 @@ angular.module('hongcaiApp')
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
+    $scope.tabsRight = [{
+      title: '投资记录',
+      // url: 'one.tpl.html'
+    }, {
+      title: '还款计划',
+      // url: 'two.tpl.html'
+    }];
+
     $scope.switchTab = function(tabIndex) {
       $scope.activeTab = tabIndex;
       // $scope.currentTab = tab.url;
