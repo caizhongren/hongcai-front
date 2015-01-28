@@ -29,6 +29,28 @@ angular.module('hongcaiApp')
           $timeout.cancel(mytimeout);
         });
         $scope.project = projectDetails.data.project;
+        $scope.categoryCode = $scope.project.categoryCode;
+        if ($scope.categoryCode !== '04') {
+          $scope.tabs = [{
+            title: '项目信息',
+          }, {
+            title: '企业信息',
+          }, {
+            title: '风控信息',
+          }, {
+            title: '相关文件',
+          }, {
+            title: '项目历程',
+          }];
+        } else {
+          $scope.tabs = [{
+            title: '项目信息',
+          }, {
+            title: '企业信息',
+          }, {
+            title: '相关文件',
+          }];
+        }
         // 项目可投金额
         $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
         // 用户可用金额
@@ -140,32 +162,6 @@ angular.module('hongcaiApp')
       });
     };
     $rootScope.selectPage = $location.path().split('/')[1];
-
-
-    $scope.tabs = [{
-      title: '项目信息',
-      // url: 'one.tpl.html'
-    }, {
-      title: '企业信息',
-      // url: 'two.tpl.html'
-    }, {
-      title: '风控信息',
-      // url: 'three.tpl.html'
-    }, {
-      title: '相关文件',
-      // url: 'four.tpl.html'
-    }, {
-      title: '项目历程',
-      // url: 'five.tpl.html'
-    }];
-
-    $scope.tabsRight = [{
-      title: '投资记录',
-      // url: 'one.tpl.html'
-    }, {
-      title: '还款计划',
-      // url: 'two.tpl.html'
-    }];
 
     $scope.switchTab = function(tabIndex) {
       $scope.activeTab = tabIndex;

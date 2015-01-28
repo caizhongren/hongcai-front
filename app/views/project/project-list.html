@@ -186,7 +186,7 @@
 							</div>
 							<div class="col-xs-7 col-lg-7">
 								<div class="row">
-									<div class="col-xs-12"><h3><a ui-sref="root.project-details({projectId: item.id})" title="{{item.name}}">{{item.name}}</a></h3></div>
+									<div class="col-xs-12"><h3><a ui-sref="root.project-details({projectId: item.id})" title="{{item.name}}">{{item.name}}</a><img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="item.isStamp === 1"></h3></div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12"><a ui-sref="root.project-sponsorInstitution({guaranteeId: item.guaranteeId})" target="_blank">保荐机构：{{item.guaranteeName}}</a></div>
