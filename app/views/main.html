@@ -131,26 +131,16 @@
               <div class="col-xs-12" ng-repeat="item in newbieProjectList | limitTo: 1">
                 <div class="row {{item.status === 7 ? 'xinshou-red' : 'xinshou-grey'}}" ng-show="item.type===1">
                   <div class="col-xs-9 col-xs-offset-6 col-md-offset-6 col-lg-offset-4">
-                    <h4><a class="txt-overflow" ui-sref="root.activity-details({activityId: item.id, type: item.type})" title="{{ item.name }}">{{ item.name}}<img src="/images/project/newbie_flag.png"></a></h4>
+                    <h4><a class="txt-overflow" ui-sref="root.project-details({projectId: item.id, type: item.type})" title="{{ item.name }}">{{ item.name}}<img src="/images/project/newbie_flag.png"></a></h4>
                     <div class="row">
                       <div class="col-xs-12">
-                        <div class="col-xs-4 padding-l-0">年化收益：<br>{{item.annualEarnings || 0 | number : 2}}%</div>
-                        <div class="col-xs-4 padding-l-0">项目规模：<br>{{item.total | menoyFormat}}</div>
-                        <div class="col-xs-4 padding-l-0">项目期限：<br>{{item.cycle}}个月</div>
+                        <div class="col-xs-4 padding-l-0">年化收益：<br><span class="ft-red">{{item.annualEarnings || 0 | number : 2}}</span>%</div>
+                        <div class="col-xs-4 padding-l-0">项目规模：<br><span class="ft-red">{{item.total | menoyFormat}}</span></div>
+                        <div class="col-xs-4 padding-l-0">项目期限：<br><span class="ft-red">{{item.cycle}}</span>个月</div>
                       </div>
                     </div>
                     <br>
-                    <!-- <p>年化收益率：</p>
-                    <h4><span>10% + 90%</span></h4> -->
                     <a ui-sref="root.project-details({projectId: item.id, type: item.type})" class="btn btn-primary" role="button">查看详情</a>
-                  </div>
-                </div>
-                <div class="row main-hao" ng-show="item.type===3">
-                  <div class="col-xs-7 col-xs-offset-6 col-md-offset-6 col-lg-offset-5">
-                    <h4><a class="txt-overflow" ui-sref="root.activity-details({activityId: item.id, type: item.type})" title="{{ item.name }}">{{ item.name}}</a></h4>
-                    <p>年化收益率：</p>
-                    <h4><span>10% + 90%</span></h4>
-                    <a ui-sref="root.activity-details({activityId: item.id, type: item.type})" class="btn btn-primary" role="button">查看详情</a>
                   </div>
                 </div>
               </div>
