@@ -470,7 +470,7 @@
               <div class="tab-pane" ng-class="{active: activeTabRight===$index}" ng-repeat="tab_right in tabsRight">
                 <section ng-if="tab_right.title==='投资记录'">
                   <div ng-if="isLogged" class="panel-body">
-                    <table class="table table-hover">
+                    <table class="table table-hover ft-12">
                       <thead>
                         <tr>
                           <th>成交时间</th>
@@ -479,7 +479,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr ng-repeat="order in orderList | startFrom:currentPage * pageSize | limitTo:pageSize">
+                        <tr class="ft-12" ng-repeat="order in orderList | startFrom:currentPage * pageSize | limitTo:pageSize">
                           <td>{{order.createTime | date: "yy-MM-dd"}}</td>
                           <td>{{order.userName}}</td>
                           <td>{{order.orderAmount| number : 0}}元</td>
@@ -501,7 +501,7 @@
                 </section>
                 <section ng-if="tab_right.title==='还款计划'">
                   <div ng-if="isLogged" class="panel-body">
-                    <table class="table table-hover">
+                    <table class="table table-hover ft-12">
                       <thead>
                         <tr>
                           <th>预期还款时间</th>
@@ -510,7 +510,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr ng-repeat="preRepayment in preRepaymentList">
+                        <tr class="ft-12" ng-repeat="preRepayment in preRepaymentList">
                           <td>{{preRepayment.repaymentTime | date: "yy-MM-dd"}}</td>
                           <td ng-show="preRepayment.type==1">利息</td>
                           <td ng-show="preRepayment.type==2">本金</td>
@@ -547,19 +547,19 @@
                   <div ng-if="isLogged" class="panel-body text-alg-c">
                     <i class="fa fa-asterisk fa-gray"></i>
                     <span>您共有<strong class="ft-red">{{singleReserveCounts || 0}}</strong>次预约</span>
-                    <table class="table table-hover" ng-show="singleReserveCounts">
+                    <table class="table table-hover ft-12" ng-show="singleReserveCounts">
                       <thead>
                         <tr>
-                          <th width="25%" class="ft-12 margin-t-30" style="padding-left: 0;text-align: left;">预约时间</th>
-                          <th width="48%" class="ft-12" style="padding-left: 0;text-align: center;">预付金额/预约总额</th>
-                          <th width="32%" class="ft-12" style="padding-right: 0;text-align: right;">预约状态</th>
+                          <th width="25%" class="margin-t-30 text-left" style="padding-left: 0;">预约时间</th>
+                          <th width="48%" class="text-center" style="padding-left: 0;">预付金额/预约总额</th>
+                          <th width="32%" class="text-right" style="padding-right: 0;">预约状态</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr ng-repeat="item in reserveData.reserveOrders | startFrom:currentPage * pageSize | limitTo:pageSize">
-                          <td class="ft-12" style="padding-left: 0;text-align: left;">{{item.createTime | amDateFormat: 'YYYY/MM/DD hh:mm:ss'}}</td>
-                          <td class="ft-12">{{item.freezeAmount}}/{{item.reserveAmount}}</td>
-                          <td class="ft-12" style="padding-right: 0;text-align: right;">{{item.statusTxt}}</td>
+                          <td style="padding-left: 0;text-align: left;">{{item.createTime | amDateFormat: 'YYYY/MM/DD hh:mm:ss'}}</td>
+                          <td>{{item.freezeAmount}}/{{item.reserveAmount}}</td>
+                          <td style="padding-right: 0;text-align: right;">{{item.statusTxt}}</td>
                         </tr>
                       </tbody>
                     </table>
