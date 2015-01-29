@@ -532,6 +532,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.project-list-query-no', {
+        url: '/project-list',
+        views: {
+          '': {
+            templateUrl: 'views/project/project-list.html',
+            controller: 'ProjectListCtrl',
+            controllerUrl: 'scripts/controller/project/project-list-ctrl'
+          }
+        }
+      })
       .state('root.activity-details', {
         url: '/activity/:number/:type',
         views: {
@@ -1041,11 +1051,19 @@ hongcaiApp
           }
         }
       })
-      .state('app-callback.appwithdrawals-success', {
-        url: '/appwithdrawals-success',
+      .state('app-callback.canceltie-card', {
+        url: '/canceltie-card',
         views: {
           'app-callback-view': {
-            templateUrl: 'views/appview/appwithdrawals-success.html'
+            templateUrl: 'views/appview/canceltie-card.html'
+          }
+        }
+      })
+      .state('app-callback.apptie-card', {
+        url: '/apptie-card',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/apptie-card.html'
           }
         }
       })
@@ -1118,6 +1136,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
     };
   }
 
+  // 需要用户登录才能看到的url
   var routespermission = ['/account-overview',
     '/assets-overview',
     '/realname-authentication',
@@ -1136,6 +1155,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
     '/gift-overview',
     '/reservation'
   ];
+
   $rootScope.$on('$stateChangeStart', function() {
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     if (routespermission.indexOf('/' + $location.path().split('/')[1]) !== -1) {

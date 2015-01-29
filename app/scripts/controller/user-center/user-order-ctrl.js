@@ -18,11 +18,11 @@ angular.module('hongcaiApp')
         width: 'show'
       }, 300);
     };
-    $scope.showListDetails = function(orderId) {
+    $scope.showListDetails = function(number) {
       angular.element('#investment-detail').animate({
         width: 'show'
       }, 300);
-      $scope.getOrderBillByOrderId(orderId);
+      $scope.getOrderBillByOrderId(number);
     };
     $scope.generateContractPDF = function(projectId, orderId, status) {
       if (status === 1) {
@@ -98,11 +98,11 @@ angular.module('hongcaiApp')
       });
     };
     // 取消订单
-    $scope.cancelOrder = function(orderId) {
+    $scope.cancelOrder = function(number) {
       if ($window.confirm('确定取消订单?')) {
         // 确定要删除订单的弹窗。
         UserCenterService.cancelOrder.get({
-          orderId: orderId
+          number: number
         }, function(response) {
           if (response.ret === 1) {
             $window.location.reload();
@@ -115,9 +115,9 @@ angular.module('hongcaiApp')
     };
     // 获取详情按钮
 
-    $scope.getOrderBillByOrderId = function(orderId) {
+    $scope.getOrderBillByOrderId = function(number) {
       UserCenterService.getOrderBillByOrderId.get({
-        orderId: orderId
+        number: number
       }, function(response) {
         if (response.ret === 1) {
           var invTotal = response.data.order.orderAmount;
