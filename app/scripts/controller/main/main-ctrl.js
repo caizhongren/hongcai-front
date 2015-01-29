@@ -90,6 +90,7 @@ angular.module('hongcaiApp')
     var activityGroup = ProjectService.getGiftProjectList.get(function() {
       if (activityGroup.ret === 1) {
         $scope.activityList = activityGroup.data.projectList;
+        $scope.projectStatusMap = activityGroup.data.projectStatusMap;
         $scope.newbieProjectList = activityGroup.data.newbieProjectList;
         // console.log($scope.newbieProjectList);
       }
