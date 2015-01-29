@@ -23,7 +23,7 @@
             </div>
             <div class="col-xs-7 col-lg-7 app-col-7">
               <div class="row">
-                <div class="col-xs-12 app-col-12"><h3 class="app-h3"><a href="">{{project.name}}</a></h3></div>
+                <div class="col-xs-12 app-col-12"><h3 class="app-h3"><a ui-sref="root.project-details({number: project.number})">{{project.name}}</a></h3></div>
               </div>
               <div class="row">
                 <div class="col-xs-12 app-col-12"><a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" target="_blank">保荐机构：{{project.guaranteeName}}</a></div>
@@ -59,7 +59,7 @@
               </div>
               <div class="row">
                 <div class="col-xs-12 app-col-12">
-                  <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: project.id})"><i class="fa fa-shopping-cart"></i> 立即预约</a>
+                  <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({number: project.number})"><i class="fa fa-shopping-cart"></i> 立即预约</a>
                 </div>
               </div>
             </div>
