@@ -204,7 +204,7 @@
                 <a class="project-icon" ui-sref="root.project-sponsorInstitution({guaranteeId: projectVo.guaranteeId})" title="{{projectVo.guaranteeName}}" target="_blank">保</a>
                 <a class="project-icon cursor-d" href="javascript:;" title="{{projectVo.repaymentName}}">月</a>
                 <a class="project-icon cursor-d" href="javascript:;" title="{{ projectVo.statusText }}" ng-if="projectVo.status == 6">预</a>
-                <a class="project-icon cursor-d" href="javascript:;" title="预约到期：{{ projectVo.reserveEndTime || 0 | amDateFormat: 'YYYY年MM月DD日 hh:mm:ss' }}" ng-if="projectVo.status == 11">约</a>
+                <a class="project-icon cursor-d" href="javascript:;" title="预约到期：{{ projectVo.reserveEndTime || 0 | amDateFormat: 'YYYY年MM月DD日 HH:mm:ss' }}" ng-if="projectVo.status == 11">约</a>
                 <a class="project-icon cursor-d" href="javascript:;" title="{{ projectVo.statusText }}" ng-if="projectVo.status == 7">融</a>
                 <a class="project-icon cursor-d" href="javascript:;" title="{{ projectVo.statusText }}" ng-if="projectVo.status == 8">满</a>
                 <a class="project-icon cursor-d" href="javascript:;" title="{{ projectVo.statusText }}" ng-if="projectVo.status == 9">还</a>
