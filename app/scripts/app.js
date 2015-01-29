@@ -380,7 +380,7 @@ hongcaiApp
         }
       })
       .state('root.userCenter.investment', {
-        url: '/userCenter-investment',
+        url: '/investment',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/investment.html',
@@ -390,7 +390,7 @@ hongcaiApp
         }
       })
       .state('root.userCenter.investment-query', {
-        url: '/userCenter-investment/:dateInterval/:status',
+        url: '/investment/:dateInterval/:status',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/investment.html',
@@ -450,6 +450,37 @@ hongcaiApp
           }
         }
       })
+      .state('root.userCenter.reservation', {
+        url: '/reservation/:status',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/reservation.html',
+            controller: 'ReservationCtrl',
+            controllerUrl: 'scripts/controller/user-center/reservation-ctrl'
+          }
+        }
+      })
+      .state('root.userCenter.reservation-query', {
+        url: '/reservation/:dateInterval/:type',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/reservation.html',
+            controller: 'ReservationCtrl',
+            controllerUrl: 'scripts/controller/user-center/reservation-ctrl'
+          }
+        }
+      })
+
+      .state('root.reservation-success', {
+        url: '/reservation-success/:status',
+        views: {
+          '': {
+            templateUrl: 'views/success.html',
+            controller: 'ReservationSuccessCtrl',
+            controllerUrl: 'scripts/controller/user-center/reservation-success-ctrl'
+          }
+        }
+      })
       /*---------------------------------------------  yeepay  ---------------------------------------------*/
       .state('root.open-yeepay-account-success', {
         url: '/yeepay-success/:status',
@@ -501,8 +532,18 @@ hongcaiApp
           }
         }
       })
+      .state('root.project-list-query-no', {
+        url: '/project-list',
+        views: {
+          '': {
+            templateUrl: 'views/project/project-list.html',
+            controller: 'ProjectListCtrl',
+            controllerUrl: 'scripts/controller/project/project-list-ctrl'
+          }
+        }
+      })
       .state('root.activity-details', {
-        url: '/activity/:activityId/:type',
+        url: '/activity/:number/:type',
         views: {
           '': {
             templateUrl: 'views/project/activity-details.html',
@@ -522,7 +563,7 @@ hongcaiApp
         }
       })*/
       .state('root.project-details', {
-        url: '/project/:projectId',
+        url: '/project/:number',
         views: {
           '': {
             templateUrl: 'views/project/project-details.html',
@@ -1010,11 +1051,30 @@ hongcaiApp
           }
         }
       })
-      .state('app-callback.appwithdrawals-success', {
-        url: '/appwithdrawals-success',
+      .state('app-callback.canceltie-card', {
+        url: '/canceltie-card',
         views: {
           'app-callback-view': {
-            templateUrl: 'views/appview/appwithdrawals-success.html'
+            templateUrl: 'views/appview/canceltie-card.html'
+          }
+        }
+      })
+      .state('app-callback.apptie-card', {
+        url: '/apptie-card',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/apptie-card.html'
+          }
+        }
+      })
+    /*-------------------------------------------  load page  route  -----------------------------------------*/
+          .state('root.load-page', {
+        url: '/load-page',
+        views: {
+          '': {
+            templateUrl: 'views/load-page.html',
+            controller: 'LoadPageCtrl',
+            controllerUrl: 'scripts/controller/main/load-page-ctrl'
           }
         }
       })
@@ -1076,7 +1136,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
     };
   }
 
-  var routespermission = ['/account-overview',
+  // 需要用户登录才能看到的url
+  var routespermission = [
     '/assets-overview',
     '/realname-authentication',
     '/security-settings',
@@ -1084,15 +1145,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
     '/recharge',
     '/invest-verify',
     '/bankcard-management',
-    '/userCenter-investment',
+    '/investment',
     '/record',
     '/gift-overview',
     '/invite-rebate',
-    '/userCenter-investment',
     '/gift-rebate',
-    '/invite-rebate',
-    '/gift-overview'
+    '/reservation'
   ];
+
   $rootScope.$on('$stateChangeStart', function() {
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     if (routespermission.indexOf('/' + $location.path().split('/')[1]) !== -1) {

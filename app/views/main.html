@@ -56,7 +56,43 @@
       </div>
     </div>
   </div>
-  <div class="row">
+
+  <div class="row" ng-if="activityList" ng-hide="newbieIsShowedFLAG">
+    <div class="col-xs-12">
+      <div class="hongbao-area row">
+        <div class="col-xs-12 hongbao-title">
+          <h3>宏运当头标
+          <small>仅供宏包投资 | 奖90%收益 | 每日发标 | </small>
+          </h3>
+          <a ui-sref="root.project-activity-group">更多&gt;</a>
+        </div>
+        <div class="col-xs-12 hongcai-body">
+          <div class="col-xs-4" ng-repeat="item in activityList | limitTo: 3">
+            <div class="row {{item.status === 7 ? 'hongbao-red' : 'hongbao-grey'}}" ng-show="item.type===2">
+              <div class="col-xs-7 col-xs-offset-6 col-md-offset-6 col-lg-offset-5">
+                <h4><a class="txt-overflow" ui-sref="root.activity-details({number: item.number, type: item.type})" title="{{ item.name }}">{{ item.name}}</a></h4>
+                <p>年化收益率：</p>
+                <h4><span>10% + 90%</span></h4>
+                <a ui-sref="root.activity-details({number: item.number, type: item.type})" class="btn btn-primary" role="button">查看详情</a>
+              </div>
+            </div>
+            <div class="row main-hao" ng-show="item.type===3">
+              <div class="col-xs-7 col-xs-offset-6 col-md-offset-6 col-lg-offset-5">
+                <h4><a class="txt-overflow" ui-sref="root.activity-details({number: item.number, type: item.type})" title="{{ item.name }}">{{ item.name}}</a></h4>
+                <p>年化收益率：</p>
+                <h4><span>10% + 90%</span></h4>
+                <a ui-sref="root.activity-details({number: item.number, type: item.type})" class="btn btn-primary" role="button">查看详情</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row" ng-show="newbieIsShowedFLAG">
     <div class="col-xs-6">
       <div class="row" style="margin-right: -7.5px;">
         <div class="col-xs-12" ng-if="newbieProjectList">
@@ -131,9 +167,10 @@
         </div>
       </div>
     </div>
-    
-    
   </div>
+
+
+
   <div class="row margin-t-30" ng-show="reservationIsShowedFlAG">
     <div class="col-xs-12">
       <div class="row">
@@ -148,17 +185,36 @@
     <div class="col-xs-12 col-sm-8">
       <div class="row panel panel-danger special-recommend">
         <div class="panel-body">
-          <div class="hot-sale"></div>
+          <div class="hot-sale" ng-show="projectVo.status !== 11"></div>
+           <div class="re-sale" ng-show="projectVo.status === 11"></div>
           <img class="type-flag" src="/images/test-icon.png" ng-show="projectVo.isStamp === 1">
           <div class="hidden-xs hidden-md col-lg-5 padding-0">
-            <a ui-sref="root.project-details({projectId: projectVo.id})">
+            <a ui-sref="root.project-details({number: projectVo.number})">
               <img ng-show="projectVo.image" ng-src="{{baseFileUrl + projectVo.image}}" alt="" class="img-rounded" width="230" height="206">
             </a>
           </div>
 
           <div class="col-md-12 col-lg-7 padding-r-0 " ng-if="projectVo">
-            <a ui-sref="root.project-details({projectId: projectVo.id})" title="{{projectVo.name}}"><h3 class="text-nowrap margin-t-0">{{projectVo.name | limitTo: 10 }}...</h3><img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="projectVo.categoryCode === '04'"></a>
-            <h4>项目规模：{{projectVo.total | menoyFormat }}元</h4>
+
+            <a ui-sref="root.project-details({number: projectVo.number})" title="{{projectVo.name}}"><h3 class="text-nowrap margin-t-0">{{projectVo.name | limitTo: 10 }}...</h3><img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="projectVo.categoryCode === '04'"></a>
+            <div class="row margin-t-15">
+              <div class="col-xs-5 text-nowrap">
+                <a class="project-icon" ui-sref="root.project-sponsorInstitution({guaranteeId: projectVo.guaranteeId})" title="{{projectVo.guaranteeName}}" target="_blank">保</a>
+                <a class="project-icon cursor-d" href="javascript:;" title="{{projectVo.repaymentName}}">月</a>
+                <a class="project-icon cursor-d" href="javascript:;" title="{{ projectVo.statusText }}" ng-if="projectVo.status == 6">预</a>
+                <a class="project-icon cursor-d" href="javascript:;" title="预约到期：{{ projectVo.reserveEndTime || 0 | amDateFormat: 'YYYY年MM月DD日 hh:mm:ss' }}" ng-if="projectVo.status == 11">约</a>
+                <a class="project-icon cursor-d" href="javascript:;" title="{{ projectVo.statusText }}" ng-if="projectVo.status == 7">融</a>
+                <a class="project-icon cursor-d" href="javascript:;" title="{{ projectVo.statusText }}" ng-if="projectVo.status == 8">满</a>
+                <a class="project-icon cursor-d" href="javascript:;" title="{{ projectVo.statusText }}" ng-if="projectVo.status == 9">还</a>
+                <a class="project-icon cursor-d" href="javascript:;" title="{{ projectVo.statusText }}" ng-if="projectVo.status == 10">结</a>
+                <a class="project-icon cursor-d" href="javascript:;">奖</a>
+              </div>
+              <div class="col-xs-7 text-nowrap">
+                <h4>项目规模：{{projectVo.total | menoyFormat }}元</h4>
+              </div>
+            </div>
+
+
             <div class="row">
               <div class="col-xs-12 col-sm-4 border-r text-center">
                 <h3 class="text-center text-nowrap hc-text-red ftw-b">{{projectVo.annualEarnings || 0 | number : 2}}%</h3>
@@ -182,12 +238,12 @@
 
             <div class="row">
               <div class="col-xs-12" ng-show="projectVo.status !== 6">
-                <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: projectVo.id})">
+                <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({number: projectVo.number})">
                   <i class="fa fa-shopping-cart"></i> {{ projectVo.statusText }}
                 </a>
               </div>
               <div class="col-xs-12" ng-show="projectVo.status === 6">
-                <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: projectVo.id})">
+                <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({number: projectVo.number})">
                   <i class="fa fa-shopping-cart"></i> {{ projectVo.statusText }} | {{_timeVoDown}}
                 </a>
               </div>
@@ -209,19 +265,21 @@
               <img class="type-flag" src="/images/test-icon.png" ng-show="project.isStamp === 1">
               <div class="row">
                 <div class="hidden-xs hidden-md col-lg-5">
-                  <a ui-sref="root.project-details({projectId: project.id})">
+                  <a ui-sref="root.project-details({number: project.number})">
                     <img ng-show="project.image" ng-src="{{baseFileUrl + project.image}}" alt="{{project.name}}" class="img-rounded" width="230" height="206">
                   </a>
                 </div>
 
                 <div class="col-md-12 col-lg-7">
+
                   <a ui-sref="root.project-details({projectId: project.id})" title="{{project.name}}"><h3 class="margin-t-0">{{project.name}}</h3><img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="project.categoryCode === '04'"></a>
 
                   <div class="row margin-t-15">
                     <div class="col-xs-5 text-nowrap">
-                      <a class="project-icon" ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" title="{{project.guaranteeName}}" target="_blank">保{{item.guaranteeId}}</a>
+                      <a class="project-icon" ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" title="{{project.guaranteeName}}" target="_blank">保</a>
                       <a class="project-icon cursor-d" href="javascript:;" title="{{project.repaymentName}}">月</a>
                       <a class="project-icon cursor-d" href="javascript:;" title="{{ project.statusText }}" ng-if="project.status == 6">预</a>
+                      <a class="project-icon cursor-d" href="javascript:;" title="预约到期：{{ project.reserveEndTime }}" ng-if="project.status == 11">约</a>
                       <a class="project-icon cursor-d" href="javascript:;" title="{{ project.statusText }}" ng-if="project.status == 7">融</a>
                       <a class="project-icon cursor-d" href="javascript:;" title="{{ project.statusText }}" ng-if="project.status == 8">满</a>
                       <a class="project-icon cursor-d" href="javascript:;" title="{{ project.statusText }}" ng-if="project.status == 9">还</a>
@@ -250,12 +308,12 @@
 
                   <div class="row">
                     <div class="col-xs-12" ng-show="project.status !== 6">
-                      <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: project.id})">
+                      <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({number: project.number})">
                         <i class="fa fa-shopping-cart"></i> {{ project.statusText }}
                       </a>
                     </div>
                     <div class="col-xs-12" ng-show="project.status === 6">
-                      <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: project.id})">
+                      <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({number: project.number})">
                         <i class="fa fa-shopping-cart"></i> {{ project.statusText }} | {{ _timeDown[$index] }}
                       </a>
                     </div>
@@ -288,7 +346,7 @@
 
           <div class="row">
             <div class="col-xs-12">
-              <div class="media">
+              <div class="media margin-t-7">
                 <span class="pull-left"><i class="fa fa-calculator hc-text-red ft-3em"></i></span>
                 <div class="media-body">
                   <p>用户总收益</p>
@@ -300,7 +358,7 @@
 
           <div class="row">
             <div class="col-xs-12">
-              <div class="media">
+              <div class="media margin-t-7">
                 <span class="pull-left"><i class="fa fa-group hc-text-red ft-3em"></i></span>
                 <div class="media-body">
                   <p>加入理财者</p>
@@ -314,7 +372,7 @@
 
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>媒体报道 <small class="pull-right"><a href="/media-reports">更多 &gt;</a></small></h4>
+          <h4><i class="fa fa-bullhorn hc-text-red"></i> 媒体报道 <small class="pull-right"><a href="/media-reports">更多 &gt;</a></small></h4>
         </div>
         <div class="panel-body">
           <div class="row mediaList" ng-repeat="item in mediaList">
@@ -327,7 +385,7 @@
 
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h4>网站公告 <small class="pull-right"><a href="/web-site-notice">更多 &gt;</a></small></h4>
+          <h4><i class="fa fa-desktop hc-text-red"></i> 网站公告 <small class="pull-right"><a href="/web-site-notice">更多 &gt;</a></small></h4>
         </div>
 
         <div class="panel-body">
@@ -343,7 +401,7 @@
         <div class="col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4>宏财动态 <small class="pull-right"><a href="/hongcai-trends">更多 &gt;</a></small></h4>
+              <h4><i class="fa fa-plane hc-text-red"></i> 宏财动态 <small class="pull-right"><a href="/hongcai-trends">更多 &gt;</a></small></h4>
             </div>
 
             <div class="panel-body">
@@ -361,7 +419,7 @@
         <div class="col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4>常见问题 <small class="pull-right" ><a ui-sref='root.help-center.introduce'>更多&gt;</a></small></h4>
+              <h4><i class="fa fa-question-circle hc-text-red"></i> 常见问题 <small class="pull-right" ><a ui-sref='root.help-center.introduce'>更多&gt;</a></small></h4>
             </div>
 
             <div class="panel-body">
@@ -393,7 +451,7 @@
         <div class="col-xs-12">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h4>新手引导</h4>
+              <h4><i class="fa fa-male hc-text-red"></i> 新手引导</h4>
             </div>
 
             <div class="panel-body">

@@ -7,6 +7,7 @@ angular.module('hongcaiApp')
         realName: '@realName',
         idNo: '@idNo'
       }),
+      authorizeAutoTransfer: $resource(DEFAULT_DOMAIN + '/yeepay/authorizeAutoTransfer', {}),
       yeepayRecharge: $resource(DEFAULT_DOMAIN + '/yeepay/recharge', {
         amount: '@amount'
       }),
@@ -74,10 +75,10 @@ angular.module('hongcaiApp')
       getGiftListByUserId: $resource(DEFAULT_DOMAIN + '/activity/getGiftListByUserId'),
       getInviteList: $resource(DEFAULT_DOMAIN + '/activity/getInviteList'),
       getOrderBillByOrderId: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderBillByOrderId', {
-        orderId: '$orderId'
+        number: '$number'
       }),
       cancelOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/cancelOrder', {
-        orderId: '$orderId'
+        number: '$number'
       }),
       generateContractPDF: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDF', {
         projectId: '$projectId',
@@ -98,7 +99,12 @@ angular.module('hongcaiApp')
         userMsgId: '$userMsgId'
       }),
       updateAllUserMsgStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/updateAllUserMsgReadByUserId', {}),
-      pushAllUnpullMessages: $resource(DEFAULT_DOMAIN + '/siteMsg/pushAllUnpullMessages')
+      pushAllUnpullMessages: $resource(DEFAULT_DOMAIN + '/siteMsg/pushAllUnpullMessages'),
+      getUserReserveRecords: $resource(DEFAULT_DOMAIN + '/siteReserve/getUserReserveRecords', {}),
+      reserveCancel: $resource(DEFAULT_DOMAIN + '/siteReserve/reserveCancel', {
+        reserveOrderId: '@reserveOrderId',
+        projectId: '@projectId'
+      })
 
     };
   });

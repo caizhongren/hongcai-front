@@ -205,11 +205,22 @@
       </div>
     </form>
   </div>
-  <!-- <div class="row"  style="padding-top:5%;">
-    <p class="ft-12 hc-text-red text-alg-c">
-      *温馨提示*<br>为了您的投资安全，请您务必完成：手机号码绑定，邮箱绑定，和开通第三方托管账户。
-    </p>
-  </div> -->
+
+  <div class="row">
+    <div class="safe-part col-md-12 col-lg-12">
+      <div class="row">
+        <p class="tips message col-md-4 col-lg-4">开通预约权限</p>
+        <p class="message col-md-4 col-lg-4" ng-show="!openTrustReservation">未开通</p>
+        <p class="message col-md-4 col-lg-4" ng-show="openTrustReservation">已开通</p>
+        <div class="col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1">
+          <p class="activity" ng-show="!openTrustReservation"><a href="javascript:;" class="hc-text-red" ng-click="openReservation();">开通</a>
+          </p>
+          <p class="activity hadset" ng-show="openTrustReservation">已开通</p>
+          <div class="check-ok" ng-show="openTrustReservation"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>

@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .factory('ProjectService', function($resource, $location, DEFAULT_DOMAIN) {
     return {
       projectDetails: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectDetail', {
-        projectId: '@projectId'
+        number: '@number'
       }),
       projectList: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectList'),
       isAvailableInvest: $resource(DEFAULT_DOMAIN + '/siteProject/isAvailableInvest', {
@@ -11,6 +11,17 @@ angular.module('hongcaiApp')
         projectId: '@projectId'
       }),
       appointmentProject: $resource(DEFAULT_DOMAIN + '/siteReserve/getLatestSingleReserveProject'),
+      reserve: $resource(DEFAULT_DOMAIN + '/siteReserve/reserve', {
+        reserveAmount: '@reserveAmount',
+        projectId: '@projectId'
+      }),
+      getProfit: $resource(DEFAULT_DOMAIN + '/siteReserve/getReserveInterest', {
+        reserveAmount: '@reserveAmount',
+        projectId: '@projectId'
+      }),
+      getReserveRecords: $resource(DEFAULT_DOMAIN + '/siteReserve/getProjectReserveRecords', {
+        number: '@number'
+      }),
       projectShop: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectShop', {
         projectId: '@projectId',
         amount: '@amount'
@@ -20,8 +31,9 @@ angular.module('hongcaiApp')
       }),
       getGiftProjectList: $resource(DEFAULT_DOMAIN + '/siteProject/getGiftProjectList'),
       activityDetails: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectDetail', {
-        projectId: '@activityId',
+        number: '@number',
         type: '@type'
       }),
+      getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {})
     };
   });

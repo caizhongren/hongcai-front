@@ -13,6 +13,7 @@ angular.module('hongcaiApp')
         // $scope.idNo = userAuth.idNo;
         if (userAuth && userAuth.yeepayAccountStatus === 1) {
           $scope.haveTrusteeshipAccount = true;
+          $scope.openTrustReservation = userAuth.autoTransfer;
         } else {
           $scope.haveTrusteeshipAccount = false;
         }
@@ -162,5 +163,36 @@ angular.module('hongcaiApp')
           console.log('ask security-settings, why yeepayRegister did not load data...');
         }
       });
+    };
+
+    $scope.openReservation = function() {
+      // 调用预约的方法，当预约开通后
+      UserCenterService.authorizeAutoTransfer.get({
+      }, function(response) {
+        if (response.ret === 1) {
+          if($rootScope.securityStatus.realNameAuthStatus === 0 || !$rootScope.securityStatus.realNameAuthStatus) {
+            $scope.msg = '请先开通托管账户';
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-dialog.html',
+              show: true
+            });
+            return;
+          }
+          var req = response.data.req;
+          var sign = response.data.sign;
+          var _f = newForm();
+          createElements(_f, 'req', req);
+          createElements(_f, 'sign', sign);
+          _f.action = config.YEEPAY_ADDRESS + 'toAuthorizeAutoTransfer';
+          _f.submit();
+          // 这块应该如何判断？ TODO
+          // 这里实现方法不太好，如果所有的实现都在用户表里面提现，是再好不过的了。
+          $scope.openTrustReservation = true;
+        } else {
+          console.log('ask security-settings, why authorizeAutoTransfer did not load data...');
+        }
+      });
+
     };
   }]);

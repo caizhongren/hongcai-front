@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'ProjectService', 'toaster', function($scope, $stateParams, $rootScope, $location, ProjectService, toaster) {
+  .controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'ProjectService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, toaster) {
     $scope.sortType = $stateParams.sortType || false;
     if ($scope.sortType === 'true') {
       $scope.sortType = true;
@@ -10,6 +10,11 @@ angular.module('hongcaiApp')
     $scope.toggleSort = function() {
       $scope.sortType = !$scope.sortType;
     };
+    if (jQuery.isEmptyObject($stateParams)){
+        $location.path('/project-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false');
+    }
+
+
     var response = ProjectService.projectList.get({
       status: $stateParams.status,
       minCycle: $stateParams.minCycle,
@@ -44,7 +49,6 @@ angular.module('hongcaiApp')
           $scope.projectList[i].countdown = moment($scope.projectList[i].releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 2;
           $scope.data.push($scope.projectList[i]);
         }
-        // console.log($scope.projectList);
         $scope._timeDown = [];
         $scope.counter = 0;
         var interval = window.setInterval(function() {
