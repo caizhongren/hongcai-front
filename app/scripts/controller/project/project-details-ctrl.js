@@ -7,6 +7,7 @@ angular.module('hongcaiApp')
     $scope.check = function (val) {
       $scope.checkFlag = !val?true:false;
     };
+
     $scope.getProjectDetails = function (){
       var projectDetails = ProjectService.projectDetails.get({
         number: $stateParams.number
@@ -77,7 +78,9 @@ angular.module('hongcaiApp')
           for (var i = 0; i < $scope.orderList.length; i++) {
             $scope.data.push($scope.orderList[i]);
           }
-        } else {
+        }else if(projectDetails.code == -1054){
+            $state.go('root.project-list-query-no');
+        }else {
           toaster.pop('warning', projectDetails.msg);
         }
       });
@@ -118,14 +121,6 @@ angular.module('hongcaiApp')
             var $index = $scope.reserveOrders[i].status;
             $scope.reserveOrders[i].statusTxt = response.data.statusMap[$index];
           }
-        } else {
-          $scope.msg = response.msg;
-          $alert({
-            scope: $scope,
-            template: 'views/modal/alert-dialog.html',
-            show: true
-          });
-          return;
         }
       });
     };
@@ -168,7 +163,7 @@ angular.module('hongcaiApp')
             }
           });
         }
-        
+
       } else {
         $scope.msg = '您还没有同意《项目预约规则》';
         $alert({
