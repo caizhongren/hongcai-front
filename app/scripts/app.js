@@ -1051,11 +1051,19 @@ hongcaiApp
           }
         }
       })
-      .state('app-callback.appwithdrawals-success', {
-        url: '/appwithdrawals-success',
+      .state('app-callback.canceltie-card', {
+        url: '/canceltie-card',
         views: {
           'app-callback-view': {
-            templateUrl: 'views/appview/appwithdrawals-success.html'
+            templateUrl: 'views/appview/canceltie-card.html'
+          }
+        }
+      })
+      .state('app-callback.apptie-card', {
+        url: '/apptie-card',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/apptie-card.html'
           }
         }
       })
