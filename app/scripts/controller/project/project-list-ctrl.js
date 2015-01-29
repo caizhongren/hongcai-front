@@ -10,9 +10,9 @@ angular.module('hongcaiApp')
     $scope.toggleSort = function() {
       $scope.sortType = !$scope.sortType;
     };
-    if (Object.getOwnPropertyNames($stateParams).length === 0){
-      $location.path('/project-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false');
-    }
+    // if (Object.getOwnPropertyNames($stateParams).length === 0){
+    //   $location.path('/project-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false');
+    // }
 
 
     var response = ProjectService.projectList.get({
