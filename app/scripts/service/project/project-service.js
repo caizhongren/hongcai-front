@@ -31,7 +31,7 @@ angular.module('hongcaiApp')
       }),
       getGiftProjectList: $resource(DEFAULT_DOMAIN + '/siteProject/getGiftProjectList'),
       activityDetails: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectDetail', {
-        projectId: '@activityId',
+        number: '@number',
         type: '@type'
       }),
       getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {})

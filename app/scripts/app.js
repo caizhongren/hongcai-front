@@ -532,8 +532,18 @@ hongcaiApp
           }
         }
       })
+      .state('root.project-list-query-no', {
+        url: '/project-list',
+        views: {
+          '': {
+            templateUrl: 'views/project/project-list.html',
+            controller: 'ProjectListCtrl',
+            controllerUrl: 'scripts/controller/project/project-list-ctrl'
+          }
+        }
+      })
       .state('root.activity-details', {
-        url: '/activity/:activityId/:type',
+        url: '/activity/:number/:type',
         views: {
           '': {
             templateUrl: 'views/project/activity-details.html',
@@ -1126,6 +1136,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
     };
   }
 
+  // 需要用户登录才能看到的url
   var routespermission = ['/account-overview',
     '/assets-overview',
     '/realname-authentication',
@@ -1144,6 +1155,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
     '/gift-overview',
     '/reservation'
   ];
+
   $rootScope.$on('$stateChangeStart', function() {
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     if (routespermission.indexOf('/' + $location.path().split('/')[1]) !== -1) {

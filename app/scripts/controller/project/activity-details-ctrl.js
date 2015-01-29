@@ -4,7 +4,7 @@ angular.module('hongcaiApp')
   $rootScope.redirectUrl = $location.path();
 
   var activityDetails = ProjectService.activityDetails.get({
-    projectId: $stateParams.activityId,
+    number: $stateParams.number,
     type: $stateParams.type
   }, function() {
     if (activityDetails.ret === 1) {
@@ -16,7 +16,7 @@ angular.module('hongcaiApp')
         $scope.statTime = moment().startOf('month').seconds($scope.statSecond).format('HH时,mm分,ss秒');
         if ($scope.statSecond === 0) {
           ProjectService.activityDetails.get({
-            projectId: $stateParams.projectId
+            number: $stateParams.number
           }, function(response) {
             if (response.ret === 1) {
               $scope.project = response.data.project;
