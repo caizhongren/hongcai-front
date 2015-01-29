@@ -3,7 +3,8 @@
   "viewFlAG": {
     "tuhaoIsShowedFlAG": false,
     "sponsorsIsShowedFlAG": false,
-    "reservationIsShowedFlAG": true
+    "reservationIsShowedFlAG": true,
+    "newbieIsShowedFLAG": false
   },
   "jumpHttpsPath": []
 }
