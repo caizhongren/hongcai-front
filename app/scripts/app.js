@@ -380,7 +380,7 @@ hongcaiApp
         }
       })
       .state('root.userCenter.investment', {
-        url: '/userCenter-investment',
+        url: '/investment',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/investment.html',
@@ -390,7 +390,7 @@ hongcaiApp
         }
       })
       .state('root.userCenter.investment-query', {
-        url: '/userCenter-investment/:dateInterval/:status',
+        url: '/investment/:dateInterval/:status',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/investment.html',
@@ -1137,7 +1137,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
   }
 
   // 需要用户登录才能看到的url
-  var routespermission = ['/account-overview',
+  var routespermission = [
     '/assets-overview',
     '/realname-authentication',
     '/security-settings',
@@ -1145,14 +1145,11 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
     '/recharge',
     '/invest-verify',
     '/bankcard-management',
-    '/userCenter-investment',
+    '/investment',
     '/record',
     '/gift-overview',
     '/invite-rebate',
-    '/userCenter-investment',
     '/gift-rebate',
-    '/invite-rebate',
-    '/gift-overview',
     '/reservation'
   ];
 
