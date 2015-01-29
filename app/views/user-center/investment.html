@@ -99,7 +99,7 @@
       <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
       <td>
         <button ng-click="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button>
-        <a ui-sref="root.project-details({number: item.number})">{{ item.projectName | limitTo: 5}}... </a><br>
+        {{ item.projectName | limitTo: 5}}... <br>
       </td>
         <td>{{ item.valueDate | date: 'yyyy-MM-dd' }}</td>
         <td>{{ item.repaymentDate | date: 'yyyy-MM-dd' }}</td>
