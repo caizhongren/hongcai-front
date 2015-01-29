@@ -533,7 +533,7 @@ hongcaiApp
         }
       })
       .state('root.activity-details', {
-        url: '/activity/:activityId/:type',
+        url: '/activity/:number/:type',
         views: {
           '': {
             templateUrl: 'views/project/activity-details.html',
