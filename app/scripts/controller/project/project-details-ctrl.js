@@ -35,6 +35,28 @@ angular.module('hongcaiApp')
             $timeout.cancel(mytimeout);
           });
           $scope.project = projectDetails.data.project;
+          $scope.categoryCode = $scope.project.categoryCode;
+          if ($scope.categoryCode !== '04') {
+            $scope.tabs = [{
+              title: '项目信息',
+            }, {
+              title: '企业信息',
+            }, {
+              title: '风控信息',
+            }, {
+              title: '相关文件',
+            }, {
+              title: '项目历程',
+            }];
+          } else {
+            $scope.tabs = [{
+              title: '项目信息',
+            }, {
+              title: '企业信息',
+            }, {
+              title: '相关文件',
+            }];
+          }
           $scope.repaymentDate = projectDetails.data.repaymentDate;
 
           $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额':'可投金额';
@@ -50,43 +72,6 @@ angular.module('hongcaiApp')
           } else {
             $scope.userCanInvestNum = 0;
           }
-        };
-        var mytimeout = $timeout($scope.onTimeout, 1000);
-        $scope.$on('$stateChangeStart', function() {
-          $timeout.cancel(mytimeout);
-        });
-        $scope.project = projectDetails.data.project;
-        $scope.categoryCode = $scope.project.categoryCode;
-        if ($scope.categoryCode !== '04') {
-          $scope.tabs = [{
-            title: '项目信息',
-          }, {
-            title: '企业信息',
-          }, {
-            title: '风控信息',
-          }, {
-            title: '相关文件',
-          }, {
-            title: '项目历程',
-          }];
-        } else {
-          $scope.tabs = [{
-            title: '项目信息',
-          }, {
-            title: '企业信息',
-          }, {
-            title: '相关文件',
-          }];
-        }
-        // 项目可投金额
-        $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
-        // 用户可用金额
-        if ($rootScope.userCapital) {
-          $scope.userCanInvestNum = $scope.projectInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.projectInvestNum;
-        } else {
-          $scope.userCanInvestNum = 0;
-        }
-
           $scope.projectInfo = projectDetails.data.projectInfo;
           $scope.projectRank = projectDetails.data.projectRank;
 
@@ -114,9 +99,9 @@ angular.module('hongcaiApp')
           for (var i = 0; i < $scope.orderList.length; i++) {
             $scope.data.push($scope.orderList[i]);
           }
-        }else if(projectDetails.code == -1054){
+        } else if (projectDetails.code == -1054){
             $state.go('root.project-list-query-no');
-        }else {
+        } else {
           toaster.pop('warning', projectDetails.msg);
         }
       });
