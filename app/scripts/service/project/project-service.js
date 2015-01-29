@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .factory('ProjectService', function($resource, $location, DEFAULT_DOMAIN) {
     return {
       projectDetails: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectDetail', {
-        projectId: '@projectId'
+        number: '@number'
       }),
       projectList: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectList'),
       isAvailableInvest: $resource(DEFAULT_DOMAIN + '/siteProject/isAvailableInvest', {
@@ -20,7 +20,7 @@ angular.module('hongcaiApp')
         projectId: '@projectId'
       }),
       getReserveRecords: $resource(DEFAULT_DOMAIN + '/siteReserve/getProjectReserveRecords', {
-        projectId: '@projectId'
+        number: '@number'
       }),
       projectShop: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectShop', {
         projectId: '@projectId',

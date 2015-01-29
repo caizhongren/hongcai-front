@@ -9,7 +9,7 @@ angular.module('hongcaiApp')
     };
     $scope.getProjectDetails = function (){
       var projectDetails = ProjectService.projectDetails.get({
-        projectId: $stateParams.projectId
+        number: $stateParams.number
       }, function() {
         if (projectDetails.ret === 1) {
           $scope.statSecond = parseInt(projectDetails.data.countDownTime / 1000 + 1) || 1;
@@ -20,7 +20,7 @@ angular.module('hongcaiApp')
             $scope.statTime = moment().startOf('month').seconds($scope.statSecond).format('HH时,mm分,ss秒');
             if ($scope.statSecond === 0) {
               ProjectService.projectDetails.get({
-                projectId: $stateParams.projectId
+                number: $stateParams.number
               }, function(response) {
                 if (response.ret === 1) {
                   $scope.project = response.data.project;
@@ -108,7 +108,7 @@ angular.module('hongcaiApp')
 
     $scope.getReserveRecords = function () {
       ProjectService.getReserveRecords.get({
-        projectId: $stateParams.projectId
+        number: $stateParams.number
       }, function(response) {
         if (response.ret === 1) {
           $scope.reserveData = response.data;
