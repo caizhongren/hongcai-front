@@ -108,12 +108,12 @@
         <td>
           {{ item.returnProfit | number:2 }}
           <span ng-if="item.status >= 3 && item.status <= 6">
-            <button style="padding:0px;outline:none;" class="btn btn-link" title="{{item.projectName}}" data-template="views/modal/popover-investment-list-details.html" data-animation="am-fade-and-slide-right" data-trigger="focus" data-placement="right"  bs-popover  ng-click="showListDetails(item.orderId);">[详情]</button>
+            <button style="padding:0px;outline:none;" class="btn btn-link" title="{{item.projectName}}" data-template="views/modal/popover-investment-list-details.html" data-animation="am-fade-and-slide-right" data-trigger="focus" data-placement="right"  bs-popover  ng-click="showListDetails(item.number);">[详情]</button>
           </span>
           <br>
           <div class="btn-group btn-group-sm btn-group-xs" style="float: left;" >
             <button ng-show="item.status === 1" type="button" class="btn btn-primary" ng-click="toPay(item.projectId, item.orderId);">继续支付</button>
-            <button ng-show="item.status === 1" type="button" class="btn btn-default" ng-click="cancelOrder(item.orderId);">取消订单</button>
+            <button ng-show="item.status === 1" type="button" class="btn btn-default" ng-click="cancelOrder(item.number);">取消订单</button>
           </div>
         </td>
         <td>
