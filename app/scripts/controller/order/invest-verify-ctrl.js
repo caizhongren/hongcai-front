@@ -10,6 +10,7 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         $scope.project = response.data.project;
         $scope.capital = response.data.capital;
+        $scope.categoryCode = response.data.categoryCode;
         $scope.giftCount = response.data.giftCount;
         $scope.investAmount = $stateParams.amount;
         $scope.icons = [];
