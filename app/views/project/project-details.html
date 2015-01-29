@@ -37,8 +37,11 @@
                     </div> -->
                   <hr style="margin-top: 3px;margin-bottom: 12px;">
                   <div class="row">
-                    <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
+                    <div class="col-xs-12 under-margin1" ng-hide="categoryCode === '04'"><i class="fa fa-circle hc-text-red right-margin"></i>
                       <strong>担保机构：<a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" target="_blank">{{project.guaranteeName}}</a></strong>
+                    </div>
+                    <div class="col-xs-12 under-margin1" ng-show="categoryCode === '04'"><i class="fa fa-circle hc-text-red right-margin"></i>
+                      <strong>项目类型：新手体验标</strong>
                     </div>
                     <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
                       <strong>还款方式：{{project.repaymentName}}</strong>
