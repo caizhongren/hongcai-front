@@ -4,7 +4,6 @@ angular.module('hongcaiApp')
     var response = ProjectService.appointmentProject.get({}, function() {
       if (response.ret === 1) {
         $scope.project = response.data.project;
-        console.log(response)
         $scope.baseFileUrl = response.data.baseFileUrl;
         $scope.statusMap = response.data.statusMap;
         $scope.statusText = $scope.statusMap[$scope.project.status];
@@ -15,7 +14,6 @@ angular.module('hongcaiApp')
         var interval = window.setInterval(function() {
           $scope.counter++;
           $scope._timeDown = $scope.timeUntil($scope.project.countdown);
-          // console.log($scope._timeDown)
           $scope.$apply();
         }, 1000);
 
