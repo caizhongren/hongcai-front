@@ -1,17 +1,18 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('LoadPageCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'md5', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie, MainService) {
+  .controller('LoadPageCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'md5', 'ipCookie', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie) {
     // var lpdialoag = $('#lpdialog');
     var lpclose = $('#lpclose');
-    lpclose.click(function(){
-
+    lpclose.click(function() {
       $('#aadialog').fadeOut(200);
     });
-    
 
-    $scope.backtop = function(){
-       $("html,body").animate({scrollTop:"0px"},300);
-    }
+
+    $scope.backtop = function() {
+      $('html,body').animate({
+        scrollTop: '0px'
+      }, 300);
+    };
 
     $scope.submitRegisterMobile = function(user) {
       RegisterService.saveRegister.save({
@@ -46,5 +47,5 @@ angular.module('hongcaiApp')
         }
       });
     };
-     $scope.online = online;
-  }])
+    $scope.online = online;
+  }]);
