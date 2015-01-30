@@ -22,6 +22,7 @@
     "angular": false,
     "moment": false,
     "$": false,
-    "alert": false
+    "alert": false,
+    "online": false
   }
 }
