@@ -5,9 +5,6 @@ dist
 .sass-cache
 bower_components
 Gruntfile.js
-config_build.json
-config_pro.json
-config_dev_test321.json
 app/styles/bootstrap_overwrite.css
 app/styles/main_leo.css
 app/styles/test.css
