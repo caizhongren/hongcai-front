@@ -2,7 +2,7 @@
 angular.module('hongcaiApp')
   .controller('WebSiteNoticeCtrl', ['$scope', '$state', '$location', function($scope, $state, $location) {
     // FIX
-    $scope.perPage = parseInt($location.search().perPage, 10) || 15;
+    $scope.perPage = parseInt($location.search().perPage, 10) || 5;
     $scope.page = parseInt($location.search().page, 10) || 0;
     $scope.clientLimit = 250;
     $scope.urlParams = {
@@ -25,19 +25,5 @@ angular.module('hongcaiApp')
         $scope.perPage = perPage;
       }
     });
-
-    // AboutUsService.textList.get({category: 2}, function(response) {
-    //     $scope.textList = response.data;
-    //     $scope.orderProp = 'id';
-    //     $scope.currentPage = 0;
-    //     $scope.pageSize = 15;
-    //     $scope.data = [];
-    //     $scope.numberOfPages = function(){
-    //         return Math.ceil($scope.data.length / $scope.pageSize);
-    //     }
-    //     for (var i = 0; i < $scope.textList.textList.length; i++) {
-    //         $scope.data.push($scope.textList.textList[i]);
-    //     }
-    // });
 
   }]);
