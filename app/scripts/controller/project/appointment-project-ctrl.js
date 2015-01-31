@@ -9,8 +9,6 @@ angular.module('hongcaiApp')
         $scope.statusText = $scope.statusMap[$scope.project.status];
         $scope.repaymentTypeMap = response.data.repaymentTypeMap;
         $scope.repaymentName = $scope.repaymentTypeMap[$scope.project.repaymentType];
-        console.log(response);
-
         $scope.project.countdown = moment($scope.project.releaseStartTime).diff(moment(response.data.serverTime), 'seconds') + 2;
         $scope.counter = 0;
         var interval = window.setInterval(function() {
@@ -22,8 +20,6 @@ angular.module('hongcaiApp')
         $scope.$on('$stateChangeStart', function() {
           clearInterval(interval);
         });
-
-
       } else {
         $scope.data = [];
         toaster.pop('warning', '服务器正在努力的加载....请稍等。');

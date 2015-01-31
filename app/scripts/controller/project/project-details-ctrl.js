@@ -150,6 +150,15 @@ angular.module('hongcaiApp')
 
     //获取预约收益
     $scope.getProfit = function(project) {
+      if ($rootScope.autoTransfer !== 1) {
+        $scope.msg = '需要完成自动投标授权，请到安全中心设置中授权。';
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alert-autoTransfer.html',
+          show: true
+        });
+        return;
+      }
       $scope.alert = {
         toReserveAmount: project.toReserveAmount
       };

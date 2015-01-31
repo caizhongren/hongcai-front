@@ -1,26 +1,19 @@
 <!--网站公告-->
 <div class="right-area col-md-9 col-lg-9">
-	<div class="row">
-		<div class="right-title">网站公告</div>
-	</div>
-	<div class="row">
-		<div class="introduction-area col-md-12 col-lg-12">
-			<div class="web-show" ng-repeat="item in list.list">
-				<a ui-sref="root.about-us.web-site-notice-detail({textId: item.id})" >{{item.title| limitTo: 13 }}...</a>
-				<p class="p-date">{{item.createTime | date:'yyyy-MM-dd'}}</p>
-			</div>
-		</div>
-		<ul class="pager">
-		  <bgf-pagination
-	            page="page"
-	            per-page="perPage"
-	            client-limit="clientLimit"
-	            url="'hongcai/api/v1/siteText/getTextList'"
-	            url-params="urlParams"
-	            link-group-size="2"
-	            collection="list"
-	            template-url="/views/tpl/paginate-anything.html">
-	        </bgf-pagination>
-		</ul>
-	</div>
+  <div class="row">
+    <div class="right-title">网站公告</div>
+  </div>
+  <div class="row">
+    <div class="introduction-area col-md-12 col-lg-12">
+      <div class="web-show" ng-repeat="item in list.list">
+        <a ui-sref="root.about-us.web-site-notice-detail({textId: item.id})">{{item.title| limitTo: 13 }}...</a>
+        <p class="p-date">{{item.createTime | date:'yyyy-MM-dd'}}</p>
+      </div>
+    </div>
+
+    <ul id="pagination-text">
+      <bgf-pagination page="page" per-page="perPage" client-limit="clientLimit" url="'hongcai/api/v1/siteText/getTextList'" url-params="urlParams" link-group-size="2" collection="list" template-url="/views/tpl/paginate-anything.html">
+      </bgf-pagination>
+    </ul>
+  </div>
 </div>

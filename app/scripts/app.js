@@ -1161,6 +1161,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
           $rootScope.isLogged = true;
           $rootScope.loginName = response.data.data.name;
           $rootScope.securityStatus = response.data.data.securityStatus;
+          $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
           $rootScope.userCapital = response.data.data.userCapital;
           $rootScope.unreadCount = response.data.data.unreadCount;
         } else {
@@ -1175,6 +1176,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
           $rootScope.isLogged = true;
           $rootScope.loginName = response.data.data.name;
           $rootScope.securityStatus = response.data.data.securityStatus;
+          $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
           $rootScope.userCapital = response.data.data.userCapital;
           $rootScope.unreadCount = response.data.data.unreadCount;
         } else {

@@ -6,5 +6,5 @@
     "reservationIsShowedFlAG": true,
     "newbieIsShowedFLAG": true
   },
-   "jumpHttpsPath": ["/register-mobile", "/login", "/register-mail"]
+   "jumpHttpsPath": []
 }
