@@ -525,7 +525,7 @@
                   </div>
                 </section>
                 <div ng-if="!isLogged" class="panel-body text-alg-c margin-t-15 margin-b-15">
-                  请<a ui-sref="root.login" class="ft-red">登录</a>后查看信息
+                  请<a ui-sref="root.login({isRedirect: true})" class="ft-red">登录</a>后查看信息
                 </div>
               </div>
             </div>
