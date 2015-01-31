@@ -414,7 +414,7 @@
                         <span class="investment-fontsize nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | number:2}}</span><span class="investment-fontblack">元</span>
                       </div>
                       <div class="col-xs-12 positive-bottommargin pull-n">
-                        <span class="investment-fontsize nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount/10 || 10 | number:2}}</span>元
+                        <span class="investment-fontsize nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount/10 || 0 | number:2}}</span>元
                       </div>
                       <!-- <form ng-submit="toInvest(project);" ng-switch-default ng-show="project.status !== 6">
                         <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.amount" ng-model="project.amount" class="form-control margin-b-20" placeholder="投资金额（元）" required ng-switch-default>

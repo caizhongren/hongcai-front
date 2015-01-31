@@ -116,7 +116,7 @@
                       </div>
                     </div>
 
-                    <a ui-sref="root.project-details({number: item.number})" class="btn btn-primary" role="button">{{ projectStatusMap[item.status] }}</a>
+                    <a ui-sref="root.project-details({number: item.number})" class="btn btn-primary" role="button">{{ projectStatusMap[item.status] || '查看详情'}}</a>
                   </div>
                 </div>
               </div>
