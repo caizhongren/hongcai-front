@@ -288,8 +288,8 @@
                   </div>
                   <div class="col-xs-12 negative-margin">
                     <span class="investment-fontsize">{{totalType}}：</span>
-                    <span class="investment-fontred" ng-if="project.status !== 11">{{projectInvestNum | number : 2}}</span>
-                    <span class="investment-fontred" ng-if="project.status === 11">{{project.reserveAmount | number : 2}}</span>
+                    <span class="investment-fontred" ng-if="project.status !== 11">{{projectInvestNum | moreMillion}}</span>
+                    <span class="investment-fontred" ng-if="project.status === 11">{{project.reserveAmount | moreMillion}}</span>
                     <span class="investment-fontblack">元</span>
                   </div>
                   <div class="col-xs-12 positive-margin" ng-show="project.status === 11">
