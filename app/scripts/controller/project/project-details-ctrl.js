@@ -418,4 +418,9 @@ angular.module('hongcaiApp')
       pointDotRadius: 4,
       datasetFill: true
     };
+
+    $scope.toLogin = function(){
+      var thisUrl = $location.path();
+      $location.path('/login').search({redirectUrl: thisUrl})
+    }
   }]);

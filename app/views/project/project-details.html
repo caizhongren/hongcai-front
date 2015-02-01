@@ -320,7 +320,7 @@
                     <input ng-show="project.status !== 11" type="number" placeholder="请输入投资金额" disabled='disabled' class="form-control margin-b-20">
                     <input ng-show="project.status === 11" type="number" placeholder="请输入预约总额" disabled='disabled' class="form-control margin-b-20">
                   </div>
-                  <div class="positive-margin1"><a ui-sref="root.login({isRedirect: true})" class="btn btn-danger btn-lg btn-block"><i class="fa fa-user project-leftmargin"></i>请先登录</a>
+                  <div class="positive-margin1"><a ng-click="toLogin()" class="btn btn-danger btn-lg btn-block"><i class="fa fa-user project-leftmargin"></i>请先登录</a>
                   </div>
                   <div class="positive-margin1 text-center">
                     <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
@@ -525,7 +525,7 @@
                   </div>
                 </section>
                 <div ng-if="!isLogged" class="panel-body text-alg-c margin-t-15 margin-b-15">
-                  请<a ui-sref="root.login({isRedirect: true})" class="ft-red">登录</a>后查看信息
+                  请<a ng-click="toLogin()" class="ft-red">登录</a>后查看信息
                 </div>
               </div>
             </div>
@@ -580,7 +580,7 @@
                   </ul> -->
                 </section>
                 <div ng-if="!isLogged" class="panel-body text-alg-c margin-t-15 margin-b-15">
-                  请<a ui-sref="root.login" class="ft-red">登录</a>后查看信息
+                  请<a ng-click="toLogin()" class="ft-red">登录</a>后查看信息
                 </div>
               </div>
             </div>
