@@ -425,6 +425,6 @@ angular.module('hongcaiApp')
 
     $scope.toLogin = function(){
       var thisUrl = $location.path();
-      $location.path('/login').search({redirectUrl: thisUrl})
-    }
+      $location.path('/login').search({redirectUrl: thisUrl});
+    };
   }]);
