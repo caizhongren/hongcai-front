@@ -13,7 +13,8 @@ angular.module('hongcaiApp')
       appointmentProject: $resource(DEFAULT_DOMAIN + '/siteReserve/getLatestSingleReserveProject'),
       reserve: $resource(DEFAULT_DOMAIN + '/siteReserve/reserve', {
         reserveAmount: '@reserveAmount',
-        projectId: '@projectId'
+        projectId: '@projectId',
+        inviteMobile: '@inviteMobile'
       }),
       getProfit: $resource(DEFAULT_DOMAIN + '/siteReserve/getReserveInterest', {
         reserveAmount: '@reserveAmount',

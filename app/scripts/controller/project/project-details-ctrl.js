@@ -206,6 +206,9 @@ angular.module('hongcaiApp')
     };
 
     $scope.toInvest = function(project) { //验证用户权限
+      if (project.inviteMobile) {
+        $rootScope.inviteMobile = project.inviteMobile;
+      }
       $scope.amount = project.status === 11 ? project.toReserveAmount : project.amount;
       if ($scope.amount <= $scope.project.minInvest) {
         // alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
@@ -232,7 +235,8 @@ angular.module('hongcaiApp')
         // 预约项目投资
         ProjectService.reserve.get({
           reserveAmount: project.toReserveAmount,
-          projectId: project.id
+          projectId: project.id,
+          inviteMobile: project.inviteMobile
         }, function(response) {
           if (response.ret === 1) {
             angular.element('.alert').remove();
@@ -418,4 +422,9 @@ angular.module('hongcaiApp')
       pointDotRadius: 4,
       datasetFill: true
     };
+
+    $scope.toLogin = function(){
+      var thisUrl = $location.path();
+      $location.path('/login').search({redirectUrl: thisUrl})
+    }
   }]);
