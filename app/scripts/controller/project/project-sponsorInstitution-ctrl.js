@@ -61,7 +61,7 @@ angular.module('hongcaiApp')
       });
 
       $scope.changeScale = function(){
-          if($('.fa').hasClass('fa-arrow-down')){
+          if($('.sponsor-description .fa').hasClass('fa-arrow-down')){
               $('.sponsor-description').css({'height':'auto'});
               $('.fa').removeClass('fa-arrow-down');
               $('.fa').addClass('fa-arrow-up');
