@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'UserCenterService', 'md5', function($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster, UserCenterService, md5) {
+  .controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'UserCenterService', 'md5', '$alert', function($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster, UserCenterService, md5, $alert) {
     $scope.areaFlag = 1;
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?';
     $scope.refreshCode = function() {
@@ -34,8 +34,12 @@ angular.module('hongcaiApp')
             $scope.areaFlag = 21;
             $scope.phoneNum = account;
           } else {
-            // TODO
-            console.log('');
+            $scope.msg = response.msg;
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-dialog.html',
+              show: true
+            });
           }
         });
       } else if (emailPattern.test(account)) { // 说明是邮箱
@@ -82,6 +86,13 @@ angular.module('hongcaiApp')
             if (response.ret === 1) {
               // TODO
               console.log('sendMobileCaptcha success!');
+            } else {
+              $scope.msg = response.msg;
+              $alert({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
             }
           });
         }
@@ -177,7 +188,7 @@ angular.module('hongcaiApp')
       var md5EmailPassword = md5.createHash(user.password);
       UserCenterService.resetEmailPassword.get({
         uuid: $scope.uuId,
-        token: $scope.etoken,
+        etoken: $scope.etoken,
         password: md5EmailPassword
       }, function(response) {
         if (response.ret === 1) {

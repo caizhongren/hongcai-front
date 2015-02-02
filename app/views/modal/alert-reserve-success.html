@@ -5,8 +5,8 @@
   </div>
 
   <div class="content">
-    <p>预付金额：<strong class="ft-red">{{alert.toReserveAmount/10 | number:2}}</strong>元，预约总额：<strong class="ft-red">{{alert.toReserveAmount}}</strong>元，您的预约期收益为：{{reserveProfit}}元。</p>
-    <p>您的账户余额：{{userCapital.balance}}元，请于<strong class="ft-red">{{ project.reserveEndTime | amDateFormat: 'YYYY/MM/DD HH:mm:ss'}}</strong>前按预约总额补足，</p>
+    <p>预付金额：<strong class="ft-red">{{alert.toReserveAmount/10 | number:2}}</strong>元，预约总额：<strong class="ft-red">{{alert.toReserveAmount | number:2}}</strong>元，您的预约期收益为：{{reserveProfit}}元。</p>
+    <p>您的账户余额：{{userCapital.balance | number: 2}}元，请于<strong class="ft-red">{{ project.reserveEndTime | amDateFormat: 'YYYY/MM/DD HH:mm:ss'}}</strong>前按预约总额补足，</p>
     <p>过期将自动取消您的订单。</p>
   </div>
 

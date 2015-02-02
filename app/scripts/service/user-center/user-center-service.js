@@ -69,7 +69,7 @@ angular.module('hongcaiApp')
       }),
       resetEmailPassword: $resource(DEFAULT_DOMAIN + '/siteUser/resetEmailPassword', {
         uuid: '$uuid',
-        token: '@token',
+        etoken: '@etoken',
         password: '@password'
       }),
       getGiftListByUserId: $resource(DEFAULT_DOMAIN + '/activity/getGiftListByUserId'),
