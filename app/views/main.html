@@ -224,8 +224,12 @@
               </div>
 
               <div class="col-xs-6 col-sm-4 border-r text-center">
-                <h3 class="text-center text-nowrap">{{projectVo.progress || 0 | number : 2}}%</h3>
-                <span class="text-center text-nowrap">投资进度</span>
+                <h3 class="text-center text-nowrap" ng-if="projectVo.status != '11' && projectVo.currentStock * projectVo.increaseAmount >= 10000">{{projectVo.currentStock * projectVo.increaseAmount/10000 || 0 | number : 1}}万元</h3>
+                <h3 class="text-center text-nowrap" ng-if="projectVo.status != '11' && projectVo.currentStock * projectVo.increaseAmount < 10000">{{projectVo.currentStock * projectVo.increaseAmount || 0 | number : 0}}元</h3>
+                <h3 class="text-center text-nowrap" ng-if="projectVo.status == '11' && projectVo.reserveAmount >= 10000">{{projectVo.reserveAmount/10000 || 0 | number : 1}}万元</h3>
+                <h3 class="text-center text-nowrap" ng-if="projectVo.status == '11' && projectVo.reserveAmount < 10000">{{projectVo.reserveAmount || 0 | number : 0}}元</h3>
+                <span class="text-center text-nowrap" ng-if="projectVo.status != '11'">可投金额</span>
+                <span class="text-center text-nowrap" ng-if="projectVo.status == '11'">可预约额</span>
               </div>
 
               <div class="col-xs-6 col-sm-4 text-center">

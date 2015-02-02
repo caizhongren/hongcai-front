@@ -11,7 +11,6 @@ angular.module('hongcaiApp')
         if ($location.protocol() === 'https') {
           $scope.baseFileUrl = $location.protocol() + '://' + $scope.baseFileUrl.split('://')[1];
         }
-        $scope.projectVo = projectList.data.specialRecommend[0];
         // 特别推荐倒计时 (倒计时需要提炼出来)
         if ($scope.projectVo.releaseStartTime) {
           $scope.spCountDown = moment($scope.projectVo.releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 1;
