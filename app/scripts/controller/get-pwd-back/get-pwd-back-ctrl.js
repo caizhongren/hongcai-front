@@ -177,7 +177,7 @@ angular.module('hongcaiApp')
       var md5EmailPassword = md5.createHash(user.password);
       UserCenterService.resetEmailPassword.get({
         uuid: $scope.uuId,
-        token: $scope.etoken,
+        etoken: $scope.etoken,
         password: md5EmailPassword
       }, function(response) {
         if (response.ret === 1) {
