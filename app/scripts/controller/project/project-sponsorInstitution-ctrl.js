@@ -63,16 +63,16 @@ angular.module('hongcaiApp')
       $scope.changeScale = function(){
           if($('.sponsor-description .fa').hasClass('fa-arrow-down')){
               $('.sponsor-description').css({'height':'auto'});
-              $('.fa').removeClass('fa-arrow-down');
-              $('.fa').addClass('fa-arrow-up');
-              $('.fa').css({'right':'20px'});
-              $('.fa').text('收起');
+              $('.sponsor-description .fa').removeClass('fa-arrow-down');
+              $('.sponsor-description .fa').addClass('fa-arrow-up');
+              $('.sponsor-description .fa').css({'right':'20px'});
+              $('.sponsor-description .fa').text('收起');
           }else {
               $('.sponsor-description').css({'height':'363px'});
-              $('.fa').removeClass('fa-arrow-up');
-              $('.fa').addClass('fa-arrow-down');
-              $('.fa').css({'right':'33.4%'});
-              $('.fa').text('展开');
+              $('.sponsor-description .fa').removeClass('fa-arrow-up');
+              $('.sponsor-description .fa').addClass('fa-arrow-down');
+              $('.sponsor-description .fa').css({'right':'33.4%'});
+              $('.sponsor-description .fa').text('展开');
           }
 
       };
