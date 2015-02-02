@@ -102,7 +102,7 @@ hongcaiApp
         }
       })
       .state('root.login', {
-        url: '/login/:isRedirect',
+        url: '/login?redirectUrl',
         views: {
           '': {
             templateUrl: 'views/login.html',

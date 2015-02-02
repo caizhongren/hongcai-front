@@ -136,5 +136,10 @@ angular.module('hongcaiApp')
   $scope.goToRule = function() {
     $state.go($scope.isLogged === true ? 'root.userCenter.gift-overview' : 'root.login');
   };
+
+  $scope.toLogin = function(){
+      var thisUrl = $location.path();
+      $location.path('/login').search({redirectUrl: thisUrl});
+  };
 }]);
 

@@ -62,7 +62,8 @@ angular.module('hongcaiApp')
       OrderService.saveOrder.get({
         projectId: project.id,
         investAmount: investAmount,
-        giftCount: giftCount
+        giftCount: giftCount,
+        inviteMobile: $rootScope.inviteMobile
       }, function(response) {
         if (response.ret === 1) {
           var orderId = response.data.orderId;
