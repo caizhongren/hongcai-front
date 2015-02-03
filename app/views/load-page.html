@@ -199,30 +199,21 @@
  <ul class="col-md-5 col-xs-5 list-inline col-md-offset-1 col-lg-offset-1 lpbg">
   <li class="lprightmargin">
     <a target="_self" href="tencent://message/?uin=2981432700&Site=qq&Menu=yes">
-     <span ng-if="online[0] === 0" >
-       <img border="0" src="/images/qq_offline.gif" alt="客服一" />&nbsp;<span class="whitecolor">客服一</span>
-     </span>
-     <span  ng-if="online[0] === 1">
+     <span>
        <img border="0" src="/images/qq_online.gif" alt="客服一" />&nbsp;<span class="whitecolor">客服一</span>
      </span>
    </a>
   </li>
   <li class="lprightmargin">
     <a target="_self" href="tencent://message/?uin=2880787006&Site=qq&Menu=yes">
-      <span ng-if="online[1] === 0" >
-        <img border="0" src="/images/qq_offline.gif" alt="客服二" />&nbsp;<span class="whitecolor">客服二</span>
-      </span>
-      <span  ng-if="online[1] === 1">
+      <span>
         <img border="0" src="/images/qq_online.gif" alt="客服二" />&nbsp;<span class="whitecolor">客服二</span>
       </span>
     </a>
   </li>
   <li>
     <a target="_self" href="tencent://message/?uin=2880787009&Site=qq&Menu=yes">
-      <span ng-if="online[2] === 0" >
-        <img border="0" src="/images/qq_offline.gif" alt="客服三" />&nbsp;<span class="whitecolor">客服三</span>
-      </span>
-      <span  ng-if="online[2] === 1">
+      <span>
         <img border="0" src="/images/qq_online.gif" alt="客服三" />&nbsp;<span class="whitecolor">客服三</span>
       </span>
     </a>
@@ -233,3 +224,34 @@
   </div>
 </div>
 
+
+<script>
+function countDown(obj, second) {
+  // 如果秒数还是大于0，则表示倒计时还没结束
+  if (second >= 0) {
+    // 获取默认按钮上的文字
+    if (typeof buttonDefaultValue === 'undefined') {
+      buttonDefaultValue = obj.defaultValue;
+    }
+    // 按钮置为不可点击状态
+    obj.disabled = true;
+    // 按钮里的内容呈现倒计时状态
+    //obj.value = buttonDefaultValue + '(' + second + ')';
+    obj.value = second + "秒后重新发送";
+    obj.className = 'col-md-4 col-lg-4 white-button grey zi-size';
+    // 时间减一
+    second--;
+    // 一秒后重复执行
+    setTimeout(function() {
+      countDown(obj, second);
+    }, 1000);
+    // 否则，按钮重置为初始状态
+  } else {
+    // 按钮置未可点击状态
+    obj.disabled = false;
+    // 按钮里的内容恢复初始状态
+    obj.className = 'col-md-4 col-lg-4 white-button margin5';
+    obj.value = buttonDefaultValue;
+  }
+}
+</script>
