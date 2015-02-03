@@ -47,5 +47,5 @@ angular.module('hongcaiApp')
         }
       });
     };
-    $scope.online = online;
+    // $scope.online = online;
   }]);

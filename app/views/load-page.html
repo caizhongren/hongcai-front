@@ -169,7 +169,7 @@
     <p>宏财网致力于为个人、借款企业和担保公司搭建一个高效、安全的投融资桥梁，构筑更轻松自由、安全高收益的投融资环境，寻找个人与企业之间安全与效率的平衡点，实现投资人、借款企业和担保公司多方共赢。</p>
     <span>以宏财为代表的P2B 2.0时代已经正式到来</span>
     <div style="text-align:center">
-    <img src="/images/load-page/lp-03.png" width="100%"></div>
+    <img src="/images/load-page/lp-03.png" width="60%"></div>
   </div>
 </div>
 </div>
@@ -179,7 +179,7 @@
     <p class="platform lplearn-margin">了解项目</p>
     <p>可观的投资收益，宏财网理财项目均为100元起投，年化收益区间为10%-14%，按月付息到期还本。低门槛，高收益，宏财网打造最安全的理财平台</p>
     <div style="text-align:center">
-    <img src="/images/load-page/lp-01.png" width="100%"></div>
+    <img src="/images/load-page/lp-01.png" width="60%"></div>
   </div>
 </div>
 </div>
@@ -189,7 +189,7 @@
     <p class="platform lplearn-margin">投资流程</p>
     <p>1、您需要一张银行卡。   2、注册宏财网。   3、选择合适自己的理财项目进行投资。</p>
     <div style="text-align:center">
-    <img src="/images/load-page/lp-02.png" width="100%"></div>
+    <img src="/images/load-page/lp-02.png" width="60%"></div>
   </div>
 </div>
 </div>
@@ -199,30 +199,21 @@
  <ul class="col-md-5 col-xs-5 list-inline col-md-offset-1 col-lg-offset-1 lpbg">
   <li class="lprightmargin">
     <a target="_self" href="tencent://message/?uin=2981432700&Site=qq&Menu=yes">
-     <span ng-if="online[0] === 0" >
-       <img border="0" src="/images/qq_offline.gif" alt="客服一" />&nbsp;<span class="whitecolor">客服一</span>
-     </span>
-     <span  ng-if="online[0] === 1">
+     <span>
        <img border="0" src="/images/qq_online.gif" alt="客服一" />&nbsp;<span class="whitecolor">客服一</span>
      </span>
    </a>
   </li>
   <li class="lprightmargin">
     <a target="_self" href="tencent://message/?uin=2880787006&Site=qq&Menu=yes">
-      <span ng-if="online[1] === 0" >
-        <img border="0" src="/images/qq_offline.gif" alt="客服二" />&nbsp;<span class="whitecolor">客服二</span>
-      </span>
-      <span  ng-if="online[1] === 1">
+      <span>
         <img border="0" src="/images/qq_online.gif" alt="客服二" />&nbsp;<span class="whitecolor">客服二</span>
       </span>
     </a>
   </li>
   <li>
     <a target="_self" href="tencent://message/?uin=2880787009&Site=qq&Menu=yes">
-      <span ng-if="online[2] === 0" >
-        <img border="0" src="/images/qq_offline.gif" alt="客服三" />&nbsp;<span class="whitecolor">客服三</span>
-      </span>
-      <span  ng-if="online[2] === 1">
+      <span>
         <img border="0" src="/images/qq_online.gif" alt="客服三" />&nbsp;<span class="whitecolor">客服三</span>
       </span>
     </a>
@@ -233,3 +224,34 @@
   </div>
 </div>
 
+
+<script>
+function countDown(obj, second) {
+  // 如果秒数还是大于0，则表示倒计时还没结束
+  if (second >= 0) {
+    // 获取默认按钮上的文字
+    if (typeof buttonDefaultValue === 'undefined') {
+      buttonDefaultValue = obj.defaultValue;
+    }
+    // 按钮置为不可点击状态
+    obj.disabled = true;
+    // 按钮里的内容呈现倒计时状态
+    //obj.value = buttonDefaultValue + '(' + second + ')';
+    obj.value = second + "秒后重新发送";
+    obj.className = 'col-md-4 col-lg-4 white-button grey zi-size';
+    // 时间减一
+    second--;
+    // 一秒后重复执行
+    setTimeout(function() {
+      countDown(obj, second);
+    }, 1000);
+    // 否则，按钮重置为初始状态
+  } else {
+    // 按钮置未可点击状态
+    obj.disabled = false;
+    // 按钮里的内容恢复初始状态
+    obj.className = 'col-md-4 col-lg-4 white-button margin5';
+    obj.value = buttonDefaultValue;
+  }
+}
+</script>
