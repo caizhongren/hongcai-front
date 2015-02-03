@@ -6,6 +6,7 @@ angular.module('hongcaiApp')
       $scope.user = [];
       $scope.user.account = ipCookie('userName');
     }
+
     $scope.login = function(user) {
       //记住用户名处理
       if ($scope.rememberUserName) {
@@ -29,8 +30,8 @@ angular.module('hongcaiApp')
               //console.info('pushmessage');
             }
           });
-          if ($stateParams.isRedirect) {
-            $location.path($rootScope.redirectUrl);
+          if ($stateParams.redirectUrl) {
+            $location.url($stateParams.redirectUrl);
           } else {
             $state.go('root.userCenter.account-overview');
           }

@@ -73,7 +73,7 @@
                       </div>
                       <div class="col-xs-12">
 
-                        <p ng-if="projectType === 2">宏包标为长期投资体验活动（结束时间请关注网站公告），每个标的仅限于宏包投资。 
+                        <p ng-if="projectType === 2">宏包标为长期投资体验活动（结束时间请关注网站公告），每个标的仅限于宏包投资。
                           <br>宏包标固定发标时间为0:00。投标时限为24小时。
                           <br>宏包标总投资金额不限，投资人数不限。</p>
 
@@ -237,7 +237,7 @@
                       <p>{{ statDay }}{{ statTime }}</p>
                     </div>
                   </div>
-                  <a ui-sref="root.login({isRedirect: true})" class="btn btn-danger btn-lg btn-block">请先登录</a>
+                  <a ng-click="toLogin()" class="btn btn-danger btn-lg btn-block">请先登录</a>
 
                 </div>
 
