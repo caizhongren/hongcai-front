@@ -15,7 +15,7 @@
 
           <div class="row nomargin">
             <form class="loadlogin-top" name="registerForm" ng-submit="submitRegisterMobile(user);">
-              <div class="loadformgrop col-md-12 col-lg-11 col-xs-12 col-sm-12">
+              <div class="loadformgrop col-md-12 col-lg-12 col-xs-12 col-sm-12">
                 <div class="col-md-7">
                 <label for="userName" class="col-md-4 col-lg-4 col-xs-4 nospace">用户名：</label>
                 <input type="text" class="col-md-8 col-lg-8 borderwhite borderheight" id="name" name="name" ng-model="user.name" ng-minlength="2" ng-maxlength="15" ng-pattern="/^[\u4e00-\u9fa5|a-z|A-Z][\u4e00-\u9fa5|a-z|A-Z|_|0-9|\-]{0,}$/" ensure-unique-name="name" ng-class="{'borderred':registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused}" required ng-focus autofocus/>
@@ -55,7 +55,7 @@
 
 
 
-              <div class="loadformgrop col-md-12 col-lg-11 col-xs-11 col-sm-12">
+              <div class="loadformgrop col-md-12 col-lg-12 col-xs-11 col-sm-12">
               <div class="col-md-7">
                 <label for="password" class="col-md-4 col-lg-4 col-xs-4 nospace">密码：</label>
                 <input type="password" class="col-md-8 col-lg-8 borderwhite borderheight" id="password" name="password" ng-model="user.password" ng-minlength="6" ng-maxlength="22" ng-pattern="/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/" ng-class="{'borderred':registerForm.password.$dirty && registerForm.password.$invalid && !registerForm.password.$focused,'borderwhite':!registerForm.password.$dirty || !registerForm.password.$invalid || registerForm.password.$focused}" required ng-focus />
@@ -73,7 +73,7 @@
                 </div>
               </div>
 
-              <div class="loadformgrop col-md-12 col-lg-11 col-xs-11 col-sm-12">
+              <div class="loadformgrop col-md-12 col-lg-12 col-xs-11 col-sm-12">
               <div class="col-md-7">
                 <label for="repeatPassword" class="col-md-4 col-lg-4 col-xs-4 nospace">确认密码：</label>
                 <input type="password" class="col-md-8 col-lg-8 borderwhite borderheight" name="repeatPassword" id="repeatPassword" ng-model="user.repeatPassword" password-match="password" ng-class="{'borderred':registerForm.repeatPassword.$dirty && registerForm.$error && registerForm.repeatPassword.$error.passwordmatch && !registerForm.password.$focused && !registerForm.repeatPassword.$focused, 'borderwhite':!registerForm.repeatPassword.$dirty || !registerForm.$error || !registerForm.repeatPassword.$error.passwordmatch ||registerForm.password.$focused || registerForm.repeatPassword.$focused}" required ng-focus/>
@@ -85,7 +85,7 @@
                 </div>
               </div>
 
-              <div class="loadformgrop col-md-12 col-lg-11 col-xs-11 col-sm-12">
+              <div class="loadformgrop col-md-12 col-lg-12 col-xs-11 col-sm-12">
               <div class="col-md-7">
                 <label for="mobile" class="col-md-4 col-lg-4 col-xs-4 nospace">手机号：</label>
                 <input type="text" class="col-md-8 col-lg-8 borderwhite borderheight" id="mobile" name="mobile" ng-model="user.mobile" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobile" ng-class="{'borderred':registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused,'borderwhite':!registerForm.mobile.$dirty || !registerForm.mobile.$invalid || registerForm.mobile.$focused}" required ng-focus />
@@ -100,11 +100,11 @@
                 </div>
               </div>
 
-              <div class="loadformgrop col-md-12 col-lg-11 col-xs-11 col-sm-12">
+              <div class="loadformgrop col-md-12 col-lg-12 col-xs-11 col-sm-12">
               <div class="col-md-7">
                 <label for="mobileCaptcha" class="col-md-4 col-lg-4 col-xs-4 nospace">验证码：</label>
                 <input type="text" class="col-md-3 col-lg-3 borderheight" id="mobileCaptcha" check-mobile-captcha="mobileCaptcha" name="mobileCaptcha" ng-model="user.mobileCaptcha" ng-class="{'borderred':registerForm.mobileCaptcha.$dirty && registerForm.mobileCaptcha.$invalid && registerForm.mobileCaptcha.$error.check && !registerForm.mobileCaptcha.$focused}" required ng-focus />
-                <input type="button" class="borderheight col-md-4 col-lg-4 col-xs-offset-4 {{registerForm.mobile.$invalid ? 'white-button grey' : 'white-button'}}" value="获取验证码" onclick="countDown(this,60);" ng-click="sendMobileCaptcha();" ng-disabled="registerForm.mobile.$invalid" style="margin-left:5px" />
+                <input type="button" class="borderheight col-md-5 col-lg-5 {{registerForm.mobile.$invalid ? 'white-button grey' : 'white-button'}}" value="获取验证码" onclick="countDown(this,60);" ng-click="sendMobileCaptcha();" ng-disabled="registerForm.mobile.$invalid" />
                 </div>
                 <div ng-if="registerForm.mobileCaptcha.$dirty && registerForm.mobileCaptcha.$invalid && registerForm.mobileCaptcha.$error.check && !registerForm.mobileCaptcha.$focused" class="col-lg-5 col-md-5  form-div1">
                   <div class="row lp-nomargin">
@@ -238,7 +238,7 @@ function countDown(obj, second) {
     // 按钮里的内容呈现倒计时状态
     //obj.value = buttonDefaultValue + '(' + second + ')';
     obj.value = second + "秒后重新发送";
-    obj.className = 'col-md-4 col-lg-4 white-button grey zi-size';
+    obj.className = 'col-md-5 col-lg-5 white-button grey';
     // 时间减一
     second--;
     // 一秒后重复执行
