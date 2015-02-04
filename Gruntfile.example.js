@@ -168,7 +168,10 @@ module.exports = function(grunt) {
           'Gruntfile.js',
           '<%= yeoman.app %>/scripts/{,*/}*{,*/}*.js',
           // 忽略兼容IE8的JS文件
-          '!<%= yeoman.app %>/scripts/util/respond.proxy.js'
+          '!<%= yeoman.app %>/scripts/util/respond.proxy.js',
+          '!<%= yeoman.app %>/scripts/util/json3.min.js',
+          '!<%= yeoman.app %>/scripts/util/modernizr.min.js',
+          '!<%= yeoman.app %>/scripts/util/respond.min.js'
         ]
       },
       test: {
