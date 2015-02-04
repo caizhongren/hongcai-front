@@ -1069,7 +1069,7 @@ hongcaiApp
       })
     /*-------------------------------------------  load page  route  -----------------------------------------*/
           .state('root.load-page', {
-        url: '/load-page',
+        url: '/load-page?from',
         views: {
           '': {
             templateUrl: 'views/load-page.html',

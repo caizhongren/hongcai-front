@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('LoadPageCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'md5', 'ipCookie', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie) {
+  .controller('LoadPageCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'md5', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie, MainService) {
     // var lpdialoag = $('#lpdialog');
     var lpclose = $('#lpclose');
     lpclose.click(function() {
@@ -48,4 +48,15 @@ angular.module('hongcaiApp')
       });
     };
     // $scope.online = online;
+    //360渠道流量统计
+    var from = $stateParams.from;
+    if (from) {
+      ipCookie('utm_from', from, {
+        expires: 1
+      });
+      MainService.trafficStats.get({
+        from: from
+      });
+    }
+
   }]);
