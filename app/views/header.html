@@ -45,7 +45,15 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a ui-sref="root.main" ng-class="{'active' : selectPage == ''}">首页</a>
       </li>
-      <li><a ui-sref="root.project-list-query({status: '6,7,8,9,10,11,12', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" ng-class="{'active' : selectPage == 'project-list'}">我要理财</a>
+      <!-- <li><a ui-sref="root.project-list-query({status: '6,7,8,9,10,11,12', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" ng-class="{'active' : selectPage == 'project-list'}">我要理财</a>
+      </li> -->
+      <li class="dropdown"><a class="category" ui-sref="root.project-list-query({status: '6,7,8,9,10,11,12', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" ng-class="{'active' : selectPage == 'project-list'}">我要理财</a>
+        <div id="dropdown">
+          <div>
+            <a ui-sref="root.project-list-query({status: '6,7,8,9,10,11,12', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" ng-class="{'active' : selectPage == 'project-list'}">理财项目</a>
+            <a>债权转让</a>
+          </div>
+        </div>
       </li>
       <li><a ui-sref="root.safe" ng-class="{'active': selectPage == 'safe'}">安全保障</a>
       </li>
