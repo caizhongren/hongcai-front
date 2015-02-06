@@ -171,7 +171,10 @@ module.exports = function(grunt) {
           '!<%= yeoman.app %>/scripts/util/respond.proxy.js',
           '!<%= yeoman.app %>/scripts/util/json3.min.js',
           '!<%= yeoman.app %>/scripts/util/modernizr.min.js',
-          '!<%= yeoman.app %>/scripts/util/respond.min.js'
+          '!<%= yeoman.app %>/scripts/util/respond.min.js',
+          '!<%= yeoman.app %>/scripts/util/jquery.fullPage.min.js',
+          '!<%= yeoman.app %>/scripts/util/jquery-ui.min.js',
+          '!<%= yeoman.app %>/scripts/util/html5shiv.min.js'
         ]
       },
       test: {

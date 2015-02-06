@@ -22,7 +22,6 @@ angular.module('hongcaiApp')
       $location.path('/project-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false');
     }
 
-
     var response = ProjectService.projectList.get({
       status: $stateParams.status,
       minCycle: $stateParams.minCycle,
@@ -98,18 +97,6 @@ angular.module('hongcaiApp')
         });
       }
       return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
-      // function z(n) {
-      //   return (n < 10 ? '0' : '') + n;
-      // }
-      // var d = new Date(stDate);
-      // var diff = d - new Date();
-      // var sign = diff < 0 ? '-' : '';
-      // diff = Math.abs(diff);
-      // var days = diff / 3.6e6 / 24 | 0;
-      // var hours = (diff - days*3.6e6*24) / 3.6e6 | 0;
-      // var mins = diff % 3.6e6 / 6e4 | 0;
-      // var secs = Math.round(diff % 6e4 / 1e3);
-      // return sign + days + '天,' + z(hours) + '时,' + z(mins) + '分,' + z(secs) + '秒';
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
