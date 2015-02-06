@@ -14,22 +14,22 @@
         <form class="form-regist  col-md-12 col-lg-12" name="registerForm" ng-submit="submitRegisterMail(user);">
           <div class="form-group col-md-12 col-lg-12">
             <label for="userName" class="col-md-3 col-lg-3">用户名：</label>
-            <input type="text" class="col-md-6 col-lg-6 borderwhite" id="name" name="name" ng-model="user.name" ng-minlength="4" ng-maxlength="15" ng-pattern="/^[\u4e00-\u9fa5|a-z|A-Z][\u4e00-\u9fa5|a-z|A-Z|_|0-9|\-]{0,}$/" ensure-unique-name="name" ng-class="{'borderred':registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused}" required ng-focus autofocus/>
+            <input type="text" class="col-md-6 col-lg-6 borderwhite" id="name" name="name" ng-model="user.name" real-mix-min-length="4" ng-maxlength="15" ng-pattern="/^[\u4e00-\u9fa5|a-z|A-Z][\u4e00-\u9fa5|a-z|A-Z|_|0-9|\-]{0,}$/" ensure-unique-name="name" ng-class="{'borderred':registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused}" required ng-focus autofocus/>
             <div ng-if="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
               <div ng-if="registerForm.name.$error.unique" class="row">
                 <p class="input-tips regist-input-tips">用户名已被占用</p>
               </div>
               <div ng-if="registerForm.name.$error.minlength" class="row">
-                <p class="input-tips regist-input-tips">不能小于2个字符</p>
+                <p class="input-tips regist-input-tips">不能小于4个字符</p>
               </div>
               <div ng-if="registerForm.name.$error.maxlength" class="row">
                 <p class="input-tips regist-input-tips">不能大于15个字符</p>
               </div>
               <div ng-if="registerForm.name.$error.pattern" class="row">
-                <p class="input-tips regist-input-tips">2-15位字符，以字母、中文开头，支持中文、字母、数字以及下划线</p>
+                <p class="input-tips regist-input-tips">4-15位字符，以字母、中文开头，支持中文、字母、数字以及下划线</p>
               </div>
               <div ng-if="registerForm.name.$error.required" class="row">
-                <p class="input-tips regist-input-tips">请填写用户名</p>
+                <p class="input-tips regist-input-tips">4-15位字符，以字母、中文开头，支持中文、字母、数字以及下划线</p>
               </div>
             </div>
           </div>
