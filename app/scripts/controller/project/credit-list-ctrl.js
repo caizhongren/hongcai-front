@@ -2,6 +2,7 @@
 angular.module('hongcaiApp')
   .controller('CreditListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'ProjectService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, toaster) {
     $scope.sortType = $stateParams.sortType || false;
+    console.log($stateParams);
     if ($scope.sortType === 'true') {
       $scope.sortType = true;
     } else {
@@ -20,6 +21,13 @@ angular.module('hongcaiApp')
     }
     if (isEmptyObject($stateParams)) {
       $location.path('/credit-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false');
+    }
+
+    //假数据
+    $scope.item = {
+      'status' : '7',
+      'statusText' : '融资中',
+      'progress' : 80
     }
 
     // var response = ProjectService.projectList.get({
