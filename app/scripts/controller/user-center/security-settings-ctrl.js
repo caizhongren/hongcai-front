@@ -76,13 +76,15 @@ angular.module('hongcaiApp')
     };
 
     $scope.checkTwoPassword = function(password) {
-      if (password.repeatNewPassword !== password.newPassword) {
-        return false;
-      } else {
-        return true;
+      if (password) {
+        if (password.repeatNewPassword !== password.newPassword) {
+          return false;
+        } else {
+          return true;
+        }
       }
-
     };
+
     var md5Password = function(password) {
       return md5.createHash(password);
     };
