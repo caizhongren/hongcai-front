@@ -118,7 +118,7 @@
       <p class="{{selectSide == 'message' ? 'now' : ''}}" style="margin-left:36px;">站内消息</p>
     </a>
   </div>
-  <div class="row">
+  <div class="row" ng-show="creditIsShowedFLAG">
     <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'tips-show' : ''}}">
       <div class="left-show-area {{selectSide == 'credit' ? 'left-show-area-bg' : ''}}"></div>
       <div class="ico-area message-1 fa fa-gavel {{selectSide == 'credit' ? 'message1-red' : ''}}"></div>
