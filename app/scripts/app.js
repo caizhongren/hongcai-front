@@ -12,6 +12,7 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'ngSanitize',
   'mgcrea.ngStrap',
   'ui.router',
+  'ui.slider',
   'ngResource',
   'angularMoment',
   'toaster',
