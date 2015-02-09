@@ -287,6 +287,17 @@ angular.module('hongcaiApp')
 
 
 //     };
+    //假数据
+    $scope.project = {
+      'progress' : 10 ,
+      'increaseAmount' : 100
+    }
+    $scope.securityStatus = {
+      'mobileStatus' : 1,
+      'realNameAuthStatus' : 1,
+      'emailStatus' : 1
+    }
+
     $rootScope.selectPage = $location.path().split('/')[1];
 
     $scope.tabs = [{
