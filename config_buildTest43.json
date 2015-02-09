@@ -4,7 +4,8 @@
     "tuhaoIsShowedFlAG": false,
     "sponsorsIsShowedFlAG": false,
     "reservationIsShowedFlAG": true,
-    "newbieIsShowedFLAG": true
+    "newbieIsShowedFLAG": true,
+    "creditIsShowedFLAG": true
   },
-   "jumpHttpsPath": []
+  "jumpHttpsPath": []
 }
