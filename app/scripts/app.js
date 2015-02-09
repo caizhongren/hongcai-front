@@ -1058,12 +1058,21 @@ hongcaiApp
             templateUrl: 'views/appview/canceltie-card.html'
           }
         }
+        
       })
       .state('app-callback.apptie-card', {
         url: '/apptie-card',
         views: {
           'app-callback-view': {
             templateUrl: 'views/appview/apptie-card.html'
+          }
+        }
+      })
+      .state('app-callback.appwithdrawals-success', {
+        url: '/appwithdrawals-success',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appwithdrawals-success.html'
           }
         }
       })
