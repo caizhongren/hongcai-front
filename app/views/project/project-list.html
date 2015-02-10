@@ -189,7 +189,7 @@
 									<div class="col-xs-12"><h3><a ui-sref="root.project-details({number: item.number})" title="{{item.name}}">{{item.name}}</a><img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="item.categoryCode === '04'"></h3></div>
 								</div>
 								<div class="row">
-									<div class="col-xs-12" ng-hide="item.categoryCode === '04'"><a ui-sref="root.project-sponsorInstitution({guaranteeId: item.guaranteeId})" target="_blank">担保机构：{{item.guaranteeName}}</a></div>
+									<div class="col-xs-12" ng-hide="item.categoryCode === '04' || item.categoryCode === '05'"><a ui-sref="root.project-sponsorInstitution({guaranteeId: item.guaranteeId})" target="_blank">担保机构：{{item.guaranteeName}}</a></div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 text-nowrap">还款方式：{{item.repaymentName}}</div>
