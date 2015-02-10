@@ -43,7 +43,7 @@ angular.module('hongcaiApp')
       }
       e.value = eValue;
       return e;
-    };
+    }
 
     $scope.reload = function() {
       window.location.reload();
