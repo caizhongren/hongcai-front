@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('BankCardManagementCtrl', ['$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
+  .controller('BankCardManagementCtrl', ['$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', '$alert', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $alert) {
     $rootScope.selectSide = 'bankcard-management';
     $scope.dosi = true;
     UserCenterService.getUserBankCard.get({}, function(response) {
@@ -43,9 +43,19 @@ angular.module('hongcaiApp')
       }
       e.value = eValue;
       return e;
-    }
+    };
+
+    $scope.reload = function() {
+      window.location.reload();
+    };
 
     $scope.bindBankCard = function() {
+      $scope.msg = '5';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
       UserCenterService.bindBankCard.get({}, function(response) {
         if (response.ret === 1) {
           var req = response.data.req;

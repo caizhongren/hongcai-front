@@ -49,7 +49,18 @@ angular.module('hongcaiApp')
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
 
+    $scope.reload = function() {
+      window.location.reload();
+    };
+
     $scope.withdraw = function(amount, captcha) {
+      $scope.msg = '3';
+      $scope.withdrawAmount = amount;
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
       UserCenterService.yeepayWithdraw.get({
         amount: amount,
         captcha: captcha

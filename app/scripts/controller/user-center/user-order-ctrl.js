@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
+  .controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', '$alert', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
 
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
@@ -78,8 +78,21 @@ angular.module('hongcaiApp')
           console.log('ask investment, why getOrderByUser did not load data...');
         }
       });
+    
+    $scope.reload = function() {
+      window.location.reload();
+    };
+
     // 继续支付订单
-    $scope.toPay = function(projectId, orderId) {
+    $scope.toPay = function(projectId, orderId, orderAmount) {
+      $scope.msg = '4';
+      $scope.investAmount = orderAmount;
+      $scope.page = 'investment';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
       OrderService.transfer.get({
         projectId: projectId,
         orderId: orderId

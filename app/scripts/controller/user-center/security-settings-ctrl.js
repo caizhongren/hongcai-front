@@ -147,7 +147,17 @@ angular.module('hongcaiApp')
       }
     };
 
+    $scope.reload = function() {
+      window.location.reload();
+    };
+    
     $scope.realNameAuth = function(user) {
+      $scope.msg = '1';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
       UserCenterService.yeepayRegister.get({
         realName: user.realName,
         idCardNo: user.idCardNo

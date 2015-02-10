@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config', function($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config) {
+  .controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config', '$alert', function($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config, $alert) {
     $scope.giftCount = 0;
     $scope.checkInvFlag = true;
     OrderService.investVerify.get({
@@ -58,7 +58,19 @@ angular.module('hongcaiApp')
       return e;
     }
 
+    $scope.reload = function() {
+      window.location.reload();
+    };
+
     $scope.transfer = function(project, investAmount, giftCount) {
+      $scope.msg = '4';
+      $scope.investAmount = investAmount;
+      $scope.page = 'investVerify';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
       OrderService.saveOrder.get({
         projectId: project.id,
         investAmount: investAmount,

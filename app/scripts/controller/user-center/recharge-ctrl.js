@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('RechargeCtrl', ['$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', function($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
+  .controller('RechargeCtrl', ['$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', '$alert', function($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $alert) {
     $rootScope.selectSide = 'recharge';
     $scope.balance = 0;
     UserCenterService.getUserBalance.get({}, function(response) {
@@ -40,7 +40,18 @@ angular.module('hongcaiApp')
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
 
+    $scope.reload = function() {
+      window.location.reload();
+    };
+
     $scope.recharge = function(amount) {
+      $scope.msg = '2';
+      $scope.rechargeAmount = amount;
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
       UserCenterService.yeepayRecharge.get({
         amount: amount
       }, function(response) {
