@@ -5,4 +5,5 @@ angular.module('hongcaiApp')
     $rootScope.selectSide = 'credit';
 
     $scope.creditStepFlag = 1;
+    $scope.Math = window.Math;
   }]);
