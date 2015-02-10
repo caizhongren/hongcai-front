@@ -7,19 +7,19 @@
       <div class="col-xs-12">
         <ul class="nav nav-pills nav-justified thumbnail">
           <li ng-class="{'active': creditStepFlag === 1}">
-            <a ng-click="disabled || (creditStepFlag = 1)" ng-class="{'active': creditStepFlag === 1}">
+            <a ng-click="disabledFlag1 || (creditStepFlag = 1)" ng-class="{'active': creditStepFlag === 1}">
               <h4 class="list-group-item-heading">步骤1</h4>
               <p class="list-group-item-text">设置转让金金额</p>
             </a>
           </li>
           <li ng-class="{'disabled': creditStepFlag === 1, 'active': creditStepFlag === 2, '': creditStepFlag === 3}">
-            <a ng-click="disabled || (creditStepFlag = 2)" ng-class="{'disabled': creditStepFlag === 1, 'active': creditStepFlag === 2, '': creditStepFlag === 3}">
+            <a ng-click="disabledFlag2 || (creditStepFlag = 2)" ng-class="{'disabled': creditStepFlag === 1, 'active': creditStepFlag === 2, '': creditStepFlag === 3}">
               <h4 class="list-group-item-heading">步骤2</h4>
               <p class="list-group-item-text">设置折让金</p>
             </a>
           </li>
           <li ng-class="{'active': creditStepFlag === 3, 'disabled': creditStepFlag !== 3}">
-            <a ng-click="disabled || (creditStepFlag = 3)" ng-class="{'active': creditStepFlag === 3, 'disabled': creditStepFlag !== 3}">
+            <a ng-click="disabledFlag3 || (creditStepFlag = 3)" ng-class="{'active': creditStepFlag === 3, 'disabled': creditStepFlag !== 3}">
               <h4 class="list-group-item-heading">步骤3</h4>
               <p class="list-group-item-text">转让信息确认</p>
             </a>
