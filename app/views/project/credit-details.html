@@ -265,33 +265,33 @@
               <div class="panel-body">
                 <div class="row">
                   <div class="col-xs-12 negative-margin1">
-                    <span class="col-xs-4 padding-lar-0 investment-fontsize">{{ '认购金额' }}：</span>
-                    <span class="investment-fontred">{{ '3,000' }}</span>
-                    <span class="investment-fontblack">元</span>
+                    <span class="col-xs-4 padding-lar-0 ft-16">{{ '认购金额' }}：</span>
+                    <span class="ft-18">{{ '3,000' }}</span>
+                    <span class="ft-24">元</span>
                   </div>
                   <div class="col-xs-12 negative-margin1">
-                    <span class="col-xs-4 padding-lar-0 investment-fontsize">{{ '认购进度' }}：</span>
-                    <span class="investment-fontred">{{ '56' }}</span>
-                    <span class="investment-fontblack">%</span>
+                    <span class="col-xs-4 padding-lar-0 ft-16">{{ '认购进度' }}：</span>
+                    <span class="ft-18">{{ '56' }}</span>
+                    <span class="ft-24">%</span>
                   </div>
                   <div class="col-xs-12 negative-margin1">
-                    <span class="col-xs-4 padding-lar-0 investment-fontsize">{{ '折让金' }}：</span>
+                    <span class="col-xs-4 padding-lar-0 ft-16">{{ '折让金' }}：</span>
                     <span class="investment-fontred">{{ '-125.32' }}</span>
-                    <span class="investment-fontblack">元</span>
+                    <span class="ft-24">元</span>
                   </div>
                   <div class="col-xs-12 negative-margin1">
-                    <span class="col-xs-4 padding-lar-0 investment-fontsize">{{ '实际支付' }}：</span>
+                    <span class="col-xs-4 padding-lar-0 ft-16">{{ '实际支付' }}：</span>
                     <span class="investment-fontred">{{ '3125.32' }}</span>
-                    <span class="investment-fontblack">元</span>
+                    <span class="ft-24">元</span>
                   </div>
                   <div class="col-xs-12 negative-margin1">
-                    <span class="col-xs-4 padding-lar-0 investment-fontsize">{{ '预期收益' }}：</span>
+                    <span class="col-xs-4 padding-lar-0 ft-16">{{ '预期收益' }}：</span>
                     <span class="investment-fontred">{{ '31.45' }}</span>
-                    <span class="investment-fontblack">元</span>
+                    <span class="ft-24">元</span>
                   </div>
 
                   <div class="col-xs-12 positive-margin" ng-show="project.status === 11">
-                    <span class="investment-fontsize">预约截止日：</span><span>{{ project.reserveEndTime | amDateFormat: 'YYYY/MM/DD HH:mm:ss'}}</span>
+                    <span class="ft-16">预约截止日：</span><span>{{ project.reserveEndTime | amDateFormat: 'YYYY/MM/DD HH:mm:ss'}}</span>
                   </div>
                 </div>
 
@@ -303,7 +303,7 @@
 
                 <!-- 登录已满标状态 -->
                 <div class="col-xs-12 padding-0" ng-if="isLogged && project.progress >= 100">
-                  <div class="positive-bottommargin"><span class="investment-fontsize">可用余额：</span><span class="investment-fontred">{{userCapital.balance | number: 2}}</span><span class="investment-fontblack">元</span>
+                  <div class="positive-bottommargin"><span class="ft-16">可用余额：</span><span class="investment-fontred">{{userCapital.balance | number: 2}}</span><span class="ft-24">元</span>
                     <a class="ft-red fontsize-19" ui-sref="root.userCenter.recharge">充值</a>
                   </div>
                   <div ng-if="project.status === 8">
@@ -331,11 +331,11 @@
                 <div class="row padding-t-0" ng-if="isLogged && project.progress < 100">
 
                   <div class="col-xs-12" ng-if="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus < 3">
-                    <div class="positive-bottommargin"><span class="investment-fontsize">可用余额：</span><span class="investment-fontred">{{userCapital.balance| number:2}}</span><span class="investment-fontblack">元</span>
+                    <div class="positive-bottommargin"><span class="ft-16">可用余额：</span><span class="investment-fontred">{{userCapital.balance| number:2}}</span><span class="ft-24">元</span>
                       <a class="ft-red fontsize-19" ui-sref="root.userCenter.recharge">充值</a>
                     </div>
                     <div class="positive-margin1">
-                      <input ng-show="project.status !== 6 && project.status !== 11" type="number" placeholder="请输入投资金额" disabled='disabled' class="form-control margin-b-20">
+                      <input ng-show="project.status !== 6 && project.status !== 11" type="number" placeholder="请输入认购金额" disabled='disabled' class="form-control margin-b-20">
                       <input ng-show="project.status === 11" type="number" placeholder="请输入预约总额" disabled='disabled' class="form-control margin-b-20">
                     </div>
                     <button class="btn btn-danger btn-lg btn-block positive-bottommargin" ng-click="Alertdata()" ng-show="project.status !== 6"><i class="fa fa-shopping-cart fa-lg project-leftmargin"></i>立即投资</button>
@@ -349,7 +349,7 @@
                   <div class="col-xs-12" ng-if="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus === 3">
                     <div ng-switch on="isAvailable">
                       <div class="col-xs-12 positive-bottommargin pull-n">
-                        <span class="investment-fontsize nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | number:2}}</span><span class="investment-fontblack">元</span>
+                        <span class="ft-16 nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | number:2}}</span><span class="ft-24">元</span>
                         <a class="ft-red fontsize-19" ui-sref="root.userCenter.recharge">充值</a>
                       </div>
                       <div class="col-xs-12" ng-switch-when="1">
@@ -357,12 +357,13 @@
                         <button class="btn btn-lg btn-danger btn-block positive-margin1" data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即投资</button>
                       </div>
                       <form ng-submit="toInvest(project);" name="investForm" ng-switch-default>
-                        <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.amount" ng-model="project.amount" class="form-control margin-b-20" placeholder="投资金额（元）" required ng-switch-default>
+                        <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.amount" ng-model="project.amount" class="form-control margin-b-20" placeholder="请输入认购金额（元）" required ng-switch-default>
                         <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
-                        <p class="ft-red margin-b-5" style="margin-top: -12px;">邀请人手机号(选填):</p>
+                        <!-- <p class="ft-red margin-b-5" style="margin-top: -12px;">邀请人手机号(选填):</p>
                         <input placeholder="请输入邀请人手机号" name="inviteMobile" ng-model="project.inviteMobile" class="form-control" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" style="margin-bottom: 10px;" ng-switch-default ng-focus>
-                        <p ng-if="investForm.inviteMobile.$dirty && investForm.inviteMobile.$invalid && !investForm.inviteMobile.$focused && investForm.inviteMobile.$error.pattern" class="ft-red margin-b-5">手机号码格式不正确</p>
-                        <button class="btn btn-danger btn-lg btn-block" ng-switch-default><i class="fa fa-shopping-cart project-leftmargin"></i>立即投资</button>
+                        <p ng-if="investForm.inviteMobile.$dirty && investForm.inviteMobile.$invalid && !investForm.inviteMobile.$focused && investForm.inviteMobile.$error.pattern" class="ft-red margin-b-5">手机号码格式不正确</p> -->
+                        <button class="btn btn-danger btn-lg col-xs-6" ng-switch-default><i class="fa fa-shopping-cart project-leftmargin"></i>立即认购</button>
+                        <button class="btn btn-danger btn-lg col-xs-5 col-xs-offset-1" ng-switch-default><i class="fa fa-shopping-cart project-leftmargin"></i>全投</button>
                       </form>
                       <div class="positive-margin1 text-center">
                         <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
@@ -373,11 +374,11 @@
                   <div class="col-xs-12" ng-if="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus === 3 && project.status === 11">
                     <div>
                       <div class="col-xs-12 positive-bottommargin pull-n">
-                        <span class="investment-fontsize nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | number:2}}</span><span class="investment-fontblack">元</span>
+                        <span class="ft-16 nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | number:2}}</span><span class="ft-24">元</span>
                         <a class="ft-red fontsize-19" ui-sref="root.userCenter.recharge">充值</a>
                       </div>
                       <div class="col-xs-12 positive-bottommargin pull-n">
-                        <span class="investment-fontsize nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount/10 || 0 | number:2}}</span>元
+                        <span class="ft-16 nagtive-leftmargin">预付金额为：</span><span>{{project.toReserveAmount/10 || 0 | number:2}}</span>元
                       </div>
                       <form ng-submit="getProfit(project);" name="reserveForm">
                         <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required disabled="disabled" ng-if="userCanInvestNum === 0">
