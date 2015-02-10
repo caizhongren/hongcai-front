@@ -1076,6 +1076,22 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.appregistration-agreement', {
+        url: '/appregistration-agreement',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appregistration-agreement.html'
+          }
+        }
+      })
+      .state('app-callback.apploan-security-agreement', {
+        url: '/apploan-security-agreement',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/apploan-security-agreement.html'
+          }
+        }
+      })
     /*-------------------------------------------  load page  route  -----------------------------------------*/
           .state('root.load-page', {
         url: '/load-page?from',
