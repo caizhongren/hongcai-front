@@ -271,6 +271,67 @@ hongcaiApp
           }
         }
       })
+      /*------------------------------------------  toYeepay transfer  -----------------------------------------------*/
+      .state('root.recharge-transfer', {
+        url: '/recharge-transfer/:amount',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'RechargeTransferCtrl',
+            controllerUrl: 'scripts/controller/user-center/recharge-transfer-ctrl'
+          }
+        }
+      })
+      .state('root.rights-transfer', {
+        url: '/righs-transfer/:realName/:idCardNo/:type',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'RightsTransferCtrl',
+            controllerUrl: 'scripts/controller/user-center/rights-transfer-ctrl'
+          }
+        }
+      })
+      .state('root.withdraw-transfer', {
+        url: '/withdraw-transfer/:amount/:captcha',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'WithdrawTransferCtrl',
+            controllerUrl: 'scripts/controller/user-center/withdraw-transfer-ctrl'
+          }
+        }
+      })
+      .state('root.bankcard-transfer', {
+        url: '/bankcard-transfer/:type',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'BankcardTransferCtrl',
+            controllerUrl: 'scripts/controller/user-center/bankcard-transfer-ctrl'
+          }
+        }
+      })
+      .state('root.invest-verify-transfer', {
+        url: '/invest-verify-transfer/:projectId/:orderId',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'InvestVerifyTransferCtrl',
+            controllerUrl: 'scripts/controller/order/invest-verify-transfer-ctrl'
+          }
+        }
+      })
+      .state('root.user-order-transfer', {
+        url: '/user-order-transfer/:projectId/:orderId',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'UserOrderTransferCtrl',
+            controllerUrl: 'scripts/controller/user-center/user-order-transfer-ctrl'
+          }
+        }
+      })
       /*------------------------------------------  lucky-draw  -----------------------------------------------*/
       // 土豪活动，暂时不上线。
       .state('root.lucky-draw', {

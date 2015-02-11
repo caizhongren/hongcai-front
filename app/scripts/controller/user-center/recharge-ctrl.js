@@ -11,11 +11,11 @@ angular.module('hongcaiApp')
       }
     });
 
-    function newForm() {
+    /*function newForm() {
       var f = document.createElement('form');
       document.body.appendChild(f);
       f.method = 'post';
-      //f.target = '_blank';
+      f.target = '_blank';
       return f;
     }
 
@@ -33,7 +33,7 @@ angular.module('hongcaiApp')
       }
       e.value = eValue;
       return e;
-    }
+    }*/
 
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
     $scope.refreshCode = function() {
@@ -52,7 +52,8 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      UserCenterService.yeepayRecharge.get({
+      window.open('/recharge-transfer/' + amount);
+      /*UserCenterService.yeepayRecharge.get({
         amount: amount
       }, function(response) {
         if (response.ret === 1) {
@@ -71,6 +72,6 @@ angular.module('hongcaiApp')
           $state.go('root.userCenter.security-settings');
           $rootScope.openTrusteeshipAccount = true;
         }
-      });
+      });*/
     };
   }]);

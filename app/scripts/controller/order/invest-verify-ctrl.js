@@ -63,14 +63,8 @@ angular.module('hongcaiApp')
     };
 
     $scope.transfer = function(project, investAmount, giftCount) {
-      $scope.msg = '4';
-      $scope.investAmount = investAmount;
-      $scope.page = 'investVerify';
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
+      
+
       OrderService.saveOrder.get({
         projectId: project.id,
         investAmount: investAmount,
@@ -79,7 +73,16 @@ angular.module('hongcaiApp')
       }, function(response) {
         if (response.ret === 1) {
           var orderId = response.data.orderId;
-          OrderService.transfer.get({
+          $scope.msg = '4';
+          $scope.investAmount = investAmount;
+          $scope.page = 'investVerify';
+          $alert({
+            scope: $scope,
+            template: 'views/modal/alertYEEPAY.html',
+            show: true
+          });
+          window.open('/invest-verify-transfer/' + project.id + '/' + orderId);
+          /*OrderService.transfer.get({
             projectId: project.id,
             orderId: orderId
           }, function(response) {
@@ -92,7 +95,7 @@ angular.module('hongcaiApp')
               _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; //form提交地址
               _f.submit(); //提交
             }
-          });
+          });*/
         }
       });
     };

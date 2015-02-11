@@ -56,7 +56,10 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      UserCenterService.bindBankCard.get({}, function(response) {
+
+      window.open('/bankcard-transfer/0');
+
+      /*UserCenterService.bindBankCard.get({}, function(response) {
         if (response.ret === 1) {
           var req = response.data.req;
           var sign = response.data.sign;
@@ -69,11 +72,18 @@ angular.module('hongcaiApp')
         } else {
           console.log('ask bankcard-management, why bindBankCard did not load data...');
         }
-      });
+      });*/
     };
 
     $scope.unbindBankCard = function() {
-      UserCenterService.unbindBankCard.get({}, function(response) {
+      $scope.msg = '7';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+      window.open('/bankcard-transfer/1');
+      /*UserCenterService.unbindBankCard.get({}, function(response) {
         if (response.ret === 1) {
           var req = response.data.req;
           var sign = response.data.sign;
@@ -88,7 +98,7 @@ angular.module('hongcaiApp')
         } else {
           console.log('ask bankcard-management, why bindBankCard did not load data...');
         }
-      });
+      });*/
     };
 
     angular.element('.bankCard .bank-card-show-verify').hover(function(event) {

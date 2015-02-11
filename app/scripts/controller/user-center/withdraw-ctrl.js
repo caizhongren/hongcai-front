@@ -61,7 +61,10 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      UserCenterService.yeepayWithdraw.get({
+
+      window.open('/withdraw-transfer/' + amount + '/' + captcha);
+
+      /*UserCenterService.yeepayWithdraw.get({
         amount: amount,
         captcha: captcha
       }, function(response) {
@@ -79,6 +82,6 @@ angular.module('hongcaiApp')
         } else {
           console.log('ask withdraw, why yeepayWithdraw did not load data...');
         }
-      });
+      });*/
     };
   }]);

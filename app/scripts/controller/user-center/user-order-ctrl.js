@@ -93,7 +93,10 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      OrderService.transfer.get({
+
+      window.open('/user-order-transfer/' + projectId + '/' + orderId);
+
+      /*OrderService.transfer.get({
         projectId: projectId,
         orderId: orderId
       }, function(response) {
@@ -108,7 +111,7 @@ angular.module('hongcaiApp')
         } else {
           toaster.pop('warning', response.msg);
         }
-      });
+      });*/
     };
     // 取消订单
     $scope.cancelOrder = function(number) {

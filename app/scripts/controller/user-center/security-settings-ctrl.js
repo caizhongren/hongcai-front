@@ -158,7 +158,10 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      UserCenterService.yeepayRegister.get({
+
+      window.open('/righs-transfer/' + user.realName + '/' + user.idCardNo + '/0');
+
+      /*UserCenterService.yeepayRegister.get({
         realName: user.realName,
         idCardNo: user.idCardNo
       }, function(response) {
@@ -174,11 +177,25 @@ angular.module('hongcaiApp')
         } else {
           console.log('ask security-settings, why yeepayRegister did not load data...');
         }
-      });
+      });*/
     };
 
     $scope.openReservation = function() {
-      // 调用预约的方法，当预约开通后
+      $scope.msg = '6';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+
+      var user = {
+        'realName' : 'default',
+        'idCardNo' : 'default'
+      }
+
+      window.open('/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
+
+      /*// 调用预约的方法，当预约开通后
       UserCenterService.authorizeAutoTransfer.get({
       }, function(response) {
         if (response.ret === 1) {
@@ -204,7 +221,7 @@ angular.module('hongcaiApp')
         } else {
           console.log('ask security-settings, why authorizeAutoTransfer did not load data...');
         }
-      });
+      });*/
 
     };
   }]);
