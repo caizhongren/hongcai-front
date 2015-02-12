@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config', function($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config) {
+  .controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config', '$alert', function($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config, $alert) {
     $scope.giftCount = 0;
     $scope.checkInvFlag = true;
     OrderService.investVerify.get({
@@ -34,7 +34,7 @@ angular.module('hongcaiApp')
 
     });
 
-    function newForm() {
+    /*function newForm() {
       var f = document.createElement('form');
       document.body.appendChild(f);
       f.method = 'post';
@@ -56,10 +56,24 @@ angular.module('hongcaiApp')
       }
       e.value = eValue;
       return e;
-    }
+    }*/
+
+    $scope.reload = function() {
+      window.location.reload();
+    };
 
     $scope.transfer = function(project, investAmount, giftCount) {
-      OrderService.saveOrder.get({
+      $scope.msg = '4';
+      $scope.investAmount = investAmount;
+      $scope.page = 'investVerify';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+      window.open('/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount);
+
+      /*OrderService.saveOrder.get({
         projectId: project.id,
         investAmount: investAmount,
         giftCount: giftCount,
@@ -67,6 +81,7 @@ angular.module('hongcaiApp')
       }, function(response) {
         if (response.ret === 1) {
           var orderId = response.data.orderId;
+          
           OrderService.transfer.get({
             projectId: project.id,
             orderId: orderId
@@ -82,7 +97,7 @@ angular.module('hongcaiApp')
             }
           });
         }
-      });
+      });*/
     };
 
     var myOtherModal = $modal({

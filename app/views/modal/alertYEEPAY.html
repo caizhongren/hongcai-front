@@ -1,0 +1,57 @@
+<div class="alert" ng-class="[type ? 'alert-' + type : null]">
+  <button type="button" class="close" ng-if="dismissable" ng-click="$hide()">&times;</button>
+  <div class="title text-center">
+    <strong ng-if="msg === '1'">开通第三方托管账户</strong>
+    <strong ng-if="msg === '2'">申请充值</strong>
+    <strong ng-if="msg === '3'">申请提现</strong>
+    <strong ng-if="msg === '4'">支付</strong>
+    <strong ng-if="msg === '5'">绑定提现银行卡</strong>
+  </div>
+  
+  <div class="content" ng-if="msg === '1'">
+    <p>您已申请开通第三方托管账户</p>
+    <p>请在新窗口内填写信息，完成第三方托管账户的开通</p>
+  </div>
+  <div class="content" ng-if="msg === '2'">
+    <p>您已申请进行充值操作，充值金额{{rechargeAmount}}元</p>
+    <p>请在新窗口内填写信息，完成充值操作</p>
+  </div>
+  <div class="content" ng-if="msg === '3'">
+    <p>您已申请进行提现操作，提现金额{{withdrawAmount}}元</p>
+    <p>请在新窗口内输入支付密码，完成提现申请</p>
+  </div>
+  <div class="content" ng-if="msg === '4'">
+    <p>您已申请对项目进行投资，投资金额为{{investAmount}}元</p>
+    <p>请在新窗口内输入支付密码及绑定手机验证码，完成支付操作</p>
+  </div>
+  <div class="content" ng-if="msg === '5'">
+    <p>您已申请绑定提现银行卡</p>
+    <p>请在第三方托管平台所提供页面完成绑卡操作</p>
+  </div>
+  <div class="content" ng-if="msg === '6'">
+    <p>您已申请开通预约权限</p>
+    <p>请在第三方托管平台所提供页面完成预约授权</p>
+  </div>
+  <div class="content" ng-if="msg === '7'">
+    <p>您已申请取消绑定的银行卡</p>
+    <p>请在第三方托管平台所提供页面完成取消绑定</p>
+  </div>
+
+  <div class="bottom col-xs-10 col-xs-offset-1">
+    <a class="btn btn-danger btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '1'">开通成功</a>
+    <a class="btn btn-danger btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '2'">充值成功</a>
+    <a class="btn btn-danger btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '3'">提现申请成功</a>
+    <a class="btn btn-danger btn-block pull-left" ui-sref="root.userCenter.investment({type:99})" ng-click="page ==='investment'?reload():'';$hide()" ng-if="msg === '4'">支付成功</a>
+    <a class="btn btn-danger btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '5'">绑卡成功</a>
+    <a class="btn btn-danger btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '6'">授权成功</a>
+    <a class="btn btn-danger btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '7'">成功取消绑卡</a>
+
+    <a class="btn btn-danger btn-block pull-left margin-l" ui-sref="root.help-center.safety-certification" ng-click="$hide()" ng-if="msg === '1' || msg === '6'">遇到问题</a>
+    <a class="btn btn-danger btn-block pull-left margin-l" ui-sref="root.help-center.account-management" ng-click="$hide()" ng-if="msg === '2' || msg === '3'">遇到问题</a>
+    <a class="btn btn-danger btn-block pull-left margin-l" ui-sref="root.userCenter.investment({type:99})" ng-click="$hide()" ng-if="msg === '4'">遇到问题</a>
+    <a class="btn btn-danger btn-block pull-left margin-l" ng-click="reload();$hide()" ng-if="msg === '5' || msg === '7'">遇到问题</a>
+    
+  </div>
+  
+</div>
+<div class="mask_layer"></div>
