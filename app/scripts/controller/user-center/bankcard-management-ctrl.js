@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('BankCardManagementCtrl', ['$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
+  .controller('BankCardManagementCtrl', ['$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', '$alert', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $alert) {
     $rootScope.selectSide = 'bankcard-management';
     $scope.dosi = true;
     UserCenterService.getUserBankCard.get({}, function(response) {
@@ -21,7 +21,7 @@ angular.module('hongcaiApp')
       }
     });
 
-    function newForm() {
+    /*function newForm() {
       var f = document.createElement('form');
       document.body.appendChild(f);
       f.method = 'post';
@@ -43,10 +43,23 @@ angular.module('hongcaiApp')
       }
       e.value = eValue;
       return e;
-    }
+    }*/
+
+    $scope.reload = function() {
+      window.location.reload();
+    };
 
     $scope.bindBankCard = function() {
-      UserCenterService.bindBankCard.get({}, function(response) {
+      $scope.msg = '5';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+
+      window.open('/bankcard-transfer/0');
+
+      /*UserCenterService.bindBankCard.get({}, function(response) {
         if (response.ret === 1) {
           var req = response.data.req;
           var sign = response.data.sign;
@@ -59,11 +72,18 @@ angular.module('hongcaiApp')
         } else {
           console.log('ask bankcard-management, why bindBankCard did not load data...');
         }
-      });
+      });*/
     };
 
     $scope.unbindBankCard = function() {
-      UserCenterService.unbindBankCard.get({}, function(response) {
+      $scope.msg = '7';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+      window.open('/bankcard-transfer/1');
+      /*UserCenterService.unbindBankCard.get({}, function(response) {
         if (response.ret === 1) {
           var req = response.data.req;
           var sign = response.data.sign;
@@ -78,7 +98,7 @@ angular.module('hongcaiApp')
         } else {
           console.log('ask bankcard-management, why bindBankCard did not load data...');
         }
-      });
+      });*/
     };
 
     angular.element('.bankCard .bank-card-show-verify').hover(function(event) {

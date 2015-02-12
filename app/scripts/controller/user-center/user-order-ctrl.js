@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
+  .controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', '$alert', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
 
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
@@ -78,9 +78,25 @@ angular.module('hongcaiApp')
           console.log('ask investment, why getOrderByUser did not load data...');
         }
       });
+    
+    $scope.reload = function() {
+      window.location.reload();
+    };
+
     // 继续支付订单
-    $scope.toPay = function(projectId, orderId) {
-      OrderService.transfer.get({
+    $scope.toPay = function(projectId, orderId, orderAmount) {
+      $scope.msg = '4';
+      $scope.investAmount = orderAmount;
+      $scope.page = 'investment';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+
+      window.open('/user-order-transfer/' + projectId + '/' + orderId);
+
+      /*OrderService.transfer.get({
         projectId: projectId,
         orderId: orderId
       }, function(response) {
@@ -95,7 +111,7 @@ angular.module('hongcaiApp')
         } else {
           toaster.pop('warning', response.msg);
         }
-      });
+      });*/
     };
     // 取消订单
     $scope.cancelOrder = function(number) {
@@ -254,7 +270,7 @@ angular.module('hongcaiApp')
       }
     };
 
-    function newForm() {
+    /*function newForm() {
       var f = document.createElement('form');
       document.body.appendChild(f);
       f.method = 'post';
@@ -276,7 +292,7 @@ angular.module('hongcaiApp')
       }
       e.value = eValue;
       return e;
-    }
+    }*/
     // Based on an implementation here: web.student.tuwien.ac.at/~e0427417/jsdownload.html
     $scope.downloadPDF = function(httpPath) {
       // Use an arraybuffer

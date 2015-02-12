@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('RechargeCtrl', ['$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', function($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config) {
+  .controller('RechargeCtrl', ['$location', '$scope', 'toaster', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', '$alert', function($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $alert) {
     $rootScope.selectSide = 'recharge';
     $scope.balance = 0;
     UserCenterService.getUserBalance.get({}, function(response) {
@@ -11,11 +11,11 @@ angular.module('hongcaiApp')
       }
     });
 
-    function newForm() {
+    /*function newForm() {
       var f = document.createElement('form');
       document.body.appendChild(f);
       f.method = 'post';
-      //f.target = '_blank';
+      f.target = '_blank';
       return f;
     }
 
@@ -33,15 +33,27 @@ angular.module('hongcaiApp')
       }
       e.value = eValue;
       return e;
-    }
+    }*/
 
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
 
+    $scope.reload = function() {
+      window.location.reload();
+    };
+
     $scope.recharge = function(amount) {
-      UserCenterService.yeepayRecharge.get({
+      $scope.msg = '2';
+      $scope.rechargeAmount = amount;
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+      window.open('/recharge-transfer/' + amount);
+      /*UserCenterService.yeepayRecharge.get({
         amount: amount
       }, function(response) {
         if (response.ret === 1) {
@@ -60,6 +72,6 @@ angular.module('hongcaiApp')
           $state.go('root.userCenter.security-settings');
           $rootScope.openTrusteeshipAccount = true;
         }
-      });
+      });*/
     };
   }]);
