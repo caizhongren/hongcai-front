@@ -70,13 +70,16 @@ angular.module('hongcaiApp')
       angular.element('#dropdown').css({
         'display': 'block'
       });
+      angular.element('.dropdown .category').addClass('border-l-r');
     }, function() {
       angular.element('#dropdown').css({
         'display': 'none'
       });
+      angular.element('.dropdown .category').removeClass('border-l-r');
     });
 
     /*angular.element('.dropdown').click(function(){
         angular.element('#dropdown').css({"display":"block"});
+        angular.element('.dropdown .category').addClass('border-l-r');
     })*/
   }]);
