@@ -1,7 +1,11 @@
 {
   "YEEPAY_ADDRESS": "http://test321.hongcai.com:7000/yeepay/2.0.3/member/bha/",
   "viewFlAG": {
-    "tuhaoIsShowedFlAG": true
+    "tuhaoIsShowedFlAG": false,
+    "sponsorsIsShowedFlAG": false,
+    "reservationIsShowedFlAG": true,
+    "newbieIsShowedFLAG": true
   },
-   "jumpHttpsPath": ["/register-mobile", "/login", "/register-mail"]
+  "jumpHttpsPath": ["/register-mobile", "/login", "/register-mail"],
+  "ignorePATH": ["/credit-list", "/credit-details", "/credit-verify", "/credit-assignment", "/credit-success", "/credit", "/credit-create"]
 }

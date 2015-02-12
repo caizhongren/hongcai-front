@@ -6,5 +6,6 @@
     "reservationIsShowedFlAG": true,
     "newbieIsShowedFLAG": true
   },
-   "jumpHttpsPath": ["/register-mobile", "/login", "/register-mail"]
+  "jumpHttpsPath": ["/register-mobile", "/login", "/register-mail"],
+  "ignorePATH": ["/credit-list", "/credit-details", "/credit-verify", "/credit-assignment", "/credit-success", "/credit", "/credit-create"]
 }
