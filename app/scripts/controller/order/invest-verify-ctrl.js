@@ -34,7 +34,7 @@ angular.module('hongcaiApp')
 
     });
 
-    function newForm() {
+    /*function newForm() {
       var f = document.createElement('form');
       document.body.appendChild(f);
       f.method = 'post';
@@ -56,7 +56,7 @@ angular.module('hongcaiApp')
       }
       e.value = eValue;
       return e;
-    }
+    }*/
 
     $scope.reload = function() {
       window.location.reload();

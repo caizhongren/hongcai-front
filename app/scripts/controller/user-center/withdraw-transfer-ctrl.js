@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('WithdrawTransferCtrl', ['$scope', 'toaster', '$stateParams', 'UserCenterService', 'config', function ($scope, toaster, $stateParams, UserCenterService, config) {
+  .controller('WithdrawTransferCtrl', ['$scope', 'toaster', '$stateParams', 'UserCenterService', 'config', '$alert', function ($scope, toaster, $stateParams, UserCenterService, config, $alert) {
     function newForm() {
       var f = document.createElement('form');
       document.body.appendChild(f);

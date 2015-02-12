@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('RightsTransferCtrl', ['$rootScope', '$scope', 'toaster', '$stateParams', 'UserCenterService', 'config', function ($rootScope, $scope, toaster, $stateParams, UserCenterService, config) {
+  .controller('RightsTransferCtrl', ['$rootScope', '$scope', 'toaster', '$stateParams', 'UserCenterService', 'config', '$alert', function ($rootScope, $scope, toaster, $stateParams, UserCenterService, config, $alert) {
     function newForm() {
       var f = document.createElement('form');
       document.body.appendChild(f);

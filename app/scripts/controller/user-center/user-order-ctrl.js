@@ -270,7 +270,7 @@ angular.module('hongcaiApp')
       }
     };
 
-    function newForm() {
+    /*function newForm() {
       var f = document.createElement('form');
       document.body.appendChild(f);
       f.method = 'post';
@@ -292,7 +292,7 @@ angular.module('hongcaiApp')
       }
       e.value = eValue;
       return e;
-    }
+    }*/
     // Based on an implementation here: web.student.tuwien.ac.at/~e0427417/jsdownload.html
     $scope.downloadPDF = function(httpPath) {
       // Use an arraybuffer
