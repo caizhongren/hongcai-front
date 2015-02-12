@@ -24,19 +24,29 @@ angular.module('hongcaiApp')
       e.value = eValue;
       return e;
     }
-    
-    OrderService.transfer.get({
+
+    OrderService.saveOrder.get({
       projectId: $stateParams.projectId,
-      orderId: $stateParams.orderId
+      investAmount: $stateParams.investAmount,
+      giftCount: $stateParams.giftCount,
+      inviteMobile: $rootScope.inviteMobile
     }, function(response) {
       if (response.ret === 1) {
-        var req = response.data.req;
-        var sign = response.data.sign;
-        var _f = newForm(); //创建一个form表单
-        createElements(_f, 'req', req); //创建form中的input对象
-        createElements(_f, 'sign', sign);
-        _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; //form提交地址
-        _f.submit(); //提交
+        var orderId = response.data.orderId;
+        OrderService.transfer.get({
+          projectId: $stateParams.projectId,
+          orderId: orderId
+        }, function(response) {
+          if (response.ret === 1) {
+            var req = response.data.req;
+            var sign = response.data.sign;
+            var _f = newForm(); //创建一个form表单
+            createElements(_f, 'req', req); //创建form中的input对象
+            createElements(_f, 'sign', sign);
+            _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; //form提交地址
+            _f.submit(); //提交
+          }
+        });
       }
     });
 

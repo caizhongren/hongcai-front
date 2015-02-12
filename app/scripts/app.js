@@ -313,7 +313,7 @@ hongcaiApp
         }
       })
       .state('root.invest-verify-transfer', {
-        url: '/invest-verify-transfer/:projectId/:orderId',
+        url: '/invest-verify-transfer/:projectId/:investAmount/:giftCount',
         views: {
           '': {
             templateUrl: 'views/transfer.html',
