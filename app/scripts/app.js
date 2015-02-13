@@ -141,6 +141,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.nofound-page', {
+        url: '/nofound-page',
+        views: {
+          '': {
+            templateUrl: 'views/nofound-page.html',
+            controller: 'NoFoundCtrl',
+            controllerUrl: 'scripts/controller/register/no-found-ctrl'
+          }
+        }
+      })
       /*------------------------------------------  banner  -----------------------------------------------*/
       .state('root.banner-fourty', {
         url: '/banner-fourty',
