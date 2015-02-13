@@ -107,8 +107,9 @@
 
       <!-- STEP2-2 通过邮件找回 -->
       <div ng-show="areaFlag == 22" class="margin-b">
-        <div class="col-xs-offset-3">
-         <h4>邮件已经发送到{{emailAddr||"739*****@qq.com"}}，请到邮箱查看邮件！</h4>
+        <div>
+         <h4 class="text-center">邮件已经发送到{{emailAddr||"739*****@qq.com"}}，请到邮箱查看邮件！</h4>
+         <p class="text-center ft-red">请在12小时内点击邮件中的链接，完成密码重置操作<br>超过12小时，该邮件将失效</p>
         </div>
       </div>
 
