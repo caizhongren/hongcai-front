@@ -1189,6 +1189,15 @@ hongcaiApp
           }
         }
       })
+      //app轮播图详情页
+      .state('app-callback.app-banner-P2B', {
+        url: '/app-banner-P2B',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/app-banner-P2B.html'
+          }
+        }
+      })
       .state('app-callback.apprechrage-success', {
         url: '/apprecharge-success',
         views: {
