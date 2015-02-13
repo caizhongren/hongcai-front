@@ -188,7 +188,7 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         return;
       } else {
-        $state.go('root.login');
+        $state.go('root.nofound-page');
       }
     }); 
 
