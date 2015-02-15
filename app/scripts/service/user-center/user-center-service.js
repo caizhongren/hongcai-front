@@ -72,6 +72,10 @@ angular.module('hongcaiApp')
         etoken: '@etoken',
         password: '@password'
       }),
+      checkEmailPasswordUrl: $resource(DEFAULT_DOMAIN + '/siteUser/checkEmailPasswordUrl', {
+        uuid: '$uuid',
+        etoken: '@etoken'
+      }),
       getGiftListByUserId: $resource(DEFAULT_DOMAIN + '/activity/getGiftListByUserId'),
       getInviteList: $resource(DEFAULT_DOMAIN + '/activity/getInviteList'),
       getOrderBillByOrderId: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderBillByOrderId', {
