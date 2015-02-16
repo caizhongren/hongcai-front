@@ -1,17 +1,11 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('LoginCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'ipCookie', 'md5', 'toaster', 'UserCenterService', '$alert', function($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, ipCookie, md5, toaster, UserCenterService, $alert) {
+  .controller('LoginCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'ipCookie', 'md5', 'toaster', 'UserCenterService', function($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, ipCookie, md5, toaster, UserCenterService) {
 
     if (ipCookie('userName')) {
       $scope.user = [];
       $scope.user.account = ipCookie('userName');
     }
-
-    $alert({
-      scope: $scope,
-      template: 'views/modal/alert-announcement.html',
-      show: true
-    });
 
     $scope.login = function(user) {
       //记住用户名处理
