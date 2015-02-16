@@ -53,7 +53,9 @@ hongcaiApp
             controllerUrl: 'scripts/controller/user-center/login-ctrl'
           },
           'footer': {
-            templateUrl: 'views/footer.html'
+            templateUrl: 'views/footer.html',
+            controller: 'FooterCtrl',
+            controllerUrl: 'scripts/controller/main/footer-ctrl'
           },
           'service': {
             templateUrl: 'views/service.html',
