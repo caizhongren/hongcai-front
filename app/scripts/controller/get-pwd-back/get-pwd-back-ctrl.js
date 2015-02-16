@@ -181,7 +181,7 @@ angular.module('hongcaiApp')
     $scope.uuId = $stateParams.uuid;
     $scope.etoken = $stateParams.etoken;
     //校验是否为有效链接
-    UserCenterService.checkEmailPasswordUrl.get({
+    /*UserCenterService.checkEmailPasswordUrl.get({
       uuid: $scope.uuId,
       etoken: $scope.etoken
     }, function(response) {
@@ -190,7 +190,7 @@ angular.module('hongcaiApp')
       } else {
         $state.go('root.nofound-page');
       }
-    }); 
+    });*/ 
 
     // 通过邮件的方式找回密码
     $scope.setEmailNewPwd = function(user) {
