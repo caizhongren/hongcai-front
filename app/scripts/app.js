@@ -12,6 +12,7 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'ngSanitize',
   'mgcrea.ngStrap',
   'ui.router',
+  'ui.slider',
   'ngResource',
   'angularMoment',
   'toaster',
@@ -1035,6 +1036,106 @@ hongcaiApp
           }
         }
       })
+
+      /*------------------------------------------  credit assignment  -----------------------------------------------*/
+      // 债券转让列表页
+      .state('root.credit-list-query', {
+        url: '/credit-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+        views: {
+          '': {
+            templateUrl: 'views/project/credit-list.html',
+            controller: 'CreditListCtrl',
+            controllerUrl: 'scripts/controller/project/credit-list-ctrl'
+          }
+        }
+      })
+      .state('root.credit-list-query-no', {
+        url: '/credit-list',
+        views: {
+          '': {
+            templateUrl: 'views/project/credit-list.html',
+            controller: 'CreditListCtrl',
+            controllerUrl: 'scripts/controller/project/credit-list-ctrl'
+          }
+        }
+      })
+      // 债券转让详情页
+      .state('root.credit-details', {
+        url: '/credit-details/:number',
+        views: {
+          '': {
+            templateUrl: 'views/project/credit-details.html',
+            controller: 'CreditDetailsCtrl',
+            controllerUrl: 'scripts/controller/project/credit-details-ctrl'
+          }
+        }
+      })
+
+      // 债券转让下单页(确认页)
+      .state('root.credit-verify', {
+          url: '/credit-verify/:creditId/:amount',
+          views: {
+            '': {
+              templateUrl: 'views/order/credit-verify.html',
+              controller: 'CreditVerifyCtrl',
+              controllerUrl: 'scripts/controller/order/credit-verify-ctrl'
+            }
+          }
+        })
+      // 债券转让宣传介绍页面
+      .state('root.credit-assignment', {
+          url: '/credit-assignment',
+          views: {
+            '': {
+              templateUrl: 'views/project/credit-assignment.html',
+              controller: 'CreditAssignmentCtrl',
+              controllerUrl: 'scripts/controller/project/credit-assignment-ctrl'
+            }
+          }
+        })
+      // 成功回调页
+      .state('root.credit-success', {
+        url: '/creditr-success/:etoken',
+        views: {
+          '': {
+            templateUrl: 'views/success.html',
+            controller: 'CreditSuccessCtrl',
+            controllerUrl: 'scripts/controller/project/credit-success-ctrl'
+          }
+        }
+      })
+      // 我的债券（个人中心）
+      .state('root.userCenter.credit', {
+        url: '/credit',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit.html',
+            controller: 'CreditCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+          }
+        }
+      })
+      .state('root.userCenter.credit-query', {
+        url: '/credit/:dateInterval/:type',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit.html',
+            controller: 'CreditCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+          }
+        }
+      })
+      .state('root.userCenter.credit-create', {
+        url: '/credit-create',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-create.html',
+            controller: 'CreditCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+          }
+        }
+      })
+
       /*------------------------------------------  app help-center  -----------------------------------------------*/
       .state('app-help-center', {
         abstract: true,
@@ -1101,6 +1202,15 @@ hongcaiApp
           }
         }
       })
+      //app轮播图详情页
+      .state('app-callback.app-banner-P2B', {
+        url: '/app-banner-P2B',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/app-banner-P2B.html'
+          }
+        }
+      })
       .state('app-callback.apprechrage-success', {
         url: '/apprecharge-success',
         views: {
@@ -1132,12 +1242,37 @@ hongcaiApp
             templateUrl: 'views/appview/canceltie-card.html'
           }
         }
+        
       })
       .state('app-callback.apptie-card', {
         url: '/apptie-card',
         views: {
           'app-callback-view': {
             templateUrl: 'views/appview/apptie-card.html'
+          }
+        }
+      })
+      .state('app-callback.appwithdrawals-success', {
+        url: '/appwithdrawals-success',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appwithdrawals-success.html'
+          }
+        }
+      })
+      .state('app-callback.appregistration-agreement', {
+        url: '/appregistration-agreement',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appregistration-agreement.html'
+          }
+        }
+      })
+      .state('app-callback.apploan-security-agreement', {
+        url: '/apploan-security-agreement',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/apploan-security-agreement.html'
           }
         }
       })
@@ -1260,6 +1395,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
       });
     }
   });
+
+  $rootScope.mobileIOS = ( $window.navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
   // viewFlAG view层面的显示与否的判断，比如main.html的土豪标图片不显示，在viewFlAG里添加, tuhaoShowFLAG: false (变量注入的是rootScope，FLAG保持全部大写)，然后在main.html做一个ng-show, no-hide的判断即可。
   // ignorePATH route层面的显示与否的判断，比如/lucky-draw抽奖活动咱不对外公布(未上线)，在ignorePATH添加路径/lucky-draw。
   // branch_switch,当该标识关联的功能已开发完成，但并没有对外发布。
@@ -1271,7 +1408,6 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
   $rootScope.$on('$stateChangeSuccess', function() {
     // branch_switch， 当该路由关联的功能已开发完成，但并没有对外发布。
     if (config.ignorePATH && config.ignorePATH.indexOf('/' + $location.path().split('/')[1]) !== -1) {
-      // toaster.pop('error', '别闹，这个功能还没开放那');
       $location.path('//');
     }
     // 跳转HTTPS的全局配置

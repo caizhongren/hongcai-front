@@ -1,0 +1,163 @@
+<div class="right-area record col-md-8 col-lg-9">
+  <div class="row">
+    <div class="right-title">债券转让</div>
+  </div>
+  <div class="container">
+    <div class="row" style="width: 70%">
+      <div class="col-xs-12">
+        <ul class="nav nav-pills nav-justified thumbnail">
+          <li ng-class="{'active': creditStepFlag === 1}">
+            <a ng-click="disabledFlag1 || (creditStepFlag = 1)" ng-class="{'active': creditStepFlag === 1}">
+              <h4 class="list-group-item-heading" style="margin-left:-165px;"><i class="fa fa-circle-thin fa-2x"><span style="margin-left: -25px;">1</span></i></h4>
+              <p class="list-group-item-text" style="margin-top: -33px; font-size:17px; margin-left:-10px;">设置转让金</p>
+            </a>
+          </li>
+          <li ng-class="{'disabled': creditStepFlag === 1, 'active': creditStepFlag === 2, '': creditStepFlag === 3}">
+            <a ng-click="disabledFlag2 || (creditStepFlag = 2)" ng-class="{'disabled': creditStepFlag === 1, 'active': creditStepFlag === 2, '': creditStepFlag === 3}">
+              <h4 class="list-group-item-heading" style="margin-left:-165px;"><i class="fa fa-circle-thin fa-2x"><span style="margin-left: -25px;">2</span></i></h4>
+              <p class="list-group-item-text" style="margin-top: -33px; font-size:17px; margin-left:-10px;">设置折让金</p>
+            </a>
+          </li>
+          <li ng-class="{'active': creditStepFlag === 3, 'disabled': creditStepFlag !== 3}">
+            <a ng-click="disabledFlag3 || (creditStepFlag = 3)" ng-class="{'active': creditStepFlag === 3, 'disabled': creditStepFlag !== 3}">
+              <h4 class="list-group-item-heading" style="margin-left:-165px;"><i class="fa fa-circle-thin fa-2x"><span style="margin-left: -25px;">3</span></i></h4>
+              <p class="list-group-item-text" style="margin-top: -33px; font-size:17px; margin-left:-10px;">转让信息确认</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default" style="background-color: #F5F5F5">
+    <div class="panel-title" style="padding-top:30px; padding-left:25px;">
+      <i class="fa fa-info-circle"></i>
+      <span>{{ '中东担保推荐标20150201001期' }}</span>
+    </div>
+
+    <div class="panel-body" style="padding-top:20px; padding-left:35px;">
+      <div class="row">
+        <div class="col-sm-4">年化收益：{{ '13' }}%</div>
+        <div class="col-sm-4">已收收益：{{ '954.22' }}元</div>
+        <div class="col-sm-4">投资日期：{{ '2014-01-01' }}</div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">债券总额：{{ '13' }}%</div>
+        <div class="col-sm-4">未收收益：{{ '954.22' }}元</div>
+        <div class="col-sm-4">到期日期：{{ '2014-01-01' }}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <form name="tranForm">
+      <!-- 第一步 -->
+      <div class="form-group row" ng-show="creditStepFlag === 1">
+        <div class="col-xs-offset-1 col-xs-4">
+          <label for="tranNumber"><strong>设置转让金额:</strong>
+          </label>
+          <div class="input-group" style="margin-top:5px;">
+            <input type="number" class="form-control" id="tranNumber" ng-model="tranForm.sliderNumber" placeholder="请输入转让金额">
+            <div class="input-group-addon">元</div>
+          </div>
+          <div class="row" style="margin-top: 10px;">
+            <div class="col-xs-1">
+              <span>{{ 'min' }}</span>
+            </div>
+            <div class="col-xs-offset-1 col-xs-7">
+              <div ui-slider min="0" max="100" ng-model="tranForm.sliderNumber"></div>
+            </div>
+            <div class="col-xs-1">
+              <span>{{ 'max' }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6" style="padding-top: 40px;">
+          <div ng-show="tranForm.sliderNumber === 5">
+            <p>哈哈，你输入的金额才5块</p>
+          </div>
+          <div ng-show="tranForm.sliderNumber > 5 && tranForm.sliderNumber < 50">
+            <p>弱爆了，来多一点</p>
+          </div>
+          <div ng-show="tranForm.sliderNumber < 100 && tranForm.sliderNumber > 50">
+            <p>呃，张博是天才</p>
+          </div>
+        </div>
+      </div>
+      <!-- 第二步 -->
+      <div class="form-group row" ng-show="creditStepFlag === 2">
+        <div class="col-xs-offset-1 col-xs-4">
+          <label for="tranConvert"><strong>设置折让金额:</strong>
+          </label>
+          <div class="input-group" style="margin-top:5px;">
+            <input type="number" class="form-control" id="tranConvert" ng-model="tranForm.sliderConvert" placeholder="请输入折让金额">
+            <div class="input-group-addon">元</div>
+          </div>
+          <div class="row" style="margin-top: 10px;">
+            <div class="col-xs-1">
+              <span>{{ 'min' }}</span>
+            </div>
+            <div class="col-xs-offset-1 col-xs-7">
+              <div ui-slider min="-100" max="100" ng-model="tranForm.sliderConvert"></div>
+            </div>
+            <div class="col-xs-1">
+              <span>{{ 'max' }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6" style="padding-top: 40px;">
+          <div ng-show="tranForm.sliderConvert === 5">
+            <p>哈哈，你输入的金额才5块</p>
+          </div>
+          <div ng-show="tranForm.sliderConvert > 5 && tranForm.sliderConvert < 50">
+            <p>弱爆了，来多一点</p>
+          </div>
+          <div ng-show="tranForm.sliderConvert < 100 && tranForm.sliderConvert > 50">
+            <p>呃，张博是天才</p>
+          </div>
+        </div>
+      </div>
+      <!-- 第一步和第二步的提示内容 -->
+      <div class="row">
+        <div class="col-xs-offset-1">
+          <p class="help-block" ng-show="creditStepFlag === 1">* 100元起，最高金额3,0000元，转让手续费50.00</p>
+          <p class="help-block" ng-show="creditStepFlag === 2">* 请合理设置您的折让金额，提高折让金会增加您的转化几率！</p>
+        </div>
+      </div>
+      <!-- 第三步 -->
+      <div class="row" ng-show="creditStepFlag === 3">
+        <div class="col-xs-offset-1">
+          <p><strong>转让信息确认：</strong>
+          </p>
+        </div>
+        <div class="col-xs-offset-2 col-xs-8">
+          <div class="col-xs-4 border-r under-margin">
+            <p class="text-center text-nowrap gray-font">转让金（元）</p>
+            <h3 class="text-center text-nowrap hc-text-red">{{ tranForm.sliderNumber || 0 }}元</h3>
+          </div>
+          <div class="col-xs-4 border-r under-margin">
+            <p class="text-center text-nowrap gray-font">折让金（元）</p>
+            <h3 class="text-center text-nowrap hc-text-red">{{ tranForm.sliderConvert || 0 }}元</h3>
+          </div>
+          <div class="col-xs-4 under-margin">
+            <p class="text-center text-nowrap gray-font">认购金额（元）</p>
+            <h3 class="text-center text-nowrap hc-text-red">{{ Math.abs(tranForm.sliderConvert) + tranForm.sliderNumber || 0 }}元</h3>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-offset-3 col-xs-3">
+          <button class="btn btn-lg btn-default btn-block" ng-disabled="creditStepFlag === 1" ng-click="creditStepFlag = creditStepFlag - 1">取消</button>
+        </div>
+        <div class="col-xs-3" ng-show="creditStepFlag <= 2">
+          <button type="submit" class="btn btn-lg btn-block btn-primary" ng-click="creditStepFlag = creditStepFlag + 1">下一步</button>
+        </div>
+        <div class="col-xs-3" ng-show="creditStepFlag === 3">
+          <button type="submit" class="btn btn-lg btn-block btn-primary" ng-click="">下一步</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

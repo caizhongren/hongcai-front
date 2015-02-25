@@ -3,7 +3,8 @@
     <div class="lp-banner">
       <img src="/images/load-page/lpbg-01.png" width="100%" class="lpbgbanner">
       <div class="col-md-offset-7 col-md-5 col-sm-offset-5 col-sm-6 col-xs-12 lplogin ">
-        <div class="col-md-12 col-xs-12" ng-contrlller="LoadPageCtrl">
+        <div class="col-md-11 col-xs-11
+        " ng-contrlller="LoadPageCtrl">
           <div class="fast-login">
             <img src="/images/load-page/lp-04.png"> 快速注册
           </div>
@@ -15,6 +16,9 @@
                   <input type="text" class="col-md-8 col-lg-8 borderwhite borderheight" id="name" name="name" ng-model="user.name" real-mix-min-length="4" ng-maxlength="15" ng-pattern="/^[\u4e00-\u9fa5|a-z|A-Z][\u4e00-\u9fa5|a-z|A-Z|_|0-9|\-]{0,}$/" ensure-unique-name="name" ng-class="{'borderred':registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused}" required ng-focus autofocus/>
                 </div>
                 <!-- <div ng-if="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div"> -->
+
+
+
 
                 <div ng-if="registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused" class="col-lg-5 col-md-5 col-sm-5 col-xs-5 form-div1">
                   <div ng-if="registerForm.name.$error.unique" class="row lp-nomargin">
