@@ -1095,7 +1095,7 @@ hongcaiApp
         })
       // 成功回调页
       .state('root.credit-success', {
-        url: '/creditr-success/:etoken',
+        url: '/credit-success/:etoken',
         views: {
           '': {
             templateUrl: 'views/success.html',
