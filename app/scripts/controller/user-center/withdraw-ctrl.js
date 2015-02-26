@@ -38,7 +38,7 @@ angular.module('hongcaiApp')
         show: true
       });
 
-      window.open('/withdraw-transfer/' + amount + '/' + captcha);
+      window.open('/#!/withdraw-transfer/' + amount + '/' + captcha);
 
       /*UserCenterService.yeepayWithdraw.get({
         amount: amount,
