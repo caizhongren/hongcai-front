@@ -45,8 +45,12 @@ angular.module('hongcaiApp')
             createElements(_f, 'sign', sign);
             _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; //form提交地址
             _f.submit(); //提交
+          } else {
+            toaster.pop('error', response.msg);
           }
         });
+      } else {
+        toaster.pop('error', response.msg);
       }
     });
 
