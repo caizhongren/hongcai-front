@@ -36,7 +36,7 @@ angular.module('hongcaiApp')
           });
           $scope.project = projectDetails.data.project;
           $scope.categoryCode = $scope.project.categoryCode;
-          if ($scope.categoryCode !== '04' && $scope.categoryCode !== '05') {
+          if ($scope.categoryCode !== '04' && $scope.categoryCode !== '05' && $scope.categoryCode !== '06') {
             $scope.tabs = [{
               title: '项目信息',
             }, {
