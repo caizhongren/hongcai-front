@@ -159,7 +159,7 @@ angular.module('hongcaiApp')
         show: true
       });
 
-      window.open('/righs-transfer/' + user.realName + '/' + user.idCardNo + '/0');
+      window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/0');
 
       /*UserCenterService.yeepayRegister.get({
         realName: user.realName,
@@ -193,7 +193,7 @@ angular.module('hongcaiApp')
         'idCardNo' : 'default'
       };
 
-      window.open('/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
+      window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
 
       /*// 调用预约的方法，当预约开通后
       UserCenterService.authorizeAutoTransfer.get({

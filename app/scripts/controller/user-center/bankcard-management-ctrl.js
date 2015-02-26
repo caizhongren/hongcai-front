@@ -57,7 +57,7 @@ angular.module('hongcaiApp')
         show: true
       });
 
-      window.open('/bankcard-transfer/0');
+      window.open('/#!/bankcard-transfer/0');
 
       /*UserCenterService.bindBankCard.get({}, function(response) {
         if (response.ret === 1) {
@@ -82,7 +82,7 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      window.open('/bankcard-transfer/1');
+      window.open('/#!/bankcard-transfer/1');
       /*UserCenterService.unbindBankCard.get({}, function(response) {
         if (response.ret === 1) {
           var req = response.data.req;

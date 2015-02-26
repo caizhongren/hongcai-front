@@ -52,7 +52,7 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      window.open('/recharge-transfer/' + amount);
+      window.open('/#!/recharge-transfer/' + amount);
       /*UserCenterService.yeepayRecharge.get({
         amount: amount
       }, function(response) {

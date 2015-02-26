@@ -71,7 +71,7 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      window.open('/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount);
+      window.open('/#!/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount);
 
       /*OrderService.saveOrder.get({
         projectId: project.id,
