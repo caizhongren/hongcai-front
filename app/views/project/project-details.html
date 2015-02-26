@@ -36,7 +36,7 @@
                     </div> -->
                   <hr style="margin-top: 3px;margin-bottom: 12px;">
                   <div class="row">
-                    <div class="col-xs-12 under-margin1" ng-hide="categoryCode === '04' || categoryCode === '05'"><i class="fa fa-circle hc-text-red right-margin"></i>
+                    <div class="col-xs-12 under-margin1" ng-hide="categoryCode === '04' || categoryCode === '05' || categoryCode === '06'"><i class="fa fa-circle hc-text-red right-margin"></i>
                       <strong>担保机构：<a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" target="_blank">{{project.guaranteeName}}</a></strong>
                     </div>
                     <div class="col-xs-12 under-margin1" ng-show="categoryCode === '04'"><i class="fa fa-circle hc-text-red right-margin"></i>
@@ -396,11 +396,11 @@
                         <!-- 有未完成的订单时展示 -->
                         <button class="btn btn-lg btn-danger btn-block positive-margin1" data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即投资</button>
                       </div>
-                      <form ng-submit="toInvest(project);" name="investForm" ng-switch-default ng-show="categoryCode !== '06'">
+                      <form ng-submit="toInvest(project);" name="investForm" ng-switch-default >
                         <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.amount" ng-model="project.amount" class="form-control margin-b-20" placeholder="投资金额（元）" required ng-switch-default>
                         <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
-                        <p class="ft-red margin-b-5" style="margin-top: -12px;">邀请人手机号(选填):</p>
-                        <input placeholder="请输入邀请人手机号" name="inviteMobile" ng-model="project.inviteMobile" class="form-control" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" style="margin-bottom: 10px;" ng-switch-default ng-focus>
+                        <p ng-show="categoryCode !== '06'" class="ft-red margin-b-5" style="margin-top: -12px;">邀请人手机号(选填):</p>
+                        <input ng-show="categoryCode !== '06'" placeholder="请输入邀请人手机号" name="inviteMobile" ng-model="project.inviteMobile" class="form-control" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" style="margin-bottom: 10px;" ng-switch-default ng-focus>
                         <p ng-if="investForm.inviteMobile.$dirty && investForm.inviteMobile.$invalid && !investForm.inviteMobile.$focused && investForm.inviteMobile.$error.pattern" class="ft-red margin-b-5">手机号码格式不正确</p>
                         <button class="btn btn-danger btn-lg btn-block" ng-switch-default><i class="fa fa-shopping-cart project-leftmargin"></i>立即投资</button>
                       </form>
@@ -431,14 +431,14 @@
                         <button class="btn btn-danger btn-lg btn-block" ng-switch-default><i class="fa fa-shopping-cart project-leftmargin"></i>立即投资</button>
                       </form> -->
                       <!-- <form ng-submit="toInvest(project);"> -->
-                      <form ng-submit="getProfit(project);" name="reserveForm" ng-show="categoryCode !== '06'">
+                      <form ng-submit="getProfit(project);" name="reserveForm" >
                         <!-- <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required> -->
                         <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required disabled="disabled" ng-if="userCanInvestNum === 0">
 
                         <input type="number" min="{{project.minInvest}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20" placeholder="请输入预约总额（元）" required ng-if="userCanInvestNum !== 0">
                         <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
-                        <p class="ft-red" style="margin-top: -12px; margin-bottom: 5px;">邀请人手机号(选填):</p>
-                        <input placeholder="请输入邀请人手机号" name="inviteMobile" ng-model="project.inviteMobile" class="form-control" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" style="margin-bottom: 10px;" ng-focus>
+                        <p ng-show="categoryCode !== '06'" class="ft-red" style="margin-top: -12px; margin-bottom: 5px;">邀请人手机号(选填):</p>
+                        <input ng-show="categoryCode !== '06'" placeholder="请输入邀请人手机号" name="inviteMobile" ng-model="project.inviteMobile" class="form-control" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" style="margin-bottom: 10px;" ng-focus>
                         <p ng-if="reserveForm.inviteMobile.$dirty && reserveForm.inviteMobile.$invalid && !reserveForm.inviteMobile.$focused && reserveForm.inviteMobile.$error.pattern" class="ft-red margin-b-5">手机号码格式不正确</p>
                         <button class="btn btn-danger btn-lg btn-block" ng-if="userCanInvestNum !== 0"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
                         <button class="btn btn-danger btn-lg btn-block" ng-if="userCapital.balance === 0" disabled="disabled"><i class="fa fa-shopping-cart project-leftmargin"></i>立即预约</button>
