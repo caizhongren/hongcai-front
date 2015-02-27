@@ -9,28 +9,27 @@
   </div>
 
   <div class="row main">
-    <!-- 统计数据信息 -->
-    <div class="row" ng-include src='"views/main/_statistical_data.html"'></div>
+
     <!-- 宏金盈 -->
     <div class="row" ng-include src='"views/main/_best_profit.html"'></div>
     <br>
     <!-- 土豪标抽奖页入口 -->
-    <div class="row" ng-include src='"views/main/_tuhao_lucky_draw.html"' ng-show="tuhaoIsShowedFlAG">
-    </div>
+    <!-- <div class="row" ng-include src='"views/main/_tuhao_lucky_draw.html"' ng-show="tuhaoIsShowedFlAG"></div> -->
     <!-- 新手标、红包标模块 -->
-    <div class="row" ng-include src='"views/main/_hongbao_list_no_newbie.html"' ng-if="activityList" ng-hide="newbieIsShowedFLAG">
-    </div>
-    <div class="row" ng-include src='"views/main/_newbie_hongbao.html"' ng-show="newbieIsShowedFLAG"></div>
+    <!-- <div class="row" ng-include src='"views/main/_hongbao_list_no_newbie.html"' ng-if="activityList" ng-hide="newbieIsShowedFLAG"></div> -->
+    <!-- <div class="row" ng-include src='"views/main/_newbie_hongbao.html"' ng-show="newbieIsShowedFLAG"></div> -->
 
     <!-- 预约广告位 -->
     <div class="row" ng-include src='"views/main/_reservation.html"' ng-show="reservationIsShowedFlAG"></div>
-    <br>
+    <!-- <br> -->
     <!-- 热卖推荐模块 -->
-    <div class="row panel panel-danger special-recommend" ng-include src='"views/main/_special_recommend.html"'></div>
+    <div class="row " ng-include src='"views/main/_special_recommend.html"'></div>
     <!-- 推荐项目列表 -->
     <!-- <div class="row recommend" ng-include src='"views/main/_recommend_list.html"'></div> -->
     <!-- 债权转让模块 -->
     <div class="row recommend" ng-include src='"views/main/_credit_assignment.html"' ng-show="creditIsShowedFLAG"></div>
+    <!-- 统计数据信息 -->
+    <div class="row" ng-include src='"views/main/_statistical_data.html"'></div>
     <!-- 右侧竖栏 网站信息展示-->
     <div class="row" ng-include src='"views/main/_hongcai_info.html"'></div>
   </div>
