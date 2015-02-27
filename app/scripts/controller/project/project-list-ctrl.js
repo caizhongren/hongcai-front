@@ -100,4 +100,10 @@ angular.module('hongcaiApp')
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
-  }]);
+  }])
+  .directive('projectPagination', function($document) {
+    return {
+      restrict: "AE",
+      templateUrl: "views/partials/_pagination.html"
+    }
+  });
