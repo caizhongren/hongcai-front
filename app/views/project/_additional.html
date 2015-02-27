@@ -1,12 +1,12 @@
 <div class="col-xs-12">
-  <div class="panel panel-default" ng-init="activeTabRight=0;" ng-show="project.status !== 6 && project.status !== 11">
+  <div class="panel panel-default" ng-init="toggle.activeTabRight=0;" ng-show="project.status !== 6 && project.status !== 11">
     <ul class="nav nav-pills nav-justified border-b">
-      <li ng-class="{active: activeTabRight===$index}" ng-repeat="tab_right in tabsRight"><a ng-click="switchTabRight($index)">{{tab_right.title}}</a>
+      <li ng-class="{active: toggle.activeTabRight===$index}" ng-repeat="tab_right in tabsRight"><a ng-click="toggle.switchTabRight($index)">{{tab_right.title}}</a>
       </li>
 
     </ul>
     <div class="tab-content">
-      <div class="tab-pane" ng-class="{active: activeTabRight===$index}" ng-repeat="tab_right in tabsRight">
+      <div class="tab-pane" ng-class="{active: toggle.activeTabRight===$index}" ng-repeat="tab_right in tabsRight">
         <section ng-if="tab_right.title==='投资记录'">
           <div ng-if="isLogged" class="panel-body">
             <table class="table table-hover ft-12">
@@ -67,13 +67,13 @@
     </div>
 
   </div>
-  <div class="panel panel-default" ng-init="activeTabRightReserve=0;" ng-show="project.status === 6 || project.status === 11">
+  <div class="panel panel-default" ng-init="toggle.activeTabRightReserve=0;" ng-show="project.status === 6 || project.status === 11">
     <ul class="nav nav-pills nav-justified border-b">
-      <li ng-class="{active: activeTabRightReserve===$index}" ng-repeat="tab_rightReserve in tabsRightReserve"><a ng-click="switchTabRightReserve($index)">{{tab_rightReserve.title}}</a>
+      <li ng-class="{active: toggle.activeTabRightReserve===$index}" ng-repeat="tab_rightReserve in tabsRightReserve"><a ng-click="toggle.switchTabRightReserve($index)">{{tab_rightReserve.title}}</a>
       </li>
     </ul>
     <div class="tab-content">
-      <div class="tab-pane" ng-class="{active: activeTabRightReserve===$index}" ng-repeat="tab_rightReserve in tabsRightReserve">
+      <div class="tab-pane" ng-class="{active: toggle.activeTabRightReserve===$index}" ng-repeat="tab_rightReserve in tabsRightReserve">
         <section ng-if="tab_rightReserve.title==='当前预约'">
           <div ng-if="isLogged" class="panel-body">
             <span>您<span ng-if="singleReserveCounts !==0">是第<strong class="ft-red">{{reserveData.ranking}}</strong>位投资者，</span>当前预约金额如下：</span>
