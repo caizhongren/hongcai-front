@@ -307,18 +307,24 @@ angular.module('hongcaiApp')
       // url: 'two.tpl.html'
     }];
 
-    $scope.switchTab = function(tabIndex) {
+    /*$scope.switchTab = function(tabIndex) {
       $scope.activeTab = tabIndex;
       // $scope.currentTab = tab.url;
-    };
+    };*/
 
-    $scope.switchTabRight = function(tabIndexRight) {
-      $scope.activeTabRight = tabIndexRight;
+    $scope.toggle = {};
+    $scope.toggle.switchTab = function(tabIndex) {
+      $scope.toggle.activeTab = tabIndex;
+    };
+    
+
+    $scope.toggle.switchTabRight = function(tabIndexRight) {
+      $scope.toggle.activeTabRight = tabIndexRight;
       // $scope.currentTab = tab.url;
     };
 
-    $scope.switchTabRightReserve = function(tabIndexRightReserve) {
-      $scope.activeTabRightReserve = tabIndexRightReserve;
+    $scope.toggle.switchTabRightReserve = function(tabIndexRightReserve) {
+      $scope.toggle.activeTabRightReserve = tabIndexRightReserve;
     };
 
     // $scope.currentTab = 'one.tpl.html';

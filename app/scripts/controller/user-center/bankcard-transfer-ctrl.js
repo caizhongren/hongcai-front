@@ -37,7 +37,7 @@ angular.module('hongcaiApp')
           $scope.dosi = false;
           _f.submit();
         } else {
-          console.log('ask bankcard-management, why bindBankCard did not load data...');
+          toaster.pop('error', response.msg);
         }
       });
 
@@ -55,7 +55,7 @@ angular.module('hongcaiApp')
           $scope.dosi = true;
           _f.submit();
         } else {
-          console.log('ask bankcard-management, why bindBankCard did not load data...');
+          toaster.pop('error', response.msg);
         }
       });
     }
