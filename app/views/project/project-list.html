@@ -12,7 +12,6 @@
           <!-- 项目列表展示详情 -->
           <li class="list-group-item" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize" ng-include src='"views/project/_list_detail.html"'>
           </li>
-          <!-- 分页，因为是假分页，分拆无法正常使用！如何破？ -->
           <li class="list-group-item" project-pagination>
           </li>
         </ul>
