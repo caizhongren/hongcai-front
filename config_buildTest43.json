@@ -5,7 +5,7 @@
     "sponsorsIsShowedFlAG": false,
     "reservationIsShowedFlAG": true,
     "newbieIsShowedFLAG": true,
-    "creditIsShowedFLAG": false
+    "creditIsShowedFLAG": true
   },
   "jumpHttpsPath": []
 }
