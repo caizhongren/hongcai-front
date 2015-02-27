@@ -1,0 +1,82 @@
+<div class="col-xs-6">
+  <div class="row" style="margin-right: -7.5px;">
+    <div class="col-xs-12" ng-if="newbieProjectList">
+      <div class="hongbao-area row">
+        <div class="col-xs-12 hongbao-title padding-l-0">
+          <h3>新手体验标
+          <small>新手专享，稳健收益！</small>
+          </h3>
+        </div>
+        <div class="col-xs-12 hongcai-body">
+          <div class="col-xs-12" ng-repeat="item in newbieProjectList | limitTo: 1">
+            <img class="newbie-flag" src="/images/test-icon.png" ng-show="stampMap[item.categoryId] === 1">
+            <div class="row {{item.status === 7 ? 'xinshou-red' : 'xinshou-grey'}}" ng-show="item.type === 1">
+              <div class="col-xs-9 col-xs-offset-6 col-md-offset-6 col-lg-offset-4">
+                <h4><a class="txt-overflow" ui-sref="root.project-details({number: item.number})" title="{{ item.name }}">{{ item.name }}&nbsp;<img src="/images/project/newbie_flag.png"></a></h4>
+                <div class="row">
+                  <div class="col-xs-12 margin-b-15">
+                    <div class="col-xs-4 padding-l-0">年化收益：
+                      <br><span class="ft-red ft-18">{{item.annualEarnings || 0 | number : 2}}</span>%</div>
+                    <div class="col-xs-4 padding-l-0">项目规模：
+                      <br><span class="ft-red ft-18">{{item.total | menoyFormat}}</span>
+                    </div>
+                    <div class="col-xs-4 padding-l-0">项目期限：
+                      <br><span class="ft-red ft-18">{{item.cycle}}</span>个月</div>
+                  </div>
+                </div>
+
+                <a ui-sref="root.project-details({number: item.number})" class="btn btn-primary" role="button">{{ projectStatusMap[item.status] || '查看详情'}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="col-xs-6">
+  <div class="row" style="margin-left: -7.5px;">
+    <div class="col-xs-12" ng-if="activityList">
+      <div class="hongbao-area row">
+        <div class="col-xs-12 hongbao-title padding-l-0">
+          <h3>宏包系列标
+          <small>免费投资，坐享收益！ </small>
+          </h3>
+          <a ui-sref="root.project-activity-group">更多&gt;</a>
+        </div>
+        <div class="col-xs-12 hongcai-body">
+          <div class="col-xs-12" ng-repeat="item in activityList | limitTo: 1">
+            <div class="row {{item.status === 7 ? 'hongbao-red' : 'hongbao-grey'}}" ng-show="item.type===2">
+              <div class="col-xs-9 col-xs-offset-6 col-md-offset-6 col-lg-offset-4">
+                <h4><a class="txt-overflow" ui-sref="root.activity-details({number: item.number, type: item.type})" title="{{ item.name }}">{{ item.name}}</a></h4>
+                <div class="row">
+                  <div class="col-xs-12 margin-b-15">
+                    <div class="col-xs-12 padding-l-0">年化收益率：
+                      <br><span class="ft-red ft-18">10% + 90</span>%</div>
+                  </div>
+                </div>
+                <!-- <p>年化收益率：</p>
+                <h4><span>10% + 90%</span></h4> -->
+                <a ui-sref="root.activity-details({number: item.number, type: item.type})" class="btn btn-primary" role="button">查看详情</a>
+              </div>
+            </div>
+            <div class="row main-hao" ng-show="item.type===3">
+              <div class="col-xs-7 col-xs-offset-6 col-md-offset-6 col-lg-offset-5">
+                <h4><a class="txt-overflow" ui-sref="root.activity-details({number: item.number, type: item.type})" title="{{ item.name }}">{{ item.name}}</a></h4>
+                <div class="row">
+                  <div class="col-xs-12 margin-b-15">
+                    <div class="col-xs-12 padding-l-0">年化收益率：
+                      <br><span class="ft-red ft-18">10% + 90</span>%</div>
+                  </div>
+                </div>
+                <!-- <p>年化收益：</p>
+                <h4><span>10% + 90%</span></h4> -->
+                <a ui-sref="root.activity-details({number: item.number, type: item.type})" class="btn btn-primary" role="button">查看详情</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
