@@ -4,7 +4,8 @@
     "tuhaoIsShowedFlAG": false,
     "sponsorsIsShowedFlAG": false,
     "reservationIsShowedFlAG": true,
-    "newbieIsShowedFLAG": true
+    "newbieIsShowedFLAG": true,
+    "creditIsShowedFLAG": false
   },
   "jumpHttpsPath": ["/register-mobile", "/login", "/register-mail"],
   "ignorePATH": ["/credit-list", "/credit-details", "/credit-verify", "/credit-assignment", "/credit-success", "/credit", "/credit-create"]
