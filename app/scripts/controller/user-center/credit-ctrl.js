@@ -28,7 +28,6 @@ angular.module('hongcaiApp')
 
       UserCenterService.getHeldInCreditRightList.get({}, function(response){
         $scope.heldIdCreditList = response.data.heldIdCreditList;
-
       });
     };
 
