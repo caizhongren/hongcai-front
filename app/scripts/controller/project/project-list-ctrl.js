@@ -99,5 +99,10 @@ angular.module('hongcaiApp')
       return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
     };
     $rootScope.selectPage = $location.path().split('/')[1];
-
-  }]);
+  }])
+  .directive('projectPagination', function() {
+    return {
+      restrict: 'AE',
+      templateUrl: 'views/partials/_pagination.html'
+    };
+  });
