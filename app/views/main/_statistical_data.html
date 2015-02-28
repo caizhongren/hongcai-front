@@ -1,0 +1,40 @@
+<div class="panel panel-default statics">
+  <div class="panel-heading">
+    <h4>
+      <i class="fa fa-bar-chart hc-text-red"></i>&nbsp;统计数据
+    </h4>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-4">
+        <div class="media">
+          <span class="pull-left"><i class="fa fa-pie-chart hc-text-red ft-3em"></i></span>
+          <div class="media-body">
+            <p>成交总金额</p>
+            <h3 class="media-heading">{{indexStatic.staticAmount  | number : 0}}<small>元</small></h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+        <div class="media margin-t-7">
+          <span class="pull-left"><i class="fa fa-calculator hc-text-red ft-3em"></i></span>
+          <div class="media-body">
+            <p>用户总收益</p>
+            <h3 class="media-heading">{{indexStatic.staticProfit  | number : 0}}<small>元</small></h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+        <div class="media margin-t-7">
+          <span class="pull-left"><i class="fa fa-group hc-text-red ft-3em"></i></span>
+          <div class="media-body">
+            <p>加入理财者</p>
+            <h3 class="media-heading">{{indexStatic.staticUser}}<small>人</small></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
