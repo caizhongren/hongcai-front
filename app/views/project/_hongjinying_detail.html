@@ -1,0 +1,240 @@
+<div class="col-xs-12">
+  <div class="row project-info" ng-init="toggle.activeTab=0;">
+    <div class="col-xs-12 padding-l-0 border-b-grey">
+      <ul class="nav nav-pills nav-justified" style="width: 45%;">
+        <li ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs"><a ng-click="toggle.switchTab($index)">{{tab.title}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane" ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs">
+        <section ng-if="tab.title==='计划简介'">
+          <div class="container-fluid">
+            <div class="row border-b-white">
+              <div class="col-xs-2 bg-grey2 tab-left text-right">
+                名称
+              </div>
+              <div class="col-xs-10 bg-grey3 tab-right">
+                七日盈计划第1501423期<!-- 数据绑定 -->
+              </div>
+            </div>
+            <div class="row border-b-white">
+              <div class="col-xs-2 bg-grey2 tab-left text-right">
+                计划介绍
+              </div>
+              <div class="col-xs-10 bg-grey3 tab-right">
+                七日盈计划第1501423期<!-- 数据绑定 -->
+              </div>
+            </div>
+            <div class="row border-b-white">
+              <div class="col-xs-2 bg-grey2 tab-left text-right">
+                投标范围
+              </div>
+              <div class="col-xs-10 bg-grey3 tab-right">
+                12%<!-- 数据绑定 -->
+              </div>
+            </div>
+            <div class="row border-b-white">
+              <div class="col-xs-2 bg-grey2 tab-left text-right">
+                锁定期
+              </div>
+              <div class="col-xs-10 bg-grey3 tab-right">
+                7日<!-- 数据绑定 -->
+              </div>
+            </div>
+            <div class="row border-b-white">
+              <div class="col-xs-2 bg-grey2 tab-left text-right">
+                退出日期
+              </div>
+              <div class="col-xs-10 bg-grey3 tab-right">
+                2015年3月7日<!-- 数据绑定 -->
+              </div>
+            </div>
+            <div class="row border-b-white">
+              <div class="col-xs-2 bg-grey2 tab-left text-right">
+                加入条件
+              </div>
+              <div class="col-xs-10 bg-grey3 tab-right">
+                加入金额为100元，且为100元的整数倍<!-- 数据绑定 -->
+              </div>
+            </div>
+            <div class="row border-b-white">
+              <div class="col-xs-2 bg-grey2 tab-left text-right">
+                加入上限
+              </div>
+              <div class="col-xs-10 bg-grey3 tab-right">
+                10,000元<!-- 数据绑定 -->
+              </div>
+            </div>
+            <div class="row border-b-white">
+              <div class="col-xs-2 bg-grey2 tab-left text-right">
+                保障方式
+              </div>
+              <div class="col-xs-10 bg-grey3 tab-right">
+                100%保障本金和利息<!-- 数据绑定 -->
+              </div>
+            </div>
+            <div class="row border-b-white">
+              <div class="col-xs-2 bg-grey2 tab-left text-right">
+                服务协议
+              </div>
+              <div class="col-xs-10 bg-grey3 tab-right">
+                <a href="#">宏金盈计划协议范本<!-- 数据绑定 --></a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section ng-if="tab.title==='加入记录'">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12">
+                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 企业背景</h4>
+              </div>
+              <div class="col-xs-12">
+                <p>{{enterprise.background}}</p>
+              </div>
+              <div class="col-xs-12">
+                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 营业范围</h4>
+              </div>
+              <div class="col-xs-12">
+                <p>{{enterprise.businessScope}}</p>
+              </div>
+              <div class="col-xs-12">
+                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 经营状况</h4>
+              </div>
+              <div class="col-xs-12">
+                <p>{{enterprise.businessState}}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section ng-if="tab.title==='计划进程'">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12">
+                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i>担保机构</h4>
+              </div>
+              <div class="col-xs-12">
+                <p>{{projectInfo.guaranteeSuggestion}}</p>
+              </div>
+              <div class="col-xs-12">
+                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i>风控措施</h4>
+              </div>
+              <div class="col-xs-12">
+                <p>{{projectInfo.riskManagementInfo}}</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section ng-if="tab.title==='常见问题'">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12">
+                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 合同协议</h4>
+              </div>
+              <div class="col-xs-6 col-sm-4 file-padding" ng-repeat="contract in contractThumbnailFileList">
+                <div class="thumbnail">
+                  <a class="grouped_elements" rel="group1" href="javascript:;" ng-click="openFancybox()">
+                    <img width="175" height="125" ng-src="{{baseFileUrl + contract.uploadFile.url}}">
+                  </a>
+                  <div class="caption">
+                    <h5 class="file-head">{{contract.uploadFile.originalName.split('.')[0]}}</h5>
+                  </div>
+                  <div class="wrapper" fancybox style="display: none;">
+                    <div class="future_fancybox_content">
+                      <img src="{{baseFileUrl + contractOriginalFileList[$index].uploadFile.url}}" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 企业相关照片</h4>
+              </div>
+              <div class="row">
+                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 file-padding" ng-repeat="enterPrise in enterpriseThumbnailFileList">
+                  <div class="thumbnail">
+                    <a class="grouped_elements" rel="group1" href="javascript:;" ng-click="openFancybox()">
+                      <img width="175" height="125" ng-src="{{baseFileUrl + enterPrise.uploadFile.url}}">
+                    </a>
+                    <div class="caption">
+                      <h5 class="file-head">{{enterPrise.uploadFile.originalName.split('.')[0]}}</h5>
+                    </div>
+                    <div class="wrapper" fancybox style="display: none;">
+                      <div class="future_fancybox_content">
+                        <img src="{{baseFileUrl + enterpriseOriginalFileList[$index].uploadFile.url}}" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <section ng-if="tab.title==='项目历程'">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12">
+                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4>
+                <ul class="timeline">
+                  <li>
+                    <div class="timeline-badge primary"><i class="fa fa-rocket"></i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <h4 class="timeline-title">项目上线</h4>
+                      </div>
+                      <div class="timeline-body">
+                        <p>上线时间：{{project.publishTime}}</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-inverted">
+                    <div class="timeline-badge info"><i class="fa fa-users"></i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <h4 class="timeline-title">项目募集</h4>
+                      </div>
+                      <div class="timeline-body">
+                        <p>开始时间：{{project.releaseStartTime}}</p>
+                        <p>结束时间：{{project.releaseEndTime}}</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="timeline-badge warning"><i class="fa fa-tree"></i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <h4 class="timeline-title">项目放款</h4>
+                      </div>
+                      <div class="timeline-body">
+                        <p>已还：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest) | number:2 }}（{{billCount}}期）</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="timeline-inverted">
+                    <div class="timeline-badge success"><i class="fa fa-list-ol"></i>
+                    </div>
+                    <div class="timeline-panel">
+                      <div class="timeline-heading">
+                        <h4 class="timeline-title">项目还款</h4>
+                      </div>
+                      <div class="timeline-body">
+                        <p>待还款：{{remainPrincipal + remainInterest | number:2 }}（{{project.cycle - billCount}}期）</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+

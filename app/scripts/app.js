@@ -652,8 +652,8 @@ hongcaiApp
         views: {
           '': {
             templateUrl: 'views/project/hongjinying-project-details.html',
-            controller: 'ProjectDetailsCtrl',
-            controllerUrl: 'scripts/controller/project/project-details-ctrl'
+            controller: 'HjyProjectDetailsCtrl',
+            controllerUrl: 'scripts/controller/project/hongjinying-project-details-ctrl'
           }
         }
       })
