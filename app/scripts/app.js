@@ -647,6 +647,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.hongjinying-project-details', {
+        url: '/hongjinying/:number',
+        views: {
+          '': {
+            templateUrl: 'views/project/hongjinying-project-details.html',
+            controller: 'ProjectDetailsCtrl',
+            controllerUrl: 'scripts/controller/project/project-details-ctrl'
+          }
+        }
+      })
       .state('root.project-sponsorInstitution', {
         url: '/project-sponsorInstitution/:guaranteeId',
         views: {
