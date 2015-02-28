@@ -9,6 +9,13 @@ body, html {
   font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
   background-color: #F0F0F0;
 }
+// fa标签为红色
+.fa-color-red {
+  color: @brand-danger;
+  &:hover {
+    color: @brand-primary;
+  }
+}
 
 a {
   color: #333;
@@ -712,14 +719,7 @@ hr {
   text-align: center !important;
 }
 
-.full-column {
-  .margin-l-15 {
-    margin-left: 15px;
-  }
-  .margin-l-23 {
-    margin-left: 23px;
-  }
-}
+
 .txt-overflow {
   display: inline-block;
   width: 100%;
@@ -884,9 +884,7 @@ hr {
     box-shadow: 0 0 2px #FF9249;
   }
 }
-.ft-4em {
-  font-size: 4em;
-}
+
 .ft-3em {
   font-size: 3em;
 }
