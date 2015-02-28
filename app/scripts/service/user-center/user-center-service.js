@@ -108,6 +108,12 @@ angular.module('hongcaiApp')
       reserveCancel: $resource(DEFAULT_DOMAIN + '/siteReserve/reserveCancel', {
         reserveOrderId: '@reserveOrderId',
         projectId: '@projectId'
+      }),
+
+      // 债权相关
+      getHeldInCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getHeldInCreditRightList'),
+      getTranferCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getTranferCreditRightList', {
+        status: '@status'
       })
 
     };
