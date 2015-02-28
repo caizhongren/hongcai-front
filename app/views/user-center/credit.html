@@ -35,6 +35,56 @@
       </tr>
     </tbody>
   </table>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>项目名称</th>
+        <th>转让金额</th>
+        <th>已购金额</th>
+        <th>转让收益率</th>
+        <th>转让时间</th>
+        <th>认购人数</th>
+        <th>状态</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in transferingCreditList">
+        <td>{{ item.creditAssignment.name }}</td>
+        <td>{{ item.creditAssignment.amount }}</td>
+        <td>{{ item.creditAssignment.soldStock * item.project.increaseAmount }}</td>
+        <td>{{ item.creditAssignment.annualEarnings }}</td>
+        <td>{{ item.creditAssignment.startTime | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ item.orders.length }}</td>
+        <td>{{ item.creditAssignment.status }}</td>
+        <td><a type="button" class="btn btn-default" ng-show="{{ item.creditAssignment.status == 1}}">撤销</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>项目名称</th>
+        <th>初始债权</th>
+        <th>已回款</th>
+        <th>收益</th>
+        <th>转让时间</th>
+        <th>状态</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in transferedCreditList">
+        <td>{{ item.creditAssignment.name }}</td>
+        <td>{{ item.initAmount }}</td>
+        <td>{{ item.backAmount }}</td>
+        <td>{{ item.profit }}</td>
+        <td>{{ item.creditAssignment.startTime | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ item.creditAssignment.status }}</td>
+      </tr>
+    </tbody>
+  </table>
   <ul class="pager">
     <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
     {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
