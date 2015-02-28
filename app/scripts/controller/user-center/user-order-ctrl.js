@@ -26,25 +26,28 @@ angular.module('hongcaiApp')
     };
     $scope.generateContractPDF = function(projectId, orderId, status) {
       if (status === 1) {
-        UserCenterService.generateContractPDFModel.get(function() {
-          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel');
-        });
+        $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel');
+        // UserCenterService.generateContractPDFModel.get(function() {
+        //   $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel');
+        // });
       } else if (status === 2) {
-        UserCenterService.generatePartContractPDF.get({
-          projectId: projectId,
-          orderId: orderId
-        }, function() {
-          $scope.downloadPDF('hongcai/api/v1/siteProject/generatePartContractPDF?orderId=' + orderId + '&projectId=' + projectId);
-        });
+        $scope.downloadPDF('hongcai/api/v1/siteProject/generatePartContractPDF?orderId=' + orderId + '&projectId=' + projectId);
+        // UserCenterService.generatePartContractPDF.get({
+        //   projectId: projectId,
+        //   orderId: orderId
+        // }, function() {
+        //   $scope.downloadPDF('hongcai/api/v1/siteProject/generatePartContractPDF?orderId=' + orderId + '&projectId=' + projectId);
+        // });
       } else if (status > 3 && status <= 6) {
-        UserCenterService.generateContractPDF.get({
-          projectId: projectId,
-          orderId: orderId
-        }, function() {
-          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
+        $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
+        // UserCenterService.generateContractPDF.get({
+        //   projectId: projectId,
+        //   orderId: orderId
+        // }, function() {
+        //   $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
           // 简单的处理方式，可能被浏览器屏蔽。
           // window.open('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId, '_blank', '');
-        });
+        // });
       }
 
     };
@@ -78,7 +81,7 @@ angular.module('hongcaiApp')
           console.log('ask investment, why getOrderByUser did not load data...');
         }
       });
-    
+
     $scope.reload = function() {
       window.location.reload();
     };
