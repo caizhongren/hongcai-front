@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h4 class="hc-text-red">
+    <h4 class="fa-color-red">
       <i class="fa fa-check-square"></i>&nbsp;推荐产品
       <small><a class="pull-right" ui-sref="root.project-list-query({status: [6,7,8,9,10,11,12], minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false})" >更多产品 &gt;</a></small>
     </h4>
@@ -32,7 +32,7 @@
               <a class="project-icon cursor-d" href="javascript:;" title="{{ project.statusText }}" ng-if="project.status == 10">结</a>
               <a class="project-icon cursor-d" href="javascript:;">奖</a>
             </div>
-            <div class="col-xs-7 text-nowrap">年化收益：<span class="hc-text-red ft-24 ftw-b">{{project.annualEarnings | number : 2}}%</span>
+            <div class="col-xs-7 text-nowrap">年化收益：<span class="fa-color-red ft-24 ftw-b">{{project.annualEarnings | number : 2}}%</span>
             </div>
           </div>
 
