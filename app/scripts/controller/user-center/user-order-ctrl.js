@@ -47,7 +47,7 @@ angular.module('hongcaiApp')
         //   $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
           // 简单的处理方式，可能被浏览器屏蔽。
           // window.open('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId, '_blank', '');
-        });
+        // });
       }
 
     };
