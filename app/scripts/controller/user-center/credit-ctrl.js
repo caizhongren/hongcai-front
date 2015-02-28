@@ -18,4 +18,19 @@ angular.module('hongcaiApp')
         $scope.disabledFlag2 = false;
       }
     });
+
+
+    /**
+     * 获得持有中债权列表
+     */
+    $scope.getHeldInCreditRightList = function(){
+      $scope.searchStatus = 1;
+
+      UserCenterService.getHeldInCreditRightList.get({}, function(response){
+        $scope.heldIdCreditList = response.data.heldIdCreditList;
+      });
+    };
+
+    $scope.getHeldInCreditRightList();
+
   }]);

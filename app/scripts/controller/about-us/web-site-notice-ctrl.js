@@ -1,7 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('WebSiteNoticeCtrl', ['$scope', '$state', '$location', function($scope, $state, $location) {
-    // FIX
     $scope.perPage = parseInt($location.search().perPage, 10) || 5;
     $scope.page = parseInt($location.search().page, 10) || 0;
     $scope.clientLimit = 250;

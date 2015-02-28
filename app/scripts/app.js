@@ -1126,7 +1126,7 @@ hongcaiApp
         }
       })
       .state('root.userCenter.credit-create', {
-        url: '/credit-create',
+        url: '/credit-create/:orderNumber',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/credit-create.html',
@@ -1242,7 +1242,7 @@ hongcaiApp
             templateUrl: 'views/appview/canceltie-card.html'
           }
         }
-        
+
       })
       .state('app-callback.apptie-card', {
         url: '/apptie-card',
@@ -1359,7 +1359,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
     '/gift-overview',
     '/invite-rebate',
     '/gift-rebate',
-    '/reservation'
+    '/reservation',
+    '/credit'
   ];
 
   $rootScope.$on('$stateChangeStart', function() {
