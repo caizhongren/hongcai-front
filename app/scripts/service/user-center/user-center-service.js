@@ -114,6 +114,17 @@ angular.module('hongcaiApp')
       getHeldInCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getHeldInCreditRightList'),
       getTranferCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getTranferCreditRightList', {
         status: '@status'
+      }),
+      canTransferCreditRight: $resource(DEFAULT_DOMAIN + '/siteCredit/canTransferCreditRight', {
+        number: '@number'
+      }),
+      hangTransferCreditRight: $resource(DEFAULT_DOMAIN + '/siteCredit/hangTransferCreditRight', {
+        transferAmount: '@transferAmount',
+        discountAmount: '@discountAmount',
+        creditRightId: '@creditRightId'
+      }),
+      cancelCreditAssignment: $resource(DEFAULT_DOMAIN + '/siteCredit/cancelCreditAssignment', {
+        creditAssignmentId: '@creditAssignmentId'
       })
 
     };

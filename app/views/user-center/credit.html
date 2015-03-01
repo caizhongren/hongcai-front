@@ -29,8 +29,8 @@
         <td>{{ item.order.profit - item.order.returnProfit | number:2 }}</td>
         <td>{{ item.order.returnProfit | number:2 }}</td>
         <td>{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</td>
-        <td>{{ '我爱中国' }}</td>
-        <td><a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create({orderNumber: item.order.number})">发起债券转让</a>
+        <td>{{ creditRightStatusMap[item.creditRight.status] }}</td>
+        <td><a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})">发起债券转让</a>
             <a type="button" class="btn btn-primary btn-sm" ui-sref="root.project-details({number: item.project.number})">详情</a></td>
       </tr>
     </tbody>
@@ -54,11 +54,11 @@
         <td>{{ item.creditAssignment.name }}</td>
         <td>{{ item.creditAssignment.amount }}</td>
         <td>{{ item.creditAssignment.soldStock * item.project.increaseAmount }}</td>
-        <td>{{ item.creditAssignment.annualEarnings }}</td>
+        <td>{{ item.creditAssignment.annualEarnings }}%</td>
         <td>{{ item.creditAssignment.startTime | date: 'yyyy-MM-dd' }}</td>
         <td>{{ item.orders.length }}</td>
-        <td>{{ item.creditAssignment.status }}</td>
-        <td><a type="button" class="btn btn-default" ng-show="{{ item.creditAssignment.status == 1}}">撤销</a></td>
+        <td>{{ assignmentStatusMap[item.creditAssignment.status] }}</td>
+        <td><a type="button" class="btn btn-default" ng-show="item.creditAssignment.status === 1" ng-click="cancelCreditAssignment(item.creditAssignment)">撤销</a></td>
       </tr>
     </tbody>
   </table>

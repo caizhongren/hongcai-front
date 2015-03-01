@@ -28,20 +28,28 @@ angular.module('hongcaiApp')
 
       UserCenterService.getHeldInCreditRightList.get({}, function(response){
         $scope.heldIdCreditList = response.data.heldIdCreditList;
+        $scope.creditRightStatusMap = response.data.creditRightStatusMap;
       });
     };
 
     $scope.getHeldInCreditRightList();
 
+    /**
+     * 获取转让中债权列表
+     */
     $scope.getTranferingCreditRightList = function(searchStatus){
       UserCenterService.getTranferCreditRightList.get({
         status:searchStatus
       },function(response){
         $scope.transferingCreditList = response.data.transferCreditList;
+        $scope.assignmentStatusMap = response.data.assignmentStatusMap;
       });
     }
 
-  $scope.getTranferedCreditRightList = function(searchStatus){
+    /**
+     * 获取已回款债权列表
+     */
+    $scope.getTranferedCreditRightList = function(searchStatus){
       UserCenterService.getTranferCreditRightList.get({
         status:searchStatus
       },function(response){
@@ -73,6 +81,19 @@ angular.module('hongcaiApp')
           }
       });
     }
+
+
+    /**
+     * 撤销债权转让
+     */
+    $scope.cancelCreditAssignment = function(creditAssignment){
+      UserCenterService.cancelCreditAssignment.get({
+        creditAssignmentId:creditAssignment.id
+      },function(response){
+        $scope.getTranferingCreditRightList(2);
+      });
+    }
+
     $scope.getTranferedCreditRightList(3);
     $scope.getTranferingCreditRightList(2);
   }]);
