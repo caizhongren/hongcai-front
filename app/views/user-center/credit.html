@@ -3,11 +3,11 @@
    <div class="right-title">转让列表</div>
   </div>
   <div class="row" style="margin-left:0px; margin-right: 0px;">
-  <a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create">发起债券转让</a>
+  <!-- <a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create">发起债券转让</a> -->
     <div class="btn-group btn-group-sm" role="group" aria-label="..." style="float:right">
-      <a type="button" class="btn btn-default">持有中</a>
-      <a type="button" class="btn btn-default">转让中</a>
-      <a type="button" class="btn btn-default">已回款</a>
+      <a type="button" class="btn btn-default {{searchStatus === 1 ? 'active' : ''}}" ng-click="getHeldInCreditRightList(1)">持有中</a>
+      <a type="button" class="btn btn-default {{searchStatus === 2 ? 'active' : ''}}" ng-click="getTranferingCreditRightList(2)">转让中</a>
+      <a type="button" class="btn btn-default {{searchStatus === 3 ? 'active' : ''}}" ng-click="getTranferedCreditRightList(3)">已回款</a>
     </div>
   </div>
   <table class="table table-bordered" ng-show="searchStatus === 1">
@@ -36,7 +36,7 @@
     </tbody>
   </table>
 
-  <table class="table table-bordered">
+  <table class="table table-bordered" ng-show="searchStatus === 2">
     <thead>
       <tr>
         <th>项目名称</th>
@@ -63,7 +63,7 @@
     </tbody>
   </table>
 
-  <table class="table table-bordered">
+  <table class="table table-bordered" ng-show="searchStatus === 3">
     <thead>
       <tr>
         <th>项目名称</th>
