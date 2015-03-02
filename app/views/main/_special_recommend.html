@@ -1,7 +1,8 @@
-<div class="panel panel-default special-recommend">
+<div id="special-recommend" class="panel panel-default special-recommend">
   <div class="panel-heading">
     <h4><i class="fa fa-line-chart fa-color-red"></i>&nbsp;宏金保
-    <span><a class="more-info-link" ui-sref="path">更多<i class="fa fa-angle-double-right"></i></a></span>
+    &nbsp;<span class="border-r"></span>&nbsp;
+    <span><a class="more-info-link" ui-sref="path">更多<i class="fa fa-angle-right"></i></a></span>
     </h4>
   </div>
   <div class="panel-body">
@@ -11,7 +12,7 @@
         <img ng-show="projectVo.image" ng-src="{{baseFileUrl + projectVo.image}}" alt="" class="img-rounded" width="230" height="206">
       </a>
     </div>
-    <div class="col-md-12 col-lg-9 padding-r-0 " ng-if="projectVo">
+    <div class="col-md-12 col-lg-9" ng-if="projectVo">
       <div class="row border-b">
         <div class="col-xs-3">
           <a ui-sref="root.project-details({number: projectVo.number})" title="{{projectVo.name}}"><h3 class="text-nowrap margin-t-0">{{ '中东担保' | limitTo: 10 }}<img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="projectVo.categoryCode === '04'"></h3></a>
@@ -28,32 +29,30 @@
           <a class="project-icon cursor-d" href="javascript:;">奖</a>
         </div>
       </div>
-      <div class="row">
+      <div class="row padding-t-20">
         <div class="col-md-12 col-lg-8">
-          <br>
           <div class="row">
             <p>担保机构：北京平安信托担保公司</p>
           </div>
           <div class="row">
             <div class="col-xs-4 border-r under-margin">
-              <h2 class="text-center text-nowrap hc-text-red">{{ '10000'}} <span style="font-size: 13px; color: black;">&nbsp;万</span></h2>
+              <h2 class="text-center text-nowrap hc-text-red">{{ '10000'}} <span class="font-black-13">&nbsp;万</span></h2>
             </div>
             <div class="col-xs-4 border-r under-margin">
-              <h2 class="text-center text-nowrap hc-text-red">{{  '12' }} <span style="font-size: 13px; color: black;">&nbsp;个月</span></h2>
+              <h2 class="text-center text-nowrap hc-text-red">{{  '12' }} <span class="font-black-13">&nbsp;个月</span></h2>
             </div>
             <div class="col-xs-4 under-margin">
-              <h2 class="text-center text-nowrap hc-text-red">{{ '10'}}<span style="font-size: 13px; color: black;">%&nbsp;年化收益</span></h3>
+              <h2 class="text-center text-nowrap hc-text-red">{{ '10'}}<span class="font-black-13">%&nbsp;年化收益</span></h3>
             </div>
           </div>
           <div class="row">
-            <span class="border" style="padding: 7px; background-color:#CBAE7C; color:white; border-radius:4px;">100% 本息担保</span>&nbsp;&nbsp;
-            <span>可投金额：<strong style="font-size: 20px;">200</strong>万</span>
+            <span class="border border-guarantee" >100% 本息担保</span>&nbsp;&nbsp;
+            <span>可投金额：<strong class="font-20">200</strong>万</span>
           </div>
         </div>
 
 
         <div class="col-md-12 col-lg-4">
-          <br>
           <div class="row" style="padding-top: 48px;">
             <div class="col-xs-12" ng-show="projectVo.status !== 6 && projectVo.status !== 11">
               <span class="pull-left ft-16">投资进度：</span>
