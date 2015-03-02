@@ -1,6 +1,19 @@
 @import 'commonq.less';
-
 // index private
+#announcement {
+  .main-border {
+    border: 2px solid #dbdbdb;
+    border-radius: 2px;
+  }
+  .anno-padding {
+    padding: 7px;
+    background-color: white;
+  }
+}
+.main-border-right-dotted {
+  border-right: 2px dotted #dbdbdb;
+  border-radius: 2px;
+}
 .main {
   padding-bottom: 20px;
   color: #807979;
@@ -17,14 +30,13 @@
     }
   }
 }
-
 // 所有更多的样式
 .more-info-link {
   float: right;
-  font-size:14px;
-  color:#999999;
+  font-size: 12px;
+  padding-top 4px;
+  color: #999999;
 }
-
 // 宏金盈
 #best-profit {
   .panel-body {
@@ -41,15 +53,37 @@
     .font-13 {
       font-size: 13px;
     }
-    .font-18 {
-      font-size: 18px;
-      .font-red {
-        color:red;
-      }
+    .font-20 {
+      font-size: 20px;
+    }
+    .font-red {
+      color: red;
     }
   }
 }
-
+#credit-main {
+  .panel-body {
+    .real-type-name {
+      position: relative;
+      .real-type-date {
+        position: absolute;
+        font-size: 14px;
+        color: rgb(184, 184, 184);
+        margin-top: 1px;
+        margin-left: 10px;
+      }
+    }
+    .font-13 {
+      font-size: 13px;
+    }
+    .font-20 {
+      font-size: 20px;
+    }
+    .font-red {
+      color: red;
+    }
+  }
+}
 // 新手标与宏包标
 #main-newbie {
   .panel-body {
@@ -72,11 +106,9 @@
     }
   }
 }
-
 .special-recommend {
   position: relative;
 }
-
 .full-column {
   .margin-l-15 {
     margin-left: 15px;
@@ -85,12 +117,8 @@
     margin-left: 23px;
   }
 }
-
-
-
-
 .more-announcement {
-  color:#999999;
+  color: #999999;
   float: right;
 }
 .font-15 {
@@ -99,5 +127,3 @@
 .font-13 {
   font-size: 13px;
 }
-
-
