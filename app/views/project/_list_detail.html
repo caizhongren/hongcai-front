@@ -1,6 +1,6 @@
 <img class="type-flag" src="/images/test-icon.png" ng-show="item.isStamp === 1">
 <div ng-if="!isLogged">
-  <div class="row" ng-hide="item.id === 116">
+  <div class="row" ng-hide="item.id === 116 && item.showByStatus">
     <div class="hidden-md col-lg-2">
       <img ng-src={{baseFileUrl}}{{item.image}} class="img-rounded" width="160" height="165">
     </div>
@@ -71,7 +71,7 @@
   </div>
 </div>
 <div ng-if="isLogged">
-  <div class="row" ng-hide="item.id === 116 && loginName !== 'Lisa_Xu'">
+  <div class="row" ng-hide="item.id === 116 && loginName !== 'Lisa_Xu' && item.showByStatus">
     <div class="hidden-md col-lg-2">
       <img ng-src={{baseFileUrl}}{{item.image}} class="img-rounded" width="160" height="165">
     </div>
