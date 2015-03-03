@@ -27,14 +27,20 @@
               <div class="col-xs-12">
                 <p>{{projectInfo.repaymentSource}}</p>
               </div>
-              <div class="col-xs-12">
+              <div class="col-xs-12" ng-hide="categoryCode === '07'">
                 <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目评级
                             <span ng-if="projectRank.symbol !== ''" ng-class="{'a3' : projectRank.symbol==='AAA','a2' : projectRank.symbol==='AA','a1' : projectRank.symbol==='A','b3' : projectRank.symbol==='BBB','b2' : projectRank.symbol==='BB','b1' : projectRank.symbol==='B','c' : projectRank.symbol==='C'}" class="project-rate">&nbsp;</span>
                           </h4>
               </div>
-              <div class="col-xs-12">
+              <div class="col-xs-12" ng-hide="categoryCode === '07'">
                 <p>{{projectRank.description}}</p>
               </div>
+              <div class="col-xs-12" ng-show="categoryCode === '07'">
+                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i>风控措施</h4>
+              </div>
+              <div class="col-xs-12" ng-show="categoryCode === '07'">
+                <p>{{projectInfo.riskManagementInfo}}</p>
+              </div
             </div>
           </div>
         </section>
@@ -102,7 +108,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row" ng-hide="categoryCode === '07'">
               <div class="col-xs-12">
                 <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 企业相关照片</h4>
               </div>

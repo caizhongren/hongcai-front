@@ -36,7 +36,21 @@ angular.module('hongcaiApp')
           });
           $scope.project = projectDetails.data.project;
           $scope.categoryCode = $scope.project.categoryCode;
-          if ($scope.categoryCode !== '04' && $scope.categoryCode !== '05' && $scope.categoryCode !== '06') {
+          if ($scope.categoryCode === '04' || $scope.categoryCode === '05' || $scope.categoryCode === '06') {
+            $scope.tabs = [{
+              title: '项目信息',
+            }, {
+              title: '企业信息',
+            }, {
+              title: '相关文件',
+            }];
+          } else if ($scope.categoryCode === '07') {
+            $scope.tabs = [{
+              title: '项目信息',
+            }, {
+              title: '相关文件',
+            }];
+          } else {
             $scope.tabs = [{
               title: '项目信息',
             }, {
@@ -48,15 +62,8 @@ angular.module('hongcaiApp')
             }, {
               title: '项目历程',
             }];
-          } else {
-            $scope.tabs = [{
-              title: '项目信息',
-            }, {
-              title: '企业信息',
-            }, {
-              title: '相关文件',
-            }];
           }
+
           $scope.repaymentDate = projectDetails.data.repaymentDate;
 
           $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额' : '可投金额';
