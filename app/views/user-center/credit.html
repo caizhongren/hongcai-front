@@ -31,7 +31,7 @@
         <td>{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</td>
         <td>{{ creditRightStatusMap[item.creditRight.status] }}</td>
         <td><a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})">发起债券转让</a>
-            <a type="button" class="btn btn-primary btn-sm" ui-sref="root.project-details({number: item.project.number})">详情</a></td>
+            <a type="button" class="btn btn-default btn-sm" ui-sref="root.project-details({number: item.project.number})">详情</a></td>
       </tr>
     </tbody>
   </table>
