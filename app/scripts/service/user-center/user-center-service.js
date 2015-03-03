@@ -124,7 +124,7 @@ angular.module('hongcaiApp')
         creditRightId: '@creditRightId'
       }),
       cancelCreditAssignment: $resource(DEFAULT_DOMAIN + '/siteCredit/cancelCreditAssignment', {
-        creditAssignmentId: '@creditAssignmentId'
+        assignmentNumber: '@assignmentNumber'
       })
 
     };

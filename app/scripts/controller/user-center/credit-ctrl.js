@@ -88,7 +88,7 @@ angular.module('hongcaiApp')
      */
     $scope.cancelCreditAssignment = function(creditAssignment){
       UserCenterService.cancelCreditAssignment.get({
-        creditAssignmentId:creditAssignment.id
+        assignmentNumber:creditAssignment.number
       },function(response){
         $scope.getTranferingCreditRightList(2);
       });
