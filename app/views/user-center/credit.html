@@ -56,7 +56,7 @@
         <td>{{ item.creditAssignment.soldStock * item.project.increaseAmount }}</td>
         <td>{{ item.creditAssignment.annualEarnings }}%</td>
         <td>{{ item.creditAssignment.startTime | date: 'yyyy-MM-dd' }}</td>
-        <td>{{ item.orders.length }}</td>
+        <td>{{ item.creditAssignment.subscribeNumber }}</td>
         <td>{{ assignmentStatusMap[item.creditAssignment.status] }}</td>
         <td><a type="button" class="btn btn-default" ng-show="item.creditAssignment.status === 1" ng-click="cancelCreditAssignment(item.creditAssignment)">撤销</a></td>
       </tr>
