@@ -32,18 +32,18 @@
   <div class="panel panel-default" style="background-color: #F5F5F5">
     <div class="panel-title" style="padding-top:30px; padding-left:25px;">
       <i class="fa fa-info-circle"></i>
-      <span>{{ creditRightHolding.project.name }}</span>
+      <span>{{ creditRightHolding.order.projectName }}</span>
     </div>
 
     <div class="panel-body" style="padding-top:20px; padding-left:35px;">
       <div class="row">
         <div class="col-sm-4">年化收益：{{ creditRightHolding.project.annualEarnings }}%</div>
-        <div class="col-sm-4">已收收益：{{ creditRightHolding.order.returnProfit | number:2 }}元</div>
+        <div class="col-sm-4">已收收益：{{ creditRightHolding.creditRight.returnProfit | number:2 }}元</div>
         <div class="col-sm-4">投资日期：{{ creditRightHolding.order.createTime | date:'yyyy-MM-dd' }}</div>
       </div>
       <div class="row">
         <div class="col-sm-4">债权总额：{{ creditRightHolding.creditRight.transferableAmount |number:2 }}元</div>
-        <div class="col-sm-4">未收收益：{{ creditRightHolding.order.profit -  creditRightHolding.order.returnProfit |number:2}}元</div>
+        <div class="col-sm-4">未收收益：{{ creditRightHolding.creditRight.profit -  creditRightHolding.creditRight.returnProfit |number:2}}元</div>
         <div class="col-sm-4">到期日期：{{ creditRightHolding.project.repaymentDate | date:'yyyy-MM-dd' }}</div>
       </div>
     </div>
@@ -102,7 +102,7 @@
               <div ui-slider min="-100" max="100" ng-model="tranForm.discountAmount"></div>
             </div>
             <div class="col-xs-1">
-              <span>{{ maxDiscountAmount }}</span>
+              <span>{{ maxDiscountAmount * tranForm.transferAmount / creditRightHolding.creditRight.transferableAmount }}</span>
             </div>
           </div>
         </div>
