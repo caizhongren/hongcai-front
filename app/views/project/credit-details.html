@@ -12,39 +12,39 @@
                 <div class="col-lg-7">
                   <div class="row">
                     <div class="col-xs-12 under-margin">
-                      <h1 class="project-name">{{ '餐饮企业店面扩建' }}</h1>
+                      <h1 class="project-name">{{ creditAssignment.name }}</h1>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-xs-12 col-sm-4 border-r under-margin">
-                      <h3 class="text-center text-nowrap hc-text-red">{{ '11.45' }}%</h3>
+                      <h3 class="text-center text-nowrap hc-text-red">{{ creditAssignment.annualEarnings }}%</h3>
                       <p class="text-center text-nowrap gray-font">年化收益</p>
                     </div>
                     <div class="col-xs-12 col-sm-4 border-r under-margin">
-                      <h3 class="text-center text-nowrap">{{ '212' }}天</h3>
+                      <h3 class="text-center text-nowrap">{{ creditAssignment.remainDay }}天</h3>
                       <p class="text-center text-nowrap gray-font">剩余期限</p>
                     </div>
                     <div class="col-xs-12 col-sm-4 under-margin">
-                      <h3 class="text-center text-nowrap">{{ '3,000' }}元</h3>
+                      <h3 class="text-center text-nowrap">{{ creditAssignment.amount | number:0 }}元</h3>
                       <p class="text-center text-nowrap gray-font">转让金额</p>
                     </div>
                   </div>
                   <hr style="margin-top: 0px;margin-bottom: 15px;">
                   <div class="row">
                     <div class="col-xs-12" ng-class="{'under-margin1': project.status === 9 || project.status === 10}"><i class="fa fa-circle hc-text-red right-margin"></i>
-                      <strong>原标年化：{{ '13' }}%</strong>
+                      <strong>原标年化：{{ project.annualEarnings }}%</strong>
                     </div>
                     <div class="col-xs-12"><i class="fa fa-circle hc-text-red right-margin"></i>
-                      <strong>还款日期：{{ '2015-09-17' | amDateFormat: 'YYYY年MM月DD日'}}</strong>
+                      <strong>还款日期：{{ project.repaymentDate | date: 'yyyy年MM月dd日'}}</strong>
                     </div>
                   </div>
                   <hr style="margin-top: 15px;margin-bottom: 15px;">
                   <div class="row">
                     <div class="col-xs-12 under-margin1" ng-hide="categoryCode === '04'"><i class="fa fa-circle hc-text-red right-margin"></i>
-                      <strong>担保机构：{{ '北京平安信托担保有限公司' }}</strong>
+                      <strong>担保机构：{{ project.guaranteeName }}</strong>
                     </div>
                     <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
-                      <strong>还款方式：{{'按月付息，到期还本'}}</strong>
+                      <strong>还款方式：{{project.repaymentType==1 ? '按月付息，到期还本' : '等额本息'}}</strong>
                     </div>
                   </div>
                 </div>
@@ -259,40 +259,32 @@
           <div class="form-horizontal">
             <div class="panel panel-default status">
               <div class="panel-heading ft-16 padding-tAb">
-                <strong>认购金额</strong>
+                <strong>可认购金额：{{creditAssignment.amount - (creditAssignment.soldStock + creditAssignment.occupancyStock) * project.increaseAmount | number:0}} 元</strong>
                 <img src="images/zengliang_03.png" class="project-bianju pull-right">
               </div>
               <div class="panel-body">
                 <div class="row">
                   <div class="col-xs-12 negative-margin1">
-                    <span class="col-xs-4 padding-lar-0 ft-16">{{ '认购金额' }}：</span>
-                    <span class="ft-18">{{ '3,000' }}</span>
+                    <span class="col-xs-4 padding-lar-0 ft-16">折让金：</span>
+                    <span class="investment-fontred">{{ expectedCal(subscribeAmount).discountAmount | number:2 }}</span>
                     <span class="ft-24">元</span>
                   </div>
                   <div class="col-xs-12 negative-margin1">
-                    <span class="col-xs-4 padding-lar-0 ft-16">{{ '认购进度' }}：</span>
-                    <span class="ft-18">{{ '56' }}</span>
-                    <span class="ft-24">%</span>
-                  </div>
-                  <div class="col-xs-12 negative-margin1">
-                    <span class="col-xs-4 padding-lar-0 ft-16">{{ '折让金' }}：</span>
-                    <span class="investment-fontred">{{ '-125.32' }}</span>
+                    <span class="col-xs-4 padding-lar-0 ft-16">实际支付：</span>
+                    <span class="investment-fontred">{{ expectedCal(subscribeAmount).realPay | number:2 }}</span>
                     <span class="ft-24">元</span>
                   </div>
                   <div class="col-xs-12 negative-margin1">
-                    <span class="col-xs-4 padding-lar-0 ft-16">{{ '实际支付' }}：</span>
-                    <span class="investment-fontred">{{ '3125.32' }}</span>
+                    <span class="col-xs-4 padding-lar-0 ft-16">预期收益：</span>
+                    <span class="investment-fontred">{{ expectedCal(subscribeAmount).profit | number:2 }}</span>
                     <span class="ft-24">元</span>
                   </div>
                   <div class="col-xs-12 negative-margin1">
-                    <span class="col-xs-4 padding-lar-0 ft-16">{{ '预期收益' }}：</span>
-                    <span class="investment-fontred">{{ '31.45' }}</span>
-                    <span class="ft-24">元</span>
+                    <input class="col-xs-6 " placeholder="请输入认购金额" ng-model="subscribeAmount"></input>
+                    <button >立即认购</button>
+                    <button >全投</button>
                   </div>
 
-                  <div class="col-xs-12 positive-margin" ng-show="project.status === 11">
-                    <span class="ft-16">预约截止日：</span><span>{{ project.reserveEndTime | amDateFormat: 'YYYY/MM/DD HH:mm:ss'}}</span>
-                  </div>
                 </div>
 
                 <!-- 未登录状态 输入框及提示语展示 -->

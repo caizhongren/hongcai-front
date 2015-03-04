@@ -17,6 +17,10 @@ angular.module('hongcaiApp')
       creditAssignmentDetail: $resource(DEFAULT_DOMAIN + '/siteCredit/creditAssignmentDetail', {
         assignmentNumber:'@assignmentNumber'
       }),
+      subscribeCreditRight: $resource(DEFAULT_DOMAIN + '/siteCredit/subscribeCreditRight', {
+        assignmentNumber:'@assignmentNumber',
+        subscribeAmount: '@subscribeAmount'
+      }),
 
      
     };

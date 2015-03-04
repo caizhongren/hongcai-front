@@ -10,11 +10,41 @@ angular.module('hongcaiApp')
       assignmentNumber: number
     }, function(response){
       if (response.ret == 1){
-
+        $scope.creditAssignment = response.data.creditAssignment;
+        $scope.project = response.data.project;
       } else {
         $state.go('root.credit-list-query-no');
       }
     });
+
+    
+    /*
+     * 根据用户输入的折让金计算预计收益，折让金以及实际支付金额
+     */
+    $scope.expectedCal = function(subscribeAmount){
+      var creditAssignment = $scope.creditAssignment;
+      if (!subscribeAmount){
+        return {discountAmount:0, realPay: 0, profit:0};
+      }
+      var profit = creditAssignment.annualEarnings * subscribeAmount * creditAssignment.remainDay/365;
+      var discountAmount = creditAssignment.discountAmount * subscribeAmount / creditAssignment.amount;
+      var realPay = Number(subscribeAmount) +  Number(discountAmount);
+      return {discountAmount : discountAmount, realPay : realPay, profit: profit}
+    }
+
+    /*
+     * 认购债权
+     */
+    $scope.subscribeCreditRight = function(subscribeAmount){
+      CreditService.subscribeCreditRight.get({
+        assignmentNumber: $scope.creditAssignment.number,
+        subscribeAmount: subscribeAmount,
+      }, function(response){
+        if (response.ret == 1){
+
+        }
+      });
+    }
 
 
 //     $rootScope.redirectUrl = $location.path();
