@@ -1040,7 +1040,7 @@ hongcaiApp
       /*------------------------------------------  credit assignment  -----------------------------------------------*/
       // 债券转让列表页
       .state('root.credit-list-query', {
-        url: '/credit-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+        url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
         views: {
           '': {
             templateUrl: 'views/project/credit-list.html',
@@ -1061,7 +1061,7 @@ hongcaiApp
       })
       // 债券转让详情页
       .state('root.credit-details', {
-        url: '/credit-details/:number',
+        url: '/credit-details/:assignmentNumber',
         views: {
           '': {
             templateUrl: 'views/project/credit-details.html',

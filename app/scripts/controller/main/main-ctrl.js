@@ -131,6 +131,16 @@ angular.module('hongcaiApp')
 
     $rootScope.selectPage = $location.path().split('/')[1];
 
+
+    /**
+     * 债权转让列表
+     */
+    var creditRightGroup = MainService.indexCreditRightList.get(function() {
+      if (creditRightGroup.ret === 1) {
+        $scope.creditRightList = creditRightGroup.data.creditAssignmentList;
+      }
+    });
+
     /**
      * 处理推广流量统计
      */

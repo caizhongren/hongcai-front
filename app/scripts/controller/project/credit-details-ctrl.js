@@ -1,6 +1,22 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
+  .controller('CreditDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'CreditService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $location, $stateParams, CreditService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
+
+    var number = $stateParams.assignmentNumber;
+    if (!number){
+      $state.go('root.credit-list-query-no');
+    }
+    CreditService.creditAssignmentDetail.get({
+      assignmentNumber: number
+    }, function(response){
+      if (response.ret == 1){
+
+      } else {
+        $state.go('root.credit-list-query-no');
+      }
+    });
+
+
 //     $rootScope.redirectUrl = $location.path();
 //     $scope.chk = true;
 //     $scope.checkFlag = true;
@@ -337,27 +353,6 @@ angular.module('hongcaiApp')
       $scope.activeTabRightReserve = tabIndexRightReserve;
     };
 
-//     $scope.image = 'images/test/0.png';
-//     var myOtherModal = $modal({
-//       scope: $scope,
-//       template: 'views/modal/modal-imageEnlarge.html',
-//       show: false
-//     });
-//     $scope.showModal = function(image) {
-//       $scope.targetImg = image;
-//       myOtherModal.$promise.then(myOtherModal.show);
-//     };
-
-//     // 处理推广流量统计
-//     var from = $stateParams.from;
-//     if (from) {
-//       ipCookie('utm_from', from, {
-//         expires: 1
-//       });
-//       MainService.trafficStats.get({
-//         from: from
-//       });
-//     }
 
     $scope.toLogin = function() {
       var thisUrl = $location.path();

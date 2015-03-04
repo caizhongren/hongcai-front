@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'ProjectService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, toaster) {
+  .controller('CreditListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'CreditService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, CreditService, toaster) {
     $scope.sortType = $stateParams.sortType || false;
     console.log($stateParams);
     if ($scope.sortType === 'true') {
@@ -19,8 +19,9 @@ angular.module('hongcaiApp')
       }
       return true;
     }
+
     if (isEmptyObject($stateParams)) {
-      $location.path('/credit-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false');
+      $location.path('/credit-list/0/10000000/0/100/0/100/0/200000000/release_start_time/false');
     }
 
     //假数据
@@ -29,6 +30,27 @@ angular.module('hongcaiApp')
       'statusText' : '融资中',
       'progress' : 80
     }
+
+    $scope.currentPage = 1;
+    CreditService.getCreditAssignmentList.get({
+        minTransferAmount: $stateParams.minTransferAmount ,
+        maxTransferAmount:$stateParams.maxTransferAmount ,
+        minCycle:$stateParams.minCycle ,
+        maxCycle:$stateParams.maxCycle,
+        minEarning:$stateParams.minEarning,
+        maxEarning:$stateParams.maxEarning,
+        minTotalAmount:$stateParams.minTotalAmount,
+        maxTotalAmount:$stateParams.maxTotalAmount,
+        sortCondition:$stateParams.sortCondition,
+        sortType:$stateParams.sortType
+    }, function(response){
+        if (response.ret == 1){
+          $scope.assignmentList = response.data.assignmentList;
+          $scope.pageCount = response.data.pageCount;
+          $scope.dataSize = response.data.count;
+        }
+    });
+
 
     // var response = ProjectService.projectList.get({
     //   status: $stateParams.status,
@@ -83,29 +105,6 @@ angular.module('hongcaiApp')
     //     console.log('ask project-list, why projectList did not load data...');
     //   }
     // });
-
-    $scope.timeUntil = function(stDate) {
-      stDate = stDate - $scope.counter;
-      if (stDate === 0) {
-        ProjectService.projectList.get({
-          status: $stateParams.status,
-          minCycle: $stateParams.minCycle,
-          maxCycle: $stateParams.maxCycle,
-          minEarning: $stateParams.minEarning,
-          maxEarning: $stateParams.maxEarning,
-          minTotalAmount: $stateParams.minTotalAmount,
-          maxTotalAmount: $stateParams.maxTotalAmount,
-          sortCondition: $stateParams.sortCondition,
-          sortType: $scope.sortType
-        }, function() {
-          if (response.ret === 1) {
-            $scope.projectList = response.data.projectList;
-          }
-          window.location.reload();
-        });
-      }
-      return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
-    };
 
     $rootScope.selectPage = $location.path().split('/')[1];
 
