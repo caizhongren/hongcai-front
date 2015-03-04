@@ -217,7 +217,7 @@ angular.module('hongcaiApp')
         $rootScope.inviteMobile = project.inviteMobile;
       }
       $scope.amount = project.status === 11 ? project.toReserveAmount : project.amount;
-      if ($scope.amount <= $scope.project.minInvest) {
+      if ($scope.amount < $scope.project.minInvest) {
         // alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
         // $scope.msg = '投资金额必须大于最小投资金额' + $scope.project.minInvest + '！';
         $scope.msg = '投资金额必须大于最小投资金额:100元！';
