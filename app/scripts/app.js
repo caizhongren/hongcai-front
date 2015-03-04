@@ -617,6 +617,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.hongjinying-project-list', {
+        url: '/hongjinying-project-list',
+        views: {
+          '': {
+            templateUrl: 'views/project/hongjinying-project-list.html',
+            controller: 'HjyProjectListCtrl',
+            controllerUrl: 'scripts/controller/project/hongjinying-project-list-ctrl'
+          }
+        }
+      })
       .state('root.activity-details', {
         url: '/activity/:number/:type',
         views: {
@@ -644,6 +654,16 @@ hongcaiApp
             templateUrl: 'views/project/project-details.html',
             controller: 'ProjectDetailsCtrl',
             controllerUrl: 'scripts/controller/project/project-details-ctrl'
+          }
+        }
+      })
+      .state('root.hongjinying-project-details', {
+        url: '/hongjinying/:number',
+        views: {
+          '': {
+            templateUrl: 'views/project/hongjinying-project-details.html',
+            controller: 'HjyProjectDetailsCtrl',
+            controllerUrl: 'scripts/controller/project/hongjinying-project-details-ctrl'
           }
         }
       })

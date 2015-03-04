@@ -9,6 +9,13 @@ body, html {
   font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei", "微软雅黑", "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
   background-color: #F0F0F0;
 }
+// fa标签为红色
+.fa-color-red {
+  color: @brand-danger;
+  &:hover {
+    color: @brand-primary;
+  }
+}
 
 a {
   color: #333;
@@ -62,8 +69,20 @@ hr {
 .ft-grey2 {
   color: #625a5a;
 }
+.ft-grey3 {
+  color: #ddd;
+}
+.ft-grey4 {
+  color: #999;
+}
 .bg-grey {
   background-color: #ebebeb;
+}
+.bg-grey2 {
+  background-color: #ddd;
+}
+.bg-grey3 {
+  background-color: #eaeaea;
 }
 .bg-offWhite {
   background-color: #f0f0f0;
@@ -74,17 +93,47 @@ hr {
 .mgn-top {
   margin-top: 20px;
 }
-.mgn-left-0 {
+.margin-l-0 {
   margin-left: 0;
 }
 .margin-b-5 {
   margin-bottom: 5px;
+}
+.margin-t-5 {
+  margin-top: 5px;
 }
 .margin-t-15 {
   margin-top: 15px;
 }
 .margin-b-15 {
   margin-bottom: 15px;
+}
+.padding-l-15 {
+  padding-left: 15px;
+}
+.padding-l-30 {
+  padding-left: 30px;
+}
+.padding-l-45 {
+  padding-left: 45px;
+}
+.padding-r-15 {
+  padding-right: 15px;
+}
+.padding-r-45 {
+  padding-right: 45px;
+}
+.padding-r-60 {
+  padding-right: 60px;
+}
+.padding-r-30 {
+  padding-right: 30px;
+}
+.padding-t-30 {
+  padding-top: 30px;
+}
+.padding-b-30 {
+  padding-bottom: 30px;
 }
 @border: 1px solid #dbdbdb;
 .border {
@@ -99,6 +148,12 @@ hr {
 }
 .border-l {
   border-left: @border;
+}
+.border-b-grey {
+  border-bottom: 2px solid #9b9b9b;
+}
+.border-t-grey {
+  border-top: 2px solid #9b9b9b;
 }
 .ft-offWhite {
   color: #878484;
@@ -712,14 +767,7 @@ hr {
   text-align: center !important;
 }
 
-.full-column {
-  .margin-l-15 {
-    margin-left: 15px;
-  }
-  .margin-l-23 {
-    margin-left: 23px;
-  }
-}
+
 .txt-overflow {
   display: inline-block;
   width: 100%;
@@ -884,9 +932,7 @@ hr {
     box-shadow: 0 0 2px #FF9249;
   }
 }
-.ft-4em {
-  font-size: 4em;
-}
+
 .ft-3em {
   font-size: 3em;
 }
