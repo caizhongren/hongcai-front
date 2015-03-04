@@ -54,6 +54,7 @@ angular.module('hongcaiApp')
         };
         for (var i = 0; i < $scope.projectList.length; i++) {
           $scope.projectList[i].countdown = moment($scope.projectList[i].releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 2;
+          $scope.projectList[i].showByStatus = $scope.projectList[i].status === 6 || $scope.projectList[i].status === 7?true:false;
           $scope.data.push($scope.projectList[i]);
         }
         $scope._timeDown = [];
