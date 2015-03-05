@@ -23,10 +23,8 @@ angular.module('hongcaiApp')
     /**
      * 获得持有中债权列表
      */
-    $scope.getHeldInCreditRightList = function() {
-      $scope.searchStatus = 1;
-
-      UserCenterService.getHeldInCreditRightList.get({}, function(response) {
+    $scope.getHeldInCreditRightList = function(searchStatus) {
+      UserCenterService.getHeldInCreditRightList.get({status: searchStatus}, function(response) {
         $scope.heldIdCreditList = response.data.heldIdCreditList;
         $scope.creditRightStatusMap = response.data.creditRightStatusMap;
       });
