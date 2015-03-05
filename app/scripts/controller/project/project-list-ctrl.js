@@ -47,7 +47,7 @@ angular.module('hongcaiApp')
         $scope.sortCondition = $stateParams.sortCondition;
         $scope.orderProp = 'id';
         $scope.currentPage = 0;
-        $scope.pageSize = 6;
+        $scope.pageSize = 8;
         $scope.data = [];
         $scope.numberOfPages = function() {
           return Math.ceil($scope.data.length / $scope.pageSize);

@@ -41,7 +41,7 @@
                   </div>
                 </div>
                 <div class="row" style="margin-top:-20px; font-size:10px; color:#aaaaaa;">
-                  <span class="pull-left">{{ '125' }}人已投</span>
+                  <span class="pull-left">{{ item.investUserCount }}人已投</span>
                   <span class="pull-right">{{item.progress || 0 | number : 0}}%</span>
                 </div>
                 <div class="row" style="margin-top:20px;" ng-show="item.status !== 6">
@@ -59,8 +59,8 @@
                   <div class="col-xs-12">
                       <i class="fa fa-minus" style="color: #aaaaaa;margin-right:5px;"></i>
                       <span class="border" style="font-size:24px; background-color:#cccccc; color: white; padding-top:4px;">{{ _timeDown[$index].day | addPreZero }}</span><span style="color: #cccccc">&nbsp;天</span>
-                      <span class="border" style="font-size:24px; background-color:#cccccc; color: white; padding-top:4px;">{{ _timeDown[$index].hour }}</span><span style="color: #cccccc">:</span>
-                      <span class="border" style="font-size:24px; background-color:#cccccc; color: white; padding-top:4px;">{{ _timeDown[$index].second }}</span><span style="color: #cccccc">:</span>
+                      <span class="border" style="font-size:24px; background-color:#cccccc; color: white; padding-top:4px;">{{ _timeDown[$index].hour }}</span><span style="color: #cccccc;font-size:16px;">:</span>
+                      <span class="border" style="font-size:24px; background-color:#cccccc; color: white; padding-top:4px;">{{ _timeDown[$index].second }}</span><span style="color: #cccccc; font-size:16px;">:</span>
                       <span class="border" style="font-size:24px; background-color:#cccccc; color: white; padding-top:4px;">{{ _timeDown[$index].min }}</span>
                       <i class="fa fa-minus" style="color: #aaaaaa; margin-left:5px;"></i>
                    </div>

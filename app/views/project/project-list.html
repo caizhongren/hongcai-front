@@ -1,12 +1,12 @@
 <div class="container" style="padding-top: 20px;">
-  <div class="row" style="margin-bottom:0px; margin-left:25px; padding-left: 42px;">
+  <div class="row" style="">
     <div class="btn-group btn-group-sm" role="group" aria-label="..." style="float:left">
-      <a type="button" class="btn btn-link" style="color: black; font-size:20px;">宏金宝</a>
-      <a type="button" class="btn btn-link" style="color: black; font-size:20px;">宏金盈</a>
-      <a type="button" class="btn btn-link" style="color: black; font-size:20px;">债券转让</a>
+      <a type="button" class="btn btn-default" style="color: black;">宏金宝</a>
+      <a type="button" class="btn btn-default" style="color: black;">宏金盈</a>
+      <a type="button" class="btn btn-default" style="color: black;">债券转让</a>
     </div>
   </div>
-  <div class="row">
+<!--   <div class="row">
     <div class="col-xs-offset-1 col-xs-1">
       <i class="fa fa-caret-up fa-3x" style="color: white;"></i>
     </div>
@@ -16,9 +16,9 @@
     <div class="col-xs-1">
       <i class="fa fa-caret-up fa-3x" style="color: white;"></i>
     </div>
-  </div>
+  </div> -->
   <div class="row bg-offWhite">
-    <div class="panel panel-default" style="margin-top: -15px;">
+    <div class="panel panel-default" style="">
       <div class="list-group">
         <!-- 项目列表查询 -->
         <div class="row list-group-item projects-filter" ng-include src='"views/project/_list_search.html"' style="margin-left: 20px;"></div>
@@ -26,5 +26,10 @@
         <div class="row list-group-item" ng-include src='"views/project/_list_filter.html"' style="margin-left: 20px;"></div>
       </div>
     </div>
+    <!-- 项目列表展示详情 -->
+    <div class="row" ng-include src='"views/project/_list_detail.html"'></div>
+    <!-- 分页 -->
+    <div project-pagination></div>
   </div>
 </div>
+
