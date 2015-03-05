@@ -78,6 +78,7 @@ angular.module('hongcaiApp')
     });
 
     $scope.timeUntil = function(stDate) {
+      var collectTime = {};
       stDate = stDate - $scope.counter;
       if (stDate === 0) {
         ProjectService.projectList.get({
@@ -97,7 +98,13 @@ angular.module('hongcaiApp')
           window.location.reload();
         });
       }
-      return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
+      collectTime.day = moment().startOf('month').seconds(stDate).format('DD') - 1;
+      collectTime.hour = moment().startOf('month').seconds(stDate).format('HH');
+      collectTime.second = moment().startOf('month').seconds(stDate).format('mm');
+      collectTime.min = moment().startOf('month').seconds(stDate).format('ss');
+      return collectTime;
+
+      // return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
     };
     $rootScope.selectPage = $location.path().split('/')[1];
   }])

@@ -1,20 +1,29 @@
-<div id="project-list" class="container" style="padding-top: 30px;">
+<div class="container" style="padding-top: 20px;">
+  <div class="row" style="margin-bottom:0px; margin-left:25px; padding-left: 42px;">
+    <div class="btn-group btn-group-sm" role="group" aria-label="..." style="float:left">
+      <a type="button" class="btn btn-link" style="color: black; font-size:20px;">宏金宝</a>
+      <a type="button" class="btn btn-link" style="color: black; font-size:20px;">宏金盈</a>
+      <a type="button" class="btn btn-link" style="color: black; font-size:20px;">债券转让</a>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-xs-12">
-      <div class="panel panel-default">
-        <ul class="list-group">
-          <!-- 项目列表查询 -->
-          <li class="list-group-item projects-filter" ng-include src='"views/project/_list_search.html"'>
-          </li>
-          <!-- 项目列表过滤 -->
-          <li class="list-group-item" style="padding-top:0;padding-bottom:7px;" ng-include src='"views/project/_list_filter.html"'>
-          </li>
-          <!-- 项目列表展示详情 -->
-          <li class="list-group-item" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize" ng-include src='"views/project/_list_detail.html"'>
-          </li>
-          <li class="list-group-item" project-pagination>
-          </li>
-        </ul>
+    <div class="col-xs-offset-1 col-xs-1">
+      <i class="fa fa-caret-up fa-3x" style="color: white;"></i>
+    </div>
+    <div class="col-xs-1">
+      <i class="fa fa-caret-up fa-3x" style="color: white;"></i>
+    </div>
+    <div class="col-xs-1">
+      <i class="fa fa-caret-up fa-3x" style="color: white;"></i>
+    </div>
+  </div>
+  <div class="row bg-offWhite">
+    <div class="panel panel-default" style="margin-top: -15px;">
+      <div class="list-group">
+        <!-- 项目列表查询 -->
+        <div class="row list-group-item projects-filter" ng-include src='"views/project/_list_search.html"' style="margin-left: 20px;"></div>
+        <!-- 项目列表过滤 -->
+        <div class="row list-group-item" ng-include src='"views/project/_list_filter.html"' style="margin-left: 20px;"></div>
       </div>
     </div>
   </div>
