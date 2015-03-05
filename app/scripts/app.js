@@ -1244,7 +1244,9 @@ hongcaiApp
         url: '/apprecharge-success/:type',
         views: {
           'app-callback-view': {
-            templateUrl: 'views/appview/apprecharge-success.html'
+            templateUrl: 'views/appview/apprecharge-success.html',
+            controller: 'appRechargeCtrl',
+            controllerUrl: 'scripts/controller/appview/app-recharge-ctrl'
           }
         }
       })

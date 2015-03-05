@@ -15,14 +15,16 @@
             <p class="app-font fontheight">恭喜您，成功充值</p>
             <p class="app-font">赶快去投资吧！</p>
           </div>
+
           <div class="appimg-top appbtn-left" ng-show="mobileIOS">
-            <a role="botton" class="col-xs-5 btn btn-danger btn-lg ft-white appbtn-top hasbottom" ui-sref="app-callback.apprechrage-ios({type: 'Continue to invest'})">继续投资</a>
-            <a role="botton" class="col-xs-5 col-xs-offset-1 btn btn-yellow btn-lg ft-white appbtn-top hasbottom" ui-sref="app-callback.apprechrage-ios({type: 'Personal Center'})">个人中心</a>
+            <botton class="col-xs-5 btn btn-danger btn-lg ft-white appbtn-top hasbottom" ng-click="goInvest();">继续投资</botton>
+            <botton class="col-xs-5 col-xs-offset-1 btn btn-yellow btn-lg ft-white appbtn-top hasbottom" ng-click="goPersonal();">个人中心</botton>
           </div>
           <div class="appimg-top appbtn-left" ng-hide="mobileIOS">
             <botton class="col-xs-5 btn btn-danger btn-lg ft-white appbtn-top hasbottom" onclick="window.local.closeActivity()">继续投资</botton>
             <botton class="col-xs-5 col-xs-offset-1 btn btn-yellow btn-lg ft-white appbtn-top hasbottom" onclick="window.local.toAsset()">个人中心</botton>
           </div>
+
         </div>
       </div>
     </div>
