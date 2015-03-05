@@ -23,11 +23,12 @@ angular.module('hongcaiApp')
     /**
      * 获得持有中债权列表
      */
-    $scope.getHeldInCreditRightList = function() {
-      $scope.searchStatus = 1;
+    $scope.getHeldInCreditRightList = function(searchStatus) {
+      $scope.searchStatus = searchStatus;
 
-      UserCenterService.getHeldInCreditRightList.get({}, function(response) {
+      UserCenterService.getHeldInCreditRightList.get({status: searchStatus}, function(response) {
         $scope.heldIdCreditList = response.data.heldIdCreditList;
+        $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
         $scope.creditRightStatusMap = response.data.creditRightStatusMap;
       });
     };
@@ -56,6 +57,7 @@ angular.module('hongcaiApp')
       }, function(response) {
         $scope.searchStatus = 3;
         $scope.transferedCreditList = response.data.transferCreditList;
+        $scope.assignmentStatusMap = response.data.assignmentStatusMap;
         for (var i = 0; i < $scope.transferedCreditList.length; i++) {
           //步进值
           var increaseAmount = transferedCreditList[i].project.increaseAmount;

@@ -76,13 +76,6 @@
         </div>
         <div class="col-xs-6" style="padding-top: 40px;">
           <div ng-show="tranForm.transferAmount === 5">
-            <p>哈哈，你输入的金额才5块</p>
-          </div>
-          <div ng-show="tranForm.transferAmount > 5 && tranForm.transferAmount < 50">
-            <p>弱爆了，来多一点</p>
-          </div>
-          <div ng-show="tranForm.transferAmount < 100 && tranForm.transferAmount > 50">
-            <p>呃，张博是天才</p>
           </div>
         </div>
       </div>
@@ -100,7 +93,7 @@
               <span>{{ - minDiscountAmount }}</span>
             </div>
             <div class="col-xs-offset-2 col-xs-7">
-              <div class="slider-green" ui-slider min="{{ - minDiscountAmount }}" max="{{ maxDiscountAmount }}" step="100" ng-model="tranForm.discountAmount"></div>
+              <div class="slider-green" ui-slider min="{{ - minDiscountAmount }}" max="{{ maxDiscountAmount }}" ng-model="tranForm.discountAmount"></div>
             </div>
             <div class="col-xs-1">
               <span>{{ maxDiscountAmount * tranForm.transferAmount / creditRightHolding.creditRight.transferableAmount }}</span>
@@ -108,14 +101,8 @@
           </div>
         </div>
         <div class="col-xs-6" style="padding-top: 40px;">
-          <div ng-show="tranForm.discountAmount === 5">
-            <p>哈哈，你输入的金额才5块</p>
-          </div>
-          <div ng-show="tranForm.discountAmount > 5 && tranForm.discountAmount < 50">
-            <p>弱爆了，来多一点</p>
-          </div>
-          <div ng-show="tranForm.discountAmount < 100 && tranForm.discountAmount > 50">
-            <p>呃，张博是天才</p>
+          <div ng-show="tranForm.discountAmount < 5">
+            <p>请合理设置折让金，当折让金大于0时，会亏损您的本金。</p>
           </div>
         </div>
       </div>
