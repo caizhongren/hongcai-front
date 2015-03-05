@@ -1231,6 +1231,7 @@ hongcaiApp
           }
         }
       })
+      //
       .state('app-callback.apprechrage-success', {
         url: '/apprecharge-success',
         views: {
@@ -1239,6 +1240,15 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.apprechrage-ios', {
+        url: '/apprecharge-success/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/apprecharge-success.html'
+          }
+        }
+      })
+
       .state('app-callback.appinvestment-success', {
         url: '/appinvestment-success',
         views: {
