@@ -66,7 +66,7 @@
               <span>{{ 100 }}</span>
             </div>
             <div class="col-xs-offset-2 col-xs-7">
-              <div class="slider-green" ui-slider min="100" max="{{ creditRightHolding.creditRight.transferableAmount }}" ng-model="tranForm.transferAmount">
+              <div class="slider-green" ui-slider min="100" max="{{ creditRightHolding.creditRight.transferableAmount }}" step="100" ng-model="tranForm.transferAmount">
               </div>
             </div>
             <div class="col-xs-1">
@@ -93,7 +93,7 @@
               <span>{{ - minDiscountAmount }}</span>
             </div>
             <div class="col-xs-offset-2 col-xs-7">
-              <div class="slider-green" ui-slider min="{{ - minDiscountAmount }}" max="{{ maxDiscountAmount }}" step="100" ng-model="tranForm.discountAmount"></div>
+              <div class="slider-green" ui-slider min="{{ - minDiscountAmount }}" max="{{ maxDiscountAmount }}" ng-model="tranForm.discountAmount"></div>
             </div>
             <div class="col-xs-1">
               <span>{{ maxDiscountAmount * tranForm.transferAmount / creditRightHolding.creditRight.transferableAmount }}</span>
