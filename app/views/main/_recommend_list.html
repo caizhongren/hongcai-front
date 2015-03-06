@@ -20,7 +20,7 @@
 
           <a ui-sref="root.project-details({number: project.number})" title="{{project.name}}"><h3 class="margin-t-0">{{project.name}}<img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="project.categoryCode === '04'"></h3></a>
 
-          <div class="row margin-t-15">
+          <div class="row margin-t-15" style="position: relative;">
             <div class="col-xs-5 text-nowrap">
               <a class="project-icon" ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" title="{{project.guaranteeName}}" target="_blank" ng-hide="project.categoryCode === '04' || project.categoryCode === '05' || project.categoryCode === '06' || project.categoryCode === '07'">保</a>
               <a class="project-icon cursor-d" href="javascript:;" title="{{project.repaymentName}}">月</a>
@@ -32,8 +32,9 @@
               <a class="project-icon cursor-d" href="javascript:;" title="{{ project.statusText }}" ng-if="project.status == 10">结</a>
               <a class="project-icon cursor-d" href="javascript:;">奖</a>
             </div>
-            <div class="col-xs-7 text-nowrap">年化收益：<span class="hc-text-red ft-24 ftw-b">{{project.annualEarnings | number : 2}}%</span>
-            </div>
+            <img src="images/stamp38.png" alt="" style="position:absolute; top:-90%; left:80%;" ng-show="project.floattingRate">
+            <div class="col-xs-7 text-nowrap" ng-show="project.floattingRate">年化收益：<span class="hc-text-red ft-24 ftw-b">{{project.annualEarnings - project.floattingRate | number : 2}}%</span></div>
+            <div class="col-xs-7 text-nowrap" ng-hide="project.floattingRate">年化收益：<span class="hc-text-red ft-24 ftw-b">{{project.annualEarnings | number : 2}}%</span></div>
           </div>
 
           <hr>

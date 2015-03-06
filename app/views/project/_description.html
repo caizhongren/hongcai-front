@@ -11,11 +11,17 @@
               <h1 class="project-name">{{ project.name || '项目名称'}}</h1>
             </div>
           </div>
-          <div class="row">
-            <div class="col-xs-12 col-sm-4 border-r under-margin">
+          <div class="row" style="position: relative;">
+            <div class="col-xs-12 col-sm-4 border-r under-margin" ng-show="project.floattingRate">
+              <h3 class="text-center text-nowrap hc-text-red">{{project.annualEarnings - project.floattingRate || 0 | number : 2}}%</h3>
+              <p class="text-center text-nowrap gray-font">年化收益</p>
+            </div>
+            <img src="images/stamp38.png" alt="" style="position:absolute; top:-40%; left:20%;" ng-show="project.floattingRate">
+            <div class="col-xs-12 col-sm-4 border-r under-margin" ng-hide="project.floattingRate">
               <h3 class="text-center text-nowrap hc-text-red">{{project.annualEarnings || 0 | number : 2}}%</h3>
               <p class="text-center text-nowrap gray-font">年化收益</p>
             </div>
+
             <div class="col-xs-12 col-sm-4 border-r under-margin">
               <h3 class="text-center text-nowrap">{{project.total/10000 || 0}}万</h3>
               <p class="text-center text-nowrap gray-font">项目规模</p>
