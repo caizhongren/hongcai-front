@@ -598,7 +598,7 @@ hongcaiApp
         }
       })
       .state('root.project-list-query', {
-        url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+        url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType/:showFlag',
         views: {
           '': {
             templateUrl: 'views/project/project-list.html',

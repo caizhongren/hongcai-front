@@ -3,27 +3,27 @@
     <div class="row">
       <div class="col-xs-1 pull-left text-nowrap">项目状态：</div>
       <div class="col-xs-1 text-nowrap">
-        <a ui-sref="root.project-list-query({status:'6,7,8,9,10,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': status === '6,7,8,9,10,11,12', 'project-noncheck': status !== '6,7,8,9,10,11,12'}">
+        <a ui-sref="root.project-list-query({status:'6,7,8,9,10,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '6,7,8,9,10,11,12', 'project-noncheck': status !== '6,7,8,9,10,11,12'}">
                         全部
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status:'6,7,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': status === '6,7,11,12', 'project-noncheck': status !== '6,7,11,12'}">
+        <a ui-sref="root.project-list-query({status:'6,7,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '6,7,11,12', 'project-noncheck': status !== '6,7,11,12'}">
                         投标中
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status:'8', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': status === '8', 'project-noncheck': status !== '8'}">
+        <a ui-sref="root.project-list-query({status:'8', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '8', 'project-noncheck': status !== '8'}">
                         投标结束
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status:'9', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': status === '9', 'project-noncheck': status !== '9'}">
+        <a ui-sref="root.project-list-query({status:'9', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '9', 'project-noncheck': status !== '9'}">
                         还款中
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status:'10', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': status === '10', 'project-noncheck': status !== '10'}">
+        <a ui-sref="root.project-list-query({status:'10', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '10', 'project-noncheck': status !== '10'}">
                         还款完成
                       </a>
       </div>
