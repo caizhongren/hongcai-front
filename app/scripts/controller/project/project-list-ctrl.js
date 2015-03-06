@@ -2,6 +2,7 @@
 angular.module('hongcaiApp')
   .controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'ProjectService', 'CreditService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster) {
     $scope.sortType = $stateParams.sortType || false;
+    $scope.showFlag = $stateParams.showFlag || 0;
     if ($scope.sortType === 'true') {
       $scope.sortType = true;
     } else {
@@ -19,7 +20,7 @@ angular.module('hongcaiApp')
       return true;
     }
     if (isEmptyObject($stateParams)) {
-      $location.path('/project-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false');
+      $location.path('/project-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false/0');
     }
 
     // 宏金保
@@ -80,9 +81,6 @@ angular.module('hongcaiApp')
         }
       });
     };
-    // 默认打开宏金保
-    $scope.showFlag = 1;
-    $scope.getProjectList();
 
     // 宏金盈
     $scope.getProfitList = function() {
@@ -139,6 +137,19 @@ angular.module('hongcaiApp')
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
+    // 默认打开宏金保
+    // $scope.showFlag = 1;
+    if ($scope.showFlag == 0) {
+      $scope.getProjectList();
+    }
+
+    $scope.$on('$stateChangeStart', function() {
+      if ($scope.showFlag === 1) {
+        $scope.getProjectList();
+      } else if ($scope.showFlag === 3) {
+        $scope.getCreditList();
+      } else {}
+    });
     $scope.tabs = [{
       title: '七日盈',
     }, {
