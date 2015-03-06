@@ -2,25 +2,16 @@
   <div class="row" style="">
     <div class="col-xs-4 padding-l-0 btn-group btn-group-sm" role="group" aria-label="..." style="float:left">
       <div class="row margin-l-0">
-        <a type="button" class="btn btn-default col-xs-4 border-b-none ft-black">宏金保</a>
-        <a type="button" class="btn btn-default col-xs-4 border-b-none ft-black">宏金盈</a>
-        <a type="button" class="btn btn-default col-xs-4 border-b-none ft-black">债权转让</a>
+        <button class="btn btn-default col-xs-4 border-b-none ft-black" ng-class="{'active': showFlag === 1}" ng-click="getProjectList();">宏金保</button>
+        <button class="btn btn-default col-xs-4 border-b-none ft-black" ng-class="{'active': showFlag === 2}" ng-click="getProfitList();">宏金盈</button>
+        <button class="btn btn-default col-xs-4 border-b-none ft-black" ng-class="{'active': showFlag === 3}" ng-click="getCreditList();">债权转让</button>
       </div>
     </div>
   </div>
-<!--   <div class="row">
-    <div class="col-xs-offset-1 col-xs-1">
-      <i class="fa fa-caret-up fa-3x" style="color: white;"></i>
-    </div>
-    <div class="col-xs-1">
-      <i class="fa fa-caret-up fa-3x" style="color: white;"></i>
-    </div>
-    <div class="col-xs-1">
-      <i class="fa fa-caret-up fa-3x" style="color: white;"></i>
-    </div>
-  </div> -->
+
   <div class="row bg-offWhite">
-    <div class="panel panel-default" style="">
+    <!-- 项目条件过滤 宏金保 + 债券转让 -->
+    <div class="panel panel-default" ng-show="showFlag !== 2">
       <div class="list-group">
         <!-- 项目列表查询 -->
         <div class="row list-group-item projects-filter" ng-include src='"views/project/_list_search.html"' style="margin-left: 20px;"></div>
@@ -28,8 +19,11 @@
         <div class="row list-group-item" ng-include src='"views/project/_list_filter.html"' style="margin-left: 20px;"></div>
       </div>
     </div>
-    <!-- 项目列表展示详情 -->
-    <div class="row" ng-include src='"views/project/_list_detail.html"'></div>
+    <!-- 项目列表展示详情 宏金保 + 债券转让 -->
+    <div class="row" ng-include src='"views/project/_list_detail.html"' ng-show="showFlag !== 2"></div>
+
+    <!-- 展示宏金盈 -->
+    <div class="row" ng-include src='"views/project/_list_profit.html"' ng-show="showFlag === 2"></div>
     <!-- 分页 -->
     <div project-pagination></div>
   </div>
