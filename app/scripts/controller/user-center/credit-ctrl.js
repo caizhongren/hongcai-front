@@ -27,13 +27,13 @@ angular.module('hongcaiApp')
       $scope.searchStatus = searchStatus;
 
       UserCenterService.getHeldInCreditRightList.get({status: searchStatus}, function(response) {
-        $scope.heldIdCreditList = response.data.heldIdCreditList;
+        $scope.heldInCreditList = response.data.heldInCreditList;
         $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
         $scope.creditRightStatusMap = response.data.creditRightStatusMap;
       });
     };
 
-    $scope.getHeldInCreditRightList();
+    $scope.getHeldInCreditRightList(1);
 
     /**
      * 获取转让中债权列表
