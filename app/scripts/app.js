@@ -1058,27 +1058,27 @@ hongcaiApp
       })
 
       /*------------------------------------------  credit assignment  -----------------------------------------------*/
-      // 债券转让列表页
-      .state('root.credit-list-query', {
-        url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
-        views: {
-          '': {
-            templateUrl: 'views/project/credit-list.html',
-            controller: 'CreditListCtrl',
-            controllerUrl: 'scripts/controller/project/credit-list-ctrl'
-          }
-        }
-      })
-      .state('root.credit-list-query-no', {
-        url: '/credit-list',
-        views: {
-          '': {
-            templateUrl: 'views/project/credit-list.html',
-            controller: 'CreditListCtrl',
-            controllerUrl: 'scripts/controller/project/credit-list-ctrl'
-          }
-        }
-      })
+      // 债券转让列表页 FIX,暂时和列表页公用
+      // .state('root.credit-list-query', {
+      //   url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+      //   views: {
+      //     '': {
+      //       templateUrl: 'views/project/credit-list.html',
+      //       controller: 'CreditListCtrl',
+      //       controllerUrl: 'scripts/controller/project/credit-list-ctrl'
+      //     }
+      //   }
+      // })
+      // .state('root.credit-list-query-no', {
+      //   url: '/credit-list',
+      //   views: {
+      //     '': {
+      //       templateUrl: 'views/project/credit-list.html',
+      //       controller: 'CreditListCtrl',
+      //       controllerUrl: 'scripts/controller/project/credit-list-ctrl'
+      //     }
+      //   }
+      // })
       // 债券转让详情页
       .state('root.credit-details', {
         url: '/credit-details/:assignmentNumber',
