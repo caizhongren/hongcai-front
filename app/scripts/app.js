@@ -1245,8 +1245,7 @@ hongcaiApp
         views: {
           'app-callback-view': {
             templateUrl: 'views/appview/apprecharge-success.html',
-            controller: 'AppRechargeCtrl',
-            controllerUrl: 'scripts/controller/appview/app-recharge-ctrl'
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
           }
         }
       })
@@ -1259,6 +1258,16 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.appinvestment-ios', {
+        url: '/appinvestment-success/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appinvestment-success.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
+      //
       .state('app-callback.appregistration-success', {
         url: '/appregistration-success',
         views: {
@@ -1267,6 +1276,16 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.appregistration-ios', {
+        url: '/appregistration-success/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appregistration-yeepay.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
+      //
       .state('app-callback.canceltie-card', {
         url: '/canceltie-card',
         views: {
@@ -1274,8 +1293,17 @@ hongcaiApp
             templateUrl: 'views/appview/canceltie-card.html'
           }
         }
-
       })
+      .state('app-callback.canceltie-card-ios', {
+        url: '/canceltie-card/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/canceltie-card.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
+      //
       .state('app-callback.apptie-card', {
         url: '/apptie-card',
         views: {
@@ -1284,6 +1312,16 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.apptie-card-ios', {
+        url: '/apptie-card/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/apptie-card.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
+
       .state('app-callback.appwithdrawals-success', {
         url: '/appwithdrawals-success',
         views: {
@@ -1292,6 +1330,16 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.appwithdrawals-ios', {
+        url: '/appwithdrawals-success/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appwithdrawals-success.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
+
       .state('app-callback.appregistration-agreement', {
         url: '/appregistration-agreement',
         views: {
@@ -1309,7 +1357,7 @@ hongcaiApp
         }
       })
     /*-------------------------------------------  load page  route  -----------------------------------------*/
-          .state('root.load-page', {
+      .state('root.load-page', {
         url: '/load-page?from',
         views: {
           '': {
