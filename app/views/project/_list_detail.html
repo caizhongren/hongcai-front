@@ -23,8 +23,12 @@
         <div class="col-xs-12 col-sm-6" ng-show="item.status != 11">可投金额：<strong class="ft-18">{{item.currentStock * item.increaseAmount || 0 | number : 0}}</strong>元</div>
         <div class="col-xs-12 col-sm-6" ng-show="item.status == 11">可预约额：<strong class="ft-18">{{item.reserveAmount}}</strong>元</div>
       </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">年化收益：<strong class="ft-red ft-24">{{item.annualEarnings | number : 2}}%</strong>
+
+      <div class="row" style="position: relative;">
+        <img src="images/stamp38.png" alt="" style="position:absolute; left:30%; top: -75%;" ng-show="item.floattingRate">
+        <div class="col-xs-12 col-sm-6" ng-show="item.floattingRate">年化收益：<strong class="ft-red ft-24">{{item.annualEarnings - item.floattingRate | number : 2}}%</strong>
+        </div>
+        <div class="col-xs-12 col-sm-6" ng-hide="item.floattingRate">年化收益：<strong class="ft-red ft-24">{{item.annualEarnings | number : 2}}%</strong>
         </div>
         <div class="col-xs-12 col-sm-6">项目期限：<strong class="ft-24">{{item.cycle}}</strong>个月</div>
       </div>
@@ -94,8 +98,11 @@
         <div class="col-xs-12 col-sm-6" ng-show="item.status != 11">可投金额：<strong class="ft-18">{{item.currentStock * item.increaseAmount || 0 | number : 0}}</strong>元</div>
         <div class="col-xs-12 col-sm-6" ng-show="item.status == 11">可预约额：<strong class="ft-18">{{item.reserveAmount}}</strong>元</div>
       </div>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">年化收益：<strong class="ft-red ft-24">{{item.annualEarnings | number : 2}}%</strong>
+      <div class="row" style="position: relative;">
+        <img src="images/stamp38.png" alt="" style="position:absolute; left:30%; top: -75%;" ng-show="item.floattingRate">
+        <div class="col-xs-12 col-sm-6" ng-show="item.floattingRate">年化收益：<strong class="ft-red ft-24">{{item.annualEarnings - item.floattingRate | number : 2}}%</strong>
+        </div>
+        <div class="col-xs-12 col-sm-6" ng-hide="item.floattingRate">年化收益：<strong class="ft-red ft-24">{{item.annualEarnings | number : 2}}%</strong>
         </div>
         <div class="col-xs-12 col-sm-6">项目期限：<strong class="ft-24">{{item.cycle}}</strong>个月</div>
       </div>
