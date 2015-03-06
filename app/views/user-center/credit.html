@@ -23,7 +23,7 @@
         <th>操作</th>
       </tr>
     </thead>
-    <tbody ng-repeat="item in heldIdCreditList">
+    <tbody ng-repeat="item in heldInCreditList">
       <tr>
         <td>{{ item.project.name }}</td>
         <td>{{ item.creditRight.transferableAmount | number:2 }}元</td>
@@ -99,7 +99,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="item in heldIdCreditList">
+      <tr ng-repeat="item in heldInCreditList">
         <td>{{ item.project.name }}</td>
         <td>{{ item.creditRight.transferableAmount | number:2 }}</td>
         <td>{{ item.creditRight.returnProfit | number:2}}</td>
