@@ -92,6 +92,7 @@ angular.module('hongcaiApp')
     };
 
     // 债券转让
+    // FIX
     $scope.getCreditList = function() {
       $scope.showFlag = 3;
       CreditService.getCreditAssignmentList.get({
@@ -110,6 +111,15 @@ angular.module('hongcaiApp')
           $scope.assignmentList = response.data.assignmentList;
           $scope.pageCount = response.data.pageCount;
           $scope.dataSize = response.data.count;
+          $scope.currentPage = 0;
+          $scope.pageSize = 8;
+          $scope.data = [];
+          $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+          };
+          for (var i = 0; i < $scope.assignmentList.length; i++) {
+            $scope.data.push($scope.assignmentList[i]);
+          }
         }
       });
     };
