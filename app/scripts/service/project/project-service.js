@@ -10,6 +10,7 @@ angular.module('hongcaiApp')
         amount: '@amount',
         projectId: '@projectId'
       }),
+      hongjinyingList: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProductList'),
       appointmentProject: $resource(DEFAULT_DOMAIN + '/siteReserve/getLatestSingleReserveProject'),
       reserve: $resource(DEFAULT_DOMAIN + '/siteReserve/reserve', {
         reserveAmount: '@reserveAmount',
