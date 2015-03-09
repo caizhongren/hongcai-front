@@ -1,4 +1,4 @@
-<div id="credit-project-list" class="container" style="padding-top: 30px;">
+<!-- <div id="credit-project-list" class="container" style="padding-top: 30px;">
   <div class="row">
     <div class="col-xs-12">
       <div class="panel panel-default">
@@ -34,13 +34,13 @@
                       </a>
                   </div>
                 </div>
-                <!-- </ul> -->
+                </ul>
               </div>
             </div>
-            <!-- .row -->
+            .row
             <div class="row">
               <div class="col-xs-12">
-                <!-- <ul class="list-inline"> -->
+                <ul class="list-inline">
                 <div class="row">
                   <div class="col-xs-1 text-nowrap">项目期限：</div>
                   <div class="col-xs-1 text-nowrap">
@@ -136,15 +136,15 @@
                       </a>
                   </div>
                 </div>
-                <!-- </ul> -->
+                </ul>
               </div>
             </div>
-            <!-- .row -->
+            .row
           </li>
           <li class="list-group-item" style="padding-top:0;padding-bottom:7px;">
             <div class="row">
               <div class="col-xs-12">
-                <!-- <ul class="list-inline"> -->
+                <ul class="list-inline">
                 <div class="row">
                   <div class="col-xs-1 text-nowrap" style="padding: 0px; padding-top: 7px;">排　　序：</div>
                   <div class="col-xs-11 text-nowrap">
@@ -225,7 +225,7 @@
             </div>
           </li>
 
-          <!-- 分页内容 -->
+          分页内容
           <li class="list-group-item">
             <div class="row">
               <div class="col-sx-12 text-center">
@@ -238,5 +238,33 @@
         </ul>
       </div>
     </div>
+  </div>
+</div> -->
+<div id="credit-list" class="container padding-t-20">
+  <!-- <div class="row">
+    <div class="col-xs-5 padding-l-0 btn-group btn-group-sm" role="group" aria-label="..." style="float:left">
+      <div class="row margin-l-0">
+        <button class="btn btn-default col-xs-4 border-b-none ft-black ft-16" ng-class="{'active': showFlag === 1}" ng-click="getProjectList();">宏金保</button>
+        <button class="btn btn-default col-xs-4 border-b-none ft-black ft-16" ng-class="{'active': showFlag === 2}" ng-click="getProfitList();">宏金盈</button>
+        <button class="btn btn-default col-xs-4 border-b-none ft-black ft-16" ng-class="{'active': showFlag === 3}" ng-click="getCreditList();">债权转让</button>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="row bg-offWhite">
+    <!-- 项目条件过滤 宏金保 + 债权转让 -->
+    <div class="panel panel-default">
+      <div class="list-group">
+        <!-- 项目列表查询 -->
+        <div class="row list-group-item projects-filter" ng-include src='"views/project/_credit_list_search.html"' style="margin-left: 20px;"></div>
+        <!-- 项目列表过滤 -->
+        <div class="row list-group-item" ng-include src='"views/project/_credit_list_filter.html"' style="margin-left: 20px;"></div>
+      </div>
+    </div>
+    <!-- 项目列表展示详情 宏金保 + 债权转让 -->
+    <div class="row" ng-include src='"views/project/_credit_list_detail.html"'></div>
+
+    <!-- 分页 -->
+    <div project-pagination></div>
   </div>
 </div>

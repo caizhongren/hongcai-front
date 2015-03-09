@@ -597,23 +597,23 @@ hongcaiApp
           }
         }
       })
-      .state('root.project-list-query', {
-        url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType/:showFlag',
+      .state('root.hongjinbao-list-query', {
+        url: '/hongjinbao-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType/:showFlag',
         views: {
           '': {
-            templateUrl: 'views/project/project-list.html',
-            controller: 'ProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/project-list-ctrl'
+            templateUrl: 'views/project/hongjinbao-list.html',
+            controller: 'HjbProjectListCtrl',
+            controllerUrl: 'scripts/controller/project/hongjinbao-list-ctrl'
           }
         }
       })
-      .state('root.project-list-query-no', {
-        url: '/project-list',
+      .state('root.hongjinbao-list-query-no', {
+        url: '/hongjinbao-list',
         views: {
           '': {
-            templateUrl: 'views/project/project-list.html',
-            controller: 'ProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/project-list-ctrl'
+            templateUrl: 'views/project/hongjinbao-list.html',
+            controller: 'HjbProjectListCtrl',
+            controllerUrl: 'scripts/controller/project/hongjinbao-list-ctrl'
           }
         }
       })
@@ -1058,28 +1058,28 @@ hongcaiApp
       })
 
       /*------------------------------------------  credit assignment  -----------------------------------------------*/
-      // 债券转让列表页 FIX,暂时和列表页公用
-      // .state('root.credit-list-query', {
-      //   url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
-      //   views: {
-      //     '': {
-      //       templateUrl: 'views/project/credit-list.html',
-      //       controller: 'CreditListCtrl',
-      //       controllerUrl: 'scripts/controller/project/credit-list-ctrl'
-      //     }
-      //   }
-      // })
-      // .state('root.credit-list-query-no', {
-      //   url: '/credit-list',
-      //   views: {
-      //     '': {
-      //       templateUrl: 'views/project/credit-list.html',
-      //       controller: 'CreditListCtrl',
-      //       controllerUrl: 'scripts/controller/project/credit-list-ctrl'
-      //     }
-      //   }
-      // })
-      // 债券转让详情页
+      //债权转让列表页 FIX,暂时和列表页公用
+      .state('root.credit-list-query', {
+        url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+        views: {
+          '': {
+            templateUrl: 'views/project/credit-list.html',
+            controller: 'CreditListCtrl',
+            controllerUrl: 'scripts/controller/project/credit-list-ctrl'
+          }
+        }
+      })
+      .state('root.credit-list-query-no', {
+        url: '/credit-list',
+        views: {
+          '': {
+            templateUrl: 'views/project/credit-list.html',
+            controller: 'CreditListCtrl',
+            controllerUrl: 'scripts/controller/project/credit-list-ctrl'
+          }
+        }
+      })
+      //债权转让详情页
       .state('root.credit-details', {
         url: '/credit-details/:assignmentNumber',
         views: {
@@ -1091,7 +1091,7 @@ hongcaiApp
         }
       })
 
-      // 债券转让下单页(确认页)
+      // 债权转让下单页(确认页)
       .state('root.credit-verify', {
           url: '/credit-verify/:creditId/:amount',
           views: {
@@ -1102,7 +1102,7 @@ hongcaiApp
             }
           }
         })
-      // 债券转让宣传介绍页面
+      // 债权转让宣传介绍页面
       .state('root.credit-assignment', {
           url: '/credit-assignment',
           views: {
@@ -1124,7 +1124,7 @@ hongcaiApp
           }
         }
       })
-      // 我的债券（个人中心）
+      // 我的债权（个人中心）
       .state('root.userCenter.credit', {
         url: '/credit',
         views: {
