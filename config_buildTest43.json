@@ -7,6 +7,5 @@
     "newbieIsShowedFLAG": true,
     "creditIsShowedFLAG": true
   },
-  "jumpHttpsPath": [],
-  "ignorePATH": ["/credit-list", "/credit-details", "/credit-verify", "/credit-assignment", "/credit-success", "/credit", "/credit-create"]
+  "jumpHttpsPath": []
 }
