@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditCreateCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
+  .controller('CreditCreateCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService) {
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'credit';
     // 第一步
@@ -46,7 +46,7 @@ angular.module('hongcaiApp')
         creditRightId: $scope.creditRightHolding.creditRight.id
       }, function(response){
 
-        if (response.ret == 1){
+        if (response.ret === 1){
           $state.go('root.userCenter.credit');
         }
 

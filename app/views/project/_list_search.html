@@ -3,27 +3,27 @@
     <div class="row">
       <div class="col-xs-1 pull-left text-nowrap">项目状态：</div>
       <div class="col-xs-1 text-nowrap">
-        <a ui-sref="root.project-list-query({status:'6,7,8,9,10,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '6,7,8,9,10,11,12', 'project-noncheck': status !== '6,7,8,9,10,11,12'}">
+        <a ui-sref="root.guarantee-list-query({status:'6,7,8,9,10,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '6,7,8,9,10,11,12', 'project-noncheck': status !== '6,7,8,9,10,11,12'}">
                         全部
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status:'6,7,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '6,7,11,12', 'project-noncheck': status !== '6,7,11,12'}">
+        <a ui-sref="root.guarantee-list-query({status:'6,7,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '6,7,11,12', 'project-noncheck': status !== '6,7,11,12'}">
                         投标中
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status:'8', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '8', 'project-noncheck': status !== '8'}">
+        <a ui-sref="root.guarantee-list-query({status:'8', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '8', 'project-noncheck': status !== '8'}">
                         投标结束
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status:'9', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '9', 'project-noncheck': status !== '9'}">
+        <a ui-sref="root.guarantee-list-query({status:'9', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '9', 'project-noncheck': status !== '9'}">
                         还款中
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status:'10', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '10', 'project-noncheck': status !== '10'}">
+        <a ui-sref="root.guarantee-list-query({status:'10', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '10', 'project-noncheck': status !== '10'}">
                         还款完成
                       </a>
       </div>
@@ -38,27 +38,27 @@
     <div class="row">
       <div class="col-xs-1 text-nowrap">项目期限：</div>
       <div class="col-xs-1 text-nowrap">
-        <a ui-sref="root.project-list-query({status: status, minCycle: 0, maxCycle: 100, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==0 && maxCycle==100, 'project-noncheck': !(minCycle==0 && maxCycle==100)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: 0, maxCycle: 100, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==0 && maxCycle==100, 'project-noncheck': !(minCycle==0 && maxCycle==100)}">
                         全部
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status: status, minCycle: 0, maxCycle: 2, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==0 && maxCycle==2, 'project-noncheck': !(minCycle==0 && maxCycle==2)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: 0, maxCycle: 2, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==0 && maxCycle==2, 'project-noncheck': !(minCycle==0 && maxCycle==2)}">
                         3个月以下
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status: status, minCycle: 3, maxCycle: 6, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==3 && maxCycle==6, 'project-noncheck': !(minCycle==3 && maxCycle==6)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: 3, maxCycle: 6, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==3 && maxCycle==6, 'project-noncheck': !(minCycle==3 && maxCycle==6)}">
                         3 - 6个月
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status: status, minCycle: 6, maxCycle: 12, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==6 && maxCycle==12, 'project-noncheck': !(minCycle==6 && maxCycle==12)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: 6, maxCycle: 12, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==6 && maxCycle==12, 'project-noncheck': !(minCycle==6 && maxCycle==12)}">
                         6 - 12个月
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status: status, minCycle: 12, maxCycle: 100, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==12 && maxCycle==100, 'project-noncheck': !(minCycle==12 && maxCycle==100)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: 12, maxCycle: 100, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==12 && maxCycle==100, 'project-noncheck': !(minCycle==12 && maxCycle==100)}">
                         12个月以上
                       </a>
       </div>
@@ -73,22 +73,22 @@
     <div class="row">
       <div class="col-xs-1 text-nowrap">项目收益：</div>
       <div class="col-xs-1 text-nowrap">
-        <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 0, maxEarning: 100, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==0 && maxEarning==100, 'project-noncheck': !(minEarning==0 && maxEarning==100)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 0, maxEarning: 100, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==0 && maxEarning==100, 'project-noncheck': !(minEarning==0 && maxEarning==100)}">
                         全部
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 8, maxEarning: 10, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==8 && maxEarning==10, 'project-noncheck': !(minEarning==8 && maxEarning==10)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 8, maxEarning: 10, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==8 && maxEarning==10, 'project-noncheck': !(minEarning==8 && maxEarning==10)}">
                         8 - 10%
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 10, maxEarning: 12, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==10 && maxEarning==12, 'project-noncheck': !(minEarning==10 && maxEarning==12)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 10, maxEarning: 12, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==10 && maxEarning==12, 'project-noncheck': !(minEarning==10 && maxEarning==12)}">
                         10 - 12%
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 12, maxEarning: 100, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==12 && maxEarning==100, 'project-noncheck': !(minEarning==12 && maxEarning==100)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 12, maxEarning: 100, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==12 && maxEarning==100, 'project-noncheck': !(minEarning==12 && maxEarning==100)}">
                         12%以上
                       </a>
       </div>
@@ -102,27 +102,27 @@
     <div class="row">
       <div class="col-xs-1 text-nowrap">项目规模：</div>
       <div class="col-xs-1 text-nowrap">
-        <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==0 && maxTotalAmount==200000000, 'project-noncheck': !(minTotalAmount==0 && maxTotalAmount==200000000)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==0 && maxTotalAmount==200000000, 'project-noncheck': !(minTotalAmount==0 && maxTotalAmount==200000000)}">
                         全部
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 0, maxTotalAmount: 2000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==0 && maxTotalAmount==2000000, 'project-noncheck': !(minTotalAmount==0 && maxTotalAmount==2000000)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 0, maxTotalAmount: 2000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==0 && maxTotalAmount==2000000, 'project-noncheck': !(minTotalAmount==0 && maxTotalAmount==2000000)}">
                         200万以下
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 2000000, maxTotalAmount: 5000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==2000000 && maxTotalAmount==5000000, 'project-noncheck': !(minTotalAmount==2000000 && maxTotalAmount==5000000)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 2000000, maxTotalAmount: 5000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==2000000 && maxTotalAmount==5000000, 'project-noncheck': !(minTotalAmount==2000000 && maxTotalAmount==5000000)}">
                         200 - 500万
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 5000000, maxTotalAmount: 10000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==5000000 && maxTotalAmount==10000000, 'project-noncheck': !(minTotalAmount==5000000 && maxTotalAmount==10000000)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 5000000, maxTotalAmount: 10000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==5000000 && maxTotalAmount==10000000, 'project-noncheck': !(minTotalAmount==5000000 && maxTotalAmount==10000000)}">
                         500 - 1000万
                       </a>
       </div>
       <div class="col-xs-2">
-        <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 10000000, maxTotalAmount: 200000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==10000000 && maxTotalAmount==200000000, 'project-noncheck': !(minTotalAmount==10000000 && maxTotalAmount==200000000)}">
+        <a ui-sref="root.guarantee-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 10000000, maxTotalAmount: 200000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==10000000 && maxTotalAmount==200000000, 'project-noncheck': !(minTotalAmount==10000000 && maxTotalAmount==200000000)}">
                         1000万以上
                       </a>
       </div>
