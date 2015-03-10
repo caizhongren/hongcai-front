@@ -45,12 +45,12 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a ui-sref="root.main" ng-class="{'active' : selectPage == ''}">首页</a>
       </li>
-      <li ng-hide="creditIsShowedFLAG"><a ui-sref="root.hongjinbao-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}">我要理财</a>
+      <li ng-hide="creditIsShowedFLAG"><a ui-sref="root.guarantee-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}">我要理财</a>
       </li>
-      <li ng-show="creditIsShowedFLAG" class="dropdown"><a class="category" ui-sref="root.hongjinbao-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}">我要理财</a>
+      <li ng-show="creditIsShowedFLAG" class="dropdown"><a class="category" ui-sref="root.guarantee-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}">我要理财</a>
         <div id="dropdown">
           <div>
-            <a ui-sref="root.hongjinbao-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}">宏金保</a>
+            <a ui-sref="root.guarantee-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}">宏金保</a>
             <a ui-sref="root.hongjinying-project-list" ng-class="{'active' : selectPage == 'project-list'}">宏金盈</a>
             <a ui-sref="root.credit-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}">债权转让</a>
           </div>

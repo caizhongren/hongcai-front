@@ -139,7 +139,7 @@ angular.module('hongcaiApp')
 
     // 默认打开宏金保
     // $scope.showFlag = 1;
-    if ($scope.showFlag == 0) {
+    if ($scope.showFlag === 0) {
       $scope.getProjectList();
     }
 

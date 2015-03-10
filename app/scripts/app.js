@@ -597,23 +597,23 @@ hongcaiApp
           }
         }
       })
-      .state('root.hongjinbao-list-query', {
-        url: '/hongjinbao-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType/:showFlag',
+      .state('root.guarantee-list-query', {
+        url: '/guarantee-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
         views: {
           '': {
-            templateUrl: 'views/project/hongjinbao-list.html',
-            controller: 'HjbProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/hongjinbao-list-ctrl'
+            templateUrl: 'views/project/guarantee-list.html',
+            controller: 'GuaranteeProjectListCtrl',
+            controllerUrl: 'scripts/controller/project/guarantee-list-ctrl'
           }
         }
       })
-      .state('root.hongjinbao-list-query-no', {
-        url: '/hongjinbao-list',
+      .state('root.guarantee-list-query-no', {
+        url: '/guarantee-list',
         views: {
           '': {
-            templateUrl: 'views/project/hongjinbao-list.html',
-            controller: 'HjbProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/hongjinbao-list-ctrl'
+            templateUrl: 'views/project/guarantee-list.html',
+            controller: 'GuaranteeProjectListCtrl',
+            controllerUrl: 'scripts/controller/project/guarantee-list-ctrl'
           }
         }
       })
