@@ -11,11 +11,32 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         $scope.creditAssignment = response.data.creditAssignment;
         $scope.project = response.data.project;
-        $scope.projectInfo = projectDetails.data.projectInfo;
-        $scope.orderList = projectDetails.data.orderList;
-        $scope.enterprise = projectDetails.data.enterprise;
-        $scope.enterpriseThumbnailFileList = projectDetails.data.enterpriseThumbnailFileList;
-        $scope.enterpriseOriginalFileList = projectDetails.data.enterpriseOriginalFileList;
+        $scope.projectInfo = response.data.projectInfo;
+        $scope.orderList = response.data.orderList;
+        $scope.enterprise = response.data.enterprise;
+        $scope.enterpriseThumbnailFileList = response.data.enterpriseThumbnailFileList;
+        $scope.enterpriseOriginalFileList = response.data.enterpriseOriginalFileList;
+        // 可投金额
+        $scope.creditAssignmentInvestNum = $scope.creditAssignment.amount - ($scope.creditAssignment.soldStock + $scope.creditAssignment.occupancyStock) * $scope.project.increaseAmount;
+        if ($scope.creditAssignment.status === 1) {
+          if ($rootScope.userCapital) {
+            $scope.userCanCreditInvestNum = $scope.creditAssignmentInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.creditAssignmentInvestNum;
+          } else {
+            $scope.userCanCreditInvestNum = 0
+          }
+          if ($rootScope.isLogged) {
+            if ($rootScope.securityStatus.realNameAuthStatus === 1) {
+              // 实名认证用户
+              $scope.creFlag = 2;
+            } else {
+              //开启普通用户
+              $scope.creFlag = 1;
+            }
+          } else {
+            // 未登录
+            $scope.creFlag = 0;
+          }
+        }
       } else {
         $state.go('root.credit-list-query-no');
       }
@@ -25,6 +46,36 @@ angular.module('hongcaiApp')
     /*
      * 根据用户输入的折让金计算预计收益，折让金以及实际支付金额
      */
+    // 跳到登录界面
+    $scope.toRealLogin = function() {
+      if (!$rootScope.isLogged) {
+        $modal({
+          scope: $scope,
+          template: 'views/modal/modal-toLogin.html',
+          show: true
+        });
+      }
+    };
+    // 跳到实名认证页面
+    $scope.toRealNameAuth = function() {
+      if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
+        $modal({
+          scope: $scope,
+          template: 'views/modal/modal-toRealNameAuth.html',
+          show: true
+        });
+      }
+    };
+
+    // 跳到充值页面
+    $scope.toRecharge = function() {
+      $modal({
+        scope: $scope,
+        template: 'views/modal/modal-toRecharge.html',
+        show: true
+      });
+    };
+
     $scope.expectedCal = function(subscribeAmount) {
       var creditAssignment = $scope.creditAssignment;
       if (!subscribeAmount) {
@@ -44,19 +95,51 @@ angular.module('hongcaiApp')
       }
     }
 
+    $scope.toAllCreditInvest = function() {
+      // 判断自己余额
+      $scope.subscribeAmount = $scope.userCanCreditInvestNum;
+      console.log('hehehhee');
+    }
+
     /*
      * 认购债权
      */
     $scope.subscribeCreditRight = function(subscribeAmount) {
-      CreditService.subscribeCreditRight.get({
-        assignmentNumber: $scope.creditAssignment.number,
-        subscribeAmount: subscribeAmount,
-      }, function(response) {
-        if (response.ret == 1) {
-
-        }
-      });
+      $scope.creAmount = subscribeAmount;
+      if ($scope.creFlag === 0) {
+        $scope.toRealLogin();
+      } else if ($scope.creFlag === 1) {
+        $scope.toRealNameAuth();
+      } else if ($scope.creFlag === 2) {
+        CreditService.subscribeCreditRight.get({
+          assignmentNumber: $scope.creditAssignment.number,
+          subscribeAmount: subscribeAmount,
+        }, function(response) {
+          if (response.ret === 1) {
+            alert('hello');
+          } else {
+            console.log(response.msg);
+          }
+        });
+      }
     }
+
+    $scope.checkStepAmount = function(subscribeAmount) {
+      if (subscribeAmount >= 100) {
+        if (subscribeAmount % 100 === 0) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    };
+    $scope.checkLargeUserCanAmount = function(subscribeAmount) {
+      if ($rootScope.userCapital.balance < subscribeAmount) {
+        return true;
+      } else {
+        return false;
+      }
+    };
 
 
     //     $rootScope.redirectUrl = $location.path();

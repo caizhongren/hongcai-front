@@ -1,0 +1,16 @@
+<div class="alert" ng-class="[type ? 'alert-' + type : null]" ng-controller="SecuritySettingsCtrl">
+  <button type="button" class="close" ng-if="dismissable" ng-click="$hide()">&times;</button>
+  <div class="title">
+    <strong >开通安全授权：</strong>
+  </div>
+
+  <div class="content">
+    <p>授权是神圣的，这里是描述授权的内容</p>
+  </div>
+
+  <div class="bottom col-xs-10 col-xs-offset-1">
+    <a class="btn btn-danger btn-block pull-left margin-l" href="javascript:;" ng-click="openReservation(); $hide()">开通授权</a>
+  </div>
+
+</div>
+<div class="mask_layer"></div>

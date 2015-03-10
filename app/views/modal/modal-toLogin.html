@@ -1,0 +1,58 @@
+<div class="modal ng-scope center am-fade-and-slide-top" tabindex="-1" role="dialog" style="display: block;" ng-controller="LoginCtrl">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" ng-click="$hide()">×</button>
+        <h4 class="modal-title ng-binding">用户登录</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <form class="form-login col-xs-12" role="form" name="loginForm" ng-submit="login(user);$hide()">
+            <div class="form-group col-xs-12">
+              <label for="account" class="col-xs-3">账户：</label>
+              <input type="text" class="col-xs-6" id="account" name="account" ng-model="user.account" required auto-fill-sync autofocus />
+              <div ng-if="loginForm.account.$dirty && loginForm.account.$invalid" class="form-div col-xs-offset-3 col-xs-9">
+                <div ng-if="loginForm.account.$error.required" class="row">
+                  <i class="fa fa-times-circle-o login-check-img"></i>
+                  <p class="input-tips login-input-tips">账号不能为空</p>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-xs-12">
+              <label for="password" class="col-xs-3">密码：</label>
+              <input type="password" class="col-xs-6" name="password" ng-model="user.password" required auto-fill-sync autofocus />
+              <div ng-if="loginForm.password.$dirty && loginForm.password.$invalid" class="col-xs-9 col-xs-offset-3 form-div">
+                <div ng-if="loginForm.password.$error.required" class="row">
+                  <i class="fa fa-times-circle-o login-check-img"></i>
+                  <p class="input-tips login-input-tips">密码不能为空</p>
+                </div>
+              </div>
+              <div ng-if="isPasswordError" ng-init="isPasswordError=false" class="col-xs-9 col-xs-offset-3 form-div">
+                <div class="row">
+                  <i class="fa fa-times-circle-o login-check-img"></i>
+                  <p class="input-tips login-input-tips">账号或密码错误</p>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-xs-12">
+              <label class="col-xs-3"></label>
+              <div class="col-xs-6">
+                <div class="row">
+                  <input type="checkbox" class="p-checkbox" ng-model="rememberUserName" ng-init="rememberUserName = true" />
+                  <p class="p-remember">记住用户名</p>
+                  <a ui-sref="root.get-pwd-back" class="p-forget">忘记密码？</a>
+                </div>
+              </div>
+              <input type="submit" class="red-button col-xs-6 col-xs-offset-3" ng-disabled="loginForm.$invalid && !isPasswordError" value="立即登录" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+<!--     <div class="modal-footer">
+      <button type="button" class="btn btn-primary col-xs-offset-2 col-xs-4 button-w200" ng-click="reserveCancel(reserveOrder);$hide()">撤销</button>
+      <button type="button" class="btn btn-primary col-xs-4 button-w200" ng-click="$hide()">取消</button>
+    </div> -->
+  </div>
+</div>
+</div>
