@@ -36,8 +36,9 @@
                       <th width="15%">状态</th>
                     </tr>
                   </thead>
-                  <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-                    <td><a ui-sref="root.investmentplan-details({number: item.number})">{{ item.name }}</a></td>
+                  <tr ng-repeat="item in list.list">
+                    <td><a ui-sref="root.investmentplan-details({number: item.number})">{{ item.name }}</a>
+                    </td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
                     <td>{{ item.projectBackProfit }}</td>
@@ -56,8 +57,9 @@
                       <th width="15%">状态</th>
                     </tr>
                   </thead>
-                  <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-                    <td><a ui-sref="root.investmentplan-details({number: item.number})">{{ item.name }}</a></td>
+                  <tr ng-repeat="item in list.list">
+                    <td><a ui-sref="root.investmentplan-details({number: item.number})">{{ item.name }}</a>
+                    </td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
                     <td>{{ item.projectBackProfit }}</td>
@@ -76,7 +78,7 @@
                       <th width="15%">状态</th>
                     </tr>
                   </thead>
-                  <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+                  <tr ng-repeat="item in list.list">
                     <td>{{ item.name }}</td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
@@ -91,4 +93,12 @@
       </div>
     </div>
   </div>
+</div>
+<div class="row" style="text-align:center;">
+  <nav>
+    <ul class="pagination">
+      <bgf-pagination page="page" per-page="perPage" client-limit="clientLimit" url="'hongcai/api/v1/siteFunds/getFundsProjectListByProductType'" url-params="urlParams" link-group-size="2" collection="list" template-url="/views/tpl/paginate-anything.html">
+      </bgf-pagination>
+    </ul>
+  </nav>
 </div>

@@ -15,7 +15,8 @@
                 名称
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                七日盈计划第1501423期<!-- 数据绑定 -->
+                七日盈计划第1501423期
+                <!-- 数据绑定 -->
               </div>
             </div>
             <div class="row border-b-white">
@@ -23,7 +24,7 @@
                 计划介绍
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                七日盈计划第1501423期<!-- 数据绑定 -->
+                宏金盈是宏财网推出的针对宏财网内部债权进行自动投资及定时自动转让的理财计划，多种期限可选，满足出借人不同的流动性需要。出借人出借的本金将在投资期限到达后一次性返回其账户，利息收益每月(期)发放，并由系统实现自动化的分散投资，更好的满足了出借人的需求。
               </div>
             </div>
             <div class="row border-b-white">
@@ -31,7 +32,7 @@
                 投标范围
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                12%<!-- 数据绑定 -->
+                宏金保、宏财网内部债权转让、宏财优选债权。
               </div>
             </div>
             <div class="row border-b-white">
@@ -39,7 +40,7 @@
                 锁定期
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                7日<!-- 数据绑定 -->
+                7日
               </div>
             </div>
             <div class="row border-b-white">
@@ -47,7 +48,7 @@
                 退出日期
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                2015年3月7日<!-- 数据绑定 -->
+                {{ releaseEndTime }}
               </div>
             </div>
             <div class="row border-b-white">
@@ -55,7 +56,7 @@
                 加入条件
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                加入金额为100元，且为100元的整数倍<!-- 数据绑定 -->
+                加入金额为100元，且为100元的整数倍
               </div>
             </div>
             <div class="row border-b-white">
@@ -63,7 +64,7 @@
                 加入上限
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                10,000元<!-- 数据绑定 -->
+                {{fundsProject.total}}元
               </div>
             </div>
             <div class="row border-b-white">
@@ -71,7 +72,23 @@
                 保障方式
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                100%保障本金和利息<!-- 数据绑定 -->
+                100%本金+利息保障
+              </div>
+            </div>
+            <div class="row border-b-white">
+              <div class="col-xs-2 bg-grey2 tab-left text-right">
+                到期退出方式
+              </div>
+              <div class="col-xs-10 bg-grey3 tab-right">
+                按周期自动续投
+              </div>
+            </div>
+            <div class="row border-b-white">
+              <div class="col-xs-2 bg-grey2 tab-left text-right">
+                赎回方式
+              </div>
+              <div class="col-xs-10 bg-grey3 tab-right">
+                在周期内提前1个工作日取消自动续投，计划结束后自动赎回
               </div>
             </div>
             <div class="row border-b-white">
@@ -79,34 +96,30 @@
                 服务协议
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                <a href="#">宏金盈计划协议范本<!-- 数据绑定 --></a>
+                <a href="#">宏金盈计划协议范本</a>
               </div>
             </div>
           </div>
         </section>
-        <section ng-if="tab.title==='加入记录'">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-xs-12">
-                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 企业背景</h4>
-              </div>
-              <div class="col-xs-12">
-                <p>{{enterprise.background}}</p>
-              </div>
-              <div class="col-xs-12">
-                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 营业范围</h4>
-              </div>
-              <div class="col-xs-12">
-                <p>{{enterprise.businessScope}}</p>
-              </div>
-              <div class="col-xs-12">
-                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 经营状况</h4>
-              </div>
-              <div class="col-xs-12">
-                <p>{{enterprise.businessState}}</p>
-              </div>
-            </div>
-          </div>
+        <section ng-if="tab.title==='投资记录'">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>投标金额</th>
+                <th>投资人</th>
+                <th>成交时间</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="order in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+                <td>{{ order.id }}</td>
+                <td>{{order.userName}}</td>
+                <td>{{order.orderAmount| number : 0}}元</td>
+                <td>{{order.createTime | date: "yy-MM-dd"}}</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
         <section ng-if="tab.title==='计划进程'">
           <div class="container-fluid">
@@ -237,4 +250,3 @@
     </div>
   </div>
 </div>
-

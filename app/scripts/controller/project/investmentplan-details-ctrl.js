@@ -6,15 +6,154 @@ angular.module('hongcaiApp')
     if (!number) {
       $state.go('root.invstmentplan-list-query-no');
     }
-    ProjectService.getFundsProjectByNumber.get({number: $stateParams.number}, function() {
+    ProjectService.getFundsProjectDetailByNumber.get({
+      number: $stateParams.number
+    }, function(response) {
       if (response.ret === 1) {
+        // 宏金盈项目信息
         $scope.fundsProject = response.data.fundsProject;
-
+        $scope.orderList = response.data.orderList;
+        $scope.fundsProduct = response.data.fundsProduct;
+        $scope.releaseEndTime = moment(response.data.fundsProject.releaseEndTime).format('YYYY年MM月DD日');
+        $scope.fundsProjectInvestNum = $scope.fundsProject.total - ($scope.fundsProject.soldStock + $scope.fundsProject.occupancyStock) * $scope.fundsProject.increaseAmount;
+        // 处理投资记录分页
+        $scope.currentPage = 0;
+        $scope.pageSize = 10;
+        $scope.data = [];
+        $scope.numberOfPages = function() {
+          return Math.ceil($scope.data.length / $scope.pageSize);
+        };
+        for (var i = 0; i < $scope.orderList.length; i++) {
+          $scope.orderList[i].id = (i + 1);
+          $scope.data.push($scope.orderList[i]);
+        }
+        if ($scope.fundsProject.status === 1) {
+          if ($rootScope.userCapital) {
+            $scope.userCanFundsInvestNum = $scope.fundsProjectInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.fundsProjectInvestNum;
+          } else {
+            $scope.userCanCreditInvestNum = 0;
+          }
+          if ($rootScope.isLogged) {
+            if ($rootScope.securityStatus.realNameAuthStatus === 1) {
+              // 实名认证用户
+              $scope.invPlanFlag = 2;
+            } else if ($rootScope.securityStatus.autoTransfer === 1){
+              // 预约用户
+              $scope.invPlanFlag = 3;
+            } else {
+              //开启普通用户
+              $scope.invPlanFlag = 1;
+            }
+          } else {
+            // 未登录
+            $scope.invPlanFlag = 0;
+          }
+        }
       } else {
+        $state.go('root.investmentplan-list');
 
       }
+    });
 
-    })
+
+    // 跳到登录界面
+    $scope.toRealLogin = function() {
+      if (!$rootScope.isLogged) {
+        $modal({
+          scope: $scope,
+          template: 'views/modal/modal-toLogin.html',
+          show: true
+        });
+      }
+    };
+    // 完善资料第一代
+    $scope.toRealNameAuth = function() {
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alert-perfectinformation.html',
+        show: true
+      });
+    };
+    // 跳到实名认证页面第二代
+    $scope.toRealNameAuthPro = function() {
+      if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
+        $modal({
+          scope: $scope,
+          template: 'views/modal/modal-toRealNameAuth.html',
+          show: true
+        });
+      }
+    };
+
+    // 跳到授权页面
+    $scope.toAutoTransfer = function() {
+      $modal({
+        scope: $scope,
+        template: 'views/modal/modal-toAutoTransfer.html',
+        show: true
+      });
+    };
+    // 跳到充值页面
+    $scope.toRecharge = function() {
+      $modal({
+        scope: $scope,
+        template: 'views/modal/modal-toRecharge.html',
+        show: true
+      });
+    };
+
+    // 显示协议
+    $scope.showAgreement = function() {
+
+    };
+
+    // 检测input step
+    $scope.checkStepAmount = function(fundsProject) {
+      if (fundsProject.invPlanAmount >= 100) {
+        if (fundsProject.invPlanAmount % 100 === 0) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    };
+
+    // 检测用户可投最高金额
+    $scope.checkLargeUserCanAmount = function(fundsProject) {
+      if ($rootScope.userCapital.balance < fundsProject.invPlanAmount) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    $scope.toInvest = function(fundsProject) {
+      if (fundsProject.isRepeatFlag) {
+        $scope.isRepeat = 1;
+      } else {
+        $scope.isRepeat = 2;
+      }
+      $scope.invPlanAmount = fundsProject.invPlanAmount;
+      if($scope.invPlanFlag === 0) {
+        $scope.toRealLogin();
+      } else if ($scope.invPlanFlag === 1) {
+        $scope.toRealNameAuth();
+        // 跳到实名认证页面
+      } else if ($scope.invPlanFlag === 2 || $scope.invPlanFlag === 3) {
+        ProjectService.isFundsAvailableInvest.get({
+          amount: fundsProject.invPlanAmount,
+          projectId: fundsProject.id,
+          isRepeat: $scope.isRepeat
+        }, function(response) {
+          if (response.ret === 1) {
+            $state.go('root.invplan-verify', { projectId: response.data.projectId, amount: response.data.amount, isRepeat: response.data.isRepeat });
+          } else  {
+
+          }
+
+        });
+      }
+    };
 
 
 
@@ -57,17 +196,17 @@ angular.module('hongcaiApp')
     //       $scope.project = projectDetails.data.project;
     //       $scope.categoryCode = $scope.project.categoryCode;
     //       if ($scope.categoryCode !== '04' && $scope.categoryCode !== '05' && $scope.categoryCode !== '06') {
-    //         $scope.tabs = [{
-    //           title: '项目信息',
-    //         }, {
-    //           title: '企业信息',
-    //         }, {
-    //           title: '风控信息',
-    //         }, {
-    //           title: '相关文件',
-    //         }, {
-    //           title: '项目历程',
-    //         }];
+            $scope.tabs = [{
+              title: '项目信息',
+            }, {
+              title: '企业信息',
+            }, {
+              title: '风控信息',
+            }, {
+              title: '相关文件',
+            }, {
+              title: '项目历程',
+            }];
     //       } else {
     //         $scope.tabs = [{
     //           title: '计划简介',
@@ -333,31 +472,19 @@ angular.module('hongcaiApp')
     //   $scope.activeTab = tabIndex;
     //   // $scope.currentTab = tab.url;
     // };*/
-
-    // $scope.toggle = {};
-    // $scope.toggle.switchTab = function(tabIndex) {
-    //   $scope.toggle.activeTab = tabIndex;
-    // };
-
-
-    // $scope.toggle.switchTabRight = function(tabIndexRight) {
-    //   $scope.toggle.activeTabRight = tabIndexRight;
-    //   // $scope.currentTab = tab.url;
-    // };
-
-    // $scope.toggle.switchTabRightReserve = function(tabIndexRightReserve) {
-    //   $scope.toggle.activeTabRightReserve = tabIndexRightReserve;
-    // };
-
-    // // $scope.currentTab = 'one.tpl.html';
-
-    // // $scope.onClickTab = function (tab) {
-    // //     $scope.currentTab = tab.url;
-    // // }
-
-    // // $scope.isActiveTab = function(tabUrl) {
-    // //     return tabUrl == $scope.currentTab;
-    // // }
+    $scope.tabs = [{
+      title: '计划简介',
+    }, {
+      title: '项目历程',
+    }, {
+      title: '投资记录',
+    }, {
+      title: '常见问题',
+    }];
+    $scope.toggle = {};
+    $scope.toggle.switchTab = function(tabIndex) {
+      $scope.toggle.activeTab = tabIndex;
+    };
 
     // $scope.image = 'images/test/0.png';
     // var myOtherModal = $modal({
@@ -381,75 +508,6 @@ angular.module('hongcaiApp')
     //   });
     // }
 
-    // // 某宝宝的收益率
-    // // 接口在这里。参照account-overview-ctrl.js line: 9-55
-    // ProjectService.getYuebaoInterestRatesByDate.get(function(response) {
-    //   if (response.ret === 1) {
-    //     var interestRates = response.data.yuebaoInterestRates;
-    //     $scope.rateLabels = [];
-    //     $scope.yuebaoRate = [];
-    //     $scope.selfRate = [];
-    //     for (var i = 0; i < interestRates.length; i++) {
-    //       $scope.rateLabels.push(moment(interestRates[i].interestDate).format('YYYY/MM/DD'));
-    //       $scope.yuebaoRate.push(interestRates[i].yuebaoRate);
-    //       $scope.selfRate.push(interestRates[i].rate);
-    //     }
-    //   }
-    //   if ($scope.rateLabels.length !== 0 && $scope.yuebaoRate.length !== 0 && $scope.selfRate.length !== 0) {
-    //     $scope.lineProjectData = {
-    //       labels: $scope.rateLabels,
-    //       datasets: [{
-    //         label: 'My yuebaoRate dataset',
-    //         fillColor: 'rgba(220,220,220,0.2)',
-    //         strokeColor: 'rgba(220,220,220,1)',
-    //         pointColor: 'rgba(220,220,220,1)',
-    //         pointStrokeColor: '#fff',
-    //         pointHighlightFill: '#fff',
-    //         pointHighlightStroke: 'rgba(220,220,220,1)',
-    //         data: $scope.yuebaoRate
-    //       }, {
-    //         label: 'My selfRate dataset',
-    //         fillColor: 'rgba(151,187,205,0.2)',
-    //         strokeColor: 'rgba(151,187,205,1)',
-    //         pointColor: 'rgba(151,187,205,1)',
-    //         pointStrokeColor: '#fff',
-    //         pointHighlightFill: '#fff',
-    //         pointHighlightStroke: 'rgba(151,187,205,1)',
-    //         data: $scope.selfRate
-    //       }]
-    //     };
-    //     //
-    //   } else {}
-    // });
-
-    // $scope.lineProjectData = {
-    //   labels: [],
-    //   datasets: [{
-    //     label: 'My First dataset',
-    //     fillColor: 'rgba(220,220,220,0.2)',
-    //     strokeColor: 'rgba(220,220,220,1)',
-    //     pointColor: 'rgba(220,220,220,1)',
-    //     pointStrokeColor: '#fff',
-    //     pointHighlightFill: '#fff',
-    //     pointHighlightStroke: 'rgba(220,220,220,1)',
-    //     data: []
-    //   }, {
-    //     label: 'My Second dataset',
-    //     fillColor: 'rgba(151,187,205,0.2)',
-    //     strokeColor: 'rgba(151,187,205,1)',
-    //     pointColor: 'rgba(151,187,205,1)',
-    //     pointStrokeColor: '#fff',
-    //     pointHighlightFill: '#fff',
-    //     pointHighlightStroke: 'rgba(151,187,205,1)',
-    //     data: []
-    //   }]
-    // };
-
-    // $scope.lineProjectOptions = {
-    //   scaleGridLineWidth: 1,
-    //   pointDotRadius: 4,
-    //   datasetFill: true
-    // };
 
     // $scope.toLogin = function() {
     //   var thisUrl = $location.path();

@@ -245,6 +245,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.invplan-transfer-success', {
+        url: '/invplan-transfer-success/:status',
+        views: {
+          '': {
+            templateUrl: 'views/success.html',
+            controller: 'InvPlanTransferSuccessCtrl',
+            controllerUrl: 'scripts/controller/order/invplan-transfer-success-ctrl'
+          }
+        }
+      })
       .state('root.bankcard-success', {
         url: '/bankcard-success/:status',
         views: {
@@ -333,6 +343,16 @@ hongcaiApp
             templateUrl: 'views/transfer.html',
             controller: 'InvestVerifyTransferCtrl',
             controllerUrl: 'scripts/controller/order/invest-verify-transfer-ctrl'
+          }
+        }
+      })
+      .state('root.invplan-verify-transfer', {
+        url: '/invplan-verify-transfer/:projectId/:amount/:isRepeat',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'InvPlanVerifyTransferCtrl',
+            controllerUrl: 'scripts/controller/order/invplan-verify-transfer-ctrl'
           }
         }
       })
@@ -757,6 +777,17 @@ hongcaiApp
             templateUrl: 'views/order/hongbao-verify.html',
             controller: 'hongbaoVerifyCtrl',
             controllerUrl: 'scripts/controller/order/hongbao-verify-ctrl'
+          }
+        }
+      })
+      // 宏金盈购物车
+      .state('root.invplan-verify', {
+        url: '/invplan-verify/:projectId/:amount/:isRepeat',
+        views: {
+          '': {
+            templateUrl: 'views/order/invplan-verify.html',
+            controller: 'InvPlanVerifyCtrl',
+            controllerUrl: 'scripts/controller/order/invplan-verify-ctrl'
           }
         }
       })
