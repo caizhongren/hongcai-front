@@ -1,6 +1,13 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('CreditCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
+    //判断是否开通第三方托管账户
+    if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
+      $scope.haveTrusteeshipAccount = true;
+    } else {
+      $scope.haveTrusteeshipAccount = false;
+    }
+
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'credit';
     // 第一步
@@ -19,14 +26,13 @@ angular.module('hongcaiApp')
       }
     });
 
-
     /**
      * 我的债权统计数据
      */
-    $scope.getCreditRightStatistics = function(searchStatus) {
+    $scope.getCreditRightStatistics = function() {
       UserCenterService.getCreditRightStatistics.get({}, function(response) {
         $scope.data = response.data;
-        console.log(response);
+        // console.log(response);
       });
     };
 

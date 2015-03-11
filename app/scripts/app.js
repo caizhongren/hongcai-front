@@ -465,7 +465,7 @@ hongcaiApp
         }
       })
       .state('root.userCenter.investment-query', {
-        url: '/investment/:dateInterval/:status',
+        url: '/investment/:type/:dateInterval/:status',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/investment.html',
