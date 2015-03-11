@@ -277,7 +277,7 @@ module.exports = function(grunt) {
                   var generated = context.options.generated;
                   generated.options = {
                     keepSpecialComments: 0,
-                    banner: '/*! All Rights Reserved by hongcai.com. */',
+                    banner: '/*! All Rights Reserved by hongcai.com.' + new Date() + '*/',
                     compatibility: 'ie8'
                   };
                 }
