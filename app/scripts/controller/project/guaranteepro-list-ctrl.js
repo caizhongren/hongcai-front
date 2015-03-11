@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GuaranteeProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'ProjectService', 'CreditService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster) {
+  .controller('GuaranteeproListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'ProjectService', 'CreditService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster) {
     $scope.sortType = $stateParams.sortType || false;
     $scope.showFlag = $stateParams.showFlag || 0;
     if ($scope.sortType === 'true') {
@@ -20,7 +20,7 @@ angular.module('hongcaiApp')
       return true;
     }
     if (isEmptyObject($stateParams)) {
-      $location.path('/guarantee-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false');
+      $location.path('/guaranteepro-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false');
     }
 
     // 宏金保

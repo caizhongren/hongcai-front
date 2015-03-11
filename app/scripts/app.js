@@ -597,33 +597,33 @@ hongcaiApp
           }
         }
       })
-      .state('root.guarantee-list-query', {
-        url: '/guarantee-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+      .state('root.guaranteepro-list-query', {
+        url: '/guaranteepro-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
         views: {
           '': {
-            templateUrl: 'views/project/guarantee-list.html',
-            controller: 'GuaranteeProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/guarantee-list-ctrl'
+            templateUrl: 'views/project/guaranteepro-list.html',
+            controller: 'GuaranteeproListCtrl',
+            controllerUrl: 'scripts/controller/project/guaranteepro-list-ctrl'
           }
         }
       })
-      .state('root.guarantee-list-query-no', {
-        url: '/guarantee-list',
+      .state('root.guaranteepro-list-query-no', {
+        url: '/guaranteepro-list',
         views: {
           '': {
-            templateUrl: 'views/project/guarantee-list.html',
-            controller: 'GuaranteeProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/guarantee-list-ctrl'
+            templateUrl: 'views/project/guaranteepro-list.html',
+            controller: 'GuaranteeproListCtrl',
+            controllerUrl: 'scripts/controller/project/guaranteepro-list-ctrl'
           }
         }
       })
-      .state('root.hongjinying-project-list', {
-        url: '/hongjinying-project-list',
+      .state('root.investmentplan-list', {
+        url: '/investmentplan-list',
         views: {
           '': {
-            templateUrl: 'views/project/hongjinying-project-list.html',
-            controller: 'HjyProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/hongjinying-project-list-ctrl'
+            templateUrl: 'views/project/investmentplan-list.html',
+            controller: 'InvestmentplanListCtrl',
+            controllerUrl: 'scripts/controller/project/investmentplan-list-ctrl'
           }
         }
       })
@@ -657,18 +657,18 @@ hongcaiApp
           }
         }
       })
-      .state('root.hongjinying-project-details', {
-        url: '/hongjinying/:number',
+      .state('root.investmentplan-details', {
+        url: '/investmentplan/:number',
         views: {
           '': {
-            templateUrl: 'views/project/hongjinying-project-details.html',
-            controller: 'HjyProjectDetailsCtrl',
-            controllerUrl: 'scripts/controller/project/hongjinying-project-details-ctrl'
+            templateUrl: 'views/project/investmentplan-details.html',
+            controller: 'InvestmentplanDetailsCtrl',
+            controllerUrl: 'scripts/controller/project/investmentplan-details-ctrl'
           }
         }
       })
       .state('root.project-sponsorInstitution', {
-        url: '/project-sponsorInstitution/:guaranteeId',
+        url: '/project-sponsorInstitution/:guaranteeproId',
         views: {
           '': {
             templateUrl: 'views/project/project-sponsorInstitution.html',
