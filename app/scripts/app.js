@@ -485,7 +485,7 @@ hongcaiApp
         }
       })
       .state('root.userCenter.investment-query', {
-        url: '/investment/:dateInterval/:status',
+        url: '/investment/:type/:dateInterval/:status',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/investment.html',
@@ -1163,6 +1163,26 @@ hongcaiApp
             templateUrl: 'views/user-center/credit.html',
             controller: 'CreditCtrl',
             controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+          }
+        }
+      })
+      .state('root.userCenter.credit-security-details', {
+        url: '/credit-security-details/:type/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-security-details.html',
+            controller: 'CreditSecurityCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-security-details-ctrl.js'
+          }
+        }
+      })
+      .state('root.userCenter.credit-profit-details', {
+        url: '/credit-profit-details/:type/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-profit-details.html',
+            controller: 'CreditProfitCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-profit-details-ctrl.js'
           }
         }
       })

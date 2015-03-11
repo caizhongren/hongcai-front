@@ -1,6 +1,13 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('CreditCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
+    //判断是否开通第三方托管账户
+    if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
+      $scope.haveTrusteeshipAccount = true;
+    } else {
+      $scope.haveTrusteeshipAccount = false;
+    }
+
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'credit';
     // 第一步
@@ -19,6 +26,17 @@ angular.module('hongcaiApp')
       }
     });
 
+    /**
+     * 我的债权统计数据
+     */
+    $scope.getCreditRightStatistics = function() {
+      UserCenterService.getCreditRightStatistics.get({}, function(response) {
+        $scope.data = response.data;
+        // console.log(response);
+      });
+    };
+
+    $scope.getCreditRightStatistics ();
 
     /**
      * 获得持有中债权列表
@@ -27,9 +45,10 @@ angular.module('hongcaiApp')
       $scope.searchStatus = searchStatus;
 
       UserCenterService.getHeldInCreditRightList.get({status: searchStatus}, function(response) {
-        $scope.heldInCreditList = response.data.heldInCreditList;
+        $scope.heldInCreditList = response.data.heldIdCreditList;
         $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
         $scope.creditRightStatusMap = response.data.creditRightStatusMap;
+        console.log(response,$scope.heldInCreditList);
       });
     };
 

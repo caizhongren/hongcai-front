@@ -111,6 +111,7 @@ angular.module('hongcaiApp')
       }),
 
       // 债权相关
+      getCreditRightStatistics: $resource(DEFAULT_DOMAIN + '/siteCredit/getCreditRightStatistics'),
       getHeldInCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getHeldInCreditRightList'),
       getTranferCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getTranferCreditRightList', {
         status: '@status'
@@ -125,6 +126,10 @@ angular.module('hongcaiApp')
       }),
       cancelCreditAssignment: $resource(DEFAULT_DOMAIN + '/siteCredit/cancelCreditAssignment', {
         assignmentNumber: '@assignmentNumber'
+      }),
+      getCreditDetail: $resource(DEFAULT_DOMAIN + '/siteCredit/getCreditDetail', {
+        status: '@status',
+        number: '@number'
       })
 
     };
