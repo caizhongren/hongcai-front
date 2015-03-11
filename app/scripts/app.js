@@ -1135,6 +1135,26 @@ hongcaiApp
           }
         }
       })
+      .state('root.userCenter.credit-security-details', {
+        url: '/credit-security-details/:type/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-security-details.html',
+            controller: 'CreditSecurityCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-security-details-ctrl.js'
+          }
+        }
+      })
+      .state('root.userCenter.credit-profit-details', {
+        url: '/credit-profit-details/:type/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-profit-details.html',
+            controller: 'CreditProfitCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-profit-details-ctrl.js'
+          }
+        }
+      })
       .state('root.userCenter.credit-query', {
         url: '/credit/:dateInterval/:type',
         views: {

@@ -1,0 +1,89 @@
+<div class="userCenter-credit right-area record col-md-8 col-lg-9" >
+  <div class="row">
+   <div class="right-title">债权详情</div>
+  </div>
+  <table class="table table-bordered margin-t-30">
+    <thead>
+      <tr>
+        <th>项目名称</th>
+        <th>年化收益率</th>
+        <th>项目期限</th>
+        <th>项目预计收益</th>
+        <th>持有债权</th>
+        <th ng-show="creditIsShowedFLAG">已转出债权</th>
+        <th>已收收益</th>
+        <th>待收收益</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ order.projectName }}</td>
+        <td>{{ project.annualEarnings }}%</td>
+        <td>{{ project.cycle }}个月</td>
+        <td>{{ creditRight.profit | number:2 }}</td>
+        <td>{{ creditRight.transferableAmount | number:2 }}</td>
+        <td ng-show="creditIsShowedFLAG">{{  creditRight.transferingAmount | number:2 }}</td>
+        <td>{{ creditRight.returnProfit | number:2 }}</td>
+        <td>{{ creditRight.profit-creditRight.returnProfit | number:2 }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4>
+        <ul class="timeline">
+          <li>
+            <div class="timeline-badge primary"><i class="fa fa-rocket"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">项目上线</h4>
+              </div>
+              <div class="timeline-body">
+                <p>上线时间：{{project.publishTime | date:'yyyy-MM-dd'}}</p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-badge info"><i class="fa fa-users"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">项目募集</h4>
+              </div>
+              <div class="timeline-body">
+                <p>开始时间：{{project.releaseStartTime | date:'yyyy-MM-dd'}}</p>
+                <p>结束时间：{{project.releaseEndTime | date:'yyyy-MM-dd'}}</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-badge warning"><i class="fa fa-tree"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">项目放款</h4>
+              </div>
+              <div class="timeline-body">
+                <p>已还：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest) | number:2 }}（{{billCount}}期）</p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-badge success"><i class="fa fa-list-ol"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">项目还款</h4>
+              </div>
+              <div class="timeline-body">
+                <p>待还款：{{remainPrincipal + remainInterest | number:2 }}（{{project.cycle - billCount}}期）</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

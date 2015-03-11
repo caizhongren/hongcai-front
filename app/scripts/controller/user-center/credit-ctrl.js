@@ -21,15 +21,28 @@ angular.module('hongcaiApp')
 
 
     /**
+     * 我的债权统计数据
+     */
+    $scope.getCreditRightStatistics = function(searchStatus) {
+      UserCenterService.getCreditRightStatistics.get({}, function(response) {
+        $scope.data = response.data;
+        console.log(response);
+      });
+    };
+
+    $scope.getCreditRightStatistics ();
+
+    /**
      * 获得持有中债权列表
      */
     $scope.getHeldInCreditRightList = function(searchStatus) {
       $scope.searchStatus = searchStatus;
 
       UserCenterService.getHeldInCreditRightList.get({status: searchStatus}, function(response) {
-        $scope.heldInCreditList = response.data.heldInCreditList;
+        $scope.heldInCreditList = response.data.heldIdCreditList;
         $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
         $scope.creditRightStatusMap = response.data.creditRightStatusMap;
+        console.log(response,$scope.heldInCreditList);
       });
     };
 

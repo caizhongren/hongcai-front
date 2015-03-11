@@ -1,0 +1,28 @@
+<div class="userCenter-credit right-area record col-md-8 col-lg-9" >
+  <table class="table table-bordered margin-t-30">
+    <thead>
+      <tr>
+        <th>项目名称</th>
+        <th>当前年化收益率</th>
+        <th>封闭期</th>
+        <th>项目预计收益</th>
+        <th>持有债权</th>
+        <th ng-show="creditIsShowedFLAG">已转出债权</th>
+        <th>已收收益</th>
+        <th>待收收益</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ order.projectName }}</td>
+        <td>{{ project.annualEarnings }}%</td>
+        <td>{{ item.order.profit - item.order.returnProfit | number:2 }}</td>
+        <td>{{ item.order.returnProfit | number:2 }}</td>
+        <td>{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</td>
+        <td ng-show="creditIsShowedFLAG">{{ 'dfdfd' }}</td>
+        <td>{{'1000'}}</td>
+        <td>{{'1000'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

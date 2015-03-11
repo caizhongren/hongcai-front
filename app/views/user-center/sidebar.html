@@ -70,6 +70,13 @@
     </a>
   </div>
   <div class="row">
+    <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'tips-show' : ''}}">
+      <div class="left-show-area {{selectSide == 'credit' ? 'left-show-area-bg' : ''}}"></div>
+      <div class="ico-area message-1 fa fa-gavel {{selectSide == 'credit' ? 'message1-red' : ''}}"></div>
+      <p class="{{selectSide == 'credit' ? 'now' : ''}}" style="margin-left:36px;">我的债权</p>
+    </a>
+  </div>
+  <div class="row">
     <a ui-sref="root.userCenter.reservation" class="tips-area {{selectSide == 'reservation' ? 'tips-show' : ''}}">
       <div class="left-show-area {{selectSide == 'reservation' ? 'left-show-area-bg' : ''}}"></div>
       <div class="ico-area message-1 fa fa-file-text {{selectSide == 'reservation' ? 'message1-red' : ''}}"></div>
@@ -116,13 +123,6 @@
       <div class="left-show-area {{selectSide == 'message' ? 'left-show-area-bg' : ''}}"></div>
       <div class="ico-area message-1 fa fa-envelope {{selectSide == 'message' ? 'message1-red' : ''}}"></div>
       <p class="{{selectSide == 'message' ? 'now' : ''}}" style="margin-left:36px;">站内消息</p>
-    </a>
-  </div>
-  <div class="row" ng-show="creditIsShowedFLAG">
-    <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'tips-show' : ''}}">
-      <div class="left-show-area {{selectSide == 'credit' ? 'left-show-area-bg' : ''}}"></div>
-      <div class="ico-area message-1 fa fa-gavel {{selectSide == 'credit' ? 'message1-red' : ''}}"></div>
-      <p class="{{selectSide == 'credit' ? 'now' : ''}}" style="margin-left:36px;">债券转让</p>
     </a>
   </div>
 </div>
