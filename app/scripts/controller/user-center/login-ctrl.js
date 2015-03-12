@@ -32,7 +32,9 @@ angular.module('hongcaiApp')
           });
           if ($stateParams.redirectUrl) {
             $location.url($stateParams.redirectUrl);
-          } else if ($location.path() !== '/login') {} else {
+          } else if ($location.path() !== '/login') {
+            window.location.reload();
+          } else {
             $state.go('root.userCenter.account-overview');
           }
         } else {
