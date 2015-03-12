@@ -80,7 +80,7 @@ angular.module('hongcaiApp')
             $scope.data.push(item);
           }
         } else {
-          console.log('ask investment, why getOrderByUser did not load data...');
+          console.log(getOrderByUser);
         }
       });
 
