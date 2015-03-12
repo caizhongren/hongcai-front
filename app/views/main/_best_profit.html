@@ -10,13 +10,12 @@
     </div>
   </div>
   <div class="panel-body">
-    <!-- <div class="col-xs-4" ng-repeat="item in activityList | limitTo: 3"> -->
-    <div class="col-xs-12 col-md-4 col-md-4 jinying-border-right">
+    <div class="col-xs-12 col-md-4 col-lg-4 " ng-class="{ 'jinying-border-right': $index === 0 || $index === 1}" ng-repeat="item in fundsProjectList | limitTo: 3">
       <div class="col-xs-offset-1 col-xs-10">
         <div class="row margin-b-10">
-          <a href="">
+          <a ui-sref="root.investmentplan-details({number: item.number})">
             <h3 class="real-type-name">七日盈
-              <span class="real-type-date">20150101期</span>
+              <span class="real-type-date">{{item.name}}</span>
             </h3>
           </a>
         </div>
@@ -32,7 +31,7 @@
               <div class="col-xs-12 col-sm-6 col-lg-12">
                 <div class="row">
                   <span class="ft-grey">
-                    <strong class="ft-24">{{ '15,000' }}</strong>
+                    <strong class="ft-24">{{ item.total || 0}}</strong>
                     &nbsp;元
                   </span>
                 </div>
@@ -55,95 +54,5 @@
         </div>
       </div>
     </div>
-
-    <div class="col-xs-12 col-md-4 col-md-4 jinying-border-right">
-      <div class="col-xs-offset-1 col-xs-10">
-        <div class="row margin-b-10">
-          <a href="">
-            <h3 class="real-type-name">月月盈
-              <span class="real-type-date">20150101期</span>
-            </h3>
-          </a>
-        </div>
-        <div class="row margin-b-10 text-center">
-          <div class="col-xs-6 col-md-12 col-lg-6 text-left">
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-lg-12">
-                <div class="row">
-                  <img src="images/hongjinying/castBg.png">
-                  <span class="ft-14 ft-cast col-xs-12">可投金额</span>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-lg-12">
-                <div class="row">
-                  <span class="ft-grey">
-                    <strong class="ft-24">{{ '15,000' }}</strong>
-                    &nbsp;元
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-6 col-md-12 col-lg-6">
-            <p class="prompt-style">
-              <img src="images/hongjinying/prompt.png" alt="">
-              <small class="rate-show ft-14" style="margin-left: -43px;">+0.5</small>
-            </p>
-            <p class="year-percent">
-              <span class="ft-90 ft-red percent-num">12</span>
-              <span class="ft-14 ft-red percent-ft">&nbsp;% &nbsp;年化</span>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <a class="col-xs-12 btn btn-primary investment-btn" role="button">马上投资</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-md-4 col-md-4">
-      <div class="col-xs-offset-1 col-xs-10">
-        <div class="row margin-b-10">
-          <a href="">
-            <h3 class="real-type-name">季度盈
-              <span class="real-type-date">20150101期</span>
-            </h3>
-          </a>
-        </div>
-        <div class="row margin-b-10 text-center">
-          <div class="col-xs-6 col-md-12 col-lg-6 text-left">
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-lg-12">
-                <div class="row">
-                  <img src="images/hongjinying/castBg.png">
-                  <span class="ft-14 ft-cast col-xs-12">可投金额</span>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-lg-12">
-                <div class="row">
-                  <span class="ft-grey">
-                    <strong class="ft-24">{{ '15,000' }}</strong>
-                    &nbsp;元
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-6 col-md-12 col-lg-6">
-            <p class="prompt-style">
-              <img src="images/hongjinying/prompt.png" alt="">
-              <small class="rate-show ft-14" style="margin-left: -43px;">+0.5</small>
-            </p>
-            <p class="year-percent">
-              <span class="ft-90 ft-red percent-num">12</span>
-              <span class="ft-14 ft-red percent-ft">&nbsp;% &nbsp;年化</span>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <a class="col-xs-12 btn btn-primary investment-btn" role="button">马上投资</a>
-        </div>
-      </div>
-    </div>
-
   </div>
+</div>
