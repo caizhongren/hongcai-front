@@ -29,7 +29,7 @@ angular.module('hongcaiApp')
           });
         } else {}
       });
-    }
+    };
     $scope.projectList();
     $scope.mainTimeUntil = function(stDate) {
       var collectTime = {};
@@ -43,7 +43,6 @@ angular.module('hongcaiApp')
       collectTime.second = moment().startOf('month').seconds(stDate).format('mm');
       collectTime.min = moment().startOf('month').seconds(stDate).format('ss');
       return collectTime;
-      return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
       // function z(n) {
       //   return (n < 10 ? '0' : '') + n;
       // }
@@ -70,12 +69,12 @@ angular.module('hongcaiApp')
     //  宏金盈列表
     MainService.getIndexFundsProductList.get(function(response) {
       if (response.ret === 1) {
-        $scope.fundsProjectList = response.data.fundsProjectList;
         $scope.fundsProjectStatusMap = response.data.fundsProjectStatusMap;
+        $scope.fundsProjectProductList = response.data.fundsProjectProductList;
         //
 
       }
-    })
+    });
 
     var indexStatistics = MainService.indexStatistics.get(function(response) {
       if (response.ret === 1) {
