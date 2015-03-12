@@ -11,16 +11,16 @@
   </div>
   <img src="/images/project/status_7.png" style="float:right;margin-top:-1px;">
   <div class="panel-body">
-    <div class="hidden-xs hidden-md col-lg-3 padding-0 ">
+    <div class="hidden-xs hidden-md col-lg-3 padding-0">
       <a ui-sref="root.project-details({number: projectVo.number})">
         <img ng-show="projectVo.image" ng-src="{{baseFileUrl + projectVo.image}}" alt="" class="img-rounded" width="230" height="206">
       </a>
     </div>
-    <div class="col-md-12 col-lg-9" ng-if="projectVo">
+    <div class="col-md-12 col-lg-9">
       <div class="row border-b">
         <div class="col-xs-3">
           <a ui-sref="root.project-details({number: projectVo.number})" title="{{projectVo.name}}">
-            <h3 class="text-nowrap margin-t-0">{{ '中东担保' | limitTo: 10 }}
+            <h3 class="text-nowrap margin-t-0">{{ projectVo.name | limitTo: 10 }}
               <img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="projectVo.categoryCode === '04'">
               <span class="real-type-date">20150101期</span>
             </h3>
@@ -34,13 +34,13 @@
           </div>
           <div class="row">
             <div class="col-xs-4 border-r under-margin">
-              <h2 class="text-center text-nowrap hc-text-red ft-48">{{ '10000'}} <span class="font-black-13">万</span></h2>
+              <h2 class="text-center text-nowrap hc-text-red ft-48">{{projectVo.total | menoyFormat }} <span class="font-black-13">万</span></h2>
             </div>
             <div class="col-xs-4 border-r under-margin">
-              <h2 class="text-center text-nowrap hc-text-red ft-48">{{  '12' }} <span class="font-black-13">个月</span></h2>
+              <h2 class="text-center text-nowrap hc-text-red ft-48">{{projectVo.cycle || 0}} <span class="font-black-13">个月</span></h2>
             </div>
             <div class="col-xs-4 under-margin">
-              <h2 class="text-center text-nowrap hc-text-red ft-48">{{ '10'}}
+              <h2 class="text-center text-nowrap hc-text-red ft-48">{{projectVo.annualEarnings || 0 | number : 1}}
                 <span class="font-black-13 hc-text-red">%</span>
                 <span class="font-black-13">年化收益</span>
               </h3>
@@ -55,9 +55,22 @@
 
         <div class="col-md-12 col-lg-4">
           <div class="row" style="padding-top: 48px;">
+            <div class="col-xs-12" ng-show="projectVo.status === 6" >
+              <!-- 预发布样式 -->
+            </div>
+            <div class="col-xs-12" ng-show="projectVo.status === 11" >
+              <div class="row">
+                <p>预约金额：<strong class="font-20">{{projectVo.reserveAmount/10000 || 0 | number : 1}}</strong>万</p>
+                <span class="pull-left ft-16">投资进度：</span>
+                <div class="progress">
+                  <div class="progress-bar progress-bar-info hc-bg-red" role="progressbar" aria-valuenow="{{projectVo.progress || 0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{projectVo.progress||0 }}%">{{projectVo.progress || 0 | number : 2}}%</div>
+                </div>
+              </div>
+              <!-- 预约样式 -->
+            </div>
             <div class="col-xs-12" ng-show="projectVo.status !== 6 && projectVo.status !== 11">
               <div class="row">
-                <p>可投金额：<strong class="font-20">200</strong>万</p>
+                <p>可投金额：<strong class="font-20">{{projectVo.currentStock * projectVo.increaseAmount/10000 || 0 | number : 1}}</strong>万</p>
                 <span class="pull-left ft-16">投资进度：</span>
                 <div class="progress">
                   <div class="progress-bar progress-bar-info hc-bg-red" role="progressbar" aria-valuenow="{{projectVo.progress || 0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{projectVo.progress||0 }}%">{{projectVo.progress || 0 | number : 2}}%</div>
@@ -66,16 +79,8 @@
             </div>
           </div>
           <div class="row">
-            <a href="" class=" col-xs-12 btn btn-block btn-lg btn-primary">立即投资</a>
+            <a href="" class=" col-xs-12 btn btn-block btn-lg btn-primary">{{ projectVo.statusText }}</a>
           </div>
-<!--     <div class="row">
-      <div class="col-xs-12 col-sm-4 border-r text-center" style="position: relative;">
-        <img src="images/stamp38.png" alt="" style="position:absolute; top:-20%; left:66%;" ng-show="projectVo.floattingRate">
-        <h3 class="text-center text-nowrap hc-text-red ftw-b" ng-show="projectVo.floattingRate">{{projectVo.annualEarnings - projectVo.floattingRate || 0 | number : 2}}%</h3>
-        <h3 class="text-center text-nowrap hc-text-red ftw-b" ng-hide="projectVo.floattingRate">{{projectVo.annualEarnings || 0 | number : 2}}%</h3>
-        <span class="text-center text-nowrap">年化收益</span>
-      </div> -->
-
         </div>
       </div>
       <!-- <a ui-sref="root.project-details({number: projectVo.number})" title="{{projectVo.name}}"><h3 class="text-nowrap margin-t-0">{{ '中东担保' | limitTo: 10 }}...<img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="projectVo.categoryCode === '04'"></h3></a> -->
