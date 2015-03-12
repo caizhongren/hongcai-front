@@ -160,7 +160,7 @@ hongcaiApp
         url: '/banner-fourty',
         views: {
           '': {
-            templateUrl: 'views/banner-fourty.html'
+            templateUrl: 'views/banner/banner-fourty.html'
           }
         }
       })
@@ -168,7 +168,7 @@ hongcaiApp
         url: '/banner-nine',
         views: {
           '': {
-            templateUrl: 'views/banner-nine.html'
+            templateUrl: 'views/banner/banner-nine.html'
           }
         }
       })
@@ -176,7 +176,15 @@ hongcaiApp
         url: '/banner-P2B',
         views: {
           '': {
-            templateUrl: 'views/banner-P2B.html'
+            templateUrl: 'views/banner/banner-P2B.html'
+          }
+        }
+      })
+      .state('root.banner-hongjinying', {
+        url: '/banner-hongjinying',
+        views: {
+          '': {
+            templateUrl: 'views/banner/banner-hongjinying.html'
           }
         }
       })
@@ -184,7 +192,7 @@ hongcaiApp
         url: '/banner-partner',
         views: {
           '': {
-            templateUrl: 'views/banner-partner.html'
+            templateUrl: 'views/banner/banner-partner.html'
           }
         }
       })
@@ -192,7 +200,7 @@ hongcaiApp
         url: '/friends',
         views: {
           '': {
-            templateUrl: 'views/friends-ship.html'
+            templateUrl: 'views/banner/friends-ship.html'
               //templateUrl: 'banner-nine.html'
           }
         }
@@ -1084,6 +1092,14 @@ hongcaiApp
         views: {
           'help-center-right-show': {
             templateUrl: 'views/help-center/other-question.html'
+          }
+        }
+      })
+      .state('root.help-center.product', {
+        url: '/product',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/product.html'
           }
         }
       })
