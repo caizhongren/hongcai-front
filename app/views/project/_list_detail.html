@@ -12,7 +12,13 @@
               <img class="sponsor" src="images/gs_rongzi_gc.png">
             </div>
             <div class="col-xs-5 col-xs-offset-1">
-              <img class="status_flag" src="images/project/status_{{item.status}}.png" alt="">
+            <!-- 为了编译，迫不得已用这么lovw的写法 -->
+              <img class="status_flag" src="images/project/status_6.png" alt="" ng-show="item.status === 6">
+              <img class="status_flag" src="images/project/status_7.png" alt="" ng-show="item.status === 7">
+              <img class="status_flag" src="images/project/status_8.png" alt="" ng-show="item.status === 8">
+              <img class="status_flag" src="images/project/status_9.png" alt="" ng-show="item.status === 9">
+              <img class="status_flag" src="images/project/status_10.png" alt="" ng-show="item.status === 10">
+              <img class="status_flag" src="images/project/status_11.png" alt="" ng-show="item.status === 11">
             </div>
           </div>
           <div class="row">

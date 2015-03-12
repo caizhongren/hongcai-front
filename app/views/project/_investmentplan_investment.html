@@ -155,5 +155,9 @@
   </div>
   <!-- 融资结束，还款中，还款完成 -->
   <div class="row" ng-show="fundsProject.status !== 1">
-    <p class="text-center"><img src="images/project/invplan_status_{{fundsProject.status}}.png" alt=""></p>
+    <p class="text-center">
+      <img src="images/project/invplan_status_2.png" alt="" ng-show="fundsProject.status === 2">
+      <img src="images/project/invplan_status_3.png" alt="" ng-show="fundsProject.status === 3">
+      <img src="images/project/invplan_status_4.png" alt="" ng-show="fundsProject.status === 4">
+    </p>
   </div>
