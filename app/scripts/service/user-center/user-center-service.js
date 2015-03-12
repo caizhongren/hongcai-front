@@ -55,7 +55,7 @@ angular.module('hongcaiApp')
       }),
       getDealByUser: $resource(DEFAULT_DOMAIN + '/siteUser/getDealListByUser', {
         dateInterval: '@dateInterval',
-        type: '@type'
+        dealType: '@dealType'
       }),
       resetMobilePassword: $resource(DEFAULT_DOMAIN + '/siteUser/resetMobilePassword', {
         mobile: '@mobile',
