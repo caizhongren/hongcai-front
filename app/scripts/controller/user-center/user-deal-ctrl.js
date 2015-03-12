@@ -4,7 +4,6 @@ angular.module('hongcaiApp')
     $rootScope.selectSide = 'record';
     $scope.type = $stateParams.type || 0;
     $scope.dateInterval = $stateParams.dateInterval || 0;
-    $scope.typeValue = { '1': '充值', '2': '提现', '3': '投资', '4': '收益', '5': '回收本金', '6': '放款' };
     $scope.dealType = 0;
     $scope.recordSelect = function() {
       console.log($scope.dealType);
