@@ -90,7 +90,7 @@ angular.module('hongcaiApp')
       }
     };
 
-    // 跳到授权页面
+    // 跳到自动投资页面
     $scope.toAutoTransfer = function() {
       $modal({
         scope: $scope,
@@ -114,7 +114,11 @@ angular.module('hongcaiApp')
 
     // 显示协议
     $scope.showAgreement = function() {
-
+      $modal({
+        scope: $scope,
+        template: 'views/modal/alert-toinvPlanAgreement.html',
+        show: true
+      });
     };
 
     $scope.checkAutoTransfer = function(fundsProject) {

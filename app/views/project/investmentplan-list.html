@@ -41,8 +41,8 @@
                     </td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
-                    <td>{{ item.projectBackProfit }}</td>
-                    <td>{{ fundsProjectStatus[item.status] }}</td>
+                    <td>{{ item.projectBackProfit || 0 }}</td>
+                    <td>{{ list.data.fundsProjectStatusMap[item.status] }}</td>
                   </tr>
                 </table>
               </section>
@@ -62,8 +62,8 @@
                     </td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
-                    <td>{{ item.projectBackProfit }}</td>
-                    <td>{{ fundsProjectStatus[item.status] }}</td>
+                    <td>{{ item.projectBackProfit || 0}}</td>
+                    <td>{{ list.data.fundsProjectStatusMap[item.status] }}</td>
                   </tr>
                 </table>
               </section>
@@ -79,11 +79,11 @@
                     </tr>
                   </thead>
                   <tr ng-repeat="item in list.list">
-                    <td>{{ item.name }}</td>
+                    <td><a ui-sref="root.investmentplan-details({number: item.number})">{{ item.name }}</td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
-                    <td>{{ item.projectBackProfit }}</td>
-                    <td>{{ fundsProjectStatus[item.status]}}</td>
+                    <td>{{ item.projectBackProfit || 0}}</td>
+                    <td>{{ list.data.fundsProjectStatusMap[item.status]}}</td>
                   </tr>
                 </table>
               </section>
