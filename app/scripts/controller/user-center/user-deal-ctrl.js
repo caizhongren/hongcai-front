@@ -31,7 +31,6 @@ angular.module('hongcaiApp')
           //按交易类型筛选
           $scope.icons = [];
           for (var j in $scope.dealTypes) {
-            console.log(j);
             var obj = {};
             obj.value = '' + j + '';
             obj.label = '' + $scope.dealTypes[j] + '';
