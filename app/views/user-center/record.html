@@ -92,7 +92,7 @@
     <thead>
       <tr>
         <th>创建时间</th>
-        <th>收支类型</th>
+        <th>交易类型</th>
         <th>收支描述</th>
         <th>收入</th>
         <th>支出</th>
@@ -102,7 +102,7 @@
     <tbody>
       <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
         <td>{{ item.createTime | date: 'yyyy-MM-dd'}}</td>
-        <td>{{ typeValue[item.type] }}</td>
+        <td>{{ dealTypes[item.type] }}</td>
         <td>{{item.description}}</td>
         <td>{{item.getAmount | number: 2}}</td>
         <td>{{item.payAmount | number: 2}}</td>
