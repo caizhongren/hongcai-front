@@ -49,25 +49,6 @@ angular.module('hongcaiApp')
         $scope.perPage = perPage;
       }
     });
-    // $scope.getFundsProjectListByProductType = function(productType) {
-    //   ProjectService.getFundsProjectListByProductType.get({productType: productType}, function(response) {
-    //     if (response.ret === 1) {
-    //       $scope.fundsProjectList = response.data.fundsProjectList;
-    //       $scope.fundsProjectStatus = response.data.fundsProjectStatus;
-    //       $scope.data = [];
-    //       $scope.currentPage = 0;
-    //       $scope.pageSize = 10;
-    //       $scope.numberOfPages = function() {
-    //         return Math.ceil($scope.data.length / $scope.pageSize);
-    //       };
-    //       for (var i = 0; i < $scope.fundsProjectList.length; i++) {
-    //         $scope.data.push($scope.fundsProjectList[i]);
-    //       }
-    //     } else {
-    //       console.log('ask investmentplan-list, why getFundsProjectListByProductType did not load data...');
-    //     }
-    //   });
-    // };
     $scope.baseFundsProductData();
     $scope.tabs = [{
       title: '七日盈',
