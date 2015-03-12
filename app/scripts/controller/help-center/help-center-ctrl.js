@@ -10,6 +10,10 @@ angular.module('hongcaiApp')
         'href': '/investors',
         'link': 'root.help-center.investors',
         'text': '投资介绍'
+      },{
+        'href': '/product',
+        'link': 'root.help-center.product',
+        'text': '产品介绍'
       }, {
         'href': '/account-management',
         'link': 'root.help-center.account-management',
@@ -90,5 +94,11 @@ angular.module('hongcaiApp')
     $scope.changeOther1 = false;
     $scope.changeOther2 = false;
     $scope.changeOther3 = false;
+
+    $scope.jinYing1 = false;
+    $scope.jinYing2 = false;
+    $scope.jinYing3 = false;
+    $scope.jinYing4 = false;
+    $scope.jinYing5 = false;
 
   }]);
