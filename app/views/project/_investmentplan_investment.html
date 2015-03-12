@@ -1,0 +1,65 @@
+<div class="row text-center">
+  <i class="fa fa-info-circle fa-lg ft-grey3 i-rightmargin"></i>可投金额：<strong>{{ fundsProjectInvestNum || 0 }}</strong>元,<strong>{{ fundsProject.countInvest }}</strong>人已投
+</div>
+
+<div class="row panel panel-default margin-t-15 padding-l-15 padding-r-15">
+
+  <!-- 项目融资中 -->
+  <div class="row" ng-show="fundsProject.status === 1" ng-switch="invPlanFlag">
+    <div class="col-xs-12" ng-switch-when="0">
+
+    </div>
+    <div class="col-xs-12" ng-switch-when="1">
+
+    </div>
+    <div class="col-xs-12" ng-switch-when="2">
+
+    </div>
+
+    <div class="col-xs-12" ng-switch-when="3">
+
+    </div>
+
+    <div class="col-xs-12 margin-t-30 rechanege">
+      <span>账户余额：<small class="ft-24 ft-red">{{ userCapital.balance || 0}}</small>元</span>
+      <a class="ft-red pull-right" ng-click="toRecharge();">充值</a>
+    </div>
+    <div class="col-xs-12 margin-t-15">
+      <form class="from-group" ng-submit="toInvest(fundsProject);" name="invPlanForm">
+        <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$dirty && invPlanForm.invPlanAmount.$error.required">
+          <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">请输入投资金额</p>
+        </div>
+        <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$dirty && invPlanForm.invPlanAmount.$error.number">
+          <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">输入金额格式不对，只能输入数字</p>
+        </div>
+        <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$dirty && invPlanForm.invPlanAmount.$error.min">
+          <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">请输入一个大于{{ fundsProject.increaseAmount }}的值</p>
+        </div>
+        <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$dirty && invPlanForm.invPlanAmount.$error.max">
+          <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">请输入一个小于{{fundsProjectInvestNum}}的值</p>
+        </div>
+        <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$dirty && checkStepAmount(fundsProject)">
+          <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">输入值必须是100的整数倍</p>
+        </div>
+        <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$dirty && checkLargeUserCanAmount(fundsProject)">
+          <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px; height:30px; margin-bottom:0px;background-color:#FEDED8;">余额不足，请充值</p>
+        </div>
+        <div class="col-xs-12" style="margin-bottom: 10px;">
+          <input type="number" class="form-control" name="invPlanAmount" min="{{fundsProject.minInvest }}" max="{{userCanFundsInvestNum}}" step="{{fundsProject.increaseAmount}}" ng-model="fundsProject.invPlanAmount" placeholder="请输入投资金额" ng-focus required>
+        </div>
+        <div class="col-xs-12">
+          <button class="btn btn-danger btn-lg btn-block margin-t-15" style="margin-bottom: 5px;">
+            <i class="fa fa-shopping-cart fa-lg project-leftmargin"></i>立即投资
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- 融资结束，还款中，还款完成 -->
+<div class="row" ng-show="fundsProject.status !== 1">
+  <p class="text-center"><img src="images/project/invplan_status_{{fundsProject.status}}.png" alt="">
+  </p>
+</div>

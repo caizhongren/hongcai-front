@@ -253,6 +253,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.invplan-transfer-success', {
+        url: '/invplan-transfer-success/:status',
+        views: {
+          '': {
+            templateUrl: 'views/success.html',
+            controller: 'InvPlanTransferSuccessCtrl',
+            controllerUrl: 'scripts/controller/order/invplan-transfer-success-ctrl'
+          }
+        }
+      })
       .state('root.bankcard-success', {
         url: '/bankcard-success/:status',
         views: {
@@ -341,6 +351,16 @@ hongcaiApp
             templateUrl: 'views/transfer.html',
             controller: 'InvestVerifyTransferCtrl',
             controllerUrl: 'scripts/controller/order/invest-verify-transfer-ctrl'
+          }
+        }
+      })
+      .state('root.invplan-verify-transfer', {
+        url: '/invplan-verify-transfer/:projectId/:amount/:isRepeat',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'InvPlanVerifyTransferCtrl',
+            controllerUrl: 'scripts/controller/order/invplan-verify-transfer-ctrl'
           }
         }
       })
@@ -473,7 +493,7 @@ hongcaiApp
         }
       })
       .state('root.userCenter.investment-query', {
-        url: '/investment/:dateInterval/:status',
+        url: '/investment/:type/:dateInterval/:status',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/investment.html',
@@ -605,33 +625,33 @@ hongcaiApp
           }
         }
       })
-      .state('root.guarantee-list-query', {
-        url: '/guarantee-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+      .state('root.guaranteepro-list-query', {
+        url: '/guaranteepro-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
         views: {
           '': {
-            templateUrl: 'views/project/guarantee-list.html',
-            controller: 'GuaranteeProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/guarantee-list-ctrl'
+            templateUrl: 'views/project/guaranteepro-list.html',
+            controller: 'GuaranteeproListCtrl',
+            controllerUrl: 'scripts/controller/project/guaranteepro-list-ctrl'
           }
         }
       })
-      .state('root.guarantee-list-query-no', {
-        url: '/guarantee-list',
+      .state('root.guaranteepro-list-query-no', {
+        url: '/guaranteepro-list',
         views: {
           '': {
-            templateUrl: 'views/project/guarantee-list.html',
-            controller: 'GuaranteeProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/guarantee-list-ctrl'
+            templateUrl: 'views/project/guaranteepro-list.html',
+            controller: 'GuaranteeproListCtrl',
+            controllerUrl: 'scripts/controller/project/guaranteepro-list-ctrl'
           }
         }
       })
-      .state('root.hongjinying-project-list', {
-        url: '/hongjinying-project-list',
+      .state('root.investmentplan-list', {
+        url: '/investmentplan-list',
         views: {
           '': {
-            templateUrl: 'views/project/hongjinying-project-list.html',
-            controller: 'HjyProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/hongjinying-project-list-ctrl'
+            templateUrl: 'views/project/investmentplan-list.html',
+            controller: 'InvestmentplanListCtrl',
+            controllerUrl: 'scripts/controller/project/investmentplan-list-ctrl'
           }
         }
       })
@@ -665,18 +685,18 @@ hongcaiApp
           }
         }
       })
-      .state('root.hongjinying-project-details', {
-        url: '/hongjinying/:number',
+      .state('root.investmentplan-details', {
+        url: '/investmentplan/:number',
         views: {
           '': {
-            templateUrl: 'views/project/hongjinying-project-details.html',
-            controller: 'HjyProjectDetailsCtrl',
-            controllerUrl: 'scripts/controller/project/hongjinying-project-details-ctrl'
+            templateUrl: 'views/project/investmentplan-details.html',
+            controller: 'InvestmentplanDetailsCtrl',
+            controllerUrl: 'scripts/controller/project/investmentplan-details-ctrl'
           }
         }
       })
       .state('root.project-sponsorInstitution', {
-        url: '/project-sponsorInstitution/:guaranteeId',
+        url: '/project-sponsorInstitution/:guaranteeproId',
         views: {
           '': {
             templateUrl: 'views/project/project-sponsorInstitution.html',
@@ -765,6 +785,17 @@ hongcaiApp
             templateUrl: 'views/order/hongbao-verify.html',
             controller: 'hongbaoVerifyCtrl',
             controllerUrl: 'scripts/controller/order/hongbao-verify-ctrl'
+          }
+        }
+      })
+      // 宏金盈购物车
+      .state('root.invplan-verify', {
+        url: '/invplan-verify/:projectId/:amount/:isRepeat',
+        views: {
+          '': {
+            templateUrl: 'views/order/invplan-verify.html',
+            controller: 'InvPlanVerifyCtrl',
+            controllerUrl: 'scripts/controller/order/invplan-verify-ctrl'
           }
         }
       })
@@ -1148,6 +1179,26 @@ hongcaiApp
             templateUrl: 'views/user-center/credit.html',
             controller: 'CreditCtrl',
             controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+          }
+        }
+      })
+      .state('root.userCenter.credit-security-details', {
+        url: '/credit-security-details/:type/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-security-details.html',
+            controller: 'CreditSecurityCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-security-details-ctrl.js'
+          }
+        }
+      })
+      .state('root.userCenter.credit-profit-details', {
+        url: '/credit-profit-details/:type/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-profit-details.html',
+            controller: 'CreditProfitCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-profit-details-ctrl.js'
           }
         }
       })

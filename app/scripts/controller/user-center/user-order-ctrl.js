@@ -59,11 +59,13 @@ angular.module('hongcaiApp')
       },
       function() {
         if (getOrderByUser.ret === 1) {
+          console.log(getOrderByUser.data);
           $scope.orderList = getOrderByUser.data.orderVoList;
           $scope.orderCount = getOrderByUser.data.orderCount;
           $scope.amount = getOrderByUser.data.amount;
           $scope.dateInterval = getOrderByUser.data.dateInterval;
           $scope.status = getOrderByUser.data.status;
+          $scope.notPayOrder = getOrderByUser.data.notPayOrder;
           // $scope.invFromDate = getOrderByUser.data.dateStart || 0;
           // $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
           $scope.currentPage = 0;
@@ -160,6 +162,7 @@ angular.module('hongcaiApp')
             }
             if (response.data.billList) {
               var bill = response.data.billList;
+              console.log(bill);
               var billList = {};
               for (var i = 0; i < bill.length; i++) {
                 billList = {
@@ -386,5 +389,9 @@ angular.module('hongcaiApp')
           // Optionally write the error out to scope
           $scope.errorDetails = 'Request failed with status: ' + status;
         });
+    };
+
+    $scope.removeWarning = function() {
+      angular.element('.notPayOrder').remove();
     };
   }]);
