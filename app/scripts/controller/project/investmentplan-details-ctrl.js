@@ -157,7 +157,6 @@ angular.module('hongcaiApp')
     };
 
     $scope.checkMaxAmount = function(fundsProject) {
-      console.log('checkMaxAmount');
       if (fundsProject.invPlanAmount > $scope.userCanFundsInvestNum) {
         return true;
       } else {

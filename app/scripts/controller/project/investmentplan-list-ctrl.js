@@ -26,7 +26,7 @@ angular.module('hongcaiApp')
 
 
     };
-    $scope.perPage = parseInt($location.search().perPage, 10) || 5;
+    $scope.perPage = parseInt($location.search().perPage, 10) || 8;
     $scope.page = parseInt($location.search().page, 10) || 0;
     $scope.clientLimit = 250;
     $scope.urlParams = {

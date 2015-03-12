@@ -96,7 +96,7 @@
             <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">输入值必须是100的整数倍</p>
           </div>
           <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$dirty && checkLargeUserCanAmount(fundsProject)">
-            <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px; height:30px; margin-bottom:0px;background-color:#FEDED8;">余额不足，请充值</p>
+            <p class="text-center text text-danger" style="font-size:15px; padding-top:4px; height:30px; margin-bottom:0px;background-color:#FEDED8;">余额不足，请充值</p>
           </div>
           <div class="col-xs-12">
             <input type="number" class="form-control" name="invPlanAmount" min="{{fundsProject.minInvest }}" max="{{userCanFundsInvestNum}}" step="{{fundsProject.increaseAmount}}" ng-model="fundsProject.invPlanAmount" placeholder="请输入投资金额" ng-focus required>
