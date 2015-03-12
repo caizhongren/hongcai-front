@@ -20,8 +20,8 @@
               </div>
             </div>
             <div class="row border-b-white">
-              <div class="col-xs-2 bg-grey2 tab-left text-right">
-                计划介绍
+              <div class="col-xs-2 bg-grey2 tab-left text-right" style="line-height:60px;">
+                <span>计划介绍</span>
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
                 宏金盈是宏财网推出的针对宏财网内部债权进行自动投资及定时自动转让的理财计划，多种期限可选，满足出借人不同的流动性需要。出借人出借的本金将在投资期限到达后一次性返回其账户，利息收益每月(期)发放，并由系统实现自动化的分散投资，更好的满足了出借人的需求。
@@ -102,41 +102,28 @@
           </div>
         </section>
         <section ng-if="tab.title==='投资记录'">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th>序号</th>
-                <th>投标金额</th>
-                <th>投资人</th>
-                <th>成交时间</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr ng-repeat="order in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-                <td>{{ order.id }}</td>
-                <td>{{order.userName}}</td>
-                <td>{{order.orderAmount| number : 0}}元</td>
-                <td>{{order.createTime | date: "yy-MM-dd"}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-        <section ng-if="tab.title==='计划进程'">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-xs-12">
-                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i>担保机构</h4>
-              </div>
-              <div class="col-xs-12">
-                <p>{{projectInfo.guaranteeSuggestion}}</p>
-              </div>
-              <div class="col-xs-12">
-                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i>风控措施</h4>
-              </div>
-              <div class="col-xs-12">
-                <p>{{projectInfo.riskManagementInfo}}</p>
-              </div>
-            </div>
+          <div ng-show="isLogged">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>序号</th>
+                  <th>投标金额</th>
+                  <th>投资人</th>
+                  <th>成交时间</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="order in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+                  <td>{{order.id}}</td>
+                  <td>{{order.userName}}</td>
+                  <td>{{order.orderAmount| number : 0}}元</td>
+                  <td>{{order.createTime | date: "yy-MM-dd"}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row" ng-if="!isLogged" style="text-align:center;">
+            <h4 style="">请<a ng-click="toLogin()" class="ft-red">登录</a>后查看信息</h4>
           </div>
         </section>
         <section ng-if="tab.title==='常见问题'">
@@ -200,7 +187,7 @@
                         <h4 class="timeline-title">项目上线</h4>
                       </div>
                       <div class="timeline-body">
-                        <p>上线时间：{{project.publishTime}}</p>
+                        <p>上线时间：{{fundsProject.publishTime}}</p>
                       </div>
                     </div>
                   </li>
@@ -212,8 +199,8 @@
                         <h4 class="timeline-title">项目募集</h4>
                       </div>
                       <div class="timeline-body">
-                        <p>开始时间：{{project.releaseStartTime}}</p>
-                        <p>结束时间：{{project.releaseEndTime}}</p>
+                        <p>开始时间：{{fundsProject.releaseStartTime | date: "yy-MM-dd"}}</p>
+                        <p>结束时间：{{fundsProject.releaseEndTime | date: "yy-MM-dd"}}</p>
                       </div>
                     </div>
                   </li>

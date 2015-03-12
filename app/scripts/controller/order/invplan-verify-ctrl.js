@@ -24,6 +24,22 @@ angular.module('hongcaiApp')
 
     });
 
+    // 跳到授权页面
+    $scope.toAutoTransfer = function() {
+      $modal({
+        scope: $scope,
+        template: 'views/modal/modal-toAutoTransfer.html',
+        show: true
+      });
+    };
+
+    $scope.checkAutoTransfer = function(project) {
+      if ($rootScope.securityStatus.autoTransfer !== 1) {
+        project.isRepeatFlag = false;
+        $scope.toAutoTransfer();
+      }
+    };
+
     $scope.reload = function() {
       window.location.reload();
     };
