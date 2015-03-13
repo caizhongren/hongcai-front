@@ -45,10 +45,15 @@ angular.module('hongcaiApp')
       $scope.searchStatus = searchStatus;
 
       UserCenterService.getHeldInCreditRightList.get({status: searchStatus}, function(response) {
-        $scope.heldInCreditList = response.data.heldIdCreditList;
-        $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
-        $scope.creditRightStatusMap = response.data.creditRightStatusMap;
-        console.log(response,$scope.heldInCreditList);
+        if(response.ret == 1) {
+          $scope.heldInCreditList = response.data.heldIdCreditList;
+          $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
+          $scope.creditRightStatusMap = response.data.creditRightStatusMap;
+          console.log($scope.heldInCreditList);
+        } else {
+          console.log(response);
+        }
+        
       });
     };
 
@@ -116,6 +121,12 @@ angular.module('hongcaiApp')
         $scope.getTranferingCreditRightList(2);
       });
     }
+
+    /*$scope.currentPage = 0;
+    $scope.pageSize = 10;
+    $scope.numberOfPages = function(data) {
+      return Math.ceil(data.length / $scope.pageSize);
+    };*/
 
     // $scope.getTranferedCreditRightList(3);
     // $scope.getTranferingCreditRightList(2);
