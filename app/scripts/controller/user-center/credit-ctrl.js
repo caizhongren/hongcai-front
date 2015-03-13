@@ -49,7 +49,8 @@ angular.module('hongcaiApp')
           $scope.heldInCreditList = response.data.heldIdCreditList;
           $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
           $scope.creditRightStatusMap = response.data.creditRightStatusMap;
-          console.log($scope.heldInCreditList);
+          $scope.productsMap = response.data.productsMap;
+          console.log(response);
         } else {
           console.log(response);
         }
@@ -119,6 +120,18 @@ angular.module('hongcaiApp')
         assignmentNumber:creditAssignment.number
       },function(response){
         $scope.getTranferingCreditRightList(2);
+      });
+    }
+
+    /**
+     * 自动复投/取消复投
+     */
+    $scope.autoReinvest = function(reinvestActionType,creditRightId) {
+      UserCenterService.autoReinvest.get({
+        repeat:reinvestActionType,
+        creditRightId:creditRight.id
+      },function(response){
+        console.log(response);
       });
     }
 

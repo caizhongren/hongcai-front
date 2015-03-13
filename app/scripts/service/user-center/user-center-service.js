@@ -130,6 +130,10 @@ angular.module('hongcaiApp')
       getCreditDetail: $resource(DEFAULT_DOMAIN + '/siteCredit/getCreditDetail', {
         status: '@status',
         number: '@number'
+      }),
+      autoReinvest: $resource(DEFAULT_DOMAIN + '/siteCredit/fundsRepeatInvest', {
+        repeat: '@repeat',
+        creditRightId: '@creditRightId'
       })
 
     };
