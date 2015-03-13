@@ -15,7 +15,7 @@ angular.module('hongcaiApp')
         $scope.capital = response.data.userCapital;
       } else if (response.ret === -1) {
         if (response.code === 1) {
-          $scope.msg = '抱歉，已经卖光了。'
+          $scope.msg = '抱歉，已经卖光了。';
           $modal({
             scope: $scope,
             template: 'views/modal/alert-dialog.html',
