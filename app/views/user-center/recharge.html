@@ -1,14 +1,17 @@
 <!--充值-->
 <div class="right-area right-assets-height recharge col-md-8 col-lg-9">
-  <div class="row">
+  <div class="row" ng-show="userType != 5">
     <div class="right-title">充值</div>
+  </div>
+  <div class="row" ng-show="userType == 5">
+    <div class="right-title">转账</div>
   </div>
   <!--start 安全认证提示 -->
   <div class="row">
     <p class="verify-tip safe-card-tips col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="!isSecurityAuth" ng-init="isSecurityAuth=true">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
   </div>
   <!--end 安全认证提示 -->
-  <div class="row">
+  <div class="row" ng-show="userType != 5">
     <form class="col-md-offset-2 col-lg-offset-2" name="rechargeForm" ng-show="isSecurityAuth">
       <div class="row">
         <div class="form-group mgn-top">
@@ -31,6 +34,35 @@
       <div class="row">
         <div class="form-group">
           <input type="button" value="确认充值" class="white-button col-md-offset-3 col-lg-offset-2" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'white-button':rechargeForm.$invalid, 'red-button':!rechargeForm.$invalid}" />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!--<p>{{isSecurityAuth}}</p>-->
+  <div class="row" ng-show="userType == 5">
+    <form class="col-md-offset-2 col-lg-offset-2" name="transferForm" ng-show="isSecurityAuth">
+      <div class="row">
+        <div class="form-group mgn-top">
+          <label class="col-md-3 col-lg-2">可转账余额：</label>
+          <p>{{ balance || "0" | number:2}}元</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label class="col-md-3 col-lg-2">转账金额：</label>
+          <input name="amount" type="text" class="verify-input" ng-model="transferAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-foucus required autofocus/>&nbsp;&nbsp;元
+          <div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="transferForm.amount.$dirty && transferForm.amount.$error.pattern">
+            <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>请输入数字(最多精确到小数点后两位)</p>
+          </div>
+          <div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="transferForm.amount.$dirty && transferForm.amount.$error.required && !transferForm.amount.$focused">
+            <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>充值金额不能为空</p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <input type="button" value="确认转账" class="white-button col-md-offset-3 col-lg-offset-2" ng-click="transferToPlaform(transferAmount)" ng-disabled="transferForm.$invalid" ng-class="{'white-button':transferForm.$invalid, 'blue-button':!transferForm.$invalid}" />
         </div>
       </div>
     </form>

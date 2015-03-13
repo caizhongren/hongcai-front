@@ -127,6 +127,10 @@ angular.module('hongcaiApp')
       cancelCreditAssignment: $resource(DEFAULT_DOMAIN + '/siteCredit/cancelCreditAssignment', {
         assignmentNumber: '@assignmentNumber'
       }),
+      transferToPlatform: $resource(DEFAULT_DOMAIN + '/yeepay/transferToPlatform', {
+        transferAmount: '@transferAmount'
+      }),
+
       getCreditDetail: $resource(DEFAULT_DOMAIN + '/siteCredit/getCreditDetail', {
         status: '@status',
         number: '@number'
