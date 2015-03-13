@@ -213,9 +213,9 @@ angular.module('hongcaiApp')
     $scope.tabs = [{
       title: '计划简介',
     }, {
-      title: '项目历程',
+      title: '加入记录',
     }, {
-      title: '投资记录',
+      title: '计划进程',
     }, {
       title: '常见问题',
     }];
