@@ -132,7 +132,7 @@ angular.module('hongcaiApp')
     $scope.autoReinvest = function(reinvestActionType,creditRightId) {
       UserCenterService.autoReinvest.get({
         repeat:reinvestActionType,
-        creditRightId:creditRight.id
+        creditRightId:creditRightId
       },function(response){
         console.log(response);
       });
