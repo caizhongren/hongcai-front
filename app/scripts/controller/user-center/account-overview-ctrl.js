@@ -81,7 +81,9 @@ angular.module('hongcaiApp')
       };
     }
 
-    OrderService.statisticsByUser.get(function(response) {
+
+    // 原版获取投资统计数据
+    /*OrderService.statisticsByUser.get(function(response) {
       if (response.ret === 1) {
         var orderNum = response.data.orderNum;
         if (orderNum) {
@@ -90,7 +92,23 @@ angular.module('hongcaiApp')
           $scope.investNum = orderNum.allInve;
         }
       }
-    });
+    });*/
+
+
+    /**
+     * 我的债权统计数据
+     */
+    $scope.getCreditRightStatistics = function() {
+      UserCenterService.getCreditRightStatistics.get({}, function(response) {
+        if (response.ret === 1) {
+          $scope.statistics = response.data;
+        } else {
+          console.log(response);
+        }
+      });
+    };
+
+    $scope.getCreditRightStatistics ();
 
 
   }]);

@@ -40,19 +40,19 @@
   <div class="row">
     <div class="row account-investment">
       <div class="col-md-4 border-r">
-        <p class="account-number">{{ investingNum || "0"}}<span class="ft-14">个</span>
+        <p class="account-number">{{ statistics.totalInvestCount || "0"}}<span class="ft-14">个</span>
         </p>
-        <p class="account-number-message">理财中</p>
+        <p class="account-number-message">累计投资</p>
       </div>
       <div class="col-md-4 border-r">
-        <p class="account-number">{{ investedNum || "0" }}<span class="ft-14">个</span>
+        <p class="account-number">{{ statistics.heldingCount || "0" }}<span class="ft-14">个</span>
         </p>
-        <p class="account-number-message">购买成功</p>
+        <p class="account-number-message">持有中债权</p>
       </div>
       <div class="col-md-4" style="margin-right:0;">
-        <p class="account-number">{{ investNum || "0"}}<span class="ft-14">个</span>
+        <p class="account-number">{{ statistics.totalInvestAmount || "0" | number:2}}<span class="ft-14">元</span>
         </p>
-        <p class="account-number-message">投资共计</p>
+        <p class="account-number-message">投资总额</p>
       </div>
       <a ui-sref="root.userCenter.investment" class="view-more investment-more">查看更多></a>
     </div>

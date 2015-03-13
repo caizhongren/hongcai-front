@@ -31,8 +31,11 @@ angular.module('hongcaiApp')
      */
     $scope.getCreditRightStatistics = function() {
       UserCenterService.getCreditRightStatistics.get({}, function(response) {
-        $scope.data = response.data;
-        // console.log(response);
+        if (response.ret === 1) {
+          $scope.data = response.data;
+        } else {
+          console.log(response);
+        }
       });
     };
 
