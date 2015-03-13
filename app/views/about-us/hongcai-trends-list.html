@@ -3,14 +3,14 @@
     <div class="right-title">宏财动态</div>
   </div>
   <div class="row">
-    <div class="introduction-area col-md-12 col-lg-12" ng-repeat="item in list.list">
+    <div class="introduction-area col-xs-12" ng-repeat="item in list.list">
       <div class="dynamic-show">
         <a ui-sref="root.about-us.hongcai-trends-detail({textId: item.id})">
           <img src="{{list.data.baseFileUrl + item.image}}" width="120" height="120" class="details-img">
         </a>
-        <a class="p-title-dynamic col-md-6 col-lg-6" ui-sref="root.about-us.hongcai-trends-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a>
-        <p class=" col-md-3 col-lg-3">{{item.createTime | date:'yyyy-MM-dd'}}</p>
-        <a ui-sref="root.about-us.hongcai-trends-detail({textId: item.id})" class="p-dynamic-show col-md-8 col-lg-8">
+        <a class="p-title-dynamic col-xs-6" ui-sref="root.about-us.hongcai-trends-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a>
+        <p class="col-xs-offset-1 col-xs-3" class="text-align: right;">{{item.createTime | date:'yyyy-MM-dd'}}</p>
+        <a ui-sref="root.about-us.hongcai-trends-detail({textId: item.id})" class="p-dynamic-show col-xs-8">
           <div ta-bind ng-model="item.content" class="news-details"></div>
         </a>
       </div>
