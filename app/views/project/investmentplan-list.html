@@ -37,7 +37,7 @@
                     </tr>
                   </thead>
                   <tr ng-repeat="item in list.list">
-                    <td><a ui-sref="root.investmentplan-details({number: item.number})">{{ item.name }}</a>
+                    <td><a ui-sref="root.investmentplan-details({number: item.number})" style="text-decoration:underline !important;">{{ item.name }}</a>
                     </td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
@@ -58,7 +58,7 @@
                     </tr>
                   </thead>
                   <tr ng-repeat="item in list.list">
-                    <td><a ui-sref="root.investmentplan-details({number: item.number})">{{ item.name }}</a>
+                    <td><a ui-sref="root.investmentplan-details({number: item.number})" style="text-decoration:underline !important;">{{ item.name }}</a>
                     </td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
@@ -79,7 +79,7 @@
                     </tr>
                   </thead>
                   <tr ng-repeat="item in list.list">
-                    <td><a ui-sref="root.investmentplan-details({number: item.number})">{{ item.name }}</td>
+                    <td><a ui-sref="root.investmentplan-details({number: item.number})" style="text-decoration:underline !important;">{{ item.name }}</a></td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
                     <td>{{ item.projectBackProfit || 0}}</td>
