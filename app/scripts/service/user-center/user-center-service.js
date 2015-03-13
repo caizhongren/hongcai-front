@@ -55,7 +55,7 @@ angular.module('hongcaiApp')
       }),
       getDealByUser: $resource(DEFAULT_DOMAIN + '/siteUser/getDealListByUser', {
         dateInterval: '@dateInterval',
-        type: '@type'
+        dealType: '@dealType'
       }),
       resetMobilePassword: $resource(DEFAULT_DOMAIN + '/siteUser/resetMobilePassword', {
         mobile: '@mobile',
@@ -111,6 +111,7 @@ angular.module('hongcaiApp')
       }),
 
       // 债权相关
+      getCreditRightStatistics: $resource(DEFAULT_DOMAIN + '/siteCredit/getCreditRightStatistics'),
       getHeldInCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getHeldInCreditRightList'),
       getTranferCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getTranferCreditRightList', {
         status: '@status'
@@ -130,6 +131,14 @@ angular.module('hongcaiApp')
         transferAmount: '@transferAmount'
       }),
 
+      getCreditDetail: $resource(DEFAULT_DOMAIN + '/siteCredit/getCreditDetail', {
+        status: '@status',
+        number: '@number'
+      }),
+      autoReinvest: $resource(DEFAULT_DOMAIN + '/siteFunds/fundsRepeatInvest', {
+        repeat: '@repeat',
+        creditRightId: '@creditRightId'
+      })
 
     };
   });

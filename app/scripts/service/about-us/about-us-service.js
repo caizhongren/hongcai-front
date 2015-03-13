@@ -8,6 +8,7 @@ angular.module('hongcaiApp')
       textList: $resource(DEFAULT_DOMAIN + '/siteText/getTextList', {
         category: '@category'
       }),
+      getLatestNotice: $resource(DEFAULT_DOMAIN + '/siteText/getLatestNotice'),
       textDetail: $resource(DEFAULT_DOMAIN + '/siteText/getTextDetail', {
         textId: '@textId'
       })

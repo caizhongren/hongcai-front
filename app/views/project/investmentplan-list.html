@@ -1,4 +1,4 @@
-<div id="investmentplan-list" class="container padding-t-30">
+<div id="investmentplan-list" class="container padding-t-30" style="margin-bottom: -60px;">
   <div class="row">
     <div class="col-xs-12">
       <div class="row panel panel-default padding-b-30 margin-b-30">
@@ -23,7 +23,7 @@
               </ul>
             </div>
           </div>
-          <div class="row tab-content padding-l-30 padding-r-30 margin-b-30">
+          <div class="row tab-content padding-l-30 padding-r-30">
             <div class="tab-pane border-t-grey" ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs">
               <section ng-if="tab.title==='七日盈'">
                 <table class="container-fluid" width="100%">
@@ -36,12 +36,13 @@
                       <th width="15%">状态</th>
                     </tr>
                   </thead>
-                  <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-                    <td><a ui-sref="root.investmentplan-details({number: item.number})">{{ item.name }}</a></td>
-                    <td>{{ item.total }}</td>
-                    <td>{{ item.countInvest }}</td>
-                    <td>{{ item.projectBackProfit }}</td>
-                    <td>{{ fundsProjectStatus[item.status] }}</td>
+                  <tr ng-repeat="item in list.list">
+                    <td><a ui-sref="root.investmentplan-details({number: item.number})" style="text-decoration:underline !important;">{{ item.fundsProject.name }}</a>
+                    </td>
+                    <td>{{ item.fundsProject.total }}</td>
+                    <td>{{ item.creditRights.length }}</td>
+                    <td>{{ item.fundsProject.projectBackProfit || 0 }}</td>
+                    <td>{{ list.data.fundsProjectStatusMap[item.fundsProject.status] }}</td>
                   </tr>
                 </table>
               </section>
@@ -56,12 +57,13 @@
                       <th width="15%">状态</th>
                     </tr>
                   </thead>
-                  <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-                    <td><a ui-sref="root.investmentplan-details({number: item.number})">{{ item.name }}</a></td>
-                    <td>{{ item.total }}</td>
-                    <td>{{ item.countInvest }}</td>
-                    <td>{{ item.projectBackProfit }}</td>
-                    <td>{{ fundsProjectStatus[item.status] }}</td>
+                  <tr ng-repeat="item in list.list">
+                    <td><a ui-sref="root.investmentplan-details({number: item.number})" style="text-decoration:underline !important;">{{ item.fundsProject.name }}</a>
+                    </td>
+                    <td>{{ item.fundsProject.total }}</td>
+                    <td>{{ item.creditRights.length }}</td>
+                    <td>{{ item.fundsProject.projectBackProfit || 0}}</td>
+                    <td>{{ list.data.fundsProjectStatusMap[item.fundsProject.status] }}</td>
                   </tr>
                 </table>
               </section>
@@ -76,12 +78,12 @@
                       <th width="15%">状态</th>
                     </tr>
                   </thead>
-                  <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.total }}</td>
-                    <td>{{ item.countInvest }}</td>
-                    <td>{{ item.projectBackProfit }}</td>
-                    <td>{{ fundsProjectStatus[item.status]}}</td>
+                  <tr ng-repeat="item in list.list">
+                    <td><a ui-sref="root.investmentplan-details({number: item.number})" style="text-decoration:underline !important;">{{ item.fundsProject.name }}</a></td>
+                    <td>{{ item.fundsProject.total }}</td>
+                    <td>{{ item.creditRights.length }}</td>
+                    <td>{{ item.fundsProject.projectBackProfit || 0}}</td>
+                    <td>{{ list.data.fundsProjectStatusMap[item.fundsProject.status]}}</td>
                   </tr>
                 </table>
               </section>
@@ -91,4 +93,12 @@
       </div>
     </div>
   </div>
+</div>
+<div class="row" style="text-align:center;">
+  <nav>
+    <ul class="pagination">
+      <bgf-pagination page="page" per-page="perPage" client-limit="clientLimit" url="'hongcai/api/v1/siteFunds/getFundsProjectListByProductType'" url-params="urlParams" link-group-size="2" collection="list" template-url="/views/tpl/paginate-anything.html">
+      </bgf-pagination>
+    </ul>
+  </nav>
 </div>

@@ -10,13 +10,18 @@ angular.module('hongcaiApp')
         amount: '@amount',
         projectId: '@projectId'
       }),
-      getFundsProductMap: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProductMap'),
+      getFundsProductTypeMap: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProductTypeMap'),
       getFundsTotalStatisticalData: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsTotalStatisticalData'),
-      getFundsProjectListByProductId: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProjectListByProductId', {
-        productId: '@productId'
+      getFundsProjectListByProductType: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProjectListByProductType', {
+        productType: '@productType'
       }),
-      getFundsProjectByNumber: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProjectByNumber', {
+      getFundsProjectDetailByNumber: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProjectDetailByNumber', {
         number: '@number'
+      }),
+      isFundsAvailableInvest: $resource(DEFAULT_DOMAIN + '/siteFunds/isAvailableInvest', {
+        amount: '@amount',
+        projectId: '@projectId',
+        isRepeat: '@isRepeat'
       }),
       appointmentProject: $resource(DEFAULT_DOMAIN + '/siteReserve/getLatestSingleReserveProject'),
       reserve: $resource(DEFAULT_DOMAIN + '/siteReserve/reserve', {

@@ -82,12 +82,6 @@ angular.module('hongcaiApp')
       });
     };
 
-    // 宏金盈
-    /*$scope.getProfitList = function() {
-      $scope.showFlag = 2;
-
-
-    };*/
 
     // 债券转让
     // FIX
@@ -136,33 +130,7 @@ angular.module('hongcaiApp')
       return collectTime;
     };
     $rootScope.selectPage = $location.path().split('/')[1];
-
-    // 默认打开宏金保
-    // $scope.showFlag = 1;
-    // if ($scope.showFlag == 0) {
-      $scope.getProjectList();
-    // }
-
-    /*$scope.$on('$stateChangeStart', function() {
-      if ($scope.showFlag === 1) {
-        $scope.getProjectList();
-      } else if ($scope.showFlag === 3) {
-        $scope.getCreditList();
-      } else {}
-    });*/
-    $scope.tabs = [{
-      title: '七日盈',
-    }, {
-      title: '月月盈',
-    }, {
-      title: '季度盈',
-    }];
-
-    $scope.toggle = {};
-    $scope.toggle.switchTab = function(tabIndex) {
-      $scope.toggle.activeTab = tabIndex;
-    };
-
+    $scope.getProjectList();
   }])
   .directive('projectPagination', function() {
     return {

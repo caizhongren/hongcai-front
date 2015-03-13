@@ -1,6 +1,13 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('CreditCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
+    //判断是否开通第三方托管账户
+    if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
+      $scope.haveTrusteeshipAccount = true;
+    } else {
+      $scope.haveTrusteeshipAccount = false;
+    }
+
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'credit';
     // 第一步
@@ -19,6 +26,20 @@ angular.module('hongcaiApp')
       }
     });
 
+    /**
+     * 我的债权统计数据
+     */
+    $scope.getCreditRightStatistics = function() {
+      UserCenterService.getCreditRightStatistics.get({}, function(response) {
+        if (response.ret === 1) {
+          $scope.data = response.data;
+        } else {
+          console.log(response);
+        }
+      });
+    };
+
+    $scope.getCreditRightStatistics ();
 
     /**
      * 获得持有中债权列表
@@ -27,9 +48,16 @@ angular.module('hongcaiApp')
       $scope.searchStatus = searchStatus;
 
       UserCenterService.getHeldInCreditRightList.get({status: searchStatus}, function(response) {
-        $scope.heldInCreditList = response.data.heldInCreditList;
-        $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
-        $scope.creditRightStatusMap = response.data.creditRightStatusMap;
+        if(response.ret == 1) {
+          $scope.heldInCreditList = response.data.heldIdCreditList;
+          $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
+          $scope.creditRightStatusMap = response.data.creditRightStatusMap;
+          $scope.productsMap = response.data.productsMap;
+          console.log(response);
+        } else {
+          console.log(response);
+        }
+        
       });
     };
 
@@ -97,6 +125,24 @@ angular.module('hongcaiApp')
         $scope.getTranferingCreditRightList(2);
       });
     }
+
+    /**
+     * 自动复投/取消复投
+     */
+    $scope.autoReinvest = function(reinvestActionType,creditRightId) {
+      UserCenterService.autoReinvest.get({
+        repeat:reinvestActionType,
+        creditRightId:creditRightId
+      },function(response){
+        console.log(response);
+      });
+    }
+
+    /*$scope.currentPage = 0;
+    $scope.pageSize = 10;
+    $scope.numberOfPages = function(data) {
+      return Math.ceil(data.length / $scope.pageSize);
+    };*/
 
     // $scope.getTranferedCreditRightList(3);
     // $scope.getTranferingCreditRightList(2);

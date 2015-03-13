@@ -24,5 +24,4 @@ angular.module('hongcaiApp')
         $scope.perPage = perPage;
       }
     });
-
   }]);
