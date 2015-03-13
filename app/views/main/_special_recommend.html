@@ -11,7 +11,13 @@
   </div>
   <div class="panel-body">
     <div class="col-xs-12" style="margin-bottom: -50px;">
-      <img class="status_flag" src="/images/project/status_{{projectVo.status}}.png" style="float:right;margin-top:-31px;margin-right:-45px;">
+      <!-- 为了编译，迫不得已用这么lovw的写法 -->
+      <img class="status_flag" src="/images/project/status_6.png" style="float:right;margin-top:-31px;margin-right:-45px;" ng-show="projectVo.status === 6">
+      <img class="status_flag" src="/images/project/status_7.png" style="float:right;margin-top:-31px;margin-right:-45px;" ng-show="projectVo.status === 7">
+      <img class="status_flag" src="/images/project/status_8.png" style="float:right;margin-top:-31px;margin-right:-45px;" ng-show="projectVo.status === 8">
+      <img class="status_flag" src="/images/project/status_9.png" style="float:right;margin-top:-31px;margin-right:-45px;" ng-show="projectVo.status === 9">
+      <img class="status_flag" src="/images/project/status_10.png" style="float:right;margin-top:-31px;margin-right:-45px;" ng-show="projectVo.status === 10">
+      <img class="status_flag" src="/images/project/status_11.png" style="float:right;margin-top:-31px;margin-right:-45px;" ng-show="projectVo.status === 11">
     </div>
     <div class="row">
       <div class="hidden-xs hidden-md col-lg-3">

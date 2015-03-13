@@ -1,5 +1,5 @@
-<!--支付记录-->
-<div class="right-area record col-md-8 col-lg-9" >
+<!--交易记录-->
+<div class="right-area record col-md-8 col-lg-9 padding-b-30" >
   <div class="row">
 	 <div class="right-title">交易记录</div>
   </div>
@@ -14,10 +14,10 @@
       <strong>{{capital.freezeCapital | number: 2}}</strong>元。
     </span>
   </div>
-  <div class="panel panel-defaul">
+  <div class="panel panel-defaul padding-l-15">
     <ul class="list-group">
       <li class="list-group-item projects-filter">
-        <div class="row">
+        <div class="row" ng-hide="true">
           <div class="col-xs-12">
             <div class="row">
               <div class="col-xs-2 pull-left text-nowrap">项目状态：</div>
@@ -76,6 +76,15 @@
             </div>
           </div>
         </div>
+        <div class="row margin-t-15 margin-b-15">
+          <div class="col-xs-2 text-nowrap">交易类型：</div>
+          <div class="col-xs-4 text-nowrap">
+            <select class="record-select" class="form-control" ng-model="dealType" ie-select-fix="icons" ng-options="icon.value as icon.label for icon in icons" ng-change="recordSelect();">
+              <option value="">全部</option>
+            </select>
+          </div>
+          
+        </div>
       </li>
     </ul>
   </div>
@@ -83,7 +92,7 @@
     <thead>
       <tr>
         <th>创建时间</th>
-        <th>收支类型</th>
+        <th>交易类型</th>
         <th>收支描述</th>
         <th>收入</th>
         <th>支出</th>
@@ -93,7 +102,7 @@
     <tbody>
       <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
         <td>{{ item.createTime | date: 'yyyy-MM-dd'}}</td>
-        <td>{{ typeValue[item.type] }}</td>
+        <td>{{ dealTypes[item.type] }}</td>
         <td>{{item.description}}</td>
         <td>{{item.getAmount | number: 2}}</td>
         <td>{{item.payAmount | number: 2}}</td>

@@ -473,7 +473,8 @@ hongcaiApp
         }
       })
       .state('root.userCenter.record-query', {
-        url: '/record/:dateInterval/:type',
+        // url: '/record/:dateInterval/:type',
+        url: '/record/:dateInterval',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/record.html',

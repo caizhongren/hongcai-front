@@ -13,6 +13,7 @@ angular.module('hongcaiApp')
         // 宏金盈项目信息
         $scope.fundsProject = response.data.fundsProject;
         $scope.orderList = response.data.orderList;
+        $scope.investorCount = response.data.investorCount;
         $scope.fundsProduct = response.data.fundsProduct;
         $scope.releaseEndTime = moment(response.data.fundsProject.releaseEndTime).format('YYYY年MM月DD日');
         $scope.fundsProjectInvestNum = $scope.fundsProject.total - ($scope.fundsProject.soldStock + $scope.fundsProject.occupancyStock) * $scope.fundsProject.increaseAmount;
@@ -90,7 +91,7 @@ angular.module('hongcaiApp')
       }
     };
 
-    // 跳到授权页面
+    // 跳到自动投资页面
     $scope.toAutoTransfer = function() {
       $modal({
         scope: $scope,
@@ -114,7 +115,19 @@ angular.module('hongcaiApp')
 
     // 显示协议
     $scope.showAgreement = function() {
+      $modal({
+        scope: $scope,
+        template: 'views/modal/alert-toinvPlanAgreement.html',
+        show: true
+      });
+    };
 
+    $scope.showSecondAgreement = function() {
+      $modal({
+        scope: $scope,
+        template: 'views/modal/alert-toinvPlanSecondAgreement.html',
+        show: true
+      });
     };
 
     $scope.checkAutoTransfer = function(fundsProject) {
@@ -144,7 +157,6 @@ angular.module('hongcaiApp')
     };
 
     $scope.checkMaxAmount = function(fundsProject) {
-      console.log('checkMaxAmount');
       if (fundsProject.invPlanAmount > $scope.userCanFundsInvestNum) {
         return true;
       } else {

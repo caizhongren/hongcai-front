@@ -1,7 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('InvPlanVerifyTransferCtrl', ['$rootScope', '$scope', 'toaster', '$stateParams', 'OrderService', 'config', function($rootScope, $scope, toaster, $stateParams, OrderService, config) {
-    console.log('1111');
     function newForm() {
       var f = document.createElement('form');
       document.body.appendChild(f);

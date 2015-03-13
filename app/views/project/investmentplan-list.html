@@ -1,4 +1,4 @@
-<div id="investmentplan-list" class="container padding-t-30">
+<div id="investmentplan-list" class="container padding-t-30" style="margin-bottom: -60px;">
   <div class="row">
     <div class="col-xs-12">
       <div class="row panel panel-default padding-b-30 margin-b-30">
@@ -23,7 +23,7 @@
               </ul>
             </div>
           </div>
-          <div class="row tab-content padding-l-30 padding-r-30 margin-b-30">
+          <div class="row tab-content padding-l-30 padding-r-30">
             <div class="tab-pane border-t-grey" ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs">
               <section ng-if="tab.title==='七日盈'">
                 <table class="container-fluid" width="100%">
@@ -41,8 +41,8 @@
                     </td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
-                    <td>{{ item.projectBackProfit }}</td>
-                    <td>{{ fundsProjectStatus[item.status] }}</td>
+                    <td>{{ item.projectBackProfit || 0 }}</td>
+                    <td>{{ list.data.fundsProjectStatusMap[item.status] }}</td>
                   </tr>
                 </table>
               </section>
@@ -62,8 +62,8 @@
                     </td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
-                    <td>{{ item.projectBackProfit }}</td>
-                    <td>{{ fundsProjectStatus[item.status] }}</td>
+                    <td>{{ item.projectBackProfit || 0}}</td>
+                    <td>{{ list.data.fundsProjectStatusMap[item.status] }}</td>
                   </tr>
                 </table>
               </section>
@@ -79,11 +79,11 @@
                     </tr>
                   </thead>
                   <tr ng-repeat="item in list.list">
-                    <td>{{ item.name }}</td>
+                    <td><a ui-sref="root.investmentplan-details({number: item.number})">{{ item.name }}</td>
                     <td>{{ item.total }}</td>
                     <td>{{ item.countInvest }}</td>
-                    <td>{{ item.projectBackProfit }}</td>
-                    <td>{{ fundsProjectStatus[item.status]}}</td>
+                    <td>{{ item.projectBackProfit || 0}}</td>
+                    <td>{{ list.data.fundsProjectStatusMap[item.status]}}</td>
                   </tr>
                 </table>
               </section>

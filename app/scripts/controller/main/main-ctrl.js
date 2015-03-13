@@ -119,6 +119,13 @@ angular.module('hongcaiApp')
       }
     });
 
+    // 获取最后一个公告
+    AboutUsService.getLatestNotice.get(function(response) {
+      if (response.ret === 1) {
+        $scope.latestNotice = response.data.latestNotice;
+      }
+    });
+
     // 处理推广流量统计
     var from = $stateParams.from;
     if (from) {
