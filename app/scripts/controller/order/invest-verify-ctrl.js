@@ -25,38 +25,23 @@ angular.module('hongcaiApp')
         }*/
       } else if (response.ret === -1) {
         if (response.code === 1) {
-          alert('已经卖光啦！');
+          $scope.msg = '抱歉，已经卖光了。'
+          $modal({
+            scope: $scope,
+            template: 'views/modal/alert-dialog.html',
+            show: true
+          });
         } else {
-          alert(response.msg);
+          $scope.msg = response.msg;
+          $modal({
+            scope: $scope,
+            template: 'views/modal/alert-dialog.html',
+            show: true
+          });
         }
-        $location.path('project-list/6,7,8,9/0/100/0/100/0/200000000/release_start_time/false');
       }
 
     });
-
-    /*function newForm() {
-      var f = document.createElement('form');
-      document.body.appendChild(f);
-      f.method = 'post';
-      //f.target = '_blank';
-      return f;
-    }
-
-    function createElements(eForm, eName, eValue) {
-      var e = document.createElement('input');
-      eForm.appendChild(e);
-      e.type = 'text';
-      e.name = eName;
-      if (!document.all) {
-        e.style.display = 'none';
-      } else {
-        e.style.display = 'block';
-        e.style.width = '0px';
-        e.style.height = '0px';
-      }
-      e.value = eValue;
-      return e;
-    }*/
 
     $scope.reload = function() {
       window.location.reload();
@@ -72,32 +57,6 @@ angular.module('hongcaiApp')
         show: true
       });
       window.open('/#!/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount);
-
-      /*OrderService.saveOrder.get({
-        projectId: project.id,
-        investAmount: investAmount,
-        giftCount: giftCount,
-        inviteMobile: $rootScope.inviteMobile
-      }, function(response) {
-        if (response.ret === 1) {
-          var orderId = response.data.orderId;
-          
-          OrderService.transfer.get({
-            projectId: project.id,
-            orderId: orderId
-          }, function(response) {
-            if (response.ret === 1) {
-              var req = response.data.req;
-              var sign = response.data.sign;
-              var _f = newForm(); //创建一个form表单
-              createElements(_f, 'req', req); //创建form中的input对象
-              createElements(_f, 'sign', sign);
-              _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; //form提交地址
-              _f.submit(); //提交
-            }
-          });
-        }
-      });*/
     };
 
     var myOtherModal = $modal({

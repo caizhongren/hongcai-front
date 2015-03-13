@@ -1,5 +1,5 @@
 <div class="row text-center">
-  <i class="fa fa-info-circle fa-lg ft-grey3 i-rightmargin"></i>可投金额：<strong>{{ fundsProjectInvestNum || 0 }}</strong>元,<strong>{{ fundsProject.countInvest }}</strong>人已投
+  <i class="fa fa-info-circle fa-lg ft-grey3 i-rightmargin"></i>可投金额：<strong>{{ fundsProjectInvestNum || 0 }}</strong>元,<strong>{{ investorCount }}</strong>人已投
 </div>
 
 <div class="row panel panel-default margin-t-15 padding-l-15 padding-r-15">
@@ -96,7 +96,7 @@
             <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">输入值必须是100的整数倍</p>
           </div>
           <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$dirty && checkLargeUserCanAmount(fundsProject)">
-            <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px; height:30px; margin-bottom:0px;background-color:#FEDED8;">余额不足，请充值</p>
+            <p class="text-center text text-danger" style="font-size:15px; padding-top:4px; height:30px; margin-bottom:0px;background-color:#FEDED8;">余额不足，请充值</p>
           </div>
           <div class="col-xs-12">
             <input type="number" class="form-control" name="invPlanAmount" min="{{fundsProject.minInvest }}" max="{{userCanFundsInvestNum}}" step="{{fundsProject.increaseAmount}}" ng-model="fundsProject.invPlanAmount" placeholder="请输入投资金额" ng-focus required>
@@ -108,7 +108,7 @@
           </div>
           <div class="col-xs-12" style="text-align: center">
             <p>
-              <input class="rule-check" type="checkbox" ng-model="fundsProject.isRepeatFlag" ng-click="checkAutoTransfer(fundsProject);">自动复投<a ui-sref="root.appointment-project-activityrule" class="ft-red" target="_blank">&nbsp;查看协议</a>
+              <input class="rule-check" type="checkbox" ng-model="fundsProject.isRepeatFlag" ng-click="checkAutoTransfer(fundsProject);">自动复投<a class="ft-red" ng-click="showSecondAgreement();">&nbsp;查看协议</a>
             </p>
           </div>
         </form>
@@ -150,7 +150,7 @@
           </div>
           <div class="col-xs-12" style="text-align: center">
             <p>
-              <input class="rule-check" type="checkbox" ng-model="fundsProject.isRepeatFlag" ng-click="checkAutoTransfer(fundsProject);">自动复投<a ui-sref="root.appointment-project-activityrule" class="ft-red" target="_blank">&nbsp;查看协议</a>
+              <input class="rule-check" type="checkbox" ng-model="fundsProject.isRepeatFlag" ng-click="checkAutoTransfer(fundsProject);">自动复投<a class="ft-red" ng-click="showSecondAgreement();">&nbsp;查看协议</a>
             </p>
           </div>
         </form>
