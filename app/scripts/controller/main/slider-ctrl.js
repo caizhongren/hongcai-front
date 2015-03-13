@@ -5,7 +5,7 @@ angular.module('hongcaiApp')
     $scope.media = [{
       mimeType: 'image/jpg',
       src: 'images/banner-7.png',
-      href: '/banner-hongjinying'
+      href: '/banner-investmentplan'
     },{
       mimeType: 'image/jpg',
       src: 'images/banner-6.jpg',
