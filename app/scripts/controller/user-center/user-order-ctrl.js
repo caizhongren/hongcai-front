@@ -74,6 +74,7 @@ angular.module('hongcaiApp')
           $scope.dateInterval = getOrderByUser.data.dateInterval;
           $scope.status = getOrderByUser.data.status;
           $scope.notPayOrder = getOrderByUser.data.notPayOrder;
+          $scope.productsMap = getOrderByUser.data.productsMap;
           // $scope.invFromDate = getOrderByUser.data.dateStart || 0;
           // $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
           $scope.currentPage = 0;

@@ -135,6 +135,11 @@ angular.module('hongcaiApp')
         creditRightId:creditRightId
       },function(response){
         console.log(response);
+        if(response.ret === 1) {
+          window.location.reload();
+        } else {
+          console.log(response);
+        }
       });
     }
 
