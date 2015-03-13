@@ -52,9 +52,11 @@
               <td>{{ item.order.returnProfit | number:2 }}</td>
               <td>{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</td>
               <td ng-show="creditIsShowedFLAG">{{ creditRightTransferStatusMap[item.creditRight.transferStatus] }}</td>
-              <td><a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})" ng-show="creditIsShowedFLAG" >发起债权转让</a>
-                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-security-details({type: item.creditRight.type,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a></td>
-                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-profit-details({type: item.creditRight.type,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看详情</a></td>
+              <td><a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})" ng-show="creditIsShowedFLAG" ng-if="item.creditRight.type != 3">发起债权转让</a>
+                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-security-details({type: item.creditRight.type,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
+                  <a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-profit-details({type: item.creditRight.type,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">自动复投</a>
+                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-profit-details({type: item.creditRight.type,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看详情</a>
+              </td>
             </tr>
           </tbody>
         </table>
