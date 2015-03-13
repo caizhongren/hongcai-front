@@ -46,6 +46,35 @@ angular.module('hongcaiApp')
       });
     };
 
+    $scope.pLogin = function(user) {
+
+      //记住用户名处理
+      if ($scope.rememberUserName) {
+        ipCookie('bUserName', user.account, {
+          expires: 60
+        });
+      }
+      var md5Password = md5.createHash(user.password);
+      LoginService.userLogin.get({
+        account: user.account,
+        password: md5Password,
+        userType: 5,
+        type: 1
+      }, function(response) {
+        if (response.ret === 1) {
+          SessionService.set('user', response.data.user.name);
+          $state.go('root.userCenter.account-overview');
+          $rootScope.loginName = response.data.user.name;
+          $rootScope.isLogged = true;
+          toaster.pop('success', '恭喜您，登录成功！');
+        } else if (response.code === -1009) {
+          toaster.pop('error', response.msg);
+          $scope.isPasswordError = true;
+
+        }
+      });
+    };
+
     $scope.$watch('user.password', function() {
       $scope.isPasswordError = false;
     });

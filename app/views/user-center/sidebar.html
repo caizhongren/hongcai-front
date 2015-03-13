@@ -55,14 +55,21 @@
       <p class="{{selectSide == 'assets-overview' ? 'now' : ''}}" style="margin-left:36px;">资产总览</p>
     </a>
   </div>
-  <div class="row">
+  <div class="row" ng-show="userType != 5">
     <a ui-sref="root.userCenter.recharge" class="tips-area {{selectSide == 'recharge' ? 'tips-show' : ''}}">
       <div class="left-show-area {{selectSide == 'recharge' ? 'left-show-area-bg' : ''}}"></div>
       <div class="ico-area message-1 fa fa-plug {{selectSide == 'recharge' ? 'message1-red' : ''}}"></div>
       <p class="{{selectSide == 'recharge' ? 'now' : ''}}" style="margin-left:36px;">充值</p>
     </a>
   </div>
-  <div class="row">
+  <div class="row" ng-show="userType === 5">
+    <a ui-sref="root.userCenter.recharge" class="tips-area {{selectSide == 'recharge' ? 'tips-show' : ''}}">
+      <div class="left-show-area {{selectSide == 'recharge' ? 'left-show-area-bg' : ''}}"></div>
+      <div class="ico-area message-1 fa fa-plug {{selectSide == 'recharge' ? 'message1-red' : ''}}"></div>
+      <p class="{{selectSide == 'recharge' ? 'now' : ''}}" style="margin-left:36px;">转账</p>
+    </a>
+  </div>
+  <div class="row" ng-show="userType != 5">
     <a ui-sref="root.userCenter.withdraw" class="tips-area {{selectSide == 'withdraw' ? 'tips-show' : ''}}">
       <div class="left-show-area {{selectSide == 'withdraw' ? 'left-show-area-bg' : ''}}"></div>
       <div class="ico-area message-1 fa fa-money {{selectSide == 'withdraw' ? 'message1-red' : ''}}"></div>

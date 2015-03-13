@@ -115,6 +115,19 @@ hongcaiApp
           }
         }
       })
+      /**
+       * 平台用户的登陆入口
+       */
+      .state('root.pLogin', {
+        url: '/p',
+        views: {
+          '': {
+            templateUrl: 'views/p-login.html',
+            controller: 'LoginCtrl',
+            controllerUrl: 'scripts/controller/user-center/login-ctrl'
+          }
+        }
+      })
       .state('root.registerMobile', {
         url: '/register-mobile/:inviteCode',
         views: {
@@ -343,6 +356,16 @@ hongcaiApp
             templateUrl: 'views/transfer.html',
             controller: 'UserOrderTransferCtrl',
             controllerUrl: 'scripts/controller/user-center/user-order-transfer-ctrl'
+          }
+        }
+      })
+      .state('root.transfer-transfer', {
+        url: '/transfer-transfer/:transferAmount',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'TransferTransferCtrl',
+            controllerUrl: 'scripts/controller/user-center/transfer-transfer-ctrl'
           }
         }
       })
@@ -1455,6 +1478,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
           $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
           $rootScope.userCapital = response.data.data.userCapital;
           $rootScope.unreadCount = response.data.data.unreadCount;
+          $rootScope.userType = response.data.data.userType;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
@@ -1470,6 +1494,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
           $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
           $rootScope.userCapital = response.data.data.userCapital;
           $rootScope.unreadCount = response.data.data.unreadCount;
+          $rootScope.userType = response.data.data.userType;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
