@@ -180,11 +180,13 @@ hongcaiApp
           }
         }
       })
-      .state('root.banner-hongjinying', {
-        url: '/banner-hongjinying',
+      .state('root.banner-investmentplan', {
+        url: '/banner-investmentplan',
         views: {
           '': {
-            templateUrl: 'views/banner/banner-hongjinying.html'
+            templateUrl: 'views/banner/banner-investmentplan.html'
+            // controller: 'BannerInvPlanCtrl',
+            // controllerUrl: 'scripts/controller//banner-investmentplan-ctrl'
           }
         }
       })
