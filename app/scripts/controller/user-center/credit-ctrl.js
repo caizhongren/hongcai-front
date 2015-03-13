@@ -25,7 +25,7 @@ angular.module('hongcaiApp')
         $scope.disabledFlag2 = false;
       }
     });
-
+   
     /**
      * 我的债权统计数据
      */
@@ -53,6 +53,7 @@ angular.module('hongcaiApp')
           $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
           $scope.creditRightStatusMap = response.data.creditRightStatusMap;
           $scope.productsMap = response.data.productsMap;
+          $scope.fundsPoolInOutMap = response.data.fundsPoolInOutMap;
           console.log(response);
         } else {
           console.log(response);
@@ -135,6 +136,22 @@ angular.module('hongcaiApp')
         creditRightId:creditRightId
       },function(response){
         console.log(response);
+        if(response.ret === 1) {
+          window.location.reload();
+        } else {
+          console.log(response);
+        }
+      });
+    }
+
+
+    /**
+     * 平台C债权转入债权池
+     */
+    $scope.putCreditRightInPool = function(creditRightId) {
+      UserCenterService.putCreditRightInPool.get({
+        creditRightId:creditRightId
+      },function(response){
         if(response.ret === 1) {
           window.location.reload();
         } else {

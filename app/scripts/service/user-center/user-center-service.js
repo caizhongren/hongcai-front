@@ -138,6 +138,9 @@ angular.module('hongcaiApp')
       autoReinvest: $resource(DEFAULT_DOMAIN + '/siteFunds/fundsRepeatInvest', {
         repeat: '@repeat',
         creditRightId: '@creditRightId'
+      }),
+      putCreditRightInPool: $resource(DEFAULT_DOMAIN + '/siteCredit/putCreditRightInPool', {
+        creditRightId: '@creditRightId'
       })
 
     };
