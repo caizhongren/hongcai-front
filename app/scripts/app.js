@@ -184,9 +184,9 @@ hongcaiApp
         url: '/banner-investmentplan',
         views: {
           '': {
-            templateUrl: 'views/banner/banner-investmentplan.html'
-            // controller: 'BannerInvPlanCtrl',
-            // controllerUrl: 'scripts/controller//banner-investmentplan-ctrl'
+            templateUrl: 'views/banner/banner-investmentplan.html',
+            controller: 'BannerInvPlanCtrl',
+            controllerUrl: 'scripts/controller/main/banner-investmentplan-ctrl'
           }
         }
       })
