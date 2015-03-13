@@ -4,14 +4,13 @@
     <div ng-hide="item.id === 120 && item.showByStatus">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h5 class="text-nowrap"><i class="fa fa-line-chart fa-color-red"></i>&nbsp;{{ item.name }}</h5>
+          <h5 class="text-nowrap"><i class="fa fa-shield fa-color-red"></i>&nbsp;{{ item.name }}</h5>
         </div>
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-6" style="padding-right:0px">
-              <img src="{{baseFileUrl + item.guaranteeUrl}}" width="90" height="30" alt="logo">
-              <img src="images/partner/gansu.png">
-              <span>甘肃融资担保</span>
+              <img src="{{baseFileUrl + item.guaranteeUrl}}" width="30" height="30" alt="logo">
+              <span>{{item.guaranteeName}}</span>
             </div>
             <!-- 为了编译，迫不得已用这么lovw的写法 -->
             <div class="col-xs-5 col-xs-offset-1">
@@ -91,13 +90,13 @@
     <div ng-hide="item.id === 120 && loginName !== 'Lisa_Xu' && item.showByStatus">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h5 class="text-nowrap"><i class="fa fa-line-chart fa-color-red"></i>&nbsp;{{ item.name }}</h5>
+          <h5 class="text-nowrap"><i class="fa fa-shield fa-color-red"></i>&nbsp;{{ item.name }}</h5>
         </div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-xs-6">
-              <img src="{{baseFileUrl + item.guaranteeUrl}}" width="90" height="30" alt="logo">
-              <!-- <img class="sponsor" src="images/gs_rongzi_gc.png"> -->
+            <div class="col-xs-6" style="padding-right:0px">
+              <img src="{{baseFileUrl + item.guaranteeUrl}}" width="30" height="30" alt="logo">
+              <span>{{item.guaranteeName}}</span>
             </div>
             <div class="col-xs-5 col-xs-offset-1">
               <img class="status_flag" src="images/project/status_6.png" ng-show="item.status === 6">
