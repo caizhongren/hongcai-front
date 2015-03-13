@@ -150,7 +150,7 @@ angular.module('hongcaiApp')
       if (fundsProject.invPlanAmount < fundsProject.minInvest) {
         return true;
       } else {
-        return false
+        return false;
       }
     };
 
