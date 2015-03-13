@@ -11,7 +11,7 @@
   </div>
   <div class="panel-body">
     <div class="col-xs-12" style="margin-bottom: -50px;">
-      <!-- 为了编译，迫不得已用这么lovw的写法 -->
+      <!-- 为了编译，迫不得已用这么low的写法 -->
       <img class="status_flag" src="/images/project/status_6.png" style="float:right;margin-top:-31px;margin-right:-45px;" ng-show="projectVo.status === 6">
       <img class="status_flag" src="/images/project/status_7.png" style="float:right;margin-top:-31px;margin-right:-45px;" ng-show="projectVo.status === 7">
       <img class="status_flag" src="/images/project/status_8.png" style="float:right;margin-top:-31px;margin-right:-45px;" ng-show="projectVo.status === 8">
@@ -48,8 +48,7 @@
         <div class="row padding-t-20">
           <div class="col-xs-12 col-md-12 col-lg-8">
             <div class="row">
-              <img src="images/partner/gansu.png">
-              <span>担保机构：北京平安信托担保公司</span>
+              <p>担保机构：<img src="{{baseFileUrl + projectVo.guaranteeUrl}}" width="90" height="30" alt="logo"></p>
             </div>
             <div class="row">
               <div class="col-xs-4 border-r under-margin">
@@ -94,7 +93,10 @@
                   </div>
                 </div>
                 <div class="row">
-                  <a ui-sref="root.project-details({number: projectVo.number})" class="col-xs-12 btn btn-block btn-lg " ng-class="{'btn-primary': projectVo.progress < 100, 'btn-default': projectVo.progress >= 100}">{{ projectVo.statusText }}</a>
+                  <a ui-sref="root.project-details({number: projectVo.number})" class="col-xs-12 btn btn-block btn-lg btn-primary" ng-show="projectVo.progress < 100">立即投资</a>
+                </div>
+                <div class="row">
+                  <a ui-sref="root.project-details({number: projectVo.number})" class="col-xs-12 btn btn-block btn-lg btn-default bg-grey4 ft-white" ng-show="projectVo.progress >= 100">查看详情</a>
                 </div>
               </div>
               <div class="col-xs-12" ng-show="projectVo.status !== 6 && projectVo.status !== 11">
@@ -107,7 +109,10 @@
                   </div>
                 </div>
                 <div class="row">
-                  <a ui-sref="root.project-details({number: projectVo.number})" class="col-xs-12 btn btn-block btn-lg" ng-class="{'btn-primary': projectVo.progress < 100, 'btn-default': projectVo.progress >= 100}">{{ projectVo.statusText }}</a>
+                  <a ui-sref="root.project-details({number: projectVo.number})" class="col-xs-12 btn btn-block btn-lg btn-primary" ng-show="projectVo.progress < 100">立即投资</a>
+                </div>
+                <div class="row">
+                  <a ui-sref="root.project-details({number: projectVo.number})" class="col-xs-12 btn btn-block btn-lg btn-default bg-grey4 ft-white" ng-show="projectVo.progress >= 100">查看详情</a>
                 </div>
               </div>
             </div>

@@ -8,11 +8,11 @@
     <div ng-show="data.totalInvestCount">
       <div class="row margin-l-0">
         <div class="col-xs-3 margin-b-15">累计投资：<strong>{{data.totalInvestCount}}</strong></div>
-        <div class="col-xs-3 margin-b-15" ng-show="creditIsShowedFLAG">持有中：<strong>{{data.heldingCount}}</strong></div>
-        <div class="col-xs-3 margin-b-15">已转让：<strong>{{data.transferedCount}}</strong></div>
+        <div class="col-xs-3 margin-b-15">持有中：<strong>{{data.heldingCount}}</strong></div>
+        <div class="col-xs-3 margin-b-15"ng-show="creditIsShowedFLAG">已转让：<strong>{{data.transferedCount}}</strong></div>
         <div class="col-xs-3 margin-b-15">已回款：<strong>{{data.endProfitCount}}</strong></div>
-        <div class="col-xs-3 margin-b-15">投资总额（元）：<strong>{{data.totalInvestAmount}}</strong></div>
-        <div class="col-xs-3 margin-b-15">累计收益（元）：<strong>{{data.totalProfit}}</strong></div>
+        <div class="col-xs-3 margin-b-15">投资总额（元）：<strong>{{data.totalInvestAmount | number:2}}</strong></div>
+        <div class="col-xs-3 margin-b-15">累计收益（元）：<strong>{{data.totalProfit | number:2}}</strong></div>
       </div>
      <!--  <div class="row margin-l-0 margin-t-15">
        <div class="col-xs-3">投资总额（元）：<strong>{{data.totalInvestAmount}}</strong></div>
@@ -45,16 +45,21 @@
             <tr>
               <td>
                 <a ui-sref="root.project-details({number: item.project.number})" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name }}</a>
-                <a ui-sref="root.investmentplan-details({number: item.project.number})" ng-if="item.project.type === 3">{{ item.order.projectName }}</a>
+                <a ui-sref="root.investmentplan-details({number: item.project.number})" ng-if="item.project.type === 3">{{ productsMap[item.fundsProject.productId].name + item.order.projectName}}</a>
               </td>
               <td>{{ item.creditRight.transferableAmount | number:2 }}元</td>
               <td>{{ item.order.profit - item.order.returnProfit | number:2 }}</td>
               <td>{{ item.order.returnProfit | number:2 }}</td>
-              <td>{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</td>
+              <td>
+                <span ng-if="item.project.type !== 3">{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
+                <span ng-if="item.project.type === 3">{{ item.fundsProject.repaymentDate | date:'yyyy-MM-dd' }}</span>
+              </td>
               <td ng-show="creditIsShowedFLAG">{{ creditRightTransferStatusMap[item.creditRight.transferStatus] }}</td>
-              <td><a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})" ng-show="creditIsShowedFLAG" >发起债权转让</a>
-                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-security-details({type: item.creditRight.type,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a></td>
-                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-profit-details({type: item.creditRight.type,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看详情</a></td>
+              <td><a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})" ng-show="creditIsShowedFLAG" ng-if="item.creditRight.type != 3">发起债权转让</a>
+                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-security-details({type: item.creditRight.status,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
+                  <a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-profit-details({type: item.creditRight.type,number: item.creditRight.number})" ng-if="item.creditRight.type == 3" ng-click="autoReinvest(reinvestActionType,creditRightId);">自动复投</a>
+                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-profit-details({type: item.creditRight.status,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看详情</a>
+              </td>
             </tr>
           </tbody>
         </table>

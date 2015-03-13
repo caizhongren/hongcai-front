@@ -1,7 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('InvestmentplanListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'ProjectService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, toaster) {
-    $scope.switchFlag = {};
     $scope.baseFundsProductData = function() {
       ProjectService.getFundsProductTypeMap.get({}, function(response) {
         if (response.ret === 1) {
@@ -61,7 +60,6 @@ angular.module('hongcaiApp')
     $scope.toggle = {};
     $scope.toggle.switchTab = function(tabIndex) {
       $scope.urlParams.type = tabIndex + 1;
-      // $scope.getFundsProjectListByProductType($scope.switchFlag[tabIndex]);
       $scope.toggle.activeTab = tabIndex;
     };
     $rootScope.selectPage = $location.path().split('/')[1];

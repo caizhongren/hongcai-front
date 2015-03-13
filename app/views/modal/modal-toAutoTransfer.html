@@ -1,5 +1,5 @@
 <div class="alert" ng-class="[type ? 'alert-' + type : null]" ng-controller="SecuritySettingsCtrl">
-  <button type="button" class="close" ng-click="$hide()">&times;</button>
+  <button type="button" class="close" ng-click="$hide(); reload();">&times;</button>
   <div class="title">
     <strong >开通自动投资授权：</strong>
   </div>
