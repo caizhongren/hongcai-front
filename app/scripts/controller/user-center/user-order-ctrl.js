@@ -1,13 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', '$alert', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
-    //判断是否开通第三方托管账户
-    if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
-      $scope.haveTrusteeshipAccount = true;
-    } else {
-      $scope.haveTrusteeshipAccount = false;
-    }
-
+    
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
     $scope.typeInvStatus = {
@@ -57,6 +51,13 @@ angular.module('hongcaiApp')
       }
 
     };
+
+    //判断是否开通第三方托管账户
+    if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
+      $scope.haveTrusteeshipAccount = true;
+    } else {
+      $scope.haveTrusteeshipAccount = false;
+    }
 
     var getOrderByUser = UserCenterService.getOrderByUser.get({
         type: $stateParams.type,

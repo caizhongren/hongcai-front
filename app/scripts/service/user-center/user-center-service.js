@@ -131,7 +131,7 @@ angular.module('hongcaiApp')
         status: '@status',
         number: '@number'
       }),
-      autoReinvest: $resource(DEFAULT_DOMAIN + '/siteCredit/fundsRepeatInvest', {
+      autoReinvest: $resource(DEFAULT_DOMAIN + '/siteFunds/fundsRepeatInvest', {
         repeat: '@repeat',
         creditRightId: '@creditRightId'
       })
