@@ -44,8 +44,8 @@
           <tbody ng-repeat="item in heldInCreditList">
             <tr>
               <td>
-                <a ui-sref="root.project-details({number: item.project.number})" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name }}</a>
-                <a ui-sref="root.investmentplan-details({number: item.project.number})" ng-if="item.project.type === 3">{{ productsMap[item.fundsProject.productId].name + item.order.projectName}}</a>
+                <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name | limitTo: 5 }}...</a>
+                <a ui-sref="root.investmentplan-details({number: item.project.number})" title="{{productsMap[item.fundsProject.productId].name + item.order.projectName}}" ng-if="item.project.type === 3">{{ productsMap[item.fundsProject.productId].name + item.order.projectName | limitTo: 5 }}...</a>
               </td>
               <td>{{ item.creditRight.transferableAmount | number:2 }}元</td>
               <td>{{ item.order.profit - item.order.returnProfit | number:2 }}</td>
@@ -56,10 +56,10 @@
               </td>
               <td ng-show="creditIsShowedFLAG">{{ creditRightTransferStatusMap[item.creditRight.transferStatus] }}</td>
               <td><a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})" ng-show="creditIsShowedFLAG" ng-if="item.creditRight.type != 3">发起债权转让</a>
-                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-security-details({type: item.creditRight.status,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
+                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
                   <a type="button" class="btn btn-primary btn-sm" ng-if="item.creditRight.type == 3 && item.creditRight.isRepeatInvest == 2" ng-click="autoReinvest(1,item.creditRightId);">自动复投</a>
                   <a type="button" class="btn btn-primary btn-sm" ng-if="item.creditRight.type == 3 && item.creditRight.isRepeatInvest == 1" ng-click="autoReinvest(2,item.creditRightId);">取消复投</a>
-                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-profit-details({type: item.creditRight.status,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看详情</a>
+                  <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-profit-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看详情</a>
               </td>
             </tr>
           </tbody>
@@ -150,14 +150,17 @@
             <!-- <tr ng-repeat="item in heldInCreditList | startFrom:currentPage * pageSize | limitTo:pageSize"> -->
             <tr ng-repeat="item in heldInCreditList">
               <td>
-                <a ui-sref="root.project-details({number: item.project.number})" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name }}</a>
-                <a ui-sref="root.investmentplan-details({number: item.project.number})" ng-if="item.project.type === 3">{{ item.order.projectName }}</a>
+               <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name | limitTo: 5 }}...</a>
+                <a ui-sref="root.investmentplan-details({number: item.project.number})" title="{{productsMap[item.fundsProject.productId].name + item.order.projectName}}" ng-if="item.project.type === 3">{{ productsMap[item.fundsProject.productId].name + item.order.projectName | limitTo: 5 }}...</a>
               </td>
               <td>{{ item.creditRight.transferableAmount | number:2 }}</td>
               <td>{{ item.creditRight.returnProfit | number:2}}</td>
               <td>{{ item.project.repaymentDate | date: 'yyyy-MM-dd'}}</td>
               <td ng-show="creditIsShowedFLAG">{{ creditRightStatusMap[item.creditRight.status] }}</td>
-              <td><a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-security-details({type: creditRight.type,number: item.creditRight.number})">查看详情</a></td></td>
+              <td>
+                <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
+                <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-profit-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看详情</a>
+              </td>
             </tr>
           </tbody>
         </table>

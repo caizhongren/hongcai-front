@@ -40,7 +40,7 @@
                 锁定期
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                7日
+                {{fundsProduct.sealingDays || 0}}日
               </div>
             </div>
             <div class="row border-b-white">
@@ -64,7 +64,7 @@
                 加入上限
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                {{fundsProject.total}}元
+                无条件
               </div>
             </div>
             <div class="row border-b-white">
@@ -96,7 +96,7 @@
                 服务协议
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                <a class="ft-red" ng-click="showAgreement();">宏金盈计划协议范本</a>
+                <a class="ft-red" ng-click="showAgreement();" style="text-decoration:underline !important;">宏金盈计划协议范本</a>
               </div>
             </div>
           </div>
@@ -185,7 +185,7 @@
                         <div class="plan-info">
                           <div class="row info-row">
                             <span class="col-xs-9">发布时间</span>
-                            <span class="col-xs-9 ft-20">2015年3月12日</span>
+                            <span class="col-xs-9 ft-20">{{fundsProject.releaseStartTime | date: "yy-MM-dd"}}</span>
                             <span class="col-xs-1">
                               <img src="/images/investmentplan/releaseTime.png">
                             </span>
@@ -201,7 +201,7 @@
                         <div class="plan-info" style="margin-top:93px;">
                           <div class="row info-row">
                             <span class="col-xs-9">退出时间</span>
-                            <span class="col-xs-9 ft-20">2015年3月19日</span>
+                            <span class="col-xs-9 ft-20">{{fundsProject.releaseEndTime | date: "yy-MM-dd"}}</span>
                             <span class="col-xs-1">
                               <img src="/images/investmentplan/OutTime.png">
                             </span>
@@ -220,14 +220,14 @@
                               <img src="/images/investmentplan/addNum.png">
                             </span>
                             <span class="col-xs-9">加入人数</span>
-                            <span class="col-xs-9 ft-20">125人</span>
+                            <span class="col-xs-9 ft-20">{{investorCount}}人</span>
                           </div>
                           <div class="row info-row">
-                            <span class="col-xs-3"> 
+                            <span class="col-xs-3">
                               <img src="/images/investmentplan/automatic.png">
                             </span>
-                            <span class="col-xs-9">自动投标</span>
-                            <span class="col-xs-9 ft-20">12人</span>
+                            <span class="col-xs-9">自动续投</span>
+                            <span class="col-xs-9 ft-20">{{repeatCount}}人</span>
                           </div>
                         </div>
                         <div class="plan-info" style="margin-top:93px;">
@@ -236,7 +236,7 @@
                               <img src="/images/investmentplan/earn.png">
                             </span>
                             <span class="col-xs-9">为用户赚取</span>
-                            <span class="col-xs-9 ft-20">255.34元</span>
+                            <span class="col-xs-9 ft-20">{{fundsProject.projectBackProfit || 0}}元</span>
                           </div>
                         </div>
                       </div>
@@ -244,60 +244,6 @@
                   </div>
                 </div>
               </div>
-              <!--<div class="col-xs-12">
-                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4>
-                <ul class="timeline">
-                  <li>
-                    <div class="timeline-badge primary"><i class="fa fa-rocket"></i>
-                    </div>
-                    <div class="timeline-panel">
-                      <div class="timeline-heading">
-                        <h4 class="timeline-title">项目上线</h4>
-                      </div>
-                      <div class="timeline-body">
-                        <p>上线时间：{{fundsProject.publishTime}}</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="timeline-inverted">
-                    <div class="timeline-badge info"><i class="fa fa-users"></i>
-                    </div>
-                    <div class="timeline-panel">
-                      <div class="timeline-heading">
-                        <h4 class="timeline-title">项目募集</h4>
-                      </div>
-                      <div class="timeline-body">
-                        <p>开始时间：{{fundsProject.releaseStartTime | date: "yy-MM-dd"}}</p>
-                        <p>结束时间：{{fundsProject.releaseEndTime | date: "yy-MM-dd"}}</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="timeline-badge warning"><i class="fa fa-tree"></i>
-                    </div>
-                    <div class="timeline-panel">
-                      <div class="timeline-heading">
-                        <h4 class="timeline-title">项目放款</h4>
-                      </div>
-                      <div class="timeline-body">
-                        <p>已还：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest) | number:2 }}（{{billCount}}期）</p>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="timeline-inverted">
-                    <div class="timeline-badge success"><i class="fa fa-list-ol"></i>
-                    </div>
-                    <div class="timeline-panel">
-                      <div class="timeline-heading">
-                        <h4 class="timeline-title">项目还款</h4>
-                      </div>
-                      <div class="timeline-body">
-                        <p>待还款：{{remainPrincipal + remainInterest | number:2 }}（{{project.cycle - billCount}}期）</p>
-                      </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>-->
             </div>
           </div>
         </section>

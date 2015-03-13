@@ -3,10 +3,10 @@ angular.module('hongcaiApp')
   .filter('addPreZero', function () {
     return function (input) {
       input = Number(input);
-      if (input === 0) {
+      if (input < 10) {
         return '0' + String(input);
       } else {
-        return;
+        return input;
       }
     };
   });

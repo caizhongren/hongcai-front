@@ -132,8 +132,9 @@
             <td>{{ item.orderAmount | number: 2 }}</td>
             <td>
               <button ng-click="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button>
-              <a ui-sref="root.project-details({number: item.projectNumber})" ng-if="item.type">{{ item.projectName | limitTo: 5}}... </a>
-              <a ui-sref="root.investmentplan-details({number: item.projectNumber})" ng-if="!item.type">{{ item.projectName | limitTo: 5}}... </a><br>
+              <a ui-sref="root.project-details({number: item.projectNumber})" title="{{item.projectName}}" ng-if="item.type">{{ item.projectName | limitTo: 5}}... </a>
+              <a ui-sref="root.investmentplan-details({number: item.projectNumber})" title="{{productsMap[item.productId].name + item.projectName}}" ng-if="!item.type">{{ productsMap[item.productId].name + item.projectName | limitTo: 5}}... </a>
+              <br>
             </td>
             <td>{{ item.createTime | date: 'yyyy-MM-dd' }}</td>
             <td>{{ item.statusText }}</td>
