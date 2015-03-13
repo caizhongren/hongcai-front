@@ -57,10 +57,7 @@ angular.module('hongcaiApp')
       } else {
         $state.go('root.investmentplan-list');
       }
-      console.log('invPlanFlag:' +$scope.invPlanFlag);
     });
-
-
 
     // 跳到登录界面
     $scope.toRealLogin = function() {
@@ -132,6 +129,7 @@ angular.module('hongcaiApp')
 
     $scope.checkAutoTransfer = function(fundsProject) {
       if ($scope.invPlanFlag !== 3) {
+        $scope.fundsProject.isRepeatFlag = false;
         fundsProject.isRepeatFlag = false;
         $scope.toAutoTransfer();
       }
@@ -189,6 +187,8 @@ angular.module('hongcaiApp')
       } else if ($scope.invPlanFlag === 1) {
         $scope.toRealNameAuth();
         // 跳到实名认证页面
+      } else if ($scope.checkLargeUserCanAmount(fundsProject)) {
+        $scope.toRecharge();
       } else if ($scope.invPlanFlag === 2 || $scope.invPlanFlag === 3) {
         ProjectService.isFundsAvailableInvest.get({
           amount: fundsProject.invPlanAmount,
