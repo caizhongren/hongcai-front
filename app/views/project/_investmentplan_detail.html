@@ -64,7 +64,7 @@
                 加入上限
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                {{fundsProject.total}}元
+                无条件
               </div>
             </div>
             <div class="row border-b-white">
@@ -96,7 +96,7 @@
                 服务协议
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                <a class="ft-red" ng-click="showAgreement();">宏金盈计划协议范本</a>
+                <a class="ft-red" ng-click="showAgreement();" style="text-decoration:underline !important;">宏金盈计划协议范本</a>
               </div>
             </div>
           </div>
@@ -226,8 +226,8 @@
                             <span class="col-xs-3">
                               <img src="/images/investmentplan/automatic.png">
                             </span>
-                            <span class="col-xs-9">自动投标</span>
-                            <span class="col-xs-9 ft-20">12人</span>
+                            <span class="col-xs-9">自动续投</span>
+                            <span class="col-xs-9 ft-20">{{repeatCount}}人</span>
                           </div>
                         </div>
                         <div class="plan-info" style="margin-top:93px;">

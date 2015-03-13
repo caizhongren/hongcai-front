@@ -14,6 +14,7 @@ angular.module('hongcaiApp')
         $scope.fundsProject = response.data.fundsProject;
         $scope.orderList = response.data.orderList;
         $scope.investorCount = response.data.investorCount;
+        $scope.repeatCount = response.data.repeatCount;
         $scope.fundsProduct = response.data.fundsProduct;
         $scope.releaseEndTime = moment(response.data.fundsProject.releaseEndTime).format('YYYY年MM月DD日');
         $scope.fundsProjectInvestNum = $scope.fundsProject.total - ($scope.fundsProject.soldStock + $scope.fundsProject.occupancyStock) * $scope.fundsProject.increaseAmount;
