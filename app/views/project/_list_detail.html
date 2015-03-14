@@ -9,8 +9,8 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-6" style="padding-right:0px">
-              <img src="{{baseFileUrl + item.guaranteeUrl}}" width="30" height="30" alt="logo">
-              <span>{{item.guaranteeName}}</span>
+              <a ui-sref="root.project-sponsorInstitution({guaranteeproId: projectVo.guaranteeId})"><img src="{{baseFileUrl + item.guaranteeUrl}}" width="20" height="20" alt="logo">
+                <span>{{item.guaranteeName}}</span></a>
             </div>
             <!-- 为了编译，迫不得已用这么lovw的写法 -->
             <div class="col-xs-5 col-xs-offset-1">
@@ -95,8 +95,8 @@
         <div class="panel-body">
           <div class="row">
             <div class="col-xs-6" style="padding-right:0px">
-              <img src="{{baseFileUrl + item.guaranteeUrl}}" width="30" height="30" alt="logo">
-              <span>{{item.guaranteeName}}</span>
+              <a ui-sref="root.project-sponsorInstitution({guaranteeproId: projectVo.guaranteeId})"><img src="{{baseFileUrl + item.guaranteeUrl}}" width="20" height="20" alt="logo">
+                <span>{{item.guaranteeName}}</span></a>
             </div>
             <div class="col-xs-5 col-xs-offset-1">
               <img class="status_flag" src="images/project/status_6.png" ng-show="item.status === 6">
