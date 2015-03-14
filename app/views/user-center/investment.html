@@ -143,8 +143,8 @@
               <button ng-show="item.status === 1 " type="button" class="btn btn-primary" ng-click="toPay(item.projectId, item.orderId, item.orderAmount);">继续支付</button>
               <button ng-show="item.status === 1 " type="button" class="btn btn-default" ng-click="cancelOrder(item.number);">取消订单</button>
               <!-- <button ng-show="item.status === 1 " type="button" title="项目放款后生成协议" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button> -->
-              <button ng-show="item.status >= 2 && item.status <= 8" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button>
-              <button ng-show="item.status === 9 && item.status === 10" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">下载合同</button>
+              <button ng-show="item.status === 2" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status, item.type);">合同模板</button>
+              <button ng-show="item.status >= 3 && item.status <=6" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status, item.type);">下载合同</button>
               <i ng-show="item.status === 9 && item.status === 10" class="fa fa-info-circle ft-grey6" data-template="views/modal/popover-investment-contract.html" data-animation="am-flip-y" data-trigger="hover" bs-popover></i>
             </td>
           </tr>

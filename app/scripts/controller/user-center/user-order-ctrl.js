@@ -24,7 +24,7 @@ angular.module('hongcaiApp')
       }, 300);
       $scope.getOrderBillByOrderId(number);
     };
-    $scope.generateContractPDF = function(projectId, orderId, status) {
+    $scope.generateContractPDF = function(projectId, orderId, status, type) {
       if (status === 1) {
         $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel');
         // UserCenterService.generateContractPDFModel.get(function() {
@@ -38,7 +38,7 @@ angular.module('hongcaiApp')
         // }, function() {
         //   $scope.downloadPDF('hongcai/api/v1/siteProject/generatePartContractPDF?orderId=' + orderId + '&projectId=' + projectId);
         // });
-      } else if (status > 3 && status <= 6) {
+      } else if (status >= 3 && status <= 6) {
         $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
         // UserCenterService.generateContractPDF.get({
         //   projectId: projectId,
