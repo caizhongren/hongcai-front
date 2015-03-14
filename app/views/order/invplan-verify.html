@@ -34,7 +34,7 @@
         <input type="checkbox" ng-checked="true" ng-model="$parent.checkInvFlag" />同意<a ui-sref="root.loan-security-agreement" class="loan-stl" target="_blank">《借款及担保协议》</a>
       </div>
       <div class="col-xs-3" ng-switch-when="true">
-        <input class="rule-check" type="checkbox" ng-model="project.isRepeatFlag" ng-click="checkAutoTransfer(project);">自动续投<a class="ft-red" ng-click="showAgreement();">&nbsp;查看协议</a>
+        <input class="rule-check" type="checkbox" ng-model="project.isRepeatFlag" ng-click="checkAutoTransfer(project);">自动续投
       </div>
     </div>
     <div class="row list-item" ng-switch="investAmount - capital.balance <= 0">
