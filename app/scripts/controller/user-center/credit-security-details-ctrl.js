@@ -6,7 +6,7 @@ angular.module('hongcaiApp')
     $scope.number = $stateParams.number;
     $scope.getCreditDetail = function() {
       UserCenterService.getCreditDetail.get({status: $scope.type,number: $scope.number}, function(response) {
-
+        // console.log(response);
         if (response.ret === 1) {
           $scope.order = response.data.order;
           $scope.project = response.data.project;
