@@ -16,7 +16,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="panel panel-default no-border">
-        <ul class="list-group">
+        <ul class="list-group padding-l-15">
           <li class="list-group-item projects-filter">
             <div class="row">
               <div class="col-xs-12">
@@ -34,7 +34,7 @@
                   </div>
                   <div class="col-xs-2">
                     <a ui-sref="root.userCenter.gift-rebate-query({type:99, dateInterval:dateInterval,status:'2,3'})" class="project-noncheck" ng-class="{'project-check': status === '2,3', 'project-noncheck': status !== '2,3'}">
-                      投资中的
+                      投资中
                     </a>
                   </div>
                   <div class="col-xs-2">
@@ -114,14 +114,14 @@
     <tbody>
       <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
       <td>
-        {{ item.projectName }}
+        {{ item.order.projectName }}
       </td>
-        <td>{{ item.valueDate | date: 'yyyy-MM-dd' }}</td>
-        <td>{{ item.repaymentDate | date: 'yyyy-MM-dd' }}</td>
-        <td>{{ item.orderAmount| number:2 }}</td>
-        <td>{{ item.profit | number:2 }}</td>
+        <td>{{ item.order.valueDate | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ item.order.repaymentDate | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ item.order.orderAmount| number:2 }}</td>
+        <td>{{ item.order.profit | number:2 }}</td>
         <td>
-          {{ item.returnProfit | number:2 }}
+          {{ item.order.returnProfit | number:2 }}
           <br>
         </td>
       </tr>
