@@ -34,15 +34,19 @@
                 <span class="padding-l-15 ft-24 ft-red">{{item.annualEarnings | number : 2}}</span>
                 <span class="ft-grey6 ft-12">&nbsp;%</span>
               </div>
-              <div class="row" ng-show="item.progress < 100">
-                <span class="ft-grey6">可投金额</span>
-                <span class="padding-l-15 ft-24 ft-black">{{item.currentStock * item.increaseAmount || 0 | menoyFormat}}</span>
+              <div class="row" ng-show="item.status === 11" >
+                <span class="ft-grey6">预约金额</span>
+                <span class="padding-l-15 ft-24 ft-black">{{item.reserveAmount | menoyFormat }}</span>
                 <span class="ft-grey6 ft-12">&nbsp;(元)</span>
               </div>
-
-              <div class="row" ng-show="item.progress >= 100">
+              <div class="row" ng-show="item.status !== 11 && item.progress < 100">
+                <span class="ft-grey6">可投金额</span>
+                <span class="padding-l-15 ft-24 ft-black">{{item.currentStock * item.increaseAmount | menoyFormat }}</span>
+                <span class="ft-grey6 ft-12">&nbsp;(元)</span>
+              </div>
+              <div class="row" ng-show="item.status !== 11 && item.progress >= 100">
                 <span class="ft-grey6">项目规模</span>
-                <span class="padding-l-15 ft-24 ft-black">{{item.total/10000 ||0 | number: 1}}万</span>
+                <span class="padding-l-15 ft-24 ft-black">{{item.total | menoyFormat}} </span>
                 <span class="ft-grey6 ft-12">&nbsp;(元)</span>
               </div>
 
@@ -119,9 +123,19 @@
                 <span class="padding-l-15 ft-24 ft-red">{{item.annualEarnings | number : 2}}</span>
                 <span class="ft-grey6 ft-12">&nbsp;%</span>
               </div>
-              <div class="row">
+              <div class="row" ng-show="item.status === 11" >
+                <span class="ft-grey6">预约金额</span>
+                <span class="padding-l-15 ft-24 ft-black">{{item.reserveAmount | menoyFormat }}</span>
+                <span class="ft-grey6 ft-12">&nbsp;(元)</span>
+              </div>
+              <div class="row" ng-show="item.status !== 11 && item.progress < 100">
                 <span class="ft-grey6">可投金额</span>
-                <span class="padding-l-15 ft-24 ft-black">{{item.currentStock * item.increaseAmount || 0 | menoyFormat}}</span>
+                <span class="padding-l-15 ft-24 ft-black">{{item.currentStock * item.increaseAmount | menoyFormat }}</span>
+                <span class="ft-grey6 ft-12">&nbsp;(元)</span>
+              </div>
+              <div class="row" ng-show="item.status !== 11 && item.progress >= 100">
+                <span class="ft-grey6">项目规模</span>
+                <span class="padding-l-15 ft-24 ft-black">{{item.total | menoyFormat}} </span>
                 <span class="ft-grey6 ft-12">&nbsp;(元)</span>
               </div>
               <div class="row margin-t-20" ng-hide="item.status === 6">
