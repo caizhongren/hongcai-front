@@ -41,7 +41,7 @@
           <div class="col-xs-6 col-md-12 col-lg-6">
             <p class="prompt-style" >
               <img src="images/hongjinying/prompt.png" alt="">
-              <small class="rate-show" style="margin-left: -43px; font-size: 15px;">+{{item.fundsProduct.riseRate || 0}}</small>
+              <botton class="rate-show" style="margin-left: -43px; font-size: 15px;" data-placement="top" data-animation="am-flip-x"  data-content="{{item.fundsProduct.description}}" data-trigger="hover" bs-popover>+{{item.fundsProduct.riseRate || 0}}</botton>
             </p>
             <p class="year-percent">
               <span class="ft-90 ft-red percent-num">{{item.fundsProduct.baseRate || 0}}</span>
