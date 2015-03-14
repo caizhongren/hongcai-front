@@ -27,8 +27,8 @@
           <p class="asset-money">{{(capital.userCapital.balance)| number:2}} <small>元</small>
           </p>
         </div>
-        <input type="button" ui-sref="root.userCenter.recharge" class="red-button account-button col-md-3 col-lg-3" value="充值" />
-        <input type="button" ui-sref="root.userCenter.withdraw" class="white-button account-button account-right-button col-md-3 col-lg-3" value="提现" />
+        <input type="button" ui-sref="root.userCenter.recharge" class="red-button account-button col-md-3 col-lg-3" value="充值" ng-show="userType != 4"/>
+        <input type="button" ui-sref="root.userCenter.withdraw" class="white-button account-button account-right-button col-md-3 col-lg-3" value="提现" ng-show="userType != 4"/>
         <a ui-sref="root.userCenter.assets-overview" class="view-more">查看更多></a>
       </div>
     </div>
