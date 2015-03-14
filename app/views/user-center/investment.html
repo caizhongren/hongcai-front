@@ -4,7 +4,7 @@
     <div class="right-title">我的订单</div>
   </div>
   <!-- 已开通第三方资金托管账户 -->
-  <div ng-show="autoTransfer === 1">
+  <div ng-show="securityStatus.realNameAuthStatus === 1">
     <div ng-show="showOrderStatistics">
       <div>
         <div class="padd" ng-hide="true">
@@ -162,7 +162,7 @@
     </div>
   </div>
   <!-- 未开通第三方资金托管账户 -->
-  <div class="row text-center" ng-show="autoTransfer !== 1">
+  <div class="row text-center" ng-show="securityStatus.realNameAuthStatus !== 1">
     <p>亲，您尚未开通第三方资金托管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
     <a class="btn btn-primary margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
   </div>
