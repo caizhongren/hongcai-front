@@ -101,7 +101,7 @@
             </div>
           </div>
         </section>
-        <section ng-if="tab.title==='投资记录'">
+        <section ng-if="tab.title==='加入记录'">
           <div ng-show="isLogged">
             <table class="table table-hover">
               <thead>
@@ -128,52 +128,55 @@
         </section>
         <section ng-if="tab.title==='常见问题'">
           <div class="container-fluid">
-            <div class="row">
-              <div class="col-xs-12">
-                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 合同协议</h4>
+            <div class="row ft-14">
+              <div class="ask-area col-xs-8 col-xs-offset-2">
+                <strong>1、宏金盈有哪些特点？</strong>
+                <p>1）真实安全：加入宏金盈的资金，全部用于投资真实、提供100%本息担保的小额借款项目。
+                <br>2）超低门槛：100元即可以加入，以100元倍数递增。
+                <br>3）多样选择：多种期限搭配，满足不同流动性需求。
+                <br>4）省心优利：一次投入，按月（期）付息，到期还本；七日盈、月月盈、季度盈可选择自动续投。
+                <br>5）零手续费：加入和到期赎回全免费。
+                <br>6）分散投资：一份投资对应多份债权，降低投资风险。
+                <br>7）递增收益：6%-10%，七日盈、月月盈、季度盈每期分别递增0.3%、0.4%、0.5%。</p>
               </div>
-              <div class="col-xs-6 col-sm-4 file-padding" ng-repeat="contract in contractThumbnailFileList">
-                <div class="thumbnail">
-                  <a class="grouped_elements" rel="group1" href="javascript:;" ng-click="openFancybox()">
-                    <img width="175" height="125" ng-src="{{baseFileUrl + contract.uploadFile.url}}">
-                  </a>
-                  <div class="caption">
-                    <h5 class="file-head">{{contract.uploadFile.originalName.split('.')[0]}}</h5>
-                  </div>
-                  <div class="wrapper" fancybox style="display: none;">
-                    <div class="future_fancybox_content">
-                      <img src="{{baseFileUrl + contractOriginalFileList[$index].uploadFile.url}}" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-xs-12">
-                <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 企业相关照片</h4>
-              </div>
-              <div class="row">
-                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 file-padding" ng-repeat="enterPrise in enterpriseThumbnailFileList">
-                  <div class="thumbnail">
-                    <a class="grouped_elements" rel="group1" href="javascript:;" ng-click="openFancybox()">
-                      <img width="175" height="125" ng-src="{{baseFileUrl + enterPrise.uploadFile.url}}">
-                    </a>
-                    <div class="caption">
-                      <h5 class="file-head">{{enterPrise.uploadFile.originalName.split('.')[0]}}</h5>
-                    </div>
-                    <div class="wrapper" fancybox style="display: none;">
-                      <div class="future_fancybox_content">
-                        <img src="{{baseFileUrl + enterpriseOriginalFileList[$index].uploadFile.url}}" />
+              <div class="ask-area col-xs-8 col-xs-offset-2">
+                <strong>2、宏金盈的收益是如何递增的？最多可续投多少期？</strong>
+                <!--<div class="col-xs-12">
+                  <div class="row">
+                    <div class="col-xs-2 double-line no-border-r">宏金盈</div>
+                    <div class="col-xs-2 double-line no-border-r">投资</div>
+                    <div class="col-xs-8 single-line">续投</div>
+                    <div class="col-xs-8">
+                      <div class="row">
+                        <li class="col-xs-2 single-line no-border-t no-border-r">第一次</li>
+                        <li class="col-xs-2 single-line no-border-t no-border-r">第二次</li>
+                        <li class="col-xs-2 single-line no-border-t no-border-r">第三次</li>
+                        <li class="col-xs-2 single-line no-border-t no-border-r">第四次</li>
+                        <li class="col-xs-2 single-line no-border-t no-border-r">第五次</li>
+                        <li class="col-xs-2 single-line no-border-t">第六次</li>
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>-->
+                <p>举例说明：
+                <br>投资七日盈10000元，锁定周期为7日，到期结息。首次投资年化收益为 6%，第一次续投年化收益为6.3%，第二次续投年化收益为：6.6%，第三次续投年化收益为：6.9%，第四、五、六、七次续投收益不再递增，按照年化6.9%计息，完成第七次续投结束后，资金自动赎回至投资人易宝账户内，可再次投资或提现。即：七日盈最多可续投七次。</p>
               </div>
-
+              <div class="ask-area col-xs-8 col-xs-offset-2">
+                <strong>3、宏金盈的债权类别是什么？</strong>
+                <p>宏金保、宏财网投资人债权转让、宏财优选债权。</p>
+              </div>
+              <div class="ask-area col-xs-8 col-xs-offset-2">
+                <strong>自动续投是本金+利息复投吗？</strong>
+                <p>不是。宏金盈每期的债权数固定，只续投本金部分，利息按月（期）发放到投资人易宝账户中，投资人可选择再次投资或者提取利息进行消费。</p>
+              </div>
+              <div class="ask-area col-xs-8 col-xs-offset-2">
+                <strong>5、宏金盈是否允许提前赎回？</strong>
+                <p>可按投放周期赎回，在投放期限内取消自动续投，到期后自动退出。例如投资月月盈用户可在投资到期前在“我的账户”-“我的债权”订单中点击“取消续投”后，本次投资到期自动退出，如想再次续投，可点击“自动续投”赚取更高收益。</p>
+              </div>
             </div>
           </div>
         </section>
-        <section ng-if="tab.title==='项目历程'">
+        <section ng-if="tab.title==='计划进程'">
           <div class="container-fluid">
             <div class="row project-bg-area">
               <div class="col-xs-8 col-xs-offset-2">

@@ -81,27 +81,26 @@
     </form>
   </div>
   <div class="row">
-    <div class="safe-part col-md-12 col-lg-12">
+    <div class="safe-part col-xs-12">
       <div class="row">
-        <p class="tips col-md-4 col-lg-4">手机号码</p>
-        <p class="message col-md-4 col-lg-4">{{ mobile || "未设置"}}</p>
+        <p class="tips col-xs-4">手机号码</p>
+        <p class="message col-xs-4">{{ mobile || "未设置"}}</p>
         <p class="activity col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1 hc-text-red" ng-show="!mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">设置</p>
-        <p class="activity col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1" ng-show="mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">修改</p>
+        <p class="activity col-xs-3 col-xs-offset-1" ng-show="mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">修改</p>
       </div>
     </div>
   </div>
   <div class="change-area change-phone-height" ng-show="changeMobile" ng-init="changeMobile=false">
     <form class="real-name row" name="changeMobileForm">
-      <div class="col-md-9 col-lg-9 col-md-offset-2 col-lg-offset-2">
+      <div class="col-xs-9 col-xs-offset-2">
         <div class="safe-form-group row">
-          <label class="col-md-3 col-lg-3">手机号码：</label>
-          <input type="text" class="verify-input col-md-3 col-lg-3" id="mobileNo" name="mobileNo" ng-model="mobileNo" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobileNo" ng-focus required autofocus/>
-          <input type="button" value="获取验证码" class="{{changeMobileForm.mobileNo.$invalid ? 'white-button verify-index grey' : 'white-button verify-index'}} col-md-offset-1 col-lg-offset-1 col-md-2 col-lg-2" ng-click="sendMobileCaptcha(mobileNo)" onclick="countDown(this,60);" id="getVerify" ng-disabled="changeMobileForm.mobileNo.$invalid" />
-          <div ng-show="changeMobileForm.mobileNo.$dirty && changeMobileForm.mobileNo.$invalid && !changeMobileForm.mobileNo.$focused" class="col-lg-2 col-md-2">
+          <label class="col-xs-3">手机号码：</label>
+          <input type="text" class="verify-input col-xs-3" id="mobileNo" name="mobileNo" ng-model="mobileNo" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobileNo" ng-focus required autofocus/>
+          <input type="button" value="获取验证码" class="col-xs-offset-1 col-xs-2 {{changeMobileForm.mobileNo.$invalid ? 'white-button verify-index grey' : 'white-button verify-index'}}" ng-click="sendMobileCaptcha(mobileNo)" onclick="countDown(this,60);" id="getVerify" ng-disabled="changeMobileForm.mobileNo.$invalid" />
+          <div ng-show="changeMobileForm.mobileNo.$dirty && changeMobileForm.mobileNo.$invalid && !changeMobileForm.mobileNo.$focused" class="col-xs-2">
             <div class="user-tips-area row" ng-show="changeMobileForm.mobileNo.$error.required &&
                     !changeMobileForm.mobileNo.$focused">
               <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
-
             </div>
             <div class="user-tips-area row" ng-show="changeMobileForm.mobileNo.$error.pattern &&
                       !changeMobileForm.mobileNo.$focused">
@@ -236,7 +235,7 @@ function countDown(obj, second) {
     // 按钮里的内容呈现倒计时状态
     //obj.value = buttonDefaultValue + '(' + second + ')';
     obj.value = second + "s 后重新发送";
-    obj.className = 'white-button grey';
+    obj.className = 'col-xs-offset-1 col-xs-2 white-button grey';
     // 时间减一
     second--;
     // 一秒后重复执行

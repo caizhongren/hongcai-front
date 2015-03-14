@@ -13,7 +13,7 @@ angular.module('hongcaiApp')
     return function (input) {
       input = input.toString() || '';
       if(input.length >= 5 ){
-        return (input/10000).toString();
+        return (input/10000).toString() + '万';
       } else {
         return input;
       }

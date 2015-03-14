@@ -13,7 +13,7 @@ angular.module('hongcaiApp')
       }
     });
     $scope.checkLargestAmount = function(amount) {
-      if (amount >= $scope.availableCashRealNo) {
+      if (amount > $scope.availableCashRealNo) {
         return true;
       } else {
         return false;

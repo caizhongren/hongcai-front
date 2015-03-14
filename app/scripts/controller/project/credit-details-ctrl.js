@@ -98,7 +98,6 @@ angular.module('hongcaiApp')
     $scope.toAllCreditInvest = function() {
       // 判断自己余额
       $scope.subscribeAmount = $scope.userCanCreditInvestNum;
-      console.log('hehehhee');
     }
 
     /*
@@ -116,9 +115,9 @@ angular.module('hongcaiApp')
           subscribeAmount: subscribeAmount,
         }, function(response) {
           if (response.ret === 1) {
-            alert('hello');
+            
           } else {
-            console.log(response.msg);
+            toaster.pop('warning', response.msg);
           }
         });
       }
