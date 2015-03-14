@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$stateParams','$location', 'UserCenterService', function ($scope,$rootScope, $state, $stateParams, $location, UserCenterService) {
+  .controller('UserDealCtrl', ['$scope', '$rootScope', '$state', 'toaster','$stateParams','$location', 'UserCenterService', function ($scope,$rootScope, $state, toaster, $stateParams, $location, UserCenterService) {
     $rootScope.selectSide = 'record';
     $scope.type = $stateParams.type || 0;
     $scope.dateInterval = $stateParams.dateInterval || 0;
@@ -34,15 +34,15 @@ angular.module('hongcaiApp')
             obj.label = '' + $scope.dealTypes[j] + '';
             $scope.icons.push(obj);
           }
-          
+
         } else {
           toaster.pop('warning',response.msg);
         }
       });
-    }
+    };
 
     $scope.recordSelect();
-    
+
 
 
     /*$scope.selectedIcon = 'Heart';

@@ -1,12 +1,12 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditSecurityCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
+  .controller('CreditSecurityCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService) {
     $rootScope.redirectUrl = $location.path();
     $scope.type = $stateParams.type;
     $scope.number = $stateParams.number;
     $scope.getCreditDetail = function() {
       UserCenterService.getCreditDetail.get({status: $scope.type,number: $scope.number}, function(response) {
-        
+
         if (response.ret === 1) {
           $scope.order = response.data.order;
           $scope.project = response.data.project;
@@ -154,5 +154,5 @@ angular.module('hongcaiApp')
     };
 
     $scope.getCreditDetail ();
-    
+
   }]);

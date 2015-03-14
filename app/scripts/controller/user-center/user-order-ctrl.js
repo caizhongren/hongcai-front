@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', '$alert', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
-    
+
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
     $scope.typeInvStatus = {
@@ -64,7 +64,7 @@ angular.module('hongcaiApp')
         dateInterval: $stateParams.dateInterval,
         status: $stateParams.status
       },
-      function() {
+      function(response) {
         if (getOrderByUser.ret === 1) {
           $scope.orderList = getOrderByUser.data.orderVoList;
           $scope.orderCount = getOrderByUser.data.orderCount;
