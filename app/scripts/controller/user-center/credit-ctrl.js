@@ -2,10 +2,13 @@
 angular.module('hongcaiApp')
   .controller('CreditCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
     //判断是否开通第三方托管账户
-    if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
-      $scope.haveTrusteeshipAccount = true;
-    } else {
-      $scope.haveTrusteeshipAccount = false;
+    $scope.checkTrusteeshipAccount = function() {
+      if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
+        $scope.haveTrusteeshipAccount = true;
+      } else {
+        $scope.haveTrusteeshipAccount = false;
+      }
+      return $scope.haveTrusteeshipAccount;
     }
 
     $rootScope.redirectUrl = $location.path();
@@ -46,14 +49,18 @@ angular.module('hongcaiApp')
      */
     $scope.getHeldInCreditRightList = function(searchStatus) {
       $scope.searchStatus = searchStatus;
-
       UserCenterService.getHeldInCreditRightList.get({status: searchStatus}, function(response) {
         if(response.ret == 1) {
-          $scope.heldInCreditList = response.data.heldIdCreditList;
-          $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
-          $scope.creditRightStatusMap = response.data.creditRightStatusMap;
-          $scope.productsMap = response.data.productsMap;
-          $scope.fundsPoolInOutMap = response.data.fundsPoolInOutMap;
+          // console.log(response);
+          $scope.haveTrusteeshipAccount = $scope.checkTrusteeshipAccount();
+          if($scope.haveTrusteeshipAccount) {
+            $scope.heldInCreditList = response.data.heldIdCreditList;
+            $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
+            $scope.creditRightStatusMap = response.data.creditRightStatusMap;
+            $scope.productsMap = response.data.productsMap;
+            $scope.fundsPoolInOutMap = response.data.fundsPoolInOutMap;
+          }
+          
         } else {
           toaster.pop('warning', response.msg);
         }
