@@ -146,7 +146,7 @@ angular.module('hongcaiApp')
         } else {
           // console.log(response);
           if (response.code == -1082) {
-            $scope.msg = '亲~，开启自动复投功能需要先开通自动投标权限哦!';
+            $scope.msg = '亲~，开启自动续投功能需要先开通自动投标权限哦!';
             $alert({
               scope: $scope,
               template: 'views/modal/alert-openReservation.html',
