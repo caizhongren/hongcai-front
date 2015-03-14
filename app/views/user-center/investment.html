@@ -128,24 +128,24 @@
         </thead>
         <tbody>
           <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-            <td>{{ item.number }}</td>
-            <td>{{ item.orderAmount | number: 2 }}</td>
+            <td>{{ item.orderNum }}</td>
+            <td>{{ item.order.orderAmount | number: 2 }}</td>
             <td>
               <button ng-click="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button>
-              <a ui-sref="root.project-details({number: item.projectNumber})" title="{{item.projectName}}" ng-if="item.type">{{ item.projectName | limitTo: 5}}... </a>
-              <a ui-sref="root.investmentplan-details({number: item.projectNumber})" title="{{productsMap[item.productId].name + item.projectName}}" ng-if="!item.type">{{ productsMap[item.productId].name + item.projectName | limitTo: 5}}... </a>
+              <a ui-sref="root.project-details({number: item.order.projectNumber})" title="{{item.order.projectName}}" ng-if="item.order.type !== 4">{{ item.order.projectName | limitTo: 5}}... </a>
+              <a ui-sref="root.investmentplan-details({number: item.order.projectNumber})" title="{{productsMap[item.fundsProject.productId].name + item.order.projectName}}" ng-if="item.order.type === 4">{{ productsMap[item.fundsProject.productId].name + item.order.projectName | limitTo: 5}}... </a>
               <br>
             </td>
-            <td>{{ item.createTime | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ item.order.createTime | date: 'yyyy-MM-dd' }}</td>
             <td>{{ item.statusText }}</td>
             <!-- <td><a ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">123</a></td> -->
             <td>
-              <button ng-show="item.status === 1 " type="button" class="btn btn-primary" ng-click="toPay(item.projectId, item.orderId, item.orderAmount);">继续支付</button>
-              <button ng-show="item.status === 1 " type="button" class="btn btn-default" ng-click="cancelOrder(item.number);">取消订单</button>
+              <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary" ng-click="toPay(item.order.projectId, item.order.orderId, item.order.orderAmount);">继续支付</button>
+              <button ng-show="item.order.status === 1 " type="button" class="btn btn-default" ng-click="cancelOrder(item.order.number);">取消订单</button>
               <!-- <button ng-show="item.status === 1 " type="button" title="项目放款后生成协议" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button> -->
-              <button ng-show="item.status === 2" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status, item.type);">合同模板</button>
-              <button ng-show="item.status >= 3 && item.status <=6" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status, item.type);">下载合同</button>
-              <i ng-show="item.status >= 3 && item.status <=6" class="fa fa-info-circle ft-grey6" data-template="views/modal/popover-investment-contract.html" data-animation="am-flip-y" data-trigger="hover" bs-popover></i>
+              <button ng-show="item.order.status === 2" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.orderId, item.order.status, item.order.type);">合同模板</button>
+              <button ng-show="item.order.status >= 3 && item.order.status <=6" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.orderId, item.order.status, item.order.type);">下载合同</button>
+              <i ng-show="item.order.status >= 3 && item.order.status <=6" class="fa fa-info-circle ft-grey6" data-template="views/modal/popover-investment-contract.html" data-animation="am-flip-y" data-trigger="hover" bs-popover></i>
             </td>
           </tr>
         </tbody>
