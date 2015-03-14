@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditProfitCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
+  .controller('CreditProfitCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService) {
     $rootScope.redirectUrl = $location.path();
     $scope.type = $stateParams.type;
     $scope.number = $stateParams.number;
@@ -154,5 +154,5 @@ angular.module('hongcaiApp')
     };
 
     $scope.getCreditDetail ();
-    
+
   }]);

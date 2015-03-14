@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AccountOverviewCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'OrderService', function($scope, $state, $rootScope, $stateParams, UserCenterService, OrderService) {
+  .controller('AccountOverviewCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'toaster', function($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
 
     $rootScope.selectSide = 'account-overview';
     var totalAssets = 0;

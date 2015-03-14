@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', '$alert', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
-    
+
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
     $scope.typeInvStatus = {
