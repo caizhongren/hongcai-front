@@ -1,11 +1,14 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
+  .controller('CreditCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', '$alert', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
     //判断是否开通第三方托管账户
-    if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
-      $scope.haveTrusteeshipAccount = true;
-    } else {
-      $scope.haveTrusteeshipAccount = false;
+    $scope.checkTrusteeshipAccount = function() {
+      if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
+        $scope.haveTrusteeshipAccount = true;
+      } else {
+        $scope.haveTrusteeshipAccount = false;
+      }
+      return $scope.haveTrusteeshipAccount;
     }
 
     $rootScope.redirectUrl = $location.path();
@@ -25,7 +28,7 @@ angular.module('hongcaiApp')
         $scope.disabledFlag2 = false;
       }
     });
-
+   
     /**
      * 我的债权统计数据
      */
@@ -34,7 +37,7 @@ angular.module('hongcaiApp')
         if (response.ret === 1) {
           $scope.data = response.data;
         } else {
-          console.log(response);
+          toaster.pop('warning', response.msg);
         }
       });
     };
@@ -46,16 +49,20 @@ angular.module('hongcaiApp')
      */
     $scope.getHeldInCreditRightList = function(searchStatus) {
       $scope.searchStatus = searchStatus;
-
       UserCenterService.getHeldInCreditRightList.get({status: searchStatus}, function(response) {
         if(response.ret == 1) {
-          $scope.heldInCreditList = response.data.heldIdCreditList;
-          $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
-          $scope.creditRightStatusMap = response.data.creditRightStatusMap;
-          $scope.productsMap = response.data.productsMap;
-          console.log(response);
+          // console.log(response);
+          $scope.haveTrusteeshipAccount = $scope.checkTrusteeshipAccount();
+          if($scope.haveTrusteeshipAccount) {
+            $scope.heldInCreditList = response.data.heldIdCreditList;
+            $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
+            $scope.creditRightStatusMap = response.data.creditRightStatusMap;
+            $scope.productsMap = response.data.productsMap;
+            $scope.fundsPoolInOutMap = response.data.fundsPoolInOutMap;
+          }
+          
         } else {
-          console.log(response);
+          toaster.pop('warning', response.msg);
         }
         
       });
@@ -134,11 +141,36 @@ angular.module('hongcaiApp')
         repeat:reinvestActionType,
         creditRightId:creditRightId
       },function(response){
-        console.log(response);
         if(response.ret === 1) {
           window.location.reload();
         } else {
-          console.log(response);
+          // console.log(response);
+          if (response.code == -1082) {
+            $scope.msg = '亲~，开启自动复投功能需要先开通自动投标权限哦!';
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-openReservation.html',
+              show: true
+            });
+          } else {
+            toaster.pop('warning', response.msg);
+          }
+        }
+      });
+    }
+
+
+    /**
+     * 平台C债权转入债权池
+     */
+    $scope.putCreditRightInPool = function(creditRightId) {
+      UserCenterService.putCreditRightInPool.get({
+        creditRightId:creditRightId
+      },function(response){
+        if(response.ret === 1) {
+          window.location.reload();
+        } else {
+          toaster.pop('warning', response.msg);
         }
       });
     }

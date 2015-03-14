@@ -1,17 +1,15 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserDealCtrl', ['$scope', '$rootScope', '$state', '$stateParams','$location', 'UserCenterService', function ($scope,$rootScope, $state, $stateParams, $location, UserCenterService) {
+  .controller('UserDealCtrl', ['$scope', '$rootScope', '$state', 'toaster','$stateParams','$location', 'UserCenterService', function ($scope,$rootScope, $state, toaster, $stateParams, $location, UserCenterService) {
     $rootScope.selectSide = 'record';
     $scope.type = $stateParams.type || 0;
     $scope.dateInterval = $stateParams.dateInterval || 0;
     $scope.dealType = 0;
     $scope.recordSelect = function() {
-      console.log($scope.dealType);
-
       // var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval,type: $stateParams.type},function() {
-      var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval,dealType: $scope.dealType},function() {
+      var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval,dealType: $scope.dealType},function(response) {
         if (getDealByUser.ret === 1) {
-          console.log(getDealByUser);
+          // console.log(getDealByUser);
           $scope.dealList = getDealByUser.data.dealList;
           $scope.type = getDealByUser.data.type;
           $scope.dateInterval = getDealByUser.data.dateInterval;
@@ -36,15 +34,15 @@ angular.module('hongcaiApp')
             obj.label = '' + $scope.dealTypes[j] + '';
             $scope.icons.push(obj);
           }
-          
+
         } else {
-          console.log(response);
+          toaster.pop('warning',response.msg);
         }
       });
-    }
+    };
 
     $scope.recordSelect();
-    
+
 
 
     /*$scope.selectedIcon = 'Heart';

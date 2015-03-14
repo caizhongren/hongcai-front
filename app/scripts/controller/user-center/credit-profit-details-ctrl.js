@@ -1,12 +1,12 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditProfitCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
+  .controller('CreditProfitCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService) {
     $rootScope.redirectUrl = $location.path();
     $scope.type = $stateParams.type;
     $scope.number = $stateParams.number;
     $scope.getCreditDetail = function() {
       UserCenterService.getCreditDetail.get({status: $scope.type,number: $scope.number}, function(response) {
-        console.log(response);
+        // console.log(response);
         if (response.ret === 1) {
           $scope.order = response.data.order;
           $scope.project = response.data.fundsProject;
@@ -18,11 +18,9 @@ angular.module('hongcaiApp')
           var invTotal = response.data.order.orderAmount;
           if (response.data.fundsProject) {
             var rdp = response.data.fundsProject;
-            console.log(rdp);
             //总融资额
             var invInitDate = moment(rdp.valueDate).toString();
             var accountDay = rdp.accountDay;
-            console.log(accountDay);
             var invStartDate = moment([moment(invInitDate).year(), moment(invInitDate).month(), accountDay]).toString();
             invStartDate = moment(invStartDate).add(1, 'month').toString();
             var invEndDate = moment(rdp.repaymentDate).toString();
@@ -156,5 +154,5 @@ angular.module('hongcaiApp')
     };
 
     $scope.getCreditDetail ();
-    
+
   }]);

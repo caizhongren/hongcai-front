@@ -14,6 +14,7 @@ angular.module('hongcaiApp')
         $scope.fundsProject = response.data.fundsProject;
         $scope.orderList = response.data.orderList;
         $scope.investorCount = response.data.investorCount;
+        $scope.repeatCount = response.data.repeatCount;
         $scope.fundsProduct = response.data.fundsProduct;
         $scope.releaseEndTime = moment(response.data.fundsProject.releaseEndTime).format('YYYY年MM月DD日');
         $scope.fundsProjectInvestNum = $scope.fundsProject.total - ($scope.fundsProject.soldStock + $scope.fundsProject.occupancyStock) * $scope.fundsProject.increaseAmount;
@@ -212,9 +213,9 @@ angular.module('hongcaiApp')
     $scope.tabs = [{
       title: '计划简介',
     }, {
-      title: '项目历程',
+      title: '加入记录',
     }, {
-      title: '投资记录',
+      title: '计划进程',
     }, {
       title: '常见问题',
     }];

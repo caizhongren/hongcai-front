@@ -6,7 +6,7 @@
         <p class="hongjinying row">宏金盈</p>
       </div>
       <span class="title-introduce ft-14 ft-black">短期理财，灵活投资，坐享高收益 </span>
-      <a class="more-info-link jinying-link ft-black" ui-sref="root.hongjinying-project-list">更多&nbsp;&nbsp;></a>
+      <a class="more-info-link jinying-link ft-black" ui-sref="root.investmentplan-list">更多&nbsp;&nbsp;></a>
     </div>
   </div>
   <div class="panel-body">
@@ -31,7 +31,7 @@
               <div class="col-xs-12 col-sm-6 col-lg-12">
                 <div class="row">
                   <span class="ft-grey">
-                    <strong class="ft-24">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | currency:"":0}} </strong>
+                    <strong class="ft-24">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | menoyFormat}} </strong>
                     &nbsp;元
                   </span>
                 </div>
@@ -41,7 +41,7 @@
           <div class="col-xs-6 col-md-12 col-lg-6">
             <p class="prompt-style" >
               <img src="images/hongjinying/prompt.png" alt="">
-              <small class="rate-show" style="margin-left: -43px; font-size: 15px;">+{{item.fundsProduct.riseRate || 0}}</small>
+              <botton class="rate-show" style="margin-left: -43px; font-size: 15px;" data-placement="top" data-animation="am-flip-x"  data-content="{{item.fundsProduct.description}}" data-trigger="hover" bs-popover>+{{item.fundsProduct.riseRate || 0}}</botton>
             </p>
             <p class="year-percent">
               <span class="ft-90 ft-red percent-num">{{item.fundsProduct.baseRate || 0}}</span>
@@ -49,8 +49,11 @@
             </p>
           </div>
         </div>
-        <div class="row">
-          <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-primary investment-btn" role="button">马上投资</a>
+        <div class="row" ng-show="item.status === 1">
+          <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-primary investment-btn" role="button">立即投资</a>
+        </div>
+        <div class="row" ng-show="item.status !== 1">
+          <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-default bg-grey4 ft-white investment-btn" role="button">查看详情</a>
         </div>
       </div>
     </div>
