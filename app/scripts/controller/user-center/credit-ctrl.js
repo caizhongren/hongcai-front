@@ -28,21 +28,28 @@ angular.module('hongcaiApp')
         $scope.disabledFlag2 = false;
       }
     });
-   
+
     /**
      * 我的债权统计数据
      */
-    $scope.getCreditRightStatistics = function() {
-      UserCenterService.getCreditRightStatistics.get({}, function(response) {
-        if (response.ret === 1) {
-          $scope.data = response.data;
-        } else {
-          toaster.pop('warning', response.msg);
-        }
-      });
-    };
+    // $scope.getCreditRightStatistics = function() {
+    $scope.showCreditRightStatistics = true;
+    UserCenterService.getCreditRightStatistics.get({}, function(response) {
+      if (response.ret === 1) {
+        $scope.totalInvestCount = response.data.totalInvestCount;
+        $scope.heldingCount = response.data.heldingCount;
+        $scope.transferedCount = response.data.transferedCount;
+        $scope.endProfitCount = response.data.endProfitCount;
+        $scope.totalInvestAmount = response.data.totalInvestAmount;
+        $scope.totalProfit = response.data.totalProfit;
+      } else {
+        $scope.showCreditRightStatistics = false;
+        toaster.pop('warning', response.msg);
+      }
+    });
+    // };
 
-    $scope.getCreditRightStatistics ();
+    // $scope.getCreditRightStatistics ();
 
     /**
      * 获得持有中债权列表
@@ -50,21 +57,21 @@ angular.module('hongcaiApp')
     $scope.getHeldInCreditRightList = function(searchStatus) {
       $scope.searchStatus = searchStatus;
       UserCenterService.getHeldInCreditRightList.get({status: searchStatus}, function(response) {
-        if(response.ret == 1) {
+        if(response.ret === 1) {
           // console.log(response);
-          $scope.haveTrusteeshipAccount = $scope.checkTrusteeshipAccount();
-          if($scope.haveTrusteeshipAccount) {
-            $scope.heldInCreditList = response.data.heldIdCreditList;
-            $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
-            $scope.creditRightStatusMap = response.data.creditRightStatusMap;
-            $scope.productsMap = response.data.productsMap;
-            $scope.fundsPoolInOutMap = response.data.fundsPoolInOutMap;
-          }
-          
+          // $scope.haveTrusteeshipAccount = $scope.checkTrusteeshipAccount();
+          // if($scope.haveTrusteeshipAccount) {
+          $scope.heldInCreditList = response.data.heldIdCreditList;
+          $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
+          $scope.creditRightStatusMap = response.data.creditRightStatusMap;
+          $scope.productsMap = response.data.productsMap;
+          $scope.fundsPoolInOutMap = response.data.fundsPoolInOutMap;
+          // }
+
         } else {
           toaster.pop('warning', response.msg);
         }
-        
+
       });
     };
 
@@ -137,26 +144,34 @@ angular.module('hongcaiApp')
      * 自动复投/取消复投
      */
     $scope.autoReinvest = function(reinvestActionType,creditRightId) {
-      UserCenterService.autoReinvest.get({
-        repeat:reinvestActionType,
-        creditRightId:creditRightId
-      },function(response){
-        if(response.ret === 1) {
-          window.location.reload();
-        } else {
-          // console.log(response);
-          if (response.code == -1082) {
-            $scope.msg = '亲~，开启自动续投功能需要先开通自动投标权限哦!';
-            $alert({
-              scope: $scope,
-              template: 'views/modal/alert-openReservation.html',
-              show: true
-            });
+      if ($rootScope.autoTransfer !== 1) {
+        $scope.msg = '亲~，开启自动续投功能需要先开通自动投标权限哦!';
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alert-openReservation.html',
+          show: true
+        });
+      } else {
+        UserCenterService.autoReinvest.get({
+          repeat:reinvestActionType,
+          creditRightId:creditRightId
+        },function(response){
+          if(response.ret === 1) {
+            window.location.reload();
           } else {
-            toaster.pop('warning', response.msg);
+            if (response.code == -1082) {
+              $scope.msg = '亲~，开启自动续投功能需要先开通自动投标权限哦!';
+              $alert({
+                scope: $scope,
+                template: 'views/modal/alert-openReservation.html',
+                show: true
+              });
+            } else {
+              toaster.pop('warning', response.msg);
+            }
           }
-        }
-      });
+        });
+      }
     }
 
 

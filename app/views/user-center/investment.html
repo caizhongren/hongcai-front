@@ -4,18 +4,18 @@
     <div class="right-title">我的订单</div>
   </div>
   <!-- 已开通第三方资金托管账户 -->
-  <div ng-show="haveTrusteeshipAccount">
-    <div ng-show="orderCount.all">
+  <div ng-show="autoTransfer === 1">
+    <div ng-show="showOrderStatistics">
       <div>
         <div class="padd" ng-hide="true">
-          <span>当前账户总计投资产品： <strong>{{orderCount.all}}</strong>个。</span>
-          <span>其中还款中： <strong>{{orderCount.returning}}</strong>个，</span>
-          <span>投资中：<strong>{{orderCount.paying}}</strong>个。</span>
-          <span>已结清：<strong>{{orderCount.returned}}</strong>个。</span>
+          <span>当前账户总计投资产品： <strong>{{orderCount.all || 0}}</strong>个。</span>
+          <span>其中还款中： <strong>{{orderCount.returning || 0}}</strong>个，</span>
+          <span>投资中：<strong>{{orderCount.paying || 0}}</strong>个。</span>
+          <span>已结清：<strong>{{orderCount.returned || 0}}</strong>个。</span>
         </div>
         <div class="padd border-end" ng-hide="true">
-          <span>投资总额：<strong>{{amount.amount | number:2 }}</strong>元，</span>
-          <span>累计收益：<strong>{{amount.profit | number:2 }}</strong>元。</span>
+          <span>投资总额：<strong>{{amount.amount | number:2 || 0}}</strong>元，</span>
+          <span>累计收益：<strong>{{amount.profit | number:2 || 0}}</strong>元。</span>
         </div>
         <div class="notPayOrder" ng-show="notPayOrder">
           <p class="border padding-l-15 padding-t-5 padding-b-5 bg-offPink ft-red">您有订单尚未支付，请尽快完成支付操作<i class="fa fa-times pull-right ft-20 ft-grey4" ng-click="removeWarning()">&nbsp;</i></p>
@@ -156,13 +156,13 @@
         <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
       </ul>
     </div>
-    <div class="row text-center" ng-show="!orderCount.all">
+    <div class="row text-center" ng-hide="showOrderStatistics">
       <p>亲，您尚未在宏财网投资，建议您浏览项目列表，购买感兴趣的债权吧~</p>
       <a class="btn btn-primary margin-t-30" ui-sref="root.guaranteepro-list-query-no()">浏览项目</a>
     </div>
   </div>
   <!-- 未开通第三方资金托管账户 -->
-  <div class="row text-center" ng-show="!haveTrusteeshipAccount">
+  <div class="row text-center" ng-show="autoTransfer !== 1">
     <p>亲，您尚未开通第三方资金托管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
     <a class="btn btn-primary margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
   </div>

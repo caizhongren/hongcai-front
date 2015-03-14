@@ -67,6 +67,7 @@ angular.module('hongcaiApp')
       return $scope.haveTrusteeshipAccount;
     }
 
+    $scope.showOrderStatistics = true;
     var getOrderByUser = UserCenterService.getOrderByUser.get({
         type: $stateParams.type,
         dateInterval: $stateParams.dateInterval,
@@ -74,33 +75,34 @@ angular.module('hongcaiApp')
       },
       function(response) {
         if (getOrderByUser.ret === 1) {
-          console.log(getOrderByUser);
-          $scope.haveTrusteeshipAccount = $scope.checkTrusteeshipAccount();
-          if($scope.haveTrusteeshipAccount) {
-            $scope.orderList = getOrderByUser.data.orderVoList;
-            $scope.orderCount = getOrderByUser.data.orderCount;
-            $scope.amount = getOrderByUser.data.amount;
-            $scope.type = getOrderByUser.data.type;
-            $scope.dateInterval = getOrderByUser.data.dateInterval;
-            $scope.status = getOrderByUser.data.status;
-            $scope.notPayOrder = getOrderByUser.data.notPayOrder;
-            $scope.productsMap = getOrderByUser.data.productsMap;
-            // $scope.invFromDate = getOrderByUser.data.dateStart || 0;
-            // $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
-            $scope.currentPage = 0;
-            $scope.pageSize = 6;
-            $scope.data = [];
-            $scope.numberOfPages = function() {
-              return Math.ceil($scope.data.length / $scope.pageSize);
-            };
-            for (var i = 0; i < $scope.orderList.length; i++) {
-              var item = $scope.orderList[i];
-              item.url = item.type === 1 ? 'root.project-details({projectId: ' + item.projectId + '})' : 'root.activity-details({activityId: ' + item.projectId + ', type:' + item.type + '})';
-              $scope.data.push(item);
+          // console.log(getOrderByUser);
+          // $scope.haveTrusteeshipAccount = $scope.checkTrusteeshipAccount();
+          // if($scope.haveTrusteeshipAccount) {
+          $scope.orderList = getOrderByUser.data.orderVoList;
+          $scope.orderCount = getOrderByUser.data.orderCount;
+          $scope.amount = getOrderByUser.data.amount;
+          $scope.type = getOrderByUser.data.type;
+          $scope.dateInterval = getOrderByUser.data.dateInterval;
+          $scope.status = getOrderByUser.data.status;
+          $scope.notPayOrder = getOrderByUser.data.notPayOrder;
+          $scope.productsMap = getOrderByUser.data.productsMap;
+          // $scope.invFromDate = getOrderByUser.data.dateStart || 0;
+          // $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
+          $scope.currentPage = 0;
+          $scope.pageSize = 6;
+          $scope.data = [];
+          $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+          };
+          for (var i = 0; i < $scope.orderList.length; i++) {
+            var item = $scope.orderList[i];
+            item.url = item.type === 1 ? 'root.project-details({projectId: ' + item.projectId + '})' : 'root.activity-details({activityId: ' + item.projectId + ', type:' + item.type + '})';
+            $scope.data.push(item);
             }
-          }
-          
+          // }
+
         } else {
+          $scope.showOrderStatistics = false;
           toaster.pop('warning', response.msg);
         }
       });
