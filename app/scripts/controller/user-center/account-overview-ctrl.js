@@ -46,10 +46,7 @@ angular.module('hongcaiApp')
         }
 
       } else {
-        //toaster.pop('warning', '提示', response.msg);
-        //$scope.errorMessage = response.msg;
-        //$scope.warning = true;
-        console.log('ask account-overview, why getUserCapital did not load data...');
+        toaster.pop('warning', response.msg);
         $state.go('root.login');
       }
     });
@@ -103,7 +100,7 @@ angular.module('hongcaiApp')
         if (response.ret === 1) {
           $scope.statistics = response.data;
         } else {
-          console.log(response);
+          toaster.pop('warning', response.msg);
         }
       });
     };

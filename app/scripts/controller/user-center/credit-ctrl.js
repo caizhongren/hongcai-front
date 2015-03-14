@@ -34,7 +34,7 @@ angular.module('hongcaiApp')
         if (response.ret === 1) {
           $scope.data = response.data;
         } else {
-          console.log(response);
+          toaster.pop('warning', response.msg);
         }
       });
     };
@@ -54,9 +54,8 @@ angular.module('hongcaiApp')
           $scope.creditRightStatusMap = response.data.creditRightStatusMap;
           $scope.productsMap = response.data.productsMap;
           $scope.fundsPoolInOutMap = response.data.fundsPoolInOutMap;
-          console.log(response);
         } else {
-          console.log(response);
+          toaster.pop('warning', response.msg);
         }
         
       });
@@ -135,11 +134,10 @@ angular.module('hongcaiApp')
         repeat:reinvestActionType,
         creditRightId:creditRightId
       },function(response){
-        console.log(response);
         if(response.ret === 1) {
           window.location.reload();
         } else {
-          console.log(response);
+          toaster.pop('warning', response.msg);
         }
       });
     }
@@ -155,7 +153,7 @@ angular.module('hongcaiApp')
         if(response.ret === 1) {
           window.location.reload();
         } else {
-          console.log(response);
+          toaster.pop('warning', response.msg);
         }
       });
     }

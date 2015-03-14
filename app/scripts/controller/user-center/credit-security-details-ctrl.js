@@ -4,7 +4,6 @@ angular.module('hongcaiApp')
     $rootScope.redirectUrl = $location.path();
     $scope.type = $stateParams.type;
     $scope.number = $stateParams.number;
-    console.log($scope.type);
     $scope.getCreditDetail = function() {
       UserCenterService.getCreditDetail.get({status: $scope.type,number: $scope.number}, function(response) {
         

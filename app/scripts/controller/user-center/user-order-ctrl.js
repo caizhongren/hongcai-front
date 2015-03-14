@@ -66,7 +66,6 @@ angular.module('hongcaiApp')
       },
       function() {
         if (getOrderByUser.ret === 1) {
-          console.log(getOrderByUser.data);
           $scope.orderList = getOrderByUser.data.orderVoList;
           $scope.orderCount = getOrderByUser.data.orderCount;
           $scope.amount = getOrderByUser.data.amount;
@@ -89,7 +88,7 @@ angular.module('hongcaiApp')
             $scope.data.push(item);
           }
         } else {
-          console.log(getOrderByUser);
+          toaster.pop('warning', response.msg);
         }
       });
 
@@ -171,7 +170,6 @@ angular.module('hongcaiApp')
             }
             if (response.data.billList) {
               var bill = response.data.billList;
-              console.log(bill);
               var billList = {};
               for (var i = 0; i < bill.length; i++) {
                 billList = {

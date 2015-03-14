@@ -6,12 +6,10 @@ angular.module('hongcaiApp')
     $scope.dateInterval = $stateParams.dateInterval || 0;
     $scope.dealType = 0;
     $scope.recordSelect = function() {
-      console.log($scope.dealType);
-
       // var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval,type: $stateParams.type},function() {
-      var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval,dealType: $scope.dealType},function() {
+      var getDealByUser = UserCenterService.getDealByUser.get({ dateInterval: $stateParams.dateInterval,dealType: $scope.dealType},function(response) {
         if (getDealByUser.ret === 1) {
-          console.log(getDealByUser);
+          // console.log(getDealByUser);
           $scope.dealList = getDealByUser.data.dealList;
           $scope.type = getDealByUser.data.type;
           $scope.dateInterval = getDealByUser.data.dateInterval;
@@ -38,7 +36,7 @@ angular.module('hongcaiApp')
           }
           
         } else {
-          console.log(response);
+          toaster.pop('warning',response.msg);
         }
       });
     }
