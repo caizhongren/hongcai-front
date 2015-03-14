@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster) {
+  .controller('CreditCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', '$alert', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
     //判断是否开通第三方托管账户
     $scope.checkTrusteeshipAccount = function() {
       if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
@@ -144,7 +144,17 @@ angular.module('hongcaiApp')
         if(response.ret === 1) {
           window.location.reload();
         } else {
-          toaster.pop('warning', response.msg);
+          // console.log(response);
+          if (response.code == -1082) {
+            $scope.msg = '亲~，开启自动复投功能需要先开通自动投标权限哦!';
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alert-openReservation.html',
+              show: true
+            });
+          } else {
+            toaster.pop('warning', response.msg);
+          }
         }
       });
     }
