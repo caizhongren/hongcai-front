@@ -27,9 +27,9 @@ angular.module('hongcaiApp')
     $scope.generateContractPDF = function(projectId, orderId, status, type) {
       if (status === 2) {
         if (type !== 4) {
-          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel?');
+          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel?orderId=' + orderId + '&projectId=' + projectId);
         } else if (type === 4) {
-          $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContractModel?');
+          $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContractModel');
         }
         
         // UserCenterService.generatePartContractPDF.get({
@@ -40,7 +40,7 @@ angular.module('hongcaiApp')
         // });
       } else if (status >= 3 && status <= 6) {
         if (type !== 4) {
-          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId);
+          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
         } else if (type === 4) {
           $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContract?orderId=' + orderId);
         }
@@ -75,10 +75,10 @@ angular.module('hongcaiApp')
       },
       function(response) {
         if (getOrderByUser.ret === 1) {
-          // console.log(getOrderByUser);
+          console.log(getOrderByUser);
           // $scope.haveTrusteeshipAccount = $scope.checkTrusteeshipAccount();
           // if($scope.haveTrusteeshipAccount) {
-          $scope.orderList = getOrderByUser.data.orderVoList;
+          $scope.orderList = getOrderByUser.data.orderProjectList;
           $scope.orderCount = getOrderByUser.data.orderCount;
           $scope.amount = getOrderByUser.data.amount;
           $scope.type = getOrderByUser.data.type;
