@@ -158,7 +158,10 @@
               </td>
               <td>{{ item.creditRight.transferableAmount | number:2 }}</td>
               <td>{{ item.creditRight.returnProfit | number:2}}</td>
-              <td>{{ item.project.repaymentDate | date: 'yyyy-MM-dd'}}</td>
+              <td>
+                <span ng-if="item.project.type !== 3">{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
+                <span ng-if="item.project.type === 3">{{ item.fundsProject.repaymentDate | date:'yyyy-MM-dd' }}</span>
+              </td>
               <td ng-show="creditIsShowedFLAG">{{ creditRightStatusMap[item.creditRight.status] }}</td>
               <td>
                 <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
