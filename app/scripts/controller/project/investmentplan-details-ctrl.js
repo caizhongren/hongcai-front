@@ -203,7 +203,21 @@ angular.module('hongcaiApp')
               isRepeat: response.data.isRepeat
             });
           } else {
-
+            if (response.code === -1027) {
+              $scope.msg = '抱歉，已经卖光了。';
+              $modal({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            } else {
+              $scope.msg = response.msg;
+              $modal({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            }
           }
         });
       }
