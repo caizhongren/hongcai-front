@@ -114,8 +114,6 @@ angular.module('hongcaiApp')
       });
     };
     $scope.getProjectDetails();
-    // $scope.currentAmount = $scope.project.currentStock * $scope.project.increaseAmount
-    /*$scope.statDate = new Date('2014', '10', '21', '20','17','10');*/ //假数据
     $scope.finished = function() {
       ProjectService.projectDetails.get({
         projectId: $stateParams.projectId
@@ -210,6 +208,36 @@ angular.module('hongcaiApp')
         });
         return;
       }
+    };
+    // 完善资料第一代
+    $scope.toRealNameAuth = function() {
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alert-perfectinformation.html',
+        show: true
+      });
+    };
+
+    // 跳到充值页面
+    $scope.toRecharge = function() {
+      if ($rootScope.securityStatus.realNameAuthStatus + $rootScope.autoTransfer >= 1) {
+        $modal({
+          scope: $scope,
+          template: 'views/modal/modal-toRecharge.html',
+          show: true
+        });
+      } else {
+        // 去实名
+        $scope.toRealNameAuth();
+      }
+    };
+    // 显示协议
+    $scope.showAgreement = function() {
+      $modal({
+        scope: $scope,
+        template: 'views/modal/alert-toShowActivityruleAgreement.html',
+        show: true
+      });
     };
 
     $scope.toInvest = function(project) { //验证用户权限
@@ -323,7 +351,7 @@ angular.module('hongcaiApp')
     $scope.toggle.switchTab = function(tabIndex) {
       $scope.toggle.activeTab = tabIndex;
     };
-    
+
 
     $scope.toggle.switchTabRight = function(tabIndexRight) {
       $scope.toggle.activeTabRight = tabIndexRight;
