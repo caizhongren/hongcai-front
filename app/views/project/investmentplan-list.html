@@ -41,7 +41,7 @@
                     </td>
                     <td>{{ item.fundsProject.total }}</td>
                     <td>{{ item.creditCount }}</td>
-                    <td>{{ item.fundsProject.projectBackProfit || 0 }}</td>
+                    <td>{{ item.fundsProject.projectBackActualProfit || 0 | number:2 }}</td>
                     <td>{{ list.data.fundsProjectStatusMap[item.fundsProject.status] }}</td>
                   </tr>
                 </table>
@@ -62,7 +62,7 @@
                     </td>
                     <td>{{ item.fundsProject.total }}</td>
                     <td>{{ item.creditCount }}</td>
-                    <td>{{ item.fundsProject.projectBackProfit || 0}}</td>
+                    <td>{{ item.fundsProject.projectBackActualProfit || 0 | number:2 }}</td>
                     <td>{{ list.data.fundsProjectStatusMap[item.fundsProject.status] }}</td>
                   </tr>
                 </table>
@@ -82,7 +82,7 @@
                     <td><a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" style="text-decoration:underline !important;">{{ item.fundsProject.name }}</a></td>
                     <td>{{ item.fundsProject.total }}</td>
                     <td>{{ item.creditCount }}</td>
-                    <td>{{ item.fundsProject.projectBackProfit || 0}}</td>
+                    <td>{{ item.fundsProject.projectBackActualProfit || 0 | number:2 }}</td>
                     <td>{{ list.data.fundsProjectStatusMap[item.fundsProject.status]}}</td>
                   </tr>
                 </table>
