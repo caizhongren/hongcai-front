@@ -42,7 +42,14 @@ angular.module('hongcaiApp')
       }
 
     });
-
+    // 显示协议
+    $scope.showAgreement = function() {
+      $modal({
+        scope: $scope,
+        template: 'views/modal/alert-showLoanSecurityAgreement.html',
+        show: true
+      });
+    };
     $scope.reload = function() {
       window.location.reload();
     };
