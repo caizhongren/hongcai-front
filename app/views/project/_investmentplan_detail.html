@@ -210,7 +210,7 @@
                           </div>
                           <div class="row info-row">
                             <span class="col-xs-9">预计规模</span>
-                            <span class="col-xs-9 ft-20">10,000元</span>
+                            <span class="col-xs-9 ft-20">{{fundsProject.total}}元</span>
                             <span class="col-xs-1">
                               <img src="/images/investmentplan/projecteSize.png">
                             </span>
@@ -219,7 +219,7 @@
                         <div class="plan-info" style="margin-top:93px;">
                           <div class="row info-row">
                             <span class="col-xs-9">退出时间</span>
-                            <span class="col-xs-9 ft-20">{{fundsProject.releaseEndTime | date: "yy-MM-dd"}}</span>
+                            <span class="col-xs-9 ft-20">{{fundsProject.repaymentDate | date: "yy-MM-dd"}}</span>
                             <span class="col-xs-1">
                               <img src="/images/investmentplan/OutTime.png">
                             </span>
