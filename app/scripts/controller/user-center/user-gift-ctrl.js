@@ -17,7 +17,7 @@ angular.module('hongcaiApp')
       },
       function() {
         if (getOrderByUser.ret === 1) {
-          $scope.orderList = getOrderByUser.data.orderVoList;
+          $scope.orderList = getOrderByUser.data.orderProjectList;
           $scope.orderCount = getOrderByUser.data.orderCount;
           $scope.amount = getOrderByUser.data.amount;
           $scope.dateInterval = getOrderByUser.data.dateInterval;

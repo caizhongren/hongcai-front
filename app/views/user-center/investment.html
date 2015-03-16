@@ -4,7 +4,7 @@
     <div class="right-title">我的订单</div>
   </div>
   <!-- 已开通第三方资金托管账户 -->
-  <div ng-show="autoTransfer === 1">
+  <div ng-show="securityStatus.realNameAuthStatus === 1">
     <div ng-show="showOrderStatistics">
       <div>
         <div class="padd" ng-hide="true">
@@ -57,7 +57,7 @@
                 <div class="row">
                   <div class="col-xs-12">
                     <div class="row">
-                      <div class="col-xs-2 pull-left text-nowrap">投资状态：</div>
+                      <div class="col-xs-2 pull-left text-nowrap">订单状态：</div>
                       <div class="col-xs-2 text-nowrap">
                         <a ui-sref="root.userCenter.investment-query({type:type,dateInterval:dateInterval,status:'0'})" class="project-noncheck" ng-class="{'project-check': status === '0', 'project-noncheck': status !== '0'}">
                           全部
@@ -128,24 +128,24 @@
         </thead>
         <tbody>
           <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-            <td>{{ item.number }}</td>
-            <td>{{ item.orderAmount | number: 2 }}</td>
+            <td>{{ item.orderNum }}</td>
+            <td>{{ item.order.orderAmount | number: 2 }}</td>
             <td>
               <button ng-click="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button>
-              <a ui-sref="root.project-details({number: item.projectNumber})" title="{{item.projectName}}" ng-if="item.type">{{ item.projectName | limitTo: 5}}... </a>
-              <a ui-sref="root.investmentplan-details({number: item.projectNumber})" title="{{productsMap[item.productId].name + item.projectName}}" ng-if="!item.type">{{ productsMap[item.productId].name + item.projectName | limitTo: 5}}... </a>
+              <a ui-sref="root.project-details({number: item.order.projectNumber})" title="{{item.order.projectName}}" ng-if="item.order.type !== 4">{{ item.order.projectName | limitTo: 5}}... </a>
+              <a ui-sref="root.investmentplan-details({number: item.order.projectNumber})" title="{{productsMap[item.fundsProject.productId].name + item.order.projectName}}" ng-if="item.order.type === 4">{{ productsMap[item.fundsProject.productId].name + item.order.projectName | limitTo: 5}}... </a>
               <br>
             </td>
-            <td>{{ item.createTime | date: 'yyyy-MM-dd' }}</td>
+            <td>{{ item.order.createTime | date: 'yyyy-MM-dd' }}</td>
             <td>{{ item.statusText }}</td>
             <!-- <td><a ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">123</a></td> -->
             <td>
-              <button ng-show="item.status === 1 " type="button" class="btn btn-primary" ng-click="toPay(item.projectId, item.orderId, item.orderAmount);">继续支付</button>
-              <button ng-show="item.status === 1 " type="button" class="btn btn-default" ng-click="cancelOrder(item.number);">取消订单</button>
+              <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary" ng-click="toPay(item.order.projectId, item.order.id, item.order.orderAmount);">继续支付</button>
+              <button ng-show="item.order.status === 1 " type="button" class="btn btn-default" ng-click="cancelOrder(item.order.number);">取消订单</button>
               <!-- <button ng-show="item.status === 1 " type="button" title="项目放款后生成协议" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button> -->
-              <button ng-show="item.status === 2" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status, item.type);">合同模板</button>
-              <button ng-show="item.status >= 3 && item.status <=6" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status, item.type);">下载合同</button>
-              <i ng-show="item.status >= 3 && item.status <=6" class="fa fa-info-circle ft-grey6" data-template="views/modal/popover-investment-contract.html" data-animation="am-flip-y" data-trigger="hover" bs-popover></i>
+              <button ng-show="item.order.status === 2" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">合同模板</button>
+              <button ng-show="item.order.status >= 3 && item.order.status <=6" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">下载合同</button>
+              <i ng-show="item.order.status >= 3 && item.order.status <=6" class="fa fa-info-circle ft-grey6" data-template="views/modal/popover-investment-contract.html" data-animation="am-flip-y" data-trigger="hover" bs-popover></i>
             </td>
           </tr>
         </tbody>
@@ -162,7 +162,7 @@
     </div>
   </div>
   <!-- 未开通第三方资金托管账户 -->
-  <div class="row text-center" ng-show="autoTransfer !== 1">
+  <div class="row text-center" ng-show="securityStatus.realNameAuthStatus !== 1">
     <p>亲，您尚未开通第三方资金托管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
     <a class="btn btn-primary margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
   </div>

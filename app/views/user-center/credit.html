@@ -3,7 +3,7 @@
    <div class="right-title">我的债权</div>
   </div>
   <!-- 已开通第三方资金托管账户 -->
-  <div ng-show="autoTransfer === 1">
+  <div ng-show="securityStatus.realNameAuthStatus === 1">
     <!-- 有购买项目 展示内容 -->
     <div ng-show="showCreditRightStatistics">
       <div class="row margin-l-0">
@@ -44,8 +44,8 @@
           <tbody ng-repeat="item in heldInCreditList">
             <tr>
               <td>
-                <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name | limitTo: 5 }}...</a>
-                <a ui-sref="root.investmentplan-details({number: item.project.number})" title="{{productsMap[item.fundsProject.productId].name + item.order.projectName}}" ng-if="item.project.type === 3">{{ productsMap[item.fundsProject.productId].name + item.order.projectName | limitTo: 5 }}...</a>
+                <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name | limitTo: 15 }}...</a>
+                <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{productsMap[item.fundsProject.productId].name + item.order.projectName}}" ng-if="item.project.type === 3">{{ productsMap[item.fundsProject.productId].name + item.order.projectName | limitTo: 15 }}...</a>
               </td>
               <td>{{ item.creditRight.transferableAmount | number:2 }}元</td>
               <td>{{ item.order.profit - item.order.returnProfit | number:2 }}</td>
@@ -153,12 +153,15 @@
             <!-- <tr ng-repeat="item in heldInCreditList | startFrom:currentPage * pageSize | limitTo:pageSize"> -->
             <tr ng-repeat="item in heldInCreditList">
               <td>
-               <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name | limitTo: 5 }}...</a>
-                <a ui-sref="root.investmentplan-details({number: item.project.number})" title="{{productsMap[item.fundsProject.productId].name + item.order.projectName}}" ng-if="item.project.type === 3">{{ productsMap[item.fundsProject.productId].name + item.order.projectName | limitTo: 5 }}...</a>
+               <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name | limitTo: 15 }}...</a>
+                <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{productsMap[item.fundsProject.productId].name + item.order.projectName}}" ng-if="item.project.type === 3">{{ productsMap[item.fundsProject.productId].name + item.order.projectName | limitTo: 15 }}...</a>
               </td>
               <td>{{ item.creditRight.transferableAmount | number:2 }}</td>
               <td>{{ item.creditRight.returnProfit | number:2}}</td>
-              <td>{{ item.project.repaymentDate | date: 'yyyy-MM-dd'}}</td>
+              <td>
+                <span ng-if="item.project.type !== 3">{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
+                <span ng-if="item.project.type === 3">{{ item.fundsProject.repaymentDate | date:'yyyy-MM-dd' }}</span>
+              </td>
               <td ng-show="creditIsShowedFLAG">{{ creditRightStatusMap[item.creditRight.status] }}</td>
               <td>
                 <a type="button" class="btn btn-default btn-sm" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
@@ -181,7 +184,7 @@
     </div>
   </div>
   <!-- 未开通第三方资金托管账户 -->
-  <div class="row text-center" ng-show="autoTransfer !== 1">
+  <div class="row text-center" ng-show="securityStatus.realNameAuthStatus !== 1">
     <p>亲，您尚未开通第三方资金托管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
     <a class="btn btn-primary margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
   </div>

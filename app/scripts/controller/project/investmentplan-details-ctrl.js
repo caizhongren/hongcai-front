@@ -16,7 +16,7 @@ angular.module('hongcaiApp')
         $scope.investorCount = response.data.investorCount;
         $scope.repeatCount = response.data.repeatCount;
         $scope.fundsProduct = response.data.fundsProduct;
-        $scope.releaseEndTime = moment(response.data.fundsProject.releaseEndTime).format('YYYY年MM月DD日');
+        $scope.repaymentDate = moment(response.data.fundsProject.repaymentDate).format('YYYY年MM月DD日');
         $scope.fundsProjectInvestNum = $scope.fundsProject.total - ($scope.fundsProject.soldStock + $scope.fundsProject.occupancyStock) * $scope.fundsProject.increaseAmount;
         // 处理投资记录分页
         $scope.currentPage = 0;
@@ -203,7 +203,21 @@ angular.module('hongcaiApp')
               isRepeat: response.data.isRepeat
             });
           } else {
-
+            if (response.code === -1027) {
+              $scope.msg = '抱歉，已经卖光了。';
+              $modal({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            } else {
+              $scope.msg = response.msg;
+              $modal({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            }
           }
         });
       }
