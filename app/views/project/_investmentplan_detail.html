@@ -41,7 +41,7 @@
                 预期年化收益及计算方式
               </div>
               <div class="col-xs-10 bg-grey3 tab-right" style="line-height:40px;">
-                递增收益，6%-6.9%，每期递增0.3%。
+                递增收益，{{fundsProduct.baseRate}}%-{{fundsProduct.maxRate}}%，每期递增{{fundsProduct.riseRate}}%。
               </div>
             </div>
             <div class="row border-b-white">
@@ -49,7 +49,7 @@
                 最高续投次数
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                7次
+                {{(fundsProduct.maxRate - fundsProduct.baseRate) / fundsProduct.riseRate || 7}}次
               </div>
             </div>
             <div class="row border-b-white">
