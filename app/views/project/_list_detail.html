@@ -57,7 +57,7 @@
               </div>
 
               <div class="row ft-12 ft-grey6 margin-t-m15" ng-hide="item.status === 6">
-                <span class="pull-left" ng-show="item.progress >= 100">{{ item.investUserCount }}人已投</span>
+                <span class="pull-left" ng-show="item.progress >= 100">{{ item.investUserCount || 0 }}人已投</span>
                 <span class="pull-left" ng-show="item.progress <100">项目规模:{{item.total | menoyFormat}}</span>
                 <span class="pull-right" ng-hide="item.status === 11">{{item.progress || 0 | number : 0}}%</span>
               </div>
@@ -144,7 +144,7 @@
                 </div>
               </div>
               <div class="row ft-12 ft-grey6 margin-t-m15" ng-hide="item.status === 6">
-                <span class="pull-left" ng-show="item.progress >= 100">{{ item.investUserCount }}人已投</span>
+                <span class="pull-left" ng-show="item.progress >= 100">{{ item.investUserCount || 0 }}人已投</span>
                 <span class="pull-left" ng-show="item.progress <100">项目规模:{{item.total | menoyFormat}}</span>
                 <span class="pull-right" ng-hide="item.status === 11">{{item.progress || 0 | number : 0}}%</span>
               </div>
