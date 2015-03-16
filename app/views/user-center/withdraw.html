@@ -4,7 +4,10 @@
     <div class="right-title ">提现</div>
   </div>
   <div class="row">
-    <p class="verify-tip safe-card-tips col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="!isSecurityAuth" ng-init="isSecurityAuth=true">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
+    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="!isSecurityAuth" ng-init="isSecurityAuth=true">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
+    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="cardStatus === 'VERIFY_NOT'">提现需先绑定银行卡，请前往<a ui-sref="root.userCenter.bankcard-management">【银行卡管理】</a>完成绑卡操作</p>
+    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="cardStatus === 'VERIFYING'">您的银行卡正在认证中，请等待认证完成后再进行提现操作</p>
+    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="cardStatus === 'FAILED'">您的银行卡认证失败，无法进行提现操作！请重新绑定或者联系客服人员~</p>
   </div>
   <div class="row">
     <form class="col-md-offset-1 col-lg-offset-1" name="withdrawForm" ng-show="isSecurityAuth">
@@ -14,49 +17,51 @@
           <p>{{availableCash | number:2}}元</p>
         </div>
       </div>
-      <div class="row">
-        <div class="form-group mgn-top">
-          <label class="col-md-3 col-lg-3">手续费：
-            <br><small>(第三方支付收取)</small>
-          </label>
-          <p>2元</p>
+      <div ng-show="cardStatus === 'VERIFIED'">
+        <div class="row">
+          <div class="form-group mgn-top">
+            <label class="col-md-3 col-lg-3">手续费：
+              <br><small>(第三方支付收取)</small>
+            </label>
+            <p>2元</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="form-group mgn-top">
-          <label class="col-md-3 col-lg-3">可提现金额：</label>
-          <p>{{availableCashRealNo | number:2}}元</p>
+        <div class="row">
+          <div class="form-group mgn-top">
+            <label class="col-md-3 col-lg-3">可提现金额：</label>
+            <p>{{availableCashRealNo | number:2}}元</p>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="form-group">
-          <label class="col-md-3 col-lg-3">提现金额：</label>
-          <input type="text" name="amount" class="verify-input" ng-model="amount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus ng-disabled="availableCashRealNo <= 0" required autofocus/>&nbsp;&nbsp;元
+        <div class="row">
+          <div class="form-group">
+            <label class="col-md-3 col-lg-3">提现金额：</label>
+            <input type="text" name="amount" class="verify-input" ng-model="amount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus ng-disabled="availableCashRealNo <= 0" required autofocus/>&nbsp;&nbsp;元
 
-          <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">
-            <p class="input-tips user-input-tips">请输入数字(最多精确到小数点后两位)</p>
-          </div>
-          <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">
-            <p class="input-tips user-input-tips">不能大于可提现金额</p>
-          </div>
-          <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && amount<1">
-            <p class="input-tips user-input-tips">提现金额不能小于1元</p>
-          </div>
-          <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">
-            <p class="input-tips user-input-tips">提现金额不能为空</p>
+            <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">
+              <p class="input-tips user-input-tips">请输入数字(最多精确到小数点后两位)</p>
+            </div>
+            <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">
+              <p class="input-tips user-input-tips">不能大于可提现金额</p>
+            </div>
+            <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && amount<1">
+              <p class="input-tips user-input-tips">提现金额不能小于1元</p>
+            </div>
+            <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">
+              <p class="input-tips user-input-tips">提现金额不能为空</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="form-group">
-          <label class="col-md-3 col-lg-3"></label>
-          <input type="button" value="确认提现" class="white-button" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'white-button':withdrawForm.$invalid || checkLargestAmount(amount), 'red-button':!withdrawForm.$invalid && !checkLargestAmount(amount)}" />
+        <div class="row">
+          <div class="form-group">
+            <label class="col-md-3 col-lg-3"></label>
+            <input type="button" value="确认提现" class="white-button" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'white-button':withdrawForm.$invalid || checkLargestAmount(amount), 'red-button':!withdrawForm.$invalid && !checkLargestAmount(amount)}" />
+          </div>
         </div>
       </div>
     </form>
   </div>
-  <div class="row">
-    <div class="ft-12 col-md-offset-2 col-lg-offset-2" style="padding-right:85px;padding-top:5%;">
+  <div class="row margin-b-30">
+    <div class="ft-12 col-md-offset-2 col-lg-offset-2 margin-b-30" style="padding-right:85px;padding-top:5%;">
       <p>温馨提示</p>
       <p>1. 目前提现是由三方支付平台收取2元每笔的提现费用。提现金额的最小额度为1元，即额度大于或等于1元。宏财网平台不收取任何提现费用；</p>
       <p>2. 由于宏财网平台不接触投资人资金，投资人资金完全通过第三方支付（易宝支付）来完成资金划拨。由于银行与易宝支付之间的划拨需要(T+1)日，所以当天充值金额（未投资），需要次日才能提现；</p>

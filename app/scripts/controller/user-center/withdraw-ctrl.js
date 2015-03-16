@@ -5,8 +5,10 @@ angular.module('hongcaiApp')
     $rootScope.selectSide = $location.path().substr($location.path().indexOf('/') + 1);
     $scope.availableCash = 0;
     UserCenterService.getUserAvailableCash.get({}, function(response) {
+      // console.log(response);
       if (response.ret === 1) {
         $scope.availableCash = response.data.availableCash;
+        $scope.cardStatus = response.data.cardStatus;
         $scope.availableCashRealNo = $scope.availableCash >= 2 ? $scope.availableCash - 2 : 0;
       } else {
         console.log('ask withdraw, why getUserAvailableCash did not load data...');
