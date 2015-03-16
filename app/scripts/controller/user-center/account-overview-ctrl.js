@@ -98,7 +98,7 @@ angular.module('hongcaiApp')
     $scope.getCreditRightStatistics = function() {
       UserCenterService.getCreditRightStatistics.get({}, function(response) {
         if (response.ret === 1) {
-          $scope.statistics = response.data;
+          $scope.statistics = response.data.creditRightStatis;
         } else {
           toaster.pop('warning', response.msg);
         }

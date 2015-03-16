@@ -7,12 +7,12 @@
     <!-- 有购买项目 展示内容 -->
     <div ng-show="showCreditRightStatistics">
       <div class="row margin-l-0">
-        <div class="col-xs-3 margin-b-15">累计投资：<strong>{{totalInvestCount || 0}}</strong></div>
-        <div class="col-xs-3 margin-b-15">持有中：<strong>{{heldingCount || 0}}</strong></div>
+        <div class="col-xs-3 margin-b-15">累计投资：<strong>{{creditRightStatis.totalInvestCount || 0}}</strong></div>
+        <div class="col-xs-3 margin-b-15">持有中：<strong>{{creditRightStatis.heldingCount || 0}}</strong></div>
         <div class="col-xs-3 margin-b-15"ng-show="creditIsShowedFLAG">已转让：<strong>{{transferedCount || 0}}</strong></div>
-        <div class="col-xs-3 margin-b-15">已回款：<strong>{{endProfitCount || 0}}</strong></div>
-        <div class="col-xs-3 margin-b-15">投资总额（元）：<strong>{{totalInvestAmount | number:2 || 0}}</strong></div>
-        <div class="col-xs-3 margin-b-15">累计收益（元）：<strong>{{totalProfit | number:2 || 0}}</strong></div>
+        <div class="col-xs-3 margin-b-15">已回款：<strong>{{creditRightStatis.endProfitCount || 0}}</strong></div>
+        <div class="col-xs-3 margin-b-15">投资总额（元）：<strong>{{creditRightStatis.totalInvestAmount | number:2 || 0}}</strong></div>
+        <div class="col-xs-3 margin-b-15">累计收益（元）：<strong>{{creditRightStatis.totalProfit | number:2 || 0}}</strong></div>
       </div>
      <!--  <div class="row margin-l-0 margin-t-15">
        <div class="col-xs-3">投资总额（元）：<strong>{{data.totalInvestAmount}}</strong></div>
