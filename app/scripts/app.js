@@ -203,6 +203,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.banner-investmentplan-div', {
+        url: '/banner-investmentplan/:anchor',
+        views: {
+          '': {
+            templateUrl: 'views/banner/banner-investmentplan.html',
+            controller: 'BannerInvPlanCtrl',
+            controllerUrl: 'scripts/controller/main/banner-investmentplan-ctrl'
+          }
+        }
+      })
       .state('root.banner-partner', {
         url: '/banner-partner',
         views: {
