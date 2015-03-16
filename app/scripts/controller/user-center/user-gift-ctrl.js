@@ -15,8 +15,9 @@ angular.module('hongcaiApp')
         dateInterval: $stateParams.dateInterval,
         status: $stateParams.status
       },
-      function() {
+      function(response) {
         if (getOrderByUser.ret === 1) {
+          // console.log(response);
           $scope.orderList = getOrderByUser.data.orderProjectList;
           $scope.orderCount = getOrderByUser.data.orderCount;
           $scope.amount = getOrderByUser.data.amount;
