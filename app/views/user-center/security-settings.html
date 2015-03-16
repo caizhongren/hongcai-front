@@ -86,7 +86,11 @@
         <p class="tips col-xs-4">手机号码</p>
         <p class="message col-xs-4">{{ mobile || "未设置"}}</p>
         <p class="activity col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1 hc-text-red" ng-show="!mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">设置</p>
-        <p class="activity col-xs-3 col-xs-offset-1" ng-show="mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">修改</p>
+        <div class="col-xs-3 col-xs-offset-1" ng-show="mobile">
+          <p class="activity hadset">{{"已确定"}}</p>
+          <div class="check-ok"></div>
+        </div>
+        <!-- <p class="activity col-xs-3 col-xs-offset-1" ng-show="mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">修改</p> -->
       </div>
     </div>
   </div>

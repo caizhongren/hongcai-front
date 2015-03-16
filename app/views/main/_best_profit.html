@@ -20,18 +20,20 @@
           </a>
         </div>
         <div class="row margin-b-10 text-center">
-          <div class="col-xs-6 col-md-12 col-lg-6 text-left">
+          <div class="col-xs-6 col-md-12 col-lg-6">
             <div class="row">
               <div class="col-xs-12 col-sm-6 col-lg-12">
                 <div class="row">
                   <img src="images/hongjinying/castBg.png">
-                  <span class="ft-14 ft-cast">可投金额</span>
+                  <span class="ft-14 ft-cast" ng-show="item.status === 1">可投金额</span>
+                  <span class="ft-14 ft-cast" ng-show="item.status !== 1">成功募资</span>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-lg-12">
                 <div class="row">
                   <span class="ft-grey">
-                    <strong class="ft-24">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | menoyFormat}} </strong>
+                    <strong class="ft-24" ng-show="item.status === 1">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </strong>
+                    <strong class="ft-24" ng-show="item.status !== 1">{{ (item.soldStock + item.occupancyStock) * item.increaseAmount | noFractionCurrency:"":0 || 0}} </strong>
                     &nbsp;元
                   </span>
                 </div>

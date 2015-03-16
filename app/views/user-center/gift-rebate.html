@@ -113,11 +113,9 @@
     </thead>
     <tbody>
       <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-      <td>
-        {{ item.order.projectName }}
-      </td>
-        <td>{{ item.order.valueDate | date: 'yyyy-MM-dd' }}</td>
-        <td>{{ item.order.repaymentDate | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ item.order.projectName }}</td>
+        <td>{{ item.project.valueDate | date: 'yyyy-MM-dd' }}</td>
+        <td>{{ item.project.repaymentDate | date: 'yyyy-MM-dd' }}</td>
         <td>{{ item.order.orderAmount| number:2 }}</td>
         <td>{{ item.order.profit | number:2 }}</td>
         <td>
