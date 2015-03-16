@@ -722,7 +722,7 @@ hongcaiApp
         }
       })
       .state('root.project-sponsorInstitution', {
-        url: '/project-sponsorInstitution/:guaranteeproId',
+        url: '/project-sponsorInstitution/:guaranteeId',
         views: {
           '': {
             templateUrl: 'views/project/project-sponsorInstitution.html',
