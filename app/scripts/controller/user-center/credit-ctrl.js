@@ -36,12 +36,7 @@ angular.module('hongcaiApp')
     $scope.showCreditRightStatistics = true;
     UserCenterService.getCreditRightStatistics.get({}, function(response) {
       if (response.ret === 1) {
-        $scope.totalInvestCount = response.data.totalInvestCount;
-        $scope.heldingCount = response.data.heldingCount;
-        $scope.transferedCount = response.data.transferedCount;
-        $scope.endProfitCount = response.data.endProfitCount;
-        $scope.totalInvestAmount = response.data.totalInvestAmount;
-        $scope.totalProfit = response.data.totalProfit;
+        $scope.creditRightStatis = response.data.creditRightStatis;
       } else {
         $scope.showCreditRightStatistics = false;
         toaster.pop('warning', response.msg);
