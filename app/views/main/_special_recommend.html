@@ -104,7 +104,7 @@
                   <p>可投金额：<strong class="font-20">{{projectVo.currentStock * projectVo.increaseAmount | noFractionCurrency:"":0 || 0 }}</strong>元</p>
                   <span class="pull-left ft-16">投资进度：</span>
                   <div class="progress">
-                    <div class="progress-bar progress-bar-info hc-bg-red" role="progressbar" aria-valuenow="{{projectVo.progress || 0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{projectVo.progress||0 }}%">{{projectVo.progress || 0 | number : 2}}%</div>
+                    <div class="progress-bar" ng-class="{'progress-bar-warning': projectVo.status === 8 || projectVo.status === 9 || projectVo.status === 10, 'progress-bar-success progree-bar-green': projectVo.status === 5, 'progress-bar-info': projectVo.status === 11}" role="progressbar" aria-valuenow="{{projectVo.progress || 0 }}" aria-valuemin="0" aria-valuemax="100" style="width: {{projectVo.progress||0 }}%">{{projectVo.progress || 0 | number : 2}}%</div>
                   </div>
                 </div>
                 <div class="row">
