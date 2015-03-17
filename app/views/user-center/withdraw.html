@@ -5,8 +5,8 @@
   </div>
   <div class="row">
     <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="!isSecurityAuth" ng-init="isSecurityAuth=true">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
-    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="cardStatus === 'VERIFY_NOT'">提现需先绑定银行卡，请前往<a ui-sref="root.userCenter.bankcard-management">【银行卡管理】</a>完成绑卡操作</p>
-    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="cardStatus === 'VERIFYING'">您的银行卡正在认证中，请等待认证完成后再进行提现操作</p>
+    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="cardStatus === 'VERIFY_NOT'">提现需要绑定提现银行卡，请您前往<a ui-sref="root.userCenter.bankcard-management">【银行卡管理】</a>完成绑卡操作</p>
+    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="cardStatus === 'VERIFYING'">您的提现银行卡正在认证中，暂时无法进行提现操作，请耐心等待</p>
     <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="cardStatus === 'FAILED'">您的银行卡认证失败，无法进行提现操作！请重新绑定或者联系客服人员~</p>
   </div>
   <div class="row">
