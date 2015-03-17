@@ -115,6 +115,19 @@ hongcaiApp
           }
         }
       })
+      /**
+       * 平台用户的登陆入口
+       */
+      .state('root.pLogin', {
+        url: '/p',
+        views: {
+          '': {
+            templateUrl: 'views/p-login.html',
+            controller: 'LoginCtrl',
+            controllerUrl: 'scripts/controller/user-center/login-ctrl'
+          }
+        }
+      })
       .state('root.registerMobile', {
         url: '/register-mobile/:inviteCode',
         views: {
@@ -160,7 +173,7 @@ hongcaiApp
         url: '/banner-fourty',
         views: {
           '': {
-            templateUrl: 'views/banner-fourty.html'
+            templateUrl: 'views/banner/banner-fourty.html'
           }
         }
       })
@@ -168,7 +181,7 @@ hongcaiApp
         url: '/banner-nine',
         views: {
           '': {
-            templateUrl: 'views/banner-nine.html'
+            templateUrl: 'views/banner/banner-nine.html'
           }
         }
       })
@@ -176,7 +189,27 @@ hongcaiApp
         url: '/banner-P2B',
         views: {
           '': {
-            templateUrl: 'views/banner-P2B.html'
+            templateUrl: 'views/banner/banner-P2B.html'
+          }
+        }
+      })
+      .state('root.banner-investmentplan', {
+        url: '/banner-investmentplan',
+        views: {
+          '': {
+            templateUrl: 'views/banner/banner-investmentplan.html',
+            controller: 'BannerInvPlanCtrl',
+            controllerUrl: 'scripts/controller/main/banner-investmentplan-ctrl'
+          }
+        }
+      })
+      .state('root.banner-investmentplan-div', {
+        url: '/banner-investmentplan/:anchor',
+        views: {
+          '': {
+            templateUrl: 'views/banner/banner-investmentplan.html',
+            controller: 'BannerInvPlanCtrl',
+            controllerUrl: 'scripts/controller/main/banner-investmentplan-ctrl'
           }
         }
       })
@@ -184,7 +217,7 @@ hongcaiApp
         url: '/banner-partner',
         views: {
           '': {
-            templateUrl: 'views/banner-partner.html'
+            templateUrl: 'views/banner/banner-partner.html'
           }
         }
       })
@@ -192,7 +225,7 @@ hongcaiApp
         url: '/friends',
         views: {
           '': {
-            templateUrl: 'views/friends-ship.html'
+            templateUrl: 'views/banner/friends-ship.html'
               //templateUrl: 'banner-nine.html'
           }
         }
@@ -242,6 +275,16 @@ hongcaiApp
             templateUrl: 'views/success.html',
             controller: 'TransferSuccessCtrl',
             controllerUrl: 'scripts/controller/order/transfer-success-ctrl'
+          }
+        }
+      })
+      .state('root.invplan-transfer-success', {
+        url: '/invplan-transfer-success/:status',
+        views: {
+          '': {
+            templateUrl: 'views/success.html',
+            controller: 'InvPlanTransferSuccessCtrl',
+            controllerUrl: 'scripts/controller/order/invplan-transfer-success-ctrl'
           }
         }
       })
@@ -336,6 +379,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.invplan-verify-transfer', {
+        url: '/invplan-verify-transfer/:projectId/:amount/:isRepeat',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'InvPlanVerifyTransferCtrl',
+            controllerUrl: 'scripts/controller/order/invplan-verify-transfer-ctrl'
+          }
+        }
+      })
       .state('root.user-order-transfer', {
         url: '/user-order-transfer/:projectId/:orderId',
         views: {
@@ -343,6 +396,16 @@ hongcaiApp
             templateUrl: 'views/transfer.html',
             controller: 'UserOrderTransferCtrl',
             controllerUrl: 'scripts/controller/user-center/user-order-transfer-ctrl'
+          }
+        }
+      })
+      .state('root.transfer-transfer', {
+        url: '/transfer-transfer/:transferAmount',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'TransferTransferCtrl',
+            controllerUrl: 'scripts/controller/user-center/transfer-transfer-ctrl'
           }
         }
       })
@@ -445,7 +508,8 @@ hongcaiApp
         }
       })
       .state('root.userCenter.record-query', {
-        url: '/record/:dateInterval/:type',
+        // url: '/record/:dateInterval/:type',
+        url: '/record/:dateInterval',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/record.html',
@@ -465,7 +529,7 @@ hongcaiApp
         }
       })
       .state('root.userCenter.investment-query', {
-        url: '/investment/:dateInterval/:status',
+        url: '/investment/:type/:dateInterval/:status',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/investment.html',
@@ -597,23 +661,33 @@ hongcaiApp
           }
         }
       })
-      .state('root.project-list-query', {
-        url: '/project-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+      .state('root.guaranteepro-list-query', {
+        url: '/guaranteepro-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
         views: {
           '': {
-            templateUrl: 'views/project/project-list.html',
-            controller: 'ProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/project-list-ctrl'
+            templateUrl: 'views/project/guaranteepro-list.html',
+            controller: 'GuaranteeproListCtrl',
+            controllerUrl: 'scripts/controller/project/guaranteepro-list-ctrl'
           }
         }
       })
-      .state('root.project-list-query-no', {
-        url: '/project-list',
+      .state('root.guaranteepro-list-query-no', {
+        url: '/guaranteepro-list',
         views: {
           '': {
-            templateUrl: 'views/project/project-list.html',
-            controller: 'ProjectListCtrl',
-            controllerUrl: 'scripts/controller/project/project-list-ctrl'
+            templateUrl: 'views/project/guaranteepro-list.html',
+            controller: 'GuaranteeproListCtrl',
+            controllerUrl: 'scripts/controller/project/guaranteepro-list-ctrl'
+          }
+        }
+      })
+      .state('root.investmentplan-list', {
+        url: '/investmentplan-list',
+        views: {
+          '': {
+            templateUrl: 'views/project/investmentplan-list.html',
+            controller: 'InvestmentplanListCtrl',
+            controllerUrl: 'scripts/controller/project/investmentplan-list-ctrl'
           }
         }
       })
@@ -644,6 +718,16 @@ hongcaiApp
             templateUrl: 'views/project/project-details.html',
             controller: 'ProjectDetailsCtrl',
             controllerUrl: 'scripts/controller/project/project-details-ctrl'
+          }
+        }
+      })
+      .state('root.investmentplan-details', {
+        url: '/investmentplan/:number',
+        views: {
+          '': {
+            templateUrl: 'views/project/investmentplan-details.html',
+            controller: 'InvestmentplanDetailsCtrl',
+            controllerUrl: 'scripts/controller/project/investmentplan-details-ctrl'
           }
         }
       })
@@ -737,6 +821,17 @@ hongcaiApp
             templateUrl: 'views/order/hongbao-verify.html',
             controller: 'hongbaoVerifyCtrl',
             controllerUrl: 'scripts/controller/order/hongbao-verify-ctrl'
+          }
+        }
+      })
+      // 宏金盈购物车
+      .state('root.invplan-verify', {
+        url: '/invplan-verify/:projectId/:amount/:isRepeat',
+        views: {
+          '': {
+            templateUrl: 'views/order/invplan-verify.html',
+            controller: 'InvPlanVerifyCtrl',
+            controllerUrl: 'scripts/controller/order/invplan-verify-ctrl'
           }
         }
       })
@@ -1036,11 +1131,19 @@ hongcaiApp
           }
         }
       })
+      .state('root.help-center.product', {
+        url: '/product',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/product.html'
+          }
+        }
+      })
 
       /*------------------------------------------  credit assignment  -----------------------------------------------*/
-      // 债券转让列表页
+      //债权转让列表页 FIX,暂时和列表页公用
       .state('root.credit-list-query', {
-        url: '/credit-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+        url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
         views: {
           '': {
             templateUrl: 'views/project/credit-list.html',
@@ -1059,9 +1162,9 @@ hongcaiApp
           }
         }
       })
-      // 债券转让详情页
+      //债权转让详情页
       .state('root.credit-details', {
-        url: '/credit-details/:number',
+        url: '/credit-details/:assignmentNumber',
         views: {
           '': {
             templateUrl: 'views/project/credit-details.html',
@@ -1071,7 +1174,7 @@ hongcaiApp
         }
       })
 
-      // 债券转让下单页(确认页)
+      // 债权转让下单页(确认页)
       .state('root.credit-verify', {
           url: '/credit-verify/:creditId/:amount',
           views: {
@@ -1082,7 +1185,7 @@ hongcaiApp
             }
           }
         })
-      // 债券转让宣传介绍页面
+      // 债权转让宣传介绍页面
       .state('root.credit-assignment', {
           url: '/credit-assignment',
           views: {
@@ -1104,7 +1207,7 @@ hongcaiApp
           }
         }
       })
-      // 我的债券（个人中心）
+      // 我的债权（个人中心）
       .state('root.userCenter.credit', {
         url: '/credit',
         views: {
@@ -1112,6 +1215,26 @@ hongcaiApp
             templateUrl: 'views/user-center/credit.html',
             controller: 'CreditCtrl',
             controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+          }
+        }
+      })
+      .state('root.userCenter.credit-security-details', {
+        url: '/credit-security-details/:type/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-security-details.html',
+            controller: 'CreditSecurityCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-security-details-ctrl.js'
+          }
+        }
+      })
+      .state('root.userCenter.credit-profit-details', {
+        url: '/credit-profit-details/:type/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-profit-details.html',
+            controller: 'CreditProfitCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-profit-details-ctrl.js'
           }
         }
       })
@@ -1126,12 +1249,12 @@ hongcaiApp
         }
       })
       .state('root.userCenter.credit-create', {
-        url: '/credit-create/:orderNumber',
+        url: '/credit-create/:number',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/credit-create.html',
-            controller: 'CreditCtrl',
-            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+            controller: 'CreditCreateCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-create-ctrl'
           }
         }
       })
@@ -1211,6 +1334,7 @@ hongcaiApp
           }
         }
       })
+      //
       .state('app-callback.apprechrage-success', {
         url: '/apprecharge-success',
         views: {
@@ -1219,6 +1343,16 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.apprechrage-ios', {
+        url: '/apprecharge-success/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/apprecharge-success.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
+
       .state('app-callback.appinvestment-success', {
         url: '/appinvestment-success',
         views: {
@@ -1227,6 +1361,16 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.appinvestment-ios', {
+        url: '/appinvestment-success/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appinvestment-success.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
+      //
       .state('app-callback.appregistration-success', {
         url: '/appregistration-success',
         views: {
@@ -1235,6 +1379,16 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.appregistration-ios', {
+        url: '/appregistration-success/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appregistration-yeepay.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
+      //
       .state('app-callback.canceltie-card', {
         url: '/canceltie-card',
         views: {
@@ -1242,8 +1396,17 @@ hongcaiApp
             templateUrl: 'views/appview/canceltie-card.html'
           }
         }
-
       })
+      .state('app-callback.canceltie-card-ios', {
+        url: '/canceltie-card/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/canceltie-card.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
+      //
       .state('app-callback.apptie-card', {
         url: '/apptie-card',
         views: {
@@ -1252,6 +1415,16 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.apptie-card-ios', {
+        url: '/apptie-card/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/apptie-card.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
+
       .state('app-callback.appwithdrawals-success', {
         url: '/appwithdrawals-success',
         views: {
@@ -1260,6 +1433,16 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.appwithdrawals-ios', {
+        url: '/appwithdrawals-success/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/appwithdrawals-success.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
+
       .state('app-callback.appregistration-agreement', {
         url: '/appregistration-agreement',
         views: {
@@ -1277,7 +1460,7 @@ hongcaiApp
         }
       })
     /*-------------------------------------------  load page  route  -----------------------------------------*/
-          .state('root.load-page', {
+      .state('root.load-page', {
         url: '/load-page?from',
         views: {
           '': {
@@ -1360,7 +1543,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
     '/invite-rebate',
     '/gift-rebate',
     '/reservation',
-    '/credit'
+    '/credit',
+    '/credit-create'
   ];
 
   $rootScope.$on('$stateChangeStart', function() {
@@ -1374,6 +1558,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
           $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
           $rootScope.userCapital = response.data.data.userCapital;
           $rootScope.unreadCount = response.data.data.unreadCount;
+          $rootScope.userType = response.data.data.userType;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
@@ -1389,6 +1574,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
           $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
           $rootScope.userCapital = response.data.data.userCapital;
           $rootScope.unreadCount = response.data.data.unreadCount;
+          $rootScope.userType = response.data.data.userType;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';

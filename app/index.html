@@ -149,6 +149,7 @@
     <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
     <script src="bower_components/angular-slick-carousel/dist/slick.js"></script>
     <script src="bower_components/matchmedia/matchMedia.js"></script>
+    <script src="bower_components/ngSticky/lib/sticky.js"></script>
     <script src="bower_components/angular-cookie/angular-cookie.js"></script>
     <script src="bower_components/angularjs-toaster/toaster.js"></script>
     <script src="bower_components/angular-md5/angular-md5.js"></script>
@@ -171,13 +172,16 @@
     <script src="scripts/controller/main/main-ctrl.js"></script>
     <script src="scripts/controller/main/slider-ctrl.js"></script>
     <script src="scripts/controller/main/service-ctrl.js"></script>
-    <script src="scripts/controller/project/project-list-ctrl.js"></script>
+    <script src="scripts/controller/main/banner-investmentplan-ctrl.js"></script>
+    <script src="scripts/controller/project/guaranteepro-list-ctrl.js"></script>
+    <script src="scripts/controller/project/investmentplan-list-ctrl.js"></script>
     <script src="scripts/controller/project/appointment-project-ctrl.js"></script>
     <script src="scripts/controller/project/project-category-ctrl.js"></script>
     <script src="scripts/controller/project/project-activity-group-ctrl.js"></script>
     <script src="scripts/controller/project/activity-details-ctrl.js"></script>
     <script src="scripts/controller/activity/lucky-draw-ctrl.js"></script>
     <script src="scripts/controller/project/project-details-ctrl.js"></script>
+    <script src="scripts/controller/project/investmentplan-details-ctrl.js"></script>
     <script src="scripts/controller/project/project-sponsorInstitution-ctrl.js"></script>
     <script src="scripts/controller/project/safe-ctrl.js"></script>
     <script src="scripts/controller/register/register-mail-ctrl.js"></script>
@@ -203,6 +207,7 @@
     <script src="scripts/controller/order/invest-verify-ctrl.js"></script>
     <script src="scripts/controller/order/hongbao-verify-ctrl.js"></script>
     <script src="scripts/controller/order/transfer-success-ctrl.js"></script>
+    <script src="scripts/controller/order/invplan-verify-ctrl.js"></script>
     <script src="scripts/controller/about-us/about-us-ctrl.js"></script>
     <script src="scripts/controller/get-pwd-back/get-pwd-back-ctrl.js"></script>
     <script src="scripts/controller/enterprise/guarantee-list-ctrl.js"></script>
@@ -220,6 +225,7 @@
     <script src="scripts/controller/user-center/recharge-success-ctrl.js"></script>
     <script src="scripts/controller/user-center/withdraw-success-ctrl.js"></script>
     <script src="scripts/controller/user-center/reservation-success-ctrl.js"></script>
+    <script src="scripts/controller/order/invplan-transfer-success-ctrl.js"></script>
     <script src="scripts/controller/user-center/message-ctrl.js"></script>
     <script src="scripts/controller/user-center/reservation-ctrl.js"></script>
     <!-- 债券转让 -->
@@ -229,16 +235,24 @@
     <script src="scripts/controller/project/credit-assignment-ctrl.js"></script>
     <script src="scripts/controller/project/credit-success-ctrl.js"></script>
     <script src="scripts/controller/user-center/credit-ctrl.js"></script>
+    <script src="scripts/controller/user-center/credit-security-details-ctrl.js"></script>
+    <script src="scripts/controller/user-center/credit-profit-details-ctrl.js"></script>
+    <script src="scripts/controller/user-center/credit-create-ctrl.js"></script>
     <!-- 跳转易宝中间页 -->
     <script src="scripts/controller/user-center/recharge-transfer-ctrl.js"></script>
+    <script src="scripts/controller/user-center/transfer-transfer-ctrl.js"></script>
     <script src="scripts/controller/user-center/rights-transfer-ctrl.js"></script>
     <script src="scripts/controller/user-center/withdraw-transfer-ctrl.js"></script>
     <script src="scripts/controller/user-center/bankcard-transfer-ctrl.js"></script>
     <script src="scripts/controller/user-center/user-order-transfer-ctrl.js"></script>
     <script src="scripts/controller/order/invest-verify-transfer-ctrl.js"></script>
+    <script src="scripts/controller/order/invplan-verify-transfer-ctrl.js"></script>
+
+    <script src="scripts/controller/appview/app-view-ctrl.js"></script>
 
     <script src="scripts/service/main/main-service.js"></script>
     <script src="scripts/service/project/project-service.js"></script>
+    <script src="scripts/service/credit/credit-service.js"></script>
     <script src="scripts/service/register/register-service.js"></script>
     <script src="scripts/service/user-center/user-center-service.js"></script>
     <script src="scripts/service/user-center/session-service.js"></script>
@@ -270,6 +284,8 @@
     <script src="scripts/filters/addbracket.js"></script>
     <script src="scripts/filters/invamountformat.js"></script>
     <script src="scripts/filters/moremillion.js"></script>
+    <script src="scripts/filters/addprezero.js"></script>
+    <script src="scripts/filters/nofractioncurrency.js"></script>
     <!-- endbuild -->
 </body>
 </html>

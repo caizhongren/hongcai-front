@@ -55,7 +55,7 @@ angular.module('hongcaiApp')
       }),
       getDealByUser: $resource(DEFAULT_DOMAIN + '/siteUser/getDealListByUser', {
         dateInterval: '@dateInterval',
-        type: '@type'
+        dealType: '@dealType'
       }),
       resetMobilePassword: $resource(DEFAULT_DOMAIN + '/siteUser/resetMobilePassword', {
         mobile: '@mobile',
@@ -111,9 +111,36 @@ angular.module('hongcaiApp')
       }),
 
       // 债权相关
+      getCreditRightStatistics: $resource(DEFAULT_DOMAIN + '/siteCredit/getCreditRightStatistics'),
       getHeldInCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getHeldInCreditRightList'),
       getTranferCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getTranferCreditRightList', {
         status: '@status'
+      }),
+      canTransferCreditRight: $resource(DEFAULT_DOMAIN + '/siteCredit/canTransferCreditRight', {
+        number: '@number'
+      }),
+      hangTransferCreditRight: $resource(DEFAULT_DOMAIN + '/siteCredit/hangTransferCreditRight', {
+        transferAmount: '@transferAmount',
+        discountAmount: '@discountAmount',
+        creditRightId: '@creditRightId'
+      }),
+      cancelCreditAssignment: $resource(DEFAULT_DOMAIN + '/siteCredit/cancelCreditAssignment', {
+        assignmentNumber: '@assignmentNumber'
+      }),
+      transferToPlatform: $resource(DEFAULT_DOMAIN + '/yeepay/transferToPlatform', {
+        transferAmount: '@transferAmount'
+      }),
+
+      getCreditDetail: $resource(DEFAULT_DOMAIN + '/siteCredit/getCreditDetail', {
+        status: '@status',
+        number: '@number'
+      }),
+      autoReinvest: $resource(DEFAULT_DOMAIN + '/siteFunds/fundsRepeatInvest', {
+        repeat: '@repeat',
+        creditRightId: '@creditRightId'
+      }),
+      putCreditRightInPool: $resource(DEFAULT_DOMAIN + '/siteCredit/putCreditRightInPool', {
+        creditRightId: '@creditRightId'
       })
 
     };

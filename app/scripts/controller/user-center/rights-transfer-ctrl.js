@@ -65,13 +65,11 @@ angular.module('hongcaiApp')
           createElements(_f, 'sign', sign);
           _f.action = config.YEEPAY_ADDRESS + 'toAuthorizeAutoTransfer';
           _f.submit();
-          // 这块应该如何判断？ TODO
-          // 这里实现方法不太好，如果所有的实现都在用户表里面提现，是再好不过的了。
           $scope.openTrustReservation = true;
         } else {
           console.log('ask security-settings, why authorizeAutoTransfer did not load data...');
         }
       });
     }
-    
+
   }]);

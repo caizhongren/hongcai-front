@@ -24,22 +24,27 @@ angular.module('hongcaiApp')
       }, 300);
       $scope.getOrderBillByOrderId(number);
     };
-    $scope.generateContractPDF = function(projectId, orderId, status) {
-      if (status === 1) {
-        $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel');
-        // UserCenterService.generateContractPDFModel.get(function() {
-        //   $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel');
-        // });
-      } else if (status === 2) {
-        $scope.downloadPDF('hongcai/api/v1/siteProject/generatePartContractPDF?orderId=' + orderId + '&projectId=' + projectId);
+    $scope.generateContractPDF = function(projectId, orderId, status, type) {
+      if (status === 2) {
+        if (type !== 4) {
+          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel?orderId=' + orderId + '&projectId=' + projectId);
+        } else if (type === 4) {
+          $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContractModel');
+        }
+
         // UserCenterService.generatePartContractPDF.get({
         //   projectId: projectId,
         //   orderId: orderId
         // }, function() {
         //   $scope.downloadPDF('hongcai/api/v1/siteProject/generatePartContractPDF?orderId=' + orderId + '&projectId=' + projectId);
         // });
-      } else if (status > 3 && status <= 6) {
-        $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
+      } else if (status >= 3 && status <= 6) {
+        if (type !== 4) {
+          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
+        } else if (type === 4) {
+          $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContract?orderId=' + orderId);
+        }
+
         // UserCenterService.generateContractPDF.get({
         //   projectId: projectId,
         //   orderId: orderId
@@ -52,18 +57,35 @@ angular.module('hongcaiApp')
 
     };
 
+    //判断是否开通第三方托管账户
+    $scope.checkTrusteeshipAccount = function() {
+      if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
+        $scope.haveTrusteeshipAccount = true;
+      } else {
+        $scope.haveTrusteeshipAccount = false;
+      }
+      return $scope.haveTrusteeshipAccount;
+    };
+
+    $scope.showOrderStatistics = true;
     var getOrderByUser = UserCenterService.getOrderByUser.get({
         type: $stateParams.type,
         dateInterval: $stateParams.dateInterval,
         status: $stateParams.status
       },
-      function() {
+      function(response) {
         if (getOrderByUser.ret === 1) {
-          $scope.orderList = getOrderByUser.data.orderVoList;
+          console.log(getOrderByUser);
+          // $scope.haveTrusteeshipAccount = $scope.checkTrusteeshipAccount();
+          // if($scope.haveTrusteeshipAccount) {
+          $scope.orderList = getOrderByUser.data.orderProjectList;
           $scope.orderCount = getOrderByUser.data.orderCount;
           $scope.amount = getOrderByUser.data.amount;
+          $scope.type = getOrderByUser.data.type;
           $scope.dateInterval = getOrderByUser.data.dateInterval;
           $scope.status = getOrderByUser.data.status;
+          $scope.notPayOrder = getOrderByUser.data.notPayOrder;
+          $scope.productsMap = getOrderByUser.data.productsMap;
           // $scope.invFromDate = getOrderByUser.data.dateStart || 0;
           // $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
           $scope.currentPage = 0;
@@ -76,9 +98,12 @@ angular.module('hongcaiApp')
             var item = $scope.orderList[i];
             item.url = item.type === 1 ? 'root.project-details({projectId: ' + item.projectId + '})' : 'root.activity-details({activityId: ' + item.projectId + ', type:' + item.type + '})';
             $scope.data.push(item);
-          }
+            }
+          // }
+
         } else {
-          console.log('ask investment, why getOrderByUser did not load data...');
+          $scope.showOrderStatistics = false;
+          toaster.pop('warning', response.msg);
         }
       });
 
@@ -386,5 +411,9 @@ angular.module('hongcaiApp')
           // Optionally write the error out to scope
           $scope.errorDetails = 'Request failed with status: ' + status;
         });
+    };
+
+    $scope.removeWarning = function() {
+      angular.element('.notPayOrder').remove();
     };
   }]);

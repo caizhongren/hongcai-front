@@ -55,18 +55,32 @@
       <p class="{{selectSide == 'assets-overview' ? 'now' : ''}}" style="margin-left:36px;">资产总览</p>
     </a>
   </div>
-  <div class="row">
+  <div class="row" ng-show="userType != 4">
     <a ui-sref="root.userCenter.recharge" class="tips-area {{selectSide == 'recharge' ? 'tips-show' : ''}}">
       <div class="left-show-area {{selectSide == 'recharge' ? 'left-show-area-bg' : ''}}"></div>
       <div class="ico-area message-1 fa fa-plug {{selectSide == 'recharge' ? 'message1-red' : ''}}"></div>
       <p class="{{selectSide == 'recharge' ? 'now' : ''}}" style="margin-left:36px;">充值</p>
     </a>
   </div>
-  <div class="row">
+  <div class="row" ng-show="userType === 4">
+    <a ui-sref="root.userCenter.recharge" class="tips-area {{selectSide == 'recharge' ? 'tips-show' : ''}}">
+      <div class="left-show-area {{selectSide == 'recharge' ? 'left-show-area-bg' : ''}}"></div>
+      <div class="ico-area message-1 fa fa-plug {{selectSide == 'recharge' ? 'message1-red' : ''}}"></div>
+      <p class="{{selectSide == 'recharge' ? 'now' : ''}}" style="margin-left:36px;">转账</p>
+    </a>
+  </div>
+  <div class="row" ng-show="userType != 4">
     <a ui-sref="root.userCenter.withdraw" class="tips-area {{selectSide == 'withdraw' ? 'tips-show' : ''}}">
       <div class="left-show-area {{selectSide == 'withdraw' ? 'left-show-area-bg' : ''}}"></div>
       <div class="ico-area message-1 fa fa-money {{selectSide == 'withdraw' ? 'message1-red' : ''}}"></div>
       <p class="{{selectSide == 'withdraw' ? 'now' : ''}}" style="margin-left:36px;">提现</p>
+    </a>
+  </div>
+  <div class="row">
+    <a ui-sref="root.userCenter.record" class="tips-area {{selectSide == 'record' ? 'tips-show' : ''}}">
+      <div class="left-show-area {{selectSide == 'record' ? 'left-show-area-bg' : ''}}"></div>
+      <div class="ico-area message-1 fa fa-edit {{selectSide == 'record' ? 'message1-red' : ''}}"></div>
+      <p class="{{selectSide == 'record' ? 'now' : ''}}" style="margin-left:36px;">交易记录</p>
     </a>
   </div>
   <div class="row">
@@ -80,14 +94,14 @@
     <a ui-sref="root.userCenter.investment({type:99})" class="tips-area {{selectSide == 'userCenter-investment' ? 'tips-show' : ''}}">
       <div class="left-show-area {{selectSide == 'userCenter-investment' ? 'left-show-area-bg' : ''}}"></div>
       <div class="ico-area message-1 fa fa-bank {{selectSide == 'userCenter-investment' ? 'message1-red' : ''}}"></div>
-      <p class="{{selectSide == 'userCenter-investment' ? 'now' : ''}}" style="margin-left:36px;">投资产品</p>
+      <p class="{{selectSide == 'userCenter-investment' ? 'now' : ''}}" style="margin-left:36px;">我的订单</p>
     </a>
   </div>
   <div class="row">
-    <a ui-sref="root.userCenter.record" class="tips-area {{selectSide == 'record' ? 'tips-show' : ''}}">
-      <div class="left-show-area {{selectSide == 'record' ? 'left-show-area-bg' : ''}}"></div>
-      <div class="ico-area message-1 fa fa-edit {{selectSide == 'record' ? 'message1-red' : ''}}"></div>
-      <p class="{{selectSide == 'record' ? 'now' : ''}}" style="margin-left:36px;">交易记录</p>
+    <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'tips-show' : ''}}">
+      <div class="left-show-area {{selectSide == 'credit' ? 'left-show-area-bg' : ''}}"></div>
+      <div class="ico-area message-1 fa fa-gavel {{selectSide == 'credit' ? 'message1-red' : ''}}"></div>
+      <p class="{{selectSide == 'credit' ? 'now' : ''}}" style="margin-left:36px;">我的债权</p>
     </a>
   </div>
   <div class="row">
@@ -116,13 +130,6 @@
       <div class="left-show-area {{selectSide == 'message' ? 'left-show-area-bg' : ''}}"></div>
       <div class="ico-area message-1 fa fa-envelope {{selectSide == 'message' ? 'message1-red' : ''}}"></div>
       <p class="{{selectSide == 'message' ? 'now' : ''}}" style="margin-left:36px;">站内消息</p>
-    </a>
-  </div>
-  <div class="row" ng-show="creditIsShowedFLAG">
-    <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'tips-show' : ''}}">
-      <div class="left-show-area {{selectSide == 'credit' ? 'left-show-area-bg' : ''}}"></div>
-      <div class="ico-area message-1 fa fa-gavel {{selectSide == 'credit' ? 'message1-red' : ''}}"></div>
-      <p class="{{selectSide == 'credit' ? 'now' : ''}}" style="margin-left:36px;">债券转让</p>
     </a>
   </div>
 </div>

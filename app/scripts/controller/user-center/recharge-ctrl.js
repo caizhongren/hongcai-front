@@ -44,6 +44,17 @@ angular.module('hongcaiApp')
       window.location.reload();
     };
 
+    $scope.transferToPlaform = function(amount) {
+      $scope.msg = '8';
+      $scope.transferAmount = amount;
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+      window.open('/#!/transfer-transfer/' + amount);
+    };
+
     $scope.recharge = function(amount) {
       $scope.msg = '2';
       $scope.rechargeAmount = amount;

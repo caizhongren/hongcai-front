@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AccountOverviewCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'OrderService', function($scope, $state, $rootScope, $stateParams, UserCenterService, OrderService) {
+  .controller('AccountOverviewCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'toaster', function($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
 
     $rootScope.selectSide = 'account-overview';
     var totalAssets = 0;
@@ -46,10 +46,7 @@ angular.module('hongcaiApp')
         }
 
       } else {
-        //toaster.pop('warning', '提示', response.msg);
-        //$scope.errorMessage = response.msg;
-        //$scope.warning = true;
-        console.log('ask account-overview, why getUserCapital did not load data...');
+        toaster.pop('warning', response.msg);
         $state.go('root.login');
       }
     });
@@ -81,7 +78,9 @@ angular.module('hongcaiApp')
       };
     }
 
-    OrderService.statisticsByUser.get(function(response) {
+
+    // 原版获取投资统计数据
+    /*OrderService.statisticsByUser.get(function(response) {
       if (response.ret === 1) {
         var orderNum = response.data.orderNum;
         if (orderNum) {
@@ -90,7 +89,23 @@ angular.module('hongcaiApp')
           $scope.investNum = orderNum.allInve;
         }
       }
-    });
+    });*/
+
+
+    /**
+     * 我的债权统计数据
+     */
+    $scope.getCreditRightStatistics = function() {
+      UserCenterService.getCreditRightStatistics.get({}, function(response) {
+        if (response.ret === 1) {
+          $scope.statistics = response.data.creditRightStatis;
+        } else {
+          toaster.pop('warning', response.msg);
+        }
+      });
+    };
+
+    $scope.getCreditRightStatistics ();
 
 
   }]);
