@@ -9,6 +9,6 @@ angular.module('hongcaiApp')
       if(amount >= 0) {
         return value.substring(0, sep);
       }
-      return value.substring(0, sep) + ')';
+      return value.substring(0, sep) + ':)';
     };
   }]);
