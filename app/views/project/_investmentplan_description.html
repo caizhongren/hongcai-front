@@ -7,10 +7,12 @@
   </div>
   <div class="col-xs-4 text-left border-r padding-l-30" style="position:relative;">
     <span class="text-left display-i-b">年化收益率
-    <br>
-      <strong class="ft-30 ft-red">{{fundsProduct.baseRate}}</strong>%
-      <img src="images/hongjinying/prompt.png" alt="" style="margin-top:-25px;">
-      <botton style="position:absolute;margin-top:-45px;margin-left:40px;font-size:15px; color:white;" data-placement="bottom" data-content="{{fundsProduct.description}}" data-trigger="hover" bs-popover>+{{fundsProduct.riseRate}}</botton>
+      <br>
+      <strong class="ft-30 ft-red">{{fundsProduct.baseRate | number:1 || 0}}</strong>%
+      <span class="floating-rate-details">
+        <img src="images/hongjinying/prompt.png" alt="">
+        <botton class="ft-white ft-16"data-placement="bottom" data-content="{{fundsProduct.description}}" data-trigger="hover" bs-popover>+{{fundsProduct.riseRate}}</botton>
+      </span>
     </span>
   </div>
   <div class="col-xs-4 text-left padding-l-30">
