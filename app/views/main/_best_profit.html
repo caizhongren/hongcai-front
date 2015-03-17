@@ -43,7 +43,7 @@
           <div class="col-xs-6 col-md-12 col-lg-6">
             <div class="row">
               <span class="annual-earnings">
-                <span class="ft-90 ft-red percent-num">{{item.fundsProduct.baseRate || 0}}</span>
+                <span class="ft-90 ft-red percent-num">{{item.fundsProduct.baseRate | number: 1|| 0}}</span>
                 <span class="ft-14 ft-red percent-ft">%年化</span>
               </span>
               <span class="floating-rate">

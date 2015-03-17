@@ -15,8 +15,8 @@
           </div>
           <div class="col-xs-12 negative-margin">
             <span class="investment-fontsize">{{totalType}}：</span>
-            <span class="investment-fontred" ng-if="project.status !== 11">{{projectInvestNum | moreMillion:7}}</span>
-            <span class="investment-fontred" ng-if="project.status === 11">{{project.reserveAmount | moreMillion:7}}</span>
+            <span class="investment-fontred" ng-if="project.status !== 11">{{projectInvestNum | currency:"":2 || 0}}</span>
+            <span class="investment-fontred" ng-if="project.status === 11">{{project.reserveAmount | currency:"":2 || 0}}</span>
             <span class="investment-fontblack">元</span>
           </div>
           <div class="col-xs-12 positive-margin" ng-show="project.status === 11">
@@ -54,7 +54,7 @@
         <!-- 已登陆预发布状态 -->
         <!-- 登录已满标状态 -->
         <div class="col-xs-12 padding-0" ng-if="isLogged && project.progress >= 100">
-          <div class="positive-bottommargin"><span class="investment-fontsize">可用余额：</span><span class="investment-fontred">{{userCapital.balance | moreMillion:5 }}</span><span class="investment-fontblack">元</span>
+          <div class="positive-bottommargin"><span class="investment-fontsize">可用余额：</span><span class="investment-fontred">{{userCapital.balance | currency:"":2 || 0 }}</span><span class="investment-fontblack">元</span>
             <a class="ft-red pull-right" style="padding-top:8px;" ng-click="toRecharge();">充值</a>
           </div>
           <div ng-if="project.status === 8">
@@ -82,7 +82,7 @@
         <div class="row padding-t-0" ng-if="isLogged && project.progress < 100">
 
           <div class="col-xs-12" ng-if="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus < 3">
-            <div class="positive-bottommargin"><span class="investment-fontsize">可用余额：</span><span class="investment-fontred">{{userCapital.balance| moreMillion:5}}</span><span class="investment-fontblack">元</span>
+            <div class="positive-bottommargin"><span class="investment-fontsize">可用余额：</span><span class="investment-fontred">{{userCapital.balance| currency:"":2 || 0}}</span><span class="investment-fontblack">元</span>
               <a class="ft-red pull-right" style="padding-top:8px;" ng-click="toRecharge();">充值</a>
             </div>
             <div class="positive-margin1">
@@ -100,7 +100,7 @@
           <div class="col-xs-12" ng-if="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus === 3 && project.status !== 6 && project.status !== 11">
             <div ng-switch on="isAvailable">
               <div class="col-xs-12 positive-bottommargin pull-n">
-                <span class="investment-fontsize nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | moreMillion:5}}</span><span class="investment-fontblack">元</span>
+                <span class="investment-fontsize nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | currency:"":2 || 0}}</span><span class="investment-fontblack">元</span>
                 <a class="ft-red pull-right" style="padding-top:8px;" ng-click="toRecharge();">充值</a>
               </div>
               <div class="col-xs-12" ng-switch-when="1">
@@ -121,7 +121,7 @@
           <div class="col-xs-12" ng-if="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus === 3 && project.status === 11">
             <div>
               <div class="col-xs-12 positive-bottommargin pull-n">
-                <span class="investment-fontsize nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | moreMillion:5}}</span><span class="investment-fontblack">元</span>
+                <span class="investment-fontsize nagtive-leftmargin">可用余额：</span><span class="investment-fontred">{{userCapital.balance | currency:"":2 || 0}}</span><span class="investment-fontblack">元</span>
                 <a class="ft-red pull-right" style="padding-top:8px;" ng-click="toRecharge();">充值</a>
               </div>
               <div class="col-xs-12 positive-bottommargin pull-n">
