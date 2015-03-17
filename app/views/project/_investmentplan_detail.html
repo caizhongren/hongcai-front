@@ -33,7 +33,10 @@
               </tr>
               <tr class="border-b-white">
                 <td class="bg-grey2 tab-left text-right">最高续投次数</td>
-                <td class="bg-grey3 tab-right">{{(fundsProduct.maxRate - fundsProduct.baseRate) / fundsProduct.riseRate | number: 0}}次</td>
+                <td class="bg-grey3 tab-right" ng-if="fundsProduct.type === 1">7次</td>
+                <td class="bg-grey3 tab-right" ng-if="fundsProduct.type === 2">5次</td>
+                <td class="bg-grey3 tab-right" ng-if="fundsProduct.type === 3">3次</td>
+                <!-- <td class="bg-grey3 tab-right">{{(fundsProduct.maxRate - fundsProduct.baseRate) / fundsProduct.riseRate | number: 0}}次</td> -->
               </tr>
               <tr class="border-b-white">
                 <td class="bg-grey2 tab-left text-right">锁定期</td>
