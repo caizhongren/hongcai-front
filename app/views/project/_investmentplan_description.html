@@ -8,10 +8,13 @@
   <div class="col-xs-4 text-left border-r padding-l-30" style="position:relative;">
     <span class="text-left display-i-b">年化收益率
       <br>
-      <strong class="ft-30 ft-red">{{fundsProduct.baseRate | number:1 || 0}}</strong>%
+      <span ng-show="fundsProduct.type === 1" class="ft-30 ft-red" data-placement="top" data-content="七日盈：6%起，按期涨0.3%，最高6.9%" data-trigger="hover" bs-popover>{{fundsProduct.baseRate | number:1 || 0}}%</span>
+      <span ng-show="fundsProduct.type === 2" class="ft-30 ft-red" data-placement="top" data-content="月月盈：7%起，每月涨0.4%，最高8.2%" data-trigger="hover" bs-popover>{{fundsProduct.baseRate | number:1 || 0}}%</span>
+      <span ng-show="fundsProduct.type === 3" class="ft-30 ft-red" data-placement="top" data-content="季度盈：8.5%起，每季度涨0.5%，最高10%" data-trigger="hover" bs-popover>{{fundsProduct.baseRate | number:1 || 0}}%</span>
       <span class="floating-rate-details">
         <img src="images/hongjinying/prompt.png" alt="">
-        <botton class="ft-white ft-16"data-placement="bottom" data-content="{{fundsProduct.description}}" data-trigger="hover" bs-popover>+{{fundsProduct.riseRate}}</botton>
+        <!-- FIX -->
+        <span class="ft-16 ft-white" >+{{fundsProduct.riseRate}}</span>
       </span>
     </span>
   </div>
