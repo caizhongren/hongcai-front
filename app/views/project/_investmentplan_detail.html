@@ -49,7 +49,7 @@
                 最高续投次数
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                {{(fundsProduct.maxRate - fundsProduct.baseRate) / fundsProduct.riseRate || 7}}次
+                {{(fundsProduct.maxRate - fundsProduct.baseRate) / fundsProduct.riseRate | number: 0}}次
               </div>
             </div>
             <div class="row border-b-white">
