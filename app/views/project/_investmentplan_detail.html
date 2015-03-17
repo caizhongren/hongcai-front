@@ -129,7 +129,7 @@
                 服务协议
               </div>
               <div class="col-xs-10 bg-grey3 tab-right">
-                <a class="ft-red" ng-click="showAgreement();" style="text-decoration:underline !important;">宏金盈计划协议范本</a>
+                <a class="ft-red text-unline" ng-click="showAgreement();">宏金盈计划协议范本</a>
               </div>
             </div>
           </div>
@@ -157,7 +157,7 @@
             </table>
           </div>
           <ul ng-show="isLogged" class="list-group">
-            <li class="">
+            <li>
               <div class="row">
                 <div class="col-sx-12 text-center">
                   <button class="btn btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1" disabled="disabled">上一页</button>
@@ -167,8 +167,8 @@
               </div>
             </li>
           </ul>
-          <div class="row" ng-if="!isLogged" style="text-align:center;">
-            <h4 style="">请<a ng-click="toRealLogin()" class="ft-red">登录</a>后查看信息</h4>
+          <div class="row text-center padding-t-30" ng-if="!isLogged">
+            <h4 class="margin-t-30 padding-t-30">请<a ng-click="toRealLogin()" class="ft-red">登录</a>后查看信息</h4>
           </div>
         </section>
         <section ng-if="tab.title==='常见问题'">
@@ -251,7 +251,7 @@
                 <div class="row">
                   <div class="col-xs-6">
                     <div class="row">
-                      <img src="/images/investmentplan/plan_mid_left.png" style="float:right;">
+                      <img class="pull-right" src="/images/investmentplan/plan_mid_left.png">
                       <div class="col-xs-12 ft-right ft-14" style="margin-top:-390px;">
                         <div class="plan-info">
                           <div class="row info-row">
@@ -283,7 +283,7 @@
                   </div>
                   <div class="col-xs-6">
                     <div class="row">
-                      <img src="/images/investmentplan/plan_mid_right.png" style="float:left;">
+                      <img class="pull-left" src="/images/investmentplan/plan_mid_right.png">
                       <div class="col-xs-12 ft-14" style="margin-top:-390px;">
                         <div class="plan-info" style="margin-top:55px;">
                           <div class="row info-row">
