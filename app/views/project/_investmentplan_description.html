@@ -7,30 +7,30 @@
   </div>
   <div class="col-xs-4 text-left border-r padding-l-30" style="position:relative;">
     <!-- FIX -->
-    <span class="text-left display-i-b" ng-show="fundsProduct.type === 1" data-placement="top" data-content="七日盈：6%起，按期涨0.3%，最高6.9%" data-trigger="hover" bs-popover>年化收益率
+    <p class="text-left display-i-b" ng-show="fundsProduct.type === 1" data-placement="top" data-content="七日盈：6%起，按期涨0.3%，最高6.9%" data-trigger="hover" bs-popover>年化收益率
       <br>
       <span class="ft-30 ft-red">{{fundsProduct.baseRate | number:1 || 0}}%</span>
       <span class="floating-rate-details">
           <img src="images/hongjinying/prompt.png" alt="">
           <span class="ft-16 ft-white" >+{{fundsProduct.riseRate}}</span>
       </span>
-    </span>
-    <span class="text-left display-i-b" ng-show="fundsProduct.type === 2" data-placement="top" data-content="月月盈：7%起，每月涨0.4%，最高8.2%" data-trigger="hover" bs-popover>年化收益率
+    </p>
+    <p class="text-left display-i-b" ng-show="fundsProduct.type === 2" data-placement="top" data-content="月月盈：7%起，每月涨0.4%，最高8.2%" data-trigger="hover" bs-popover>年化收益率
       <br>
       <span class="ft-30 ft-red">{{fundsProduct.baseRate | number:1 || 0}}%</span>
       <span class="floating-rate-details">
           <img src="images/hongjinying/prompt.png" alt="">
           <span class="ft-16 ft-white" >+{{fundsProduct.riseRate}}</span>
       </span>
-    </span>
-    <span class="text-left display-i-b" ng-show="fundsProduct.type === 3" data-placement="top" data-content="季度盈：8.5%起，每季度递增0.5%，最高10%" data-trigger="hover" bs-popover>年化收益率
+    </p>
+    <p class="text-left display-i-b" ng-show="fundsProduct.type === 3" data-placement="top" data-content="季度盈：8.5%起，每季度递增0.5%，最高10%" data-trigger="hover" bs-popover>年化收益率
       <br>
       <span class="ft-30 ft-red">{{fundsProduct.baseRate | number:1 || 0}}%</span>
       <span class="floating-rate-details">
           <img src="images/hongjinying/prompt.png" alt="">
           <span class="ft-16 ft-white" >+{{fundsProduct.riseRate}}</span>
       </span>
-    </span>
+    </p>
   </div>
   <div class="col-xs-4 text-left padding-l-30">
     <span class="text-left display-i-b">封闭期限
