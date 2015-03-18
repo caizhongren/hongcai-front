@@ -26,7 +26,7 @@
                 <div class="row">
                   <img src="images/hongjinying/castBg.png">
                   <span class="ft-14 ft-cast" ng-show="item.status === 1">可投金额</span>
-                  <span class="ft-14 ft-cast" ng-show="item.status !== 1">成功募资</span>
+                  <span class="ft-14 ft-cast" ng-show="item.status !== 1">成功投资</span>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-lg-12">
@@ -43,7 +43,7 @@
           <div class="col-xs-6 col-md-12 col-lg-6">
             <div class="row">
               <!-- FIX -->
-              <p ng-show="item.fundsProduct.type === 1" class="annual-earnings" data-placement="top" data-content="七日盈：6%起，按期涨0.3%，最高6.9%" data-trigger="hover" bs-popover>
+              <p ng-show="item.fundsProduct.type === 1" class="annual-earnings" data-placement="top" data-content="每七日增0.3%" data-trigger="hover" bs-popover>
                 <span class="ft-90 ft-red percent-num" >{{item.fundsProduct.baseRate | number: 1 || 0}}</span>
                 <span class="ft-14 ft-red percent-ft">%年化</span>
                 <span class="floating-rate">
@@ -51,7 +51,7 @@
                     <span class="ft-16">+{{item.fundsProduct.riseRate}}</span>
                 </span>
               </p>
-              <p ng-show="item.fundsProduct.type === 2" class="annual-earnings" data-placement="top" data-content="月月盈：7%起，每月涨0.4%，最高8.2%" data-trigger="hover" bs-popover>
+              <p ng-show="item.fundsProduct.type === 2" class="annual-earnings" data-placement="top" data-content="每月增0.4%" data-trigger="hover" bs-popover>
                 <span class="ft-90 ft-red percent-num" >{{item.fundsProduct.baseRate | number: 1 || 0}}</span>
                 <span class="ft-14 ft-red percent-ft">%年化</span>
                 <span class="floating-rate">
@@ -59,7 +59,7 @@
                     <span class="ft-16">+{{item.fundsProduct.riseRate}}</span>
                 </span>
               </p>
-              <p ng-show="item.fundsProduct.type === 3" class="annual-earnings" data-placement="top" data-content="季度盈：8.5%起，每季度递增0.5%，最高10%" data-trigger="hover" bs-popover>
+              <p ng-show="item.fundsProduct.type === 3" class="annual-earnings" data-placement="top" data-content="每季度增0.5%" data-trigger="hover" bs-popover>
                 <span class="ft-90 ft-red percent-num" >{{item.fundsProduct.baseRate | number: 1 || 0}}</span>
                 <span class="ft-14 ft-red percent-ft">%年化</span>
                 <span class="floating-rate">
