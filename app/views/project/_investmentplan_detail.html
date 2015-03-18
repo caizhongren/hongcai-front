@@ -8,7 +8,7 @@
     </div>
     <div class="tab-content">
       <div class="tab-pane" ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs">
-        <section ng-if="tab.title==='计划简介'">
+        <section ng-if="tab.title==='计划简介'" style="margin-top:42px;">
           <table class="container-fluid">
             <thead>
               <th width="16%"></th>
@@ -52,7 +52,7 @@
               </tr>
               <tr class="border-b-white">
                 <td class="bg-grey2 tab-left text-right">加入条件</td>
-                <td class="bg-grey3 tab-right">加入金额为100元起，且为100元的整数倍</td>
+                <td class="bg-grey3 tab-right">100元起，100元整数倍递增。</td>
               </tr>
               <tr class="border-b-white">
                 <td class="bg-grey2 tab-left text-right">加入上限</td>
@@ -64,7 +64,7 @@
               </tr>
               <tr class="border-b-white">
                 <td class="bg-grey2 tab-left text-right">到期退出方式</td>
-                <td class="bg-grey3 tab-right">系统通过债权转让方式自动完成退出；如出现债权到期，系统自动退出所有投资人债权。</td>
+                <td class="bg-grey3 tab-right">系统通过债权转让方式自动完成退出。</td>
               </tr>
               <tr class="border-b-white">
                 <td class="bg-grey2 tab-left text-right">续投方式</td>
