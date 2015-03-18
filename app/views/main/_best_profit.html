@@ -26,7 +26,7 @@
                 <div class="row">
                   <img src="images/hongjinying/castBg.png">
                   <span class="ft-14 ft-cast" ng-show="item.status === 1">可投金额</span>
-                  <span class="ft-14 ft-cast" ng-show="item.status !== 1">成功募资</span>
+                  <span class="ft-14 ft-cast" ng-show="item.status !== 1">成功投资</span>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6 col-lg-12">
@@ -34,29 +34,59 @@
                   <span class="ft-grey">
                     <strong class="ft-24" ng-show="item.status === 1">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </strong>
                     <strong class="ft-24" ng-show="item.status !== 1">{{ (item.soldStock + item.occupancyStock) * item.increaseAmount | noFractionCurrency:"":0 || 0}} </strong>
-                    &nbsp;元
+                    元
                   </span>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-xs-6 col-md-12 col-lg-6">
-            <p class="prompt-style" >
-              <img src="images/hongjinying/prompt.png" alt="">
-              <botton class="rate-show" style="margin-left: -43px; font-size: 15px;" data-placement="top" data-content="{{item.fundsProduct.description}}" data-trigger="hover" bs-popover>+{{item.fundsProduct.riseRate || 0}}</botton>
-            </p>
-            <p class="year-percent">
-              <span class="ft-90 ft-red percent-num">{{item.fundsProduct.baseRate || 0}}</span>
-              <span class="ft-14 ft-red percent-ft">&nbsp;% &nbsp;年化</span>
-            </p>
+            <div class="row">
+              <!-- FIX -->
+              <p ng-show="item.fundsProduct.type === 1" class="annual-earnings" data-placement="top" data-content="每七日增0.3%" data-trigger="hover" bs-popover>
+                <span class="ft-90 ft-red percent-num" >{{item.fundsProduct.baseRate | number: 1 || 0}}</span>
+                <span class="ft-14 ft-red percent-ft">%年化</span>
+                <span class="floating-rate">
+                    <img src="images/hongjinying/prompt.png" alt="">
+                    <span class="ft-16">+{{item.fundsProduct.riseRate}}</span>
+                </span>
+              </p>
+              <p ng-show="item.fundsProduct.type === 2" class="annual-earnings" data-placement="top" data-content="每月增0.4%" data-trigger="hover" bs-popover>
+                <span class="ft-90 ft-red percent-num" >{{item.fundsProduct.baseRate | number: 1 || 0}}</span>
+                <span class="ft-14 ft-red percent-ft">%年化</span>
+                <span class="floating-rate">
+                    <img src="images/hongjinying/prompt.png" alt="">
+                    <span class="ft-16">+{{item.fundsProduct.riseRate}}</span>
+                </span>
+              </p>
+              <p ng-show="item.fundsProduct.type === 3" class="annual-earnings" data-placement="top" data-content="每季度增0.5%" data-trigger="hover" bs-popover>
+                <span class="ft-90 ft-red percent-num" >{{item.fundsProduct.baseRate | number: 1 || 0}}</span>
+                <span class="ft-14 ft-red percent-ft">%年化</span>
+                <span class="floating-rate">
+                    <img src="images/hongjinying/prompt.png" alt="">
+                    <span class="ft-16">+{{item.fundsProduct.riseRate}}</span>
+                </span>
+              </p>
+            </div>
           </div>
         </div>
-        <div class="row" ng-show="item.status === 1">
+        <div class="row" ng-show="item.status === 1" style="margin-top:45px;">
           <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-primary investment-btn" role="button">立即投资</a>
+
         </div>
-        <div class="row" ng-show="item.status !== 1">
+        <div class="row" ng-show="item.status !== 1" style="margin-top:45px;">
           <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-default bg-grey4 ft-white investment-btn" role="button">查看详情</a>
         </div>
+
+        <p class="text-center" style="padding-top: 5px;" ng-show="item.fundsProduct.type === 1">
+          <span class="ft-red">{{item.fundsProduct.baseRate}}%</span>起，每七日涨<span class="ft-red">{{item.fundsProduct.riseRate}}%</span>，最高<span class="ft-red">{{item.fundsProduct.maxRate}}%</span>
+        </p>
+        <p class="text-center" style="padding-top: 5px;" ng-show="item.fundsProduct.type === 2">
+          <span class="ft-red">{{item.fundsProduct.baseRate}}%</span>起，每月涨<span class="ft-red">{{item.fundsProduct.riseRate}}%</span>，最高<span class="ft-red">{{item.fundsProduct.maxRate}}%</span>
+        </p>
+        <p class="text-center" style="padding-top: 5px;" ng-show="item.fundsProduct.type === 3">
+          <span class="ft-red">{{item.fundsProduct.baseRate}}%</span>起，每季度涨<span class="ft-red">{{item.fundsProduct.riseRate}}%</span>，最高<span class="ft-red">{{item.fundsProduct.maxRate}}%</span>
+        </p>
       </div>
     </div>
   </div>

@@ -72,7 +72,6 @@ angular.module('hongcaiApp')
         $scope.fundsProjectStatusMap = response.data.fundsProjectStatusMap;
         $scope.fundsProjectProductList = response.data.fundsProjectProductList;
         //
-
       }
     });
 
