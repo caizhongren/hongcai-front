@@ -1442,6 +1442,23 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.openReservation-success', {
+        url: '/openReservation-success',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/openReservation-success.html'
+          }
+        }
+      })
+      .state('app-callback.openReservation-ios', {
+        url: '/openReservation-success/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/openReservation-success.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
 
       .state('app-callback.appregistration-agreement', {
         url: '/appregistration-agreement',
