@@ -68,13 +68,18 @@
                 </p>
                 <div class="border-b list-l col-lg-12 col-md-12"></div>
               </div>
-              <div class="col-lg-12 col-md-12 list-l">
+              <div class="col-lg-12 col-md-12 list-l" ng-if="rightType === 1 || rightType === 2">
                 <p class="success-p">您已投资成功</p>
                 <p class="success-p">继续投资，通过宏财网赚取更多收益吧！</p>
               </div>
+              <div class="col-lg-12 col-md-12 list-l" ng-if="rightType === 3">
+                <p class="success-p">本项目当日计息，今日收获利息为{{oneDayProfit}}元！</p>
+                <p class="success-p" ng-if="isRepeat === 1 ">您已选择续投，下期年化收益为{{nextRate}}%！</p>
+                <p class="success-p" ng-if="isRepeat === 2 ">您未选择续投，<a ui-sref="root.userCenter.credit">【开启续投】</a>下期年化收益增至{{nextRate}}%！</p>
+              </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.main">回到首页</a>
-                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.investment">我的订单</a>
+                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no()">继续投资</a>
+                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.credit">查看债权</a>
               </div>
             </div>
           </div>

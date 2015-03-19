@@ -1,16 +1,18 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('TransferSuccessCtrl', ['$scope', '$stateParams', 'ProjectService', function ($scope, $stateParams, ProjectService) {
+  .controller('TransferSuccessCtrl', ['$scope', '$stateParams', 'ProjectService', 'toaster', function ($scope, $stateParams, ProjectService, toaster) {
     $scope.page = 2;
-    console.log(3);
     if($stateParams.number){
       ProjectService.getOneDayProfitAndNextRate.get({
         number: $stateParams.number
       }, function(response) {
         if (response.ret === 1) {
-          
+          $scope.oneDayProfit = response.data.oneDayProfit;
+          $scope.nextRate = response.data.nextRate;
+          $scope.isRepeat = response.data.isRepeat;
+          $scope.rightType = response.data.rightType;
         } else {
-          console.log(response);
+          toaster.pop('warning', response.msg);
         }
       });
     }
