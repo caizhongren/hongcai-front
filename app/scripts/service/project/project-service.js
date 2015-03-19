@@ -49,7 +49,7 @@ angular.module('hongcaiApp')
         type: '@type'
       }),
       getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {}),
-      getOneDayProfitAndNextRate: $resource(DEFAULT_DOMAIN + '/siteFundsService/getOneDayProfitAndNextRate', {
+      getOneDayProfitAndNextRate: $resource(DEFAULT_DOMAIN + '/siteFunds/getOneDayProfitAndNextRate', {
         number: '@number'
       })
     };
