@@ -268,20 +268,8 @@ hongcaiApp
           }
         }
       })
-      //宏金保投资回调页
-      .state('root.guaranteepro-transfer-success', {
-        url: '/guaranteepro-transfer-success/:status',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'TransferSuccessCtrl',
-            controllerUrl: 'scripts/controller/order/transfer-success-ctrl'
-          }
-        }
-      })
-      //宏金盈投资回调页
-      .state('root.investmentplan-transfer-success', {
-        url: '/investmentplan-transfer-success/:status/:number',
+      .state('root.transfer-success', {
+        url: '/transfer-success/:status/:number',
         views: {
           '': {
             templateUrl: 'views/success.html',
