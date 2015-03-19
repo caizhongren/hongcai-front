@@ -6,6 +6,7 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         $scope.fundsProjectStatusMap = response.data.fundsProjectStatusMap;
         $scope.fundsProjectProductList = response.data.fundsProjectProductList;
+        console.log($scope.fundsProjectProductList);
       }
     });
     $scope.hsh = $location.hash();

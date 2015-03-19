@@ -24,10 +24,8 @@
   <div class="bg-2" style="background-image: url(/images/banner-7/bg.png);padding-bottom:130px;">
     <div id="jinying-step-2"></div>
     <div class="img-bg"></div>
-    <div class="btn-area" ng-repeat="item in fundsProjectProductList | limitTo: 3">
-      <a ui-sref="root.investmentplan-details({number: item.number})" class="jinying-btn quarter-btn ft-18" ng-show="item.fundsProduct.type === 1">立即投资</a>
-      <a ui-sref="root.investmentplan-details({number: item.number})" class="jinying-btn month-btn ft-18" ng-show="item.fundsProduct.type === 1">立即投资</a>
-      <a ui-sref="root.investmentplan-details({number: item.number})" class="jinying-btn seven-btn ft-18" ng-show="item.fundsProduct.type === 1">立即投资</a>
+    <div class="btn-area">
+      <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-2  jinying-btn ft-18" ng-class="{'seven-btn': item.fundsProduct.type === 1,'month-btn': item.fundsProduct.type === 2,'quarter-btn': item.fundsProduct.type === 3}" ng-repeat="item in fundsProjectProductList | limitTo: 3">立即投资</a>
     </div>
   </div>
   <div class="bg-2">
