@@ -17,7 +17,7 @@ angular.module('hongcaiApp')
         $scope.repeatCount = response.data.repeatCount;
         $scope.fundsProduct = response.data.fundsProduct;
         $scope.repaymentDate = moment(response.data.fundsProject.repaymentDate).format('YYYY年MM月DD日');
-        $scope.releaseStartTime = moment(response.data.fundsProject.repaymentDate).format('YYYY年MM月DD日 HH:MM');
+        $scope.releaseStartTime = moment(response.data.fundsProject.releaseStartTime).format('YYYY年MM月DD日 HH:MM');
         $scope.fundsProjectInvestNum = $scope.fundsProject.total - ($scope.fundsProject.soldStock + $scope.fundsProject.occupancyStock) * $scope.fundsProject.increaseAmount;
         // 处理投资记录分页
         $scope.currentPage = 0;
