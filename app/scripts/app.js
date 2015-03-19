@@ -269,7 +269,7 @@ hongcaiApp
         }
       })
       .state('root.transfer-success', {
-        url: '/transfer-success/:status',
+        url: '/transfer-success/:status/:number',
         views: {
           '': {
             templateUrl: 'views/success.html',
