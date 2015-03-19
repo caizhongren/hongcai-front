@@ -35,27 +35,36 @@ angular.module('hongcaiApp')
         if ($scope.fundsProject.status === 1) {
           if ($rootScope.userCapital) {
             $scope.userCanFundsInvestNum = $scope.fundsProjectInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.fundsProjectInvestNum;
-          } else {
-            $scope.userCanCreditInvestNum = 0;
-          }
-          if ($rootScope.isLogged) {
-
-            if ($rootScope.autoTransfer === 1) {
-              // 预约用户
+            // switch > if
+            var plusFlag = $rootScope.securityStatus.realNameAuthStatus + $rootScope.autoTransfer;
+            switch (plusFlag) {
+            case 2:
               $scope.invPlanFlag = 3;
-            } else if ($rootScope.securityStatus.realNameAuthStatus === 1) {
-              // 实名认证用户
+              break;
+            case 1:
               $scope.invPlanFlag = 2;
-            } else {
-              //开启普通用户
+              break;
+            case 0:
               $scope.invPlanFlag = 1;
+              break;
             }
           } else {
-            // 未登录
+            $scope.userCanCreditInvestNum = 0;
             $scope.invPlanFlag = 0;
           }
+          // if ($rootScope.isLogged) {
+          //   if ($rootScope.autoTransfer === 1) {
+          //     $scope.invPlanFlag = 3;
+          //   } else if ($rootScope.securityStatus.realNameAuthStatus === 1) {
+          //     $scope.invPlanFlag = 2;
+          //   } else {
+          //     $scope.invPlanFlag = 1;
+          //   }
+          // } else {
+          //   $scope.invPlanFlag = 0;
+          // }
         } else {
-
+          console.log('other status flag..');
         }
       } else {
         $state.go('root.investmentplan-list');
