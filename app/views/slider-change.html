@@ -12,7 +12,7 @@
         <div class="ft-18">
           <p><span>欢迎回来，<a ui-sref="root.userCenter.account-overview" class="ft-red">{{loginName}}</a></span></p>
           <p><span class="ft-14">账户可用余额</span></p>
-          <p class="ft-16"><span>{{userCapital.balance || 0 | number : 0}}</span>元<a class="ft-red right" ui-sref="root.userCenter.recharge">充值</a></p>
+          <p class="ft-16"><span>{{account.balance || 0 | number : 0}}</span>元<a class="ft-red right" ui-sref="root.userCenter.recharge">充值</a></p>
           <a class="ft-white yellow-button" ui-sref="root.userCenter.account-overview">我的账户</a>
         </div>
       </div>
