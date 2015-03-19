@@ -6,13 +6,15 @@ angular.module('hongcaiApp')
     var totalAssets = 0;
     var receivedProfit = 0;
     var balance = 0;
-    UserCenterService.getUserCapital.get(function(response) {
+    UserCenterService.getUserAccount.get(function(response) {
       if (response.ret === 1) {
+        var account = response.data.account;
         totalAssets = response.data.totalAssets;
-        receivedProfit = response.data.userCapital.receivedProfit;
-        balance = response.data.userCapital.balance;
+        receivedProfit = account.receivedProfit;
+        balance = account.balance;
 
-        $scope.capital = response.data;
+        $scope.account = response.data.account;
+        $scope.account.totalAssets = totalAssets;
         if (totalAssets === 0 && receivedProfit === 0 && balance === 0) {
           $scope.doughnutAccountData = [{
             value: 30,
@@ -30,16 +32,16 @@ angular.module('hongcaiApp')
           }];
         } else {
           $scope.doughnutAccountData = [{
-            value: response.data.totalAssets,
+            value: totalAssets,
             label: '账户总资产',
             //highlight: '#FF5A5E',
             color: '#e94828'
           }, {
-            value: response.data.userCapital.receivedProfit,
+            value: receivedProfit,
             label: '累计净收益',
             color: '#f9b81e'
           }, {
-            value: response.data.userCapital.balance,
+            value: balance,
             label: '账户余额',
             color: '#62cbc6'
           }];
@@ -49,34 +51,35 @@ angular.module('hongcaiApp')
         toaster.pop('warning', response.msg);
         $state.go('root.login');
       }
+
+      if (totalAssets > 0 && receivedProfit > 0 && balance > 0) {
+        $scope.doughnutOptions = {
+          segmentShowStroke: false,
+          segmentStrokeColor: '#fff',
+          segmentStrokeWidth: 2,
+          percentageInnerCutout: 65,
+          animation: true,
+          animationSteps: 100,
+          animationEasing: 'easeOutQuart',
+          animateRotate: true,
+          animateScale: false
+        };
+      } else {
+        $scope.doughnutOptions = {
+          segmentShowStroke: false,
+          segmentStrokeColor: '#fff',
+          segmentStrokeWidth: 2,
+          percentageInnerCutout: 65,
+          animation: true,
+          animationSteps: 100,
+          animationEasing: 'easeOutQuart',
+          animateRotate: true,
+          animateScale: false,
+          showTooltips: false
+        };
+      }
     });
 
-    if (totalAssets > 0 && receivedProfit > 0 && balance > 0) {
-      $scope.doughnutOptions = {
-        segmentShowStroke: false,
-        segmentStrokeColor: '#fff',
-        segmentStrokeWidth: 2,
-        percentageInnerCutout: 65,
-        animation: true,
-        animationSteps: 100,
-        animationEasing: 'easeOutQuart',
-        animateRotate: true,
-        animateScale: false
-      };
-    } else {
-      $scope.doughnutOptions = {
-        segmentShowStroke: false,
-        segmentStrokeColor: '#fff',
-        segmentStrokeWidth: 2,
-        percentageInnerCutout: 65,
-        animation: true,
-        animationSteps: 100,
-        animationEasing: 'easeOutQuart',
-        animateRotate: true,
-        animateScale: false,
-        showTooltips: false
-      };
-    }
 
 
     // 原版获取投资统计数据

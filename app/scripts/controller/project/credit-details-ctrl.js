@@ -19,8 +19,8 @@ angular.module('hongcaiApp')
         // 可投金额
         $scope.creditAssignmentInvestNum = $scope.creditAssignment.amount - ($scope.creditAssignment.soldStock + $scope.creditAssignment.occupancyStock) * $scope.project.increaseAmount;
         if ($scope.creditAssignment.status === 1) {
-          if ($rootScope.userCapital) {
-            $scope.userCanCreditInvestNum = $scope.creditAssignmentInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.creditAssignmentInvestNum;
+          if ($rootScope.account) {
+            $scope.userCanCreditInvestNum = $scope.creditAssignmentInvestNum > $rootScope.account.balance ? $rootScope.account.balance : $scope.creditAssignmentInvestNum;
           } else {
             $scope.userCanCreditInvestNum = 0
           }
@@ -115,7 +115,7 @@ angular.module('hongcaiApp')
           subscribeAmount: subscribeAmount,
         }, function(response) {
           if (response.ret === 1) {
-            
+
           } else {
             toaster.pop('warning', response.msg);
           }
@@ -133,7 +133,7 @@ angular.module('hongcaiApp')
       }
     };
     $scope.checkLargeUserCanAmount = function(subscribeAmount) {
-      if ($rootScope.userCapital.balance < subscribeAmount) {
+      if ($rootScope.account.balance < subscribeAmount) {
         return true;
       } else {
         return false;
@@ -203,11 +203,11 @@ angular.module('hongcaiApp')
     //           // 项目可投金额
     //           $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
     //           // 用户可用金额
-    //           if ($rootScope.userCapital) {
+    //           if ($rootScope.account) {
     //             if ($scope.project.status === 11) {
-    //               $scope.userCanInvestNum = $scope.project.reserveAmount > $rootScope.userCapital.balance * 10 ? $rootScope.userCapital.balance * 10 : $scope.project.reserveAmount;
+    //               $scope.userCanInvestNum = $scope.project.reserveAmount > $rootScope.account.balance * 10 ? $rootScope.account.balance * 10 : $scope.project.reserveAmount;
     //             } else {
-    //               $scope.userCanInvestNum = $scope.projectInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.projectInvestNum;
+    //               $scope.userCanInvestNum = $scope.projectInvestNum > $rootScope.account.balance ? $rootScope.account.balance : $scope.projectInvestNum;
     //             }
     //           } else {
     //             $scope.userCanInvestNum = 0;
@@ -302,7 +302,7 @@ angular.module('hongcaiApp')
     //       };
     //       if ($scope.checkFlag) {
     //         if (project.toReserveAmount > $scope.userCanInvestNum) {
-    //           $scope.msg = $scope.project.reserveAmount > $rootScope.userCapital.balance * 10 ? '您输入的金额高于可用余额！' : '您输入的金额高于可预约金额！';
+    //           $scope.msg = $scope.project.reserveAmount > $rootScope.account.balance * 10 ? '您输入的金额高于可用余额！' : '您输入的金额高于可预约金额！';
     //           $alert({
     //             scope: $scope,
     //             template: 'views/modal/alert-dialog.html',
@@ -379,8 +379,8 @@ angular.module('hongcaiApp')
     //           if (response.ret === 1) {
     //             angular.element('.alert').remove();
     //             angular.element('.mask_layer').remove();
-    //             var balance = $rootScope.userCapital.balance;
-    //             $rootScope.userCapital.balance = balance - (project.toReserveAmount / 10);
+    //             var balance = $rootScope.account.balance;
+    //             $rootScope.account.balance = balance - (project.toReserveAmount / 10);
     //             $scope.getProjectDetails(); //更新投资模块
     //             $scope.getReserveRecords(); //更新预约记录
     //           } else {

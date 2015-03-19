@@ -16,8 +16,8 @@ angular.module('hongcaiApp')
       }),
       bindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/bindBankCard', {}),
       unbindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/unbindBankCard', {}),
-      getUserCapital: $resource(DEFAULT_DOMAIN + '/siteUserCapital/getUserCapitalById'),
-      getUserAvailableCash: $resource(DEFAULT_DOMAIN + '/siteUserCapital/getUserAvailableCash'),
+      getUserAccount: $resource(DEFAULT_DOMAIN + '/siteAccount/userAccount'),
+      getUserAvailableCash: $resource(DEFAULT_DOMAIN + '/siteAccount/getUserAvailableCash'),
       getUserOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser'),
       getOrderByUser: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser', {
         type: '@type',
@@ -29,7 +29,7 @@ angular.module('hongcaiApp')
         dateInterval: '@dateInterval',
         status: '@status'
       }),
-      getUserBalance: $resource(DEFAULT_DOMAIN + '/siteUserCapital/getUserBalance'),
+      getUserBalance: $resource(DEFAULT_DOMAIN + '/siteAccount/getUserBalance'),
       sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/sendMobileCaptcha', {
         mobile: '@mobile'
       }),
