@@ -8,6 +8,7 @@
 <div class="row panel panel-default padding-l-15 padding-r-15">
   <!-- 项目融资中 -->
   <div class="row" ng-show="fundsProject.status === 1" ng-switch="invPlanFlag">
+    <!-- 未登录用户 -->
     <div class="row" ng-switch-when=0>
       <div class="col-xs-12 margin-t-15">
         <form class="from-group" ng-submit="toInvest(fundsProject);" name="invPlanForm">
@@ -42,6 +43,7 @@
         </form>
       </div>
     </div>
+    <!-- 普通用户 -->
     <div class="row" ng-switch-when=1>
       <div class="col-xs-12 margin-t-30 rechanege" style="padding-left: 30px; padding-right: 30px;">
         <span>账户余额：<small class="ft-24 ft-red">{{ userCapital.balance | currency:"":2 || 0}}</small>元</span>
@@ -80,6 +82,7 @@
         </form>
       </div>
     </div>
+    <!-- 实名用户 -->
     <div class="row" ng-switch-when=2>
       <div class="col-xs-12 margin-t-30 rechanege" style="padding-left: 30px; padding-right: 30px;">
         <span>账户余额：<small class="ft-24 ft-red">{{ userCapital.balance | currency:"":2 || 0}}</small>元</span>
@@ -124,7 +127,7 @@
         </form>
       </div>
     </div>
-
+    <!-- 开启自动投资用户 -->
     <div class="row" ng-switch-when=3>
       <div class="col-xs-12 margin-t-30 rechanege" style="padding-left: 30px; padding-right: 30px;">
         <span>账户余额：<small class="ft-24 ft-red">{{ userCapital.balance | currency:"":2 || 0}}</small>元</span>
@@ -170,6 +173,7 @@
       </div>
     </div>
   </div>
+  <!-- 融资结束，还款中，还款完成 -->
   <div class="row" ng-show="fundsProject.status !== 1" style="padding:40px;">
     <p class="text-center">
       <img src="images/project/invplan_status_2.png" alt="" ng-show="fundsProject.status === 2">
@@ -179,4 +183,4 @@
     </p>
   </div>
 </div>
-<!-- 融资结束，还款中，还款完成 -->
+
