@@ -12,7 +12,7 @@ angular.module('hongcaiApp')
         $scope.project.isRepeatFlag = true ? ($stateParams.isRepeat === '1') : ($stateParams.isRepeat !== '1');
         $scope.fundsProduct = response.data.projectDetail.fundsProduct;
         $scope.investAmount = response.data.amount;
-        $scope.capital = response.data.userCapital;
+        $scope.capital = response.data.account;
       } else if (response.ret === -1) {
         if (response.code === -1027) {
           $scope.msg = '抱歉，已经卖光了。';

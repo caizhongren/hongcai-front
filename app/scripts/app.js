@@ -269,7 +269,7 @@ hongcaiApp
         }
       })
       .state('root.transfer-success', {
-        url: '/transfer-success/:status',
+        url: '/transfer-success/:status/:number',
         views: {
           '': {
             templateUrl: 'views/success.html',
@@ -1442,6 +1442,23 @@ hongcaiApp
           }
         }
       })
+      .state('app-callback.openReservation-success', {
+        url: '/openReservation-success',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/openReservation-success.html'
+          }
+        }
+      })
+      .state('app-callback.openReservation-ios', {
+        url: '/openReservation-success/:type',
+        views: {
+          'app-callback-view': {
+            templateUrl: 'views/appview/openReservation-success.html',
+            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
+          }
+        }
+      })
 
       .state('app-callback.appregistration-agreement', {
         url: '/appregistration-agreement',
@@ -1556,7 +1573,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
           $rootScope.loginName = response.data.data.name;
           $rootScope.securityStatus = response.data.data.securityStatus;
           $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
-          $rootScope.userCapital = response.data.data.userCapital;
+          $rootScope.account = response.data.data.account;
           $rootScope.unreadCount = response.data.data.unreadCount;
           $rootScope.userType = response.data.data.userType;
         } else {
@@ -1572,7 +1589,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
           $rootScope.loginName = response.data.data.name;
           $rootScope.securityStatus = response.data.data.securityStatus;
           $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
-          $rootScope.userCapital = response.data.data.userCapital;
+          $rootScope.account = response.data.data.account;
           $rootScope.unreadCount = response.data.data.unreadCount;
           $rootScope.userType = response.data.data.userType;
         } else {

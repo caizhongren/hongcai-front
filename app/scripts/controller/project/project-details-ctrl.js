@@ -70,11 +70,11 @@ angular.module('hongcaiApp')
           // 项目可投金额
           $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
           // 用户可用金额
-          if ($rootScope.userCapital) {
+          if ($rootScope.account) {
             if ($scope.project.status === 11) {
-              $scope.userCanInvestNum = $scope.project.reserveAmount > $rootScope.userCapital.balance * 10 ? $rootScope.userCapital.balance * 10 : $scope.project.reserveAmount;
+              $scope.userCanInvestNum = $scope.project.reserveAmount > $rootScope.account.balance * 10 ? $rootScope.account.balance * 10 : $scope.project.reserveAmount;
             } else {
-              $scope.userCanInvestNum = $scope.projectInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.projectInvestNum;
+              $scope.userCanInvestNum = $scope.projectInvestNum > $rootScope.account.balance ? $rootScope.account.balance : $scope.projectInvestNum;
             }
           } else {
             $scope.userCanInvestNum = 0;
@@ -169,7 +169,7 @@ angular.module('hongcaiApp')
       };
       if ($scope.checkFlag) {
         if (project.toReserveAmount > $scope.userCanInvestNum) {
-          $scope.msg = $scope.project.reserveAmount > $rootScope.userCapital.balance * 10 ? '您输入的金额高于可用余额！' : '您输入的金额高于可预约金额！';
+          $scope.msg = $scope.project.reserveAmount > $rootScope.account.balance * 10 ? '您输入的金额高于可用余额！' : '您输入的金额高于可预约金额！';
           $alert({
             scope: $scope,
             template: 'views/modal/alert-dialog.html',
@@ -276,8 +276,8 @@ angular.module('hongcaiApp')
           if (response.ret === 1) {
             angular.element('.alert').remove();
             angular.element('.mask_layer').remove();
-            var balance = $rootScope.userCapital.balance;
-            $rootScope.userCapital.balance = balance - (project.toReserveAmount / 10);
+            var balance = $rootScope.account.balance;
+            $rootScope.account.balance = balance - (project.toReserveAmount / 10);
             $scope.getProjectDetails(); //更新投资模块
             $scope.getReserveRecords(); //更新预约记录
           } else {
