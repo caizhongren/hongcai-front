@@ -9,16 +9,18 @@ angular.module('hongcaiApp')
     var freezeCapital = 0;
     var receivedProfit = 0;
     var amount = 0;
-    UserCenterService.getUserCapital.get(function(response) {
+    UserCenterService.getUserAccount.get(function(response) {
       if (response.ret === 1) {
-        balance = response.data.userCapital.balance;
-        waitingProfit = response.data.userCapital.waitingProfit;
-        waitingCapital = response.data.userCapital.waitingCapital;
-        freezeCapital = response.data.userCapital.freezeCapital;
-        receivedProfit = response.data.userCapital.receivedProfit;
-        amount = response.data.userCapital.amount;
+        var account = response.data.account;
 
-        $scope.capital = response.data;
+        balance = account.balance;
+        waitingProfit = account.waitingProfit;
+        waitingCapital = account.waitingCapital;
+        freezeCapital = account.freezeCapital;
+        receivedProfit = account.receivedProfit;
+        amount = account.amount;
+
+        $scope.account = response.data.account;
         if (balance === 0 && waitingProfit === 0 && waitingCapital === 0 && freezeCapital === 0 && receivedProfit === 0 && amount === 0) {
           $scope.doughnutAssetsData = [{
             value: 20,
@@ -39,26 +41,26 @@ angular.module('hongcaiApp')
           }];
         } else {
           $scope.doughnutAssetsData = [{
-            value: response.data.userCapital.balance,
+            value: account.balance,
             label: '可用余额',
             color: '#d2cb3f'
           }, {
-            value: response.data.userCapital.waitingProfit,
+            value: account.waitingProfit,
             label: '待收收益',
             color: '#62cbc6'
           }, {
-            value: response.data.userCapital.waitingCapital,
+            value: account.waitingCapital,
             label: '待收本金',
             color: '#f9b81e'
           }, {
-            value: response.data.userCapital.freezeCapital,
+            value: account.freezeCapital,
             label: '冻结资金',
             color: '#6aabe1'
           }];
         }
 
       } else {
-        console.log('ask assets-overview, why getUserCapital did not load data...');
+        console.log('ask assets-overview, why getUserAccount did not load data...');
         $state.go('root.login');
       }
     });

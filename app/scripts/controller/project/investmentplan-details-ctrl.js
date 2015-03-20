@@ -31,30 +31,40 @@ angular.module('hongcaiApp')
           $scope.orderList[i].id = (i + 1);
           $scope.data.push($scope.orderList[i]);
         }
+        // 当status===1可融资状态的时候，判断invPlanFlag的状态。0：未登录，1：普通用户，2：实名用户，3：开启自动投资用户。
         if ($scope.fundsProject.status === 1) {
-          if ($rootScope.userCapital) {
-            $scope.userCanFundsInvestNum = $scope.fundsProjectInvestNum > $rootScope.userCapital.balance ? $rootScope.userCapital.balance : $scope.fundsProjectInvestNum;
-          } else {
-            $scope.userCanCreditInvestNum = 0;
-          }
-          if ($rootScope.isLogged) {
-
-            if ($rootScope.autoTransfer === 1) {
-              // 预约用户
+          if ($rootScope.account) {
+            $scope.userCanFundsInvestNum = $scope.fundsProjectInvestNum > $rootScope.account.balance ? $rootScope.account.balance : $scope.fundsProjectInvestNum;
+            // switch > if
+            var plusFlag = $rootScope.securityStatus.realNameAuthStatus + $rootScope.autoTransfer;
+            switch (plusFlag) {
+            case 2:
               $scope.invPlanFlag = 3;
-            } else if ($rootScope.securityStatus.realNameAuthStatus === 1) {
-              // 实名认证用户
+              break;
+            case 1:
               $scope.invPlanFlag = 2;
-            } else {
-              //开启普通用户
+              break;
+            case 0:
               $scope.invPlanFlag = 1;
+              break;
             }
           } else {
-            // 未登录
+            $scope.userCanCreditInvestNum = 0;
             $scope.invPlanFlag = 0;
           }
+          // if ($rootScope.isLogged) {
+          //   if ($rootScope.autoTransfer === 1) {
+          //     $scope.invPlanFlag = 3;
+          //   } else if ($rootScope.securityStatus.realNameAuthStatus === 1) {
+          //     $scope.invPlanFlag = 2;
+          //   } else {
+          //     $scope.invPlanFlag = 1;
+          //   }
+          // } else {
+          //   $scope.invPlanFlag = 0;
+          // }
         } else {
-
+          console.log('other status flag..');
         }
       } else {
         $state.go('root.investmentplan-list');
@@ -120,7 +130,7 @@ angular.module('hongcaiApp')
         show: true
       });
     };
-
+    // 显示第二个协议(未使用)
     $scope.showSecondAgreement = function() {
       $modal({
         scope: $scope,
@@ -128,7 +138,7 @@ angular.module('hongcaiApp')
         show: true
       });
     };
-
+    // 判断是否可以充值。
     $scope.checkAutoTransfer = function(fundsProject) {
       if ($scope.invPlanFlag !== 3) {
         $scope.fundsProject.isRepeatFlag = false;
@@ -147,7 +157,7 @@ angular.module('hongcaiApp')
         }
       }
     };
-
+    // 检测Input最小额度
     $scope.checkMinAmount = function(fundsProject) {
       if (fundsProject.invPlanAmount < fundsProject.minInvest) {
         return true;
@@ -155,7 +165,7 @@ angular.module('hongcaiApp')
         return false;
       }
     };
-
+    // 检测Input最大额度
     $scope.checkMaxAmount = function(fundsProject) {
       if (fundsProject.invPlanAmount > $scope.userCanFundsInvestNum) {
         return true;
@@ -166,8 +176,8 @@ angular.module('hongcaiApp')
 
     // 检测用户可投最高金额
     $scope.checkLargeUserCanAmount = function(fundsProject) {
-      if ($rootScope.userCapital) {
-        if ($rootScope.userCapital.balance < fundsProject.invPlanAmount) {
+      if ($rootScope.account) {
+        if ($rootScope.account.balance < fundsProject.invPlanAmount) {
           return true;
         } else {
           return false;
@@ -239,17 +249,6 @@ angular.module('hongcaiApp')
       $scope.toggle.activeTab = tabIndex;
     };
 
-    // $scope.image = 'images/test/0.png';
-    // var myOtherModal = $modal({
-    //   scope: $scope,
-    //   template: 'views/modal/modal-imageEnlarge.html',
-    //   show: false
-    // });
-    // $scope.showModal = function(image) {
-    //   $scope.targetImg = image;
-    //   myOtherModal.$promise.then(myOtherModal.show);
-    // };
-
     // 处理推广流量统计
     var from = $stateParams.from;
     if (from) {
@@ -260,11 +259,4 @@ angular.module('hongcaiApp')
         from: from
       });
     }
-
-    $scope.toLogin = function() {
-      var thisUrl = $location.path();
-      $location.path('/login').search({
-        redirectUrl: thisUrl
-      });
-    };
   }]);
