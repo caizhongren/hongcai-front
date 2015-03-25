@@ -79,7 +79,6 @@ angular.module('hongcaiApp')
           // $scope.haveTrusteeshipAccount = $scope.checkTrusteeshipAccount();
           // if($scope.haveTrusteeshipAccount) {
           $scope.orderList = getOrderByUser.data.orderProjectList;
-          $scope.showOrderStatistics = $scope.orderList.length;
           $scope.orderCount = getOrderByUser.data.orderCount;
           $scope.amount = getOrderByUser.data.amount;
           $scope.type = getOrderByUser.data.type;

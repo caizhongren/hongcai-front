@@ -5,7 +5,7 @@
   </div>
   <!-- 已开通第三方资金托管账户 -->
   <div ng-show="securityStatus.realNameAuthStatus === 1">
-    <div ng-show="showOrderStatistics">
+    <div ng-show="amount">
       <div>
         <div class="padd" ng-hide="true">
           <span>当前账户总计投资产品： <strong>{{orderCount.all || 0}}</strong>个。</span>
@@ -156,7 +156,7 @@
         <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
       </ul>
     </div>
-    <div class="row text-center" ng-hide="showOrderStatistics">
+    <div class="row text-center" ng-hide="amount">
       <p>亲，您尚未在宏财网投资，建议您浏览项目列表，购买感兴趣的债权吧~</p>
       <a class="btn btn-primary margin-t-30" ui-sref="root.guaranteepro-list-query-no()">浏览项目</a>
     </div>
