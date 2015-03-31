@@ -1487,6 +1487,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.landing-page', {
+        url: '/landing-page?from',
+        views: {
+          '': {
+            templateUrl: 'views/landing-page.html',
+            controller: 'LoadPageCtrl',
+            controllerUrl: 'scripts/controller/main/load-page-ctrl'
+          }
+        }
+      })
     /*-------------------------------------------  traffic import route  -----------------------------------------*/
     .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',
