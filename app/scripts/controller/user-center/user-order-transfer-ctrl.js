@@ -24,22 +24,42 @@ angular.module('hongcaiApp')
       e.value = eValue;
       return e;
     }
+
+    if($stateParams.orderType === '4') {
+      OrderService.transferFunds.get({
+        projectId: $stateParams.projectId,
+        orderId: $stateParams.orderId
+      }, function(response) {
+        if (response.ret === 1) {
+          var req = response.data.req;
+          var sign = response.data.sign;
+          var _f = newForm(); //创建一个form表单
+          createElements(_f, 'req', req); //创建form中的input对象
+          createElements(_f, 'sign', sign);
+          _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; //form提交地址
+          _f.submit(); //提交
+        } else {
+          toaster.pop('warning', response.msg);
+        }
+      });
+    } else {
+      OrderService.transfer.get({
+        projectId: $stateParams.projectId,
+        orderId: $stateParams.orderId
+      }, function(response) {
+        if (response.ret === 1) {
+          var req = response.data.req;
+          var sign = response.data.sign;
+          var _f = newForm(); //创建一个form表单
+          createElements(_f, 'req', req); //创建form中的input对象
+          createElements(_f, 'sign', sign);
+          _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; //form提交地址
+          _f.submit(); //提交
+        } else {
+          toaster.pop('warning', response.msg);
+        }
+      });
+    }
     
-    OrderService.transfer.get({
-      projectId: $stateParams.projectId,
-      orderId: $stateParams.orderId
-    }, function(response) {
-      if (response.ret === 1) {
-        var req = response.data.req;
-        var sign = response.data.sign;
-        var _f = newForm(); //创建一个form表单
-        createElements(_f, 'req', req); //创建form中的input对象
-        createElements(_f, 'sign', sign);
-        _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; //form提交地址
-        _f.submit(); //提交
-      } else {
-        toaster.pop('warning', response.msg);
-      }
-    });
 
   }]);

@@ -32,11 +32,11 @@ angular.module('hongcaiApp')
     }, function(response) {
       if (response.ret === 1) {
         var orderId = response.data.orderId;
-        var isRepeat = response.data.isRepeat;
+        // var isRepeat = response.data.isRepeat;
         OrderService.transferFunds.get({
           projectId: $stateParams.projectId,
-          orderId: orderId,
-          isRepeat: isRepeat
+          orderId: orderId/*,
+          isRepeat: isRepeat*/
         }, function(response) {
           if (response.ret === 1) {
             var req = response.data.req;

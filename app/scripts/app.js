@@ -390,7 +390,7 @@ hongcaiApp
         }
       })
       .state('root.user-order-transfer', {
-        url: '/user-order-transfer/:projectId/:orderId',
+        url: '/user-order-transfer/:projectId/:orderId/:orderType',
         views: {
           '': {
             templateUrl: 'views/transfer.html',

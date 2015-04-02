@@ -12,6 +12,6 @@ angular.module('hongcaiApp')
       saveFundsOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/saveFundsOrder', {projectId: '@projectId', amount: '@amount', isRepeat: '@isRepeat'}),
       saveHongYunOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/saveHongYunOrder', {projectId: '@projectId', investAmount: '@investAmount'}),
       saveTuhaoOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/saveTuhaoOrder', {projectId: '@projectId', investAmount: '@investAmount'}),
-      transferFunds: $resource(DEFAULT_DOMAIN + '/yeepay/transferFunds', {projectId: '@projectId', amount: '@amount', isRepeat: '@isRepeat'})
+      transferFunds: $resource(DEFAULT_DOMAIN + '/yeepay/transferFunds', {projectId: '@projectId', orderId: '@orderId'})
     };
   });
