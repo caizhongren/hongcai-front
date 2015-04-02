@@ -113,9 +113,8 @@ angular.module('hongcaiApp')
     };
 
     // 继续支付订单
-    $scope.toPay = function(projectId, orderId, orderAmount) {
+    $scope.toPay = function(projectId, orderId, orderType) {
       $scope.msg = '4';
-      $scope.investAmount = orderAmount;
       $scope.page = 'investment';
       $alert({
         scope: $scope,
@@ -123,24 +122,7 @@ angular.module('hongcaiApp')
         show: true
       });
 
-      window.open('/user-order-transfer/' + projectId + '/' + orderId);
-
-      /*OrderService.transfer.get({
-        projectId: projectId,
-        orderId: orderId
-      }, function(response) {
-        if (response.ret === 1) {
-          var req = response.data.req;
-          var sign = response.data.sign;
-          var _f = newForm(); //创建一个form表单
-          createElements(_f, 'req', req); //创建form中的input对象
-          createElements(_f, 'sign', sign);
-          _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; //form提交地址
-          _f.submit(); //提交
-        } else {
-          toaster.pop('warning', response.msg);
-        }
-      });*/
+      window.open('/user-order-transfer/' + projectId + '/' + orderId + '/' + orderType);
     };
     // 取消订单
     $scope.cancelOrder = function(number) {

@@ -390,7 +390,7 @@ hongcaiApp
         }
       })
       .state('root.user-order-transfer', {
-        url: '/user-order-transfer/:projectId/:orderId',
+        url: '/user-order-transfer/:projectId/:orderId/:orderType',
         views: {
           '': {
             templateUrl: 'views/transfer.html',
@@ -1482,6 +1482,16 @@ hongcaiApp
         views: {
           '': {
             templateUrl: 'views/load-page.html',
+            controller: 'LoadPageCtrl',
+            controllerUrl: 'scripts/controller/main/load-page-ctrl'
+          }
+        }
+      })
+      .state('root.landing-page', {
+        url: '/landing-page?from',
+        views: {
+          '': {
+            templateUrl: 'views/landing-page.html',
             controller: 'LoadPageCtrl',
             controllerUrl: 'scripts/controller/main/load-page-ctrl'
           }

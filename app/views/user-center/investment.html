@@ -140,7 +140,7 @@
             <td>{{ item.statusText }}</td>
             <!-- <td><a ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">123</a></td> -->
             <td>
-              <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary" ng-click="toPay(item.order.projectId, item.order.id, item.order.orderAmount);">继续支付</button>
+              <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary" ng-click="toPay(item.order.projectId, item.order.id, item.order.type);">继续支付</button>
               <button ng-show="item.order.status === 1 " type="button" class="btn btn-default" ng-click="cancelOrder(item.order.number);">取消订单</button>
               <!-- <button ng-show="item.status === 1 " type="button" title="项目放款后生成协议" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button> -->
               <button ng-show="item.order.status === 2" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">合同模板</button>
