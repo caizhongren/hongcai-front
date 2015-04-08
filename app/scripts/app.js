@@ -168,7 +168,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  banner  -----------------------------------------------*/
+      /*----------------------  banner  -------------------------*/
       .state('root.banner-fourty', {
         url: '/banner-fourty',
         views: {
@@ -226,7 +226,6 @@ hongcaiApp
         views: {
           '': {
             templateUrl: 'views/banner/friends-ship.html'
-              //templateUrl: 'banner-nine.html'
           }
         }
       })
@@ -328,7 +327,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  toYeepay transfer  -----------------------------------------------*/
+      /*-------------  toYeepay transfer --------------------*/
       .state('root.recharge-transfer', {
         url: '/recharge-transfer/:amount',
         views: {
@@ -409,7 +408,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  lucky-draw  -----------------------------------------------*/
+      /*-------------  lucky-draw  ---------------------------*/
       // 土豪活动，暂时不上线。
       .state('root.lucky-draw', {
         url: '/lucky-draw',
@@ -422,7 +421,7 @@ hongcaiApp
         }
       })
 
-      /*------------------------------------------  user-center  -----------------------------------------------*/
+      /*---------  user-center  ------------------------*/
       .state('root.userCenter', {
         views: {
           'user-center': {
@@ -620,7 +619,7 @@ hongcaiApp
           }
         }
       })
-      /*---------------------------------------------  yeepay  ---------------------------------------------*/
+      /*----------  yeepay  ---------------------*/
       .state('root.open-yeepay-account-success', {
         url: '/yeepay-success/:status',
         views: {
@@ -640,7 +639,7 @@ hongcaiApp
         }
       })
 
-    /*---------------------------------------------  project  ---------------------------------------------*/
+    /*--------------------  project  ------------------------*/
     .state('root.project-category', {
         url: '/project-category',
         views: {
@@ -756,7 +755,7 @@ hongcaiApp
           }
         }
       })
-      /*---------------------------------------------  safe  ---------------------------------------------*/
+      /*------------------  safe  ---------------------*/
       .state('root.safe', {
         url: '/safe',
         views: {
@@ -835,7 +834,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  about-us  -----------------------------------------------*/
+      /*----------------  about-us  --------------------------------*/
       .state('root.about-us', {
         abstract: true,
         views: {
@@ -869,7 +868,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  partner  -----------------------------------------------*/
+      /*------------------  partner  ------------------------*/
       .state('root.partner', {
         abstract: true,
         views: {
@@ -952,7 +951,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  media-reports  -----------------------------------------------*/
+      /*-------- media-reports  -------------------*/
       .state('root.about-us.media-reports', {
         url: '/media-reports',
         views: {
@@ -973,7 +972,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  web-site-notice  -----------------------------------------------*/
+      /*-----------  web-site-notice  ---------------------------*/
       .state('root.about-us.web-site-notice', {
         url: '/web-site-notice',
         views: {
@@ -994,7 +993,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  hongcai-trends  -----------------------------------------------*/
+      /*------------  hongcai-trends  -------------------------*/
       .state('root.about-us.hongcai-trends', {
         url: '/hongcai-trends',
         views: {
@@ -1023,7 +1022,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  get-pwd-back  -----------------------------------------------*/
+      /*-------  get-pwd-back  ----------------------*/
       .state('root.get-pwd-back', {
         url: '/get-pwd-back',
         views: {
@@ -1034,7 +1033,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  set-new-pwd  -----------------------------------------------*/
+      /*---------  set-new-pwd  --------------------*/
       .state('root.set-new-pwd', {
         url: '/set-new-pwd/:uuid/:etoken',
         views: {
@@ -1045,7 +1044,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  agreement -----------------------------------------------*/
+      /*----  agreement --------------------------*/
       .state('root.registration-agreement', {
         url: '/registration-agreement',
         views: {
@@ -1070,7 +1069,7 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  help-center  -----------------------------------------------*/
+      /*----------  help-center  -------------------*/
       .state('root.help-center', {
         views: {
           'help-center-right': {
@@ -1140,7 +1139,7 @@ hongcaiApp
         }
       })
 
-      /*------------------------------------------  credit assignment  -----------------------------------------------*/
+      /*--------------- credit assignment  ------------------------*/
       //债权转让列表页 FIX,暂时和列表页公用
       .state('root.credit-list-query', {
         url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
@@ -1259,7 +1258,7 @@ hongcaiApp
         }
       })
 
-      /*------------------------------------------  app help-center  -----------------------------------------------*/
+      /*------------------  app help-center  -----------------------------------------------*/
       .state('app-help-center', {
         abstract: true,
         views: {
@@ -1316,167 +1315,8 @@ hongcaiApp
           }
         }
       })
-      /*------------------------------------------  app callback view  -----------------------------------------------*/
-      .state('app-callback', {
-        abstract: true,
-        views: {
-          '': {
-            templateUrl: 'views/appview/main.html'
-          }
-        }
-      })
-      //app轮播图详情页
-      .state('app-callback.app-banner-P2B', {
-        url: '/app-banner-P2B',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/app-banner-P2B.html'
-          }
-        }
-      })
-      //
-      .state('app-callback.apprechrage-success', {
-        url: '/apprecharge-success',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/apprecharge-success.html'
-          }
-        }
-      })
-      .state('app-callback.apprechrage-ios', {
-        url: '/apprecharge-success/:type',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/apprecharge-success.html',
-            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
-          }
-        }
-      })
-
-      .state('app-callback.appinvestment-success', {
-        url: '/appinvestment-success',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/appinvestment-success.html'
-          }
-        }
-      })
-      .state('app-callback.appinvestment-ios', {
-        url: '/appinvestment-success/:type',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/appinvestment-success.html',
-            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
-          }
-        }
-      })
-      //
-      .state('app-callback.appregistration-success', {
-        url: '/appregistration-success',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/appregistration-yeepay.html'
-          }
-        }
-      })
-      .state('app-callback.appregistration-ios', {
-        url: '/appregistration-success/:type',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/appregistration-yeepay.html',
-            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
-          }
-        }
-      })
-      //
-      .state('app-callback.canceltie-card', {
-        url: '/canceltie-card',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/canceltie-card.html'
-          }
-        }
-      })
-      .state('app-callback.canceltie-card-ios', {
-        url: '/canceltie-card/:type',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/canceltie-card.html',
-            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
-          }
-        }
-      })
-      //
-      .state('app-callback.apptie-card', {
-        url: '/apptie-card',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/apptie-card.html'
-          }
-        }
-      })
-      .state('app-callback.apptie-card-ios', {
-        url: '/apptie-card/:type',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/apptie-card.html',
-            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
-          }
-        }
-      })
-
-      .state('app-callback.appwithdrawals-success', {
-        url: '/appwithdrawals-success',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/appwithdrawals-success.html'
-          }
-        }
-      })
-      .state('app-callback.appwithdrawals-ios', {
-        url: '/appwithdrawals-success/:type',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/appwithdrawals-success.html',
-            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
-          }
-        }
-      })
-      .state('app-callback.openReservation-success', {
-        url: '/openReservation-success',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/openReservation-success.html'
-          }
-        }
-      })
-      .state('app-callback.openReservation-ios', {
-        url: '/openReservation-success/:type',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/openReservation-success.html',
-            controllerUrl: 'scripts/controller/appview/app-view-ctrl'
-          }
-        }
-      })
-
-      .state('app-callback.appregistration-agreement', {
-        url: '/appregistration-agreement',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/appregistration-agreement.html'
-          }
-        }
-      })
-      .state('app-callback.apploan-security-agreement', {
-        url: '/apploan-security-agreement',
-        views: {
-          'app-callback-view': {
-            templateUrl: 'views/appview/apploan-security-agreement.html'
-          }
-        }
-      })
-    /*-------------------------------------------  load page  route  -----------------------------------------*/
+      
+    /*--------------------  load page  route  -----------------------------------------*/
       .state('root.load-page', {
         url: '/load-page?from',
         views: {
@@ -1497,7 +1337,7 @@ hongcaiApp
           }
         }
       })
-    /*-------------------------------------------  traffic import route  -----------------------------------------*/
+    /*---------------- traffic import route  ----------------------*/
     .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',
         views: {
