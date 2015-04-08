@@ -1,5 +1,5 @@
 {
-  "YEEPAY_ADDRESS": "http://119.161.147.110:8088/member/bha/",
+  "YEEPAY_ADDRESS": "http://192.168.1.43:3300/yeepay/2.0.3/member/bha/",
   "viewFlAG": {
     "tuhaoIsShowedFlAG": false,
     "sponsorsIsShowedFlAG": false,
