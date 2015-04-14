@@ -36,6 +36,7 @@
                 <td class="bg-grey3 tab-right" ng-if="fundsProduct.type === 1">7次</td>
                 <td class="bg-grey3 tab-right" ng-if="fundsProduct.type === 2">5次</td>
                 <td class="bg-grey3 tab-right" ng-if="fundsProduct.type === 3">3次</td>
+                <td class="bg-grey3 tab-right" ng-if="fundsProduct.type === 4">3次</td>
                 <!-- <td class="bg-grey3 tab-right">{{(fundsProduct.maxRate - fundsProduct.baseRate) / fundsProduct.riseRate | number: 0}}次</td> -->
               </tr>
               <tr class="border-b-white">
@@ -127,18 +128,18 @@
                   <li>真实安全：加入宏金盈的资金，全部用于投资真实、提供100%本息担保的小额借款项目。</li>
                   <li>超低门槛：100元即可以加入，以100元倍数递增。</li>
                   <li>多样选择：多种期限搭配，满足不同流动性需求。</li>
-                  <li>省心优利：一次投入，按月（期）付息，到期还本；七日盈、月月盈、季度盈可选择自动续投。</li>
+                  <li>省心优利：一次投入，按月（期）付息，到期还本；七日盈、月月盈、季度盈、半年盈可选择自动续投。</li>
                   <li>零手续费：加入和到期赎回全免费。</li>
                   <li>分散投资：一份投资对应多份债权，降低投资风险。</li>
-                  <li>递增收益：6%-10%，七日盈、月月盈、季度盈每期分别递增0.3%、0.4%、0.5%。</li>
+                  <li>递增收益：6%-14.5%，七日盈、月月盈、季度盈、半年盈每期分别递增0.3%、0.4%、0.5%、1.5%  。</li>
                 </ol>
               </div>
               <div class="ask-area col-xs-12">
                 <h4>二、宏金盈的收益是如何递增的？最多可续投多少期？</h4>
                  <div class="col-xs-12">
                   <div class="row">
-                    <div class="col-xs-2 double-line no-border-r">宏金盈</div>
-                    <div class="col-xs-2 double-line no-border-r">投资</div>
+                    <div class="col-xs-1 double-line no-border-r col-xs-offset-2">宏金盈</div>
+                    <div class="col-xs-1 double-line no-border-r">投资</div>
                     <div class="col-xs-7 single-line">续投</div>
                     <div class="col-xs-1" style="height:30px;"></div>
                     <li class="col-xs-1 single-line no-border-t no-border-r">第一次</li>
@@ -150,27 +151,35 @@
                     <li class="col-xs-1 single-line no-border-t">第七次</li>
                   </div>
                   <div class="row">
-                    <div class="col-xs-2 double-line no-border-t no-border-r">七日盈</div>
-                    <div class="col-xs-2 double-line no-border-t no-border-r">6%</div>
-                    <li class="col-xs-1 double-line no-border-t no-border-r">6.3%</li>
-                    <li class="col-xs-1 double-line no-border-t no-border-r">6.6%</li>
-                    <li class="col-xs-5 double-line no-border-t">6.9%</li>
+                    <div class="col-xs-1 double-line single-line no-border-t no-border-r col-xs-offset-2">七日盈</div>
+                    <div class="col-xs-1 double-line single-line no-border-t no-border-r">6%</div>
+                    <li class="col-xs-1 double-line single-line no-border-t no-border-r">6.3%</li>
+                    <li class="col-xs-1 double-line single-line no-border-t no-border-r">6.6%</li>
+                    <li class="col-xs-5 double-line single-line no-border-t">6.9%</li>
                   </div>
                   <div class="row">
-                    <div class="col-xs-2 double-line no-border-t no-border-r">月月盈</div>
-                    <div class="col-xs-2 double-line no-border-t no-border-r">7%</div>
-                    <li class="col-xs-1 double-line no-border-t no-border-r">7.4%</li>
-                    <li class="col-xs-1 double-line no-border-t no-border-r">7.8%</li>
-                    <li class="col-xs-3 double-line no-border-t no-border-r">8.2%</li>
-                    <li class="col-xs-2 double-line no-border-t">不再续投，自动退出</li>
+                    <div class="col-xs-1 double-line single-line no-border-t no-border-r col-xs-offset-2">月月盈</div>
+                    <div class="col-xs-1 double-line single-line no-border-t no-border-r">7%</div>
+                    <li class="col-xs-1 double-line single-line no-border-t no-border-r">7.4%</li>
+                    <li class="col-xs-1 double-line single-line no-border-t no-border-r">7.8%</li>
+                    <li class="col-xs-3 double-line single-line no-border-t no-border-r">8.2%</li>
+                    <li class="col-xs-2 double-line single-line no-border-t">不再续投，自动退出</li>
                   </div>
                   <div class="row">
-                    <div class="col-xs-2 double-line no-border-t no-border-r">季度盈</div>
-                    <div class="col-xs-2 double-line no-border-t no-border-r">8.5%</div>
-                    <li class="col-xs-1 double-line no-border-t no-border-r">9%</li>
-                    <li class="col-xs-1 double-line no-border-t no-border-r">9.5%</li>
-                    <li class="col-xs-1 double-line no-border-t no-border-r">10%</li>
-                    <li class="col-xs-4 double-line no-border-t">不再续投，自动退出</li>
+                    <div class="col-xs-1 double-line single-line no-border-t no-border-r col-xs-offset-2">季度盈</div>
+                    <div class="col-xs-1 double-line single-line no-border-t no-border-r">8.5%</div>
+                    <li class="col-xs-1 double-line single-line no-border-t no-border-r">9%</li>
+                    <li class="col-xs-1 double-line single-line no-border-t no-border-r">9.5%</li>
+                    <li class="col-xs-1 double-line single-line no-border-t no-border-r">10%</li>
+                    <li class="col-xs-4 double-line single-line no-border-t">不再续投，自动退出</li>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-1 double-line single-line no-border-t no-border-r col-xs-offset-2">半年盈</div>
+                    <div class="col-xs-1 double-line single-line no-border-t no-border-r">10%</div>
+                    <li class="col-xs-1 double-line single-line no-border-t no-border-r">11.5%</li>
+                    <li class="col-xs-1 double-line single-line no-border-t no-border-r">13%</li>
+                    <li class="col-xs-1 double-line single-line no-border-t no-border-r">14.5%</li>
+                    <li class="col-xs-4 double-line single-line no-border-t">不再续投，自动退出</li>
                   </div>
                 </div>
                 <p>举例说明：
