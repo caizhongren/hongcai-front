@@ -33,10 +33,10 @@ angular.module('hongcaiApp')
      * 我的债权统计数据
      */
     // $scope.getCreditRightStatistics = function() {
-    $scope.showCreditRightStatistics = true;
     UserCenterService.getCreditRightStatistics.get({}, function(response) {
       if (response.ret === 1) {
         $scope.creditRightStatis = response.data.creditRightStatis;
+        $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
       } else {
         $scope.showCreditRightStatistics = false;
         toaster.pop('warning', response.msg);

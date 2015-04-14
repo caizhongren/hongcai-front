@@ -67,7 +67,7 @@ angular.module('hongcaiApp')
       return $scope.haveTrusteeshipAccount;
     };
 
-    $scope.showOrderStatistics = true;
+    
     var getOrderByUser = UserCenterService.getOrderByUser.get({
         type: $stateParams.type,
         dateInterval: $stateParams.dateInterval,
@@ -86,6 +86,7 @@ angular.module('hongcaiApp')
           $scope.status = getOrderByUser.data.status;
           $scope.notPayOrder = getOrderByUser.data.notPayOrder;
           $scope.productsMap = getOrderByUser.data.productsMap;
+          
           // $scope.invFromDate = getOrderByUser.data.dateStart || 0;
           // $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
           $scope.currentPage = 0;
