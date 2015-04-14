@@ -5,22 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
 <title>Document</title>
 <link rel="stylesheet" href="styles/style.css" />
+<script type="text/javascript" src="lib/zepto.min.js"></script>
+<script type="text/javascript" src="lib/vue.min.js"></script>
 </head>
-<body>
+<body class="y_wra_bg" id="awardSuccessCash">
 <div class="y_rich">
 	<div class="ypeo2">
 		<figure>
-			<img src="images/peo.png" alt="">
+			<img v-attr="src:personImgUrl" alt="">
 		</figure>
-		<p>恭喜您成功领取 <em>20元奖金</em>！可用于投资或取现。<em>2015年5月31日前</em> 有效。</p>
+		<p>恭喜您成功领取 <em>{{amount}}元奖金</em>！可用于投资或取现。<em>2015年5月31日前</em> 有效。</p>
 	</div>
 	<div class="mon">
-		<em>20</em>
+		<em>{{amount}}</em>
 		<span>元</span>
 	</div>
 	<a href="#" class="yuse">如何使用？</a>
 	<p class="zhuang">
-		<i></i>奖金已放入与 <em>188****3361</em> 手机号码<br>相对应的宏财网账户中~<br>20分钟内到账，请到宏财网“我的账户”查看！</p>
+		<i></i>奖金已放入与 <em>{{changePhoneNum(phoneNum)}}</em> 手机号码<br>相对应的宏财网账户中~<br>20分钟内到账，请到宏财网“我的账户”查看！</p>
 </div>
 <div class="y_firendsay ybg1">
 	<h2>
@@ -29,29 +31,16 @@
 	</h2>
 	<div class="con">
 		<ul>
-			<li>
+			<li v-repeat="userList">
 				<figure>
-					<img src="images/peo.png" alt="">
+					<img v-attr="src:headimgurl" alt="">
 				</figure>
 				<div class="ent">
-					<h5>
-						王小二
-						<em>20元现金</em>
-						<span>2015-03-31 18:58</span>
-					</h5>
-					<p>感谢，理财就靠你了！</p>
-				</div>
-			</li>
-			<li>
-				<figure>
-					<img src="images/peo.png" alt="">
-				</figure>
-				<div class="ent">
-					<h5>
-						王小二
-						<em>20元现金</em>
-						<span>2015-03-31 18:58</span>
-					</h5>
+          <h5>
+            {{nickname}}
+            <em>{{amount}}元现金</em>
+            <span>{{changeTime(createTime)}}</span>
+          </h5>
 					<p>感谢，理财就靠你了！</p>
 				</div>
 			</li>
@@ -59,4 +48,6 @@
 	</div>
 </div>
 </body>
+<script type="text/javascript" src="lib/moment.min.js"></script>
+<script type="text/javascript" src="js/award-success-cash.js"></script>
 </html>

@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
 <title>Document</title>
 <link rel="stylesheet" href="styles/style.css" />
+<script type="text/javascript" src="lib/zepto.min.js"></script>
+<script type="text/javascript" src="lib/vue.min.js"></script>
 </head>
-<body>
+<body id="award">
 <div class="y_top">
 	<div class="peo">
 		<div class="person">
-			<img src="images/peo.png" alt="">
+			<img v-attr="src:personImgUrl" alt="">
 		</div>
 		<div class="con">
 			<p>理财上宏财，免费发奖金，<br>奖金大小靠手气，快打开看看！</p>
@@ -19,7 +21,7 @@
 	<div class="y_je">
 		<span>待领金额</span>
 		<p>
-			<span>300</span>
+			<span>{{amount}}</span>
 			<em>元</em>
 		</p>
 	</div>
@@ -27,12 +29,12 @@
 <div class="y_mob">
 	<h3>送你宏财奖金，输入手机号，自动放入宏财网账户</h3>
 	<div class="con">
-		<input type="tel" placeholder="请输入您的手机号码 ..." />
+		<input type="tel" placeholder="请输入您的手机号码 ..." v-model="phoneNum" />
 	</div>
 </div>
 <div class="y_war">* 奖金可用于投资宏财网理财产品或取现</div>
 <div class="y_ys1">
-	<a href="javascript:;">打开红包</a>
+	<a href="javascript:openRedPacket();">打开红包</a>
 </div>
 <div class="y_firendsay mt30">
 	<h2>
@@ -41,34 +43,23 @@
 	</h2>
 	<div class="con">
 		<ul>
-			<li>
+			<li v-repeat="userList">
 				<figure>
-					<img src="images/peo.png" alt="">
+					<img v-attr="src:headimgurl" alt="">
 				</figure>
 				<div class="ent">
 					<h5>
-						王小二
-						<em>20元现金</em>
-						<span>2015-03-31 18:58</span>
+						{{nickname}}
+						<em>{{amount}}元现金</em>
+						<span>{{changeTime(createTime)}}</span>
 					</h5>
-					<p>感谢，理财就靠你了！</p>
-				</div>
-			</li>
-			<li>
-				<figure>
-					<img src="images/peo.png" alt="">
-				</figure>
-				<div class="ent">
-					<h5>
-						王小二
-						<em>20元现金</em>
-						<span>2015-03-31 18:58</span>
-					</h5>
-					<p>感谢，理财就靠你了！</p>
+					<p>{{content}}</p>
 				</div>
 			</li>
 		</ul>
 	</div>
 </div>
 </body>
+<script type="text/javascript" src="lib/moment.min.js"></script>
+<script type="text/javascript" src="js/award.js"></script>
 </html>
