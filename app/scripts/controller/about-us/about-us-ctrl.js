@@ -26,6 +26,10 @@ angular.module('hongcaiApp')
         'href': '/link-us',
         'link': 'root.about-us.link-us',
         'text': '联系我们'
+      }, {
+        'href': '/consultant-team',
+        'link': 'root.about-us.consultant-team',
+        'text': '顾问团队'
       }]
     };
 

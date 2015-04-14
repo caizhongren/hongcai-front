@@ -4,12 +4,12 @@ angular.module('hongcaiApp')
     $rootScope.selectPage = $location.path().split('/')[1];
     $scope.media = [{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner-7.png',
-      href: '/banner-investmentplan'
+      src: 'images/banner/banner-8.jpg',
+      href: '/consultant-team'
     },{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner-6.jpg',
-      href: '/banner-P2B'
+      src: 'images/banner/banner-7.png',
+      href: '/banner-investmentplan'
     },{
       mimeType: 'image/jpg',
       src: 'images/banner/banner-3.jpg',
