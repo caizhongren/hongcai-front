@@ -6,6 +6,7 @@ angular.module('hongcaiApp')
     var totalAssets = 0;
     var receivedProfit = 0;
     var balance = 0;
+    var reward = 0;
     UserCenterService.getUserAccount.get(function(response) {
       if (response.ret === 1) {
         var account = response.data.account;

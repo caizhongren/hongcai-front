@@ -53,7 +53,7 @@ angular.module('hongcaiApp')
         number: '@number'
       }),
       generateRedPacketByInvest: $resource(DEFAULT_DOMAIN + '/siteRedPacket/generateRedPacketByInvest', {
-        number: '@number'
+        creditRightNum: '@number'
       })
 
     };

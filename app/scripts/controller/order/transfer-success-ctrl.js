@@ -15,15 +15,16 @@ angular.module('hongcaiApp')
           toaster.pop('warning', response.msg);
         }
       });
-      // ProjectService.generateRedPacketByInvest.get({
-      //   number: $stateParams.number
-      // }, function(response){
-      //   if (response.ret === 1) {
-      //     $scope.getMoney = 1;
-      //   } else {
-      //     toaster.pop('warning', response.msg);
-      //   }
-      // });
+      ProjectService.generateRedPacketByInvest.get({
+        creditRightNum: $stateParams.number
+      }, function(response){
+        if (response.ret === 1) {
+          $scope.getMoney = 1;
+        } else {
+          $scope.getMoney = 0;
+          //toaster.pop('warning', response.msg);
+        }
+      });
     }
   }]);
 
