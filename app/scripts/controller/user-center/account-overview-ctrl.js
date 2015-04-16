@@ -15,6 +15,7 @@ angular.module('hongcaiApp')
         balance = account.balance;
         reward = account.reward;
 
+        $scope.reward = reward;
         $scope.account = response.data.account;
         $scope.account.totalAssets = totalAssets;
         if (totalAssets === 0 && receivedProfit === 0 && balance === 0) {
