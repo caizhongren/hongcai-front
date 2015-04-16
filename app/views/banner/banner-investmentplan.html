@@ -25,7 +25,7 @@
     <div id="jinying-step-2"></div>
     <div class="img-bg"></div>
     <div class="btn-area">
-      <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-2  jinying-btn ft-18" ng-class="{'seven-btn': item.fundsProduct.type === 1,'month-btn': item.fundsProduct.type === 2,'quarter-btn': item.fundsProduct.type === 3}" ng-repeat="item in fundsProjectProductList | limitTo: 3">立即投资</a>
+      <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-2  jinying-btn ft-18" ng-class="{'seven-btn': item.fundsProduct.type === 1,'month-btn': item.fundsProduct.type === 2,'quarter-btn': item.fundsProduct.type === 3,'half-btn': item.fundsProduct.type === 4}" ng-repeat="item in fundsProjectProductList | limitTo: 4">立即投资</a>
     </div>
   </div>
   <div class="bg-2">
@@ -60,10 +60,10 @@
         1)真实安全：加入宏金盈的资金，全部用于投资真实、提供100%本息担保的小额借款项目。
         <br>2)超低门槛：100元即可以加入，以100元倍数递增。
         <br>3)多样选择：多种期限搭配，满足不同流动性需求。
-        <br>4)省心优利：一次投入，按月（期）付息，到期还本；七日盈、月月盈、季度盈可选择自动续投。
+        <br>4)省心优利：一次投入，按月（期）付息，到期还本；七日盈、月月盈、季度盈、半年盈可选择自动续投。
         <br>5)零手续费：加入和到期赎回全免费。
         <br>6)分散投资：一份投资对应多份债权，降低投资风险。
-        <br>7)递增收益：6%-10%，七日盈、月月盈、季度盈每期分别递增0.3%、0.4%、0.5%。
+        <br>7)递增收益：6%-10%，七日盈、月月盈、季度盈、半年盈每期分别递增0.3%、0.4%、0.5%、1.5%。
       </p>
     </div>
     <div class="jinying-help-info">
@@ -72,7 +72,7 @@
         <span class="Q-info">宏金盈的自动续投利息如何计算？是否允许提前赎回？</span>
       </p>
       <p class="help-A">
-        递增收益，6%-10%，七日盈、月月盈、季度盈每期分别递增0.3%、0.4%、0.5%；可按投放周期赎回，在投放期限内取消自动续投到期后自动退出。
+        递增收益，6%-14.5%，七日盈、月月盈、季度盈、半年盈每期分别递增0.3%、0.4%、0.5%、1.5%；可按投放周期赎回，在投放期限内取消自动续投到期后自动退出。
       </p>
     </div>
     <div class="jinying-help-info">

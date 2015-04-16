@@ -7,6 +7,10 @@ angular.module('hongcaiApp')
         'link': 'root.about-us.introduction-of-platform',
         'text': '宏财简介'
       }, {
+        'href': '/consultant-team',
+        'link': 'root.about-us.consultant-team',
+        'text': '顾问团队'
+      }, {
         'href': '/hongcai-trends',
         'link': 'root.about-us.hongcai-trends',
         'text': '宏财动态'
