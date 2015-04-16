@@ -35,17 +35,17 @@ a{text-decoration: none;}
 /*content*/
 .y_ys2 a span:before,
 .y_ys3 a span:before,
-.y_rich>p.zhuang i{background: url(../images/yb_icon.png) no-repeat;background-size:22px 60px;}
+.y_rich>p.zhuang i{background: url(../images/weixin-activity/yb_icon.png) no-repeat;background-size:22px 60px;}
 
 html{height:100%;}
 body{background:#fff6e4;min-height:100%;}
-.y_top{height:318px;overflow: hidden;position: relative;background: url(../images/hongbao.jpg) no-repeat top center;background-size:360px 318px;border-top:1px solid #dddddd;}
+.y_top{height:318px;overflow: hidden;position: relative;background: url(../images/weixin-activity/hongbao.jpg) no-repeat top center;background-size:360px 318px;border-top:1px solid #dddddd;}
 .peo{margin:42px 20px 0;overflow: hidden;min-height:60px;}
 .peo .person{width:41px;height:41px;float: left;overflow: hidden;margin-right: 10px;}
 .peo .person img{width: 41px;height:41px;}
 .peo>.con{overflow:hidden;position: relative;}
 .peo>.con p{line-height:18px;color:#333;padding:10px 0;margin-left:8px;background:#fff;border:1px solid #ebcdae;border-radius:5px;text-align: center;}
-.peo>.con p:before{content:'';position: absolute;z-index:99;width: 9px;height:12px;left:0px;top:8px;background: url(../images/y_jt.png) no-repeat;background-size:9px 12px;}
+.peo>.con p:before{content:'';position: absolute;z-index:99;width: 9px;height:12px;left:0px;top:8px;background: url(../images/weixin-activity/y_jt.png) no-repeat;background-size:9px 12px;}
 .y_je{position: absolute;width: 130px;top:200px;left:50%;margin-left:-65px;}
 .y_je>span{font-size:12px;color:#fff;overflow: hidden;text-align: center;display: block;line-height:26px;}
 .y_je p{height:41px;text-align: center;border-radius:20px;border: 2px dashed #fff;line-height:41px;font-size:18px;color:#fff;}
@@ -81,8 +81,8 @@ body{background:#fff6e4;min-height:100%;}
 .y_firendsay .con li .ent h5 em{color:#e94828;padding-left:15px;}
 .y_firendsay .con li .ent h5 span{float: right;color:#aaaaaa;}
 .y_firendsay .con li .ent p{line-height:18px;padding:4px 0 4px 25px;background:#fff;border:1px solid #ebcdae;border-radius:5px;position: relative;margin-left:8px;font-size:12px;}
-.y_firendsay .con li .ent p:before{content:'';position: absolute;z-index:99;width: 9px;height:12px;left:-9px;top:4px;background: url(../images/y_jt.png) no-repeat;background-size:9px 12px;}
-.y_top2{height:280px;overflow: hidden;position: relative;background: url(../images/hongbao2.jpg) no-repeat top center;background-size:360px 280px;border-top:1px solid #dddddd;}
+.y_firendsay .con li .ent p:before{content:'';position: absolute;z-index:99;width: 9px;height:12px;left:-9px;top:4px;background: url(../images/weixin-activity/y_jt.png) no-repeat;background-size:9px 12px;}
+.y_top2{height:280px;overflow: hidden;position: relative;background: url(../images/weixin-activity/hongbao2.jpg) no-repeat top center;background-size:360px 280px;border-top:1px solid #dddddd;}
 .y_ts{font-size:12px;color:#cc9966;text-align: center;overflow: hidden;line-height:18px;margin-top:50px;}
 .y_ts span{color:#e94828;font-weight: bold;}
 .y_money{position: absolute;width:160px;height:60px;line-height:60px;top:178px;left:50%;margin-left:-80px;font-size:18px;color:#fff;text-align: center;}
@@ -98,17 +98,17 @@ body{background:#fff6e4;min-height:100%;}
 .y_gui span{padding-right:9px;position: relative;}
 .y_gui span:after{content:'';position: absolute;width:4px;height:4px;border-top:1px solid #fff;border-right:1px solid #fff;right:2px;top:50%;margin-top:-2px;-webkit-transform: rotate(45deg);}
 .y_fu{position: fixed;z-index:999;width: 100%;height:100%;top:0;left:0;background: rgba(0,0,0,0.7);}
-.y_fu i.jt{position: absolute;width:79px;height:95px;right: 20px;top:15px;background: url(../images/y_fx.png) no-repeat;background-size:79px 95px;}
+.y_fu i.jt{position: absolute;width:79px;height:95px;right: 20px;top:15px;background: url(../images/weixin-activity/y_fx.png) no-repeat;background-size:79px 95px;}
 .y_fu p.sm{line-height:30px;text-align: center;color:#fff;font-size:18px;overflow: hidden;margin-top:103px;}
 .y_fu a.y_ok{display: block;width: 270px;height: 45px;line-height:48px;border-bottom: 3px solid #9b250d;text-align: center;font-size:18px;color:#fff;border-radius: 5px;box-shadow:0px 4px 10px #21201d;background:#e94828;margin:55px auto 0;}
-.y_top3{height:416px;overflow: hidden;position: relative;background: url(../images/over.jpg) no-repeat top center;background-size:360px 416px;border-top:1px solid #dddddd;}
+.y_top3{height:416px;overflow: hidden;position: relative;background: url(../images/weixin-activity/over.jpg) no-repeat top center;background-size:360px 416px;border-top:1px solid #dddddd;}
 .y_ys3 a span:before{content:'';position: absolute;width:22px;height:20px;left:0;top:50%;margin-top:-10px;background-position:0 -38px;}
 .ybg1{overflow: hidden;}
 .ybg1 .con li .ent h5{color:#fff;}
 .ybg1 .con li .ent h5 em{color:#ffff99;}
 .ybg1 .con li .ent h5 span{color:#ff9971;}
 .ybg1 h2 span{background:#f25d24;color:#ff9971;}
-.y_rich{height: 380px;overflow: hidden;position: relative;background: url(../images/y_jiangjin.jpg) no-repeat top center #fff6e4;background-size:375px 380px;}
+.y_rich{height: 380px;overflow: hidden;position: relative;background: url(../images/weixin-activity/y_jiangjin.jpg) no-repeat top center #fff6e4;background-size:375px 380px;}
 .ypeo2{margin:40px 20px 0;overflow: hidden;overflow: hidden;}
 .ypeo2 figure{width: 41px;height:41px;float: left;margin-right:12px;}
 .ypeo2 figure img{width: 41px;height:41px;}
@@ -128,28 +128,11 @@ body{background:#fff6e4;min-height:100%;}
 .yb_st{width: 295px;height:261px;margin:0 auto;overflow: hidden;}
 .yb_st img{width: 295px;height:261px;}
 .yb_hb_sm{height:50px;margin:0 20px;line-height:50px;text-align: center;font-size:15px;color:#fff;font-weight: bold;background:#ff9000;position:relative;}
-.yb_hb_sm:before{position: absolute;content:'';width: 15px;height: 50px;left:0;top:0;z-index:9;background: url(../images/jiao.png) no-repeat;background-size:15px 50px;}
-.yb_hb_sm:after{position: absolute;content:'';width: 15px;height: 50px;right:0;top:0;z-index:9;background: url(../images/jiao.png) no-repeat;background-size:15px 50px;-webkit-transform:rotate(180deg);}
+.yb_hb_sm:before{position: absolute;content:'';width: 15px;height: 50px;left:0;top:0;z-index:9;background: url(../images/weixin-activity/jiao.png) no-repeat;background-size:15px 50px;}
+.yb_hb_sm:after{position: absolute;content:'';width: 15px;height: 50px;right:0;top:0;z-index:9;background: url(../images/weixin-activity/jiao.png) no-repeat;background-size:15px 50px;-webkit-transform:rotate(180deg);}
 .yb_hb_sm i{display: inline-block;width: 29px;height:29px;border-radius:50%;background:#fff;text-align: center;line-height:29px;color:#ff9000;font-size:23px;font-style: normal;margin-right:7px;vertical-align: -2px;}
 .y_ji{padding:0 20px 5px;overflow: hidden;}
 .y_ji h3{height:21px;line-height:21px;overflow: hidden;position: relative;text-align: center;}
 .y_ji h3 span{color:#e94828;position: relative;z-index:8;padding:0 28px;background:#fff;font-size:15px;font-weight: bold;}
 .y_ji h3 strong{position: absolute;display: block;left:0;top:10px;right: 0;display: block;height:1px;background:#ebcdae;z-index:6;}
 .y_ji p{font-size:12px;color:#333333;padding:15px 16px;line-height:18px;overflow: hidden;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
