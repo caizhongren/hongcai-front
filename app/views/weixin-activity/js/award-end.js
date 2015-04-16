@@ -1,5 +1,4 @@
 var num = '';
-var mobile = '';
 
 function getQueryStringArgs() {
   var qs = location.search.length > 0 ? location.search.substring(1) : "",
@@ -21,8 +20,8 @@ function getQueryStringArgs() {
   return args;
 }
 
-var awardSuccessCash = new Vue({
-  el: '#awardSuccessCash',
+var awardEnd = new Vue({
+  el: '#awardEnd',
   data: {
     personImgUrl: 'images/default_head.png',
     phoneNum: '',
@@ -39,11 +38,6 @@ var awardSuccessCash = new Vue({
     changeTime: function(time) {
       return moment(time).format('YYYY-MM-DD HH:mm')
     },
-    changePhoneNum: function(phoneNum) {
-      var subs = phoneNum.substr(3, 4);
-      var newtel = phoneNum.replace(subs, "****");
-      return newtel;
-    },
     changeContent: function(type) {
       switch (type) {
         case 1:
@@ -55,8 +49,7 @@ var awardSuccessCash = new Vue({
         case 3:
           return "额外奖励";
           break;
-        default:
-          return "xxx"
+        default: return "xxx"
       }
     }
   }
@@ -68,8 +61,8 @@ function openRecordList(num) {
     $.get(openRedPacketRecordUrl, function(data) {
       var _data = JSON.parse(data)
       console.log(_data)
-      awardSuccessCash.$data.userList = _data.data.redPacketTakeRecords;
-      awardSuccessCash.$data.content = _data.data.redPacket.takeMsg;
+      awardEnd.$data.userList = _data.data.redPacketTakeRecords;
+      awardEnd.$data.content = _data.data.redPacket.takeMsg;
     })
   } else {
     cnosole.log("还没从api获取num")
@@ -92,12 +85,8 @@ function getCookie(c_name) {
 
 function main() {
   var qstr = getQueryStringArgs();
-  code = qstr["code"];
   num = qstr["num"];
-  mobile = qstr["mobile"];
-  awardSuccessCash.$data.amount = qstr["amount"];
-  awardSuccessCash.$data.personImgUrl = getCookie("headimgurl");
-  awardSuccessCash.$data.phoneNum = mobile;
+  awardEnd.$data.personImgUrl = getCookie("headimgurl");
   openRecordList(num);
 }
 main();
