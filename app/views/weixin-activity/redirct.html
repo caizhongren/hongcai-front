@@ -10,4 +10,14 @@
 <div class="yb_tz">跳转中...</div>
 </body>
 <script type="text/javascript" src="js/authorize.js"></script>
+<script type="text/javascript">
+var useragent = navigator.userAgent;
+console.log(useragent)
+if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+  alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+  var opened = window.open('about:blank', '_self');
+  opened.opener = null;
+  opened.close();
+}
+</script>
 </html>

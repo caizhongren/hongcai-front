@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
-<title>Document</title>
+<title>抽中现金了</title>
 <link rel="stylesheet" href="styles/style.css" />
 <script type="text/javascript" src="lib/zepto.min.js"></script>
 <script type="text/javascript" src="lib/vue.min.js"></script>
+  <script type="text/javascript" src="lib/jweixin-1.0.0.js"></script>
 </head>
 <body class="y_wra_bg" id="awardSuccessCash">
 <div class="y_rich">
@@ -20,7 +21,7 @@
 		<em>{{amount}}</em>
 		<span>元</span>
 	</div>
-	<a href="#" class="yuse">如何使用？</a>
+	<a href="http://weixin-activity.tunnel.mobi/intro2.html" class="yuse">如何使用？</a>
 	<p class="zhuang">
 		<i></i>奖金已放入与 <em>{{changePhoneNum(phoneNum)}}</em> 手机号码<br>相对应的宏财网账户中~<br>20分钟内到账，请到宏财网“我的账户”查看！</p>
 </div>
@@ -38,7 +39,7 @@
 				<div class="ent">
           <h5>
             {{nickname}}
-            <em>{{amount}}元现金</em>
+            <em>{{amount}}元{{changeContent(type)}}</em>
             <span>{{changeTime(createTime)}}</span>
           </h5>
 					<p>感谢，理财就靠你了！</p>
@@ -50,4 +51,14 @@
 </body>
 <script type="text/javascript" src="lib/moment.min.js"></script>
 <script type="text/javascript" src="js/award-success-cash.js"></script>
+<script type="text/javascript">
+var useragent = navigator.userAgent;
+console.log(useragent)
+if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+  alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+  var opened = window.open('about:blank', '_self');
+  opened.opener = null;
+  opened.close();
+}
+</script>
 </html>
