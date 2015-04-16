@@ -46,7 +46,7 @@
         <p>可投金额<strong>{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </strong>元</p>
       </div>
       <div class="row money-area" ng-show="item.status !== 1">
-        <img src="images/hongjinying/castBg.png">
+        <img src="images/hongjinying/money.png">
         <p>成功投资<strong>{{ (item.soldStock + item.occupancyStock) * item.increaseAmount | noFractionCurrency:"":0 || 0}}</strong>元</p>
       </div>
       <div class="row hongjinying-btn-area">
