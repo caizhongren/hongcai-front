@@ -55,6 +55,8 @@ angular.module('hongcaiApp')
       title: '月月盈',
     }, {
       title: '季度盈',
+    }, {
+      title: '半年盈',
     }];
 
     $scope.toggle = {};

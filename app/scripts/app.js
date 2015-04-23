@@ -868,6 +868,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.about-us.consultant-team', {
+        url: '/consultant-team',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/consultant-team.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
       /*------------------  partner  ------------------------*/
       .state('root.partner', {
         abstract: true,
