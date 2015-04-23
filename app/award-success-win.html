@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
+<title>抽中红包了</title>
+<link rel="stylesheet" href="styles/weixin-style.css" />
+<script src="http://cdn.bootcss.com/zepto/1.1.4/zepto.min.js"></script>
+<script src="http://cdn.bootcss.com/vue/0.11.5/vue.min.js"></script>
+  <script src="http://7xim4v.com1.z0.glb.clouddn.com/jweixin-1.0.0.js"></script>
+</head>
+<body id="awardSuccessWin">
+<!---->
+<div class="y_fu" style="display:none;">
+  <i class="jt"></i>
+  <p class="sm">请点击右上角,<br>分享给指定朋友或朋友圈</p>
+  <a href="javascript:showM();" class="y_ok">知道了</a>
+</div>
+<!---->
+<div class="y_top2">
+	<div class="y_ts">
+		恭喜您抢到 <span>{{amount}}元</span> 红包，快分享给好友一起领取奖金！
+	</div>
+	<div class="y_money">
+		<em>{{amount}}</em>
+		<span>元</span>
+	</div>
+</div>
+<div class="y_shuo">
+	奖金要分享，也要私藏<br>您分享的奖金额度变为 <em>0元</em> 时，您将获得 <em>额外奖金鼓励</em>
+</div>
+<div class="y_ys2">
+	<a href="javascript:showM();">
+		<span>分享给好友</span>
+	</a>
+</div>
+<a class="y_gui" href="http://weixin-activity.tunnel.mobi/intro2.html">
+	<span>活动规则</span>
+</a>
+<div class="y_firendsay mt30">
+	<h2>
+		<span>看看朋友们的手气</span>
+		<strong></strong>
+	</h2>
+	<div class="con">
+    <ul>
+      <li v-repeat="userList">
+        <figure>
+          <img v-attr="src:headimgurl" alt="">
+        </figure>
+        <div class="ent">
+          <h5>
+            {{nickname}}
+            <em>{{amount}}元现金</em>
+            <span>{{changeTime(createTime)}}</span>
+          </h5>
+          <p>感谢，理财就靠你了！</p>
+        </div>
+      </li>
+    </ul>
+	</div>
+</div>
+</body>
+<script src="http://7xim4v.com1.z0.glb.clouddn.com/moment.min.js"></script>
+<script src="http://7xim4v.com1.z0.glb.clouddn.com/award-success-win.js"></script>
+<script type="text/javascript">
+var useragent = navigator.userAgent;
+console.log(useragent)
+if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+  alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+  var opened = window.open('about:blank', '_self');
+  opened.opener = null;
+  opened.close();
+}
+</script>
+</html>

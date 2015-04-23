@@ -9,6 +9,7 @@ angular.module('hongcaiApp')
     var freezeCapital = 0;
     var receivedProfit = 0;
     var amount = 0;
+    var reward = 0;
     UserCenterService.getUserAccount.get(function(response) {
       if (response.ret === 1) {
         var account = response.data.account;
@@ -19,7 +20,9 @@ angular.module('hongcaiApp')
         freezeCapital = account.freezeCapital;
         receivedProfit = account.receivedProfit;
         amount = account.amount;
+        reward = account.reward;
 
+        $scope.reward = reward;
         $scope.account = response.data.account;
         if (balance === 0 && waitingProfit === 0 && waitingCapital === 0 && freezeCapital === 0 && receivedProfit === 0 && amount === 0) {
           $scope.doughnutAssetsData = [{
@@ -40,23 +43,47 @@ angular.module('hongcaiApp')
             color: '#6aabe1'
           }];
         } else {
-          $scope.doughnutAssetsData = [{
-            value: account.balance,
-            label: '可用余额',
-            color: '#d2cb3f'
-          }, {
-            value: account.waitingProfit,
-            label: '待收收益',
-            color: '#62cbc6'
-          }, {
-            value: account.waitingCapital,
-            label: '待收本金',
-            color: '#f9b81e'
-          }, {
-            value: account.freezeCapital,
-            label: '冻结资金',
-            color: '#6aabe1'
-          }];
+          if(reward > 0){
+            $scope.doughnutAssetsData = [{
+              value: account.balance,
+              label: '可用余额',
+              color: '#d2cb3f'
+            }, {
+              value: account.waitingProfit,
+              label: '待收收益',
+              color: '#62cbc6'
+            }, {
+              value: account.waitingCapital,
+              label: '待收本金',
+              color: '#f9b81e'
+            }, {
+              value: account.freezeCapital,
+              label: '冻结资金',
+              color: '#6aabe1'
+            }];
+          }else if( reward === 0){
+            $scope.doughnutAssetsData = [{
+              value: account.balance,
+              label: '可用余额',
+              color: '#d2cb3f'
+            }, {
+              value: account.waitingProfit,
+              label: '待收收益',
+              color: '#62cbc6'
+            }, {
+              value: account.waitingCapital,
+              label: '待收本金',
+              color: '#f9b81e'
+            }, {
+              value: account.freezeCapital,
+              label: '冻结资金',
+              color: '#6aabe1'
+            }, {
+              value: reward,
+              label: '活动奖金',
+              color: '#cb62bb'
+            }];
+          }
         }
 
       } else {
