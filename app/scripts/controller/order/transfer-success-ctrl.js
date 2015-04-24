@@ -15,18 +15,18 @@ angular.module('hongcaiApp')
           toaster.pop('warning', response.msg);
         }
       });
-      ProjectService.generateRedPacketByInvest.get({
-        creditRightNum: $stateParams.number
-      }, function(response){
-        if (response.ret === 1) {
-          $scope.getMoney = 1;
-          $scope.imgUrl = response.data.baseQRCodeFileUrl + response.data.redPacket.qrcode;
-          $scope.moneyUrl = '/images/weixin-activity/' + response.data.redPacket.amount + '.png';
-        } else {
-          $scope.getMoney = 0;
-          //toaster.pop('warning', response.msg);
-        }
-      });
+      $scope.getMoney = 0;
+      // ProjectService.generateRedPacketByInvest.get({
+      //   creditRightNum: $stateParams.number
+      // }, function(response){
+      //   if (response.ret === 1) {
+      //     $scope.getMoney = 1;
+      //     $scope.imgUrl = response.data.baseQRCodeFileUrl + response.data.redPacket.qrcode;
+      //     $scope.moneyUrl = '/images/weixin-activity/' + response.data.redPacket.amount + '.png';
+      //   } else {
+      //     $scope.getMoney = 0;
+      //   }
+      // });
     }
   }]);
 
