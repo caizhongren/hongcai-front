@@ -21,7 +21,13 @@ angular.module('hongcaiApp')
         if (response.ret === 1) {
           $scope.getMoney = 1;
           $scope.imgUrl = response.data.baseQRCodeFileUrl + response.data.redPacket.qrcode;
-          $scope.moneyUrl = '/images/weixin-activity/' + response.data.redPacket.amount + '.png';
+          if(response.data.redPacket.amount === 100){
+            $scope.moneyUrl = '/images/weixin-activity/100.png';
+          }else if(response.data.redPacket.amount === 200){
+            $scope.moneyUrl = '/images/weixin-activity/200.png';
+          }else if(response.data.redPacket.amount === 300){
+            $scope.moneyUrl = '/images/weixin-activity/300.png';
+          }
         } else {
           $scope.getMoney = 0;
         }
