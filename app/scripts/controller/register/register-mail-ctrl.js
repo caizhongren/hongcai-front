@@ -10,6 +10,13 @@ angular.module('hongcaiApp')
       };
     }
 
+    if(ipCookie('registeInviteCode')){
+      var cookiesInviteCode = ipCookie('registeInviteCode');
+      $scope.user = {
+        inviteCode: cookiesInviteCode
+      };
+    }
+
     $scope.submitRegisterMail = function(user) {
       RegisterService.saveRegister.save({
         name: user.name,

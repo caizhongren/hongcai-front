@@ -1328,7 +1328,7 @@ hongcaiApp
       
     /*--------------------  load page  route  -----------------------------------------*/
       .state('root.load-page', {
-        url: '/load-page?from',
+        url: '/load-page?from&inviteCode',
         views: {
           '': {
             templateUrl: 'views/load-page.html',
