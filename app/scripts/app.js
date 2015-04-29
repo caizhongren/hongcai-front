@@ -225,7 +225,9 @@ hongcaiApp
         url: '/friends',
         views: {
           '': {
-            templateUrl: 'views/banner/friends-ship.html'
+            templateUrl: 'views/banner/friends-ship.html',
+            controller: 'FriendLinkCtrl',
+            controllerUrl: 'scripts/controller/banner/friend-link-ctrl'
           }
         }
       })
