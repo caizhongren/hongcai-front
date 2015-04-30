@@ -225,7 +225,9 @@ hongcaiApp
         url: '/friends',
         views: {
           '': {
-            templateUrl: 'views/banner/friends-ship.html'
+            templateUrl: 'views/banner/friends-ship.html',
+            controller: 'FriendLinkCtrl',
+            controllerUrl: 'scripts/controller/banner/friend-link-ctrl'
           }
         }
       })
@@ -1328,7 +1330,7 @@ hongcaiApp
       
     /*--------------------  load page  route  -----------------------------------------*/
       .state('root.load-page', {
-        url: '/load-page?from',
+        url: '/load-page?from&inviteCode',
         views: {
           '': {
             templateUrl: 'views/load-page.html',

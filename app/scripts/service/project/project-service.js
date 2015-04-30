@@ -51,6 +51,10 @@ angular.module('hongcaiApp')
       getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {}),
       getOneDayProfitAndNextRate: $resource(DEFAULT_DOMAIN + '/siteFunds/getOneDayProfitAndNextRate', {
         number: '@number'
+      }),
+      generateRedPacketByInvest: $resource(DEFAULT_DOMAIN + '/siteRedPacket/generateRedPacketByInvest', {
+        creditRightNum: '@number'
       })
+
     };
   });

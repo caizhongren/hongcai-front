@@ -117,8 +117,15 @@
       </div>
     </div>
   </div>
-
+  <div style="display: block;" class="mask_layer am-fade" ng-show="getMoney === 1">
+    <div class="alert am-fade get-money-bg">
+      <i class="fa fa-times-circle ft-30 ft-white" style="float:right;cursor:pointer;" ng-click="getMoney = 0;"></i>
+      <img src="{{imgUrl}}" class="Qr-code">
+      <img src="{{moneyUrl}}" class="money-num">
+    </div>
+  </div>
   <div class="container bg" ng-switch-when="4">
+
     <div class="agreement-area row introduction-height">
       <div class="col-md-12 col-lg-12">
         <div class="row">
@@ -325,3 +332,4 @@
     </div>
   </div>
 </div>
+

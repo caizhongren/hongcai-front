@@ -1,6 +1,12 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('LoadPageCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'md5', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie, MainService) {
+    ipCookie('registeInviteCode', $stateParams.inviteCode, {
+        expires: 7
+      });
+    $scope.user = {
+      inviteCode: $stateParams.inviteCode
+    };
     // var lpdialoag = $('#lpdialog');
     var lpclose = $('#lpclose');
     lpclose.click(function() {

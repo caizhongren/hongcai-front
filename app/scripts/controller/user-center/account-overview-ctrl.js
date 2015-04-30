@@ -6,20 +6,22 @@ angular.module('hongcaiApp')
     var totalAssets = 0;
     var receivedProfit = 0;
     var balance = 0;
+    var reward = 0;
     UserCenterService.getUserAccount.get(function(response) {
       if (response.ret === 1) {
         var account = response.data.account;
         totalAssets = response.data.totalAssets;
         receivedProfit = account.receivedProfit;
         balance = account.balance;
+        reward = account.reward;
 
+        $scope.reward = reward;
         $scope.account = response.data.account;
         $scope.account.totalAssets = totalAssets;
         if (totalAssets === 0 && receivedProfit === 0 && balance === 0) {
           $scope.doughnutAccountData = [{
             value: 30,
             label: '账户总资产',
-            //highlight: '#FF5A5E',
             color: '#e94828'
           }, {
             value: 30,
@@ -31,20 +33,40 @@ angular.module('hongcaiApp')
             color: '#62cbc6'
           }];
         } else {
-          $scope.doughnutAccountData = [{
-            value: totalAssets,
-            label: '账户总资产',
-            //highlight: '#FF5A5E',
-            color: '#e94828'
-          }, {
-            value: receivedProfit,
-            label: '累计净收益',
-            color: '#f9b81e'
-          }, {
-            value: balance,
-            label: '账户余额',
-            color: '#62cbc6'
-          }];
+          if(reward > 0){
+            $scope.doughnutAccountData = [{
+              value: totalAssets,
+              label: '账户总资产',
+              color: '#e94828'
+            }, {
+              value: receivedProfit,
+              label: '累计净收益',
+              color: '#f9b81e'
+            }, {
+              value: balance,
+              label: '账户余额',
+              color: '#62cbc6'
+            }, {
+              value: reward,
+              label: '活动奖金',
+              color: '#cb62bb'
+            }];
+          }else if( reward === 0){
+            $scope.doughnutAccountData = [{
+              value: totalAssets,
+              label: '账户总资产',
+              color: '#e94828'
+            }, {
+              value: receivedProfit,
+              label: '累计净收益',
+              color: '#f9b81e'
+            }, {
+              value: balance,
+              label: '账户余额',
+              color: '#62cbc6'
+            }];
+          }
+          
         }
 
       } else {
