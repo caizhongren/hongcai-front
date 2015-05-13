@@ -27,7 +27,7 @@ angular.module('hongcaiApp')
         inviteCode: user.inviteCode,
         from: ipCookie('utm_from')
       }, function(response) {
-        console.log(response.ret);
+        // console.log(response.ret);
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);
           $state.go('root.send-email');
