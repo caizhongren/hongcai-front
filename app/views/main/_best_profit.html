@@ -42,12 +42,10 @@
         </p>
       </div>
       <div class="row money-area" ng-show="item.status === 1">
-        <img src="images/hongjinying/money.png">
-        <p>可投金额<strong>{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </strong>元</p>
+        <p class="text-center"><img src="images/hongjinying/money.png">&nbsp;可投金额<strong>{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </strong>元</p>
       </div>
       <div class="row money-area" ng-show="item.status !== 1">
-        <img src="images/hongjinying/money.png">
-        <p>成功投资<strong>{{ (item.soldStock + item.occupancyStock) * item.increaseAmount | noFractionCurrency:"":0 || 0}}</strong>元</p>
+        <p class="text-center"><img src="images/hongjinying/money.png">&nbsp;成功投资<strong>{{ (item.soldStock + item.occupancyStock) * item.increaseAmount | noFractionCurrency:"":0 || 0}}</strong>元</p>
       </div>
       <div class="row hongjinying-btn-area">
         <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-primary investment-btn" role="button" ng-show="item.status === 1">立即投资</a>
@@ -55,79 +53,4 @@
       </div>
     </div>
   </div>
-      <!--<div class="col-xs-offset-1 col-xs-10">
-        <div class="row margin-b-10">
-          <a ui-sref="root.investmentplan-details({number: item.number})">
-            <h3 class="real-type-name">{{item.fundsProduct.name}}
-              <span class="real-type-date">{{item.name}}</span>
-            </h3>
-          </a>
-        </div>
-        <div class="row margin-b-10 text-center">
-          <div class="col-xs-6 col-md-12 col-lg-6">
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-lg-12">
-                <div class="row">
-                  
-                  <span class="ft-14 ft-cast" ></span>
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-lg-12">
-                <div class="row">
-                  <span class="ft-grey">
-                    <strong class="ft-24" ng-show="item.status === 1"></strong>
-                    <strong class="ft-24" ng-show="item.status !== 1"> </strong>
-                    元
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-6 col-md-12 col-lg-6">
-            <div class="row">-->
-              <!-- FIX -->
-              <!--<p class="annual-earnings">
-                <span class="ft-90 ft-red percent-num" ></span>
-                <span class="ft-14 ft-red percent-ft">%年化</span>
-                <span class="floating-rate">
-                    <img src="images/hongjinying/prompt.png" alt="">
-                    <span class="ft-16"></span>
-                </span>
-              </p>-->
-              <!--<p ng-show="item.fundsProduct.type === 1" class="annual-earnings" data-placement="top" data-content="每七日增0.3%" data-trigger="hover" bs-popover>
-                <span class="ft-90 ft-red percent-num" >{{item.fundsProduct.baseRate | number: 1 || 0}}</span>
-                <span class="ft-14 ft-red percent-ft">%年化</span>
-                <span class="floating-rate">
-                    <img src="images/hongjinying/prompt.png" alt="">
-                    <span class="ft-16">+{{item.fundsProduct.riseRate}}</span>
-                </span>
-              </p>
-              <p ng-show="item.fundsProduct.type === 2" class="annual-earnings" data-placement="top" data-content="每月增0.4%" data-trigger="hover" bs-popover>
-                <span class="ft-90 ft-red percent-num" >{{item.fundsProduct.baseRate | number: 1 || 0}}</span>
-                <span class="ft-14 ft-red percent-ft">%年化</span>
-                <span class="floating-rate">
-                    <img src="images/hongjinying/prompt.png" alt="">
-                    <span class="ft-16">+{{item.fundsProduct.riseRate}}</span>
-                </span>
-              </p>
-              <p ng-show="item.fundsProduct.type === 3" class="annual-earnings" data-placement="top" data-content="每季度增0.5%" data-trigger="hover" bs-popover>
-                <span class="ft-90 ft-red percent-num" >{{item.fundsProduct.baseRate | number: 1 || 0}}</span>
-                <span class="ft-14 ft-red percent-ft">%年化</span>
-                <span class="floating-rate">
-                    <img src="images/hongjinying/prompt.png" alt="">
-                    <span class="ft-16">+{{item.fundsProduct.riseRate}}</span>
-                </span>
-              </p>-->
-            <!--</div>
-          </div>
-        </div>
-        <div class="row" ng-show="item.status === 1" style="margin-top:45px;">
-          
-
-        </div>
-        <div class="row" ng-show="item.status !== 1" style="margin-top:45px;">
-          
-        </div>
-
-        -->
 </div>
