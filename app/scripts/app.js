@@ -51,7 +51,6 @@ hongcaiApp
             if($http.pendingRequests.length < 1) {
                 $timeout(function(){
                     if($http.pendingRequests.length < 1){
-                      console.log(123123);
                       $rootScope.htmlReady();
                     }
                 }, 700);//an 0.7 seconds safety interval, if there are no requests for 0.7 seconds, it means that the app is through rendering
