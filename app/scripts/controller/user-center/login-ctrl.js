@@ -33,7 +33,12 @@ angular.module('hongcaiApp')
           if ($stateParams.redirectUrl) {
             $location.url($stateParams.redirectUrl);
           } else if ($location.path() !== '/login') {
-            window.location.reload();
+            if ($rootScope.redirectUrl){
+              $location.url($rootScope.redirectUrl);
+            } else{
+              window.location.reload();
+            }
+            
           } else {
             $state.go('root.userCenter.account-overview');
           }

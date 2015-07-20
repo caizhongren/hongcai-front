@@ -754,7 +754,7 @@ hongcaiApp
         }
       })
       .state('root.investmentplan-details', {
-        url: '/investmentplan/:number',
+        url: '/investmentplan/:number?tab', // tab表示用户登录前的位置
         views: {
           '': {
             templateUrl: 'views/project/investmentplan-details.html',

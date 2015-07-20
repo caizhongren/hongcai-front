@@ -1,7 +1,10 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('InvestmentplanDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
-    $rootScope.redirectUrl = $location.path();
+  .controller('InvestmentplanDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', 
+    function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
+    
+    $rootScope.redirectUrl = $location.path() + '?tab=加入记录' ;
+
     var number = $stateParams.number;
     if (!number) {
       $state.go('root.investmentplan-list');
@@ -244,10 +247,20 @@ angular.module('hongcaiApp')
     }, {
       title: '常见问题',
     }];
+
     $scope.toggle = {};
     $scope.toggle.switchTab = function(tabIndex) {
       $scope.toggle.activeTab = tabIndex;
     };
+
+    var urlTab = $stateParams.tab;
+    if(urlTab == '加入记录'){
+      $scope.tab = $scope.tabs[1];
+      $timeout(function(){
+        $scope.toggle.switchTab(1);
+      }, 1000);
+      
+    }
 
     // 处理推广流量统计
     var from = $stateParams.from;
