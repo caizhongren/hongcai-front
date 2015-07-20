@@ -12,3 +12,4 @@ app/styles/main.css
 bin/
 .project
 target/
+bower_components.zip
