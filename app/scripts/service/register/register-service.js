@@ -11,6 +11,7 @@ angular.module('hongcaiApp')
             account: '@account',
             password: '@password',
             captcha: '@captcha',
+            picCaptcha: '@picCaptcha',
             inviteCode: '@inviteCode',
             from: '@from'
           }
