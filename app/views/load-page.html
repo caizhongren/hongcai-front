@@ -85,8 +85,8 @@
               <div class="loadformgrop col-md-12 col-lg-12 col-xs-11 col-sm-12">
                 <div class="col-md-7">
                   <label for="mobileCaptcha" class="col-md-4 col-lg-4 col-xs-4 nospace">验证码：</label>
-                  <input type="text" class="col-md-3 col-lg-3 borderheight" id="mobileCaptcha" check-mobile-captcha="mobileCaptcha" name="mobileCaptcha" ng-model="user.mobileCaptcha" ng-class="{'borderred':registerForm.mobileCaptcha.$dirty && registerForm.mobileCaptcha.$invalid && registerForm.mobileCaptcha.$error.check && !registerForm.mobileCaptcha.$focused}" required ng-focus />
-                  <input type="button" class="borderheight col-md-5 col-lg-5 {{registerForm.mobile.$invalid ? 'white-button grey' : 'white-button'}}" value="获取验证码" onclick="countDown(this,60);" ng-click="sendMobileCaptcha();" ng-disabled="registerForm.mobile.$invalid" />
+                  <input type="text" class="col-md-4 col-lg-4 borderheight" id="mobileCaptcha" check-mobile-captcha="mobileCaptcha" name="mobileCaptcha" ng-model="user.mobileCaptcha" ng-class="{'borderred':registerForm.mobileCaptcha.$dirty && registerForm.mobileCaptcha.$invalid && registerForm.mobileCaptcha.$error.check && !registerForm.mobileCaptcha.$focused}" required ng-focus />
+                  <input type="button" class="borderheight col-md-4 col-lg-4 {{registerForm.mobile.$invalid ? 'white-button grey' : 'white-button'}}" value="获取验证码" onclick="countDown(this,60);" ng-click="sendMobileCaptcha();" ng-disabled="registerForm.mobile.$invalid" />
                 </div>
                 <div ng-if="registerForm.mobileCaptcha.$dirty && registerForm.mobileCaptcha.$invalid && registerForm.mobileCaptcha.$error.check && !registerForm.mobileCaptcha.$focused" class="col-lg-5 col-md-5  col-sm-5 col-xs-5 form-div1">
                   <div class="row lp-nomargin">
