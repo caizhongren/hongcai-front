@@ -13,6 +13,7 @@ angular.module('hongcaiApp').directive('findAccount', ['$http', 'DEFAULT_DOMAIN'
 						if(data.data.user) {
 							console.log(data.data.user);
 							scope.usermessage =  data.data.user;
+							scope.usermobile = data.data.mobile;
 							ctrl.$setValidity('unique', true);
 						} else if(!data.data.user) {
 							ctrl.$setValidity('unique', false);

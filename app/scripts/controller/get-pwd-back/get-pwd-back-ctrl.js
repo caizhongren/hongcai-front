@@ -63,6 +63,9 @@ angular.module('hongcaiApp')
         } else if ($scope.usermessage.email) {
           $scope.Category = dataEmail;
         }
+
+        $scope.CategoryVal = $scope.Category[0].CategoryId;
+
         $scope.$watch('CategoryVal', function(CategoryId) {
           if (CategoryId !== 0) {
             $scope.isDisplay = false;
@@ -102,7 +105,8 @@ angular.module('hongcaiApp')
     $scope.infoVerifyEmail = function(account, email) {
       UserCenterService.infoVerify.get({
         account: account,
-        email: email
+        email: email,
+        mobile:null
       }, function(response) {
         if (response.ret === 1) {
           $scope.emailAddr = email;
