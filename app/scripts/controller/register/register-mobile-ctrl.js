@@ -20,6 +20,7 @@ angular.module('hongcaiApp')
       RegisterService.saveRegister.save({
         name: user.name,
         type: 0,
+        picCaptcha: user.picCaptcha,
         account: user.mobile,
         captcha: user.mobileCaptcha,
         password: md5.createHash(user.password),
@@ -49,6 +50,12 @@ angular.module('hongcaiApp')
         }
       });
     };
+
+    $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?';
+    $scope.refreshCode = function() {
+      angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
+    };
+
     // 处理推广流量统计
     var from = $stateParams.from;
     if (from) {
