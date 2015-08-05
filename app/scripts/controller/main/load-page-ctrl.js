@@ -21,13 +21,12 @@ angular.module('hongcaiApp')
     };
 
     $scope.submitRegisterMobile = function(user) {
-      RegisterService.saveRegister.save({
+      RegisterService.loadPageRegister.save({
         name: user.name,
         type: 0,
         account: user.mobile,
         captcha: user.mobileCaptcha,
         password: md5.createHash(user.password),
-        inviteCode: user.inviteCode,
         from: ipCookie('utm_from')
       }, function(response) {
         if (response.ret === 1) {
