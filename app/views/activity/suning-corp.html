@@ -28,13 +28,13 @@
 		<p class="ft-30 ft-bold font-yellow4 padding-t-10 padding-l-20 text-center" style="font-size:30px;">心动吗？小伙伴们赶紧行动吧！</p>
 		</div>
 		<img src="/images/suning-corp/suning_09.png" alt="">
-		<div class="dotted3">
+		<div class="dotted3  margin-t-30">
 			<div class="form-tab">
 				<img  ng-src="{{regImgUrl}}" alt="" class="re-img" ng-click="selectTab(1)">
 				<img  ng-src="{{loginImgUrl}}" alt="" class="re-img-2" ng-click="selectTab(2)">
 				<form action="" name="registerForm" ng-submit="submitSuningRegisterMobile(user);" ng-show="showRegister && !showLogin">
 					<div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 margin-t-30">
-						<div class="col-md-9">
+						<div class="col-md-9 margin-t-30">
 		                  <label for="userName" class="col-md-4 col-lg-4 col-xs-4 font-grey-sn ft-18">用户名：</label>
 		                  <input type="text" class="col-md-8 col-lg-8 bordergrey-1" id="name" name="name" ng-model="user.name" real-mix-min-length="4" ng-maxlength="15" ng-pattern="/^[\u4e00-\u9fa5|a-z|A-Z][\u4e00-\u9fa5|a-z|A-Z|_|0-9|\-]{0,}$/" ensure-unique-name="name" ng-class="{'borderred':registerForm.name.$dirty && registerForm.name.$invalid && !registerForm.name.$focused}" required ng-focus autofocus/>
 		                </div>
@@ -103,7 +103,7 @@
 	              	</div>
 	              	<div class="col-md-9 col-sm-12 col-xs-10 col-md-offset-2 col-xs-offset-2 margin-t-30">
 	              		<div class="col-md-9">
-			                <button type="submit" class="col-md-10 col-xs-10 col-md-offset-2 col-xs-offset-2 btn-red" ng-disabled="registerForm.$invalid || user.checkFlag == false" style="cursor: pointer"><span class="whitelogin">注册</span>
+			                <button type="submit" class="col-md-10 col-xs-10 col-md-offset-2 col-xs-offset-2 btn-red" ng-disabled="registerForm.$invalid || user.checkFlag == false" style="cursor: pointer"><span class="whitelogin">立即注册</span>
 			                </button>
 		                </div>
 	              </div>
