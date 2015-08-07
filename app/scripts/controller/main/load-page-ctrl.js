@@ -13,6 +13,15 @@ angular.module('hongcaiApp')
     // }
 
     // var lpdialoag = $('#lpdialog');
+
+    var loginUrlclicked = "images/suning-corp/suning_11_1.png";
+    var registerUrlclicked = "images/suning-corp/suning_10_1.png";
+    var loginUrlclick = "images/suning-corp/suning_11_2.png";
+    var registerUrlclick ="images/suning-corp/suning_10_2.png";
+
+    $scope.regImgUrl = registerUrlclicked;
+    $scope.loginImgUrl = loginUrlclick;
+
     var lpclose = $('#lpclose');
     lpclose.click(function() {
       $('#aadialog').fadeOut(200);
@@ -87,12 +96,19 @@ angular.module('hongcaiApp')
       //clickedFlag ===1 为快速注册
       //clickedFlag ===2 为快速登陆
       // md5.createHash("123");
+
+
         if(clickedFlag === 1){
           $scope.showRegister = true;
           $scope.showLogin = false;
+          $scope.regImgUrl = registerUrlclicked;
+          $scope.loginImgUrl = loginUrlclick;
+
         }else if(clickedFlag ===2){
           $scope.showLogin = true;
           $scope.showRegister = false;
+          $scope.regImgUrl = registerUrlclick;
+          $scope.loginImgUrl = loginUrlclicked;
         }
 
     };
