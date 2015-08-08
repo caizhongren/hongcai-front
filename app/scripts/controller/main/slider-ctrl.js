@@ -4,7 +4,7 @@ angular.module('hongcaiApp')
     $rootScope.selectPage = $location.path().split('/')[1];
     $scope.media = [{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner-9.jpg',
+      src: 'images/banner/banner-9.png',
       href: '/suning-corp'
     },{
       mimeType: 'image/jpg',
