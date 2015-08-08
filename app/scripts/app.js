@@ -453,6 +453,28 @@ hongcaiApp
           }
         }
       })
+      /*-------------  苏宁推广活动   ----------------------*/
+      .state('root.suning-corp', {
+        url: '/suning-corp',
+        views: {
+          '': {
+            templateUrl: 'views/activity/suning-corp.html',
+            controller: 'LoadPageCtrl',
+            controllerUrl: 'scripts/controller/main/load-page-ctrl'
+          }
+        }
+      })
+
+      .state('root.suning-success', {
+        url: '/suning-success/:SuccessStatus',
+        views: {
+          '': {
+            templateUrl: 'views/suning-success.html',
+            controller: 'SuningSuccessCtrl',
+            controllerUrl: 'scripts/controller/main/suning-success-ctrl'
+          }
+        }
+      })
 
       /*---------  user-center  ------------------------*/
       .state('root.userCenter', {

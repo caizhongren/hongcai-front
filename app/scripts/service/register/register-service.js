@@ -17,6 +17,19 @@ angular.module('hongcaiApp')
           }
         }
       }),
+      loadPageRegister: $resource(DEFAULT_DOMAIN + '/siteUser/loadPageRegister', {}, {
+        save: {
+          method: 'POST',
+          params: {
+            name: '@name',
+            type: '@type',
+            account: '@account',
+            password: '@password',
+            captcha: '@captcha',
+            from: '@from'
+          }
+        }
+      }),
       sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/sendMobileCaptcha', {}, {
         save: {
           method: 'POST',
