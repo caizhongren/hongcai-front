@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie', function($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie) {
+  .controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie','FriendLinkService', '$alert', '$timeout', function($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout) {
     $scope.spCountDown = -1;
     $scope.projectList = function() {
       MainService.projectList.get(function(response) {
@@ -122,6 +122,20 @@ angular.module('hongcaiApp')
     AboutUsService.getLatestNotice.get(function(response) {
       if (response.ret === 1) {
         $scope.latestNotice = response.data.latestNotice;
+      }
+    });
+
+    //获取友情链接
+    FriendLinkService.friendLinkList.get(function(response) {
+      if (response.ret === 1) {
+        $scope.friendLinks = response.data.friendLinks;
+      } else {
+        $scope.msg = response.msg;
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alert-dialog.html',
+          show: true
+        });
       }
     });
 
