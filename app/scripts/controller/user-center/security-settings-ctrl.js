@@ -110,6 +110,13 @@ angular.module('hongcaiApp')
       });
     };
 
+    /**
+     * 修改手机号码
+     */
+    $scope.resetMobile = function(){
+      $state.go('root.yeepay', {business: 'RESET_MOBILE'});
+    }
+
 
     /*function newForm() {
       var f = document.createElement('form');
