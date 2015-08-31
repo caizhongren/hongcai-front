@@ -360,6 +360,7 @@ hongcaiApp
           }
         }
       })
+ 
       /*-------------  toYeepay transfer --------------------*/
       .state('root.recharge-transfer', {
         url: '/recharge-transfer/:amount',
@@ -438,6 +439,18 @@ hongcaiApp
             templateUrl: 'views/transfer.html',
             controller: 'TransferTransferCtrl',
             controllerUrl: 'scripts/controller/user-center/transfer-transfer-ctrl'
+          }
+        }
+      })
+
+      // 修改手机号码
+      .state('root.yeepay', {
+        url: '/yeepay/:business',
+        views: {
+          '': {
+            templateUrl: 'views/transfer.html',
+            controller: 'RechargeTransferCtrl',
+            controllerUrl: 'scripts/controller/user-center/recharge-transfer-ctrl'
           }
         }
       })
@@ -676,7 +689,7 @@ hongcaiApp
       })
       /*----------  yeepay  ---------------------*/
       .state('root.open-yeepay-account-success', {
-        url: '/yeepay-success/:status',
+        url: '/yeepay-success/:status?business',
         views: {
           '': {
             templateUrl: 'views/success.html',

@@ -1,5 +1,11 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('YeepaySuccessCtrl', ['$scope', function($scope) {
-    $scope.page = 1;
-  }]);
+  .controller('YeepaySuccessCtrl', function($scope, $stateParams) {
+
+  	var business = $stateParams.business;
+  	if (business == 'RESET_MOBILE'){
+  		$scope.page = 9;
+  	} else {
+    	$scope.page = 1;
+  	}
+  });

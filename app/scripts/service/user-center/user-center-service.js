@@ -141,7 +141,8 @@ angular.module('hongcaiApp')
       }),
       putCreditRightInPool: $resource(DEFAULT_DOMAIN + '/siteCredit/putCreditRightInPool', {
         creditRightId: '@creditRightId'
-      })
+      }),
+      resetMobile: $resource(DEFAULT_DOMAIN + '/yeepay/resetMobile', {})
 
     };
   });
