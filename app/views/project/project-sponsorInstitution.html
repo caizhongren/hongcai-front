@@ -41,9 +41,9 @@
       <!-- /.col-md-12 -->
 
       <div class="col-md-12 margin-t-15">
-        <div class="row">
+        <div class="">
           <!-- <slick settings="slickConfig" control="slickHandle" media="media" src="views/modal/slick_slider_guarantee.html"></slick> -->
-          <div style="width:100%; background:#000;">
+          <div style="width:100%; background:#eee;">
             <div class="slideshow">
               <div class="slick-item" ng-repeat="card in files" style="width:25%;">
                 <!-- <a href="{{ card.href }}" class="grouped_elements" rel="group1">
@@ -70,12 +70,12 @@
       <div class="col-md-12 padding-l-0">
         <div class="table-responsive">
           <ul class="projects-list">
-            <li class="project-item row bg-row-success" ng-repeat="project in projectList | startFrom:currentPage * pageSize | limitTo:pageSize">
+            <li class="project-item bg-row-success" ng-repeat="project in projectList | startFrom:currentPage * pageSize | limitTo:pageSize" style="list-style:none;">
               <div class="col-md-8">
 
                 <div class="row">
                   <div class="col-md-1">
-                    <a ui-sref="root.project-details({number: project.number})"><img ng-src="{{baseFileUrl + project.image}}" width="100%" />
+                    <a ui-sref="root.project-details({number: project.number})" style="padding-left:15px;"><img ng-src="{{baseFileUrl + project.image}}" width="100%" />
                     </a>
                     <!-- <a><img ng-src="{{project.image}}" width="100%"/></a> -->
                   </div>
@@ -84,7 +84,7 @@
                       <div class="col-lg-12"><a ui-sref="root.project-details({number: project.number})"><strong>{{project.name}}</strong></a>
                       </div>
                     </div>
-                    <div class="row">
+                    <div class="row" style="margin-left:15px;margin-top:10px;">
                       <div class="col-md-4">项目规模：<span>{{project.total}}</span>
                       </div>
                       <div class="col-md-4">年化收益：<span class="ft-red">{{project.annualEarnings}}%</span>
@@ -96,9 +96,9 @@
                 </div>
 
               </div>
-              <div class="col-md-4">
-                <div class="row">
-                  <div class="col-lg-12">
+              <div class="col-md-4" style="padding:0;">
+                <div>
+                  <div class="col-lg-12" style="padding:0;">
                     <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({number: project.number})">了解详情</a>
                   </div>
                 </div>
