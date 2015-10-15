@@ -13,10 +13,10 @@
         </div>
       </div>
       <div class="col-xs-12 col-md-9 col-lg-9 ft-black" ng-class="{ 'jinying-border-right': $index === 0 || $index === 1 || $index === 2}" ng-repeat="item in fundsProjectProductList | limitTo: 1">
-        <div class="row margin-t-20" style="border-bottom:1px #ddd solid;">
+        <div class="row margin-t-20" style="border-bottom:1px #ddd solid;margin:20px 20px;">
           <div class="col-md-3 col-lg-3">
             <a ui-sref="root.investmentplan-details({number: item.number})">
-              <span class="hongjinying-title text-left ft-20">{{item.fundsProduct.name}}</span>
+              <span class="hongjinying-title text-left ft-20">零存宝{{item.name}}</span>
             </a>
           </div>
           <div class="col-md-3 col-lg-3">
