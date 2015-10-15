@@ -68,7 +68,11 @@ angular.module('hongcaiApp')
     });
     //  宏金盈列表
     MainService.getIndexFundsProductList.get(function(response) {
+      // console.log(response.data.fundsProjectProductList);
+
       if (response.ret === 1) {
+      //    response.data.fundsProjectProductList.slice(0,1);
+       console.log(response.data.fundsProjectProductList);
         $scope.fundsProjectStatusMap = response.data.fundsProjectStatusMap;
         $scope.fundsProjectProductList = response.data.fundsProjectProductList;
         //
