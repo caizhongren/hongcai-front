@@ -12,21 +12,39 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td class="block_table_td1" scope="row">甘肃担保2015090004期</td>
-        <td><span class="block_font_highlight">14%</span></td>
-        <td><span class="block_font_highlight">362,000</span>元</td>
-        <td><span class="block_font_highlight">6</span>个月</td>
-        <td class="block_btnw"><span class="block_btn block_span_defaultC">48:22:30</span></td>
-        <td class="block_btnw"><span class="block_btn block_span_wait">等待中</span></td>
+
+      <tr ng-repeat="item in hongjinbao">
+        <td class="block_table_td1" scope="row">{{item.name}}</td>
+        <td><span class="block_font_highlight">{{item.annualEarnings | number : 2}}%</span></td>
+        <td><span class="block_font_highlight">{{item.currentStock * item.increaseAmount | noFractionCurrency:"":0 || 0 }}</span>元</td>
+        <td><span class="block_font_highlight">{{item.cycle}}</span>个月</td>
+        <td class="block_btnw">
+          <span class="block_btn block_span_defaultC" ng-switch="item.status">
+            <span ng-switch-when="6">{{_timeDown[$index].hour}}:{{_timeDown[$index].min}}:{{_timeDown[$index].second}}</span>
+            <span ng-switch-when="7 || 8" ui-sref="root.project-details({number: item.number})">立即加入</span>
+            <span ng-switch-default ui-sref="root.project-details({number: item.number})">查看详情</span>
+          </span>
+        </td>
+
+        <td class="block_btnw">
+          <span class="block_btn block_span_defaultC" ng-switch="item.status">
+
+            <span ng-switch-when="6" class="block_btn block_span_wait">等待中</span>
+            <span ng-switch-when="7" class="block_btn block_span_process">投资中</span>
+            <span ng-switch-when="8" class="block_btn block_span_suceess">融资成功</span>
+            <span ng-switch-when="9" class="block_btn block_span_wait">还款中</span>
+            <span ng-switch-when="10" class="block_btn block_span_defaultC">还款完成</span>
+            <span ng-switch-when="11" class="block_btn block_span_wait">预约中</span>
+          </span>
+        </td>
       </tr>      
-      <tr>
+      <!-- <tr>
         <td class="block_table_td1" scope="row">甘肃担保2015090004期</td>
         <td><span class="block_font_highlight">14%</span></td>
         <td><span class="block_font_highlight">362,000</span>元</td>
         <td><span class="block_font_highlight">6</span>个月</td>
         <td class="block_btnw"><span class="block_btn block_span_defaultC">立即加入 <i class="fa fa-chevron-circle-right"></i></span></td>
-        <td class="block_btnw"><span class="block_btn block_span_process">投资中</span></td>
+        <td class="block_btnw"><span >投资中</span></td>
       </tr><tr>
         <td class="block_table_td1" scope="row">甘肃担保2015090004期</td>
         <td><span class="block_font_highlight">14%</span></td>
@@ -48,7 +66,7 @@
         <td><span class="block_font_highlight">6</span>个月</td>
         <td class="block_btnw"><span class="block_btn block_span_defaultC">查看详情 <i class="fa fa-chevron-circle-right"></i></span></td>
         <td class="block_btnw"><span class="block_btn block_span_defaultC">还款完成</span></td>
-      </tr>
+      </tr> -->
     </tbody>
     <tfoot>
       <tr>
