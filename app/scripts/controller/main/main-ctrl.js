@@ -2,6 +2,8 @@
 angular.module('hongcaiApp')
   .controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie','FriendLinkService', '$alert', '$timeout', function($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout) {
     $scope.spCountDown = -1;
+
+
     $scope.projectList = function() {
       MainService.projectList.get(function(response) {
         if (response.ret === 1) {
@@ -209,6 +211,11 @@ angular.module('hongcaiApp')
           show: true
         });
       }
+    });
+
+    // 最近30天投资排行
+    MainService.monthInvest.get(function(response){
+      $scope.monthInvestList = response.data.investAmounts;
     });
 
     // 处理推广流量统计

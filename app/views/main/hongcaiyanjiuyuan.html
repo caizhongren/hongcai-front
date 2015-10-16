@@ -41,48 +41,24 @@
         <tbody>
           <tr>
             <td><span class="rand__span_top">1</span></td>
-            <td>xj***j</td>
-            <td>25,233,253</td>
+            <td>{{monthInvestList[0].name || '无名'}}</td>
+            <td>{{monthInvestList[0].totalAmount | number:2}}</td>
           </tr>
           <tr>
             <td><span class="rand__span_top">2</span></td>
-            <td>xj***j</td>
-            <td>25,233,253</td>
+            <td>{{monthInvestList[1].name || '无名'}}</td>
+            <td>{{monthInvestList[1].totalAmount | number:2}}</td>
           </tr>
           <tr>
             <td><span class="rand__span_top">3</span></td>
-            <td>xj***j</td>
-            <td>25,233,253</td>
+            <td>{{monthInvestList[2].name || '无名'}}</td>
+            <td>{{monthInvestList[2].totalAmount | number:2}}</td>
           </tr>
-          <tr>
-            <td><span class="rand__span_default">4</span></td>
-            <td>xj***j</td>
-            <td>25,233,253</td>
-          </tr>
-          <tr>
-            <td><span class="rand__span_default">5</span></td>
-            <td>xj***j</td>
-            <td>25,233,253</td>
-          </tr>
-          <tr>
-            <td><span class="rand__span_default">6</span></td>
-            <td>xj***j</td>
-            <td>25,233,253</td>
-          </tr>
-          <tr>
-            <td><span class="rand__span_default">7</span></td>
-            <td>xj***j</td>
-            <td>25,233,253</td>
-          </tr>
-          <tr>
-            <td><span class="rand__span_default">8</span></td>
-            <td>xj***j</td>
-            <td>25,233,253</td>
-          </tr>
-          <tr>
-            <td><span class="rand__span_default">9</span></td>
-            <td>xj***j</td>
-            <td>25,233,253</td>
+
+          <tr ng-repeat="item in monthInvestList.slice(2)">
+            <td><span class="rand__span_default">{{$index + 3}}</span></td>
+            <td>{{item.name || '无名'}}</td>
+            <td>{{item.totalAmount | number:2}}</td>
           </tr>
         </tbody>
       </table>
