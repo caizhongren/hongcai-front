@@ -4,19 +4,23 @@ angular.module('hongcaiApp')
     $rootScope.selectPage = $location.path().split('/')[1];
     $scope.media = [{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner-8.jpg',
+      src: 'images/banner/banner001.png',
       href: '/consultant-team'
     },{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner-7.png',
+      src: 'images/banner/banner002.png',
       href: '/banner-investmentplan'
     },{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner-3.jpg',
+      src: 'images/banner/banner003.png',
       href: '/banner-nine'
     }, {
       mimeType: 'image/jpg',
-      src: 'images/banner/banner-5.jpg',
+      src: 'images/banner/banner004.png',
+      href: 'banner-partner'
+    },{
+      mimeType: 'image/jpg',
+      src: 'images/banner/banner005.png',
       href: 'banner-partner'
     }];
     $scope.slickConfig = {
