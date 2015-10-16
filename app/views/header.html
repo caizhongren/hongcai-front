@@ -24,10 +24,10 @@
           </span>
         </li>
         <li ng-if="isLogged !== true">
-          <a ui-sref="root.login">请登录|</a>
+          <a ui-sref="root.login">请登录<i style="margin-left:20px;">|</i></a>
         </li>
         <li ng-if="isLogged !== true">
-          <a ui-sref="root.registerMobile">注册|</a>
+          <a ui-sref="root.registerMobile">注册<i style="margin-left:20px;">|</i></a>
         </li>
         <li ng-show="false"><a href="newbie-guide.html" target="_blank">新手引导</a>
         </li>
@@ -45,7 +45,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a ui-sref="root.main" ng-class="{'active' : selectPage == ''}">首页</a>
       </li>
-      <li class="dropdown"><a class="category" href="javascript:;" ng-class="{'active' : selectPage == 'project-list'}">我要理财</a>
+      <li class="dropdown"><a class="category" href="javascript:;" ng-class="{'active' : selectPage == 'project-list'}">我要理财<i class="fa fa-sort-desc"></i></a>
         <div id="dropdown">
           <div>
             <a ui-sref="root.investmentplan-list" ng-class="{'active' : selectPage == 'project-list'}">宏金盈</a>
