@@ -36,8 +36,8 @@
           <p class="text-center">成功投资<strong>{{ (item.soldStock + item.occupancyStock) * item.increaseAmount | noFractionCurrency:"":0 || 0}}</strong>元</p>
         </div>
         <div class="row hongjinying-btn-area">
-          <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-invite ft-white" role="button" ng-show="item.status === 1">立即投资</a>
-          <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-default bg-grey4 ft-white" role="button" ng-show="item.status !== 1">查看详情</a>
+          <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-invite ft-white" role="button" ng-show="item.status === 1">立即投资<i class="fa fa-chevron-circle-right"></i></a>
+          <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-default bg-grey4 ft-white" role="button" ng-show="item.status !== 1">查看详情<i class="fa fa-chevron-circle-right"></i></a>
         </div>
       </div>
     </div>
