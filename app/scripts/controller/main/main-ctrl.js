@@ -200,21 +200,22 @@ angular.module('hongcaiApp')
     }, function(response) {
       if (response.ret === 1) {
         $scope.searchList = response.data.textList;
+        // 宏财动态
+        AboutUsService.indexTextList.get({
+          category: 3
+        }, function(response) {
+          if (response.ret === 1) {
+            $scope.trendList = response.data.textList;
+            for (var i = 0; i <= $scope.trendList.length - 1; i++) {
+              $scope.searchList.push($scope.trendList[i]);
+            };
+            $scope.searchList = $scope.searchList.slice(0,5);
+          }
+        });
       }
     });
 
-    // 宏财动态
-    AboutUsService.indexTextList.get({
-      category: 3
-    }, function(response) {
-      if (response.ret === 1) {
-        $scope.trendList = response.data.textList;
-        for (var i = 0; i <= $scope.trendList.length - 1; i++) {
-          $scope.searchList.push($scope.trendList[i]);
-        };
-        $scope.searchList = $scope.searchList.slice(0,5);
-      }
-    });
+ 
 
     $rootScope.selectPage = $location.path().split('/')[1];
 
