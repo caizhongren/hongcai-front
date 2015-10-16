@@ -1,4 +1,4 @@
-<div id="best-profit" class="panel panel-default">
+<div id="best-profit" class="panel panel-default border-total">
   <div class="col-xs-12 col-md-12 col-lg-12 bg-white" style="min-height:386px;">
     <div class="row">
       <div class="col-xs-12 col-md-3 col-lg-3 text-center min-height-386 bg-orange">
@@ -8,7 +8,7 @@
           <div class="text-right fr margin-r-20">
             <p class="border-info">100起存</p>
             <p class="border-info">随存随取</p>
-            <p class="border-info">100%保障</p>
+            <p class="border-info">P2F更灵活</p>
           </div>
         </div>
       </div>
@@ -41,11 +41,11 @@
             <br>剩余金额￥<strong class="ft-18">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </strong></div>
         </div>
         <div class="row margin-t-30 text-center">
-          <div class="col-md-3"><span class="ft-40 ft-orange">{{item.fundsProduct.baseRate+item.fundsProduct.riseRate*3 | number: 1 || 0}}<span class="ft-16">%</span></div>
+          <div class="col-md-3"><span class="ft-80 ft-orange">{{item.fundsProduct.baseRate+item.fundsProduct.riseRate*3 | number: 1 || 0}}<span class="ft-16">%</span></div>
           <div class="col-md-1"></div>
-          <div class="col-md-3 ft-orange"><span class="ft-40">{{ item.fundsProduct.sealingDays || 0}}</span>天</div>
+          <div class="col-md-3 ft-orange"><span class="ft-80">{{ item.fundsProduct.sealingDays || 0}}</span>天</div>
           <div class="col-md-1"></div>
-          <div class="col-md-4">
+          <div class="col-md-4" style="padding-top:30px;">
             <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-invite-orange ft-white" role="button" ng-show="item.status === 1">立即加入</a>
             <a ui-sref="root.investmentplan-details({number: item.number})" class="col-xs-12 btn btn-default bg-grey4 ft-white" role="button" ng-show="item.status !== 1">查看详情</a>
           </div>
