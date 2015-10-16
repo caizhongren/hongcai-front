@@ -14,10 +14,10 @@
     <tbody>
 
       <tr ng-repeat="item in hongjinbao">
-        <td class="block_table_td1" scope="row">{{item.name}}</td>
+        <td class="block_table_td1" scope="row" title="{{item.name}}">{{item.name | limitTo: 15}}</td>
         <td><span class="block_font_highlight">{{item.annualEarnings | number : 2}}%</span></td>
-        <td><span class="block_font_highlight">{{item.currentStock * item.increaseAmount | noFractionCurrency:"":0 || 0 }}</span>元</td>
-        <td><span class="block_font_highlight">{{item.cycle}}</span>个月</td>
+        <td><span class="block_font_highlight">{{item.currentStock * item.increaseAmount | noFractionCurrency:"":0 || 0 }}</span><span class="block_font_wei">元</span></td>
+        <td><span class="block_font_highlight">{{item.cycle}}</span><span class="block_font_wei">个月</span></td>
         <td class="block_btnw">
           <span class="block_btn block_span_defaultC" ng-switch="item.status">
             <span ng-switch-when="6">{{_timeDown[$index].hour}}:{{_timeDown[$index].min}}:{{_timeDown[$index].second}}</span>
