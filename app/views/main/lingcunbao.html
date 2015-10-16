@@ -31,9 +31,9 @@
           <!-- ng-show="projectVo.status === 6" -->
           <div class="col-md-6 col-lg-6 text-right" ng-show="true" style="margin-top: -10px;">
             距离下个项目还有
-              <span class="border bg-grey4 ft-white ft-30 padding-t-4">{{ _timeVoDown.hour || 06 }}</span><span class="ft-grey7 ft-30">:</span>
-              <span class="border bg-grey4 ft-white ft-30 padding-t-4">{{ _timeVoDown.second || 23 }}</span><span class="ft-grey7 ft-30">:</span>
-              <span class="border bg-grey4 ft-white ft-30 padding-t-4">{{ _timeVoDown.min || 33 }}</span>
+              <span class="border bg-grey4 ft-white ft-30 padding-t-4">{{ lingcunbao._timeDown.hour || 00 }}</span><span class="ft-grey7 ft-30">:</span>
+              <span class="border bg-grey4 ft-white ft-30 padding-t-4">{{ lingcunbao._timeDown.min || 00 }}</span><span class="ft-grey7 ft-30">:</span>
+              <span class="border bg-grey4 ft-white ft-30 padding-t-4">{{ lingcunbao._timeDown.seconds || 00 }}</span>
           </div>
         </div>
         <div class="row text-center margin-t-30 ft-18">
@@ -51,9 +51,9 @@
           <div class="col-md-1"></div>
           <div class="col-md-3 ft-orange ft-40"><span class="ft-80">{{ item.fundsProduct.sealingDays || 0}}</span>天</div>
           <div class="col-md-1"></div>
-          <div class="col-md-4" style="padding-top:30px;padding-left:5%;">
-            <a ui-sref="root.investmentplan-details({number: item.number})" style="padding:0;" class="col-xs-12 btn btn-invite-orange ft-white" role="button" ng-show="item.status === 1">立即加入<i class="fa fa-chevron-circle-right"></i></a>
-            <a ui-sref="root.investmentplan-details({number: item.number})" style="padding:0;" class="col-xs-12 btn btn-default bg-grey4 ft-white" role="button" ng-show="item.status !== 1">查看详情<i class="fa fa-chevron-circle-right"></i></a>
+          <div class="col-md-4" style="padding-top:40px;padding-left:5%;">
+            <a ui-sref="root.investmentplan-details({number: item.number})" style="padding:0;font-size:18px;" class="col-xs-12 btn btn-invite-orange ft-white" role="button" ng-show="item.status === 1">立即加入<i class="fa fa-chevron-circle-right"></i></a>
+            <a ui-sref="root.investmentplan-details({number: item.number})" style="padding:0;font-size:18px;" class="col-xs-12 btn btn-default bg-grey4 ft-white" role="button" ng-show="item.status !== 1">查看详情<i class="fa fa-chevron-circle-right"></i></a>
           </div>
         </div>
       </div>

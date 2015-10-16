@@ -1,38 +1,38 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'MainService', 'AboutUsService', 'ProjectService', 'ipCookie','FriendLinkService', '$alert', '$timeout', function($scope, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout) {
+  .controller('MainCtrl', function($scope, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout) {
     $scope.spCountDown = -1;
 
 
-    $scope.projectList = function() {
-      MainService.projectList.get(function(response) {
-        if (response.ret === 1) {
-          $scope.serverTime = response.data.serverTime;
-          $scope.projectList = response.data.recommend;
-          $scope.projectVo = response.data.specialRecommend[0];
-          $scope.baseFileUrl = response.data.baseFileUrl;
-          if ($location.protocol() === 'https') {
-            $scope.baseFileUrl = $location.protocol() + '://' + $scope.baseFileUrl.split('://')[1];
-          }
-          if ($scope.projectVo.releaseStartTime) {
-            $scope.spCountDown = moment($scope.projectVo.releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 1;
-          }
-          $scope._timeVoDown = 0;
-          $scope.counter = 0;
-          var interval = window.setInterval(function() {
-            $scope.counter++;
-            // 特殊推荐倒计时
-            $scope._timeVoDown = $scope.mainTimeUntil($scope.spCountDown);
-            $scope.$apply();
-          }, 1000);
-          // 页面跳转暂停倒计时。
-          $scope.$on('$stateChangeStart', function() {
-            clearInterval(interval);
-          });
-        } else {}
-      });
-    };
-    $scope.projectList();
+    // $scope.projectList = function() {
+    //   MainService.projectList.get(function(response) {
+    //     if (response.ret === 1) {
+    //       $scope.serverTime = response.data.serverTime;
+    //       $scope.projectList = response.data.recommend;
+    //       $scope.projectVo = response.data.specialRecommend[0];
+    //       $scope.baseFileUrl = response.data.baseFileUrl;
+    //       if ($location.protocol() === 'https') {
+    //         $scope.baseFileUrl = $location.protocol() + '://' + $scope.baseFileUrl.split('://')[1];
+    //       }
+    //       if ($scope.projectVo.releaseStartTime) {
+    //         $scope.spCountDown = moment($scope.projectVo.releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 1;
+    //       }
+    //       $scope._timeVoDown = 0;
+    //       $scope.counter = 0;
+    //       var interval = window.setInterval(function() {
+    //         $scope.counter++;
+    //         // 特殊推荐倒计时
+    //         $scope._timeVoDown = $scope.mainTimeUntil($scope.spCountDown);
+    //         $scope.$apply();
+    //       }, 1000);
+    //       // 页面跳转暂停倒计时。
+    //       $scope.$on('$stateChangeStart', function() {
+    //         clearInterval(interval);
+    //       });
+    //     } else {}
+    //   });
+    // };
+    // $scope.projectList();
 
     $scope.hongjinbaoList = function() {
       $scope.showFlag = 1;
@@ -52,6 +52,7 @@ angular.module('hongcaiApp')
           $scope.orderProp = 'id';
           $scope.currentPage = 0;
           $scope.pageSize = 5;
+          $scope.serverTime = response.data.serverTime;
           $scope.hongjinbao = response.data.projectList;
           $scope.data = [];
           $scope.numberOfPages = function() {
@@ -117,7 +118,6 @@ angular.module('hongcaiApp')
       var collectTime = {};
       stDate = stDate - $scope.counter;
       if (stDate === 0) {
-        $scope.getProjectList();
         window.location.reload();
       }
       collectTime.day = moment().startOf('month').seconds(stDate).format('DD') - 1;
@@ -136,19 +136,49 @@ angular.module('hongcaiApp')
     //     $scope.newbieProjectList = response.data.newbieProjectList;
     //   }
     // });
+    // 
+    // 
+    function toHourMinSeconds(intervalTimeInMills){
+      var date = new Date(intervalTimeInMills - 8 * 60 * 60 * 1000);
+      var dateStr = date.toTimeString().substring(0, 8);
+
+      var time = {};
+      time.hour = dateStr.substring(0,2);
+      time.min = dateStr.substring(3,5);
+      time.seconds = dateStr.substring(6,8);
+
+      return time;
+    }
+    
     //  宏金盈列表
     MainService.getIndexFundsProductList.get(function(response) {
-      // console.log(response.data.fundsProjectProductList);
-
       if (response.ret === 1) {
-      //    response.data.fundsProjectProductList.slice(0,1);
-       console.log(response.data.fundsProjectProductList);
         $scope.fundsProjectStatusMap = response.data.fundsProjectStatusMap;
         $scope.fundsProjectProductList = response.data.fundsProjectProductList;
-        //
+        $scope.lingcunbao = $scope.fundsProjectProductList[0];
+        $scope.serverTime = response.data.serverTime;
+
+        var nextDayTime = new Date();
+        nextDayTime.setHours(23);
+        nextDayTime.setMinutes(59);
+        nextDayTime.setSeconds(50);
+
+        var intervalTimeInMills = nextDayTime.getTime() - $scope.serverTime;
+        $scope.lingcunbao._timeDown = toHourMinSeconds(intervalTimeInMills);
+        $scope.lingcunbao.interval = intervalTimeInMills;
+        $interval(function(){
+          $scope.lingcunbao.interval = $scope.lingcunbao.interval - 1000;
+          if ($scope.lingcunbao.interval <= 0){
+            window.location.reload();
+          }
+          $scope.lingcunbao._timeDown = toHourMinSeconds($scope.lingcunbao.interval);
+        }, 1000);
       }
     });
 
+
+
+    // 首页数据统计
     var indexStatistics = MainService.indexStatistics.get(function(response) {
       if (response.ret === 1) {
         $scope.indexStatic = indexStatistics.data.indexStatic;
@@ -233,4 +263,4 @@ angular.module('hongcaiApp')
       from: from
     });
 
-  }]);
+  });
