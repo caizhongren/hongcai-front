@@ -155,30 +155,34 @@ angular.module('hongcaiApp')
       }
     });
 
+    // 媒体报道
     AboutUsService.indexTextList.get({
       category: 1
     }, function(response) {
       if (response.ret === 1) {
-        $scope.textList = response.data.textList;
-        $scope.mediaList = $scope.textList.slice(0, 4);
+        $scope.mediaList = response.data.textList;
       }
     });
 
+    // 宏财研究院
     AboutUsService.indexTextList.get({
-      category: 2
+      category: 4
     }, function(response) {
       if (response.ret === 1) {
-        $scope.textList = response.data.textList;
-        $scope.noticeList = $scope.textList.slice(0, 4);
+        $scope.searchList = response.data.textList;
       }
     });
 
+    // 宏财动态
     AboutUsService.indexTextList.get({
       category: 3
     }, function(response) {
       if (response.ret === 1) {
-        $scope.textList = response.data.textList;
-        $scope.trendList = $scope.textList.slice(0, 4);
+        $scope.trendList = response.data.textList;
+        for (var i = 0; i <= $scope.trendList.length - 1; i++) {
+          $scope.searchList.push($scope.trendList[i]);
+        };
+        $scope.searchList = $scope.searchList.slice(0,5);
       }
     });
 
