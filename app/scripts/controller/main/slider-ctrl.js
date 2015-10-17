@@ -2,18 +2,20 @@
 angular.module('hongcaiApp')
   .controller('SliderCtrl', ['$scope', '$stateParams', '$rootScope', '$location', function($scope, $stateParams, $rootScope, $location) {
     $rootScope.selectPage = $location.path().split('/')[1];
+
+    //http://www.hongcai.com/hongcai-trends?page=0&perPage=5
     $scope.media = [{
       mimeType: 'image/jpg',
       src: 'images/banner/banner001.png',
-      href: '/consultant-team'
+      href: '/hongcai-trends'
     },{
       mimeType: 'image/jpg',
       src: 'images/banner/banner002.png',
-      href: '/banner-investmentplan'
+      href: '/consultant-team'
     },{
       mimeType: 'image/jpg',
       src: 'images/banner/banner003.png',
-      href: '/banner-nine'
+      href: '/banner-investmentplan'
     }, {
       mimeType: 'image/jpg',
       src: 'images/banner/banner004.png',
@@ -21,7 +23,7 @@ angular.module('hongcaiApp')
     },{
       mimeType: 'image/jpg',
       src: 'images/banner/banner005.png',
-      href: 'banner-partner'
+      href: '/safe'
     }];
     $scope.slickConfig = {
       dots: true,
