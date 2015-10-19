@@ -2,22 +2,28 @@
 angular.module('hongcaiApp')
   .controller('SliderCtrl', ['$scope', '$stateParams', '$rootScope', '$location', function($scope, $stateParams, $rootScope, $location) {
     $rootScope.selectPage = $location.path().split('/')[1];
+
+    //http://www.hongcai.com/hongcai-trends?page=0&perPage=5
     $scope.media = [{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner-8.jpg',
+      src: 'images/banner/banner001.png',
+      href: '/hongcai-trends'
+    },{
+      mimeType: 'image/jpg',
+      src: 'images/banner/banner002.png',
       href: '/consultant-team'
     },{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner-7.png',
+      src: 'images/banner/banner003.png',
       href: '/banner-investmentplan'
-    },{
-      mimeType: 'image/jpg',
-      src: 'images/banner/banner-3.jpg',
-      href: '/banner-nine'
     }, {
       mimeType: 'image/jpg',
-      src: 'images/banner/banner-5.jpg',
-      href: 'banner-partner'
+      src: 'images/banner/banner004.png',
+      href: 'http://mp.weixin.qq.com/s?__biz=MzA5Njg0Mzk4Mg==&mid=400010012&idx=1&sn=436a7eb0508d0439e898d604c4dd7727#rd'
+    },{
+      mimeType: 'image/jpg',
+      src: 'images/banner/banner005.png',
+      href: '/safe'
     }];
     $scope.slickConfig = {
       dots: true,

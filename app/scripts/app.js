@@ -100,7 +100,8 @@ hongcaiApp
         url: '/',
         views: {
           '': {
-            templateUrl: 'views/main.html',
+            //templateUrl: 'views/main.html',
+            templateUrl: 'views/main-new.html',
             controller: 'MainCtrl',
             controllerUrl: 'scripts/controller/main/main-ctrl'
           },

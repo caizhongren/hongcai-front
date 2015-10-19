@@ -1,0 +1,45 @@
+<div class="col-md-12 margin-b-30" style="background-color:#fbfbfb;border-bottom:1px solid #e6e4e4;box-shadow:0 5px 4px 0 rgba(236,234,235,0.7)" ng-include src='"views/main/_self_feature.html"'></div>
+<div class="container">
+  <!-- 自身特色 -->
+  <!-- 最新公告 -->
+  <div class="row main">
+    <div class="row" id="announcement" ng-include src='"views/main/_announcement.html"'></div>
+    <!-- new-零存宝 -->
+    <div class="row  border-total margin-t-30" ng-include ng-show="fundsProjectProductList" src='"views/main/lingcunbao.html"'></div>
+    <!-- 土豪标抽奖页入口 -->
+    <!-- <div class="row" ng-include src='"views/main/_tuhao_lucky_draw.html"' ng-show="tuhaoIsShowedFlAG"></div> -->
+    <!-- 新手标、红包标模块 -->
+    <!-- <div class="row" ng-include src='"views/main/_hongbao_list_no_newbie.html"' ng-if="activityList" ng-hide="newbieIsShowedFLAG"></div> -->
+    <!-- <div class="row" ng-include src='"views/main/_newbie_hongbao.html"' ng-show="newbieIsShowedFLAG"></div> -->
+    <!-- 预约广告位 -->
+    <!-- <div class="row" ng-include src='"views/main/_reservation.html"' ng-show="reservationIsShowedFlAG"></div> -->
+    <!-- <br> -->
+    <!-- 热卖推荐模块 -->
+    <!-- <div class="row " ng-include  ng-show="projectVo"></div> -->
+    <!-- 微信托 -->
+    <div class="row  margin-t-30 border-total" ng-include src='"views/main/weixintuo.html"' ng-show="false"></div>
+    <!-- new-宏金盈 -->
+    <div class="row  margin-t-30 border-total" ng-include src='"views/main/hongjinying.html"'></div>
+    <!-- new-hongjinbao -->
+    <div class="row  margin-t-30" ng-include src='"views/main/hongjinbao.html"'></div>
+    <!-- new-zhaiquanzhuanrang -->
+    <div class="row  margin-t-30" ng-include ng-show="false" src='"views/main/zhaiquanzhuanrang.html"'></div>
+    <!-- 推荐项目列表 -->
+    <!-- <div class="row recommend" ng-include src='"views/main/_recommend_list.html"'></div> -->
+    <!-- 债权转让模块 -->
+    <div class="row recommend" ng-include ng-show="creditIsShowedFLAG"></div>
+    <!-- 统计数据信息 -->
+    <div class="row" ng-include></div>
+    <div class="row" ng-include></div>
+  </div>
+</div>
+<!-- new-hongcaiyanjiuyuan -->
+<div class="block__yanjiuyuan" style="background-color: #fbfbfb;">
+  <div class="row main" style="width: 1200px;margin:0 auto;">
+    <div class="row margin-t-30 container-new" ng-include src='"views/main/hongcaiyanjiuyuan.html"'></div>
+  </div>
+</div>
+<!-- 合作伙伴 -->
+<div class="container-fluid index-cooperation" ng-include src='"views/main/_cooperation_agency.html"'></div>
+<!-- 友情链接 -->
+<!-- <div class="container-fluid index-cooperation" ng-include src='"views/main/_cooperation_linked.html"'></div> -->
