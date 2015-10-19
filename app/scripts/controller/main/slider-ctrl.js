@@ -19,7 +19,7 @@ angular.module('hongcaiApp')
     }, {
       mimeType: 'image/jpg',
       src: 'images/banner/banner004.png',
-      href: 'banner-partner'
+      href: 'http://mp.weixin.qq.com/s?__biz=MzA5Njg0Mzk4Mg==&mid=400010012&idx=1&sn=436a7eb0508d0439e898d604c4dd7727#rd'
     },{
       mimeType: 'image/jpg',
       src: 'images/banner/banner005.png',
