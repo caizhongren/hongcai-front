@@ -125,6 +125,16 @@ angular.module('hongcaiApp')
       }
     };
 
+    
+    // 显示零存宝协议
+    $scope.showCurrentDepositAgreement = function() {
+      $modal({
+        scope: $scope,
+        template: 'views/modal/alert-current-deposit-toinvPlanAgreement.html',
+        show: true
+      });
+    };
+
     // 显示协议
     $scope.showAgreement = function() {
       $modal({
