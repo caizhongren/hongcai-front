@@ -147,6 +147,11 @@ angular.module('hongcaiApp')
       time.min = dateStr.substring(3,5);
       time.seconds = dateStr.substring(6,8);
 
+      var hours = Math.floor(intervalTimeInMills/(60 * 60 * 1000));
+      if (hours >= 24){
+        time.hour = hours;
+      }
+
       return time;
     }
     
@@ -162,12 +167,12 @@ angular.module('hongcaiApp')
         nextDay.setHours(0);
         nextDay.setMinutes(0);
         nextDay.setSeconds(0);
-        var frequency = 1;
-        if (response.period != null){
-          frequency = response.period.frequency;
+        var intervalDay = 1;
+        if (response.data.period != null){
+          intervalDay = response.data.period.frequency;
         }
 
-        var nextDayTime = nextDay.getTime() + frequency * 24 * 60 * 60 * 1000;
+        var nextDayTime = nextDay.getTime() + intervalDay * 24 * 60 * 60 * 1000;
         var intervalTimeInMills = nextDayTime - $scope.serverTime;
         $scope.lingcunbao._timeDown = toHourMinSeconds(intervalTimeInMills);
         $scope.lingcunbao.interval = intervalTimeInMills;
