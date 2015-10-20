@@ -200,6 +200,7 @@ angular.module('hongcaiApp')
       }
     };
 
+    // 投资
     $scope.toInvest = function(fundsProject) {
       if (fundsProject.isRepeatFlag && $scope.invPlanFlag === 3) {
         $scope.isRepeat = 1;
