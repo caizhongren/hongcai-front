@@ -158,12 +158,17 @@ angular.module('hongcaiApp')
         $scope.lingcunbao = $scope.fundsProjectProductList[0];
         $scope.serverTime = response.data.serverTime;
 
-        var nextDayTime = new Date();
-        nextDayTime.setHours(23);
-        nextDayTime.setMinutes(59);
-        nextDayTime.setSeconds(50);
+        var nextDay = new Date();
+        nextDay.setHours(0);
+        nextDay.setMinutes(0);
+        nextDay.setSeconds(0);
+        var frequency = 1;
+        if (response.period != null){
+          frequency = response.period.frequency;
+        }
 
-        var intervalTimeInMills = nextDayTime.getTime() - $scope.serverTime;
+        var nextDayTime = nextDay.getTime() + frequency * 24 * 60 * 60 * 1000;
+        var intervalTimeInMills = nextDayTime - $scope.serverTime;
         $scope.lingcunbao._timeDown = toHourMinSeconds(intervalTimeInMills);
         $scope.lingcunbao.interval = intervalTimeInMills;
         $interval(function(){
@@ -221,11 +226,11 @@ angular.module('hongcaiApp')
 
 
     // 债权转让列表
-    var creditRightGroup = MainService.indexCreditRightList.get(function() {
-      if (creditRightGroup.ret === 1) {
-        $scope.creditRightList = creditRightGroup.data.creditAssignmentList;
-      }
-    });
+    // var creditRightGroup = MainService.indexCreditRightList.get(function() {
+    //   if (creditRightGroup.ret === 1) {
+    //     $scope.creditRightList = creditRightGroup.data.creditAssignmentList;
+    //   }
+    // });
 
     // 获取最后一个公告
     AboutUsService.getLatestNotice.get(function(response) {

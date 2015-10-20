@@ -1,0 +1,26 @@
+
+<!-- 零存宝详情页 -->
+<div id="investmentplan-detail" class="container margin-t-30 margin-b-30">
+  <div class="row bg-white margin-b-30 padding-b-30 border">
+    <div class="col-xs-12 margin-t-15 padding-l-30 padding-r-30 set-position">
+      <strong class="ft-24">{{ fundsProduct.name }}</strong>&nbsp;&nbsp;<span>{{ fundsProject.name }}</span>
+      <a class="ft-red pull-right" ng-click="showAgreement();" style="padding-top: 10px;">零存宝协议范本</a>
+    </div>
+    <div class="col-xs-12 bg-grey cut-off-rule padding-l-0 margin-t-15">
+      <div class="bg-red" style="width:25%;height:5px;"></div>
+    </div>
+    <div class="col-xs-12 margin-t-30 padding-l-45 padding-r-60">
+      <div class="row margin-t-15">
+        <!-- 项目描述模块 -->
+        <div class="col-xs-7" ng-include src='"views/project/_investmentplan_description.html"'></div>
+        <!-- 投资模块 -->
+        <div class="col-xs-4 pull-right" ng-include src='"views/project/_investmentplan_investment.html"'></div>
+      </div>
+    </div>
+    <div class="col-xs-12 margin-t-30 margin-b-30 padding-l-30 padding-r-30">
+      <img src="images/investmentplan/process.jpg" width="100%">
+    </div>
+    <!-- 项目详情模块 -->
+    <div class="col-xs-12 margin-t-15 margin-b-30 padding-l-30 padding-r-30" ng-include src='"views/project/_investmentplan_detail.html"'></div>
+  </div>
+</div>
