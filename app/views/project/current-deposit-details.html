@@ -12,15 +12,24 @@
     <div class="col-xs-12 padding-l-45 padding-r-60">
       <div class="row">
         <!-- 项目描述模块 -->
-        <div class="col-xs-8" ng-include src='"views/project/_investmentplan_description.html"' style="border-right:1px #eee solid;padding-right:60px;padding-top:30px;"></div>
+        <div class="col-xs-8" ng-include src='"views/project/_current_deposit_description.html"' style="border-right:1px #eee solid;padding-right:60px;padding-top:30px;"></div>
         <!-- 投资模块 -->
-        <div class="col-xs-4 pull-right" ng-include src='"views/project/_investmentplan_investment.html"'></div>
+        <div class="col-xs-4 pull-right" ng-include src='"views/project/_current_deposit_investment.html"'></div>
       </div>
     </div>
-    <div class="col-xs-12 margin-t-30 margin-b-30 padding-l-30 padding-r-30">
+    <!-- <div class="col-xs-12 margin-t-30 margin-b-30 padding-l-30 padding-r-30">
       <img src="images/investmentplan/process.jpg" width="100%">
-    </div>
+    </div> -->
     <!-- 项目详情模块 -->
-    <div class="col-xs-12 margin-t-15 margin-b-30 padding-l-30 padding-r-30" ng-include src='"views/project/_investmentplan_detail.html"'></div>
+    
   </div>
+  <div class="col-xs-12 margin-t-15 margin-b-30">
+    <div class="col-xs-12 padding-l-0 border-b-orange padding-r-0">
+            <ul class="nav nav-pills nav-justified" style="width: 100%;">
+                <li ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs | limitTo: 3"><a ng-click="toggle.switchTab($index)">{{tab.title}}</a>
+                </li>
+            </ul>
+        </div>
+  </div>
+  <div class="col-xs-12 margin-t-15 margin-b-30" style="padding:0;margin-left:-15px;width:1170px;" ng-include src='"views/project/_current_deposit_detail.html"'></div>
 </div>
