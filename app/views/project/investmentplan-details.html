@@ -1,24 +1,29 @@
 <div id="investmentplan-detail" class="container margin-t-30 margin-b-30">
-  <div class="row bg-white margin-b-30 padding-b-30 border">
-    <div class="col-xs-12 margin-t-15 padding-l-30 padding-r-30 set-position">
+    <div class="row bg-white margin-b-30 border">
+        <div class="col-xs-12 padding-l-30 padding-r-30 set-position" style="background-color:#eee;padding-top:15px;padding-bottom:15px;">
+            <b class="ft-18">{{ fundsProduct.name }}&nbsp;{{ fundsProject.name }}</b>
+            <span>当日计息，<span class="ft-orange">100%</span>本息保障</span>
+        </div>
+        <!-- <div class="col-xs-12 margin-t-15 padding-l-30 padding-r-30 set-position">
       <strong class="ft-24">{{ fundsProduct.name }}</strong>&nbsp;&nbsp;<span>{{ fundsProject.name }}</span>
       <a class="ft-red pull-right" ng-click="showAgreement();" style="padding-top: 10px;">宏金盈协议范本</a>
+    </div> -->
+        <!-- <div class="col-xs-12 bg-grey cut-off-rule padding-l-0 margin-t-15">
+            <div class="bg-red" style="width:25%;height:5px;"></div>
+        </div> -->
+        <div class="col-xs-12 padding-l-45 padding-r-60">
+            <div class="row">
+                <!-- 项目描述模块 -->
+                <div class="col-xs-8 padding-t-30 padding-b-30" ng-include src='"views/project/_investmentplan_description.html"' style="border-right:1px #eee solid;padding-right:60px;"></div>
+                <!-- 投资模块 -->
+                <div class="col-xs-4 padding-t-30 padding-b-30 pull-right" style="padding-left:45px;" ng-include src='"views/project/_investmentplan_investment.html"'></div>
+            </div>
+        </div>
     </div>
-    <div class="col-xs-12 bg-grey cut-off-rule padding-l-0 margin-t-15">
-      <div class="bg-red" style="width:25%;height:5px;"></div>
-    </div>
-    <div class="col-xs-12 margin-t-30 padding-l-45 padding-r-60">
-      <div class="row margin-t-15">
-        <!-- 项目描述模块 -->
-        <div class="col-xs-7" ng-include src='"views/project/_investmentplan_description.html"'></div>
-        <!-- 投资模块 -->
-        <div class="col-xs-4 pull-right" ng-include src='"views/project/_investmentplan_investment.html"'></div>
-      </div>
-    </div>
-    <div class="col-xs-12 margin-t-30 margin-b-30 padding-l-30 padding-r-30">
-      <img src="images/investmentplan/process.jpg" width="100%">
-    </div>
+    <!-- <div class="col-xs-12 margin-t-30 margin-b-30 padding-l-30 padding-r-30">
+        <img src="images/investmentplan/process.jpg" width="100%">
+    </div> -->
+    
     <!-- 项目详情模块 -->
-    <div class="col-xs-12 margin-t-15 margin-b-30 padding-l-30 padding-r-30" ng-include src='"views/project/_investmentplan_detail.html"'></div>
-  </div>
+    <div class="col-xs-12 margin-t-15 margin-b-30" style="padding:0;margin-left:-15px;width:1170px;" ng-include src='"views/project/_investmentplan_detail.html"'></div>
 </div>

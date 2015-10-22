@@ -32,12 +32,12 @@
         <div class="row money-area margin-t-30" ng-show="item.status === 1">
           <p class="text-center ft-18">可投金额<strong class="ft-20">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </strong>元</p>
         </div>
-        <div class="row money-area margin-t-20" ng-show="item.status !== 1">
+        <div class="row money-area margin-t-30" ng-show="item.status !== 1">
           <p class="text-center ft-18">成功投资<strong class="ft-20">{{ (item.soldStock + item.occupancyStock) * item.increaseAmount | noFractionCurrency:"":0 || 0}}</strong>元</p>
         </div>
         <div class="row hongjinying-btn-area">
           <a ui-sref="root.investmentplan-details({number: item.number})" style="padding:0;font-size:18px;" class="col-xs-12 btn btn-invite ft-white" role="button" ng-show="item.status === 1">立即投资<i class="fa fa-chevron-circle-right"></i></a>
-          <a ui-sref="root.investmentplan-details({number: item.number})"  style="padding:0;font-size:18px;" class="col-xs-12 btn btn-default bg-grey4 ft-white" role="button" ng-show="item.status !== 1">查看详情<i class="fa fa-chevron-circle-right"></i></a>
+          <a ui-sref="root.investmentplan-details({number: item.number})"  style="padding:0;font-size:18px;" class="col-xs-12 btn btn-invite-grey bg-grey4 ft-white" role="button" ng-show="item.status !== 1">查看详情<i class="fa fa-chevron-circle-right"></i></a>
         </div>
       </div>
     </div>
