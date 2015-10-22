@@ -63,7 +63,8 @@
                         您将要支付<span class="ftw-b ft-orange">{{investAmount | number:2}}</span>元，核实信息无误后请确认
                     </div>
                     <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-4" ng-class="{'btn-orange': checkInvFlag}" ng-disabled="!checkInvFlag" ng-click="transfer(project, investAmount, payAmount)">确认提交</a>
-                    <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-1" ui-sref="root.investmentplan-details({number: project.number})" style="margin-left:40px;">取消</a>
+                    <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-1" ui-sref="root.current-deposit-details({number: project.number})" style="margin-left:40px;" ng-show="fundsProduct.type === 1">取消</a>
+                    <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-1" ui-sref="root.investment-details({number: project.number})" style="margin-left:40px;"ng-show="fundsProduct.type !== 1">取消</a>
                 </form>
             </div>
         </div>
