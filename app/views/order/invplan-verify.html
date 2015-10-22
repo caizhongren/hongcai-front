@@ -39,7 +39,7 @@
         </div>
         <div class="row list-item border-b" ng-show="fundsProduct.type === 1" >
             <div class="col-xs-9 col-xs-offset-3 text-right" >
-                累积最大投资金额：{{maxInvestAmount| number:2}}元，已投金额：{{totalPayAmout| number:2}}元
+                累积最大投资金额：{{maxInvestAmount| number:2}}元，已投金额：{{totalPayAmout || 0 | number:2}}元
             </div>
         </div>
         <div class="row list-item border-b" ng-switch="investAmount - capital.balance <= 0">
