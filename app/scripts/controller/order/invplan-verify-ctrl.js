@@ -55,10 +55,18 @@ angular.module('hongcaiApp')
     };
 
     // 显示协议
-    $scope.showAgreement = function() {
+    $scope.showAgreement = function(productType) {
+      var showHtml = '';
+
+      if(productType === 1){
+        showHtml = 'views/modal/alert-toLCBinvPlanAgreement.html'
+      }else{
+        showHtml = 'views/modal/alert-toinvPlanAgreement.html';
+      }
+
       $modal({
         scope: $scope,
-        template: 'views/modal/alert-toinvPlanAgreement.html',
+        template: showHtml,
         show: true
       });
     };

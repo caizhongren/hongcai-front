@@ -45,7 +45,8 @@
         </div>
         <div class="row list-item border-b" ng-switch="investAmount - capital.balance <= 0">
             <div class="col-xs-3 col-xs-offset-4" ng-switch-when="true">
-                <input type="checkbox" ng-checked="true" ng-model="$parent.checkInvFlag" />同意<a class="ft-red" ng-click="showAgreement();">《宏金盈委托投资协议》</a>
+                <input type="checkbox" ng-checked="true" ng-model="$parent.checkInvFlag" />同意<a class="ft-red" ng-click="showAgreement(fundsProduct.type);" ng-show="fundsProduct.type !== 1">《宏金盈委托投资协议》</a>
+                <a class="ft-red" ng-click="showAgreement(fundsProduct.type);" ng-show="fundsProduct.type === 1">《零存宝委托投资协议》</a>
             </div>
             <div class="col-xs-3" ng-switch-when="true">
                 <input class="rule-check" type="checkbox" ng-model="project.isRepeatFlag" ng-click="checkAutoTransfer(project);">自动续投
