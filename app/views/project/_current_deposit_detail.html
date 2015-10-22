@@ -1,9 +1,10 @@
 <div class="col-xs-12">
-    <div class="row project-info" ng-init="toggle.activeTab=0;">
+    <div class="row project-info" ng-init="toggle.activeTab=1;">
         <div class="col-xs-12 margin-t-15" style="padding:0;">
             <div class="col-xs-12 padding-l-0 border-b-orange padding-r-0">
                 <ul class="nav nav-pills nav-justified" style="width: 100%;">
-                    <li ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs | limitTo: 3"><a ng-click="toggle.switchTab($index)">{{tab.title}}</a>
+                    <li ng-class="{'nav-orange': toggle.activeTab===$index}" ng-repeat="tab in tabs | limitTo: 3"  >
+                    <a ng-click="toggle.switchTab($index)" >{{tab.title}}</a>
                     </li>
                 </ul>
             </div>
@@ -17,7 +18,7 @@
                                 <img src="/images/investmentplan/lingcunbao-001.png" class="margin-t-30">
                                 <p class="ft-24 margin-t-30">短期理财，存取灵活</p>
                                 <p>7日封闭期，存取灵活的理财工具</p>
-                                <p>自动续投，保证您的资金不站岗</p>
+                                <p>起投门槛低，为您的零花钱增增肥</p>
                                 <p>每周更新额度，让您的资金有计划</p>
                             </div>
                             <div class="col-xs-4 text-center padding-b-30" style="background-color:#f5f5f5;">
@@ -25,7 +26,7 @@
                                 <p class="ft-24 margin-t-30">收益高，续投递增</p>
                                 <p>年化收益6%起，远超货币基金</p>
                                 <p>续投收益递增，让您钱滚钱</p>
-                                <p>每周更新额度，让您的资金有计划</p>
+                                <p>自动续投，保证您的资金不站岗</p>
                             </div>
                             <div class="col-xs-4 text-center padding-b-30" style="background-color:#f1efef;">
                                 <img src="/images/investmentplan/lingcunbao-003.png" class="margin-t-30">

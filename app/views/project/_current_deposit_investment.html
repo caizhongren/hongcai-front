@@ -177,13 +177,13 @@
         </div>
     </div>
     <!-- 融资结束，还款中，还款完成 -->
-    <div class="row" ng-show="fundsProject.status !== 1" style="padding:30px;">
+    <div class="row" ng-show="fundsProject.status !== 1" style="padding-top:20px;">
         <p class="text-center">
             <img src="images/project/invplan_status_2.png" alt="" ng-show="fundsProject.status === 2">
             <img src="images/project/invplan_status_3.png" alt="" ng-show="fundsProject.status === 3">
             <img src="images/project/invplan_status_4.png" alt="" ng-show="fundsProject.status === 4">
             <img src="images/project/invplan_status_5.png" alt="" ng-show="fundsProject.status === 5">
-            <a  ng-show="fundsProject.status === 5" href="/"><button class="btn-invite-orange margin-t-10" >关注其他项目</button></a>
+            <p class="margin-t-15"><a  ng-show="fundsProject.status === 5" href="/"><button class="btn-invite-orange margin-t-10" style="width:120%;margin-left:-30px;">关注其他项目</button></a></p>
         </p>
     </div>
 </div>
