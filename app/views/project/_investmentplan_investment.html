@@ -2,7 +2,7 @@
     <!-- <i class="fa fa-jpy fa-lg ft-grey3 i-rightmargin"></i> -->可投金额：<strong class="ft-24">{{ fundsProjectInvestNum | noFractionCurrency:"":0 || 0 }}</strong>元<span ng-show="fundsProject.status !== 1" style="float:right"><strong class="ft-24">{{investorCount}}</strong>人已投</span>
 </div>
 <div class="row text-left" style="padding:10px;" ng-show="fundsProject.status !== 1">
-    <i class="fa fa-jpy fa-lg ft-grey3 i-rightmargin"></i>成功投资：<strong class="ft-24 ft-red">{{ (fundsProject.soldStock + fundsProject.occupancyStock) * fundsProject.increaseAmount | noFractionCurrency:"":0 || 0 }}</strong>元<span ng-show="fundsProject.status !== 1" style="float:right"><strong class="ft-24">{{investorCount}}</strong>人已投</span>
+    <i class="fa fa-jpy fa-lg ft-grey3 i-rightmargin"></i>成功投资：<strong class="ft-24 ft-orange">{{ (fundsProject.soldStock + fundsProject.occupancyStock) * fundsProject.increaseAmount | noFractionCurrency:"":0 || 0 }}</strong>元<span ng-show="fundsProject.status !== 1" style="float:right"><strong class="ft-24">{{investorCount}}</strong>人已投</span>
 </div>
 <div class="row padding-l-15 padding-r-15">
     <!-- 项目融资中 -->
