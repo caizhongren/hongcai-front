@@ -13,6 +13,8 @@ angular.module('hongcaiApp')
         $scope.fundsProduct = response.data.projectDetail.fundsProduct;
         $scope.investAmount = response.data.amount;
         $scope.capital = response.data.account;
+        $scope.maxInvestAmount = response.data.maxInvestAmount;
+        $socpe.totalPayAmount = response.data.totalPayAmount;
       } else if (response.ret === -1) {
         if (response.code === -1027) {
           $scope.msg = '抱歉，已经卖光了。';
