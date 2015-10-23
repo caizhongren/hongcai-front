@@ -29,7 +29,7 @@ angular.module('hongcaiApp')
     $scope.page = parseInt($location.search().page, 10) || 0;
     $scope.clientLimit = 250;
     $scope.urlParams = {
-      type: '1'
+      type: '2'
     };
 
     $scope.$watch('page', function(page) {
@@ -49,9 +49,8 @@ angular.module('hongcaiApp')
       }
     });
     $scope.baseFundsProductData();
-    $scope.tabs = [{
-      title: '七日盈',
-    }, {
+    $scope.tabs = [
+    {
       title: '月月盈',
     }, {
       title: '季度盈',
