@@ -34,7 +34,8 @@ angular.module('hongcaiApp')
         save: {
           method: 'POST',
           params: {
-            mobile: '@mobile'
+            mobile: '@mobile',
+            picCaptcha: '@picCaptcha'
           }
         }
       }),
