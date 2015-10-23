@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="row border">
+        <div class="row border border-b-da">
             <div class="col-xs-12" style="background-color:#eee;padding-top:15px;padding-bottom:15px;">&nbsp;&nbsp;<b>投资信息确认</b>
             </div>
             <div class="col-md-12  margin-t-15 margin-b-30">
@@ -37,12 +37,12 @@
                 </div>
             </div>
         </div>
-        <div class="row list-item border-b" ng-show="fundsProduct.type === 1" >
+        <div class="row list-item border-b-da" ng-show="fundsProduct.type === 1" >
             <div class="col-xs-9 col-xs-offset-3 text-right" >
                 累积最大投资金额：{{maxInvestAmount| number:2}}元，已投金额：{{totalPayAmount | number:2}}元
             </div>
         </div>
-        <div class="row list-item border-b" ng-switch="investAmount - capital.balance <= 0">
+        <div class="row list-item border-b-da" ng-switch="investAmount - capital.balance <= 0">
             <div class="col-xs-3 col-xs-offset-4" ng-switch-when="true">
                 <input type="checkbox" ng-checked="true" ng-model="$parent.checkInvFlag" />同意<a class="ft-red" ng-click="showAgreement(fundsProduct.type);" ng-show="fundsProduct.type !== 1">《宏金盈委托投资协议》</a>
                 <a class="ft-red" ng-click="showAgreement(fundsProduct.type);" ng-show="fundsProduct.type === 1">《零存宝委托投资协议》</a>
