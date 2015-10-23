@@ -74,7 +74,7 @@ angular.module('hongcaiApp')
       }
     });
 
-    // 跳到登录界面
+    // 弹出登录弹层
     $scope.toRealLogin = function() {
       if (!$rootScope.isLogged) {
         $modal({
