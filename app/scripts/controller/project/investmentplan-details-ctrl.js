@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .controller('InvestmentplanDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', 
     function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
     
-    $rootScope.redirectUrl = $location.path() + '?tab=加入记录' ;
+    $rootScope.redirectUrl = $location.path();
 
     var number = $stateParams.number;
     if (!number) {
