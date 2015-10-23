@@ -39,14 +39,26 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.sendMobileCaptcha = function() {
+
+    // $scope.$watch('user.picCaptcha', function(newVal, oldVal){
+    //   console.log(newVal);
+    // });
+
+    $scope.sendMobileCaptcha = function(user) {
+      if (!user.picCaptcha){
+        $scope.showPicCaptchaError = true;
+      } else {
+        $scope.showPicCaptchaError = false;
+      }
+
       RegisterService.sendMobileCaptcha.save({
-        mobile: angular.element('#mobile').val()
+        picCaptcha: user.picCaptcha,
+        mobile: user.mobile
       }, function(response) {
         if (response.ret === 1) {
 
         } else {
-
+          $scope.showPicCaptchaError = true;
         }
       });
     };
