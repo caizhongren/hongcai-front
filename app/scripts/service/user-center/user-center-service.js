@@ -30,8 +30,9 @@ angular.module('hongcaiApp')
         status: '@status'
       }),
       getUserBalance: $resource(DEFAULT_DOMAIN + '/siteAccount/getUserBalance'),
-      sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/sendMobileCaptcha', {
-        mobile: '@mobile'
+      sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/mobileCaptcha', {
+        mobile: '@mobile',
+        picCaptcha: '@picCaptcha'
       }),
       bindMobile: $resource(DEFAULT_DOMAIN + '/siteUser/bindMobile', {
         mobile: '@mobile',

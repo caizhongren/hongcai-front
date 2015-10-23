@@ -414,7 +414,7 @@ hongcaiApp
         }
       })
       .state('root.invplan-verify-transfer', {
-        url: '/invplan-verify-transfer/:projectId/:amount/:isRepeat',
+        url: '/invplan-verify-transfer/:projectId/:amount/:isRepeat/:payAmount',
         views: {
           '': {
             templateUrl: 'views/transfer.html',
@@ -789,6 +789,20 @@ hongcaiApp
           }
         }
       })
+
+      // 零存宝详情页
+      .state('root.current-deposit-details', {
+        url: '/current-deposit/:number?tab', // tab表示用户登录前的位置
+        views: {
+          '': {
+            templateUrl: 'views/project/current-deposit-details.html',
+            controller: 'InvestmentplanDetailsCtrl',
+            controllerUrl: 'scripts/controller/project/investmentplan-details-ctrl'
+          }
+        }
+      })
+
+      // 宏金盈详情页
       .state('root.investmentplan-details', {
         url: '/investmentplan/:number?tab', // tab表示用户登录前的位置
         views: {
@@ -799,6 +813,8 @@ hongcaiApp
           }
         }
       })
+
+      // 宏金宝详情页
       .state('root.project-sponsorInstitution', {
         url: '/project-sponsorInstitution/:guaranteeId',
         views: {

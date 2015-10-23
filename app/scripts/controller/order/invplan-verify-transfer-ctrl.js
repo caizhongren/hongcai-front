@@ -28,7 +28,8 @@ angular.module('hongcaiApp')
     OrderService.saveFundsOrder.get({
       projectId: $stateParams.projectId,
       amount: $stateParams.amount,
-      isRepeat: $stateParams.isRepeat
+      isRepeat: $stateParams.isRepeat,
+      payAmount: $stateParams.payAmount
     }, function(response) {
       if (response.ret === 1) {
         var orderId = response.data.orderId;

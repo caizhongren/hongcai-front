@@ -7,7 +7,7 @@ angular.module('hongcaiApp')
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
 
-    $scope.verifyAccount = function(account) {
+    $scope.verifyAccount = function(account, captcha) {
       var dataBoth = [{
         'CategoryId': 0,
         'Name': '手机找回'
@@ -28,6 +28,7 @@ angular.module('hongcaiApp')
       var emailPattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       if (mobilePattern.test(account)) { // 说明是手机号码找回
         UserCenterService.sendMobileCaptcha.get({
+          picCaptcha: captcha,
           mobile: account
         }, function(response) {
           if (response.ret === 1) {

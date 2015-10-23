@@ -30,7 +30,7 @@ angular.module('hongcaiApp')
           }
         }
       }),
-      sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/sendMobileCaptcha', {}, {
+      sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/mobileCaptcha', {}, {
         save: {
           method: 'POST',
           params: {

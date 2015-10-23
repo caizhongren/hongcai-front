@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .controller('InvestmentplanDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', 
     function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
     
-    $rootScope.redirectUrl = $location.path() + '?tab=加入记录' ;
+    $rootScope.redirectUrl = $location.path();
 
     var number = $stateParams.number;
     if (!number) {
@@ -74,7 +74,7 @@ angular.module('hongcaiApp')
       }
     });
 
-    // 跳到登录界面
+    // 弹出登录弹层
     $scope.toRealLogin = function() {
       if (!$rootScope.isLogged) {
         $modal({
@@ -123,6 +123,16 @@ angular.module('hongcaiApp')
         // 去实名
         $scope.toRealNameAuth();
       }
+    };
+
+    
+    // 显示零存宝协议
+    $scope.showCurrentDepositAgreement = function() {
+      $modal({
+        scope: $scope,
+        template: 'views/modal/alert-current-deposit-toinvPlanAgreement.html',
+        show: true
+      });
     };
 
     // 显示协议
@@ -190,6 +200,7 @@ angular.module('hongcaiApp')
       }
     };
 
+    // 投资
     $scope.toInvest = function(fundsProject) {
       if (fundsProject.isRepeatFlag && $scope.invPlanFlag === 3) {
         $scope.isRepeat = 1;
