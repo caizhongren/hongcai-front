@@ -60,7 +60,7 @@ angular.module('hongcaiApp')
 
     $scope.toggle = {};
     $scope.toggle.switchTab = function(tabIndex) {
-      $scope.urlParams.type = tabIndex + 1;
+      $scope.urlParams.type = tabIndex + 2;
       $scope.toggle.activeTab = tabIndex;
     };
     $rootScope.selectPage = $location.path().split('/')[1];
