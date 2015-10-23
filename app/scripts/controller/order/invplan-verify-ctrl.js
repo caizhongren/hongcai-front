@@ -13,6 +13,10 @@ angular.module('hongcaiApp')
         $scope.fundsProduct = response.data.projectDetail.fundsProduct;
         $scope.investAmount = response.data.amount;
         $scope.capital = response.data.account;
+        $scope.maxInvestAmount = response.data.maxInvestAmount;
+        $scope.totalPayAmount = response.data.totalPayAmount;
+        $scope.experienceAmount = response.data.experienceAmount;
+        $scope.payAmount = response.data.payAmount;
       } else if (response.ret === -1) {
         if (response.code === -1027) {
           $scope.msg = '抱歉，已经卖光了。';
@@ -55,15 +59,23 @@ angular.module('hongcaiApp')
     };
 
     // 显示协议
-    $scope.showAgreement = function() {
+    $scope.showAgreement = function(productType) {
+      var showHtml = '';
+
+      if(productType === 1){
+        showHtml = 'views/modal/alert-toLCBinvPlanAgreement.html'
+      }else{
+        showHtml = 'views/modal/alert-toinvPlanAgreement.html';
+      }
+
       $modal({
         scope: $scope,
-        template: 'views/modal/alert-toinvPlanAgreement.html',
+        template: showHtml,
         show: true
       });
     };
 
-    $scope.transfer = function(project, investAmount) {
+    $scope.transfer = function(project, investAmount, payAmount) {
       if (project.isRepeatFlag && $rootScope.autoTransfer === 1) {
         $scope.isRepeat = 1;
       } else {
@@ -77,7 +89,7 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      window.open('/#!/invplan-verify-transfer/' + project.id + '/' + investAmount + '/' + $scope.isRepeat);
+      window.open('/#!/invplan-verify-transfer/' + project.id + '/' + investAmount + '/' + $scope.isRepeat+ '/' + payAmount);
     };
 
     $scope.backTo = function() {

@@ -414,7 +414,7 @@ hongcaiApp
         }
       })
       .state('root.invplan-verify-transfer', {
-        url: '/invplan-verify-transfer/:projectId/:amount/:isRepeat',
+        url: '/invplan-verify-transfer/:projectId/:amount/:isRepeat/:payAmount',
         views: {
           '': {
             templateUrl: 'views/transfer.html',
