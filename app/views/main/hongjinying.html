@@ -23,16 +23,16 @@
         </div>
         <div class="row margin-t-30">
           <div class="col-xs-12 rate-areas">
-            <span class="ft-40 ft-blue">{{item.fundsProduct.baseRate+item.fundsProduct.riseRate*3 | number: 1 || 0}}
+            <span class="ft-60 ft-blue">{{item.fundsProduct.baseRate+item.fundsProduct.riseRate*3 | number: 1 || 0}}
             <span class="ft-16">%</span>
             </span>
             <p class="high-p">预期最高年化</p>
           </div>
         </div>
-        <div class="row money-area margin-t-30" ng-show="item.status === 1">
+        <div class="row money-area margin-t-10" ng-show="item.status === 1">
           <p class="text-center ft-18">可投金额<strong class="ft-20">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </strong>元</p>
         </div>
-        <div class="row money-area margin-t-30" ng-show="item.status !== 1">
+        <div class="row money-area margin-t-10" ng-show="item.status !== 1">
           <p class="text-center ft-18">成功投资<strong class="ft-20">{{ (item.soldStock + item.occupancyStock) * item.increaseAmount | noFractionCurrency:"":0 || 0}}</strong>元</p>
         </div>
         <div class="row hongjinying-btn-area">
