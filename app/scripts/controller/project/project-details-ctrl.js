@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
-    $rootScope.redirectUrl = $location.path();
+    // $rootScope.redirectUrl = $location.path();
     $scope.chk = true;
     $scope.checkFlag = true;
     $scope.check = function(val) {
@@ -35,6 +35,7 @@ angular.module('hongcaiApp')
             $timeout.cancel(mytimeout);
           });
           $scope.project = projectDetails.data.project;
+          console.info($scope.project);
           $scope.categoryCode = $scope.project.categoryCode;
           if ($scope.categoryCode === '04' || $scope.categoryCode === '05' || $scope.categoryCode === '06') {
             $scope.tabs = [{
@@ -470,4 +471,16 @@ angular.module('hongcaiApp')
         redirectUrl: thisUrl
       });
     };
+
+    // 弹出登录弹层
+    $scope.toRealLogin = function() {
+      if (!$rootScope.isLogged) {
+        $modal({
+          scope: $scope,
+          template: 'views/modal/modal-toLogin.html',
+          show: true
+        });
+      }
+    };
+    
   }]);
