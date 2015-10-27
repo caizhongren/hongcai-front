@@ -2,7 +2,7 @@
     <div class="text-left margin-t-30" ng-show="fundsProject.status === 1">
         <!-- <i class="fa fa-jpy fa-lg ft-grey3 i-rightmargin"></i> -->可投金额：<strong class="ft-24">{{ fundsProjectInvestNum | noFractionCurrency:"":0 || 0 }}</strong>元<span ng-show="fundsProject.status !== 1" style="float:right"><strong class="ft-24">{{investorCount}}</strong>人已投</span>
     </div>
-    <div class="row text-left margin-t-15" ng-show="fundsProject.status !== 1">
+    <div class="text-left margin-t-15" ng-show="fundsProject.status !== 1">
         <!-- <i class="fa fa-jpy fa-lg ft-grey3 i-rightmargin"></i> -->成功融资：<strong class="ft-30">{{ (fundsProject.soldStock + fundsProject.occupancyStock) * fundsProject.increaseAmount | noFractionCurrency:"":0 || 0 }}&nbsp;</strong>元
         <!-- <span ng-show="fundsProject.status !== 1" style="float:right"><strong class="ft-24">{{investorCount}}</strong>人已投</span> -->
     </div>
@@ -175,7 +175,7 @@
                 <img src="images/project/invplan_status_3.png" alt="" ng-show="fundsProject.status === 3">
                 <img src="images/project/invplan_status_4.png" alt="" ng-show="fundsProject.status === 4">
                 <img src="images/project/invplan_status_5.png" alt="" ng-show="fundsProject.status === 5">
-                <p class="margin-t-15">
+                <p class="margin-t-15" style="margin-left:15px;margin-right:15px;">
                     <a ng-show="fundsProject.status === 5" href="/">
                         <button class="btn-invite-orange margin-t-10" style="width:120%;margin-left">关注其他项目</button>
                     </a>
