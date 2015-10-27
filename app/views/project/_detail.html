@@ -174,7 +174,7 @@
                                                 <h4 class="timeline-title"><b class="ft-30">03</b>&nbsp;项目放款</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>已还：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest) | number:2 }}（{{billCount}}期）</p>
+                                                <p>放款时间：{{project.loanTime}}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -184,10 +184,12 @@
                                         <div style="position:absolute;top:32px;left:43%;"><i class="fa fa-list-ol fa-2x ft-orange"></i></div>
                                         <div class="timeline-panel">
                                             <div class="timeline-heading">
-                                                <h4 class="timeline-title"><b class="ft-30">04</b>&nbsp;项目还款</h4>
+                                                <h4 class="timeline-title"><b class="ft-30">04</b>&nbsp;项目还款<span class="ft-12">（{{billCount}}&nbsp;/&nbsp;{{project.cycle}}期）</span></h4>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>待还款：{{remainPrincipal + remainInterest | number:2 }}（{{project.cycle - billCount}}期）</p>
+                                              <p>还款时间：{{project.repaymentDate}}</p>
+                                              <p>还款金额：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest) | number:2 }}（{{billCount}}期）</p>
+                                              <p>待还金额：{{remainPrincipal + remainInterest | number:2 }}</p>
                                             </div>
                                         </div>
                                     </li>
