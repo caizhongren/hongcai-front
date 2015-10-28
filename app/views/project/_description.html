@@ -1,9 +1,9 @@
 <div class="col-xs-12">
-  <div class="panel panel-default" style="height:350px;">
+  <div class="panel panel-default" style="height:334px;">
     <div class="panel-body">
       <div class="row">
         <div class="hidden-xs hidden-md col-lg-5">
-          <img ng-src="{{baseFileUrl + project.image}}" alt="" width="230" height="225" class="img-rounded">
+          <img ng-src="{{baseFileUrl + project.image}}" alt="" width="250" height="260" class="img-rounded">
         </div>
         <div class="col-lg-7">
           <div class="row">
@@ -32,7 +32,7 @@
             </div>
           </div>
           <hr style="margin-top: 3px;margin-bottom: 12px;">
-          <div class="row">
+          <div class="row margin-t-30">
             <div class="col-xs-12 under-margin1" ng-hide="categoryCode === '04' || categoryCode === '05' || categoryCode === '06' || categoryCode === '07'"><i class="fa fa-circle ft-orange right-margin"></i>
               <strong>担保机构：<a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" target="_blank">{{project.guaranteeName}}</a></strong>
             </div>
