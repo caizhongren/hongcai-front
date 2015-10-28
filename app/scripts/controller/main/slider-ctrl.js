@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SliderCtrl', ['$scope', '$stateParams', '$rootScope', '$location', function($scope, $stateParams, $rootScope, $location) {
+  .controller('SliderCtrl', ['$scope', '$stateParams', '$rootScope', '$location', function($scope, $stateParams, $rootScope, $location, MainService) {
     $rootScope.selectPage = $location.path().split('/')[1];
 
     //http://www.hongcai.com/hongcai-trends?page=0&perPage=5
