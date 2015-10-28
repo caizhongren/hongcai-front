@@ -33,6 +33,24 @@ angular.module('hongcaiApp')
     //   });
     // };
     // $scope.projectList();
+    // 
+    // 将时间转换为时分秒
+    function toHourMinSeconds(intervalTimeInMills){
+      var date = new Date(intervalTimeInMills - 8 * 60 * 60 * 1000);
+      var dateStr = date.toTimeString().substring(0, 8);
+
+      var time = {};
+      time.hour = dateStr.substring(0,2);
+      time.min = dateStr.substring(3,5);
+      time.seconds = dateStr.substring(6,8);
+
+      var hours = Math.floor(intervalTimeInMills/(60 * 60 * 1000));
+      if (hours >= 24){
+        time.hour = hours;
+      }
+
+      return time;
+    }
 
     // 宏金宝列表
     $scope.hongjinbaoList = function() {
@@ -62,7 +80,7 @@ angular.module('hongcaiApp')
           for (var i = 0; i < $scope.hongjinbao.length; i++) {
             $scope.hongjinbao[i].countdown = $scope.hongjinbao[i].releaseStartTime - $scope.serverTime;
             $scope.hongjinbao[i].showByStatus = $scope.hongjinbao[i].status === 6 || $scope.hongjinbao[i].status === 7 ? true : false;
-            $scope.hongjinbao[i]._timeDown = $scope.toHourMinSeconds($scope.hongjinbao[i].countdown);
+            $scope.hongjinbao[i]._timeDown = toHourMinSeconds($scope.hongjinbao[i].countdown);
             $scope.data.push($scope.hongjinbao[i]);
           }
           $scope._timeDown = [];
@@ -74,7 +92,7 @@ angular.module('hongcaiApp')
               if ($scope.hongjinbao[i].countdown <= 0){
                 window.location.reload();
               }
-              $scope.hongjinbao[i]._timeDown = $scope.toHourMinSeconds($scope.hongjinbao[i].countdown);
+              $scope.hongjinbao[i]._timeDown = toHourMinSeconds($scope.hongjinbao[i].countdown);
             };
           }, 1000);
 
@@ -105,23 +123,7 @@ angular.module('hongcaiApp')
     //   }
     // });
     // 
-    // 将时间转换为时分秒
-    function toHourMinSeconds(intervalTimeInMills){
-      var date = new Date(intervalTimeInMills - 8 * 60 * 60 * 1000);
-      var dateStr = date.toTimeString().substring(0, 8);
-
-      var time = {};
-      time.hour = dateStr.substring(0,2);
-      time.min = dateStr.substring(3,5);
-      time.seconds = dateStr.substring(6,8);
-
-      var hours = Math.floor(intervalTimeInMills/(60 * 60 * 1000));
-      if (hours >= 24){
-        time.hour = hours;
-      }
-
-      return time;
-    }
+    
     
     //  宏金盈列表
     MainService.getIndexFundsProductList.get(function(response) {
@@ -157,12 +159,7 @@ angular.module('hongcaiApp')
 
 
 
-    // 首页数据统计
-    var indexStatistics = MainService.indexStatistics.get(function(response) {
-      if (response.ret === 1) {
-        $scope.indexStatic = indexStatistics.data.indexStatic;
-      }
-    });
+    
 
     // 媒体报道
     AboutUsService.indexTextList.get({
