@@ -15,8 +15,9 @@
     <form class="col-md-5" name="rechargeForm" ng-show="isSecurityAuth" style="padding-right:30px;">
       <div class="row">
         <div class="form-group mgn-top">
-          <p><label class="col-md-5">可用余额：</label>
-          <span class="ft-red ft-24">{{ balance || "0" | number:2}}</span>&nbsp;&nbsp;元</p>
+          <p>
+            <label class="col-md-5">可用余额：</label>
+            <span class="ft-red ft-24">{{ balance || "0" | number:2}}</span>&nbsp;&nbsp;元</p>
         </div>
       </div>
       <div class="row">
@@ -31,6 +32,9 @@
           </div>
         </div>
       </div>
+      <div class="row col-md-10 col-md-offset-2 text-center ft-red">
+        <p>手续费：免费（由平台支付）</p>
+      </div>
       <div class="row col-md-10 col-md-offset-2">
         <div class="form-group">
           <input type="button" value="确认充值" class="btn-recharge-orange" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-orange':rechargeForm.$invalid, 'red-button':!rechargeForm.$invalid}" />
@@ -39,7 +43,7 @@
     </form>
     <div class="col-md-6" style="border-left:1px dashed #dadada;padding-left:50px;">
       <div class="ft-14">
-        <p>温馨提示:</p>
+        <p><i class="fa fa-tint" style="margin-left:-20px;margin-right:15px;"></i>温馨提示:</p>
         <p class="p-big">1. 您的账户资金将由有银监会颁发牌照的第三方支付平台托管；</p>
         <p class="p-big">2. 首先请注意您是否开通网上银行等功能,可能存在充值超过限额：（充值限额，是银行、第三方支付平台、和用户您自己设定的支付限额决定的，取三者最小值）以免造成充值不成功；</p>
         <p class="p-big">3. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>
@@ -52,8 +56,9 @@
     <form class="col-md-5" name="transferForm" ng-show="isSecurityAuth" style="padding-right:30px;">
       <div class="row">
         <div class="form-group mgn-top">
-          <p><label class="col-md-3 col-lg-2">可转账余额：</label>
-          <span class="ft-red ft-24">{{ balance || "0" | number:2}}</span>元</p>
+          <p>
+            <label class="col-md-3 col-lg-2">可转账余额：</label>
+            <span class="ft-red ft-24">{{ balance || "0" | number:2}}</span>元</p>
         </div>
       </div>
       <div class="row">
@@ -76,7 +81,7 @@
     </form>
     <div class="col-md-6" style="border-left:1px dashed #dadada;padding-left:50px;">
       <div class="ft-14">
-        <p>温馨提示:</p>
+        <p><i class="fa fa-tint" style="margin-left:-20px;margin-right:15px;"></i>温馨提示:</p>
         <p class="p-big">1. 您的账户资金将由有银监会颁发牌照的第三方支付平台托管；</p>
         <p class="p-big">2. 首先请注意您是否开通网上银行等功能,可能存在充值超过限额：（充值限额，是银行、第三方支付平台、和用户您自己设定的支付限额决定的，取三者最小值）以免造成充值不成功；</p>
         <p class="p-big">3. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>
