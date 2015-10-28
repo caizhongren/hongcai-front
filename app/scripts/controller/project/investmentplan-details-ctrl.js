@@ -19,6 +19,7 @@ angular.module('hongcaiApp')
         $scope.investorCount = response.data.investorCount;
         $scope.repeatCount = response.data.repeatCount;
         $scope.fundsProduct = response.data.fundsProduct;
+        $scope.fundsProject.product = $scope.fundsProduct;
         $scope.repaymentDate = moment(response.data.fundsProject.repaymentDate).format('YYYY年MM月DD日');
         $scope.releaseStartTime = moment(response.data.fundsProject.releaseStartTime).format('YYYY年MM月DD日 HH:MM');
         $scope.fundsProjectInvestNum = $scope.fundsProject.total - ($scope.fundsProject.soldStock + $scope.fundsProject.occupancyStock) * $scope.fundsProject.increaseAmount;
@@ -36,25 +37,7 @@ angular.module('hongcaiApp')
         }
         // 当status===1可融资状态的时候，判断invPlanFlag的状态。0：未登录，1：普通用户，2：实名用户，3：开启自动投资用户。
         if ($scope.fundsProject.status === 1) {
-          if ($rootScope.account) {
-            $scope.userCanFundsInvestNum = $scope.fundsProjectInvestNum > $rootScope.account.balance ? $rootScope.account.balance : $scope.fundsProjectInvestNum;
-            // switch > if
-            var plusFlag = $rootScope.securityStatus.realNameAuthStatus + $rootScope.autoTransfer;
-            switch (plusFlag) {
-            case 2:
-              $scope.invPlanFlag = 3;
-              break;
-            case 1:
-              $scope.invPlanFlag = 2;
-              break;
-            case 0:
-              $scope.invPlanFlag = 1;
-              break;
-            }
-          } else {
-            $scope.userCanCreditInvestNum = 0;
-            $scope.invPlanFlag = 0;
-          }
+          $scope.initInvPlanFlag();
           // if ($rootScope.isLogged) {
           //   if ($rootScope.autoTransfer === 1) {
           //     $scope.invPlanFlag = 3;
@@ -73,6 +56,29 @@ angular.module('hongcaiApp')
         $state.go('root.investmentplan-list');
       }
     });
+
+    //初始化 invPlanFlag的状态。0：未登录，1：普通用户，2：实名用户，3：开启自动投资用户。
+    $scope.initInvPlanFlag = function(){
+      if ($rootScope.account) {
+          $scope.userCanFundsInvestNum = $scope.fundsProjectInvestNum > $rootScope.account.balance ? $rootScope.account.balance : $scope.fundsProjectInvestNum;
+          // switch > if
+          var plusFlag = $rootScope.securityStatus.realNameAuthStatus + $rootScope.autoTransfer;
+          switch (plusFlag) {
+          case 2:
+            $scope.invPlanFlag = 3;
+            break;
+          case 1:
+            $scope.invPlanFlag = 2;
+            break;
+          case 0:
+            $scope.invPlanFlag = 1;
+            break;
+          }
+        } else {
+          $scope.userCanCreditInvestNum = 0;
+          $scope.invPlanFlag = 0;
+        }
+    }
 
     // 弹出登录弹层
     $scope.toRealLogin = function() {
@@ -160,10 +166,12 @@ angular.module('hongcaiApp')
       }
     };
 
+    $scope.repeatCheckFlag = false;
     // 检测input step
     $scope.checkStepAmount = function(fundsProject) {
       if (fundsProject.invPlanAmount >= fundsProject.increaseAmount) {
         if (fundsProject.invPlanAmount % fundsProject.increaseAmount === 0) {
+          $scope.repeatCheckFlag = $rootScope.account.experienceAmount >= fundsProject.invPlanAmount ? true : false;
           return false;
         } else {
           return true;
@@ -190,7 +198,8 @@ angular.module('hongcaiApp')
     // 检测用户可投最高金额
     $scope.checkLargeUserCanAmount = function(fundsProject) {
       if ($rootScope.account) {
-        if ($rootScope.account.balance < fundsProject.invPlanAmount) {
+        var availableAmount = fundsProject.product.type !== 1 ? $rootScope.account.balance : $rootScope.account.balance + $rootScope.account.experienceAmount;
+        if (availableAmount < fundsProject.invPlanAmount) {
           return true;
         } else {
           return false;

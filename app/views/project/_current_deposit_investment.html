@@ -16,9 +16,6 @@
                 </div>
                 <div class="col-xs-12 margin-t-30">
                     <form class="from-group" ng-submit="toInvest(fundsProject);" name="invPlanForm">
-                        <!--           <div class="col-xs-12" ng-show="!invPlanForm.invPlanAmount.$dirty">
-            <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">请输入投资金额</p>
-          </div> -->
                         <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$error.number">
                             <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">输入金额格式不对，只能输入数字</p>
                         </div>
@@ -52,12 +49,10 @@
                 <div class="col-xs-12 margin-t-30 rechanege" style="padding-left: 30px; padding-right: 30px;">
                     <span>账户余额：<small class="ft-24">{{ account.balance | currency:"":2 || 0}}</small>元</span>
                     <a class="ft-red pull-right" ng-click="toRecharge();">充值</a>
+                    <span>体验金余额：<small class="ft-24">{{ account.experienceAmount | currency:"":2 || 0}}</small>元</span>
                 </div>
                 <div class="col-xs-12 margin-t-15">
                     <form class="from-group" ng-submit="toInvest(fundsProject);" name="invPlanForm">
-                        <!--           <div class="col-xs-12" ng-show="!invPlanForm.invPlanAmount.$dirty">
-            <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">请输入投资金额</p>
-          </div> -->
                         <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$error.number">
                             <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">输入金额格式不对，只能输入数字</p>
                         </div>
@@ -91,12 +86,10 @@
                 <div class="col-xs-12 margin-t-30 rechanege" style="padding-left: 30px; padding-right: 30px;">
                     <span>账户余额：<small class="ft-24 ft-red">{{ account.balance | currency:"":2 || 0}}</small>元</span>
                     <a class="ft-red pull-right" ng-click="toRecharge();">充值</a>
+                    <span>体验金余额：<small class="ft-24">{{ account.experienceAmount | currency:"":2 || 0}}</small>元</span>
                 </div>
                 <div class="col-xs-12 margin-t-15">
                     <form class="from-group" ng-submit="toInvest(fundsProject);" name="invPlanForm">
-                        <!--           <div class="col-xs-12" ng-show="!invPlanForm.invPlanAmount.$dirty">
-            <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">请输入投资金额</p>
-          </div> -->
                         <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$error.number">
                             <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">输入金额格式不对，只能输入数字</p>
                         </div>
@@ -124,7 +117,7 @@
                         </div>
                         <div class="col-xs-12">
                             <p>
-                                <input class="rule-check text-left" type="checkbox" ng-model="fundsProject.isRepeatFlag" ng-click="checkAutoTransfer(fundsProject);">自动续投
+                                <input class="rule-check text-left" type="checkbox" ng-model="fundsProject.isRepeatFlag" ng-click="checkAutoTransfer(fundsProject);" ng-disabled="repeatCheckFlag">自动续投
                                 <span style="float:right;"><strong>{{ investorCount }}</strong>人已投</span>
                             </p>
                         </div>
@@ -136,12 +129,10 @@
                 <div class="col-xs-12 margin-t-30 rechanege" style="padding-left: 30px; padding-right: 30px;">
                     <span>账户余额：<small class="ft-24 ft-red">{{ account.balance | currency:"":2 || 0}}</small>元</span>
                     <a class="ft-red pull-right" ng-click="toRecharge();">充值</a>
+                    <span>体验金余额：<small class="ft-24">{{ account.experienceAmount | currency:"":2 || 0}}</small>元</span>
                 </div>
                 <div class="col-xs-12 margin-t-15">
                     <form class="from-group" ng-submit="toInvest(fundsProject);" name="invPlanForm">
-                        <!--           <div class="col-xs-12" ng-show="!invPlanForm.invPlanAmount.$dirty">
-            <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">请输入投资金额</p>
-          </div> -->
                         <div class="col-xs-12" ng-show="invPlanForm.invPlanAmount.$error.number">
                             <p class=" text-center text text-danger" style="font-size:15px; padding-top:4px;height:30px; margin-bottom:0px;background-color:#FEDED8;">输入金额格式不对，只能输入数字</p>
                         </div>
@@ -169,7 +160,7 @@
                         </div>
                         <div class="col-xs-12">
                             <p>
-                                <input class="rule-check text-left" type="checkbox" ng-model="fundsProject.isRepeatFlag" ng-click="checkAutoTransfer(fundsProject);">自动续投
+                                <input class="rule-check text-left" type="checkbox" ng-model="fundsProject.isRepeatFlag" ng-click="checkAutoTransfer(fundsProject);" ng-disabled="repeatCheckFlag" >自动续投
                                 <span style="float:right;"><strong>{{ investorCount }}</strong>人已投</span>
                             </p>
                         </div>
