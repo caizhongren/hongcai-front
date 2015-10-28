@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', function($scope, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout) {
+  .controller('MainCtrl', function($scope, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout, DateUtils) {
     $scope.spCountDown = -1;
 
 
@@ -34,23 +34,7 @@ angular.module('hongcaiApp')
     // };
     // $scope.projectList();
     // 
-    // 将时间转换为时分秒
-    function toHourMinSeconds(intervalTimeInMills){
-      var date = new Date(intervalTimeInMills - 8 * 60 * 60 * 1000);
-      var dateStr = date.toTimeString().substring(0, 8);
-
-      var time = {};
-      time.hour = dateStr.substring(0,2);
-      time.min = dateStr.substring(3,5);
-      time.seconds = dateStr.substring(6,8);
-
-      var hours = Math.floor(intervalTimeInMills/(60 * 60 * 1000));
-      if (hours >= 24){
-        time.hour = hours;
-      }
-
-      return time;
-    }
+  
 
     // 宏金宝列表
     $scope.hongjinbaoList = function() {
@@ -78,9 +62,9 @@ angular.module('hongcaiApp')
             return Math.ceil($scope.data.length / $scope.pageSize);
           };
           for (var i = 0; i < $scope.hongjinbao.length; i++) {
-            $scope.hongjinbao[i].countdown = $scope.hongjinbao[i].releaseStartTime - $scope.serverTime;
+            $scope.hongjinbao[i].countdown = new Date($scope.hongjinbao[i].releaseStartTime).getTime() - $scope.serverTime;
             $scope.hongjinbao[i].showByStatus = $scope.hongjinbao[i].status === 6 || $scope.hongjinbao[i].status === 7 ? true : false;
-            $scope.hongjinbao[i]._timeDown = toHourMinSeconds($scope.hongjinbao[i].countdown);
+            $scope.hongjinbao[i]._timeDown = DateUtils.toHourMinSeconds($scope.hongjinbao[i].countdown);
             $scope.data.push($scope.hongjinbao[i]);
           }
           $scope._timeDown = [];
@@ -89,10 +73,10 @@ angular.module('hongcaiApp')
           $interval(function(){
             for (var i = $scope.hongjinbao.length - 1; i >= 0; i--) {
               $scope.hongjinbao[i].countdown -= 1000;
-              if ($scope.hongjinbao[i].countdown <= 0){
+              if ($scope.hongjinbao[i].countdown <= 0 && $scope.hongjinbao[i].status == 2){
                 window.location.reload();
               }
-              $scope.hongjinbao[i]._timeDown = toHourMinSeconds($scope.hongjinbao[i].countdown);
+              $scope.hongjinbao[i]._timeDown = DateUtils.toHourMinSeconds($scope.hongjinbao[i].countdown);
             };
           }, 1000);
 
@@ -144,14 +128,14 @@ angular.module('hongcaiApp')
 
         var nextDayTime = nextDay.getTime() + intervalDay * 24 * 60 * 60 * 1000;
         var intervalTimeInMills = nextDayTime - $scope.serverTime;
-        $scope.lingcunbao._timeDown = toHourMinSeconds(intervalTimeInMills);
+        $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds(intervalTimeInMills);
         $scope.lingcunbao.interval = intervalTimeInMills;
         $interval(function(){
           $scope.lingcunbao.interval = $scope.lingcunbao.interval - 1000;
           if ($scope.lingcunbao.interval <= 0){
             window.location.reload();
           }
-          $scope.lingcunbao._timeDown = toHourMinSeconds($scope.lingcunbao.interval);
+          $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds($scope.lingcunbao.interval);
         }, 1000);
 
       }

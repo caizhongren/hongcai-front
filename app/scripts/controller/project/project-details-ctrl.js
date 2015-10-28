@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
+  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, DateUtils) {
     // $rootScope.redirectUrl = $location.path();
     $scope.chk = true;
     $scope.checkFlag = true;
@@ -13,29 +13,25 @@ angular.module('hongcaiApp')
         number: $stateParams.number
       }, function() {
         if (projectDetails.ret === 1) {
-          $scope.statSecond = parseInt(projectDetails.data.countDownTime / 1000 + 1) || 1;
-          $scope.onTimeout = function() {
-            $scope.statSecond--;
-            mytimeout = $timeout($scope.onTimeout, 1000);
-            $scope.statDay = moment().startOf('month').seconds($scope.statSecond).format('DD') - 1 + '天,';
-            $scope.statTime = moment().startOf('month').seconds($scope.statSecond).format('HH时,mm分,ss秒');
-            if ($scope.statSecond === 0) {
-              ProjectService.projectDetails.get({
-                number: $stateParams.number
-              }, function(response) {
-                if (response.ret === 1) {
-                  $scope.project = response.data.project;
-                }
-              });
+
+          $scope.project = projectDetails.data.project;
+          $scope.countdown = projectDetails.data.countDownTime;
+          $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
+
+          var interval = $interval(function(){
+            $scope.countdown -= 1000;
+            if ($scope.countdown <= 0 && $scope.project.status == 2){
               window.location.reload();
             }
-          };
-          var mytimeout = $timeout($scope.onTimeout, 1000);
+            $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
+          }, 1000);
+
+          
           $scope.$on('$stateChangeStart', function() {
-            $timeout.cancel(mytimeout);
+            $interval.cancel(interval);
           });
-          $scope.project = projectDetails.data.project;
-          console.info($scope.project);
+          
+
           $scope.categoryCode = $scope.project.categoryCode;
           if ($scope.categoryCode === '04' || $scope.categoryCode === '05' || $scope.categoryCode === '06') {
             $scope.tabs = [{
@@ -483,4 +479,4 @@ angular.module('hongcaiApp')
       }
     };
     
-  }]);
+  });
