@@ -25,6 +25,14 @@ angular.module('hongcaiApp')
       src: 'images/banner/banner005.png',
       href: '/safe'
     }];
+
+        // 首页数据统计
+    var indexStatistics = MainService.indexStatistics.get(function(response) {
+      if (response.ret === 1) {
+        $scope.indexStatic = indexStatistics.data.indexStatic;
+      }
+    });
+    
     $scope.slickConfig = {
       dots: true,
       autoplay: true,
