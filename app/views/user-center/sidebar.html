@@ -1,4 +1,9 @@
 <!--user-center-sidebar-->
+<style>
+  .collapse .in {
+      height:auto !important;
+}
+</style>
 <div class="left-area col-lg-2 col-md-3">
   <!-- 个人信息 -->
   <div class="personal-information row">
@@ -107,7 +112,7 @@
         <a data-toggle="collapse" data-parent="#accordion" href="account-overview#rrr" class="ft-white">奖励信息</a>
       </div>
       <div id="rrr" class="panel-collapse collapse">
-        <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'tips-show' : ''}}">
+        <a ui-sref="root.userCenter.experienceMoney" class="tips-area {{selectSide == 'credit' ? 'tips-show' : ''}}">
           <div class="left-show-area {{selectSide == 'credit' ? 'left-show-area-bg' : ''}}"></div>
           <div class="ico-area message-1 fa fa-gavel {{selectSide == 'credit' ? 'message1-red' : ''}}"></div>
           <p class="{{selectSide == 'credit' ? 'now' : ''}}" style="margin-left:36px;">体验金</p>
@@ -139,3 +144,4 @@
   </div>
   <!-- 测试结束 -->
 </div>
+

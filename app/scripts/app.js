@@ -1301,6 +1301,19 @@ hongcaiApp
           }
         }
       })
+
+      // 体验金（个人中心）
+      .state('root.userCenter.experienceMoney', {
+        url: '/experienceMoney',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/experience-money.html',
+           // controller: 'CreditCtrl',
+            //controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+          }
+        }
+      })
+
       // 我的债权（个人中心）
       .state('root.userCenter.credit', {
         url: '/credit',
