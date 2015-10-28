@@ -20,7 +20,7 @@
         <td><span class="block_font_highlight">{{item.cycle}}</span><span class="block_font_wei">个月</span></td>
         <td class="block_btnw">
           <span class="block_btn block_span_defaultC" ng-switch="item.status">
-            <span ng-switch-when="6">{{_timeDown[$index].hour}}:{{_timeDown[$index].min}}:{{_timeDown[$index].second}}</span>
+            <span ng-switch-when="6">{{item._timeDown.hour}}:{{item._timeDown.min}}:{{item._timeDown.seconds}}</span>
             <span ng-switch-when="7 || 8" ui-sref="root.project-details({number: item.number})">立即加入<i class="fa fa-chevron-circle-right"></i></span>
             <span ng-switch-default ui-sref="root.project-details({number: item.number})" style="cursor:pointer;">查看详情<i class="fa fa-chevron-circle-right"></i></span>
           </span>

@@ -34,6 +34,7 @@ angular.module('hongcaiApp')
     // };
     // $scope.projectList();
 
+    // 宏金宝列表
     $scope.hongjinbaoList = function() {
       $scope.showFlag = 1;
       ProjectService.projectList.get({
@@ -59,24 +60,28 @@ angular.module('hongcaiApp')
             return Math.ceil($scope.data.length / $scope.pageSize);
           };
           for (var i = 0; i < $scope.hongjinbao.length; i++) {
-            $scope.hongjinbao[i].countdown = moment($scope.hongjinbao[i].releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 2;
+            $scope.hongjinbao[i].countdown = $scope.hongjinbao[i].releaseStartTime - $scope.serverTime;
             $scope.hongjinbao[i].showByStatus = $scope.hongjinbao[i].status === 6 || $scope.hongjinbao[i].status === 7 ? true : false;
-            $scope.hongjinbao[i]._timeDown = $scope.timeUntil($scope.hongjinbao[i].countdown);
+            $scope.hongjinbao[i]._timeDown = $scope.toHourMinSeconds($scope.hongjinbao[i].countdown);
             $scope.data.push($scope.hongjinbao[i]);
           }
           $scope._timeDown = [];
           $scope.counter = 0;
-          var interval = window.setInterval(function() {
-            $scope.counter++;
-            for (var i = 0; i < $scope.data.length; i++) {
-              $scope._timeDown[i] = $scope.timeUntil($scope.data[i].countdown);
-            }
-            $scope.$apply();
+
+          $interval(function(){
+            for (var i = $scope.hongjinbao.length - 1; i >= 0; i--) {
+              $scope.hongjinbao[i].countdown -= 1000;
+              if ($scope.hongjinbao[i].countdown <= 0){
+                window.location.reload();
+              }
+              $scope.hongjinbao[i]._timeDown = $scope.toHourMinSeconds($scope.hongjinbao[i].countdown);
+            };
           }, 1000);
 
-          $scope.$on('$stateChangeStart', function() {
-            clearInterval(interval);
-          });
+
+          // $scope.$on('$stateChangeStart', function() {
+          //   clearInterval(interval);
+          // });
         } else {
           $scope.data = [];
           toaster.pop('warning', '服务器正在努力的加载....请稍等。');
@@ -88,44 +93,7 @@ angular.module('hongcaiApp')
     $scope.hongjinbaoList();
 
 
-    $scope.mainTimeUntil = function(stDate) {
-      var collectTime = {};
-      stDate = stDate - $scope.counter;
-      if (stDate === 0) {
-        $scope.projectList();
-        window.location.reload();
-      }
-      collectTime.day = moment().startOf('month').seconds(stDate).format('DD') - 1;
-      collectTime.hour = moment().startOf('month').seconds(stDate).format('HH');
-      collectTime.second = moment().startOf('month').seconds(stDate).format('mm');
-      collectTime.min = moment().startOf('month').seconds(stDate).format('ss');
-      return collectTime;
-      // function z(n) {
-      //   return (n < 10 ? '0' : '') + n;
-      // }
-      // var d = new Date(stDate);
-      // var diff = d - new Date();
-      // var sign = diff < 0 ? '-' : '';
-      // diff = Math.abs(diff);
-      // var days = diff / 3.6e6 / 24 | 0;
-      // var hours = (diff - days*3.6e6*24) / 3.6e6 | 0;
-      // var mins = diff % 3.6e6 / 6e4 | 0;
-      // var secs = Math.round(diff % 6e4 / 1e3);
-      // return sign + days + '天,' + z(hours) + '时,' + z(mins) + '分,' + z(secs) + '秒';
-    };
-
-    $scope.timeUntil = function(stDate) {
-      var collectTime = {};
-      stDate = stDate - $scope.counter;
-      if (stDate === 0) {
-        window.location.reload();
-      }
-      collectTime.day = moment().startOf('month').seconds(stDate).format('DD') - 1;
-      collectTime.hour = moment().startOf('month').seconds(stDate).format('HH') + (collectTime.day >= 0 ? collectTime.day * 24 : 0);
-      collectTime.second = moment().startOf('month').seconds(stDate).format('mm');
-      collectTime.min = moment().startOf('month').seconds(stDate).format('ss');
-      return collectTime;
-    };
+    
 
     // 宏包标列表
     // ProjectService.getGiftProjectList.get(function(response) {
@@ -137,7 +105,7 @@ angular.module('hongcaiApp')
     //   }
     // });
     // 
-    // 
+    // 将时间转换为时分秒
     function toHourMinSeconds(intervalTimeInMills){
       var date = new Date(intervalTimeInMills - 8 * 60 * 60 * 1000);
       var dateStr = date.toTimeString().substring(0, 8);
@@ -183,6 +151,7 @@ angular.module('hongcaiApp')
           }
           $scope.lingcunbao._timeDown = toHourMinSeconds($scope.lingcunbao.interval);
         }, 1000);
+
       }
     });
 
