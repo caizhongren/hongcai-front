@@ -68,7 +68,7 @@
 
   </div>
   <div class="panel panel-default" ng-init="toggle.activeTabRightReserve=0;" ng-show="project.status === 6 || project.status === 11">
-    <ul class="nav nav-pills nav-justified border-b">
+    <ul class="nav nav-pills nav-justified border-b nav-orange-project">
       <li ng-class="{active: toggle.activeTabRightReserve===$index}" ng-repeat="tab_rightReserve in tabsRightReserve"><a ng-click="toggle.switchTabRightReserve($index)">{{tab_rightReserve.title}}</a>
       </li>
     </ul>
