@@ -185,6 +185,19 @@ angular.module('hongcaiApp')
       });
     }
 
+    /**
+     * 体验金统计信息
+     */
+    UserCenterService.getUserExperienceMoneyDetail.get({}, function(response) {
+      if (response.ret === 1) {
+        $scope.experienceDealStatis = response.data.experienceDealStatis;
+        $scope.investDeals = $scope.experienceDealStatis.investDeals;
+        $scope.deals = $scope.experienceDealStatis.deals;
+      } else {
+        toaster.pop('warning', response.msg);
+      }
+    });
+
     /*$scope.currentPage = 0;
     $scope.pageSize = 10;
     $scope.numberOfPages = function(data) {

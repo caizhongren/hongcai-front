@@ -8,13 +8,13 @@
       <div class="col-md-4 ">
         <div class="experience-border">
           <p class="margin-t-30 ft-18">体验金（元）</p>
-          <p class="ft-30 ft-red">￥3000</p>
+          <p class="ft-30 ft-red">￥{{account.experienceAmount | number : 2}}</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="experience-border">
           <p class="margin-t-30 ft-18">累计赚取收益（元）</p>
-          <p class="ft-30 ft-red">￥5.25</p>
+          <p class="ft-30 ft-red">￥{{experienceDealStatis.totalProfit | number : 2}}</p>
         </div>
       </div>
       <div class="col-md-4">
@@ -39,14 +39,18 @@
           <th>状态</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody ng-show="investDeals.length > 0" ng-repeat="investInfo in investDeals">
         <tr>
-          <td>15-09-09</td>
-          <td>15-09-09</td>
-          <td>7%</td>
-          <td>2000</td>
-          <td>9.23</td>
-          <td>计息中</td>
+          <td>{{investInfo.experienceDeal.createTime | date : 'yyyy-MM-dd'}}</td>
+          <td>{{investInfo.experienceDeal.createTime + 7 * 24 * 60 * 60 *1000 | date : 'yyyy-MM-dd'}}</td>
+          <td>{{investInfo.creditRight.baseRate}}%</td>
+          <td>{{investInfo.experienceDeal.amount | number : 2}}</td>
+          <td>{{investInfo.experienceDeal.profit | number : 2}}</td>
+          <td ng-show="investInfo.creditRight.status === 3">已到账</td>
+          <td ng-show="investInfo.creditRight.status !== 3">计息中</td>
+        </tr>
+        <tr ng-show="investDeals.length <= 0">
+          <td colspan="6">无投资记录</td>
         </tr>
       </tbody>
     </table>
@@ -65,11 +69,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>2015-10-22</td>
+        <tr ng-show="deals.length > 0" ng-repeat="deal in deals">
+          <td>{{deal.createTime | date : 'yyyy-MM-dd'}}</td>
           <td>注册</td>
-          <td>3000.00</td>
-          <td>1015-11-22</td>
+          <td>{{deal.amount | number : 2}}</td>
+          <td>{{deal.createTime + 60 * 24 * 60 * 60 *1000 | date : 'yyyy-MM-dd'}}</td>
+        </tr>
+        <tr ng-show="deals.length <= 0">
+          <td colspan="4">无领取记录</td>
         </tr>
       </tbody>
     </table>

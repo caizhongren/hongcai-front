@@ -1308,8 +1308,8 @@ hongcaiApp
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/experience-money.html',
-           // controller: 'CreditCtrl',
-            //controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+            controller: 'CreditCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
           }
         }
       })
