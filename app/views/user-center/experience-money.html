@@ -19,7 +19,7 @@
       </div>
       <div class="col-md-4">
         <div class="experience-border">
-          <p class="margin-t-60"><a href="" style="text-decoration: underline !important;">体验金使用规则</a></p>
+          <p class="margin-t-60" ng-click="experienceRule = true" ng-init="experienceRule = false"><a href="" style="text-decoration: underline !important;">体验金使用规则</a></p>
         </div>
       </div>
     </div>
@@ -81,4 +81,7 @@
       </tbody>
     </table>
   </div>
+</div>
+<div style="position:absolute;top:19%;left:24%;" ng-show="experienceRule" ng-click="experienceRule = false">
+  <img src="/images/new-experience.jpg">
 </div>
