@@ -143,8 +143,6 @@ angular.module('hongcaiApp')
 
 
 
-    
-
     // 媒体报道
     AboutUsService.indexTextList.get({
       category: 1
