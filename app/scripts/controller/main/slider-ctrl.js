@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SliderCtrl', ['$scope', '$stateParams', '$rootScope', '$location', function($scope, $stateParams, $rootScope, $location, MainService) {
+  .controller('SliderCtrl', function($scope, $stateParams, $rootScope, $location, MainService) {
     $rootScope.selectPage = $location.path().split('/')[1];
 
     //http://www.hongcai.com/hongcai-trends?page=0&perPage=5
@@ -27,9 +27,9 @@ angular.module('hongcaiApp')
     }];
 
         // 首页数据统计
-    var indexStatistics = MainService.indexStatistics.get(function(response) {
+    MainService.indexStatistics.get(function(response) {
       if (response.ret === 1) {
-        $scope.indexStatic = indexStatistics.data.indexStatic;
+        $scope.indexStatic = response.data.indexStatic;
       }
     });
     
@@ -45,4 +45,4 @@ angular.module('hongcaiApp')
       }
     };
     $scope.slickHandle = {};
-  }]);
+  });
