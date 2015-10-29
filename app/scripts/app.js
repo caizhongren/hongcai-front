@@ -1479,7 +1479,7 @@ hongcaiApp
 
   }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_DOMAIN, toaster, config, Analytics) {
+hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, Analytics) {
   Analytics.trackPage('/', '宏财网 hongcai.com - 要理财，上宏财!');
   // Array 在IE8下没有indexOf 方法。
   if (!Array.prototype.indexOf) {
@@ -1495,6 +1495,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
 
   // 需要用户登录才能看到的url
   var routespermission = [
+    '/account-overview',
     '/assets-overview',
     '/realname-authentication',
     '/security-settings',
@@ -1527,7 +1528,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
-          $location.path('/login/');
+          
+          // 弹出登录弹层
+          $modal({
+            scope: $rootScope,
+            template: 'views/modal/modal-toLogin.html',
+            show: true
+          });
+          
         }
       });
     } else {
