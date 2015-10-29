@@ -61,7 +61,7 @@
         </div>
       </div>
       <div class="col-md-12 text-right">
-        <p>实际到账<span class="ft-orange">1000</span>元，预计<span class="ft-orange">2015-10-29 24时</span>前到账</p>
+        <p>实际到账<span class="ft-orange">{{amount - 2  > 0 ? amount -2 : 0 || 0 | number:2}}</span>元，预计<span class="ft-orange">{{nextDay | date:'yyyy-MM-dd'}} 24时</span>前到账</p>
       </div>
     </form>
     <div class="col-md-6" style="border-left:1px dashed #dadada;padding-left:50px;">
