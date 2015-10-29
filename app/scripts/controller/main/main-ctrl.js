@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', function($scope, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout, DateUtils) {
+  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout, DateUtils) {
     $scope.spCountDown = -1;
 
 
@@ -74,7 +74,7 @@ angular.module('hongcaiApp')
             for (var i = $scope.hongjinbao.length - 1; i >= 0; i--) {
               $scope.hongjinbao[i].countdown -= 1000;
               if ($scope.hongjinbao[i].countdown <= 0 && $scope.hongjinbao[i].status == 2){
-                window.location.reload();
+                $state.reload();
               }
               $scope.hongjinbao[i]._timeDown = DateUtils.toHourMinSeconds($scope.hongjinbao[i].countdown);
             };
@@ -133,7 +133,7 @@ angular.module('hongcaiApp')
         $interval(function(){
           $scope.lingcunbao.interval = $scope.lingcunbao.interval - 1000;
           if ($scope.lingcunbao.interval <= 0){
-            window.location.reload();
+            $state.reload();
           }
           $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds($scope.lingcunbao.interval);
         }, 1000);

@@ -50,9 +50,6 @@ angular.module('hongcaiApp')
         show: true
       });
     };
-    $scope.reload = function() {
-      window.location.reload();
-    };
 
     $scope.transfer = function(project, investAmount, giftCount) {
       $scope.msg = '4';

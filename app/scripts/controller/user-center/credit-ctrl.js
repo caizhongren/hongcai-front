@@ -152,7 +152,7 @@ angular.module('hongcaiApp')
           creditRightId:creditRightId
         },function(response){
           if(response.ret === 1) {
-            window.location.reload();
+            $state.reload();
           } else {
             if (response.code == -1082) {
               $scope.msg = '亲~，开启自动续投功能需要先开通自动投标权限哦!';
@@ -178,7 +178,7 @@ angular.module('hongcaiApp')
         creditRightId:creditRightId
       },function(response){
         if(response.ret === 1) {
-          window.location.reload();
+          $state.reload();
         } else {
           toaster.pop('warning', response.msg);
         }

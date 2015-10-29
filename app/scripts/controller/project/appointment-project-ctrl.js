@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AppointmentProjectCtrl', ['$scope', '$stateParams', '$rootScope', '$location', 'ProjectService', 'toaster', function($scope, $stateParams, $rootScope, $location, ProjectService, toaster) {
+  .controller('AppointmentProjectCtrl', function($scope, $state, $stateParams, $rootScope, $location, ProjectService, toaster) {
     var response = ProjectService.appointmentProject.get({}, function() {
       if (response.ret === 1) {
         $scope.project = response.data.project;
@@ -34,10 +34,10 @@ angular.module('hongcaiApp')
           if (response.ret === 1) {
             $scope.project = response.data.project;
           }
-          window.location.reload();
+          $state.reload();
         });
       }
       return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
     };
     $rootScope.selectPage = $location.path().split('/')[1];
-  }]);
+  });

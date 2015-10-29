@@ -155,10 +155,6 @@ angular.module('hongcaiApp')
       }
     };
 
-    $scope.reload = function() {
-      window.location.reload();
-    };
-    
     $scope.realNameAuth = function(user) {
       $scope.msg = '1';
       $alert({

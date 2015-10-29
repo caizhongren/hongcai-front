@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserOrderCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', '$alert', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
+  .controller('UserOrderCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
 
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'userCenter-investment';
@@ -10,20 +10,25 @@ angular.module('hongcaiApp')
     };
     $scope.status = $stateParams.status || 0;
     $scope.dateInterval = $stateParams.dateInterval || 0;
+    $scope.type = 0;
     $scope.listInvPond = [];
     $scope.unpaid = 0;
     $scope.paid = 0;
+
+
     $scope.showListNameInfo = function() {
       angular.element('#investment-list').animate({
         width: 'show'
       }, 300);
     };
+
     $scope.showListDetails = function(number) {
       angular.element('#investment-detail').animate({
         width: 'show'
       }, 300);
       $scope.getOrderBillByOrderId(number);
     };
+
     $scope.generateContractPDF = function(projectId, orderId, status, type) {
       if (status === 2) {
         if (type !== 4) {
@@ -67,11 +72,12 @@ angular.module('hongcaiApp')
       return $scope.haveTrusteeshipAccount;
     };
 
-    
-    var getOrderByUser = UserCenterService.getOrderByUser.get({
-        type: $stateParams.type,
-        dateInterval: $stateParams.dateInterval,
-        status: $stateParams.status
+
+    $scope.loadOrders = function(){
+      var getOrderByUser = UserCenterService.getOrderByUser.get({
+        type: $scope.type,
+        dateInterval: $scope.dateInterval,
+        status: $scope.status
       },
       function(response) {
         if (getOrderByUser.ret === 1) {
@@ -107,10 +113,11 @@ angular.module('hongcaiApp')
           toaster.pop('warning', response.msg);
         }
       });
+    }
 
-    $scope.reload = function() {
-      window.location.reload();
-    };
+    $scope.loadOrders();
+    
+    
 
     // 继续支付订单
     $scope.toPay = function(projectId, orderId, orderType) {
@@ -124,6 +131,7 @@ angular.module('hongcaiApp')
 
       window.open('/user-order-transfer/' + projectId + '/' + orderId + '/' + orderType);
     };
+
     // 取消订单
     $scope.cancelOrder = function(number) {
       if ($window.confirm('确定取消订单?')) {
@@ -132,7 +140,7 @@ angular.module('hongcaiApp')
           number: number
         }, function(response) {
           if (response.ret === 1) {
-            $window.location.reload();
+            $state.reload();
             // 刷新页面
           } else {
             toaster.pop('warning', '无法取消订单，请重试。');
@@ -140,8 +148,9 @@ angular.module('hongcaiApp')
         });
       }
     };
-    // 获取详情按钮
 
+
+    // 获取详情按钮
     $scope.getOrderBillByOrderId = function(number) {
       UserCenterService.getOrderBillByOrderId.get({
         number: number
@@ -281,29 +290,7 @@ angular.module('hongcaiApp')
       }
     };
 
-    /*function newForm() {
-      var f = document.createElement('form');
-      document.body.appendChild(f);
-      f.method = 'post';
-      //f.target = '_blank';
-      return f;
-    }
-
-    function createElements(eForm, eName, eValue) {
-      var e = document.createElement('input');
-      eForm.appendChild(e);
-      e.type = 'text';
-      e.name = eName;
-      if (!document.all) {
-        e.style.display = 'none';
-      } else {
-        e.style.display = 'block';
-        e.style.width = '0px';
-        e.style.height = '0px';
-      }
-      e.value = eValue;
-      return e;
-    }*/
+    
     // Based on an implementation here: web.student.tuwien.ac.at/~e0427417/jsdownload.html
     $scope.downloadPDF = function(httpPath) {
       // Use an arraybuffer
@@ -399,4 +386,4 @@ angular.module('hongcaiApp')
     $scope.removeWarning = function() {
       angular.element('.notPayOrder').remove();
     };
-  }]);
+  });

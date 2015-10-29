@@ -22,9 +22,6 @@ angular.module('hongcaiApp')
     });
 
 
-    $scope.reload = function() {
-      window.location.reload();
-    };
 
     $scope.bindBankCard = function() {
       $scope.msg = '5';

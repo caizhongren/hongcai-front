@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ActivityDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', '$timeout', 'toaster', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, $timeout, toaster) {
+  .controller('ActivityDetailsCtrl', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, $timeout, toaster) {
   $rootScope.redirectUrl = $location.path();
 
   var activityDetails = ProjectService.activityDetails.get({
@@ -22,7 +22,7 @@ angular.module('hongcaiApp')
               $scope.project = response.data.project;
             }
           });
-          window.location.reload();
+          $state.reload();
         }
       };
       var mytimeout = $timeout($scope.onTimeout, 1000);
@@ -141,5 +141,5 @@ angular.module('hongcaiApp')
       var thisUrl = $location.path();
       $location.path('/login').search({redirectUrl: thisUrl});
   };
-}]);
+});
 

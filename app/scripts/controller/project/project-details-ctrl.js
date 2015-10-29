@@ -21,7 +21,7 @@ angular.module('hongcaiApp')
           var interval = $interval(function(){
             $scope.countdown -= 1000;
             if ($scope.countdown <= 0 && $scope.project.status == 2){
-              window.location.reload();
+              $state.reload();
             }
             $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
           }, 1000);
@@ -120,7 +120,7 @@ angular.module('hongcaiApp')
         }
         // 刷新页面
         if ($scope.statSecond === 0) {
-          window.location.reload();
+          $state.reload();
         }
       });
     };

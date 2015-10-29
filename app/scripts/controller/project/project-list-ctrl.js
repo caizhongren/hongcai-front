@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'ProjectService', 'CreditService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster) {
+  .controller('ProjectListCtrl', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster) {
     $scope.sortType = $stateParams.sortType || false;
     $scope.showFlag = $stateParams.showFlag || 0;
     if ($scope.sortType === 'true') {
@@ -127,7 +127,7 @@ angular.module('hongcaiApp')
       stDate = stDate - $scope.counter;
       if (stDate === 0) {
         $scope.getProjectList();
-        window.location.reload();
+        $state.reload();
       }
       collectTime.day = moment().startOf('month').seconds(stDate).format('DD') - 1;
       collectTime.hour = moment().startOf('month').seconds(stDate).format('HH');
@@ -163,7 +163,7 @@ angular.module('hongcaiApp')
       $scope.toggle.activeTab = tabIndex;
     };
 
-  }])
+  })
   .directive('projectPagination', function() {
     return {
       restrict: 'AE',

@@ -54,9 +54,6 @@ angular.module('hongcaiApp')
       }
     };
 
-    $scope.reload = function() {
-      window.location.reload();
-    };
 
     // 显示协议
     $scope.showAgreement = function(productType) {

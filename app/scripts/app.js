@@ -537,16 +537,7 @@ hongcaiApp
           }
         }
       })
-      .state('root.userCenter.investment-query', {
-        url: '/investment/:type/:dateInterval/:status',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/investment.html',
-            controller: 'UserOrderCtrl',
-            controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
-          }
-        }
-      })
+
       .state('root.userCenter.gift-rebate', {
         url: '/gift-rebate/:type',
         views: {
@@ -598,18 +589,10 @@ hongcaiApp
           }
         }
       })
+
+      // 预约订单
       .state('root.userCenter.reservation', {
-        url: '/reservation/:status',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/reservation.html',
-            controller: 'ReservationCtrl',
-            controllerUrl: 'scripts/controller/user-center/reservation-ctrl'
-          }
-        }
-      })
-      .state('root.userCenter.reservation-query', {
-        url: '/reservation/:dateInterval/:type',
+        url: '/reservation',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/reservation.html',
@@ -762,6 +745,8 @@ hongcaiApp
           }
         }
       })
+
+      // 预约流程页
       .state('root.appointment-project', {
         url: '/appointment-project',
         views: {
@@ -1507,6 +1492,10 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       $window.location.href = 'https://' + $location.absUrl().split('://')[1];
     }
   });
+
+  $rootScope.reload = function(){
+    $state.reload();
+  }
 
 });
 
