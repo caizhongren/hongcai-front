@@ -4,22 +4,22 @@
    <div class="right-title">预约记录</div>
   </div>
   <div class="padd padding-l-15 padding-b-15">
-    <span>当前账户总计预约产品
-      <strong>{{ statistics.num || 0 }}</strong>个,
+    <span>预约产品：
+      <strong>{{ statistics.num || 0 }}</strong>个，
     </span>
     <span>其中预约中：
       <strong>{{ statistics.reservingNum || 0 }}</strong>个，
     </span>
     <span>预约成功：
-      <strong>{{ statistics.successNum || 0 }}</strong>个,
+      <strong>{{ statistics.successNum || 0 }}</strong>个，
     </span>
     <span>已撤销：
       <strong>{{ statistics.cancelNum || 0 }}</strong>个。
     </span>
   </div>
   <div class="padd border-end padding-l-15 padding-b-30">
-    <span>投资总额
-      <strong>{{ statistics.reserveAmount || 0  | number: 2 }}</strong>元,
+    <span>投资总额：
+      <strong>{{ statistics.reserveAmount || 0  | number: 2 }}</strong>元，
     </span>
     <span>预约期的累计收益：
       <strong>{{ statistics.returnProfit || 0  | number: 2 }}</strong>元，
