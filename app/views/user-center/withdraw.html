@@ -26,49 +26,46 @@
             <p>2元</p>
           </div>
         </div> -->
-        <div class="row margin-t-60">
+        <div class="row margin-t-10">
           <div class="col-md-12">
-            <p><label class="col-md-4">可提余额：</label>
-            <span class="ft-red ft-24">{{availableCashRealNo | number:2}}</span>元</p>
+            <p>
+              <label class="col-md-5">可提余额：</label>
+              <span class="ft-red ft-24">{{availableCashRealNo | number:2}}</span>元</p>
           </div>
         </div>
-        
-        <div class="row margin-t-30">
+        <div class="row margin-t-15">
           <div class="form-group col-md-12">
-            <label class="col-md-4">提现金额：</label>
+            <label class="col-md-5">提现金额：</label>
             <input type="text" name="amount" class="verify-input" ng-model="amount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus ng-disabled="availableCashRealNo <= 0" required autofocus/>&nbsp;&nbsp;元
-            <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">
+            <div class="user-tips-area col-md-offset-4" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">
               <p class="input-tips user-input-tips">请输入数字(最多精确到小数点后两位)</p>
             </div>
-            <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">
+            <div class="user-tips-area col-md-offset-4" ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">
               <p class="input-tips user-input-tips">不能大于可提现金额</p>
             </div>
-            <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && amount<1">
+            <div class="user-tips-area col-md-offset-4" ng-show="withdrawForm.amount.$dirty && amount<1">
               <p class="input-tips user-input-tips">提现金额不能小于1元</p>
             </div>
-            <div class="user-tips-area col-md-offset-3 col-lg-offset-3" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">
+            <div class="user-tips-area col-md-offset-4" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">
               <p class="input-tips user-input-tips">提现金额不能为空</p>
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row margin-b-30">
           <div class="col-md-12 ft-red text-center">手续费：2元（第三方支付收取）</div>
         </div>
-        <div class="row margin-t-15">
-          <div class="form-group col-md-10 col-md-offset-1">
-            <label class="col-md-3 col-lg-3"></label>
-            <input type="button" value="确认提现" class="btn-recharge-orange" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'btn-recharge-orange':withdrawForm.$invalid || checkLargestAmount(amount), 'red-button':!withdrawForm.$invalid && !checkLargestAmount(amount)}" />
+        <div class="row col-md-10 col-md-offset-2">
+          <div class="form-group">
+            <input type="button" value="确认提现" class="btn-recharge-orange" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'btn-recharge-grey':withdrawForm.$invalid || checkLargestAmount(amount), 'btn-recharge-orange':!withdrawForm.$invalid && !checkLargestAmount(amount)}" />
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <p>实际到账<span class="ft-orange">1000</span>元，预计<span class="ft-orange">2015-10-29 24时</span>前到账</p>
-        </div>
+      <div class="row col-md-12 text-center">
+        <p>实际到账<span class="ft-orange">1000</span>元，预计<span class="ft-orange">2015-10-29 24时</span>前到账</p>
       </div>
     </form>
     <div class="col-md-6" style="border-left:1px dashed #dadada;padding-left:50px;">
-      <div class="ft-14 margin-b-30" style="padding-top:5%;">
+      <div class="ft-14 margin-b-30">
         <p><i class="fa fa-tint" style="margin-left:-20px;margin-right:15px;"></i>温馨提示:</p>
         <p class="p-big">1. 目前提现是由三方支付平台收取2元每笔的提现费用。提现金额的最小额度为1元，即额度大于或等于1元。宏财网平台不收取任何提现费用；</p>
         <p class="p-big">2. 由于宏财网平台不接触投资人资金，投资人资金完全通过第三方支付（易宝支付）来完成资金划拨。由于银行与易宝支付之间的划拨需要(T+1)日，所以当天充值金额（未投资），需要次日才能提现；</p>
