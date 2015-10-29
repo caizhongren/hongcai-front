@@ -563,19 +563,10 @@ hongcaiApp
           }
         }
       })
+
+      // 资金流水
       .state('root.userCenter.record', {
         url: '/record',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/record.html',
-            controller: 'UserDealCtrl',
-            controllerUrl: 'scripts/controller/user-center/user-deal-ctrl'
-          }
-        }
-      })
-      .state('root.userCenter.record-query', {
-        // url: '/record/:dateInterval/:type',
-        url: '/record/:dateInterval',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/record.html',

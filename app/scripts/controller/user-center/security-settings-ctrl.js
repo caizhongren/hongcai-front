@@ -25,9 +25,10 @@ angular.module('hongcaiApp')
       }
     });
 
-    $scope.sendMobileCaptcha = function(mobile) {
+    $scope.sendMobileCaptcha = function(mobile, picCaptcha) {
       UserCenterService.sendMobileCaptcha.get({
-        mobile: mobile
+        mobile: mobile,
+        picCaptcha: picCaptcha
       }, function(response) {
         if (response.ret === 1) {
           console.log('sendMobileCaptcha success');
