@@ -451,7 +451,7 @@ button {
   float: right;
 }
 
-.red-button, .white-button, .activity {
+.orange-button,.red-button, .white-button, .white-button-orange, .activity {
   cursor: pointer;
 }
 
@@ -459,7 +459,7 @@ button {
   text-align: left;
 }
 
-.red-button, .white-button, .account-number, .account-number-message, .real-name .set-transactionPwd, .process-tips, .p-user-name, .tips, .message {
+.orange-button,.red-button, .white-button-orange,.white-button, .account-number, .account-number-message, .real-name .set-transactionPwd, .process-tips, .p-user-name, .tips, .message {
   text-align: center;
 }
 
@@ -475,7 +475,7 @@ button {
   height: 30px;
 }
 
-.red-button, .white-button {
+.orange-button,.red-button,.white-button-orange, .white-button {
   height: 34px;
 }
 
@@ -487,7 +487,7 @@ button {
   font-size: 12px;
 }
 
-.news-nav span a, .add-card, .red-button, .right-area {
+.news-nav span a, .add-card, .red-button,.orange-button, .right-area {
   font-size: 14px;
 }
 .assets-money small, .asset-money small {
@@ -505,7 +505,7 @@ button {
 .right-area, .account-button, .account-right-button .left-area {
   border-radius: 5px;
 }
-.bank-img, .set-transactionPwd .red-button, .white-button {
+.bank-img, .set-transactionPwd .red-button,.orange-button, .white-button-orange,.white-button {
   border-radius: 3px;
 }
 
@@ -546,9 +546,16 @@ button {
 .accumulated-investment, .white-button:hover, .real-name .set-transactionPwd, .red-button, .login-title, .left-show-area-bg {
   background-color: #e94828;
 }
+.orange-button,.white-button-orange:hover{
+  background-color: #fd8f3f !important;
+}
+
 
 .white-button, .verify-tip a, .add-card, .now, .account-number, .success a {
   color: #e94828;
+}
+.white-button-orange{
+  color:#fd8f3f;
 }
 
 .right-area, .left-area, .account-number span, .ft-grey {
@@ -559,11 +566,11 @@ button {
   color: #9a9595;
 }
 
-.red-button, .white-button:hover, .white-button:active, .login-title, .now:active {
+.orange-button,.red-button,.white-button-orange:hover,.white-button-orange:active, .white-button:hover, .white-button:active, .login-title, .now:active {
   color: white;
 }
 
-.right-area, .left-area, .news-nav .active, .white-button {
+.right-area, .left-area, .news-nav .active,.white-button-orange, .white-button {
   background-color: white;
 }
 .red-button {
@@ -576,12 +583,30 @@ button {
 .red-button:active {
   background-color: #d23d1f;
 }
+.orange-button {
+  border:1px solid #fd8f3f;
+  outline:none;
+}
+.orange-button:hover {
+  background-color: #f3812f;
+}
+.orange-button:active {
+  background-color: #f3812f;
+}
 .white-button {
   border: 1px solid #e94828;
   outline-style: none;
 }
 .white-button:active {
   background-color: #d23d1f;
+  outline-style: none;
+}
+.white-button-orange{
+  border: 1px solid #fd8f3f;
+  outline-style: none;
+}
+.white-button-orange:active {
+  background-color: #fd8f3f;
   outline-style: none;
 }
 .grey, .grey:hover {

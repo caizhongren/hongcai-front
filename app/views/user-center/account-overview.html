@@ -30,18 +30,26 @@
             <p class="asset-money">{{account.balance| number:2}} <small>元</small>
             </p>
           </div>
-          <div class="left-message-show col-md-6 col-lg-6">
+          <!-- <div class="left-message-show col-md-6 col-lg-6">
             <div ng-show="reward !== 0">
               <p class="assets-ico activitty-money"></p>
               <p class="asset-tips">活动奖金</p>
               <p class="asset-money">{{account.reward| number:2}} <small>元</small>
               </p>
             </div>
+          </div> -->
+          <div class="left-message-show col-md-6 col-lg-6">
+            <div>
+              <p class="assets-ico activitty-money"></p>
+              <p class="asset-tips">体验金</p>
+              <p class="asset-money">{{account.experienceMoney || 0 | number:2}} <small>元</small>
+              </p>
+            </div>
           </div>
         </div>
         <div class="row">
-          <input type="button" ui-sref="root.userCenter.recharge" class="red-button account-button col-md-3 col-lg-3" value="充值" ng-show="userType != 4"/>
-          <input type="button" ui-sref="root.userCenter.withdraw" class="white-button account-button account-right-button col-md-3 col-lg-3" value="提现" ng-show="userType != 4"/>
+          <input type="button" ui-sref="root.userCenter.recharge" class="orange-button account-button col-md-3 col-lg-3" value="充值" ng-show="userType != 4"/>
+          <input type="button" ui-sref="root.userCenter.withdraw" class="white-button-orange account-button account-right-button col-md-3 col-lg-3" value="提现" ng-show="userType != 4"/>
           <a ui-sref="root.userCenter.assets-overview" class="view-more">查看更多></a>
         </div>
       </div>
