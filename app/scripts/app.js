@@ -301,63 +301,15 @@ hongcaiApp
           }
         }
       })
-      .state('root.transfer-success', {
-        url: '/transfer-success/:status/:number',
+
+      // 易宝网页操作回调页，包括开通易宝、充值、提现、绑卡、取消绑卡、投资
+      .state('root.yeepay-callback', {
+        url: '/yeepay-callback/:business/:status?amount&number',
         views: {
           '': {
             templateUrl: 'views/success.html',
-            controller: 'TransferSuccessCtrl',
-            controllerUrl: 'scripts/controller/order/transfer-success-ctrl'
-          }
-        }
-      })
-      .state('root.invplan-transfer-success', {
-        url: '/invplan-transfer-success/:status',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'InvPlanTransferSuccessCtrl',
-            controllerUrl: 'scripts/controller/order/invplan-transfer-success-ctrl'
-          }
-        }
-      })
-      .state('root.bankcard-success', {
-        url: '/bankcard-success/:status',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'BankcardSuccessCtrl',
-            controllerUrl: 'scripts/controller/user-center/bankcard-success-ctrl'
-          }
-        }
-      })
-      .state('root.unbind-bankcard-success', {
-        url: '/unBindbankcard-success/:status',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'UnBindBankcardSuccessCtrl',
-            controllerUrl: 'scripts/controller/user-center/unbind-bankcard-success-ctrl'
-          }
-        }
-      })
-      .state('root.recharge-success', {
-        url: '/recharge-success/:status',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'RechargeSuccessCtrl',
-            controllerUrl: 'scripts/controller/user-center/recharge-success-ctrl'
-          }
-        }
-      })
-      .state('root.withdraw-success', {
-        url: '/withdraw-success/:status',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'WithdrawSuccessCtrl',
-            controllerUrl: 'scripts/controller/user-center/withdraw-success-ctrl'
+            controller: 'YeepaySuccessCtrl',
+            controllerUrl: 'scripts/controller/user-center/yeepay-success-ctrl'
           }
         }
       })
@@ -678,16 +630,7 @@ hongcaiApp
         }
       })
       /*----------  yeepay  ---------------------*/
-      .state('root.open-yeepay-account-success', {
-        url: '/yeepay-success/:status?business',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'YeepaySuccessCtrl',
-            controllerUrl: 'scripts/controller/user-center/yeepay-success-ctrl'
-          }
-        }
-      })
+      
       .state('app-yeepay-callback', {
         url: '/app-yeepay-register-callback',
         views: {
