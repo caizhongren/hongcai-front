@@ -36,7 +36,7 @@ angular.module('hongcaiApp')
             if ($rootScope.redirectUrl){
               $location.url($rootScope.redirectUrl);
             } else{
-              window.location.reload();
+              $state.reload();
             }
             
           } else {
