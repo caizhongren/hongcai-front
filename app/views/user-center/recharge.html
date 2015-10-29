@@ -12,7 +12,7 @@
   </div>
   <!--end 安全认证提示 -->
   <div class="row" ng-show="userType != 4">
-    <form class="col-md-5" name="rechargeForm" ng-show="isSecurityAuth" style="padding-right:30px;">
+    <form class="col-md-5" name="rechargeForm" ng-show="isSecurityAuth" style="padding-right:20px;">
       <div class="row">
         <div class="form-group mgn-top">
           <p>
@@ -24,10 +24,10 @@
         <div class="form-group">
           <label class="col-md-5">充值金额：</label>
           <input name="amount" type="text" class="verify-input" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required/><span>&nbsp;&nbsp;元</span>
-          <div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.pattern">
+          <div class="user-tips-area col-md-offset-4" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.pattern">
             <p class="input-tips user-input-tips">请输入数字(最多精确到小数点后两位)</p>
           </div>
-          <div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">
+          <div class="user-tips-area col-md-offset-4" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">
             <p class="input-tips user-input-tips">充值金额不能为空</p>
           </div>
         </div>
@@ -35,9 +35,9 @@
       <div class="row col-md-10 col-md-offset-2 text-center ft-red">
         <p>手续费：免费（由平台支付）</p>
       </div>
-      <div class="row col-md-10 col-md-offset-2">
+      <div class="row col-md-10 col-md-offset-2 margin-t-15">
         <div class="form-group">
-          <input type="button" value="确认充值" class="btn-recharge-orange" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-orange':rechargeForm.$invalid, 'red-button':!rechargeForm.$invalid}" />
+          <input type="button" value="确认充值" class="btn-recharge-orange" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid, 'btn-recharge-orange':!rechargeForm.$invalid}" />
         </div>
       </div>
     </form>
