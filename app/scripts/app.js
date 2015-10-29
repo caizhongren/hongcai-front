@@ -494,9 +494,7 @@ hongcaiApp
       .state('root.userCenter', {
         views: {
           'user-center': {
-            templateUrl: 'views/user-center/user-center.html',
-            // controller: 'UserCenterCtrl',
-            controllerUrl: 'scripts/controller/user-center-ctrl'
+            templateUrl: 'views/user-center/user-center.html'
           },
           'sidebar': {
             templateUrl: 'views/user-center/sidebar.html',

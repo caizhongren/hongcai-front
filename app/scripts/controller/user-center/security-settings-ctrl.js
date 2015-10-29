@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'config', 'md5', '$alert', function($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5, $alert) {
+  .controller('SecuritySettingsCtrl', function($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN) {
 
     $rootScope.selectSide = 'security-settings';
     UserCenterService.userSecurityInfo.get({}, function(response) {
@@ -187,6 +187,11 @@ angular.module('hongcaiApp')
       });*/
     };
 
+    $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
+    $scope.refreshCode = function() {
+      angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
+    };
+
     $scope.openReservation = function() {
       $scope.msg = '6';
       $alert({
@@ -231,4 +236,4 @@ angular.module('hongcaiApp')
       });*/
 
     };
-  }]);
+  });
