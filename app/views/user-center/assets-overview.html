@@ -25,8 +25,30 @@
   <div class="row">
     <div class="right-title">收益曲线</div>
   </div>
-  <div class="row">
-    <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-click="onClick">
+  <div class="row col-md-10 col-md-offset-1">
+    <canvas id="myChart" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-options="options" chart-click="testOnclick" width="350" height="150">
     </canvas>
+    <!-- <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true" chart-series="series" chart-click="onClick">
+    </canvas> -->
   </div>
+  <script>
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var data = {
+    labels: ["10.21", "10.22", "10.23", "10.24", "10.25", "10.26", "10.27"],
+    datasets: [{
+      label: "My First dataset",
+      fillColor: "rgba(0,0,0,0)",
+      strokeColor: "rgba(220,220,220,1)",
+      pointColor: "rgba(220,220,220,1)",
+      pointStrokeColor: "#fff",
+      pointHighlightFill: "#fff",
+      pointHighlightStroke: "rgba(220,220,220,1)",
+      data: [50, 150, 350, 200, 250, 50, 400]
+    }]
+  };
+  var myNewChart = new Chart(ctx).Line(data, {
+    bezierCurve: false,
+    scaleShowVerticalLines:false
+  });
+  </script>
 </div>
