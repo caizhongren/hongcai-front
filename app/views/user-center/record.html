@@ -70,7 +70,7 @@
     </thead>
     <tbody>
       <tr ng-repeat="item in data | orderBy: '-id' | startFrom:currentPage * pageSize | limitTo:pageSize ">
-        <td>{{ item.createTime | date: 'yyyy-MM-dd'}}</td>
+        <td>{{ item.createTime | date: 'yyyy-MM-dd HH:mm'}}</td>
         <td>{{ dealTypes[item.type] }}</td>
         <td>{{item.description}}</td>
         <td>{{item.getAmount | number: 2}}</td>
