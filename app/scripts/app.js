@@ -16,7 +16,7 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'ngResource',
   'angularMoment',
   'toaster',
-  'chartjs',
+  'chart.js',
   'placeholders',
   'angular-loading-bar',
   'bardo.directives',

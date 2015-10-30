@@ -5,8 +5,11 @@
   </div>
   <div class="row">
     <div class="account-message">
-      <div class="account-pic account-pic-bg col-md-6 col-lg-5">
-        <cjs-doughnut dataset="doughnutAccountData" options="doughnutOptions" height="313"></cjs-doughnut>
+      <div class="col-md-7 col-lg-5">
+        <canvas id="pie" class="chart chart-pie "
+          chart-data="data" chart-labels="labels" chart-colours="colours">
+        </canvas> 
+        <!-- <cjs-doughnut dataset="doughnutAccountData" options="doughnutOptions" height="313"></cjs-doughnut> -->
       </div>
       <div class="right-message col-md-12 col-lg-6">
         <div class="row">
