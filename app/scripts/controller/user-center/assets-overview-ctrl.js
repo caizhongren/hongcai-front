@@ -2,6 +2,16 @@
 angular.module('hongcaiApp')
   .controller('AssetsOverviewCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', function($scope, $state, $rootScope, $stateParams, UserCenterService) {
 
+    $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+    $scope.series = ['Series A'];
+    $scope.data = [
+      [50, 250, 150, 200, 350, 50, 400]
+    ];
+    $scope.options = {
+      bezierCurve: false,
+      scaleShowVerticalLines: false
+    }
+
     $rootScope.selectSide = 'assets-overview';
     var balance = 0;
     var waitingProfit = 0;
@@ -43,7 +53,7 @@ angular.module('hongcaiApp')
             color: '#6aabe1'
           }];
         } else {
-          if(reward > 0){
+          if (reward > 0) {
             $scope.doughnutAssetsData = [{
               value: account.balance,
               label: '可用余额',
@@ -61,7 +71,7 @@ angular.module('hongcaiApp')
               label: '冻结资金',
               color: '#6aabe1'
             }];
-          }else if( reward === 0){
+          } else if (reward === 0) {
             $scope.doughnutAssetsData = [{
               value: account.balance,
               label: '可用余额',
