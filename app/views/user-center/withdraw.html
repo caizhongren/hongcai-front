@@ -61,10 +61,12 @@
             <input type="button" value="确认提现" class="btn-recharge-orange" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'btn-recharge-grey':withdrawForm.$invalid || checkLargestAmount(amount), 'btn-recharge-orange':!withdrawForm.$invalid && !checkLargestAmount(amount)}" />
           </div>
         </div>
+
+        <div class="col-md-12 text-right">
+          <p>实际到账<span class="ft-orange">{{amount > 0 ? amount : 0 || 0 | number:2}}</span>元，预计<span class="ft-orange">{{nextDay | date:'yyyy-MM-dd'}} 24时</span>前到账</p>
+        </div>
       </div>
-      <div class="col-md-12 text-right">
-        <p>实际到账<span class="ft-orange">{{amount - 2  > 0 ? amount -2 : 0 || 0 | number:2}}</span>元，预计<span class="ft-orange">{{nextDay | date:'yyyy-MM-dd'}} 24时</span>前到账</p>
-      </div>
+      
     </form>
     <div class="col-md-6" style="border-left:1px dashed #dadada;padding-left:50px;">
       <div class="ft-14 margin-b-30">
