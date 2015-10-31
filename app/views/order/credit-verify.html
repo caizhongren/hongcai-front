@@ -59,7 +59,7 @@
     <div class="row list-item" ng-switch="investAmount - capital.balance <= 0">
       <div class="col-md-12" ng-switch-when="false">
         <div class="form-group mgn-top">您的余额不足</div>
-        <input type="button" value="充值" class="red-button col-md-1 col-lg-1" ui-sref="root.userCenter.recharge" />
+        <input type="button" value="充值" class="btn-primary-orange col-md-1 col-lg-1" ui-sref="root.userCenter.recharge" />
         <input type="button" class="white-button" value="修改投资金额" ng-click="showModal()" style="margin-left:10px;">
       </div>
       <div class="col-md-12" ng-switch-when="true">
@@ -67,7 +67,7 @@
           <div class="form-group mgn-top">
             您将要支付<span class="ftw-b ft-red">{{investAmount | number:2}}</span>元，核实信息无误后请确认
           </div>
-          <input type="button" value="确认" class="col-md-1 col-lg-1" ng-class="{'red-button': checkInvFlag}" ng-disabled="!checkInvFlag" ng-click="transfer(project, investAmount, selectedIcon)" />
+          <input type="button" value="确认" class="col-md-1 col-lg-1" ng-class="{'btn-primary-orange': checkInvFlag}" ng-disabled="!checkInvFlag" ng-click="transfer(project, investAmount, selectedIcon)" />
           <input type="button" value="取消" class="white-button col-md-1 col-lg-1" style="margin-left:10px;" ng-click="backTo()" />
         </form>
       </div>
