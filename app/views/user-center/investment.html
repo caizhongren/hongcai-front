@@ -140,7 +140,7 @@
             <td>{{ item.statusText }}</td>
             <!-- <td><a ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">123</a></td> -->
             <td>
-              <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary" ng-click="toPay(item.order.projectId, item.order.id, item.order.type);">继续支付</button>
+              <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary-orange" ng-click="toPay(item.order.projectId, item.order.id, item.order.type);">继续支付</button>
               <button ng-show="item.order.status === 1 " type="button" class="btn btn-default" ng-click="cancelOrder(item.order.number);">取消订单</button>
               <!-- <button ng-show="item.status === 1 " type="button" title="项目放款后生成协议" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button> -->
               <button ng-show="item.order.status === 2" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">合同模板</button>
@@ -158,12 +158,12 @@
     </div>
     <div class="row text-center" ng-hide="amount">
       <p>亲，您尚未在宏财网投资，建议您浏览项目列表，购买感兴趣的债权吧~</p>
-      <a class="btn btn-primary margin-t-30" ui-sref="root.guaranteepro-list-query-no()">浏览项目</a>
+      <a class="btn btn-primary-orange margin-t-30" ui-sref="root.guaranteepro-list-query-no()">浏览项目</a>
     </div>
   </div>
   <!-- 未开通第三方资金托管账户 -->
   <div class="row text-center" ng-show="securityStatus.realNameAuthStatus !== 1">
     <p>亲，您尚未开通第三方资金托管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
-    <a class="btn btn-primary margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
+    <a class="btn btn-primary-orange margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
   </div>
 </div>
