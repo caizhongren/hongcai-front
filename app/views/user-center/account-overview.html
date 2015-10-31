@@ -13,13 +13,13 @@
       </div>
       <div class="right-message col-md-12 col-lg-6">
         <div class="row">
-          <div class="left-message-show col-md-6 col-lg-6">
+          <div class="left-message-show col-md-6 col-lg-6" style="cursor:pointer;">
             <p class="assets-ico total-assets"></p>
             <p class="asset-tips">账户总资产</p>
             <p class="asset-money">{{account.totalAssets | number:2}} <small>元</small>
             </p>
           </div>
-          <div class="left-message-show col-md-6 col-lg-6">
+          <div class="left-message-show col-md-6 col-lg-6" style="cursor:pointer;">
             <p class="assets-ico net-income"></p>
             <p class="asset-tips">累计净收益</p>
             <p class="asset-money">{{account.receivedProfit| number:2}} <small>元</small>
@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="left-message-show col-md-6 col-lg-6">
+          <div class="left-message-show col-md-6 col-lg-6" style="cursor:pointer;">
             <p class="assets-ico account-balance"></p>
             <p class="asset-tips">账户余额</p>
             <p class="asset-money">{{account.balance| number:2}} <small>元</small>
@@ -41,7 +41,7 @@
               </p>
             </div>
           </div> -->
-          <div class="left-message-show col-md-6 col-lg-6">
+          <div class="left-message-show col-md-6 col-lg-6" ui-sref="root.userCenter.experienceMoney" style="cursor:pointer;">
             <div>
               <p class="assets-ico activitty-money"></p>
               <p class="asset-tips">体验金</p>
