@@ -1,17 +1,14 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AssetsOverviewCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', function($scope, $state, $rootScope, $stateParams, UserCenterService) {
+  .controller('AssetsOverviewCtrl', function($scope, $state, $rootScope, $stateParams, UserCenterService) {
 
-    $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-     $scope.data = [
-       [28, 48, 40, 19, 86, 27, 90]
-     ];
      $scope.onClick = function (points, evt) {
        console.log(points, evt);
      };
-     
+
     $scope.options = {
       bezierCurve: false,
+      // scaleGridLineWidth:1,
       scaleShowVerticalLines: false
     }
 
@@ -44,4 +41,23 @@ angular.module('hongcaiApp')
       }
     });
 
-  }]);
+
+    UserCenterService.dayProfit.get({
+      startTime: new Date().getTime() - 7 * 24 * 60 * 60 * 1000,
+      endTime: new Date().getTime()
+    }, function(response){
+      var data = response.data;
+      $scope.labels = [];
+      var datas = [];
+      for(var key in data)  {
+        var date = new Date(+key);
+
+        $scope.labels.push(date.getMonth() + '-' + date.getDate()); 
+        datas.push(data[key]);
+      } 
+
+      $scope.data = [];
+      $scope.data.push(datas);
+    });
+
+  });
