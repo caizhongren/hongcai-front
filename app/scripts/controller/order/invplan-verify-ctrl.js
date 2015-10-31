@@ -98,7 +98,10 @@ angular.module('hongcaiApp')
         }, function(response) {
           if (response.ret === 1) {
             var creditRightNum = response.data.creditRightNum;
-            $state.go('root.transfer-success', {
+            $state.go('root.yeepay-callback', {
+              business: 'TRANSFER',
+              status: 'SUCCESS',
+              amount: investAmount,
               number: creditRightNum
             });
           } else {

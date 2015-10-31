@@ -73,11 +73,11 @@
                             </tr>
                             <tr class="border-b-da">
                                 <td class="bg-grey5 tab-left text-right">开放加入时间</td>
-                                <td class="bg-white tab-right">{{releaseStartTime}}</td>
+                                <td class="bg-white tab-right">{{fundsProject.releaseStartTime  | date: 'yyyy年MM月dd日'}} 00:10</td>
                             </tr>
                             <tr class="border-b-da">
                                 <td class="bg-grey5 tab-left text-right">退出日期</td>
-                                <td class="bg-white tab-right">{{ repaymentDate }}</td>
+                                <td class="bg-white tab-right">{{ fundsProject.repaymentDate | date: 'yyyy年MM月dd日' }}</td>
                             </tr>
                             <tr class="border-b-da">
                                 <td class="bg-grey5 tab-left text-right">加入条件</td>

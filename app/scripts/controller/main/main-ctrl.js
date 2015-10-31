@@ -3,37 +3,6 @@ angular.module('hongcaiApp')
   .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout, DateUtils) {
     $scope.spCountDown = -1;
 
-
-    // $scope.projectList = function() {
-    //   MainService.projectList.get(function(response) {
-    //     if (response.ret === 1) {
-    //       $scope.serverTime = response.data.serverTime;
-    //       $scope.projectList = response.data.recommend;
-    //       $scope.projectVo = response.data.specialRecommend[0];
-    //       $scope.baseFileUrl = response.data.baseFileUrl;
-    //       if ($location.protocol() === 'https') {
-    //         $scope.baseFileUrl = $location.protocol() + '://' + $scope.baseFileUrl.split('://')[1];
-    //       }
-    //       if ($scope.projectVo.releaseStartTime) {
-    //         $scope.spCountDown = moment($scope.projectVo.releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 1;
-    //       }
-    //       $scope._timeVoDown = 0;
-    //       $scope.counter = 0;
-    //       var interval = window.setInterval(function() {
-    //         $scope.counter++;
-    //         // 特殊推荐倒计时
-    //         $scope._timeVoDown = $scope.mainTimeUntil($scope.spCountDown);
-    //         $scope.$apply();
-    //       }, 1000);
-    //       // 页面跳转暂停倒计时。
-    //       $scope.$on('$stateChangeStart', function() {
-    //         clearInterval(interval);
-    //       });
-    //     } else {}
-    //   });
-    // };
-    // $scope.projectList();
-    // 
   
 
     // 宏金宝列表

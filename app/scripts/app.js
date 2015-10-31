@@ -1242,6 +1242,8 @@ hongcaiApp
           }
         }
       })
+
+      // 宏金宝债权详情
       .state('root.userCenter.credit-security-details', {
         url: '/credit-security-details/:type/:number',
         views: {
@@ -1252,6 +1254,8 @@ hongcaiApp
           }
         }
       })
+
+      // 宏金盈债权详情
       .state('root.userCenter.credit-profit-details', {
         url: '/credit-profit-details/:type/:number',
         views: {
