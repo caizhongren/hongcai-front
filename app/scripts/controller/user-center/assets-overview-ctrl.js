@@ -52,7 +52,7 @@ angular.module('hongcaiApp')
       for(var key in data)  {
         var date = new Date(+key);
 
-        $scope.labels.push(date.getMonth() + '-' + date.getDate()); 
+        $scope.labels.push((date.getMonth() + 1) + '-' + date.getDate()); 
         datas.push(data[key]);
       } 
 
