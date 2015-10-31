@@ -400,7 +400,8 @@ angular.module('hongcaiApp')
         $scope.yuebaoRate = [];
         $scope.selfRate = [];
         for (var i = 0; i < interestRates.length; i++) {
-          $scope.rateLabels.push(moment(interestRates[i].interestDate).format('YYYY/MM/DD'));
+          var date = new Date(interestRates[i].interestDate);
+          $scope.rateLabels.push(date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate());
           $scope.yuebaoRate.push(interestRates[i].yuebaoRate);
           $scope.selfRate.push(interestRates[i].rate);
         }
