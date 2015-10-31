@@ -27,9 +27,9 @@ angular.module('hongcaiApp')
     }];
 
         // 首页数据统计
-    var indexStatistics = MainService.indexStatistics.get(function(response) {
+    MainService.indexStatistics.get(function(response) {
       if (response.ret === 1) {
-        $scope.indexStatic = indexStatistics.data.indexStatic;
+        $scope.indexStatic = response.data.indexStatic;
       }
     });
     
