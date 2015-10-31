@@ -1,3 +1,9 @@
+<style type="text/css">
+/*  #line{
+    width:600px !important;
+    height:300px !important;
+  }*/
+</style>
 <!-- 资产总览 -->
 <div class="right-area col-md-8 col-lg-9" style="padding-bottom:50px;">
   <div class="row">
@@ -25,10 +31,10 @@
   <div class="row">
     <div class="right-title">收益曲线</div>
   </div>
-  <div class="row col-md-10 col-md-offset-1">
-    <canvas id="line" class="chart chart-line" chart-data="data"
-      chart-labels="labels" chart-legend="true" chart-options="options"
-      chart-click="onClick" >
+  <div class="row col-md-10 col-md-offset-1" >
+    <canvas id="line" class="chart-line" chart-data="data" 
+      chart-labels="labels" chart-options="options"
+      chart-click="onClick" height="350" width="700">
     </canvas> 
   </div>
 </div>

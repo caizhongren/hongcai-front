@@ -2,6 +2,10 @@
 angular.module('hongcaiApp')
   .factory('UserCenterService', function($resource, DEFAULT_DOMAIN) {
     return {
+      dayProfit: $resource(DEFAULT_DOMAIN + '/appUserCapital/dayProfit', {
+        startTime: '@startTime',
+        endTime: '@endTime'
+      }),
       userSecurityInfo: $resource(DEFAULT_DOMAIN + '/siteUser/userSecurityInfo', {}),
       yeepayRegister: $resource(DEFAULT_DOMAIN + '/yeepay/register', {
         realName: '@realName',
