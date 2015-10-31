@@ -3,11 +3,20 @@ angular.module('hongcaiApp')
   .controller('ReservationCtrl', ['$scope', '$rootScope', '$state', '$stateParams', '$location', '$window', 'toaster', '$modal', 'UserCenterService', function($scope, $rootScope, $state, $stateParams, $location, $window, toaster, $modal, UserCenterService) {
 
     $rootScope.selectSide = 'reservation';
-    $scope.type = $stateParams.type || '2,3,5,6';
-    $scope.dateInterval = $stateParams.dateInterval || '0';
+    $scope.type = $scope.type || '2,3,5,6';
+    $scope.dateInterval = $scope.dateInterval || '0';
     $scope.currentPage = $scope.currentPage || 1;
 
-    $scope.getReserveOrders = function() {
+    $scope.dateIntervals  = [ 
+      { interval: '0', desc: '全部'}, 
+      { interval: '7', desc: '最近七天'}, 
+      { interval: '30', desc: '一个月'}, 
+      { interval: '90', desc: '三个月'}
+    ];
+
+    $scope.getReserveOrders = function(dateInterval) {
+      $scope.dateInterval = dateInterval;
+
       $scope.orderList = [];
       var startTime = 0;
       if ($scope.dateInterval === '7') {
@@ -42,7 +51,7 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.getReserveOrders();
+    $scope.getReserveOrders($scope.dateInterval);
 
     $scope.cancelReservation = function(reserveOrder) {
       $scope.freezeAmount = reserveOrder.freezeAmount;

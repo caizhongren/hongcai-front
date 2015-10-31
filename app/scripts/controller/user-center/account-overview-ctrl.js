@@ -1,6 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AccountOverviewCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'toaster', function($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
+  .controller('AccountOverviewCtrl',  function($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
+
 
     $rootScope.selectSide = 'account-overview';
     var totalAssets = 0;
@@ -19,87 +20,19 @@ angular.module('hongcaiApp')
         $scope.account = response.data.account;
         $scope.account.totalAssets = totalAssets;
         if (totalAssets === 0 && receivedProfit === 0 && balance === 0) {
-          $scope.doughnutAccountData = [{
-            value: 30,
-            label: '账户总资产',
-            color: '#e94828'
-          }, {
-            value: 30,
-            label: '累计净收益',
-            color: '#f9b81e'
-          }, {
-            value: 30,
-            label: '账户余额',
-            color: '#62cbc6'
-          }];
-        } else {
-          if(reward > 0){
-            $scope.doughnutAccountData = [{
-              value: totalAssets,
-              label: '账户总资产',
-              color: '#e94828'
-            }, {
-              value: receivedProfit,
-              label: '累计净收益',
-              color: '#f9b81e'
-            }, {
-              value: balance,
-              label: '账户余额',
-              color: '#62cbc6'
-            }, {
-              value: reward,
-              label: '活动奖金',
-              color: '#cb62bb'
-            }];
-          }else if( reward === 0){
-            $scope.doughnutAccountData = [{
-              value: totalAssets,
-              label: '账户总资产',
-              color: '#e94828'
-            }, {
-              value: receivedProfit,
-              label: '累计净收益',
-              color: '#f9b81e'
-            }, {
-              value: balance,
-              label: '账户余额',
-              color: '#62cbc6'
-            }];
-          }
-          
-        }
+          totalAssets = 30;
+          receivedProfit = 30;
+          balance = 30;
+        } 
+
+        $scope.labels = ['账户总资产', '累计净收益', '账户余额'];
+        $scope.data = [totalAssets, receivedProfit, balance];
+        $scope.colours = ['#e94828', '#f9b81e', '#62cbc6'];
 
       } else {
         toaster.pop('warning', response.msg);
-        $state.go('root.login');
       }
 
-      if (totalAssets > 0 && receivedProfit > 0 && balance > 0) {
-        $scope.doughnutOptions = {
-          segmentShowStroke: false,
-          segmentStrokeColor: '#fff',
-          segmentStrokeWidth: 2,
-          percentageInnerCutout: 65,
-          animation: true,
-          animationSteps: 100,
-          animationEasing: 'easeOutQuart',
-          animateRotate: true,
-          animateScale: false
-        };
-      } else {
-        $scope.doughnutOptions = {
-          segmentShowStroke: false,
-          segmentStrokeColor: '#fff',
-          segmentStrokeWidth: 2,
-          percentageInnerCutout: 65,
-          animation: true,
-          animationSteps: 100,
-          animationEasing: 'easeOutQuart',
-          animateRotate: true,
-          animateScale: false,
-          showTooltips: false
-        };
-      }
     });
 
 
@@ -133,4 +66,17 @@ angular.module('hongcaiApp')
     $scope.getCreditRightStatistics ();
 
 
+  })
+.config(['ChartJsProvider', function (ChartJsProvider) {
+    // Configure all charts
+    ChartJsProvider.setOptions({
+      // colours: ['#FF5252', '#FF8A80'],
+      responsive: false,
+      scaleFontSize: 8,
+      tooltipXOffset: 10
+    });
+    // Configure all line charts
+    ChartJsProvider.setOptions('Line', {
+      datasetFill: false
+    });
   }]);

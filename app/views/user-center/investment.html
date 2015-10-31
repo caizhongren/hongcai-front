@@ -31,22 +31,22 @@
                     <div class="row">
                       <div class="col-xs-2 pull-left text-nowrap">订单类型：</div>
                       <div class="col-xs-2 text-nowrap">
-                        <a ui-sref="root.userCenter.investment-query({type:'0',dateInterval:dateInterval,status:status})" class="project-noncheck" ng-class="{'project-check': type === '0', 'project-noncheck': type !== '0'}">
+                        <a ng-click="type=0;loadOrders();" class="project-noncheck" ng-class="{'project-check': type === '0', 'project-noncheck': type !== '0'}">
                           全部
                         </a>
                       </div>
                       <div class="col-xs-2">
-                        <a ui-sref="root.userCenter.investment-query({type:'1',dateInterval:dateInterval,status:status})" class="project-noncheck" ng-class="{'project-check': type === '1', 'project-noncheck': type !== '1'}">
+                        <a ng-click="type=1;loadOrders();" class="project-noncheck" ng-class="{'project-check': type === '1', 'project-noncheck': type !== '1'}">
                           宏金保
                         </a>
                       </div>
                       <div class="col-xs-2">
-                        <a ui-sref="root.userCenter.investment-query({type:'4',dateInterval:dateInterval,status:status})" class="project-noncheck" ng-class="{'project-check': type === '4', 'project-noncheck': type !== '4'}">
+                        <a ng-click="type=4;loadOrders();"  class="project-noncheck" ng-class="{'project-check': type === '4', 'project-noncheck': type !== '4'}">
                           宏金盈
                         </a>
                       </div>
                       <div class="col-xs-2" ng-show="creditIsShowedFLAG">
-                        <a ui-sref="root.userCenter.investment-query({type:'2',dateInterval:dateInterval,status:status})" class="project-noncheck" ng-class="{'project-check': type === '2', 'project-noncheck': type !== '2'}">
+                        <a ng-click="type=2;loadOrders();"  class="project-noncheck" ng-class="{'project-check': type === '2', 'project-noncheck': type !== '2'}">
                           债权转让
                         </a>
                       </div>
@@ -59,23 +59,23 @@
                     <div class="row">
                       <div class="col-xs-2 pull-left text-nowrap">订单状态：</div>
                       <div class="col-xs-2 text-nowrap">
-                        <a ui-sref="root.userCenter.investment-query({type:type,dateInterval:dateInterval,status:'0'})" class="project-noncheck" ng-class="{'project-check': status === '0', 'project-noncheck': status !== '0'}">
+                        <a ng-click="status='0';loadOrders();" class="project-noncheck" ng-class="{'project-check': status === '0', 'project-noncheck': status !== '0'}">
                           全部
                         </a>
                       </div>
                       <div class="col-xs-2">
-                        <a ui-sref="root.userCenter.investment-query({type:type,dateInterval:dateInterval,status:'2,3,4,5,6'})" class="project-noncheck" ng-class="{'project-check': status === '2,3,4,5,6', 'project-noncheck': status !== '2,3,4,5,6'}">
+                        <a ng-click="status='2,3,4,5,6';loadOrders();" class="project-noncheck" ng-class="{'project-check': status === '2,3,4,5,6', 'project-noncheck': status !== '2,3,4,5,6'}">
                           已完成
                         </a>
                       </div>
                       <div class="col-xs-2">
-                        <a ui-sref="root.userCenter.investment-query({type:type,dateInterval:dateInterval,status:'97,99'})" class="project-noncheck" ng-class="{'project-check': status === '97,99', 'project-noncheck': status !== '97,99'}">
+                        <a ng-click="status='97,99';loadOrders();" class="project-noncheck" ng-class="{'project-check': status === '97,99', 'project-noncheck': status !== '97,99'}">
                           已取消
                         </a>
                       </div>
                       <!-- 新添加 -->
                       <div class="col-xs-2">
-                        <a ui-sref="root.userCenter.investment-query({type:type,dateInterval:dateInterval,status:'1'})" class="project-noncheck" ng-class="{'project-check': status === '1', 'project-noncheck': status !== '1'}">
+                        <a ng-click="status='1';loadOrders();" class="project-noncheck" ng-class="{'project-check': status === '1', 'project-noncheck': status !== '1'}">
                           未支付
                         </a>
                       </div>
@@ -88,22 +88,22 @@
                     <div class="row">
                       <div class="col-xs-2 text-nowrap">下单时间：</div>
                       <div class="col-xs-2">
-                        <a ui-sref="root.userCenter.investment-query({type:type,dateInterval:'0',status:status})" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 0, 'project-noncheck': dateInterval !== 0 }">
+                        <a ng-click="dateInterval='0';loadOrders();" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 0, 'project-noncheck': dateInterval !== 0 }">
                           全部
                         </a>
                       </div>
                       <div class="col-xs-2">
-                        <a ui-sref="root.userCenter.investment-query({type:type,dateInterval:'7',status:status})" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 7, 'project-noncheck': dateInterval !== 7 }">
+                        <a ng-click="dateInterval='7';loadOrders();" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 7, 'project-noncheck': dateInterval !== 7 }">
                           最近七天
                         </a>
                       </div>
                       <div class="col-xs-2">
-                        <a ui-sref="root.userCenter.investment-query({type:type,dateInterval:'30',status:status})" class="project-noncheck" ng-class="{'project-check': dateInterval === 30, 'project-noncheck': dateInterval !== 30 }">
+                        <a ng-click="dateInterval='30';loadOrders();" class="project-noncheck" ng-class="{'project-check': dateInterval === 30, 'project-noncheck': dateInterval !== 30 }">
                           一个月
                         </a>
                       </div>
                       <div class="col-xs-2">
-                        <a ui-sref="root.userCenter.investment-query({type:type,dateInterval:'90',status:status})" class="project-noncheck" ng-class="{'project-check': dateInterval === 90, 'project-noncheck': dateInterval !== 90 }">
+                        <a ng-click="dateInterval='90';loadOrders();" class="project-noncheck" ng-class="{'project-check': dateInterval === 90, 'project-noncheck': dateInterval !== 90 }">
                           三个月
                         </a>
                       </div>
@@ -128,19 +128,19 @@
         </thead>
         <tbody>
           <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-            <td>{{ item.orderNum }}</td>
+            <td>{{ item.orderNum}}</td>
             <td>{{ item.order.orderAmount | number: 2 }}</td>
             <td>
               <button ng-click="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button>
-              <a ui-sref="root.project-details({number: item.order.projectNumber})" title="{{item.order.projectName}}" ng-if="item.order.type !== 4">{{ item.order.projectName | limitTo: 5}}... </a>
-              <a ui-sref="root.investmentplan-details({number: item.order.projectNumber})" title="{{productsMap[item.fundsProject.productId].name + item.order.projectName}}" ng-if="item.order.type === 4">{{ productsMap[item.fundsProject.productId].name + item.order.projectName | limitTo: 5}}... </a>
+              <a ui-sref="root.project-details({number: item.order.projectNumber})" title="{{item.order.projectName}}" ng-if="item.order.type !== 4">{{ item.order.projectName | limitTo: 15}}</a>
+              <a ui-sref="root.investmentplan-details({number: item.order.projectNumber})" title="{{productsMap[item.fundsProject.productId].name + item.order.projectName}}" ng-if="item.order.type === 4">{{ productsMap[item.fundsProject.productId].name + item.order.projectName | limitTo: 15}}</a>
               <br>
             </td>
             <td>{{ item.order.createTime | date: 'yyyy-MM-dd' }}</td>
             <td>{{ item.statusText }}</td>
             <!-- <td><a ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">123</a></td> -->
             <td>
-              <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary" ng-click="toPay(item.order.projectId, item.order.id, item.order.type);">继续支付</button>
+              <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary-orange" ng-click="toPay(item.order.projectId, item.order.id, item.order.type);">继续支付</button>
               <button ng-show="item.order.status === 1 " type="button" class="btn btn-default" ng-click="cancelOrder(item.order.number);">取消订单</button>
               <!-- <button ng-show="item.status === 1 " type="button" title="项目放款后生成协议" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button> -->
               <button ng-show="item.order.status === 2" type="button" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">合同模板</button>
@@ -158,12 +158,12 @@
     </div>
     <div class="row text-center" ng-hide="amount">
       <p>亲，您尚未在宏财网投资，建议您浏览项目列表，购买感兴趣的债权吧~</p>
-      <a class="btn btn-primary margin-t-30" ui-sref="root.guaranteepro-list-query-no()">浏览项目</a>
+      <a class="btn btn-primary-orange margin-t-30" ui-sref="root.guaranteepro-list-query-no()">浏览项目</a>
     </div>
   </div>
   <!-- 未开通第三方资金托管账户 -->
   <div class="row text-center" ng-show="securityStatus.realNameAuthStatus !== 1">
     <p>亲，您尚未开通第三方资金托管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
-    <a class="btn btn-primary margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
+    <a class="btn btn-primary-orange margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
   </div>
 </div>

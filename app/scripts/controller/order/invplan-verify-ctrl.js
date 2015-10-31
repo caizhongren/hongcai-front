@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('InvPlanVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'ProjectService', 'SessionService', 'config', '$alert', function($scope, $location, $state, $rootScope, $stateParams, $modal, ProjectService, SessionService, config, $alert) {
+  .controller('InvPlanVerifyCtrl', ['$scope', '$location', 'toaster', '$state', '$rootScope', '$stateParams', '$modal', 'ProjectService', 'SessionService', 'config', '$alert', 'OrderService', function($scope, $location, toaster, $state, $rootScope, $stateParams, $modal, ProjectService, SessionService, config, $alert, OrderService) {
     $scope.checkInvFlag = true;
     ProjectService.isFundsAvailableInvest.get({
       projectId: $stateParams.projectId,
@@ -54,9 +54,6 @@ angular.module('hongcaiApp')
       }
     };
 
-    $scope.reload = function() {
-      window.location.reload();
-    };
 
     // 显示协议
     $scope.showAgreement = function(productType) {
@@ -81,15 +78,37 @@ angular.module('hongcaiApp')
       } else {
         $scope.isRepeat = 2;
       }
-      $scope.msg = '4';
-      $scope.investAmount = investAmount;
-      $scope.page = 'investVerify';
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
-      window.open('/#!/invplan-verify-transfer/' + project.id + '/' + investAmount + '/' + $scope.isRepeat+ '/' + payAmount);
+
+      if(payAmount > 0){
+        $scope.msg = '4';
+        $scope.investAmount = investAmount;
+        $scope.page = 'investVerify';
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alertYEEPAY.html',
+          show: true
+        });
+        window.open('/#!/invplan-verify-transfer/' + project.id + '/' + investAmount + '/' + $scope.isRepeat+ '/' + payAmount);
+      }else{
+        OrderService.saveExperienceMoneyOrder.get({
+          projectId: project.id,
+          amount: investAmount,
+          isRepeat: $scope.isRepeat,
+          payAmount: payAmount
+        }, function(response) {
+          if (response.ret === 1) {
+            var creditRightNum = response.data.creditRightNum;
+            $state.go('root.yeepay-callback', {
+              business: 'TRANSFER',
+              status: 'SUCCESS',
+              amount: investAmount,
+              number: creditRightNum
+            });
+          } else {
+            toaster.pop('error', response.msg);
+          }
+        });
+      }
     };
 
     $scope.backTo = function() {

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SecuritySettingsCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'config', 'md5', '$alert', function($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5, $alert) {
+  .controller('SecuritySettingsCtrl', function($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN) {
 
     $rootScope.selectSide = 'security-settings';
     UserCenterService.userSecurityInfo.get({}, function(response) {
@@ -25,9 +25,10 @@ angular.module('hongcaiApp')
       }
     });
 
-    $scope.sendMobileCaptcha = function(mobile) {
+    $scope.sendMobileCaptcha = function(mobile, picCaptcha) {
       UserCenterService.sendMobileCaptcha.get({
-        mobile: mobile
+        mobile: mobile,
+        picCaptcha: picCaptcha
       }, function(response) {
         if (response.ret === 1) {
           console.log('sendMobileCaptcha success');
@@ -154,10 +155,6 @@ angular.module('hongcaiApp')
       }
     };
 
-    $scope.reload = function() {
-      window.location.reload();
-    };
-    
     $scope.realNameAuth = function(user) {
       $scope.msg = '1';
       $alert({
@@ -185,6 +182,11 @@ angular.module('hongcaiApp')
           console.log('ask security-settings, why yeepayRegister did not load data...');
         }
       });*/
+    };
+
+    $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
+    $scope.refreshCode = function() {
+      angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
 
     $scope.openReservation = function() {
@@ -231,4 +233,4 @@ angular.module('hongcaiApp')
       });*/
 
     };
-  }]);
+  });

@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
     <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
     <link rel="stylesheet" href="bower_components/angularjs-toaster/toaster.css" />
+    <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css" />
     <!-- endbower -->
     <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css" />
     <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
@@ -155,8 +156,6 @@
     <script src="bower_components/angular-strap/dist/angular-strap.tpl.js"></script>
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-moment/angular-moment.js"></script>
-    <script src="bower_components/Chart.js/Chart.js"></script>
-    <script src="bower_components/ng-chartjs/dist/angular-chartjs.min.js"></script>
     <script src="bower_components/bower-angular-placeholders/angular-placeholders.js"></script>
     <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
@@ -172,6 +171,8 @@
     <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
     <script src="bower_components/angular-ui-slider/src/slider.js"></script>
     <script src="bower_components/angular-seo/angular-seo.js"></script>
+    <script src="bower_components/Chart.js/Chart.min.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <!-- endbower -->
     <script src="bower_components/fancybox/source/jquery.fancybox.js"></script>
     <script src="bower_components/flexslider/jquery.flexslider.js"></script>
@@ -220,7 +221,6 @@
     <script src="scripts/controller/yeepay/yeepay-ctrl.js"></script>
     <script src="scripts/controller/order/invest-verify-ctrl.js"></script>
     <script src="scripts/controller/order/hongbao-verify-ctrl.js"></script>
-    <script src="scripts/controller/order/transfer-success-ctrl.js"></script>
     <script src="scripts/controller/order/invplan-verify-ctrl.js"></script>
     <script src="scripts/controller/about-us/about-us-ctrl.js"></script>
     <script src="scripts/controller/get-pwd-back/get-pwd-back-ctrl.js"></script>
@@ -237,12 +237,7 @@
 
     <script src="scripts/controller/user-center/gift-overview-ctrl.js"></script>
     <script src="scripts/controller/user-center/invite-rebate-ctrl.js"></script>
-    <script src="scripts/controller/user-center/bankcard-success-ctrl.js"></script>
-    <script src="scripts/controller/user-center/unbind-bankcard-success-ctrl.js"></script>
-    <script src="scripts/controller/user-center/recharge-success-ctrl.js"></script>
-    <script src="scripts/controller/user-center/withdraw-success-ctrl.js"></script>
     <script src="scripts/controller/user-center/reservation-success-ctrl.js"></script>
-    <script src="scripts/controller/order/invplan-transfer-success-ctrl.js"></script>
     <script src="scripts/controller/user-center/message-ctrl.js"></script>
     <script src="scripts/controller/user-center/reservation-ctrl.js"></script>
     <!-- 债券转让 -->
@@ -281,6 +276,8 @@
     <script src="scripts/service/about-us/about-us-service.js"></script>
     <script src="scripts/service/enterprise/guarantee-service.js"></script>
     <script src="scripts/service/banner/friend-link-service.js"></script>
+
+    <script src="scripts/service/DateUtils.js"></script>
 
 
     <script src="scripts/directives/check-password.js"></script>

@@ -1,9 +1,9 @@
 <div class="col-xs-12">
-  <div class="panel panel-default">
+  <div class="panel panel-default" style="height:334px;">
     <div class="panel-body">
       <div class="row">
         <div class="hidden-xs hidden-md col-lg-5">
-          <img ng-src="{{baseFileUrl + project.image}}" alt="" width="230" height="225" class="img-rounded">
+          <img ng-src="{{baseFileUrl + project.image}}" alt="" width="250" height="260" class="img-rounded">
         </div>
         <div class="col-lg-7">
           <div class="row">
@@ -13,12 +13,12 @@
           </div>
           <div class="row" style="position: relative;">
             <div class="col-xs-12 col-sm-4 border-r under-margin" ng-show="project.floattingRate">
-              <h3 class="text-center text-nowrap hc-text-red">{{project.annualEarnings - project.floattingRate || 0 | number : 2}}%</h3>
+              <h3 class="text-center text-nowrap ft-orange">{{project.annualEarnings - project.floattingRate || 0 | number : 2}}%</h3>
               <p class="text-center text-nowrap gray-font">年化收益</p>
             </div>
             <img src="images/stamp38.png" alt="" style="position:absolute; top:-40%; left:20%;" ng-show="project.floattingRate">
             <div class="col-xs-12 col-sm-4 border-r under-margin" ng-hide="project.floattingRate">
-              <h3 class="text-center text-nowrap hc-text-red">{{project.annualEarnings || 0 | number : 2}}%</h3>
+              <h3 class="text-center text-nowrap ft-orange">{{project.annualEarnings || 0 | number : 2}}%</h3>
               <p class="text-center text-nowrap gray-font">年化收益</p>
             </div>
 
@@ -32,24 +32,24 @@
             </div>
           </div>
           <hr style="margin-top: 3px;margin-bottom: 12px;">
-          <div class="row">
-            <div class="col-xs-12 under-margin1" ng-hide="categoryCode === '04' || categoryCode === '05' || categoryCode === '06' || categoryCode === '07'"><i class="fa fa-circle hc-text-red right-margin"></i>
+          <div class="row margin-t-30">
+            <div class="col-xs-12 under-margin1" ng-hide="categoryCode === '04' || categoryCode === '05' || categoryCode === '06' || categoryCode === '07'"><i class="fa fa-circle ft-orange right-margin"></i>
               <strong>担保机构：<a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" target="_blank">{{project.guaranteeName}}</a></strong>
             </div>
-            <div class="col-xs-12 under-margin1" ng-show="categoryCode === '04'"><i class="fa fa-circle hc-text-red right-margin"></i>
+            <div class="col-xs-12 under-margin1" ng-show="categoryCode === '04'"><i class="fa fa-circle ft-orange right-margin"></i>
               <strong>项目类型：新手体验标</strong>
             </div>
-            <div class="col-xs-12 under-margin1" ng-show="categoryCode === '06'"><i class="fa fa-circle hc-text-red right-margin"></i>
+            <div class="col-xs-12 under-margin1" ng-show="categoryCode === '06'"><i class="fa fa-circle ft-orange right-margin"></i>
               <strong>项目类型：羊年迎新标</strong>
             </div>
-            <div class="col-xs-12 under-margin1"><i class="fa fa-circle hc-text-red right-margin"></i>
+            <div class="col-xs-12 under-margin1"><i class="fa fa-circle ft-orange right-margin"></i>
               <strong>还款方式：{{project.repaymentName}}</strong>
             </div>
-            <div class="col-xs-12" ng-class="{'under-margin1': project.status === 9 || project.status === 10}"><i class="fa fa-circle hc-text-red right-margin"></i>
+            <div class="col-xs-12" ng-class="{'under-margin1': project.status === 9 || project.status === 10}"><i class="fa fa-circle ft-orange right-margin"></i>
               <strong>发布日期：{{ project.publishTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}</strong>
             </div>
             <div ng-if="project.progress >= 100 && project.status === 9 || project.status === 10">
-              <div class="col-xs-12"><i class="fa fa-circle hc-text-red right-margin"></i>
+              <div class="col-xs-12"><i class="fa fa-circle ft-orange right-margin"></i>
                 <strong>还款日期：{{ repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</strong>
               </div>
             </div>

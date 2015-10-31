@@ -21,7 +21,7 @@
         <td>{{ creditRight.baseRate + creditRight.riseRate }}%</td>
         <td>{{ productsMap[project.productId].sealingDays }}</td>
         <td>{{ creditRight.profit | number:2 }}</td>
-        <td>{{ creditRight.transferableAmount | number:2 }}</td>
+        <td>{{ creditRight.amount | number:2 }}</td>
         <td>{{ creditRight.returnProfit | number:2 }}</td>
         <td>{{ creditRight.profit-creditRight.returnProfit | number:2 }}</td>
       </tr>
@@ -53,7 +53,7 @@
                 <h4 class="timeline-title border-b padding-b-15">项目放款<small class="pull-right">{{ project.loanTime | date:'yyyy-MM-dd'}}</small></h4>
               </div>
               <div class="timeline-body">
-                <p><strong>{{ order.orderAmount | number: 2 }}</strong>元</p>
+                <p><strong>{{ order.payAmount | number: 2 }}</strong>元</p>
               </div>
             </div>
           </li>
@@ -79,7 +79,7 @@
               </div>
               <div class="timeline-body">
                 <p ng-if="creditRight.isRepeatInvest === 1">待回款：<strong>{{ creditRight.profit | number: 2 }}</strong>元（利息）</p>
-                <p ng-if="creditRight.isRepeatInvest === 2">待回款：<strong>利息{{ creditRight.profit | number: 2 }}&nbsp; + &nbsp;本金{{ creditRight.amount | number: 2 }}</strong>元</p>
+                <p ng-if="creditRight.isRepeatInvest === 2">待回款：<strong>利息{{ creditRight.profit | number: 2 }}&nbsp; + &nbsp;本金{{ creditRight.payAmount | number: 2 }}</strong>元</p>
               </div>
             </div>
           </li>

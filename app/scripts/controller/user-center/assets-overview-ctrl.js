@@ -1,6 +1,16 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AssetsOverviewCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', function($scope, $state, $rootScope, $stateParams, UserCenterService) {
+  .controller('AssetsOverviewCtrl', function($scope, $state, $rootScope, $stateParams, UserCenterService) {
+
+     $scope.onClick = function (points, evt) {
+       console.log(points, evt);
+     };
+
+    $scope.options = {
+      bezierCurve: false,
+      // scaleGridLineWidth:1,
+      scaleShowVerticalLines: false
+    }
 
     $rootScope.selectSide = 'assets-overview';
     var balance = 0;
@@ -24,67 +34,6 @@ angular.module('hongcaiApp')
 
         $scope.reward = reward;
         $scope.account = response.data.account;
-        if (balance === 0 && waitingProfit === 0 && waitingCapital === 0 && freezeCapital === 0 && receivedProfit === 0 && amount === 0) {
-          $scope.doughnutAssetsData = [{
-            value: 20,
-            label: '可用余额',
-            color: '#d2cb3f'
-          }, {
-            value: 20,
-            label: '待收收益',
-            color: '#62cbc6'
-          }, {
-            value: 20,
-            label: '待收本金',
-            color: '#f9b81e'
-          }, {
-            value: 20,
-            label: '冻结资金',
-            color: '#6aabe1'
-          }];
-        } else {
-          if(reward > 0){
-            $scope.doughnutAssetsData = [{
-              value: account.balance,
-              label: '可用余额',
-              color: '#d2cb3f'
-            }, {
-              value: account.waitingProfit,
-              label: '待收收益',
-              color: '#62cbc6'
-            }, {
-              value: account.waitingCapital,
-              label: '待收本金',
-              color: '#f9b81e'
-            }, {
-              value: account.freezeCapital,
-              label: '冻结资金',
-              color: '#6aabe1'
-            }];
-          }else if( reward === 0){
-            $scope.doughnutAssetsData = [{
-              value: account.balance,
-              label: '可用余额',
-              color: '#d2cb3f'
-            }, {
-              value: account.waitingProfit,
-              label: '待收收益',
-              color: '#62cbc6'
-            }, {
-              value: account.waitingCapital,
-              label: '待收本金',
-              color: '#f9b81e'
-            }, {
-              value: account.freezeCapital,
-              label: '冻结资金',
-              color: '#6aabe1'
-            }, {
-              value: reward,
-              label: '活动奖金',
-              color: '#cb62bb'
-            }];
-          }
-        }
 
       } else {
         console.log('ask assets-overview, why getUserAccount did not load data...');
@@ -92,30 +41,23 @@ angular.module('hongcaiApp')
       }
     });
 
-    if (balance > 0 && waitingProfit > 0 && waitingCapital > 0 && freezeCapital > 0 && receivedProfit > 0 && amount > 0) {
-      $scope.doughnutOptions = {
-        segmentShowStroke: false,
-        segmentStrokeColor: '#fff',
-        segmentStrokeWidth: 2,
-        percentageInnerCutout: 65,
-        animation: true,
-        animationSteps: 100,
-        animationEasing: 'easeOutQuart',
-        animateRotate: true,
-        animateScale: false
-      };
-    } else {
-      $scope.doughnutOptions = {
-        segmentShowStroke: false,
-        segmentStrokeColor: '#fff',
-        segmentStrokeWidth: 2,
-        percentageInnerCutout: 65,
-        animation: true,
-        animationSteps: 100,
-        animationEasing: 'easeOutQuart',
-        animateRotate: true,
-        animateScale: false,
-        showTooltips: false
-      };
-    }
-  }]);
+
+    UserCenterService.dayProfit.get({
+      startTime: new Date().getTime() - 7 * 24 * 60 * 60 * 1000,
+      endTime: new Date().getTime()
+    }, function(response){
+      var data = response.data;
+      $scope.labels = [];
+      var datas = [];
+      for(var key in data)  {
+        var date = new Date(+key);
+
+        $scope.labels.push(date.getMonth() + '-' + date.getDate()); 
+        datas.push(data[key]);
+      } 
+
+      $scope.data = [];
+      $scope.data.push(datas);
+    });
+
+  });

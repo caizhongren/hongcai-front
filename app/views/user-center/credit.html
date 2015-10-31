@@ -47,7 +47,7 @@
                 <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name | limitTo: 15 }}...</a>
                 <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{productsMap[item.fundsProject.productId].name + item.fundsProject.name}}" ng-if="item.project.type === 3">{{ productsMap[item.fundsProject.productId].name + item.fundsProject.name | limitTo: 15 }}...</a>
               </td>
-              <td>{{ item.creditRight.transferableAmount | number:2 }}</td>
+              <td>{{ item.creditRight.amount | number:2 }}</td>
               <td>{{ item.order.profit - item.order.returnProfit | number:2 }}</td>
               <td>{{ item.order.returnProfit | number:2 }}</td>
               <td>
@@ -56,12 +56,12 @@
               </td>
               <td ng-show="creditIsShowedFLAG">{{ creditRightTransferStatusMap[item.creditRight.transferStatus] }}</td>
               <td>
-                <a type="button" class="btn btn-primary btn-xs" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})" ng-show="creditIsShowedFLAG" ng-if="item.creditRight.type == 1">发起债权转让</a>
-                <a type="button" class="btn btn-primary btn-xs" ng-click=" putCreditRightInPool(item.creditRightId);" ng-if="item.creditRight.type == 2 && item.creditRight.fundsPoolInOut == 1">转入债权池</a>
+                <a type="button" class="btn btn-primary-orange btn-xs" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})" ng-show="creditIsShowedFLAG" ng-if="item.creditRight.type == 1">发起债权转让</a>
+                <a type="button" class="btn btn-primary-orange btn-xs" ng-click=" putCreditRightInPool(item.creditRightId);" ng-if="item.creditRight.type == 2 && item.creditRight.fundsPoolInOut == 1">转入债权池</a>
                 <a type="button" class="btn btn-default btn-xs" disabled="disabled" ng-if="item.creditRight.type == 2 && item.creditRight.fundsPoolInOut == 2">已转入债权池</a>
                 <a type="button" class="btn btn-default btn-xs" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
-                <a type="button" class="btn btn-primary btn-xs" ng-if="item.creditRight.type == 3 && item.creditRight.isRepeatInvest == 2" ng-click="autoReinvest(1,item.creditRightId);">开启自动续投</a>
-                <a type="button" class="btn btn-primary btn-xs" ng-if="item.creditRight.type == 3 && item.creditRight.isRepeatInvest == 1" ng-click="autoReinvest(2,item.creditRightId);">取消自动续投</a>
+                <a type="button" class="btn btn-primary-orange btn-xs" ng-if="item.creditRight.type == 3 && item.creditRight.isRepeatInvest == 2 && item.creditRight.payAmount > 0" ng-click="autoReinvest(1,item.creditRightId);">开启自动续投</a>
+                <a type="button" class="btn btn-primary-orange btn-xs" ng-if="item.creditRight.type == 3 && item.creditRight.isRepeatInvest == 1" ng-click="autoReinvest(2,item.creditRightId);">取消自动续投</a>
                 <a type="button" class="btn btn-default btn-xs" ui-sref="root.userCenter.credit-profit-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看详情</a>
               </td>
             </tr>
@@ -180,12 +180,12 @@
     <!-- 未购买项目 展示内容 -->
     <div class="row text-center" ng-hide="showCreditRightStatistics">
       <p>亲，您尚未购买任何债权，建议您浏览项目列表，购买感兴趣的债权吧~</p>
-      <a class="btn btn-primary margin-t-30" ui-sref="root.investmentplan-list">浏览项目</a>
+      <a class="btn btn-primary-orange margin-t-30" ui-sref="root.investmentplan-list">浏览项目</a>
     </div>
   </div>
   <!-- 未开通第三方资金托管账户 -->
   <div class="row text-center" ng-show="securityStatus.realNameAuthStatus !== 1">
     <p>亲，您尚未开通第三方资金托管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
-    <a class="btn btn-primary margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
+    <a class="btn btn-primary-orange margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
   </div>
 </div>

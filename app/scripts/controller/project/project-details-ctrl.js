@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
-    $rootScope.redirectUrl = $location.path();
+  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, DateUtils) {
+    // $rootScope.redirectUrl = $location.path();
     $scope.chk = true;
     $scope.checkFlag = true;
     $scope.check = function(val) {
@@ -13,28 +13,25 @@ angular.module('hongcaiApp')
         number: $stateParams.number
       }, function() {
         if (projectDetails.ret === 1) {
-          $scope.statSecond = parseInt(projectDetails.data.countDownTime / 1000 + 1) || 1;
-          $scope.onTimeout = function() {
-            $scope.statSecond--;
-            mytimeout = $timeout($scope.onTimeout, 1000);
-            $scope.statDay = moment().startOf('month').seconds($scope.statSecond).format('DD') - 1 + '天,';
-            $scope.statTime = moment().startOf('month').seconds($scope.statSecond).format('HH时,mm分,ss秒');
-            if ($scope.statSecond === 0) {
-              ProjectService.projectDetails.get({
-                number: $stateParams.number
-              }, function(response) {
-                if (response.ret === 1) {
-                  $scope.project = response.data.project;
-                }
-              });
-              window.location.reload();
-            }
-          };
-          var mytimeout = $timeout($scope.onTimeout, 1000);
-          $scope.$on('$stateChangeStart', function() {
-            $timeout.cancel(mytimeout);
-          });
+
           $scope.project = projectDetails.data.project;
+          $scope.countdown = projectDetails.data.countDownTime;
+          $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
+
+          var interval = $interval(function(){
+            $scope.countdown -= 1000;
+            if ($scope.countdown <= 0 && $scope.project.status == 2){
+              $state.reload();
+            }
+            $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
+          }, 1000);
+
+          
+          $scope.$on('$stateChangeStart', function() {
+            $interval.cancel(interval);
+          });
+          
+
           $scope.categoryCode = $scope.project.categoryCode;
           if ($scope.categoryCode === '04' || $scope.categoryCode === '05' || $scope.categoryCode === '06') {
             $scope.tabs = [{
@@ -123,7 +120,7 @@ angular.module('hongcaiApp')
         }
         // 刷新页面
         if ($scope.statSecond === 0) {
-          window.location.reload();
+          $state.reload();
         }
       });
     };
@@ -403,7 +400,8 @@ angular.module('hongcaiApp')
         $scope.yuebaoRate = [];
         $scope.selfRate = [];
         for (var i = 0; i < interestRates.length; i++) {
-          $scope.rateLabels.push(moment(interestRates[i].interestDate).format('YYYY/MM/DD'));
+          var date = new Date(interestRates[i].interestDate);
+          $scope.rateLabels.push(date.getFullYear() + '/' + date.getMonth() + '/' + date.getDate());
           $scope.yuebaoRate.push(interestRates[i].yuebaoRate);
           $scope.selfRate.push(interestRates[i].rate);
         }
@@ -470,4 +468,16 @@ angular.module('hongcaiApp')
         redirectUrl: thisUrl
       });
     };
-  }]);
+
+    // 弹出登录弹层
+    $scope.toRealLogin = function() {
+      if (!$rootScope.isLogged) {
+        $modal({
+          scope: $scope,
+          template: 'views/modal/modal-toLogin.html',
+          show: true
+        });
+      }
+    };
+    
+  });

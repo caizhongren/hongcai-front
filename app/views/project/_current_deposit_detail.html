@@ -1,5 +1,5 @@
 <div class="col-xs-12">
-    <div class="row project-info" ng-init="toggle.activeTab=0;">
+    <div class="row project-info" ng-init="toggle.activeTab=0;" style="margin-top: -15px;">
         <div class="col-xs-12 margin-t-15" style="padding:0;">
             <div class="col-xs-12 padding-l-0 border-b-orange padding-r-0">
                 <ul class="nav nav-pills nav-justified nav-orangenew" style="width: 100%;">
@@ -73,11 +73,11 @@
                             </tr>
                             <tr class="border-b-da">
                                 <td class="bg-grey5 tab-left text-right">开放加入时间</td>
-                                <td class="bg-white tab-right">{{releaseStartTime}}</td>
+                                <td class="bg-white tab-right">{{fundsProject.releaseStartTime  | date: 'yyyy年MM月dd日'}} 00:10</td>
                             </tr>
                             <tr class="border-b-da">
                                 <td class="bg-grey5 tab-left text-right">退出日期</td>
-                                <td class="bg-white tab-right">{{ repaymentDate }}</td>
+                                <td class="bg-white tab-right">{{ fundsProject.repaymentDate | date: 'yyyy年MM月dd日' }}</td>
                             </tr>
                             <tr class="border-b-da">
                                 <td class="bg-grey5 tab-left text-right">加入条件</td>
@@ -117,8 +117,8 @@
                             <thead>
                                 <tr>
                                     <th>序号</th>
-                                    <th>投标金额</th>
                                     <th>投资人</th>
+                                    <th>投标金额</th>
                                     <th>成交时间</th>
                                 </tr>
                             </thead>

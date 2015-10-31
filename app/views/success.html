@@ -15,7 +15,7 @@
               <br>
               <br>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.security-settings">安全设置</a>
               </div>
             </div>
@@ -44,7 +44,7 @@
                 <p class="success-p">充值投资，在宏财赚取更多收益吧！</p>
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">现在充值</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">现在充值</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no()">浏览项目</a>
               </div>
             </div>
@@ -78,7 +78,7 @@
                 <p class="success-p" ng-if="isRepeat === 2 ">您未选择续投，<a ui-sref="root.userCenter.credit">【开启续投】</a>下期年化收益增至{{nextRate}}%！</p>
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" href="/">回到首页</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" href="/">回到首页</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.credit">查看债权</a>
               </div>
             </div>
@@ -108,7 +108,7 @@
                 </p> -->
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.userCenter.security-settings">完善资料</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.security-settings">完善资料</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
               </div>
             </div>
@@ -124,6 +124,7 @@
       <img src="{{moneyUrl}}" class="money-num">
     </div>
   </div>
+
   <div class="container bg" ng-switch-when="4">
 
     <div class="agreement-area row introduction-height">
@@ -135,7 +136,7 @@
             </div>
             <div class="success-re col-lg-9 col-md-9">
               <div class="col-lg-12 col-md-12">
-                <p><strong>恭喜您充值成功！</strong>
+                <p><strong>恭喜您成功充值{{amount || 0 | number:2 }}元！</strong>
                 </p>
                 <div class="border-b list-l col-lg-12 col-md-12"></div>
               </div>
@@ -145,7 +146,7 @@
                 <p class="success-p">心动不如行动，快去投资吧！</p>
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.investmentplan-list">浏览项目</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.investmentplan-list">浏览项目</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.assets-overview">查看余额</a>
               </div>
             </div>
@@ -174,7 +175,7 @@
                 <p class="success-p">在此期间，您可以浏览项目，获得更多理财信息</p>
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no()">浏览项目</a>
               </div>
             </div>
@@ -194,7 +195,7 @@
             </div>
             <div class="success-re col-lg-9 col-md-9">
               <div class="col-lg-12 col-md-12">
-                <p><strong>恭喜您提现成功！</strong>
+                <p><strong>恭喜您成功提现{{amount || 0 | number:2}}元！</strong>
                 </p>
                 <div class="border-b list-l col-lg-12 col-md-12"></div>
               </div>
@@ -203,7 +204,7 @@
                 <p class="success-p">处理提现操作，需要一定时间，详见下方温馨提示</p>
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no()">浏览项目</a>
               </div>
             </div>
@@ -238,7 +239,7 @@
                 <p class="success-p">请您尽快完成绑卡操作</p>
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.userCenter.bankcard-management">银行卡管理</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.bankcard-management">银行卡管理</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
               </div>
             </div>
@@ -266,7 +267,7 @@
                 <p class="success-p">请您浏览项目并进行预约。</p>
               </div> -->
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.main">回到首页</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.main">回到首页</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.reservation">个人中心</a>
               </div>
             </div>
@@ -295,7 +296,7 @@
                 <p class="success-p">充值投资，在宏财赚取更多收益吧！</p>
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">现在充值</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">现在充值</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no()">浏览项目</a>
               </div>
             </div>
@@ -323,7 +324,7 @@
                 <p class="success-p">这里应该有内容的</p>
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.project-list-query({status: [6,7,8,9,10,11,12], minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false})">{{ 'button1内容' }}</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.project-list-query({status: [6,7,8,9,10,11,12], minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false})">{{ 'button1内容' }}</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.reservation">{{ 'button2内容' }}</a>
               </div>
             </div>
@@ -333,32 +334,6 @@
     </div>
   </div> -->
 
-  <div class="container bg" ng-switch-when="10">
-    <div class="agreement-area row introduction-height">
-      <div class="col-md-12 col-lg-12">
-        <div class="row">
-          <div class="success-page col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
-            <div class="col-lg-2 col-md-2 col-lg-offset-1 col-md-offset-1">
-              <img src="images/register-success.png">
-            </div>
-            <div class="success-re col-lg-9 col-md-9">
-              <div class="col-lg-12 col-md-12">
-                <p><strong>恭喜您，宏金盈！！！！</strong>
-                </p>
-                <div class="border-b list-l col-lg-12 col-md-12"></div>
-              </div>
-              <div class="col-lg-12 col-md-12 list-l">
-                <p class="success-p">请您浏览项目并进行预约。</p>
-              </div>
-              <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-danger btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no()">预约项目</a>
-                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.reservation">个人中心</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  
 </div>
 

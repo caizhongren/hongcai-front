@@ -40,9 +40,6 @@ angular.module('hongcaiApp')
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
 
-    $scope.reload = function() {
-      window.location.reload();
-    };
 
     $scope.transferToPlaform = function(amount) {
       $scope.msg = '8';

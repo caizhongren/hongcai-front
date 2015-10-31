@@ -4,22 +4,22 @@
    <div class="right-title">预约记录</div>
   </div>
   <div class="padd padding-l-15 padding-b-15">
-    <span>当前账户总计预约产品
-      <strong>{{ statistics.num || 0 }}</strong>个,
+    <span>预约产品：
+      <strong>{{ statistics.num || 0 }}</strong>个，
     </span>
     <span>其中预约中：
       <strong>{{ statistics.reservingNum || 0 }}</strong>个，
     </span>
     <span>预约成功：
-      <strong>{{ statistics.successNum || 0 }}</strong>个,
+      <strong>{{ statistics.successNum || 0 }}</strong>个，
     </span>
     <span>已撤销：
       <strong>{{ statistics.cancelNum || 0 }}</strong>个。
     </span>
   </div>
   <div class="padd border-end padding-l-15 padding-b-30">
-    <span>投资总额
-      <strong>{{ statistics.reserveAmount || 0  | number: 2 }}</strong>元,
+    <span>投资总额：
+      <strong>{{ statistics.reserveAmount || 0  | number: 2 }}</strong>元，
     </span>
     <span>预约期的累计收益：
       <strong>{{ statistics.returnProfit || 0  | number: 2 }}</strong>元，
@@ -36,22 +36,22 @@
             <div class="row">
               <div class="col-xs-2 pull-left text-nowrap">项目状态：</div>
               <div class="col-xs-2 text-nowrap">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'2,3,5,6'})" ng-class="type === '2,3,5,6' ? 'project-check':'project-noncheck'">
+                <a ng-click="type='2,3,5,6';getReserveOrders()" ng-class="type === '2,3,5,6' ? 'project-check':'project-noncheck'">
                   全部
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'2'})" ng-class="type === '2' ? 'project-check':'project-noncheck'">
+                <a ng-click="type='2';getReserveOrders()" ng-class="type === '2' ? 'project-check':'project-noncheck'">
                   预约中
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'3'})" ng-class="type === '3' ? 'project-check':'project-noncheck'">
+                <a ng-click="type='3';getReserveOrders()"  ng-class="type === '3' ? 'project-check':'project-noncheck'">
                   预约成功
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:dateInterval, type:'5,6'})" ng-class="type === '5,6' ? 'project-check':'project-noncheck'">
+                <a ng-click="type='5,6';getReserveOrders()"  ng-class="type === '5,6' ? 'project-check':'project-noncheck'">
                   已撤销
                 </a>
               </div>
@@ -62,26 +62,13 @@
           <div class="col-xs-12">
             <div class="row">
               <div class="col-xs-2 text-nowrap">创建日期：</div>
-              <div class="col-xs-2 text-nowrap">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:'0', type:type})" ng-class="dateInterval === '0'?'project-check':'project-noncheck'">
-                  全部
+
+              <div class="col-xs-2" ng-repeat="item in dateIntervals">
+                <a ng-click="getReserveOrders(item.interval)" ng-class="dateInterval === item.interval ? 'project-check':'project-noncheck'">
+                  {{item.desc}}
                 </a>
               </div>
-              <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:'7', type:type})" ng-class="dateInterval === '7'?'project-check':'project-noncheck'">
-                  最近七天
-                </a>
-              </div>
-              <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:'30', type:type})" ng-class="dateInterval === '30'?'project-check':'project-noncheck'">
-                  一个月
-                </a>
-              </div>
-              <div class="col-xs-2">
-                <a ui-sref="root.userCenter.reservation-query({dateInterval:'90', type:type})" ng-class="dateInterval === '90'?'project-check':'project-noncheck'">
-                三个月
-                </a>
-              </div>
+
             </div>
           </div>
         </div>

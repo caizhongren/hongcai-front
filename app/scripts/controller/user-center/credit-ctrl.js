@@ -152,7 +152,7 @@ angular.module('hongcaiApp')
           creditRightId:creditRightId
         },function(response){
           if(response.ret === 1) {
-            window.location.reload();
+            $state.reload();
           } else {
             if (response.code == -1082) {
               $scope.msg = '亲~，开启自动续投功能需要先开通自动投标权限哦!';
@@ -178,12 +178,25 @@ angular.module('hongcaiApp')
         creditRightId:creditRightId
       },function(response){
         if(response.ret === 1) {
-          window.location.reload();
+          $state.reload();
         } else {
           toaster.pop('warning', response.msg);
         }
       });
     }
+
+    /**
+     * 体验金统计信息
+     */
+    UserCenterService.getUserExperienceMoneyDetail.get({}, function(response) {
+      if (response.ret === 1) {
+        $scope.experienceDealStatis = response.data.experienceDealStatis;
+        $scope.investDeals = $scope.experienceDealStatis.investDeals;
+        $scope.deals = $scope.experienceDealStatis.deals;
+      } else {
+        toaster.pop('warning', response.msg);
+      }
+    });
 
     /*$scope.currentPage = 0;
     $scope.pageSize = 10;

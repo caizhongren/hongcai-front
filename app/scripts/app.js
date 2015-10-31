@@ -16,7 +16,7 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'ngResource',
   'angularMoment',
   'toaster',
-  'chartjs',
+  'chart.js',
   'placeholders',
   'angular-loading-bar',
   'bardo.directives',
@@ -301,63 +301,15 @@ hongcaiApp
           }
         }
       })
-      .state('root.transfer-success', {
-        url: '/transfer-success/:status/:number',
+
+      // 易宝网页操作回调页，包括开通易宝、充值、提现、绑卡、取消绑卡、投资
+      .state('root.yeepay-callback', {
+        url: '/yeepay-callback/:business/:status?amount&number',
         views: {
           '': {
             templateUrl: 'views/success.html',
-            controller: 'TransferSuccessCtrl',
-            controllerUrl: 'scripts/controller/order/transfer-success-ctrl'
-          }
-        }
-      })
-      .state('root.invplan-transfer-success', {
-        url: '/invplan-transfer-success/:status',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'InvPlanTransferSuccessCtrl',
-            controllerUrl: 'scripts/controller/order/invplan-transfer-success-ctrl'
-          }
-        }
-      })
-      .state('root.bankcard-success', {
-        url: '/bankcard-success/:status',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'BankcardSuccessCtrl',
-            controllerUrl: 'scripts/controller/user-center/bankcard-success-ctrl'
-          }
-        }
-      })
-      .state('root.unbind-bankcard-success', {
-        url: '/unBindbankcard-success/:status',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'UnBindBankcardSuccessCtrl',
-            controllerUrl: 'scripts/controller/user-center/unbind-bankcard-success-ctrl'
-          }
-        }
-      })
-      .state('root.recharge-success', {
-        url: '/recharge-success/:status',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'RechargeSuccessCtrl',
-            controllerUrl: 'scripts/controller/user-center/recharge-success-ctrl'
-          }
-        }
-      })
-      .state('root.withdraw-success', {
-        url: '/withdraw-success/:status',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'WithdrawSuccessCtrl',
-            controllerUrl: 'scripts/controller/user-center/withdraw-success-ctrl'
+            controller: 'YeepaySuccessCtrl',
+            controllerUrl: 'scripts/controller/user-center/yeepay-success-ctrl'
           }
         }
       })
@@ -494,9 +446,7 @@ hongcaiApp
       .state('root.userCenter', {
         views: {
           'user-center': {
-            templateUrl: 'views/user-center/user-center.html',
-            // controller: 'UserCenterCtrl',
-            controllerUrl: 'scripts/controller/user-center-ctrl'
+            templateUrl: 'views/user-center/user-center.html'
           },
           'sidebar': {
             templateUrl: 'views/user-center/sidebar.html',
@@ -565,19 +515,10 @@ hongcaiApp
           }
         }
       })
+
+      // 资金流水
       .state('root.userCenter.record', {
         url: '/record',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/record.html',
-            controller: 'UserDealCtrl',
-            controllerUrl: 'scripts/controller/user-center/user-deal-ctrl'
-          }
-        }
-      })
-      .state('root.userCenter.record-query', {
-        // url: '/record/:dateInterval/:type',
-        url: '/record/:dateInterval',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/record.html',
@@ -596,16 +537,7 @@ hongcaiApp
           }
         }
       })
-      .state('root.userCenter.investment-query', {
-        url: '/investment/:type/:dateInterval/:status',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/investment.html',
-            controller: 'UserOrderCtrl',
-            controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
-          }
-        }
-      })
+
       .state('root.userCenter.gift-rebate', {
         url: '/gift-rebate/:type',
         views: {
@@ -657,18 +589,10 @@ hongcaiApp
           }
         }
       })
+
+      // 预约订单
       .state('root.userCenter.reservation', {
-        url: '/reservation/:status',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/reservation.html',
-            controller: 'ReservationCtrl',
-            controllerUrl: 'scripts/controller/user-center/reservation-ctrl'
-          }
-        }
-      })
-      .state('root.userCenter.reservation-query', {
-        url: '/reservation/:dateInterval/:type',
+        url: '/reservation',
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/reservation.html',
@@ -689,16 +613,7 @@ hongcaiApp
         }
       })
       /*----------  yeepay  ---------------------*/
-      .state('root.open-yeepay-account-success', {
-        url: '/yeepay-success/:status?business',
-        views: {
-          '': {
-            templateUrl: 'views/success.html',
-            controller: 'YeepaySuccessCtrl',
-            controllerUrl: 'scripts/controller/user-center/yeepay-success-ctrl'
-          }
-        }
-      })
+      
       .state('app-yeepay-callback', {
         url: '/app-yeepay-register-callback',
         views: {
@@ -830,6 +745,8 @@ hongcaiApp
           }
         }
       })
+
+      // 预约流程页
       .state('root.appointment-project', {
         url: '/appointment-project',
         views: {
@@ -1301,6 +1218,19 @@ hongcaiApp
           }
         }
       })
+
+      // 体验金（个人中心）
+      .state('root.userCenter.experienceMoney', {
+        url: '/experienceMoney',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/experience-money.html',
+            controller: 'CreditCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+          }
+        }
+      })
+
       // 我的债权（个人中心）
       .state('root.userCenter.credit', {
         url: '/credit',
@@ -1312,6 +1242,8 @@ hongcaiApp
           }
         }
       })
+
+      // 宏金宝债权详情
       .state('root.userCenter.credit-security-details', {
         url: '/credit-security-details/:type/:number',
         views: {
@@ -1322,6 +1254,8 @@ hongcaiApp
           }
         }
       })
+
+      // 宏金盈债权详情
       .state('root.userCenter.credit-profit-details', {
         url: '/credit-profit-details/:type/:number',
         views: {
@@ -1466,7 +1400,7 @@ hongcaiApp
 
   }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_DOMAIN, toaster, config, Analytics) {
+hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, Analytics) {
   Analytics.trackPage('/', '宏财网 hongcai.com - 要理财，上宏财!');
   // Array 在IE8下没有indexOf 方法。
   if (!Array.prototype.indexOf) {
@@ -1482,6 +1416,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
 
   // 需要用户登录才能看到的url
   var routespermission = [
+    '/account-overview',
     '/assets-overview',
     '/realname-authentication',
     '/security-settings',
@@ -1514,7 +1449,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
-          $location.path('/login/');
+          
+          // 弹出登录弹层
+          $modal({
+            scope: $rootScope,
+            template: 'views/modal/modal-toLogin.html',
+            show: true
+          });
+          
         }
       });
     } else {
@@ -1554,6 +1496,10 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, DEFAULT_D
       $window.location.href = 'https://' + $location.absUrl().split('://')[1];
     }
   });
+
+  $rootScope.reload = function(){
+    $state.reload();
+  }
 
 });
 
