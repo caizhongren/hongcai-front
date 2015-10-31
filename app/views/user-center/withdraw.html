@@ -4,13 +4,15 @@
     <div class="right-title ">提现</div>
   </div>
   <div class="row">
-    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="!isSecurityAuth" ng-init="isSecurityAuth=true">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
-    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="cardStatus === 'VERIFY_NOT'">提现需要绑定提现银行卡，请您前往<a ui-sref="root.userCenter.bankcard-management">【银行卡管理】</a>完成绑卡操作</p>
-    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="cardStatus === 'VERIFYING'">您的提现银行卡正在认证中，暂时无法进行提现操作，请耐心等待</p>
-    <p class="verify-tip col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="cardStatus === 'FAILED'">您的银行卡认证失败，无法进行提现操作！请重新绑定或者联系客服人员~</p>
-  </div>
-  <div class="row">
+    <div class="col-md-5" ng-show="!isSecurityAuth" ng-init="isSecurityAuth=true">
+      <p class="verify-tip col-md-9 col-md-offset-2">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
+    </div>
     <form class="col-md-5" name="withdrawForm" ng-show="isSecurityAuth">
+      <div class="row">
+        <p class="verify-tip col-md-9 col-md-offset-2" ng-show="cardStatus === 'VERIFY_NOT'">提现需要绑定提现银行卡，请您前往<a ui-sref="root.userCenter.bankcard-management">【银行卡管理】</a>完成绑卡操作</p>
+        <p class="verify-tip col-md-9 col-md-offset-2" ng-show="cardStatus === 'VERIFYING'">您的提现银行卡正在认证中，暂时无法进行提现操作，请耐心等待</p>
+        <p class="verify-tip col-md-9 col-md-offset-2" ng-show="cardStatus === 'FAILED'">您的银行卡认证失败，无法进行提现操作！请重新绑定或者联系客服人员~</p>
+      </div>
       <!-- <div class="row">
         <div class="form-group mgn-top col-md-12">
           <label class="col-md-4">可用余额：</label>
