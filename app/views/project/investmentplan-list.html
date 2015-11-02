@@ -4,27 +4,27 @@
       <div class="row panel panel-default padding-b-30 margin-b-30">
         <div class="col-xs-12 border-b margin-b-30">
           <div class="row">
-            <div class="col-xs-3 text-center border-r padding-t-30 padding-b-30">累计投资
-              <br><strong class="ft-20">{{ totalAmount / 10000 || 0 }}</strong>万元</div>
-            <div class="col-xs-3 text-center border-r padding-t-30 padding-b-30">投资人次
-              <br><strong class="ft-20">{{ totalInvestCount || 0 }}</strong>次</div>
-            <div class="col-xs-3 text-center border-r padding-t-30 padding-b-30">续投人次
-              <br><strong class="ft-20">{{ totalRepeatInvestCount || 0 }}</strong>次</div>
-            <div class="col-xs-3 text-center padding-t-30 padding-b-30">累计收益
-              <br><strong class="ft-20">{{ totalProfit || 0 | number:2 }}</strong>元</div>
+            <div class="col-xs-3 text-center border-r padding-t-30 padding-b-30 bg-list-grey1">累计投资
+              <br><strong class="ft-20 ft-orange">{{ totalAmount / 10000 || 0 }}</strong>万元</div>
+            <div class="col-xs-3 text-center border-r padding-t-30 padding-b-30 bg-list-grey2">投资人次
+              <br><strong class="ft-20 ft-orange">{{ totalInvestCount || 0 }}</strong>次</div>
+            <div class="col-xs-3 text-center border-r padding-t-30 padding-b-30 bg-list-grey3">续投人次
+              <br><strong class="ft-20 ft-orange">{{ totalRepeatInvestCount || 0 }}</strong>次</div>
+            <div class="col-xs-3 text-center padding-t-30 padding-b-30 bg-list-grey4">累计收益
+              <br><strong class="ft-20 ft-orange">{{ totalProfit || 0 | number:2 }}</strong>元</div>
           </div>
         </div>
         <div class="col-xs-12 padding-b-30" ng-init="toggle.activeTab=0;">
           <div class="row margin-b-30">
             <div class="col-xs-6 col-xs-offset-3">
-              <ul class="nav nav-pills nav-justified text-center">
-                <li ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs | limitTo: -3"><a ng-click="toggle.switchTab($index)"><strong class="ft-24 ft-grey4">{{tab.title}}</strong></a>
+              <ul class="nav nav-pills nav-justified text-center nav-bg-white">
+                <li ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs | limitTo: -3"><a ng-click="toggle.switchTab($index)"><strong class="ft-24 ft-666">{{tab.title}}</strong></a>
                 </li>
               </ul>
             </div>
           </div>
           <div class="row tab-content padding-l-30 padding-r-30">
-            <div class="tab-pane border-t-grey" ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs">
+            <div class="tab-pane" ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs">
               <section ng-if="tab.title==='月月盈'">
                 <table class="container-fluid" width="100%">
                   <thead class="bg-offWhite text-center">
