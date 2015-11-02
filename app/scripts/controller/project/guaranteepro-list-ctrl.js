@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GuaranteeproListCtrl', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster) {
+  .controller('GuaranteeproListCtrl', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils) {
     $scope.sortType = $stateParams.sortType || false;
     $scope.showFlag = $stateParams.showFlag || 0;
     if ($scope.sortType === 'true') {
@@ -57,7 +57,7 @@ angular.module('hongcaiApp')
             return Math.ceil($scope.data.length / $scope.pageSize);
           };
           for (var i = 0; i < $scope.projectList.length; i++) {
-            $scope.projectList[i].countdown = moment($scope.projectList[i].releaseStartTime).diff(moment($scope.serverTime), 'seconds') + 2;
+            $scope.projectList[i].countdown = (new Date($scope.projectList[i].releaseStartTime).getTime() - $scope.serverTime)/1000 + 2;
             $scope.projectList[i].showByStatus = $scope.projectList[i].status === 6 || $scope.projectList[i].status === 7 ? true : false;
             $scope.data.push($scope.projectList[i]);
           }
@@ -123,15 +123,18 @@ angular.module('hongcaiApp')
         $scope.getProjectList();
         $state.reload();
       }
-      collectTime.day = moment().startOf('month').seconds(stDate).format('DD') - 1;
-      collectTime.hour = moment().startOf('month').seconds(stDate).format('HH');
-      collectTime.second = moment().startOf('month').seconds(stDate).format('mm');
-      collectTime.min = moment().startOf('month').seconds(stDate).format('ss');
+
+      var time = DateUtils.toDayHourMinSeconds(stDate);
+      collectTime.day = time.day;
+      collectTime.hour = time.hour;
+      collectTime.second = time.seconds;
+      collectTime.min = time.min;
       return collectTime;
     };
-    $rootScope.selectPage = $location.path().split('/')[1];
+
     $scope.getProjectList();
   })
+
   .directive('projectPagination', function() {
     return {
       restrict: 'AE',
