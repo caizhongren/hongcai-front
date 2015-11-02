@@ -31,8 +31,8 @@ angular.module('hongcaiApp')
               // 先息后本
               everyMonthInterestPri(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
             } else if (invType === 2) {
-              everyMonthInterestEq(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
               // 等额本息
+              everyMonthInterestEq(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
             }
             if ($scope.creditRightBillList.length) {
               $scope.listInvPond.splice(0, $scope.creditRightBillList.length);
