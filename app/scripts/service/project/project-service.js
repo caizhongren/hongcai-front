@@ -13,7 +13,8 @@ angular.module('hongcaiApp')
       getFundsProductTypeMap: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProductTypeMap'),
       getFundsTotalStatisticalData: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsTotalStatisticalData'),
       getFundsProjectListByProductType: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProjectListByProductType', {
-        productType: '@productType'
+        productType: '@productType',
+        range: '@range'
       }),
       getFundsProjectDetailByNumber: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProjectDetailByNumber', {
         number: '@number'

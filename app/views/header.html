@@ -48,6 +48,7 @@
       <li class="dropdown"><a class="category" href="javascript:;" ng-class="{'active' : selectPage == 'project-list'}" style="color:black">我要理财<i class="fa fa-sort-desc"></i></a>
         <div id="dropdown">
           <div>
+            <a ng-click="goCurrentDepositDetail()" ng-class="{'active' : selectPage == 'project-list'}">零存宝</a>
             <a ui-sref="root.investmentplan-list" ng-class="{'active' : selectPage == 'project-list'}">宏金盈</a>
             <a ui-sref="root.guaranteepro-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}">宏金保</a>
             <a ui-sref="root.credit-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}" ng-show="creditIsShowedFLAG">债权转让</a>
