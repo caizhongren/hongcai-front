@@ -53,8 +53,13 @@ angular.module('hongcaiApp')
         var date = new Date(+key);
 
         $scope.labels.push((date.getMonth() + 1) + '-' + date.getDate()); 
-        datas.push(data[key]);
+        // datas.push(data[key]);
       } 
+
+      $scope.labels.sort();
+      for (var i = 0; i <= $scope.labels.length - 1; i++) {
+        datas.push(data[i]);
+      };
 
       $scope.data = [];
       $scope.data.push(datas);
