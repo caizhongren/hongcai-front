@@ -15,6 +15,7 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         // 宏金盈项目信息
         $scope.fundsProject = response.data.fundsProject;
+        console.info($scope.fundsProject);
         $scope.orderList = response.data.orderList;
         $scope.investorCount = response.data.investorCount;
         $scope.repeatCount = response.data.repeatCount;
