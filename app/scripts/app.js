@@ -1231,6 +1231,18 @@ hongcaiApp
         }
       })
 
+      // 加息券（个人中心）
+      .state('root.userCenter.rate-coupon', {
+        url: '/rate-coupon',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/rate-coupon.html',
+            //controller: 'CreditCtrl',
+            //controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+          }
+        }
+      })
+
       // 我的债权（个人中心）
       .state('root.userCenter.credit', {
         url: '/credit',
