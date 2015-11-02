@@ -6,23 +6,23 @@ angular.module('hongcaiApp')
     //http://www.hongcai.com/hongcai-trends?page=0&perPage=5
     $scope.media = [{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner001.png',
+      src: 'images/banner/banner001.jpg',
       href: '/hongcai-trends'
     },{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner002.png',
+      src: 'images/banner/banner002.jpg',
       href: '/consultant-team'
     },{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner003.png',
+      src: 'images/banner/banner003.jpg',
       href: '/banner-investmentplan'
     }, {
       mimeType: 'image/jpg',
-      src: 'images/banner/banner004.png',
-      href: 'http://mp.weixin.qq.com/s?__biz=MzA5Njg0Mzk4Mg==&mid=400010012&idx=1&sn=436a7eb0508d0439e898d604c4dd7727#rd'
+      src: 'images/banner/banner004.jpg',
+      href: 'http://mp.weixin.qq.com/s?__biz=MzA5Njg0Mzk4Mg==&mid=400423810&idx=4&sn=8fae955a68ffd81eace88c4382414dbf'
     },{
       mimeType: 'image/jpg',
-      src: 'images/banner/banner005.png',
+      src: 'images/banner/banner005.jpg',
       href: '/safe'
     }];
 

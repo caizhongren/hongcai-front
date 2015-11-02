@@ -36,9 +36,9 @@
   <!-- 测试bootstrap折叠菜单 -->
   <div class="row panel-group" id="accordion">
     <div class="panel">
-      <div style="background:#fd8f3f;padding:10px 15px;color:white;cursor:pointer;font-size:18px;">
+      <div class="sidebar-personal" style="border-top:1px solid #dadada;">
         <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#qqq" class="ft-white">账户信息</a> -->
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#qqq" class="ft-white hc-bg-orange" style="border:none;width:100%;text-align:left;">账户信息</button>
+        <button data-toggle="collapse" data-parent="#accordion" data-target="#qqq" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">账户信息</button>
       </div>
       <div id="qqq" class="panel-collapse collapse in" style="height:auto !important;">
         <a ui-sref="root.userCenter.account-overview" class="tips-area {{selectSide == 'account-overview' ? 'bg-white' : ''}}">
@@ -59,9 +59,9 @@
       </div>
     </div>
     <div class="panel">
-      <div style="background:#fd8f3f;padding:10px 15px;color:white;cursor:pointer;font-size:18px;">
+      <div class="sidebar-personal">
         <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#www" class="ft-white">资金信息</a> -->
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#www" class="ft-white hc-bg-orange" style="border:none;width:100%;text-align:left;">资金信息</button>
+        <button data-toggle="collapse" data-parent="#accordion" data-target="#www" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">资金信息</button>
       </div>
       <div id="www" class="panel-collapse collapse" style="height:auto !important;">
         <a ui-sref="root.userCenter.assets-overview" class="tips-area {{selectSide == 'assets-overview' ? 'bg-white' : ''}}">
@@ -87,9 +87,9 @@
       </div>
     </div>
     <div class="panel">
-      <div style="background:#fd8f3f;padding:10px 15px;color:white;cursor:pointer;font-size:18px;">
+      <div class="sidebar-personal">
         <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#eee" class="ft-white">投资信息</a> -->
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#eee" class="ft-white hc-bg-orange" style="border:none;width:100%;text-align:left;">投资信息</button>
+        <button data-toggle="collapse" data-parent="#accordion" data-target="#eee" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">投资信息</button>
       </div>
       <div id="eee" class="panel-collapse collapse" style="height:auto !important;">
         <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'bg-white' : ''}}">
@@ -110,9 +110,9 @@
       </div>
     </div>
     <div class="panel">
-      <div style="background:#fd8f3f;padding:10px 15px;color:white;cursor:pointer;font-size:18px;">
+      <div class="sidebar-personal">
         <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#rrr" class="ft-white">奖励信息</a> -->
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#rrr" class="ft-white hc-bg-orange" style="border:none;width:100%;text-align:left;">奖励信息</button>
+        <button data-toggle="collapse" data-parent="#accordion" data-target="#rrr" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">奖励信息</button>
       </div>
       <div id="rrr" class="panel-collapse collapse" style="height:auto !important;">
         <a ui-sref="root.userCenter.experienceMoney" class="tips-area {{selectSide == 'credit' ? 'bg-white' : ''}}">
@@ -133,8 +133,8 @@
       </div>
     </div>
     <div class="panel">
-      <div style="background:#fd8f3f;padding:10px 15px;color:white;cursor:pointer;font-size:18px;">
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#ttt" class="ft-white hc-bg-orange" style="border:none;width:100%;text-align:left;">系统信息</button>
+      <div class="sidebar-personal">
+        <button data-toggle="collapse" data-parent="#accordion" data-target="#ttt" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">系统信息</button>
       </div>
       <div id="ttt" class="panel-collapse collapse" style="height:auto !important;">
         <a ui-sref="root.userCenter.message({status:'0,1'})" class="tips-area {{selectSide == 'message' ? 'bg-white' : ''}}">

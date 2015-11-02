@@ -1,6 +1,15 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('LoginCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', 'LoginService', 'SessionService', 'ipCookie', 'md5', 'toaster', 'UserCenterService', function($scope, $location, $state, $rootScope, $stateParams, LoginService, SessionService, ipCookie, md5, toaster, UserCenterService) {
+  .controller('LoginCtrl', function($scope, $location, $state, $rootScope,$http, $stateParams, ProjectService, LoginService, SessionService, ipCookie, md5, toaster, UserCenterService) {
+
+    $scope.goCurrentDepositDetail = function(){
+      $http.defaults.headers.common['range']= '0-0';
+      ProjectService.getFundsProjectListByProductType.get({type: 1, range:'0-1'}, function(response) {
+        if (response.ret === 1) {
+          $state.go('root.current-deposit-details', {number: response.list[0].fundsProject.number});
+        } 
+      });
+    }
 
     if (ipCookie('userName')) {
       $scope.user = [];
@@ -118,4 +127,4 @@ angular.module('hongcaiApp')
         angular.element('#dropdown').css({"display":"block"});
         angular.element('.dropdown .category').addClass('border-l-r');
     })*/
-  }]);
+  });
