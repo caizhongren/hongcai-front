@@ -12,8 +12,11 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="experience-border" ng-if="couponStatis.couponTypes.length > 0" >
-          <p class="margin-t-30 ft-18" ng-repeat = "couponType in couponStatis.couponTypes">加息券 +{{couponType.rate}}%  <span class="rate-number">{{couponType.couponNum}}</span>张</p>
+        <div class="experience-border" ng-if="couponStatis.couponTypes.length > 0">
+          <div class="padding-t-30 ft-18" ng-repeat="couponType in couponStatis.couponTypes">
+            <div class="col-md-7 text-left" style="padding:0 0 0 10px">加息券 +{{couponType.rate}}% </div>
+            <div class="col-md-5" style="padding:0"><span class="rate-number">{{couponType.couponNum}}</span>张</div>
+          </div>
         </div>
         <div class="experience-border" ng-if="couponStatis.couponTypes.length <= 0">
           <p class="margin-t-30 ft-18 ft-red">无加息券</p>
