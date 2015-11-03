@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', '$aside', '$window', 'OrderService', 'config', 'toaster', '$alert', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
+  .controller('CreditCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
     //判断是否开通第三方托管账户
     $scope.checkTrusteeshipAccount = function() {
       if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
@@ -198,6 +198,17 @@ angular.module('hongcaiApp')
       }
     });
 
+    /**
+     * 加息券统计信息
+     */
+    UserCenterService.getUserIncreaseRateCouponStatis.get({}, function(response) {
+      if (response.ret === 1) {
+        $scope.couponStatis = response.data.couponStatis;
+      } else {
+        toaster.pop('warning', response.msg);
+      }
+    });
+
     /*$scope.currentPage = 0;
     $scope.pageSize = 10;
     $scope.numberOfPages = function(data) {
@@ -206,4 +217,4 @@ angular.module('hongcaiApp')
 
     // $scope.getTranferedCreditRightList(3);
     // $scope.getTranferingCreditRightList(2);
-  }]);
+  });
