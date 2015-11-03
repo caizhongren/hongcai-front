@@ -366,7 +366,7 @@ hongcaiApp
         }
       })
       .state('root.invplan-verify-transfer', {
-        url: '/invplan-verify-transfer/:projectId/:amount/:isRepeat/:payAmount',
+        url: '/invplan-verify-transfer/:projectId/:amount/:isRepeat/:payAmount/:couponNumber',
         views: {
           '': {
             templateUrl: 'views/transfer.html',
@@ -1225,8 +1225,8 @@ hongcaiApp
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/experience-money.html',
-            controller: 'CreditCtrl',
-            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+            controller: 'ExperienceMoneyCtrl',
+            controllerUrl: 'scripts/controller/user-center/experience-money-ctrl'
           }
         }
       })
@@ -1237,8 +1237,8 @@ hongcaiApp
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/rate-coupon.html',
-            controller: 'CreditCtrl',
-            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+            controller: 'IncreaseCouponCtrl',
+            controllerUrl: 'scripts/controller/user-center/increase-coupon-ctrl'
           }
         }
       })
