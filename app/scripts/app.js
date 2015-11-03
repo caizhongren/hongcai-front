@@ -1237,8 +1237,8 @@ hongcaiApp
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/rate-coupon.html',
-            //controller: 'CreditCtrl',
-            //controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+            controller: 'ReservationCtrl',
+            controllerUrl: 'scripts/controller/user-center/reservation-ctrl'
           }
         }
       })
