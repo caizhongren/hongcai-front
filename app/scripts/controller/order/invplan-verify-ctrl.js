@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('InvPlanVerifyCtrl', ['$scope', '$location', 'toaster', '$state', '$rootScope', '$stateParams', '$modal', 'ProjectService', 'SessionService', 'config', '$alert', 'OrderService', function($scope, $location, toaster, $state, $rootScope, $stateParams, $modal, ProjectService, SessionService, config, $alert, OrderService) {
+  .controller('InvPlanVerifyCtrl', function($scope, $location, toaster, $state, $rootScope, $stateParams, $modal, ProjectService, SessionService, config, $alert, OrderService, UserCenterService) {
     $scope.checkInvFlag = true;
     ProjectService.isFundsAvailableInvest.get({
       projectId: $stateParams.projectId,
@@ -72,7 +72,7 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.transfer = function(project, investAmount, payAmount) {
+    $scope.transfer = function(project, investAmount, payAmount, selectCoupon) {
       if (project.isRepeatFlag && $rootScope.autoTransfer === 1) {
         $scope.isRepeat = 1;
       } else {
@@ -88,13 +88,13 @@ angular.module('hongcaiApp')
           template: 'views/modal/alertYEEPAY.html',
           show: true
         });
-        window.open('/#!/invplan-verify-transfer/' + project.id + '/' + investAmount + '/' + $scope.isRepeat+ '/' + payAmount);
+        window.open('/#!/invplan-verify-transfer/' + project.id + '/' + investAmount + '/' + $scope.isRepeat+ '/' + payAmount+ '/' + selectCoupon.number);
       }else{
         OrderService.saveExperienceMoneyOrder.get({
           projectId: project.id,
           amount: investAmount,
           isRepeat: $scope.isRepeat,
-          payAmount: payAmount
+          payAmount: payAmount,
         }, function(response) {
           if (response.ret === 1) {
             var creditRightNum = response.data.creditRightNum;
@@ -114,4 +114,17 @@ angular.module('hongcaiApp')
     $scope.backTo = function() {
       $location.path('/project/' + $scope.project.number);
     };
-  }]);
+
+    /**
+     * 加息券统计信息
+     */
+    UserCenterService.getUnUsedIncreaseRateCoupons.get({}, function(response) {
+      if (response.ret === 1) {
+        $scope.increaseRateCoupons = response.data.increaseRateCoupons;
+        $scope.selectCoupon = $scope.increaseRateCoupons[0];
+      } else {
+        toaster.pop('warning', response.msg);
+      }
+    });
+
+  });

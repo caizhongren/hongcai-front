@@ -356,7 +356,7 @@ hongcaiApp
         }
       })
       .state('root.invest-verify-transfer', {
-        url: '/invest-verify-transfer/:projectId/:investAmount/:giftCount',
+        url: '/invest-verify-transfer/:projectId/:investAmount/:giftCount/:couponNumber',
         views: {
           '': {
             templateUrl: 'views/transfer.html',

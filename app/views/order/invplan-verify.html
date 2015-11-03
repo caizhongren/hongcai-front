@@ -37,15 +37,19 @@
                 </div>
             </div>
         </div>
-        <div class="row border-b-da">
+        <div class="row border-b-da" ng-show="fundsProduct.type !== 1 && increaseRateCoupons.length > 0">
             <div class="col-xs-12" style="background-color:#eee;padding-top:15px;padding-bottom:15px;">&nbsp;&nbsp;<b>奖励信息确认</b>
             </div>
             <div class="col-xs-12 margin-b-30 margin-t-15">
                 <div class="row margin-t-15">
-                   <div class="col-xs-4"><input type="checkbox">体验金 <span class="ft-orange">{{experienceAmount| number:2}}</span>元</div>
-                   <div class="col-xs-4"><select name="">
-                       <option value="">加息券 +1%</option>
-                   </select></div>
+                   <div class="col-xs-4" ng-show="experienceAmount > 0">
+                        <input type="checkbox">体验金 <span class="ft-orange">{{experienceAmount| number:2}}</span>元
+                   </div>
+                   <div class="col-xs-4">
+                        <button type="button" class="btn btn-default" ng-model="selectCoupon" data-html="1" data-animation="am-flip-x" ng-options="coupon as '加息券 +' + coupon.rate + '%' for coupon in increaseRateCoupons" bs-select required>
+                          Action <span class="caret"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,13 +75,25 @@
             </div>
             <div class="col-md-12 text-center" ng-switch-when="true">
                 <form>
-                    <div class="form-group mgn-top ft-24">
-                        您将要支付<span class="ftw-b ft-orange">{{payAmount | number:2}}</span>元，
-                        <span>并使用<b class="ft-orange">3000</b>元体验金和<b class="ft-orange">+1%</b>加息券，</span>核实信息无误后请确认
+                    <div class="form-group mgn-top ft-24" ng-show="experienceAmount > 0 && selectCoupon != null">
+                        您将要支付<span class="ftw-b ft-orange">{{payAmount | number:2}}</span>元
+                        <span>，并使用<b class="ft-orange">{{experienceAmount| number:2}}</b>元体验金</span>
+                        <span ng-show="fundsProduct.type !== 1">和<b class="ft-orange">+{{selectCoupon.rate}}%</b>加息券</span>，核实信息无误后请确认
                     </div>
-                    <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-4" ng-class="{'btn-orange': checkInvFlag}" ng-disabled="!checkInvFlag" ng-click="transfer(project, investAmount, payAmount)">确认提交</a>
+                    <div class="form-group mgn-top ft-24" ng-show="experienceAmount > 0 && selectCoupon == null">
+                        您将要支付<span class="ftw-b ft-orange">{{payAmount | number:2}}</span>元
+                        <span>，并使用<b class="ft-orange">{{experienceAmount| number:2}}</b>元体验金</span>，核实信息无误后请确认
+                    </div>
+                    <div class="form-group mgn-top ft-24" ng-show="experienceAmount <= 0 && selectCoupon != null">
+                        您将要支付<span class="ftw-b ft-orange">{{payAmount | number:2}}</span>元
+                        <span ng-show="fundsProduct.type !== 1">，并使用<b class="ft-orange">+{{selectCoupon.rate}}%</b>加息券</span>，核实信息无误后请确认
+                    </div>
+                    <div class="form-group mgn-top ft-24" ng-show="experienceAmount <= 0 && selectCoupon == null">
+                        您将要支付<span class="ftw-b ft-orange">{{payAmount | number:2}}</span>元，核实信息无误后请确认
+                    </div>
+                    <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-4" ng-class="{'btn-orange': checkInvFlag}" ng-disabled="!checkInvFlag" ng-click="transfer(project, investAmount, payAmount, selectCoupon)">确认提交</a>
                     <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-1" ui-sref="root.current-deposit-details({number: project.number})" style="margin-left:40px;" ng-show="fundsProduct.type === 1">取消</a>
-                    <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-1" ui-sref="root.investment-details({number: project.number})" style="margin-left:40px;"ng-show="fundsProduct.type !== 1">取消</a>
+                    <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-1" ui-sref="root.investmentplan-details({number: project.number})" style="margin-left:40px;"ng-show="fundsProduct.type !== 1">取消</a>
                 </form>
             </div>
         </div>

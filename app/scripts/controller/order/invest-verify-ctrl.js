@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config', '$alert', function($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config, $alert) {
+  .controller('investVerifyCtrl', function($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config, $alert, UserCenterService) {
     $scope.giftCount = 0;
     $scope.checkInvFlag = true;
     OrderService.investVerify.get({
@@ -13,6 +13,8 @@ angular.module('hongcaiApp')
         $scope.categoryCode = response.data.categoryCode;
         $scope.giftCount = response.data.giftCount;
         $scope.investAmount = $stateParams.amount;
+        $scope.payAmount = response.data.payAmount;
+        $scope.experienceAmount = response.data.experienceAmount;
         $scope.icons = [];
         for (var i = 0; i <= $scope.giftCount; i++) {
           var obj = {};
@@ -51,7 +53,7 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.transfer = function(project, investAmount, giftCount) {
+    $scope.transfer = function(project, investAmount, giftCount, selectCoupon) {
       $scope.msg = '4';
       $scope.investAmount = investAmount;
       $scope.page = 'investVerify';
@@ -60,8 +62,20 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      window.open('/#!/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount);
+      window.open('/#!/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount + '/' + selectCoupon.number);
     };
+
+    /**
+     * 加息券统计信息
+     */
+    UserCenterService.getUnUsedIncreaseRateCoupons.get({}, function(response) {
+      if (response.ret === 1) {
+        $scope.increaseRateCoupons = response.data.increaseRateCoupons;
+        $scope.selectCoupon = $scope.increaseRateCoupons[0];
+      } else {
+        toaster.pop('warning', response.msg);
+      }
+    });
 
     var myOtherModal = $modal({
       scope: $scope,
@@ -81,4 +95,4 @@ angular.module('hongcaiApp')
     };
     $scope.selectedIcon = 1;
     //console.log(typeof($scope.selectedIcon));
-  }]);
+  });

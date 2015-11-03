@@ -185,36 +185,4 @@ angular.module('hongcaiApp')
       });
     }
 
-    /**
-     * 体验金统计信息
-     */
-    UserCenterService.getUserExperienceMoneyDetail.get({}, function(response) {
-      if (response.ret === 1) {
-        $scope.experienceDealStatis = response.data.experienceDealStatis;
-        $scope.investDeals = $scope.experienceDealStatis.investDeals;
-        $scope.deals = $scope.experienceDealStatis.deals;
-      } else {
-        toaster.pop('warning', response.msg);
-      }
-    });
-
-    /**
-     * 加息券统计信息
-     */
-    UserCenterService.getUserIncreaseRateCouponStatis.get({}, function(response) {
-      if (response.ret === 1) {
-        $scope.couponStatis = response.data.couponStatis;
-      } else {
-        toaster.pop('warning', response.msg);
-      }
-    });
-
-    /*$scope.currentPage = 0;
-    $scope.pageSize = 10;
-    $scope.numberOfPages = function(data) {
-      return Math.ceil(data.length / $scope.pageSize);
-    };*/
-
-    // $scope.getTranferedCreditRightList(3);
-    // $scope.getTranferingCreditRightList(2);
   });

@@ -29,7 +29,8 @@ angular.module('hongcaiApp')
       projectId: $stateParams.projectId,
       investAmount: $stateParams.investAmount,
       giftCount: $stateParams.giftCount,
-      inviteMobile: $rootScope.inviteMobile
+      inviteMobile: $rootScope.inviteMobile,
+      couponNumber: $stateParams.couponNumber
     }, function(response) {
       if (response.ret === 1) {
         var orderId = response.data.orderId;
