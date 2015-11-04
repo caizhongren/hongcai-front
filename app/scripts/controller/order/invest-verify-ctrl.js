@@ -57,12 +57,13 @@ angular.module('hongcaiApp')
       $scope.msg = '4';
       $scope.investAmount = investAmount;
       $scope.page = 'investVerify';
+      var couponNumber = selectCoupon == null ? "" : selectCoupon.number;
       $alert({
         scope: $scope,
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      window.open('/#!/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount + '/' + selectCoupon.number);
+      window.open('/#!/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount + '/' + couponNumber);
     };
 
     /**
