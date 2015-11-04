@@ -174,8 +174,8 @@
                                                 <h4 class="timeline-title"><b class="ft-30">03</b>&nbsp;项目放款</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                放款时间：<p ng-show="realProject.loanTime > 0">{{realProject.loanTime | date : "yyyy-MM-dd HH:mm:ss"}}</p>
-                                                <p ng-show="realProject.loanTime <= 0">尚未放款</p>
+                                                放款时间：<span ng-show="realProject.loanTime > 0">{{realProject.loanTime | date : "yyyy-MM-dd HH:mm:ss"}}</span>
+                                                <span ng-show="realProject.loanTime <= 0">未放款</span>
                                             </div>
                                         </div>
                                     </li>
