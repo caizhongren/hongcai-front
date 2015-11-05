@@ -72,7 +72,21 @@ angular.module('hongcaiApp')
     UserCenterService.getUnUsedIncreaseRateCoupons.get({}, function(response) {
       if (response.ret === 1) {
         $scope.increaseRateCoupons = response.data.increaseRateCoupons;
-        $scope.selectCoupon = $scope.increaseRateCoupons[0];
+        $scope.selectCoupon = null;
+        if($scope.increaseRateCoupons.length > 0){
+          for(var i=0; i < $scope.increaseRateCoupons.length; i++){
+            var rateText = '加息券 +' + $scope.increaseRateCoupons[i].rate + '%';
+            $scope.increaseRateCoupons[i].rateText = rateText;
+          }
+          var increaseRateCoupon = {
+            number: "",
+            rate: 0,
+            rateText: "不使用加息券"
+          }
+          $scope.increaseRateCoupons.push(increaseRateCoupon);
+
+          $scope.selectCoupon = $scope.increaseRateCoupons[0];
+        }
       } else {
         toaster.pop('warning', response.msg);
       }

@@ -33,19 +33,18 @@
         </div>
       </div>
     </div>
-    <div class="row border-b-da">
-      <div class="col-xs-12" style="background-color:#eee;padding-top:15px;padding-bottom:15px;" ng-show="experienceAmount > 0 || increaseRateCoupons.length > 0">&nbsp;&nbsp;<b>奖励信息确认</b>
+    <div class="row border-b-da" ng-show=" selectCoupon !== null">
+      <div class="col-xs-12" style="background-color:#eee;padding-top:15px;padding-bottom:15px;">&nbsp;&nbsp;<b>奖励信息确认</b>
       </div>
       <div class="col-xs-12 margin-b-30 margin-t-15">
         <div class="row margin-t-15">
           <div class="col-xs-4" ng-show="experienceAmount > 0">
               <input type="checkbox">体验金 <span class="ft-orange">{{experienceAmount| number:2}}</span>元
          </div>
-         <div class="col-xs-4" ng-show="increaseRateCoupons.length > 0">
-              <button type="button" class="btn btn-default" ng-model="selectCoupon" data-html="1" data-animation="am-flip-x" ng-options="coupon as '加息券 +' + coupon.rate + '%' for coupon in increaseRateCoupons" bs-select required>
-                Action <span class="caret"></span>
-              </button>
-          </div>
+         <div class="col-xs-4">
+            <button type="button" class="btn btn-default" ng-model="selectCoupon" data-html="1" data-animation="am-flip-x" ng-options="coupon as coupon.rateText for coupon in increaseRateCoupons" bs-select required>
+            </button>
+        </div>
         </div>
       </div>
     </div>
@@ -62,11 +61,11 @@
       </div>
       <div class="col-md-12 text-center" ng-switch-when="true">
         <form>
-          <div class="form-group mgn-top ft-24" ng-show="selectCoupon != null">
+          <div class="form-group mgn-top ft-24" ng-show="selectCoupon != null && selectCoupon.rate > 0">
               您将要支付<span class="ftw-b ft-orange">{{payAmount | number:2}}</span>元
               <span>，并使用<b class="ft-orange">+{{selectCoupon.rate}}%</b>加息券</span>，核实信息无误后请确认
           </div>
-          <div class="form-group mgn-top ft-24" ng-show="selectCoupon == null">
+          <div class="form-group mgn-top ft-24" ng-show="selectCoupon == null || selectCoupon.rate <= 0">
               您将要支付<span class="ftw-b ft-orange">{{payAmount | number:2}}</span>元，核实信息无误后请确认
           </div>
           <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-4" ng-class="{'btn-orange': checkInvFlag}" ng-disabled="!checkInvFlag"ng-click="transfer(project, payAmount, 0, selectCoupon)">确认提交</a>
