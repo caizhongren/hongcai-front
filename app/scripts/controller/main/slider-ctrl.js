@@ -6,6 +6,10 @@ angular.module('hongcaiApp')
     //http://www.hongcai.com/hongcai-trends?page=0&perPage=5
     $scope.media = [{
       mimeType: 'image/jpg',
+      src: 'images/banner/banner006.jpg',
+      //href: '/hongcai-trends'
+    },{
+      mimeType: 'image/jpg',
       src: 'images/banner/banner001.jpg',
       href: '/hongcai-trends'
     },{
