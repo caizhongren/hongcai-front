@@ -1452,8 +1452,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     $checkSessionServer
     .error(function(response){
 
-      $location.path('/sys-update.html'); // 系统维护页面
-
+      window.location.href= config.domain + '/sys-update.html';
       return;
     })
     .success(function(response){

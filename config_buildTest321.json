@@ -8,5 +8,6 @@
     "creditIsShowedFLAG": false
   },
   "jumpHttpsPath": ["/register-mobile", "/login", "/register-mail"],
-  "ignorePATH": ["/credit-list", "/credit-details", "/credit-verify", "/credit-assignment", "/credit-success", "/credit-create"]
+  "ignorePATH": ["/credit-list", "/credit-details", "/credit-verify", "/credit-assignment", "/credit-success", "/credit-create"],
+  "domain":"http://test321.hongcai.com"
 }
