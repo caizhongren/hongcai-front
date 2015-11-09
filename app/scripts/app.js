@@ -1435,47 +1435,56 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
   ];
 
   $rootScope.$on('$stateChangeStart', function() {
+
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
-    if (routespermission.indexOf('/' + $location.path().split('/')[1]) !== -1) {
-      $checkSessionServer.then(function(response) {
-        if (response.data.data && response.data.data.name !== '' && response.data.data.name !== undefined && response.data.data.name !== null) {
-          $rootScope.isLogged = true;
-          $rootScope.loginName = response.data.data.name;
-          $rootScope.securityStatus = response.data.data.securityStatus;
-          $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
-          $rootScope.account = response.data.data.account;
-          $rootScope.unreadCount = response.data.data.unreadCount;
-          $rootScope.userType = response.data.data.userType;
-        } else {
-          $rootScope.isLogged = false;
-          $rootScope.loginName = '';
-          
-          // 弹出登录弹层
-          $modal({
-            scope: $rootScope,
-            template: 'views/modal/modal-toLogin.html',
-            show: true
-          });
-          
-        }
-      });
-    } else {
-      $checkSessionServer.then(function(response) {
-        if (response.data.data && response.data.data.name !== '' && response.data.data.name !== undefined && response.data.data.name !== null) {
-          $rootScope.isLogged = true;
-          $rootScope.loginName = response.data.data.name;
-          $rootScope.securityStatus = response.data.data.securityStatus;
-          $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
-          $rootScope.account = response.data.data.account;
-          $rootScope.unreadCount = response.data.data.unreadCount;
-          $rootScope.userType = response.data.data.userType;
-        } else {
-          $rootScope.isLogged = false;
-          $rootScope.loginName = '';
-        }
-      });
-    }
-  });
+    $checkSessionServer
+    .error(function(response){
+
+      $location.path('/sys-update.html'); // 系统维护页面
+
+      return;
+    })
+    .success(function(response){
+      if (routespermission.indexOf('/' + $location.path().split('/')[1]) !== -1) {
+          if (response.data.data && response.data.data.name !== '' && response.data.data.name !== undefined && response.data.data.name !== null) {
+            $rootScope.isLogged = true;
+            $rootScope.loginName = response.data.data.name;
+            $rootScope.securityStatus = response.data.data.securityStatus;
+            $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
+            $rootScope.account = response.data.data.account;
+            $rootScope.unreadCount = response.data.data.unreadCount;
+            $rootScope.userType = response.data.data.userType;
+          } else {
+            $rootScope.isLogged = false;
+            $rootScope.loginName = '';
+            
+            // 弹出登录弹层
+            $modal({
+              scope: $rootScope,
+              template: 'views/modal/modal-toLogin.html',
+              show: true
+            });
+            
+          }
+      } else {
+          if (response.ret !== -1 && response.data.data && response.data.data.name !== '' && response.data.data.name !== undefined && response.data.data.name !== null) {
+            $rootScope.isLogged = true;
+            $rootScope.loginName = response.data.data.name;
+            $rootScope.securityStatus = response.data.data.securityStatus;
+            $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
+            $rootScope.account = response.data.data.account;
+            $rootScope.unreadCount = response.data.data.unreadCount;
+            $rootScope.userType = response.data.data.userType;
+          } else {
+            $rootScope.isLogged = false;
+            $rootScope.loginName = '';
+          }
+      }
+    });
+
+    });
+
+    
 
   $rootScope.mobileIOS = ( $window.navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false );
   // viewFlAG view层面的显示与否的判断，比如main.html的土豪标图片不显示，在viewFlAG里添加, tuhaoShowFLAG: false (变量注入的是rootScope，FLAG保持全部大写)，然后在main.html做一个ng-show, no-hide的判断即可。
