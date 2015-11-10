@@ -1446,14 +1446,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     })
     .success(function(response){
       if (routespermission.indexOf('/' + $location.path().split('/')[1]) !== -1) {
-          if (response.data.data && response.data.data.name !== '' && response.data.data.name !== undefined && response.data.data.name !== null) {
+          if (response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
             $rootScope.isLogged = true;
-            $rootScope.loginName = response.data.data.name;
-            $rootScope.securityStatus = response.data.data.securityStatus;
-            $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
-            $rootScope.account = response.data.data.account;
-            $rootScope.unreadCount = response.data.data.unreadCount;
-            $rootScope.userType = response.data.data.userType;
+            $rootScope.loginName = response.data.name;
+            $rootScope.securityStatus = response.data.securityStatus;
+            $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
+            $rootScope.account = response.data.account;
+            $rootScope.unreadCount = response.data.unreadCount;
+            $rootScope.userType = response.data.userType;
           } else {
             $rootScope.isLogged = false;
             $rootScope.loginName = '';
@@ -1467,14 +1467,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
             
           }
       } else {
-          if (response.ret !== -1 && response.data.data && response.data.data.name !== '' && response.data.data.name !== undefined && response.data.data.name !== null) {
+          if (response.ret !== -1 && response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
             $rootScope.isLogged = true;
-            $rootScope.loginName = response.data.data.name;
-            $rootScope.securityStatus = response.data.data.securityStatus;
-            $rootScope.autoTransfer = response.data.data.securityStatus.autoTransfer;
-            $rootScope.account = response.data.data.account;
-            $rootScope.unreadCount = response.data.data.unreadCount;
-            $rootScope.userType = response.data.data.userType;
+            $rootScope.loginName = response.data.name;
+            $rootScope.securityStatus = response.data.securityStatus;
+            $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
+            $rootScope.account = response.data.account;
+            $rootScope.unreadCount = response.data.unreadCount;
+            $rootScope.userType = response.data.userType;
           } else {
             $rootScope.isLogged = false;
             $rootScope.loginName = '';
