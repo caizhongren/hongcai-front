@@ -8,7 +8,7 @@ angular.module('hongcaiApp')
       {
         mimeType: 'image/jpg',
         src: 'images/banner/banner006.jpg',
-        href: 'http://mp.weixin.qq.com/s?__biz=MzA5Njg0Mzk4Mg==&mid=400561136&idx=1&sn=ff55151baf333cb7b7fda0270b184fa1#rd'
+        href: 'http://mp.weixin.qq.com/s?__biz=MzA5Nzg0MzA5OQ==&mid=400520084&idx=1&sn=972091ed5d1ebceb6a96a0067cbb1294#rd'
       },
       {
         mimeType: 'image/jpg',
