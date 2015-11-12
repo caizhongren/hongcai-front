@@ -15,6 +15,7 @@ angular.module('hongcaiApp')
         if (projectDetails.ret === 1) {
 
           $scope.project = projectDetails.data.project;
+          $scope.realProject = projectDetails.data.realProject;
           $scope.countdown = projectDetails.data.countDownTime;
           $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
 

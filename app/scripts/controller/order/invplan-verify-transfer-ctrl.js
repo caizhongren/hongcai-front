@@ -29,7 +29,8 @@ angular.module('hongcaiApp')
       projectId: $stateParams.projectId,
       amount: $stateParams.amount,
       isRepeat: $stateParams.isRepeat,
-      payAmount: $stateParams.payAmount
+      payAmount: $stateParams.payAmount,
+      couponNumber: $stateParams.couponNumber
     }, function(response) {
       if (response.ret === 1) {
         var orderId = response.data.orderId;

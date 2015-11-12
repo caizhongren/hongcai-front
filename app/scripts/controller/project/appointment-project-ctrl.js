@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AppointmentProjectCtrl', function($scope, $state, $stateParams, $rootScope, $location, ProjectService, toaster) {
+  .controller('AppointmentProjectCtrl', function($scope, $state, $stateParams, $rootScope, $location, $interval, ProjectService, toaster, DateUtils) {
     var response = ProjectService.appointmentProject.get({}, function() {
       if (response.ret === 1) {
         $scope.project = response.data.project;
@@ -9,10 +9,10 @@ angular.module('hongcaiApp')
         $scope.statusText = $scope.statusMap[$scope.project.status];
         $scope.repaymentTypeMap = response.data.repaymentTypeMap;
         $scope.repaymentName = $scope.repaymentTypeMap[$scope.project.repaymentType];
-        $scope.project.countdown = moment($scope.project.releaseStartTime).diff(moment(response.data.serverTime), 'seconds') + 2;
+        $scope.project.countdown = (new Date($scope.project.releaseStartTime).getTime() - response.data.serverTime)/1000 + 2;
         $scope.counter = 0;
-        var interval = window.setInterval(function() {
-          $scope.counter++;
+        var interval = $interval(function() {
+          $scope.project.countdown--;
           $scope._timeDown = $scope.timeUntil($scope.project.countdown);
           $scope.$apply();
         }, 1000);
@@ -28,16 +28,11 @@ angular.module('hongcaiApp')
     });
 
     $scope.timeUntil = function(stDate) {
-      stDate = stDate - $scope.counter;
-      if (stDate === 0) {
-        ProjectService.appointmentProject.get({}, function() {
-          if (response.ret === 1) {
-            $scope.project = response.data.project;
-          }
-          $state.reload();
-        });
-      }
-      return moment().startOf('month').seconds(stDate).format('DD') - 1 + '天,' + moment().startOf('month').seconds(stDate).format('HH时,mm分,ss秒');
+      if (stDate <= 0) {
+        $state.reload();
+      } 
+
+      var time = DateUtils.toDayHourMinSeconds();
+      return time.day + '天，' + day.hour + '时,' + day.min + '分,' + day.seconds + '秒';
     };
-    $rootScope.selectPage = $location.path().split('/')[1];
   });

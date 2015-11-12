@@ -356,7 +356,7 @@ hongcaiApp
         }
       })
       .state('root.invest-verify-transfer', {
-        url: '/invest-verify-transfer/:projectId/:investAmount/:giftCount',
+        url: '/invest-verify-transfer/:projectId/:investAmount/:giftCount/:couponNumber',
         views: {
           '': {
             templateUrl: 'views/transfer.html',
@@ -366,7 +366,7 @@ hongcaiApp
         }
       })
       .state('root.invplan-verify-transfer', {
-        url: '/invplan-verify-transfer/:projectId/:amount/:isRepeat/:payAmount',
+        url: '/invplan-verify-transfer/:projectId/:amount/:isRepeat/:payAmount/:couponNumber',
         views: {
           '': {
             templateUrl: 'views/transfer.html',
@@ -1225,8 +1225,20 @@ hongcaiApp
         views: {
           'user-center-right': {
             templateUrl: 'views/user-center/experience-money.html',
-            controller: 'CreditCtrl',
-            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+            controller: 'ExperienceMoneyCtrl',
+            controllerUrl: 'scripts/controller/user-center/experience-money-ctrl'
+          }
+        }
+      })
+
+      // 加息券（个人中心）
+      .state('root.userCenter.rate-coupon', {
+        url: '/rate-coupon',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/rate-coupon.html',
+            controller: 'IncreaseCouponCtrl',
+            controllerUrl: 'scripts/controller/user-center/increase-coupon-ctrl'
           }
         }
       })
@@ -1440,8 +1452,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     $checkSessionServer
     .error(function(response){
 
-      $location.path('/sys-update.html'); // 系统维护页面
-
+      window.location.href= config.domain + '/sys-update.html';
       return;
     })
     .success(function(response){

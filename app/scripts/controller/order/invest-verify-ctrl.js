@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('investVerifyCtrl', ['$scope', '$location', '$state', '$rootScope', '$stateParams', '$modal', 'OrderService', 'SessionService', 'config', '$alert', function($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config, $alert) {
+  .controller('investVerifyCtrl', function($scope, $location, $state, $rootScope, $stateParams, $modal, OrderService, SessionService, config, $alert, UserCenterService) {
     $scope.giftCount = 0;
     $scope.checkInvFlag = true;
     OrderService.investVerify.get({
@@ -13,6 +13,8 @@ angular.module('hongcaiApp')
         $scope.categoryCode = response.data.categoryCode;
         $scope.giftCount = response.data.giftCount;
         $scope.investAmount = $stateParams.amount;
+        $scope.payAmount = response.data.payAmount;
+        $scope.experienceAmount = response.data.experienceAmount;
         $scope.icons = [];
         for (var i = 0; i <= $scope.giftCount; i++) {
           var obj = {};
@@ -51,17 +53,44 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.transfer = function(project, investAmount, giftCount) {
+    $scope.transfer = function(project, investAmount, giftCount, selectCoupon) {
       $scope.msg = '4';
       $scope.investAmount = investAmount;
       $scope.page = 'investVerify';
+      var couponNumber = selectCoupon == null ? "" : selectCoupon.number;
       $alert({
         scope: $scope,
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      window.open('/#!/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount);
+      window.open('/#!/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount + '/' + couponNumber);
     };
+
+    /**
+     * 加息券统计信息
+     */
+    UserCenterService.getUnUsedIncreaseRateCoupons.get({}, function(response) {
+      if (response.ret === 1) {
+        $scope.increaseRateCoupons = response.data.increaseRateCoupons;
+        $scope.selectCoupon = null;
+        if($scope.increaseRateCoupons.length > 0){
+          for(var i=0; i < $scope.increaseRateCoupons.length; i++){
+            var rateText = '加息券 +' + $scope.increaseRateCoupons[i].rate + '%';
+            $scope.increaseRateCoupons[i].rateText = rateText;
+          }
+          var increaseRateCoupon = {
+            number: "",
+            rate: 0,
+            rateText: "不使用加息券"
+          }
+          $scope.increaseRateCoupons.push(increaseRateCoupon);
+
+          $scope.selectCoupon = $scope.increaseRateCoupons[0];
+        }
+      } else {
+        toaster.pop('warning', response.msg);
+      }
+    });
 
     var myOtherModal = $modal({
       scope: $scope,
@@ -81,4 +110,4 @@ angular.module('hongcaiApp')
     };
     $scope.selectedIcon = 1;
     //console.log(typeof($scope.selectedIcon));
-  }]);
+  });

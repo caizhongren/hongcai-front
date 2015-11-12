@@ -4,6 +4,7 @@ angular.module('hongcaiApp')
     $rootScope.selectPage = $location.path().split('/')[1];
 
     //http://www.hongcai.com/hongcai-trends?page=0&perPage=5
+
     $scope.media = [
       {
         mimeType: 'image/jpg',
@@ -24,8 +25,8 @@ angular.module('hongcaiApp')
         href: '/banner-investmentplan'
       }, {
         mimeType: 'image/jpg',
-        src: 'images/banner/banner004.jpg',
-        href: 'http://mp.weixin.qq.com/s?__biz=MzA5Njg0Mzk4Mg==&mid=400423810&idx=4&sn=8fae955a68ffd81eace88c4382414dbf'
+        src: 'images/banner/banner007.jpg',
+        href: 'https://www.hongcai.com/media-reports-detail/213'
       },{
         mimeType: 'image/jpg',
         src: 'images/banner/banner005.jpg',

@@ -8,13 +8,18 @@
       <div class="col-md-4 ">
         <div class="experience-border">
           <p class="margin-t-30 ft-18">加息券（张）</p>
-          <p class="ft-30 ft-red">6</p>
+          <p class="ft-30 ft-red">{{couponStatis.couponCount}}</p>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="experience-border">
-          <p class="margin-t-30 ft-18">加息券 +1%  <span class="rate-number">4</span>张</p>
-          <p class="ft-18 margin-t-15">加息券 +1%  <span class="rate-number">4</span>张</p>
+        <div class="experience-border" ng-if="couponStatis.couponTypes.length > 0">
+          <div class="padding-t-30 ft-18" ng-repeat="couponType in couponStatis.couponTypes">
+            <div class="col-md-7 text-left" style="padding:0 0 0 10px">加息券 +{{couponType.rate}}% </div>
+            <div class="col-md-5" style="padding:0"><span class="rate-number">{{couponType.couponNum}}</span>张</div>
+          </div>
+        </div>
+        <div class="experience-border" ng-if="couponStatis.couponTypes.length <= 0">
+          <p class="margin-t-30 ft-18 ft-red">无加息券</p>
         </div>
       </div>
       <div class="col-md-4">
@@ -38,14 +43,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-show="deals.length > 0" ng-repeat="deal in deals">
-          <td>{{deal.createTime | date : 'yyyy-MM-dd'}}</td>
-          <td>注册</td>
-          <td>{{deal.amount | number : 2}}</td>
-          <td>{{deal.createTime + 60 * 24 * 60 * 60 *1000 | date : 'yyyy-MM-dd'}}</td>
+        <tr ng-show="couponStatis.coupons.length > 0" ng-repeat="coupon in couponStatis.coupons">
+          <td>+{{coupon.rate}}%</td>
+          <td>{{coupon.createTime | date : "yyyy-MM-dd"}}</td>
+          <td>{{coupon.endTime | date : "yyyy-MM-dd"}}</td>
+          <td ng-show="coupon.status === 1">未使用</td>
+          <td ng-show="coupon.status === 2">已使用</td>
+          <td ng-show="coupon.status === 3">过期</td>
         </tr>
-        <tr ng-show="deals.length <= 0">
-          <td colspan="4">无领取记录</td>
+        <tr ng-show="couponStatis.coupons.length <= 0">
+          <td colspan="4">未获得过加息券</td>
         </tr>
       </tbody>
     </table>
