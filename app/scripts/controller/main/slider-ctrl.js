@@ -8,6 +8,10 @@ angular.module('hongcaiApp')
     $scope.media = [
       {
         mimeType: 'image/jpg',
+        src: 'images/banner/banner007.jpg',
+        href: 'https://www.hongcai.com/media-reports-detail/213'
+      },{
+        mimeType: 'image/jpg',
         src: 'images/banner/banner006.jpg',
         href: 'http://mp.weixin.qq.com/s?__biz=MzA5Nzg0MzA5OQ==&mid=400520084&idx=1&sn=972091ed5d1ebceb6a96a0067cbb1294#rd'
       },
@@ -24,10 +28,6 @@ angular.module('hongcaiApp')
         src: 'images/banner/banner003.jpg',
         href: '/banner-investmentplan'
       }, {
-        mimeType: 'image/jpg',
-        src: 'images/banner/banner007.jpg',
-        href: 'https://www.hongcai.com/media-reports-detail/213'
-      },{
         mimeType: 'image/jpg',
         src: 'images/banner/banner005.jpg',
         href: '/safe'
