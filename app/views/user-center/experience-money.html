@@ -41,8 +41,8 @@
       </thead>
       <tbody>
         <tr ng-show="investDeals.length > 0" ng-repeat="investInfo in investDeals">
-          <td>{{investInfo.experienceDeal.createTime | date : 'yyyy-MM-dd'}}</td>
-          <td>{{investInfo.experienceDeal.createTime + 7 * 24 * 60 * 60 *1000 | date : 'yyyy-MM-dd'}}</td>
+          <td>{{investInfo.experienceDeal.createTime | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
+          <td>{{investInfo.experienceDeal.createTime + 7 * 24 * 60 * 60 *1000 | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
           <td>{{investInfo.creditRight.baseRate}}%</td>
           <td>{{investInfo.experienceDeal.amount | number : 2}}</td>
           <td>{{investInfo.experienceDeal.profit | number : 2}}</td>
@@ -70,10 +70,12 @@
       </thead>
       <tbody>
         <tr ng-show="deals.length > 0" ng-repeat="deal in deals">
-          <td>{{deal.createTime | date : 'yyyy-MM-dd'}}</td>
-          <td>注册</td>
+          <td>{{deal.createTime | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
+          <td ng-show="deal.type === 1">注册送</td>
+          <td ng-show="deal.type === 3">任意充值送</td>
+          <td ng-show="deal.type === 4">平台奖励送</td>
           <td>{{deal.amount | number : 2}}</td>
-          <td>{{deal.createTime + 60 * 24 * 60 * 60 *1000 | date : 'yyyy-MM-dd'}}</td>
+          <td>{{deal.createTime + 60 * 24 * 60 * 60 *1000 | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
         </tr>
         <tr ng-show="deals.length <= 0">
           <td colspan="4">无领取记录</td>
