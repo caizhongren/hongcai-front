@@ -1,31 +1,48 @@
+<!--[if lt IE 9]>
+
+   <style type="text/css">
+    .fixedBox {
+	  position: absolute;
+	  right: 18%;
+	  width: 18%;
+	  background-color: rgba(255, 255, 255, 0.5);
+	  color: #fff;
+	  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .2);
+	  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7fffffff,endColorstr=#7fffffff);
+      zoom: 1;
+	 }
+
+    </style>
+
+<![endif]-->
 <!-- start banner-轮播 -->
 <div class="container-fluid" style="z-index:1">
-	<div class="row">
-		<div class="col-lg-12 hidden-xs" style="position: relative;overflow:hidden;">
-			<div class="row">
-	      <slick settings="slickConfig" control="slickHandle" media="media" src="views/modal/slick_slider.html" style="margin-bottom:0;overflow:hidden" target="_blank"></slick>
-	      <a class="left carousel-control dis-none" style="height: 94%;" role="button" ng-click="slickHandle.slickPrev()">
+  <div class="row">
+    <div class="col-lg-12 hidden-xs" style="position: relative;overflow:hidden;">
+      <div class="row">
+        <slick settings="slickConfig" control="slickHandle" media="media" src="views/modal/slick_slider.html" style="margin-bottom:0;overflow:hidden" target="_blank"></slick>
+        <a class="left carousel-control dis-none" style="height: 94%;" role="button" ng-click="slickHandle.slickPrev()">
           <i class="fa fa-chevron-left"></i>
-	      </a>
-	      <a class="right carousel-control dis-none" style="height: 94%;" role="button" ng-click="slickHandle.slickNext()">
+        </a>
+        <a class="right carousel-control dis-none" style="height: 94%;" role="button" ng-click="slickHandle.slickNext()">
           <i class="fa fa-chevron-right"></i>
-	      </a>
-				<div ng-if="isLogged === true" class="fixedBox logged row hidden-xs hidden-sm">
-					<div class="col-lg-12">
-						<div class="row">
-							<div class="col-lg-12 ft-18">
-				                <p class="ft-black"><span>欢迎回来，<a ui-sref="root.userCenter.account-overview" class="ft-red">{{loginName}}</a></span></p>
-				                <p><span class="ft-14 ft-black">账户可用余额</span></p>
-				                <p class="ft-14 ft-black"><span class="ft-16">{{account.balance || 0 | number : 2}}</span>元<a class="pull-right ft-red" ui-sref="root.userCenter.recharge">充值</a></p>
-				            </div>
-				            <a class="col-lg-11 col-md-11 btn btn-yellow ft-white btn-lg ft-black" ui-sref="root.userCenter.account-overview">我的账户</a>
-						</div>
-					</div>
-				</div>
-				<div ng-if="isLogged !== true" class="fixedBox unLogged row hidden-xs hidden-sm">
-					<div class="col-lg-12">
-						<div class="row">
-							<!-- <div class="col-lg-12 ft-18">
+        </a>
+        <div ng-if="isLogged === true" class="fixedBox logged row hidden-xs hidden-sm">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-12 ft-18">
+                <p class="ft-black"><span>欢迎回来，<a ui-sref="root.userCenter.account-overview" class="ft-red">{{loginName}}</a></span></p>
+                <p><span class="ft-14 ft-black">账户可用余额</span></p>
+                <p class="ft-14 ft-black"><span class="ft-16">{{account.balance || 0 | number : 2}}</span>元<a class="pull-right ft-red" ui-sref="root.userCenter.recharge">充值</a></p>
+              </div>
+              <a class="col-lg-11 col-md-11 btn btn-yellow ft-white btn-lg ft-black" ui-sref="root.userCenter.account-overview">我的账户</a>
+            </div>
+          </div>
+        </div>
+        <div ng-if="isLogged !== true" class="fixedBox unLogged row hidden-xs hidden-sm">
+          <div class="col-lg-12">
+            <div class="row">
+              <!-- <div class="col-lg-12 ft-18">
 								宏财网年化收益率
 								<p class="ft-16">最高
 									<span class="ft-red ft-24">14.5%</span>
@@ -36,29 +53,29 @@
 							</div>
 							<a class="col-lg-11 col-md-11 btn btn-yellow btn-lg ft-white" ui-sref="root.registerMobile">立即注册</a>
 							<div class="pull-right">已有账号？<a ui-sref="root.login" class="ft-red">立即登录</a></div> -->
-							<div class="col-lg-12 ft-20 ft-black text-center">
-								最高年化收益率
-								<p class="ft-40">
-									<span class="ft-red ft-40">14.5%</span>
-								</p>
-								<!-- <p class="ft-16 ft-black">
+              <div class="col-lg-12 ft-20 ft-black text-center">
+                最高年化收益率
+                <p class="ft-40">
+                  <span class="ft-red ft-40">14.5%</span>
+                </p>
+                <!-- <p class="ft-16 ft-black">
 									累计成交<span class="ft-20">{{indexStatic.staticAmount/10000 | number:0}}</span>万元
 									{{indexStatic.staticUser/10000 + 0.1| number:1}}万人
 								</p> -->
-								<p class="ft-16 ft-black">
-									<span class="ft-20">30</span>万人的理财选择
-								</p>
-								<p class="ft-18 ft-red">
-									注册、充值就送钱
-								</p>
-							</div>
-							<a class="col-lg-11 col-md-11 btn btn-yellow-new btn-lg ft-white" ui-sref="root.registerMobile">立即注册</a>
-							<div class="pull-right ft-black">已有账号？<a ui-sref="root.login" class="ft-red">立即登录</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                <p class="ft-16 ft-black">
+                  <span class="ft-20">30</span>万人的理财选择
+                </p>
+                <p class="ft-18 ft-red">
+                  注册、充值就送钱
+                </p>
+              </div>
+              <a class="col-lg-11 col-md-11 btn btn-yellow-new btn-lg ft-white" ui-sref="root.registerMobile">立即注册</a>
+              <div class="pull-right ft-black">已有账号？<a ui-sref="root.login" class="ft-red">立即登录</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- end banner-轮播 -->
