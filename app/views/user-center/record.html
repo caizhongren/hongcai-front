@@ -23,22 +23,22 @@
             <div class="row">
               <div class="col-xs-2 text-nowrap">操作日期：</div>
               <div class="col-xs-2 text-nowrap">
-                <a ng-click="dateInterval=0;recordSelect();" class="project-noncheck" ng-class="{ true : 'project-check', false : 'project-noncheck'}[dateInterval == 0]">
+                <a ng-click="dateInterval=0;getDeals(currentPage);" class="project-noncheck" ng-class="{ true : 'project-check', false : 'project-noncheck'}[dateInterval == 0]">
                   全部
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ng-click="dateInterval=7;recordSelect();" class="project-noncheck" ng-class="{ true: 'project-check', false: 'project-noncheck'}[dateInterval == 7]">
+                <a ng-click="dateInterval=7;getDeals(currentPage);" class="project-noncheck" ng-class="{ true: 'project-check', false: 'project-noncheck'}[dateInterval == 7]">
                   最近七天
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ng-click="dateInterval=30;recordSelect();" class="project-noncheck" ng-class="{true: 'project-check', false: 'project-noncheck' }[dateInterval == 30]">
+                <a ng-click="dateInterval=30;getDeals(currentPage);" class="project-noncheck" ng-class="{true: 'project-check', false: 'project-noncheck' }[dateInterval == 30]">
                   一个月
                 </a>
               </div>
               <div class="col-xs-2">
-                <a ng-click="dateInterval=90;recordSelect();" class="project-noncheck" ng-class="{true: 'project-check', false: 'project-noncheck' }[dateInterval == 90]">
+                <a ng-click="dateInterval=90;getDeals(currentPage);" class="project-noncheck" ng-class="{true: 'project-check', false: 'project-noncheck' }[dateInterval == 90]">
                 三个月
                 </a>
               </div>
@@ -69,7 +69,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="item in data | orderBy: '-id' | startFrom:currentPage * pageSize | limitTo:pageSize ">
+      <tr ng-repeat="item in data | orderBy: '-id'">
         <td>{{ item.createTime | date: 'yyyy-MM-dd HH:mm'}}</td>
         <td>{{ dealTypes[item.type] }}</td>
         <td>{{item.description}}</td>
@@ -80,8 +80,8 @@
     </tbody>
   </table>
   <ul class="pager">
-    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
-    {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
-    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 1" ng-click="getDeals(currentPage - 1)">上一页</button></li>
+    {{currentPage}} / {{totalPage}} 共 {{data.length}} 条
+    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= totalPage" ng-click="getDeals(currentPage + 1)">下一页</button></li>
   </ul>
 </div>
