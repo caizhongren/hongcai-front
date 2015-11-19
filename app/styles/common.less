@@ -1723,10 +1723,8 @@ button {
   position: absolute;
   right: 14%;
   width: 20%;
-  background-color: #ffffff;
-  filter: alpha(opacity=50);
+  background-color: rgba(255,255,255,0.5);
   color: #fff;
-  background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .2);
   .pull-right {
     margin-right: 15px;
@@ -1739,6 +1737,30 @@ button {
   }
   .pull-right {
     margin-top: 2%;
+  }
+}
+
+@media \0screen\,screen\9 {
+  .fixedBox {
+    position: absolute;
+    right: 14%;
+    width: 20%;
+    background-color: #ffffff;
+    filter: alpha(opacity=50);
+    color: #fff;
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .2);
+    .pull-right {
+      margin-right: 15px;
+    }
+    p {
+      margin-top: 2%;
+    }
+    .btn {
+      margin-left: 4%;
+    }
+    .pull-right {
+      margin-top: 2%;
+    }
   }
 }
 
