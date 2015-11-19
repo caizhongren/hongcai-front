@@ -1723,21 +1723,10 @@ button {
   position: absolute;
   right: 18%;
   width: 18%;
-  background-color: rgba(255, 255, 255, 0.5);
-  /* older safari/Chrome browsers */
-  -webkit-opacity: 0.5;
-  /* Netscape and Older than Firefox 0.9 */
-  -moz-opacity: 0.5;
-  /* Safari 1.x (pre WebKit!) 老式khtml内核的Safari浏览器*/
-  -khtml-opacity: 0.5;
-  /* IE9 + etc...modern browsers */
-  opacity: .5;
-  /* IE 4-9 */
+  // background-color: rgba(255, 255, 255, 0.5);
+  background-color: white;
+  opacity: 0.5;
   filter: alpha(opacity=50);
-  /*This works in IE 8 & 9 too*/
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-  /*IE4-IE9*/
-  filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=50)";
   color: #fff;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, .2);
   .pull-right {
