@@ -1,3 +1,6 @@
+/**
+ * 用户交易记录页
+ */
 'use strict';
 angular.module('hongcaiApp')
   .controller('UserDealCtrl', function ($scope, $rootScope, toaster, UserCenterService) {
@@ -5,11 +8,15 @@ angular.module('hongcaiApp')
     $scope.type = 0;
     $scope.dateInterval = 0;
     $scope.dealType = 0;
+    $scope.currentPage = 1;
+    $scope.pageSize = 10;
 
-    $scope.recordSelect = function() {
+    $scope.getDeals = function(page) {
+      $scope.currentPage = page;
       var getDealByUser = UserCenterService.getDealByUser.get({ 
         dateInterval: $scope.dateInterval,
-        dealType: $scope.dealType
+        dealType: $scope.dealType,
+        page: page
       },function(response) {
         if (getDealByUser.ret === 1) {
           $scope.dealList = getDealByUser.data.dealList;
@@ -18,13 +25,8 @@ angular.module('hongcaiApp')
           $scope.userId = getDealByUser.data.userId;
           $scope.capital = getDealByUser.data.capital;
           $scope.dealTypes = getDealByUser.data.dealTypes;
-          $scope.currentPage = 0;
-          $scope.pageSize = 10;
           $scope.data = [];
-
-          $scope.numberOfPages = function() {
-            return Math.ceil($scope.data.length / $scope.pageSize);
-          };
+          $scope.totalPage = Math.ceil(getDealByUser.data.count / $scope.pageSize);
 
           for (var i = 0; i < $scope.dealList.length; i++) {
             $scope.data.push($scope.dealList[i]);
@@ -44,7 +46,8 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.recordSelect();
+    $scope.getDeals(1);
+
 
 
 
