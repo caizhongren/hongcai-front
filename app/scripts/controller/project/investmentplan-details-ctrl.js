@@ -23,7 +23,6 @@ angular.module('hongcaiApp')
         $scope.fundsProjectTest = $scope.fundsProduct;
 
         $scope.fundsProject.product = $scope.fundsProduct;
-        console.log($scope.fundsProject);
         $scope.fundsProjectInvestNum = $scope.fundsProject.total - ($scope.fundsProject.soldStock + $scope.fundsProject.occupancyStock) * $scope.fundsProject.increaseAmount;
         // 处理投资记录分页
         $scope.currentPage = 0;
@@ -37,10 +36,10 @@ angular.module('hongcaiApp')
           $scope.orderList[i].id = (i + 1);
           $scope.data.push($scope.orderList[i]);
         }
+        console.log($scope.fundsProject.status);
         // 当status===1可融资状态的时候，判断invPlanFlag的状态。0：未登录，1：普通用户，2：实名用户，3：开启自动投资用户。
         if ($scope.fundsProject.status === 1) {
           $scope.initInvPlanFlag();
-          console.log($scope.fundsProjectInvestNum);
 
           // if ($rootScope.isLogged) {
           //   if ($rootScope.autoTransfer === 1) {
@@ -202,7 +201,6 @@ angular.module('hongcaiApp')
     // 检测用户可投最高金额
     $scope.checkLargeUserCanAmount = function(fundsProject) {
       if ($rootScope.account) {
-        console.log($scope.fundsProjectTest.type);
         var availableAmount = $scope.fundsProjectTest.type !== 1 ? $rootScope.account.balance : $rootScope.account.balance + $rootScope.account.experienceAmount;
         if (availableAmount < fundsProject.invPlanAmount) {
           return true;
