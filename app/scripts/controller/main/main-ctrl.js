@@ -162,18 +162,18 @@ angular.module('hongcaiApp')
     });
 
     //获取友情链接
-    FriendLinkService.friendLinkList.get(function(response) {
-      if (response.ret === 1) {
-        $scope.friendLinks = response.data.friendLinks;
-      } else {
-        $scope.msg = response.msg;
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-dialog.html',
-          show: true
-        });
-      }
-    });
+    // FriendLinkService.friendLinkList.get(function(response) {
+    //   if (response.ret === 1) {
+    //     $scope.friendLinks = response.data.friendLinks;
+    //   } else {
+    //     $scope.msg = response.msg;
+    //     $alert({
+    //       scope: $scope,
+    //       template: 'views/modal/alert-dialog.html',
+    //       show: true
+    //     });
+    //   }
+    // });
 
     // 最近30天投资排行
     MainService.monthInvest.get(function(response){
