@@ -15,12 +15,16 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         // 宏金盈项目信息
         $scope.fundsProject = response.data.fundsProject;
-        console.info("test",$scope.fundsProject);
+        
         $scope.orderList = response.data.orderList;
         $scope.investorCount = response.data.investorCount;
         $scope.repeatCount = response.data.repeatCount;
         $scope.fundsProduct = response.data.fundsProduct;
+        
+        $scope.fundsProjectTest = $scope.fundsProduct;
+        console.info("test",$scope.fundsProjectTest);
         $scope.fundsProject.product = $scope.fundsProduct;
+
         $scope.fundsProjectInvestNum = $scope.fundsProject.total - ($scope.fundsProject.soldStock + $scope.fundsProject.occupancyStock) * $scope.fundsProject.increaseAmount;
         // 处理投资记录分页
         $scope.currentPage = 0;
