@@ -36,7 +36,7 @@ angular.module('hongcaiApp')
           $scope.orderList[i].id = (i + 1);
           $scope.data.push($scope.orderList[i]);
         }
-        console.log($scope.fundsProject.status);
+        // console.log($scope.fundsProject.status);
         // 当status===1可融资状态的时候，判断invPlanFlag的状态。0：未登录，1：普通用户，2：实名用户，3：开启自动投资用户。
         if ($scope.fundsProject.status === 1) {
           $scope.initInvPlanFlag();
@@ -53,7 +53,7 @@ angular.module('hongcaiApp')
           //   $scope.invPlanFlag = 0;
           // }
         } else {
-          console.log('other status flag..');
+          // console.log('other status flag..');
         }
       } else {
         $state.go('root.investmentplan-list');
