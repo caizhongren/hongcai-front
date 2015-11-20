@@ -46,8 +46,8 @@
                         <input type="checkbox">体验金 <span class="ft-orange">{{experienceAmount| number:2}}</span>元
                    </div>
                    <div class="col-xs-4">
-                        <button type="button" class="btn btn-default" ng-model="selectCoupon" data-html="1" data-animation="am-flip-x" ng-options="coupon as coupon.rateText for coupon in increaseRateCoupons" bs-select required>
-                        </button>
+                        <select type="button" class="btn btn-default" ng-model="selectCoupon" data-html="1" data-animation="am-flip-x" ng-options="coupon as coupon.rateText for coupon in increaseRateCoupons" required>
+                        </select>
                     </div>
                 </div>
             </div>
