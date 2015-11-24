@@ -52,7 +52,7 @@ angular.module('hongcaiApp')
             $scope.emailAddr = account;
           } else {
             // TODO
-            console.log('');
+            // console.log('');
           }
         });
       } else {
@@ -89,7 +89,7 @@ angular.module('hongcaiApp')
           }, function(response) {
             if (response.ret === 1) {
               // TODO
-              console.log('sendMobileCaptcha success!');
+              // console.log('sendMobileCaptcha success!');
             } else {
               $scope.msg = response.msg;
               $alert({
@@ -137,7 +137,7 @@ angular.module('hongcaiApp')
           $scope.areaFlag = 3;
         } else {
           // TODO
-          console.log('');
+          // console.log('');
         }
       });
     };
