@@ -77,7 +77,7 @@ angular.module('hongcaiApp')
       }
     };
     // STEP2 根据account通过手机找回
-    $scope.sendMobileCaptcha = function(account, mobile) {
+    $scope.sendMobileCaptcha = function(account, mobile,captcha) {
       UserCenterService.infoVerify.get({
         account: account,
         mobile: mobile,
@@ -85,13 +85,15 @@ angular.module('hongcaiApp')
       }, function(response) {
         if (response.ret === 1) {
           UserCenterService.sendMobileCaptcha.get({
-            mobile: mobile
+            mobile: mobile,
+            picCaptcha: captcha
           }, function(response) {
             if (response.ret === 1) {
               // TODO
               // console.log('sendMobileCaptcha success!');
             } else {
               $scope.msg = response.msg;
+              alert($scope.msg);
               $alert({
                 scope: $scope,
                 template: 'views/modal/alert-dialog.html',

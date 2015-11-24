@@ -11,7 +11,7 @@ angular.module('hongcaiApp').directive('findAccount', ['$http', 'DEFAULT_DOMAIN'
 						url: DEFAULT_DOMAIN + '/siteUser/findAccount?account=' + account
 					}).success(function(data) {
 						if(data.data.user) {
-							console.log(data.data.user);
+							// console.log(data.data.user);
 							scope.usermessage =  data.data.user;
 							scope.usermobile = data.data.mobile;
 							ctrl.$setValidity('unique', true);
