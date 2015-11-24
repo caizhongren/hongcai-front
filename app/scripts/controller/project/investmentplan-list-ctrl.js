@@ -11,21 +11,9 @@ angular.module('hongcaiApp')
           console.log('ask investmentplan-list, why getFundsProductIdList did not load data...');
         }
       });
-      ProjectService.getFundsTotalStatisticalData.get({}, function(response) {
-        if (response.ret === 1) {
-          $scope.totalRepeatInvestCount = response.data.totalRepeatInvestCount;
-          $scope.totalProfit = response.data.totalProfit;
-          $scope.totalAmount = response.data.totalAmount;
-          $scope.totalInvestCount = response.data.totalInvestCount;
-        } else {
-          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
-          console.log('ask investmentplan-list, why getFundsTotalStatisticalData did not load data...');
-        }
-      });
-
 
     };
-    $scope.perPage = parseInt($location.search().perPage, 10) || 10;
+    $scope.perPage = parseInt($location.search().perPage, 15) || 15;
     $scope.page = parseInt($location.search().page, 10) || 0;
     $scope.clientLimit = 250;
     $scope.urlParams = {
@@ -41,6 +29,7 @@ angular.module('hongcaiApp')
     $scope.$on('$locationChangeSuccess', function() {
       var page = +$location.search().page,
         perPage = +$location.search().perPage;
+        console.log(perPage);
       if (page >= 0) {
         $scope.page = page;
       }
@@ -49,8 +38,7 @@ angular.module('hongcaiApp')
       }
     });
     $scope.baseFundsProductData();
-    $scope.tabs = [
-    {
+    $scope.tabs = [{
       title: '月月盈',
     }, {
       title: '季度盈',
