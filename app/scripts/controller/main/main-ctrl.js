@@ -46,6 +46,9 @@ angular.module('hongcaiApp')
                 $state.reload();
               }
               $scope.hongjinbao[i]._timeDown = DateUtils.toHourMinSeconds($scope.hongjinbao[i].countdown);
+              $scope.hongjinbaoHour = $scope.hongjinbao[i]._timeDown.hour;
+              $scope.hongjinbaoMinute = $scope.hongjinbao[i]._timeDown.min;
+              $scope.hongjinbaoSecond = $scope.hongjinbao[i]._timeDown.seconds;
             };
           }, 1000);
 
@@ -56,7 +59,7 @@ angular.module('hongcaiApp')
         } else {
           $scope.data = [];
           toaster.pop('warning', '服务器正在努力的加载....请稍等。');
-          console.log('ask project-list, why projectList did not load data...');
+          //console.log('ask project-list, why projectList did not load data...');
         }
       });
     };
