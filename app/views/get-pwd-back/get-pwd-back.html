@@ -72,7 +72,7 @@
             <a href="" ng-click="refreshCode()">看不清?换图片</a>
           </div>
           <div class="form-group">
-            <div class="col-xs-offset-4">
+            <div class="col-xs-offset-4" style="padding:0 37.5px 0 15px;">
               <button type="submit" class="col-xs-6 btn btn-primary btn-lg" ng-disabled="getPwdUserForm.$invalid" ng-click="verifyAccount(getPwd.account, getPwd.captcha)">下一步</button>
               <!--  -->
             </div>
@@ -87,13 +87,13 @@
         <form class="form-horizontal" role="form" name="step21From">
           <div class="form-group">
             <label for="step2-mobile" class="col-xs-3 col-xs-offset-1 control-label">输入验证码:</label>
-            <div class="col-xs-5">
+            <div class="col-xs-4">
               <input type="text" class="form-control" name="step2-mobile" ng-model="getPwd.mobileCaptcha" ng-focnus id="step2-mobile" placeholder="">
             </div>
           </div>
           <div class="form-group">
-            <div class="col-xs-offset-3">
-              <button type="submit" class="col-xs-6 col-xs-offset-1 btn btn-primary btn-lg" ng-disabled="step21From.$invalid" ng-click="checkMobileCaptcha(getPwd)">下一步</button>
+            <div class="col-xs-offset-4 col-xs-4">
+              <button type="submit" class="col-xs-12 btn btn-primary btn-lg" ng-disabled="step21From.$invalid" ng-click="checkMobileCaptcha(getPwd)">下一步</button>
             </div>
           </div>
         </form>
@@ -200,8 +200,8 @@
             </div>
           </div>
           <div class="form-group">
-            <div class="col-xs-offset-3">
-              <button type="submit" class="col-xs-6 col-xs-offset-1 btn btn-primary btn-lg" ng-disabled="Step3SetPhonePwd.$invalid" ng-click="setPhoneNewPwd(getPwd, user)">下一步</button>
+            <div class="col-xs-offset-4 col-xs-5">
+              <button type="submit" class="col-xs-12 btn btn-primary btn-lg" ng-disabled="Step3SetPhonePwd.$invalid" ng-click="setPhoneNewPwd(getPwd, user)">下一步</button>
             </div>
           </div>
         </form>
