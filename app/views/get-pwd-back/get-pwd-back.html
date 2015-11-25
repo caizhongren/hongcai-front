@@ -134,13 +134,13 @@
             <div class="form-group">
               <label for="captcha" class="col-xs-3 col-xs-offset-1 control-label">图片验证码:</label>
               <div class="col-xs-2 ">
-                <input type="text" class="form-control" name="captcha" ng-model="getPwd.picCaptcha" ensure-captcha="captcha" id="captcha" placeholder="请输入验证码" required ng-focus />
-                <div ng-show="getPwdUserForm.captcha.$dirty && getPwdUserForm.captcha.$invalid && !getPwdUserForm.captcha.$focused && getPwdUserForm.captcha.$error.check">
+                <input type="text" class="form-control" name="captcha" ng-model="getPwd.picCaptcha" ensure-captcha="picCaptcha" id="picCaptcha" placeholder="请输入验证码" required ng-focus />
+                <div ng-show="Step2GetPhone.picCaptcha.$dirty && Step2GetPhone.picCaptcha.$invalid && !Step2GetPhone.picCaptcha.$focused && Step2GetPhone.picCaptcha.$error.check">
                   <p class="input-tips user-input-tips"><i class="fa fa-times-circle-o login-check-img" style="top:0px;"></i>验证码错误</p>
                 </div>
               </div>
-              <img ng-src="{{getPicCaptcha}}" class="" id="checkCaptcha" ng-click="refreshCode()">
-              <a href="" ng-click="refreshCode()">看不清?换图片</a>
+              <img ng-src="{{getPicCaptcha}}" class="" id="checkCaptcha2" ng-click="refreshCode2()">
+              <a href="" ng-click="refreshCode2()">看不清?换图片</a>
             </div>
             <div class="form-group">
               <label for="phoneCaptcha" class="col-xs-3 col-xs-offset-1 control-label">输入验证码：</label>

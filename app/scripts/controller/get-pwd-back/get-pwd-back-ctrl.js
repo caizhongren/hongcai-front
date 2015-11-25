@@ -6,6 +6,9 @@ angular.module('hongcaiApp')
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
+    $scope.refreshCode2 = function() {
+      angular.element('#checkCaptcha2').attr('src', angular.element('#checkCaptcha2').attr('src').substr(0, angular.element('#checkCaptcha2').attr('src').indexOf('?')) + '?code=' + Math.random());
+    };
 
     $scope.verifyAccount = function(account, captcha) {
       var dataBoth = [{
