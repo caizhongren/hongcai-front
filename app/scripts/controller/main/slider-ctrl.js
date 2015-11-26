@@ -5,42 +5,38 @@ angular.module('hongcaiApp')
 
     //http://www.hongcai.com/hongcai-trends?page=0&perPage=5
 
-    $scope.media = [
-      {
-        mimeType: 'image/jpg',
-        src: 'images/banner/banner007.jpg',
-        href: 'https://www.hongcai.com/media-reports-detail/213'
-      },{
-        mimeType: 'image/jpg',
-        src: 'images/banner/banner006.jpg',
-        href: 'http://mp.weixin.qq.com/s?__biz=MzA5Nzg0MzA5OQ==&mid=400520084&idx=1&sn=972091ed5d1ebceb6a96a0067cbb1294#rd'
-      },
-      {
-        mimeType: 'image/jpg',
-        src: 'images/banner/banner001.jpg',
-        href: '/hongcai-trends'
-      },{
-        mimeType: 'image/jpg',
-        src: 'images/banner/banner002.jpg',
-        href: '/consultant-team'
-      },{
-        mimeType: 'image/jpg',
-        src: 'images/banner/banner003.jpg',
-        href: '/banner-investmentplan'
-      }, {
-        mimeType: 'image/jpg',
-        src: 'images/banner/banner005.jpg',
-        href: '/safe'
-      }
-    ];
+    $scope.media = [{
+      mimeType: 'image/jpg',
+      src: 'images/banner/banner008.jpg',
+    }, {
+      mimeType: 'image/jpg',
+      src: 'images/banner/banner007.jpg',
+      href: 'https://www.hongcai.com/media-reports-detail/213'
+    }, {
+      mimeType: 'image/jpg',
+      src: 'images/banner/banner006.jpg',
+      href: 'http://mp.weixin.qq.com/s?__biz=MzA5Nzg0MzA5OQ==&mid=400520084&idx=1&sn=972091ed5d1ebceb6a96a0067cbb1294#rd'
+    }, {
+      mimeType: 'image/jpg',
+      src: 'images/banner/banner001.jpg',
+      href: '/hongcai-trends'
+    }, {
+      mimeType: 'image/jpg',
+      src: 'images/banner/banner002.jpg',
+      href: '/consultant-team'
+    }, {
+      mimeType: 'image/jpg',
+      src: 'images/banner/banner005.jpg',
+      href: '/safe'
+    }];
 
-        // 首页数据统计
+    // 首页数据统计
     MainService.indexStatistics.get(function(response) {
       if (response.ret === 1) {
         $scope.indexStatic = response.data.indexStatic;
       }
     });
-    
+
     $scope.slickConfig = {
       dots: true,
       autoplay: true,
