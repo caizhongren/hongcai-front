@@ -4,12 +4,12 @@
     <div class="right-title">银行卡管理</div>
   </div>
   <div class="verify-area introduction-area border-none row">
-    <a ng-show="isVerifying" ng-init="isAuth=false;haveCard=false;">
+    <a ng-show="isVerifying" ng-init="isAuth=false;haveCard=false;unbinding=false;">
       <div class="bank-card-show-verify">
         <p class="add-card">认证中</p>
       </div>
     </a>
-    <a ng-show="isAuth && !haveCard && !isVerifying && dosi" ng-init="isAuth=false" ng-click="bindBankCard()">
+    <a ng-show="isAuth && !haveCard && !isVerifying && !unbinding && dosi" ng-init="isAuth=false" ng-click="bindBankCard()">
       <div class="bank-card-show">
         <p class="add-card"></p>
       </div>
@@ -22,7 +22,14 @@
 
 
     </a>
-    <div class="bankCard" ng-show="isAuth && haveCard && !isVerifying">
+    <div class="bankCard" ng-show="isAuth && haveCard && !isVerifying && !unbinding">
+      <div class="bank-card-show-verify">
+        <p class="add-card add-cardnum">{{bankName}}</p>
+        <p class="add-cardNo">{{ cardNo }}</p>
+        <a ng-click="unbindBankCard()">&nbsp;</a>
+      </div>
+    </div>
+    <div class="bankCard" ng-show="isAuth && haveCard && unbinding">
       <div class="bank-card-show-verify">
         <p class="add-card add-cardnum">{{bankName}}</p>
         <p class="add-cardNo">{{ cardNo }}</p>
