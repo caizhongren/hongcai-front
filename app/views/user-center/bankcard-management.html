@@ -29,12 +29,10 @@
         <a ng-click="unbindBankCard()">&nbsp;</a>
       </div>
     </div>
-    <div class="bankCard" ng-show="isAuth && haveCard && unbinding">
+    <div class="bankCard" ng-show="isAuth && unbinding">
       <div class="bank-card-show-verify">
         <p class="add-card add-cardnum">{{bankName}}</p>
         <p class="add-cardNo">{{ cardNo }}</p>
-        <!-- 取消绑定 -->
-        <!-- <a ng-click="unbindBankCard()">&nbsp;</a> -->
         <!-- 解绑中 -->
         <span class="unbind" style="height:78px;"></span>
       </div>
