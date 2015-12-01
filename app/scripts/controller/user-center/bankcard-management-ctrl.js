@@ -36,13 +36,16 @@ angular.module('hongcaiApp')
     };
 
     $scope.unbindBankCard = function() {
-      $scope.msg = '7';
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
+      UserCenterService.unbindBankCard.get({}, function(response) {
+        if (response.ret === 1) {
+          $state.go('root.yeepay-callback', {
+            business: 'UNBIND_CARD',
+            status: 'SUCCESS'
+          });
+        } else {
+          toaster.pop('error', response.msg);
+        }
       });
-      window.open('/#!/bankcard-transfer/1');
     };
 
     angular.element('.bankCard .bank-card-show-verify').hover(function(event) {
