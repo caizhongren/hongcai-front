@@ -11,9 +11,11 @@ angular.module('hongcaiApp')
           $scope.bankName = card.openBank;
           $scope.cardNo = card.cardNo;
           $scope.isVerifying = (card.status === 'VERIFYING');
+          $scope.unbinding = (card.status === 'INIT');
         } else {
           $scope.haveCard = false;
           $scope.isVerifying = false;
+          $scope.unbinding = false;
         }
         $scope.isAuth = response.data.isAuth;
       } else {
