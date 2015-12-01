@@ -14,7 +14,7 @@ angular.module('hongcaiApp')
   		page = 4;
   	} else if (business === 'WITHDRAW'){
   		page = 6;
-  	} else if(business === 'UNBIND_BANK_CARD'){
+  	} else if(business === 'UNBIND_CARD'){
   		page = 7;
   	} else if(business === 'BIND_BANK_CARD'){
   		page = 5;
