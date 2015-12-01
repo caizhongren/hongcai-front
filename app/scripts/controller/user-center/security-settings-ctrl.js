@@ -114,9 +114,23 @@ angular.module('hongcaiApp')
     /**
      * 修改手机号码
      */
-    $scope.resetMobile = function(){
-      $state.go('root.yeepay', {business: 'RESET_MOBILE'});
-    }
+    $scope.resetMobilenum = function(mobileNum) {
+      // $state.go('root.yeepay', {business: 'RESET_MOBILE'});
+      console.log(mobileNum);
+      $scope.msg = '9';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+      var url = $state.href('root.yeepay', {
+        business: 'RESET_MOBILE',
+        mobile: mobileNum
+      });
+      window.open(url, '_blank');
+    };
+
+
 
 
     /*function newForm() {
@@ -198,8 +212,8 @@ angular.module('hongcaiApp')
       });
 
       var user = {
-        'realName' : 'default',
-        'idCardNo' : 'default'
+        'realName': 'default',
+        'idCardNo': 'default'
       };
 
       window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
