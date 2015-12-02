@@ -116,7 +116,6 @@ angular.module('hongcaiApp')
      */
     $scope.resetMobilenum = function(mobileNum) {
       // $state.go('root.yeepay', {business: 'RESET_MOBILE'});
-      console.log(mobileNum);
       $scope.msg = '9';
       $alert({
         scope: $scope,
