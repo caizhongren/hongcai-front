@@ -31,6 +31,7 @@ angular.module('hongcaiApp')
 
     if (business == 'RESET_MOBILE'){ // 更改手机号码
       UserCenterService.resetMobile.get({
+        mobile:$stateParams.mobile
       }, function(response) {
         if (response.ret === 1) {
           var req = response.data.req;

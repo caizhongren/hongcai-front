@@ -398,7 +398,7 @@ hongcaiApp
 
       // 修改手机号码
       .state('root.yeepay', {
-        url: '/yeepay/:business',
+        url: '/yeepay/:business/:mobile',
         views: {
           '': {
             templateUrl: 'views/transfer.html',

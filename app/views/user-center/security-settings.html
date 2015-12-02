@@ -86,13 +86,43 @@
         <p class="activity col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1 hc-text-red" ng-show="!mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">设置</p>
         <!--      <p class="activity col-md-3 col-lg-3 col-md-offset-1 col-lg-offset-1" ng-click="resetMobile()" ng-show="mobile">修改</p> -->
         <div class="col-xs-3 col-xs-offset-1" ng-show="mobile">
-          <p class="activity hadset">{{"已确定"}}</p>
-          <div class="check-ok"></div>
+          <!-- <p class="activity hadset">{{"已确定"}}</p> -->
+          <p class="activity" ng-click="resetMobile=!resetMobile">{{"修改"}}</p>
+          <!-- <div class="check-ok"></div> -->
         </div>
         <!-- <p class="activity col-xs-3 col-xs-offset-1" ng-show="mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">修改</p> -->
       </div>
     </div>
   </div>
+
+  <div class="change-area" ng-show="resetMobile" ng-init="resetMobile=false">
+    <form class="real-name row" name="resetMobileForm">
+      <div class="col-xs-9 col-xs-offset-2">
+        <div class="safe-form-group row">
+          <label class="col-xs-3">手机号码：</label>
+          <input type="text" class="verify-input col-xs-3" id="mobileNum" name="mobileNum" ng-model="mobileNum" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobileNum" ng-focus required autofocus/>
+          <div ng-show="resetMobileForm.mobileNum.$dirty && resetMobileForm.mobileNum.$invalid && !resetMobileForm.mobileNum.$focused" class="col-xs-2">
+            <div class="user-tips-area row" ng-show="resetMobileForm.mobileNum.$error.required &&
+                    !resetMobileForm.mobileNum.$focused">
+              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
+            </div>
+            <div class="user-tips-area row" ng-show="resetMobileForm.mobileNum.$error.pattern &&
+                      !resetMobileForm.mobileNum.$focused">
+              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>格式错误</p>
+            </div>
+            <div class="user-tips-area row" ng-show="resetMobileForm.mobileNum.$error.unique">
+              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>已被占用</p>
+            </div>
+          </div>
+        </div>
+        <div class="safe-form-group row">
+          <label class="col-md-3 col-lg-3"></label>
+          <input type="submit" value="确定" class="btn-primary-orange col-md-2 col-lg-2" ng-click="resetMobilenum(mobileNum);" ng-disabled="resetMobileForm.$invalid"/>
+        </div>
+      </div>
+    </form>
+  </div>
+
   <div class="change-area change-phone-height" ng-show="changeMobile" ng-init="changeMobile=false">
     <form class="real-name row" name="changeMobileForm">
       <div class="col-xs-9 col-xs-offset-2">
