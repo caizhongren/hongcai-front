@@ -117,7 +117,7 @@
         </div>
         <div class="safe-form-group row">
           <label class="col-md-3 col-lg-3"></label>
-          <input type="submit" value="确定" class="btn-primary-orange col-md-2 col-lg-2" ng-click="resetMobilenum(mobileNum);" />
+          <input type="submit" value="确定" class="btn-primary-orange col-md-2 col-lg-2" ng-click="resetMobilenum(mobileNum);" ng-disabled="resetMobileForm.$invalid"/>
         </div>
       </div>
     </form>
