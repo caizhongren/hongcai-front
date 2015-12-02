@@ -150,7 +150,7 @@ angular.module('hongcaiApp')
       getUserExperienceMoneyDetail: $resource(DEFAULT_DOMAIN + '/siteUser/getUserExperienceMoneyDetail'),
       getUserIncreaseRateCouponStatis: $resource(DEFAULT_DOMAIN + '/siteUser/getUserIncreaseRateCouponStatis'),
       getUnUsedIncreaseRateCoupons: $resource(DEFAULT_DOMAIN + '/siteUser/getUnUsedIncreaseRateCoupons'),
-      resetMobile: $resource(DEFAULT_DOMAIN + '/yeepay/resetMobile', {})
+      resetMobile: $resource(DEFAULT_DOMAIN + '/yeepay/resetMobile', {mobile:'@mobile'})
 
     };
   });
