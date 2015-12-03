@@ -35,6 +35,15 @@ angular.module('hongcaiApp')
       window.open('/#!/bankcard-transfer/0');
     };
 
+    $scope.confirmUnbindBankCard = function(){
+      $scope.msg = '11';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+    }
+    
     $scope.unbindBankCard = function() {
       UserCenterService.unbindBankCard.get({}, function(response) {
         if (response.ret === 1) {
