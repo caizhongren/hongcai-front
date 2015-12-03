@@ -97,10 +97,10 @@
 
   <div class="change-area" ng-show="resetMobile" ng-init="resetMobile=false">
     <form class="real-name row" name="resetMobileForm">
-      <div class="col-xs-9 col-xs-offset-2">
+      <div class="col-md-8 col-lg-6 col-md-offset-2 col-lg-offset-3">
         <div class="safe-form-group row">
-          <label class="col-xs-3">手机号码：</label>
-          <input type="text" class="verify-input col-xs-3" id="mobileNum" name="mobileNum" ng-model="mobileNum" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobileNum" ng-focus required autofocus/>
+          <label class="col-md-4 col-lg-4">手机号码：</label>
+          <input type="text" class="verify-input col-md-6" id="mobileNum" name="mobileNum" ng-model="mobileNum" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobileNum" ng-focus required autofocus/>
           <div ng-show="resetMobileForm.mobileNum.$dirty && resetMobileForm.mobileNum.$invalid && !resetMobileForm.mobileNum.$focused" class="col-xs-2">
             <div class="user-tips-area row" ng-show="resetMobileForm.mobileNum.$error.required &&
                     !resetMobileForm.mobileNum.$focused">
@@ -116,8 +116,8 @@
           </div>
         </div>
         <div class="safe-form-group row">
-          <label class="col-md-3 col-lg-3"></label>
-          <input type="submit" value="确定" class="btn-primary-orange col-md-2 col-lg-2" ng-click="resetMobilenum(mobileNum);" ng-disabled="resetMobileForm.$invalid"/>
+          <label class="col-md-4 col-lg-4"></label>
+          <input type="submit" value="确定" class="btn-primary-orange col-md-3 col-lg-3" ng-click="resetMobilenum(mobileNum);" ng-disabled="resetMobileForm.$invalid"/>
         </div>
       </div>
     </form>
