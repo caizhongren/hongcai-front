@@ -1,9 +1,11 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout, DateUtils) {
+  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie, FriendLinkService, $alert, $timeout, DateUtils) {
     $scope.spCountDown = -1;
+    $scope.labelsList = ['已投', '剩余'];
+    $scope.dataList = [50, 50];
+    $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
 
-  
 
     // 宏金宝列表
     $scope.hongjinbaoList = function() {
@@ -39,10 +41,10 @@ angular.module('hongcaiApp')
           $scope._timeDown = [];
           $scope.counter = 0;
 
-          $interval(function(){
+          $interval(function() {
             for (var i = $scope.hongjinbao.length - 1; i >= 0; i--) {
               $scope.hongjinbao[i].countdown -= 1000;
-              if ($scope.hongjinbao[i].countdown <= 0 && $scope.hongjinbao[i].status == 2){
+              if ($scope.hongjinbao[i].countdown <= 0 && $scope.hongjinbao[i].status == 2) {
                 $state.reload();
               }
               $scope.hongjinbao[i]._timeDown = DateUtils.toHourMinSeconds($scope.hongjinbao[i].countdown);
@@ -52,7 +54,7 @@ angular.module('hongcaiApp')
             };
           }, 1000);
 
-
+          console.log($scope.hongjinbao);
           // $scope.$on('$stateChangeStart', function() {
           //   clearInterval(interval);
           // });
@@ -67,7 +69,7 @@ angular.module('hongcaiApp')
     $scope.hongjinbaoList();
 
 
-    
+
 
     // 宏包标列表
     // ProjectService.getGiftProjectList.get(function(response) {
@@ -79,8 +81,8 @@ angular.module('hongcaiApp')
     //   }
     // });
     // 
-    
-    
+
+
     //  宏金盈列表
     MainService.getIndexFundsProductList.get(function(response) {
       if (response.ret === 1) {
@@ -94,7 +96,7 @@ angular.module('hongcaiApp')
         nextDay.setMinutes(0);
         nextDay.setSeconds(0);
         var intervalDay = 1;
-        if (response.data.period != null){
+        if (response.data.period != null) {
           intervalDay = response.data.period.frequency;
         }
 
@@ -102,9 +104,9 @@ angular.module('hongcaiApp')
         var intervalTimeInMills = nextDayTime - $scope.serverTime;
         $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds(intervalTimeInMills);
         $scope.lingcunbao.interval = intervalTimeInMills;
-        $interval(function(){
+        $interval(function() {
           $scope.lingcunbao.interval = $scope.lingcunbao.interval - 1000;
-          if ($scope.lingcunbao.interval <= 0){
+          if ($scope.lingcunbao.interval <= 0) {
             $state.reload();
           }
           $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds($scope.lingcunbao.interval);
@@ -139,13 +141,13 @@ angular.module('hongcaiApp')
             for (var i = 0; i <= $scope.trendList.length - 1; i++) {
               $scope.searchList.push($scope.trendList[i]);
             };
-            $scope.searchList = $scope.searchList.slice(0,5);
+            $scope.searchList = $scope.searchList.slice(0, 5);
           }
         });
       }
     });
 
- 
+
 
     $rootScope.selectPage = $location.path().split('/')[1];
 
@@ -179,7 +181,7 @@ angular.module('hongcaiApp')
     // });
 
     // 最近30天投资排行
-    MainService.monthInvest.get(function(response){
+    MainService.monthInvest.get(function(response) {
       $scope.monthInvestList = response.data.investAmounts;
     });
 
