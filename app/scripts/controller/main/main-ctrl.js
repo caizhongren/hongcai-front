@@ -2,10 +2,8 @@
 angular.module('hongcaiApp')
   .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie, FriendLinkService, $alert, $timeout, DateUtils) {
     $scope.spCountDown = -1;
-    $scope.labelsList = ['已投', '剩余'];
     $scope.dataList = [50, 50];
     $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
-
 
     // 宏金宝列表
     $scope.hongjinbaoList = function() {
@@ -47,14 +45,29 @@ angular.module('hongcaiApp')
               if ($scope.hongjinbao[i].countdown <= 0 && $scope.hongjinbao[i].status == 2) {
                 $state.reload();
               }
+
+
+             
+              $scope.totalMoney = [];
+              $scope.totalMoney[i] = $scope.hongjinbao[i].total;
+              // 已投金额
+              $scope.investmentMoney = [];
+              $scope.investmentMoney[i] = $scope.hongjinbao[i].soldStock * $scope.hongjinbao[i].increaseAmount;
+              // 剩余金额
+              $scope.remainingMoney = [];
+              $scope.remainingMoney[i] = $scope.totalMoney[i] - $scope.investmentMoney[i];
+              $scope.hongjinbao[i].chartData = [$scope.investmentMoney[i],$scope.remainingMoney[i]];
+  
+              $scope.labelsList = ['已投', '剩余'];
+
               $scope.hongjinbao[i]._timeDown = DateUtils.toHourMinSeconds($scope.hongjinbao[i].countdown);
               $scope.hongjinbaoHour = $scope.hongjinbao[i]._timeDown.hour;
               $scope.hongjinbaoMinute = $scope.hongjinbao[i]._timeDown.min;
               $scope.hongjinbaoSecond = $scope.hongjinbao[i]._timeDown.seconds;
             };
           }, 1000);
+console.log($scope.hongjinbao.datatempOne );
 
-          console.log($scope.hongjinbao);
           // $scope.$on('$stateChangeStart', function() {
           //   clearInterval(interval);
           // });
