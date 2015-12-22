@@ -18,8 +18,9 @@ angular.module('hongcaiApp')
       href: 'http://mp.weixin.qq.com/s?__biz=MzA5Nzg0MzA5OQ==&mid=400520084&idx=1&sn=972091ed5d1ebceb6a96a0067cbb1294#rd'
     }, {
       mimeType: 'image/jpg',
-      src: 'images/banner/banner001.jpg',
-      href: '/hongcai-trends'
+      src: 'images/banner/banner003.jpg',
+      href: '/banner-investmentplan'
+
     }, {
       mimeType: 'image/jpg',
       src: 'images/banner/banner002.jpg',
