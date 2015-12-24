@@ -1099,11 +1099,15 @@ hongcaiApp
           }
         }
       })
+
+      /*----------  帮助  -------------------*/
       .state('root.help-center.introduce', {
         url: '/introduce',
         views: {
           'help-center-right-show': {
-            templateUrl: 'views/help-center/introduce.html'
+            templateUrl: 'views/help-center/introduce.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
         }
       })
@@ -1111,7 +1115,9 @@ hongcaiApp
         url: '/investors',
         views: {
           'help-center-right-show': {
-            templateUrl: 'views/help-center/investors.html'
+            templateUrl: 'views/help-center/investors.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
         }
       })
@@ -1119,7 +1125,9 @@ hongcaiApp
         url: '/account-management',
         views: {
           'help-center-right-show': {
-            templateUrl: 'views/help-center/account-management.html'
+            templateUrl: 'views/help-center/account-management.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
         }
       })
@@ -1127,7 +1135,9 @@ hongcaiApp
         url: '/safety-certification',
         views: {
           'help-center-right-show': {
-            templateUrl: 'views/help-center/safety-certification.html'
+            templateUrl: 'views/help-center/safety-certification.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
         }
       })
@@ -1135,7 +1145,9 @@ hongcaiApp
         url: '/law-and-policy-guarantee',
         views: {
           'help-center-right-show': {
-            templateUrl: 'views/help-center/law-and-policy-guarantee.html'
+            templateUrl: 'views/help-center/law-and-policy-guarantee.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
         }
       })
@@ -1143,7 +1155,9 @@ hongcaiApp
         url: '/other-question',
         views: {
           'help-center-right-show': {
-            templateUrl: 'views/help-center/other-question.html'
+            templateUrl: 'views/help-center/other-question.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
         }
       })
@@ -1151,7 +1165,9 @@ hongcaiApp
         url: '/product',
         views: {
           'help-center-right-show': {
-            templateUrl: 'views/help-center/product.html'
+            templateUrl: 'views/help-center/product.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
         }
       })
