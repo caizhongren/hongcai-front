@@ -12,9 +12,23 @@ angular.module('hongcaiApp')
         $rootScope.pageTitle = '宏财动态' + ' - 要理财，上宏财!';
     } else if (path.indexOf('company-profile') !== -1){
         $rootScope.pageTitle = '加入宏财' + ' - 要理财，上宏财!';
-    } else if (path.indexOf('link-us') !== -1){
-        $rootScope.pageTitle = '联系我们' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('introduce') !== -1){
+        $rootScope.pageTitle = '宏财介绍' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('investors') !== -1){
+        $rootScope.pageTitle = '投资简介' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('product') !== -1){
+        $rootScope.pageTitle = '产品介绍' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('account-management') !== -1){
+        $rootScope.pageTitle = '账户管理' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('safety-certification') !== -1){
+        $rootScope.pageTitle = '安全认证' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('law-and-policy-guarantee') !== -1){
+        $rootScope.pageTitle = '法律保障' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('other-question') !== -1){
+        $rootScope.pageTitle = '其他问题' + ' - 要理财，上宏财!';
     }
+
+    
 
     
     $scope.menus = {
