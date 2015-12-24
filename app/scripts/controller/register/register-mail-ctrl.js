@@ -1,6 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('RegisterMailCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'RegisterService', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'md5', 'ipCookie', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie) {
+  .controller('RegisterMailCtrl', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie) {
+    $rootScope.pageTitle = '邮箱注册' + ' - 要理财，上宏财!';
     /**
      * 注册链接上是否有邀请码
      */
@@ -45,4 +46,4 @@ angular.module('hongcaiApp')
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
 
-  }]);
+  });

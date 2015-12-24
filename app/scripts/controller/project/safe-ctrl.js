@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SafeCtrl', ['$scope', '$state', '$rootScope', '$location', function($scope, $state, $rootScope, $location) {
-
+  .controller('SafeCtrl', function($scope, $state, $rootScope, $location) {
+	$rootScope.pageTitle = '安全保障' + ' - 要理财，上宏财!';
     $rootScope.selectPage = $location.path().split('/')[1];
 
     $scope.hsh = $location.hash();
@@ -11,4 +11,4 @@ angular.module('hongcaiApp')
       angular.element($event.target).closest('li').find('a').addClass('active');
     };
 
-  }]);
+  });

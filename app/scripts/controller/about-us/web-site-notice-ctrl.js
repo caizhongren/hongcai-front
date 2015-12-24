@@ -1,6 +1,8 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('WebSiteNoticeCtrl', ['$scope', '$state', '$location', function($scope, $state, $location) {
+  .controller('WebSiteNoticeCtrl', function($scope, $state, $location, $rootScope) {
+    $rootScope.pageTitle = '网站公告' + ' - 要理财，上宏财!';
+
     $scope.perPage = parseInt($location.search().perPage, 10) || 10;
     $scope.page = parseInt($location.search().page, 10) || 0;
     $scope.clientLimit = 250;
@@ -24,4 +26,4 @@ angular.module('hongcaiApp')
         $scope.perPage = perPage;
       }
     });
-  }]);
+  });

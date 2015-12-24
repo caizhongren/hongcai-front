@@ -1,6 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('LoginCtrl', function($scope, $location, $state, $rootScope,$http, $stateParams, ProjectService, LoginService, SessionService, ipCookie, md5, toaster, UserCenterService) {
+    $rootScope.pageTitle = '登录' + ' - 要理财，上宏财!';
 
     $scope.goCurrentDepositDetail = function(){
       $http.defaults.headers.common['range']= '0-0';
