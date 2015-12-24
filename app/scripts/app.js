@@ -1447,6 +1447,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
   ];
 
   $rootScope.$on('$stateChangeStart', function() {
+    $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
 
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     $checkSessionServer

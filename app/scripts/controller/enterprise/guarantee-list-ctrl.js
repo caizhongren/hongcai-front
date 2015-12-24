@@ -1,7 +1,8 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GuaranteeListCtrl', ['$scope', '$stateParams', '$location', 'GuaranteeService', function($scope, $stateParams, $location, GuaranteeService) {
+  .controller('GuaranteeListCtrl', function($scope, $stateParams, $location, $rootScope, GuaranteeService) {
     $scope.sortType = $stateParams.sortType || false;
+    $rootScope.pageTitle = '宏金宝 - 要理财，上宏财!';
 
     var sponsor = GuaranteeService.guaranteeList.get(function() {
       $scope.guaranteeList = sponsor.data.guaranteeList;
@@ -56,4 +57,4 @@ angular.module('hongcaiApp')
 
     });
 
-  }]);
+  });

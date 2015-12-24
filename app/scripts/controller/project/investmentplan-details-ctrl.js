@@ -2,7 +2,10 @@
 angular.module('hongcaiApp')
   .controller('InvestmentplanDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', 
     function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
-    
+    if($location.path().indexOf('current-deposit') !== -1){
+      $rootScope.pageTitle = '零存宝 - 要理财，上宏财!';
+    }
+
     // $rootScope.redirectUrl = $location.path();
 
     var number = $stateParams.number;
@@ -13,6 +16,8 @@ angular.module('hongcaiApp')
       number: $stateParams.number
     }, function(response) {
       if (response.ret === 1) {
+        $rootScope.pageTitle = response.data.fundsProduct.name + ' ' + response.data.fundsProject.name + ' - 要理财，上宏财!';
+
         // 宏金盈项目信息
         $scope.fundsProject = response.data.fundsProject;
         
