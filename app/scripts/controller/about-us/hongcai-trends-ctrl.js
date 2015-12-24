@@ -1,6 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('HongcaiTrendsCtrl', ['$scope', '$state', '$location', function($scope, $state, $location) {
+  .controller('HongcaiTrendsCtrl', function($scope, $state, $location, $rootScope) {
+    $rootScope.pageTitle = '宏财动态' + ' - 要理财，上宏财!';
 
     $scope.perPage = parseInt($location.search().perPage, 10) || 5;
     $scope.page = parseInt($location.search().page, 10) || 0;
@@ -41,4 +42,4 @@ angular.module('hongcaiApp')
     //     }
     // });
 
-  }]);
+  });

@@ -1,6 +1,22 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$location', function($scope, $state, $rootScope, $location) {
+    var path = $location.path();
+    if (path.indexOf('introduce') !== -1){
+        $rootScope.pageTitle = '宏财介绍' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('introduction-of-platform') !== -1){
+        $rootScope.pageTitle = '宏财简介' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('consultant-team') !== -1){
+        $rootScope.pageTitle = '顾问团队' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('hongcai-trends') !== -1){
+        $rootScope.pageTitle = '宏财动态' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('company-profile') !== -1){
+        $rootScope.pageTitle = '加入宏财' + ' - 要理财，上宏财!';
+    } else if (path.indexOf('link-us') !== -1){
+        $rootScope.pageTitle = '联系我们' + ' - 要理财，上宏财!';
+    }
+
+    
     $scope.menus = {
       'left': [{
         'href': '/introduce',

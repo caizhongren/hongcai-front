@@ -856,7 +856,9 @@ hongcaiApp
         url: '/introduction-of-platform',
         views: {
           'about-us-right-show': {
-            templateUrl: 'views/about-us/introduction-of-platform.html'
+            templateUrl: 'views/about-us/introduction-of-platform.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
         }
       })
@@ -1026,14 +1028,7 @@ hongcaiApp
           }
         }
       })
-      .state('root.about-us.link-us', {
-        url: '/link-us',
-        views: {
-          'about-us-right-show': {
-            templateUrl: 'views/about-us/link-us.html'
-          }
-        }
-      })
+      
       /*-------  get-pwd-back  ----------------------*/
       .state('root.get-pwd-back', {
         url: '/get-pwd-back',
@@ -1082,6 +1077,16 @@ hongcaiApp
         }
       })
       /*----------  help-center  -------------------*/
+      .state('root.about-us.link-us', {
+        url: '/link-us',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/link-us.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
       .state('root.help-center', {
         views: {
           'help-center-right': {

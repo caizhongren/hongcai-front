@@ -1,6 +1,8 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MediaReportsCtrl', ['$scope', '$state', '$location', function($scope, $state, $location) {
+  .controller('MediaReportsCtrl', function($scope, $state, $location, $rootScope) {
+    $rootScope.pageTitle = '媒体报道' + ' - 要理财，上宏财!';
+
     $scope.perPage = parseInt($location.search().perPage, 10) || 5;
     $scope.page = parseInt($location.search().page, 10) || 0;
     $scope.clientLimit = 250;
@@ -23,4 +25,4 @@ angular.module('hongcaiApp')
         $scope.perPage = perPage;
       }
     });
-  }]);
+  });
