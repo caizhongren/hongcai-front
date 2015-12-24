@@ -3,7 +3,6 @@ angular.module('hongcaiApp')
   .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout, DateUtils) {
     $scope.spCountDown = -1;
 
-  
 
     // 宏金宝列表
     $scope.hongjinbaoList = function() {
