@@ -145,7 +145,8 @@ hongcaiApp
             controller: 'LoginCtrl',
             controllerUrl: 'scripts/controller/user-center/login-ctrl'
           }
-        }
+        },
+        data: { title: '登录' }
       })
       /**
        * 平台用户的登陆入口
@@ -463,7 +464,8 @@ hongcaiApp
             controller: 'AccountOverviewCtrl',
             controllerUrl: 'scripts/controller/user-center/account-overview-ctrl'
           }
-        }
+        },
+        data: {title: '账户总览'}
       })
       .state('root.userCenter.assets-overview', {
         url: '/assets-overview',
@@ -473,7 +475,8 @@ hongcaiApp
             controller: 'AssetsOverviewCtrl',
             controllerUrl: 'scripts/controller/user-center/assets-overview-ctrl'
           }
-        }
+        },
+        data: {title: '资产总览'}
       })
       .state('root.userCenter.bankcard-management', {
         url: '/bankcard-management',
@@ -483,7 +486,8 @@ hongcaiApp
             controller: 'BankCardManagementCtrl',
             controllerUrl: 'scripts/controller/user-center/bankcard-management-ctrl'
           }
-        }
+        },
+        data: {title: '银行卡管理'}
       })
       .state('root.userCenter.security-settings', {
         url: '/security-settings',
@@ -493,7 +497,8 @@ hongcaiApp
             controller: 'SecuritySettingsCtrl',
             controllerUrl: 'scripts/controller/user-center/security-settings-ctrl'
           }
-        }
+        },
+        data: {title: '安全设置'}
       })
       .state('root.userCenter.recharge', {
         url: '/recharge',
@@ -503,7 +508,8 @@ hongcaiApp
             controller: 'RechargeCtrl',
             controllerUrl: 'scripts/controller/user-center/recharge-ctrl'
           }
-        }
+        },
+        data: {title: '充值'}
       })
       .state('root.userCenter.withdraw', {
         url: '/withdraw',
@@ -513,7 +519,8 @@ hongcaiApp
             controller: 'WithdrawCtrl',
             controllerUrl: 'scripts/controller/user-center/withdraw-ctrl'
           }
-        }
+        },
+        data: {title: '提现'}
       })
 
       // 资金流水
@@ -525,7 +532,8 @@ hongcaiApp
             controller: 'UserDealCtrl',
             controllerUrl: 'scripts/controller/user-center/user-deal-ctrl'
           }
-        }
+        },
+        data: {title: '资金流水'}
       })
       .state('root.userCenter.investment', {
         url: '/investment',
@@ -535,7 +543,8 @@ hongcaiApp
             controller: 'UserOrderCtrl',
             controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
           }
-        }
+        },
+        data: {title: '我的订单'}
       })
 
       .state('root.userCenter.gift-rebate', {
@@ -599,8 +608,95 @@ hongcaiApp
             controller: 'ReservationCtrl',
             controllerUrl: 'scripts/controller/user-center/reservation-ctrl'
           }
+        },
+        data: {title: '预约记录'}
+      })
+
+      // 体验金（个人中心）
+      .state('root.userCenter.experienceMoney', {
+        url: '/experienceMoney',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/experience-money.html',
+            controller: 'ExperienceMoneyCtrl',
+            controllerUrl: 'scripts/controller/user-center/experience-money-ctrl'
+          }
+        },
+        data: {title: '体验金'}
+      })
+
+      // 加息券（个人中心）
+      .state('root.userCenter.rate-coupon', {
+        url: '/rate-coupon',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/rate-coupon.html',
+            controller: 'IncreaseCouponCtrl',
+            controllerUrl: 'scripts/controller/user-center/increase-coupon-ctrl'
+          }
+        },
+        data: {title: '加息券'}
+      })
+
+      // 我的债权（个人中心）
+      .state('root.userCenter.credit', {
+        url: '/credit',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit.html',
+            controller: 'CreditCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+          }
+        },
+        data: {title: '我的债权'}
+      })
+
+      // 宏金宝债权详情
+      .state('root.userCenter.credit-security-details', {
+        url: '/credit-security-details/:type/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-security-details.html',
+            controller: 'CreditSecurityCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-security-details-ctrl.js'
+          }
+        },
+        data: {title: '债权详情'}
+      })
+
+      // 宏金盈债权详情
+      .state('root.userCenter.credit-profit-details', {
+        url: '/credit-profit-details/:type/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-profit-details.html',
+            controller: 'CreditProfitCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-profit-details-ctrl.js'
+          }
+        },
+        data: {title: '债权详情'}
+      })
+      .state('root.userCenter.credit-query', {
+        url: '/credit/:dateInterval/:type',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit.html',
+            controller: 'CreditCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
+          }
         }
       })
+      .state('root.userCenter.credit-create', {
+        url: '/credit-create/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/credit-create.html',
+            controller: 'CreditCreateCtrl',
+            controllerUrl: 'scripts/controller/user-center/credit-create-ctrl'
+          }
+        }
+      })
+
 
       .state('root.reservation-success', {
         url: '/reservation-success/:status',
@@ -1240,85 +1336,7 @@ hongcaiApp
         }
       })
 
-      // 体验金（个人中心）
-      .state('root.userCenter.experienceMoney', {
-        url: '/experienceMoney',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/experience-money.html',
-            controller: 'ExperienceMoneyCtrl',
-            controllerUrl: 'scripts/controller/user-center/experience-money-ctrl'
-          }
-        }
-      })
-
-      // 加息券（个人中心）
-      .state('root.userCenter.rate-coupon', {
-        url: '/rate-coupon',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/rate-coupon.html',
-            controller: 'IncreaseCouponCtrl',
-            controllerUrl: 'scripts/controller/user-center/increase-coupon-ctrl'
-          }
-        }
-      })
-
-      // 我的债权（个人中心）
-      .state('root.userCenter.credit', {
-        url: '/credit',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/credit.html',
-            controller: 'CreditCtrl',
-            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
-          }
-        }
-      })
-
-      // 宏金宝债权详情
-      .state('root.userCenter.credit-security-details', {
-        url: '/credit-security-details/:type/:number',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/credit-security-details.html',
-            controller: 'CreditSecurityCtrl',
-            controllerUrl: 'scripts/controller/user-center/credit-security-details-ctrl.js'
-          }
-        }
-      })
-
-      // 宏金盈债权详情
-      .state('root.userCenter.credit-profit-details', {
-        url: '/credit-profit-details/:type/:number',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/credit-profit-details.html',
-            controller: 'CreditProfitCtrl',
-            controllerUrl: 'scripts/controller/user-center/credit-profit-details-ctrl.js'
-          }
-        }
-      })
-      .state('root.userCenter.credit-query', {
-        url: '/credit/:dateInterval/:type',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/credit.html',
-            controller: 'CreditCtrl',
-            controllerUrl: 'scripts/controller/user-center/credit-ctrl'
-          }
-        }
-      })
-      .state('root.userCenter.credit-create', {
-        url: '/credit-create/:number',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/credit-create.html',
-            controller: 'CreditCreateCtrl',
-            controllerUrl: 'scripts/controller/user-center/credit-create-ctrl'
-          }
-        }
-      })
+      
 
       /*------------------  app help-center  -----------------------------------------------*/
       .state('app-help-center', {
@@ -1467,8 +1485,12 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     '/credit-create'
   ];
 
-  $rootScope.$on('$stateChangeStart', function() {
-    $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
+  $rootScope.$on('$stateChangeStart', function(event, toState) {
+    var title = '网贷平台，投资理财平台，投资理财项目-宏财网';
+    if(toState.data && toState.data.title){
+      title = toState.data.title + ' - 要理财，上宏财!';
+    }
+    $rootScope.pageTitle = title;
 
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     $checkSessionServer
