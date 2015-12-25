@@ -38,9 +38,11 @@
     <div class="panel">
       <div class="sidebar-personal" style="border-top:1px solid #dadada;">
         <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#qqq" class="ft-white">账户信息</a> -->
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#qqq" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">账户信息</button>
+        <button id="accountInfoB" data-toggle="collapse" data-parent="#accordion" data-target="#accountInfo" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">
+          账户信息
+        </button>
       </div>
-      <div id="qqq" class="panel-collapse collapse in" style="height:auto !important;">
+      <div id="accountInfo" class="panel-collapse collapse" style="height:auto !important;">
         <a ui-sref="root.userCenter.account-overview" class="tips-area {{selectSide == 'account-overview' ? 'bg-white' : ''}}">
           <div class="left-show-area {{selectSide == 'account-overview' ? 'hc-bg-orange' : ''}}"></div>
           <div class="ico-area message-1 fa fa-newspaper-o {{selectSide == 'account-overview' ? 'ft-orange' : ''}}"></div>
@@ -61,9 +63,9 @@
     <div class="panel">
       <div class="sidebar-personal">
         <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#www" class="ft-white">资金信息</a> -->
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#www" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">资金信息</button>
+        <button data-toggle="collapse" data-parent="#accordion" data-target="#capitalInfo" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">资金信息</button>
       </div>
-      <div id="www" class="panel-collapse collapse" style="height:auto !important;">
+      <div id="capitalInfo" class="panel-collapse collapse" style="height:auto !important;">
         <a ui-sref="root.userCenter.assets-overview" class="tips-area {{selectSide == 'assets-overview' ? 'bg-white' : ''}}">
           <div class="left-show-area {{selectSide == 'assets-overview' ? 'hc-bg-orange' : ''}}"></div>
           <div class="ico-area  message-3 fa fa-line-chart {{selectSide == 'assets-overview' ? 'ft-orange' : ''}}"></div>
@@ -89,9 +91,9 @@
     <div class="panel">
       <div class="sidebar-personal">
         <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#eee" class="ft-white">投资信息</a> -->
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#eee" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">投资信息</button>
+        <button data-toggle="collapse" data-parent="#accordion" data-target="#investInfo" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">投资信息</button>
       </div>
-      <div id="eee" class="panel-collapse collapse" style="height:auto !important;">
+      <div id="investInfo" class="panel-collapse collapse" style="height:auto !important;">
         <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'bg-white' : ''}}">
           <div class="left-show-area {{selectSide == 'credit' ? 'hc-bg-orange' : ''}}"></div>
           <div class="ico-area message-1 fa fa-gavel {{selectSide == 'credit' ? 'ft-orange' : ''}}"></div>
@@ -112,9 +114,9 @@
     <div class="panel">
       <div class="sidebar-personal">
         <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#rrr" class="ft-white">奖励信息</a> -->
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#rrr" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">奖励信息</button>
+        <button data-toggle="collapse" data-parent="#accordion" data-target="#rewardInfo" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">奖励信息</button>
       </div>
-      <div id="rrr" class="panel-collapse collapse" style="height:auto !important;">
+      <div id="rewardInfo" class="panel-collapse collapse" style="height:auto !important;">
         <a ui-sref="root.userCenter.experienceMoney" class="tips-area {{selectSide == 'experienceMoney' ? 'bg-white' : ''}}">
           <div class="left-show-area {{selectSide == 'experienceMoney' ? 'hc-bg-orange' : ''}}"></div>
           <div class="ico-area message-1 fa fa-gavel {{selectSide == 'experienceMoney' ? 'ft-orange' : ''}}"></div>
@@ -134,9 +136,9 @@
     </div>
     <div class="panel">
       <div class="sidebar-personal">
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#ttt" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">系统信息</button>
+        <button data-toggle="collapse" data-parent="#accordion" data-target="#sysInfo" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">系统信息</button>
       </div>
-      <div id="ttt" class="panel-collapse collapse" style="height:auto !important;">
+      <div id="sysInfo" class="panel-collapse collapse" style="height:auto !important;">
         <a ui-sref="root.userCenter.message({status:'0,1'})" class="tips-area {{selectSide == 'message' ? 'bg-white' : ''}}">
           <div class="left-show-area {{selectSide == 'message' ? 'hc-bg-orange' : ''}}"></div>
           <div class="ico-area message-1 fa fa-envelope {{selectSide == 'message' ? 'ft-orange' : ''}}"></div>

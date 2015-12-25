@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserCenterCtrl', ['$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
+  .controller('UserCenterCtrl', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
     $rootScope.selectPage = $location.path().split('/')[1];
     
     var timestamp = new Date();
@@ -17,8 +17,20 @@ angular.module('hongcaiApp')
       $scope.welcomeTip = '晚安~';
     }
 
+    if(['record', 'assets-overview', 'recharge', 'withdraw'].indexOf($rootScope.selectPage) !== -1){
+      // $('#accountInfo').collapse('toggle')
+      $('#capitalInfo').addClass('in');
+    } else if (['credit', 'investment', 'reservation'].indexOf($rootScope.selectPage) !== -1){
+      $('#investInfo').addClass('in');
+    } else if (['experienceMoney', 'rate-coupon', 'invite-rebate'].indexOf($rootScope.selectPage) !== -1){
+      $('#rewardInfo').addClass('in');
+    } else if (['message'].indexOf($rootScope.selectPage) !== -1){
+      $('#sysInfo').addClass('in');
+    } else {
+      $('#accountInfo').addClass('in');
+    }
     
 
     
 
-  }]);
+  });
