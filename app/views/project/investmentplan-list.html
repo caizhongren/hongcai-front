@@ -19,8 +19,8 @@
                   <thead class="bg-offWhite text-center">
                     <tr>
                       <th width="20%">计划名称</th>
-                      <th width="20%">项目规模（元）</th>
-                      <th width="15%">参加人次</th>
+                      <th width="20%">投资金额（元）</th>
+                      <!-- <th width="15%">参加人次</th> -->
                       <th width="15%">累计收益（元）</th>
                       <th width="15%">状态</th>
                     </tr>
@@ -28,9 +28,9 @@
                   <tr ng-repeat="item in list.list">
                     <td><a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" style="text-decoration:underline !important;">{{ item.fundsProject.name }}</a>
                     </td>
-                    <td>{{ item.fundsProject.total }}</td>
-                    <td>{{ item.creditCount }}</td>
-                    <td>{{ item.fundsProject.projectBackActualProfit || 0 | number:2 }}</td>
+                    <td>{{ item.fundsProject.soldStock*item.fundsProject.increaseAmount || 0 }}</td>
+                    <!-- <td>{{ item.creditCount }}</td> -->
+                    <td>{{ item.fundsProject.soldStock*item.fundsProject.increaseAmount*210/36500 || 0 | number:2 }}</td>
                     <td>{{ list.data.fundsProjectStatusMap[item.fundsProject.status] }}</td>
                   </tr>
                 </table>
@@ -40,17 +40,17 @@
                   <thead class="bg-offWhite text-center">
                     <tr>
                       <th width="20%">计划名称</th>
-                      <th width="20%">项目规模（元）</th>
-                      <th width="15%">参加人次</th>
+                      <th width="20%">投资金额（元）</th>
+                      <!-- <th width="15%">参加人次</th> -->
                       <th width="15%">累计收益（元）</th>
                       <th width="15%">状态</th>
                     </tr>
                   </thead>
                   <tr ng-repeat="item in list.list">
                     <td><a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" style="text-decoration:underline !important;">{{ item.fundsProject.name }}</a></td>
-                    <td>{{ item.fundsProject.total }}</td>
-                    <td>{{ item.creditCount }}</td>
-                    <td>{{ item.fundsProject.projectBackActualProfit || 0 | number:2 }}</td>
+                    <td>{{ item.fundsProject.soldStock*item.fundsProject.increaseAmount }}</td>
+                    <!-- <td>{{ item.creditCount }}</td> -->
+                    <td>{{ item.fundsProject.soldStock*item.fundsProject.increaseAmount*720/36500 || 0 | number:2 }}</td>
                     <td>{{ list.data.fundsProjectStatusMap[item.fundsProject.status]}}</td>
                   </tr>
                 </table>
@@ -60,17 +60,17 @@
                   <thead class="bg-offWhite text-center">
                     <tr>
                       <th width="20%">计划名称</th>
-                      <th width="20%">项目规模（元）</th>
-                      <th width="15%">参加人次</th>
+                      <th width="20%">投资金额（元）</th>
+                      <!-- <th width="15%">参加人次</th> -->
                       <th width="15%">累计收益（元）</th>
                       <th width="15%">状态</th>
                     </tr>
                   </thead>
                   <tr ng-repeat="item in list.list">
                     <td><a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" style="text-decoration:underline !important;">{{ item.fundsProject.name }}</a></td>
-                    <td>{{ item.fundsProject.total }}</td>
-                    <td>{{ item.creditCount }}</td>
-                    <td>{{ item.fundsProject.projectBackActualProfit || 0 | number:2 }}</td>
+                    <td>{{ item.fundsProject.soldStock*item.fundsProject.increaseAmount }}</td>
+                    <!-- <td>{{ item.creditCount }}</td> -->
+                    <td>{{ item.fundsProject.soldStock*item.fundsProject.increaseAmount*1800/36500 || 0 | number:2 }}</td>
                     <td>{{ list.data.fundsProjectStatusMap[item.fundsProject.status]}}</td>
                   </tr>
                 </table>
