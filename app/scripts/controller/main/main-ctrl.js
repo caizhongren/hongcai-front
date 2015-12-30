@@ -18,7 +18,8 @@ angular.module('hongcaiApp')
         maxTotalAmount: 200000000,
         sortCondition: 'release_start_time',
         sortType: false,
-        pageSize: 5
+        pageSize: 5,
+        categoryCode: "01"
       }, function(response) {
         if (response.ret === 1) {
           $scope.orderProp = 'id';
@@ -26,6 +27,8 @@ angular.module('hongcaiApp')
           $scope.pageSize = 5;
           $scope.serverTime = response.data.serverTime;
           $scope.hongjinbao = response.data.projectList;
+          $scope.projectStatusMap = response.data.projectStatusMap;
+          $scope.repaymentTypeMap = response.data.repaymentTypeMap;
           $scope.data = [];
           $scope.numberOfPages = function() {
             return Math.ceil($scope.data.length / $scope.pageSize);
@@ -46,17 +49,12 @@ angular.module('hongcaiApp')
                 $state.reload();
               }
 
-
-             
-              $scope.totalMoney = [];
-              $scope.totalMoney[i] = $scope.hongjinbao[i].total;
               // 已投金额
-              $scope.investmentMoney = [];
-              $scope.investmentMoney[i] = $scope.hongjinbao[i].soldStock * $scope.hongjinbao[i].increaseAmount;
+              $scope.investmentMoney = $scope.hongjinbao[i].soldStock * $scope.hongjinbao[i].increaseAmount;
+              
               // 剩余金额
-              $scope.remainingMoney = [];
-              $scope.remainingMoney[i] = $scope.totalMoney[i] - $scope.investmentMoney[i];
-              $scope.hongjinbao[i].chartData = [$scope.investmentMoney[i],$scope.remainingMoney[i]];
+              $scope.remainingMoney = $scope.hongjinbao[i].total - $scope.investmentMoney;
+              $scope.hongjinbao[i].chartData = [$scope.investmentMoney,$scope.remainingMoney];
   
               $scope.labelsList = ['已投', '剩余'];
 
@@ -66,8 +64,6 @@ angular.module('hongcaiApp')
               $scope.hongjinbaoSecond = $scope.hongjinbao[i]._timeDown.seconds;
             };
           }, 1000);
-console.log($scope.hongjinbao.datatempOne );
-
           // $scope.$on('$stateChangeStart', function() {
           //   clearInterval(interval);
           // });
@@ -81,8 +77,77 @@ console.log($scope.hongjinbao.datatempOne );
 
     $scope.hongjinbaoList();
 
+    // 宏金宝列表
+    $scope.jigoubaoList = function() {
+      $scope.showFlag = 1;
+      ProjectService.projectList.get({
+        status: '6,7,8,9,10,11,12',
+        minCycle: 0,
+        maxCycle: 100,
+        minEarning: 0,
+        maxEarning: 100,
+        minTotalAmount: 0,
+        maxTotalAmount: 200000000,
+        sortCondition: 'release_start_time',
+        sortType: false,
+        pageSize: 5,
+        categoryCode: "04"
+      }, function(response) {
+        if (response.ret === 1) {
+          $scope.orderProp = 'id';
+          $scope.currentPage = 0;
+          $scope.pageSize = 5;
+          $scope.serverTime = response.data.serverTime;
+          $scope.jigoubao = response.data.projectList;
+          $scope.projectStatusMap = response.data.projectStatusMap;
+          $scope.repaymentTypeMap = response.data.repaymentTypeMap;
+          $scope.data = [];
+          $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+          };
+          for (var i = 0; i < $scope.jigoubao.length; i++) {
+            $scope.jigoubao[i].countdown = new Date($scope.jigoubao[i].releaseStartTime).getTime() - $scope.serverTime;
+            $scope.jigoubao[i].showByStatus = $scope.jigoubao[i].status === 6 || $scope.jigoubao[i].status === 7 ? true : false;
+            $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
+            $scope.data.push($scope.jigoubao[i]);
+          }
+          $scope._timeDown = [];
+          $scope.counter = 0;
 
+          $interval(function() {
+            for (var i = $scope.jigoubao.length - 1; i >= 0; i--) {
+              $scope.jigoubao[i].countdown -= 1000;
+              if ($scope.jigoubao[i].countdown <= 0 && $scope.jigoubao[i].status == 2) {
+                $state.reload();
+              }
 
+              // 已投金额
+              $scope.investmentMoney = $scope.jigoubao[i].soldStock * $scope.jigoubao[i].increaseAmount;
+              
+              // 剩余金额
+              $scope.remainingMoney = $scope.jigoubao[i].total - $scope.investmentMoney;
+              $scope.jigoubao[i].chartData = [$scope.investmentMoney,$scope.remainingMoney];
+  
+              $scope.labelsList = ['已投', '剩余'];
+
+              $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
+              $scope.jigoubaoHour = $scope.jigoubao[i]._timeDown.hour;
+              $scope.jigoubaoMinute = $scope.jigoubao[i]._timeDown.min;
+              $scope.jigoubaoSecond = $scope.jigoubao[i]._timeDown.seconds;
+            };
+          }, 1000);
+          // $scope.$on('$stateChangeStart', function() {
+          //   clearInterval(interval);
+          // });
+        } else {
+          $scope.data = [];
+          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+          //console.log('ask project-list, why projectList did not load data...');
+        }
+      });
+    };
+
+    $scope.jigoubaoList();
 
     // 宏包标列表
     // ProjectService.getGiftProjectList.get(function(response) {
