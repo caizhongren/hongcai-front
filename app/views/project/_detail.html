@@ -27,18 +27,18 @@
                             <div class="col-xs-12">
                                 <div ta-bind ng-model="projectInfo.repaymentSource"></div>
                             </div>
-                            <div class="col-xs-12" ng-hide="categoryCode === '07'">
+                            <div class="col-xs-12" ng-hide="categoryCode === '015'">
                                 <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 项目评级
                             <span ng-if="projectRank.symbol !== ''" ng-class="{'a3' : projectRank.symbol==='AAA','a2' : projectRank.symbol==='AA','a1' : projectRank.symbol==='A','b3' : projectRank.symbol==='BBB','b2' : projectRank.symbol==='BB','b1' : projectRank.symbol==='B','c' : projectRank.symbol==='C'}" class="project-rate">&nbsp;</span>
                           </h4>
                             </div>
-                            <div class="col-xs-12" ng-hide="categoryCode === '07'">
+                            <div class="col-xs-12" ng-hide="categoryCode === '015'">
                                 <p>{{projectRank.description}}</p>
                             </div>
-                            <div class="col-xs-12" ng-show="categoryCode === '07'">
+                            <div class="col-xs-12" ng-show="categoryCode === '015'">
                                 <h4 class="page-header"><i class="fa fa-square ft-orange"></i>风控措施</h4>
                             </div>
-                            <div class="col-xs-12" ng-show="categoryCode === '07'">
+                            <div class="col-xs-12" ng-show="categoryCode === '015'">
                                 <div ta-bind ng-model="projectInfo.riskManagementInfo">
                                 </div </div>
                             </div>
@@ -107,7 +107,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row" ng-hide="categoryCode === '07'">
+                        <div class="row" ng-hide="categoryCode === '015'">
                             <div class="col-xs-12">
                                 <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 企业相关照片</h4>
                             </div>
@@ -146,7 +146,7 @@
                                                 <h4 class="timeline-title"><b class="ft-30">01</b>&nbsp;项目上线</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>上线时间：{{project.publishTime}}</p>
+                                                <p>上线时间：{{project.publishTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -159,8 +159,8 @@
                                                 <h4 class="timeline-title"><b class="ft-30">02</b>&nbsp;项目募集</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                <p>开始时间：{{project.releaseStartTime}}</p>
-                                                <p>结束时间：{{project.releaseEndTime}}</p>
+                                                <p>开始时间：{{project.releaseStartTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}</p>
+                                                <p>结束时间：{{project.releaseEndTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}</p>
                                             </div>
                                         </div>
                                     </li>
@@ -174,8 +174,8 @@
                                                 <h4 class="timeline-title"><b class="ft-30">03</b>&nbsp;项目放款</h4>
                                             </div>
                                             <div class="timeline-body">
-                                                放款时间：<span ng-show="realProject.loanTime > 0">{{realProject.loanTime | date : "yyyy-MM-dd HH:mm:ss"}}</span>
-                                                <span ng-show="realProject.loanTime <= 0">未放款</span>
+                                                放款时间：<span ng-show="project.loanTime > 0">{{project.loanTime | date : "yyyy-MM-dd HH:mm:ss"}}</span>
+                                                <span ng-show="project.loanTime <= 0">未放款</span>
                                             </div>
                                         </div>
                                     </li>
@@ -188,7 +188,7 @@
                                                 <h4 class="timeline-title"><b class="ft-30">04</b>&nbsp;项目还款<span class="ft-12">（{{billCount}}&nbsp;/&nbsp;{{project.cycle}}期）</span></h4>
                                             </div>
                                             <div class="timeline-body">
-                                              <p>还款时间：{{project.repaymentDate}}</p>
+                                              <p>还款时间：{{project.repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</p>
                                               <p>还款金额：{{projectInfo.projectBackTotal - (remainPrincipal + remainInterest) | number:2 }}（{{billCount}}期）</p>
                                               <p>待还金额：{{remainPrincipal + remainInterest | number:2 }}</p>
                                             </div>

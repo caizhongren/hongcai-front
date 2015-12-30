@@ -22,6 +22,7 @@ angular.module('hongcaiApp')
           }, function(response) {
             if (response.ret === 1) {
               $scope.project = response.data.project;
+              $scope.progress = ($scope.project.soldStock + $scope.project.occupancyStock) * 100/$scope.project.countInvest;
             }
           });
           $state.reload();

@@ -57,7 +57,8 @@ angular.module('hongcaiApp')
             return Math.ceil($scope.data.length / $scope.pageSize);
           };
           for (var i = 0; i < $scope.projectList.length; i++) {
-            $scope.projectList[i].countdown = (new Date($scope.projectList[i].releaseStartTime).getTime() - $scope.serverTime)/1000 + 2;
+            $scope.projectList[i].progress = ($scope.projectList[i].soldStock + $scope.projectList[i].occupancyStock) * 100/$scope.projectList[i].countInvest;
+            $scope.projectList[i].countdown = ($scope.projectList[i].releaseStartTime - $scope.serverTime)/1000 + 2;
             $scope.projectList[i].showByStatus = $scope.projectList[i].status === 6 || $scope.projectList[i].status === 7 ? true : false;
             $scope.data.push($scope.projectList[i]);
           }
