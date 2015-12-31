@@ -18,17 +18,24 @@ angular.module('hongcaiApp')
           if (response.data.project) {
             var rdp = response.data.project;
             //总融资额
+            var invType = rdp.repaymentType;
+            var multiNum = 1;
+            if(invType === 3){
+              multiNum = 3;
+            }else if(invType === 4){
+              multiNum = 6;
+            }
             var invInitDate = moment(rdp.valueDate).toString();
             var accountDay = rdp.accountDay;
             var invStartDate = moment([moment(invInitDate).year(), moment(invInitDate).month(), accountDay]).toString();
-            invStartDate = moment(invStartDate).add(1, 'month').toString();
+            invStartDate = moment(invStartDate).add(1 * multiNum, 'month').toString();
             var invEndDate = moment(rdp.repaymentDate).toString();
             var invCycle = rdp.cycle;
-            var invType = rdp.type;
             var invRate = rdp.annualEarnings / 100;
-            if (invType === 1) {
+
+            if (invType !== 2) {
               // 先息后本
-              everyMonthInterestPri(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
+              everyMonthInterestPri(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate, multiNum);
             } else if (invType === 2) {
               everyMonthInterestEq(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
               // 等额本息
@@ -64,7 +71,7 @@ angular.module('hongcaiApp')
       });
     };
 
-    var everyMonthInterestPri = function(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate) {
+    var everyMonthInterestPri = function(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate, multiNum) {
       // 每月的付费天数，付费日期，上次支付日期，该月的利息；
       $scope.listInvPond = [];
       var invDays, payDate, prevDate, invEarnings;
@@ -88,15 +95,19 @@ angular.module('hongcaiApp')
         // 原先是这样
         invCycle = invCycle - 1;
         for (var i = 0; i <= invCycle; i++) {
-          payDate = moment(invStartDate).add(i, 'month').toString();
+          payDate = moment(invStartDate).add(i * multiNum, 'month').toString();
           if (moment(payDate) > moment(invEndDate)) {
             payDate = invEndDate;
           }
           if (i === 0) {
             invDays = moment(payDate).diff(moment(invInitDate), 'days', true) + 1;
-          } else {
+          } else if(i === invCycle){
+            payDate = invEndDate;
+            invDays = moment(invEndDate).diff(moment(prevDate), 'days', true);
+          }else{
             invDays = moment(payDate).diff(moment(prevDate), 'days', true);
           }
+
           invEarnings = invTotal * invRate * Math.round(invDays) / 365; //计算利率
           if (i === invCycle) {
             invEarnings = invEarnings + invTotal;

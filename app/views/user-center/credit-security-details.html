@@ -20,7 +20,7 @@
       <tr>
         <td>{{ order.projectName }}</td>
         <td>{{ project.annualEarnings }}%</td>
-        <td>{{ project.cycle }}个月</td>
+        <td>{{ project.cycle }}期</td>
         <td>{{ creditRight.profit | number:2 }}</td>
         <td>{{ creditRight.transferableAmount | number:2 }}</td>
         <td ng-show="creditIsShowedFLAG">{{  creditRight.transferingAmount | number:2 }}</td>
@@ -52,7 +52,10 @@
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
-                <h4 class="timeline-title border-b padding-b-15">项目放款<small class="pull-right">{{ project.loanTime | date:'yyyy-MM-dd'}}</small></h4>
+                <h4 class="timeline-title border-b padding-b-15">项目放款
+                  <small class="pull-right" ng-if="project.loanTime > 0">{{ project.loanTime | date:'yyyy-MM-dd'}}</small>
+                  <small class="pull-right" ng-if="project.loanTime <= 0">未放款</small>
+                </h4>
               </div>
               <div class="timeline-body">
                 <p><strong>{{ order.orderAmount | number: 2 }}</strong>元</p>
