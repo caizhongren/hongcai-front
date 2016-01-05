@@ -5,79 +5,7 @@ angular.module('hongcaiApp')
     $scope.dataList = [50, 50];
     $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
 
-    // 宏金宝列表
-    $scope.hongjinbaoList = function() {
-      $scope.showFlag = 1;
-      ProjectService.projectList.get({
-        status: '6,7,8,9,10,11,12',
-        minCycle: 0,
-        maxCycle: 100,
-        minEarning: 0,
-        maxEarning: 100,
-        minTotalAmount: 0,
-        maxTotalAmount: 200000000,
-        sortCondition: 'release_start_time',
-        sortType: false,
-        pageSize: 5,
-        categoryCode: "01"
-      }, function(response) {
-        if (response.ret === 1) {
-          $scope.orderProp = 'id';
-          $scope.currentPage = 0;
-          $scope.pageSize = 5;
-          $scope.serverTime = response.data.serverTime;
-          $scope.hongjinbao = response.data.projectList;
-          $scope.projectStatusMap = response.data.projectStatusMap;
-          $scope.repaymentTypeMap = response.data.repaymentTypeMap;
-          $scope.data = [];
-          $scope.numberOfPages = function() {
-            return Math.ceil($scope.data.length / $scope.pageSize);
-          };
-          for (var i = 0; i < $scope.hongjinbao.length; i++) {
-            $scope.hongjinbao[i].countdown = new Date($scope.hongjinbao[i].releaseStartTime).getTime() - $scope.serverTime;
-            $scope.hongjinbao[i].showByStatus = $scope.hongjinbao[i].status === 6 || $scope.hongjinbao[i].status === 7 ? true : false;
-            $scope.hongjinbao[i]._timeDown = DateUtils.toHourMinSeconds($scope.hongjinbao[i].countdown);
-            $scope.data.push($scope.hongjinbao[i]);
-          }
-          $scope._timeDown = [];
-          $scope.counter = 0;
-
-          $interval(function() {
-            for (var i = $scope.hongjinbao.length - 1; i >= 0; i--) {
-              $scope.hongjinbao[i].countdown -= 1000;
-              if ($scope.hongjinbao[i].countdown <= 0 && $scope.hongjinbao[i].status == 2) {
-                $state.reload();
-              }
-
-              // 已投金额
-              $scope.investmentMoney = $scope.hongjinbao[i].soldStock * $scope.hongjinbao[i].increaseAmount;
-              
-              // 剩余金额
-              $scope.remainingMoney = $scope.hongjinbao[i].total - $scope.investmentMoney;
-              $scope.hongjinbao[i].chartData = [$scope.investmentMoney,$scope.remainingMoney];
-  
-              $scope.labelsList = ['已投', '剩余'];
-
-              $scope.hongjinbao[i]._timeDown = DateUtils.toHourMinSeconds($scope.hongjinbao[i].countdown);
-              $scope.hongjinbaoHour = $scope.hongjinbao[i]._timeDown.hour;
-              $scope.hongjinbaoMinute = $scope.hongjinbao[i]._timeDown.min;
-              $scope.hongjinbaoSecond = $scope.hongjinbao[i]._timeDown.seconds;
-            };
-          }, 1000);
-          // $scope.$on('$stateChangeStart', function() {
-          //   clearInterval(interval);
-          // });
-        } else {
-          $scope.data = [];
-          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
-          //console.log('ask project-list, why projectList did not load data...');
-        }
-      });
-    };
-
-    $scope.hongjinbaoList();
-
-    // 宏金宝列表
+    // 机构保列表
     $scope.jigoubaoList = function() {
       $scope.showFlag = 1;
       ProjectService.projectList.get({
@@ -91,7 +19,7 @@ angular.module('hongcaiApp')
         sortCondition: 'release_start_time',
         sortType: false,
         pageSize: 5,
-        categoryCode: "04"
+        categoryCode: "01"
       }, function(response) {
         if (response.ret === 1) {
           $scope.orderProp = 'id';
