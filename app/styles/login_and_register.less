@@ -28,8 +28,13 @@
 
 .form-login {
   padding-top: 30px;
-  .form-group{
-    margin:30px 0;
+  .form-group {
+    margin: 20px 0;
+    button {
+      height: 46px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
   }
   .form-group1 {
     div:nth-child(1) {
@@ -37,12 +42,85 @@
       font-size: 16px;
       color: #383838;
       height: 46px;
-      line-height: 37px;
+      line-height: 46px;
       padding-left: 0;
       padding-right: 0;
-      margin-left:-40px;
       label {
         width: 50%;
+        padding: 0 10px;
+        margin-right: 10px;
+        text-align: justify !important;
+        text-justify: distribute-all-lines;
+        /*ie6-8*/
+        text-align-last: justify;
+        /* ie9*/
+        -moz-text-align-last: justify;
+        /*ff*/
+        -webkit-text-align-last: justify;
+        /*chrome 20+*/
+      }
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        /* chrome*/
+        label:after {
+          content: ".";
+          display: inline-block;
+          width: 100%;
+          overflow: hidden;
+          height: 0;
+        }
+      }
+    }
+    div:nth-child(2) {
+      border: 1px solid #cbcaca;
+      border-radius: 5px;
+      height: 46px;
+      line-height: 46px;
+      z-index: 999;
+      padding: 0 30px;
+      input {
+        width: 80%;
+        font-size: 16px;
+        border: none;
+        background-color: white;
+        margin: 0;
+        padding: 0 !important;
+        height: 44px;
+      }
+      .user-icon {
+        display: inline-block;
+        width: 16px;
+        height: 17px;
+        background-image: url(/images/user-icon.png);
+        background-size: 100% 100%;
+        float: right;
+        vertical-align: middle;
+        margin-top: 13.5px;
+      }
+      .pwd-icon {
+        display: inline-block;
+        width: 16px;
+        height: 18px;
+        background-image: url(/images/pwd-icon.png);
+        background-size: 100% 100%;
+        float: right;
+        vertical-align: middle;
+        margin-top: 13px;
+      }
+    }
+  }
+  .form-group2 {
+    div:nth-child(1) {
+      text-align: right;
+      font-size: 16px;
+      color: #383838;
+      height: 46px;
+      line-height: 46px;
+      padding-left: 0;
+      padding-right: 0;
+      label {
+        width: 66%;
+        padding: 0 10px;
+        margin-right: 20px;
         text-align: justify !important;
         text-justify: distribute-all-lines;
         /*ie6-8*/
@@ -71,32 +149,75 @@
       line-height: 46px;
       z-index: 999;
       input {
-        width: 80%;
+        font-size: 16px;
+        width: 100%;
         border: none;
         background-color: white;
         margin: 0;
         padding: 0 !important;
         height: 44px;
       }
-      .user-icon {
-        display: inline-block;
-        width: 16px;
-        height: 17px;
-        background-image: url(/images/user-icon.png);
-        background-size: 100% 100%;
-        float: right;
-        vertical-align: middle;
-        margin-top: 13.5px;
+    }
+  }
+  .form-group3 {
+    div:nth-child(1) {
+      text-align: right;
+      font-size: 16px;
+      color: #383838;
+      height: 46px;
+      line-height: 46px;
+      padding-left: 0;
+      padding-right: 0;
+      label {
+        width: 66%;
+        padding: 0 10px;
+        margin-right: 20px;
+        text-align: justify !important;
+        text-justify: distribute-all-lines;
+        /*ie6-8*/
+        text-align-last: justify;
+        /* ie9*/
+        -moz-text-align-last: justify;
+        /*ff*/
+        -webkit-text-align-last: justify;
+        /*chrome 20+*/
       }
-      .pwd-icon {
-        display: inline-block;
-        width: 16px;
-        height: 18px;
-        background-image: url(/images/pwd-icon.png);
-        background-size: 100% 100%;
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        /* chrome*/
+        label:after {
+          content: ".";
+          display: inline-block;
+          width: 100%;
+          overflow: hidden;
+          height: 0;
+        }
+      }
+    }
+    div:nth-child(2) {
+      height: 46px;
+      line-height: 46px;
+      z-index: 999;
+      padding: 0;
+      input {
+        width: 61%;
+        font-size: 16px;
+        border: none;
+        border: 1px solid #cbcaca;
+        border-radius: 5px;
+        background-color: white;
+        margin: 0;
+        padding: 0 15px !important;
+        height: 44px;
+      }
+      button {
+        width: 38%;
+        border: 1px solid #cbcaca;
+        border-radius: 5px;
+        color: #ee6400;
+        font-size: 16px;
+        height: 44px;
+        background-color: white;
         float: right;
-        vertical-align: middle;
-        margin-top: 13px;
       }
     }
   }
@@ -381,7 +502,7 @@
 }
 
 .new-hg {
-  height: 650px;
+  height: 700px;
 }
 
 .login-bgimg {
@@ -389,10 +510,15 @@
   background-size: 100% 100%;
 }
 
+.register-bgimg {
+  background-image: url(/images/register-new.jpg);
+  background-size: 100% 100%;
+}
+
 .bg-main-right {
   border-radius: 5px;
   background-color: #ffffff;
-  min-height: 550px;
+  min-height: 600px;
   margin-top: 40px;
   padding: 0;
   .btn-login {
@@ -414,4 +540,31 @@
     cursor: pointer;
     border-top-left-radius: 5px;
   }
+  .btn-register {
+    height: 72px;
+    line-height: 72px;
+    background-color: #ededed;
+    font-size: 24px;
+    color: #5b5b5b;
+    border-top-left-radius: 5px;
+    border-left: 1px solid #e2e6e7;
+    border-bottom: 1px solid #e2e6e7;
+    cursor: pointer;
+  }
+  .btn-register2 {
+    line-height: 72px;
+    height: 72px;
+    font-size: 24px;
+    color: #ff2a00;
+    cursor: pointer;
+    border-top-right-radius: 5px;
+  }
+  .bold-font {
+    color: #f3410a;
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+input:-webkit-autofill{
+  background-color: white;
 }

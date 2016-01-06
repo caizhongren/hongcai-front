@@ -1,44 +1,67 @@
 <!--login-->
-<div class="login-bgimg new-hg">
+<div class="register-bgimg new-hg">
   <div class="col-md-5 col-md-offset-6 bg-main-right">
-    <div class="col-xs-6 text-center btn-login2" ui-sref="root.login">登录</div>
-    <div class="col-xs-6 text-center btn-login" ui-sref="root.register">注册</div>
+    <div class="col-xs-6 text-center btn-register" ui-sref="root.login">登录</div>
+    <div class="col-xs-6 text-center btn-register2" ui-sref="root.register">注册</div>
     <div class="row">
       <form class="form-login col-md-12 col-lg-12" role="form" name="loginForm" ng-submit="login(user)">
-        <div class="form-group1 col-md-12 col-lg-12 margin-b-20">
+        <div class="form-group2 col-md-12 col-lg-12">
           <div class="col-md-3 col-lg-3">
-            <label for="account">用户名</label>
+            <label for="account">手机号码</label>
           </div>
           <div class="col-md-8 col-lg-8">
-            <input type="text" placeholder="请输入用户名/手机号/邮箱" id="account" name="account" ng-model="user.account" required auto-fill-sync autofocus />
-            <span class="user-icon"></span>
+            <input type="text" placeholder="请输入手机号" id="account" name="account" ng-model="user.account" required auto-fill-sync autofocus />
           </div>
         </div>
-        <div ng-if="loginForm.account.$dirty && loginForm.account.$invalid" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3">
+        <div ng-if="loginForm.account.$dirty && loginForm.account.$invalid" class="margin-t-10 col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3">
           <div ng-if="loginForm.account.$error.required" class="row">
             <i class="fa fa-times-circle-o login-check-img"></i>
             <p class="input-tips login-input-tips">账号不能为空</p>
           </div>
         </div>
-        <div class="form-group1 col-md-12 col-lg-12 margin-t-20">
+        <div class="form-group2 col-md-12 col-lg-12 margin-t-20">
           <div class="col-md-3 col-lg-3">
             <label for="account">密码</label>
           </div>
           <div class="col-md-8 col-lg-8">
             <input type="password" placeholder="请输入密码" name="password" ng-model="user.password" required auto-fill-sync autofocus />
-            <span class="pwd-icon"></span>
           </div>
         </div>
-        <div ng-if="loginForm.password.$dirty && loginForm.password.$invalid" class="margin-t-20 col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3">
+        <div ng-if="loginForm.password.$dirty && loginForm.password.$invalid" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
           <div ng-if="loginForm.password.$error.required" class="row">
             <i class="fa fa-times-circle-o login-check-img"></i>
             <p class="input-tips login-input-tips">密码不能为空</p>
           </div>
         </div>
-        <div ng-if="isPasswordError" ng-init="isPasswordError=false" class="margin-t-20 col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3">
+        <div ng-if="isPasswordError" ng-init="isPasswordError=false" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3 form-div">
           <div class="row">
             <i class="fa fa-times-circle-o login-check-img"></i>
             <p class="input-tips login-input-tips">账号或密码错误</p>
+          </div>
+        </div>
+        <div class="form-group2 col-md-12 col-lg-12 margin-t-20">
+          <div class="col-md-3 col-lg-3">
+            <label for="account">验证码</label>
+          </div>
+          <div class="col-md-8 col-lg-8">
+            <input type="text" placeholder="请输入图片验证码" id="imgCaptcha" name="imgCaptcha" ng-model="user.imgCaptcha" required auto-fill-sync autofocus />
+          </div>
+        </div>
+        <div class="form-group3 col-md-12 col-lg-12 margin-t-20">
+          <div class="col-md-3 col-lg-3">
+            <label for="account">短信验证</label>
+          </div>
+          <div class="col-md-8 col-lg-8">
+            <input type="text" placeholder="请输入短信验证码" id="captcha" name="captcha" ng-model="user.captcha" required auto-fill-sync autofocus />
+            <button>获取验证码</button>
+          </div>
+        </div>
+        <div class="form-group2 col-md-12 col-lg-12 margin-t-20">
+          <div class="col-md-3 col-lg-3">
+            <label for="account">邀请码</label>
+          </div>
+          <div class="col-md-8 col-lg-8">
+            <input type="text" placeholder="请输入邀请码（选填）" id="inviteCode" name="inviteCode" ng-model="user.inviteCode" required auto-fill-sync autofocus />
           </div>
         </div>
         <div class="form-group col-md-12 col-lg-12">
@@ -46,20 +69,15 @@
           <div class="col-md-8 col-lg-8">
             <div class="row">
               <input type="checkbox" class="p-checkbox" ng-model="rememberUserName" ng-init="rememberUserName = true" />
-              <p class="p-remember">记住用户名</p>
-              <a ui-sref="root.get-pwd-back" class="p-forget">忘记密码？</a>
+              <p class="p-remember">同意《注册协议》</p>
             </div>
           </div>
+          <br>
           <button class="col-md-8 col-lg-8 margin-t-10 col-md-offset-3 btn btn-primary-orange" type="submit" ng-disabled="loginForm.$invalid && !isPasswordError">
-            立即登录
+            立即注册
           </button>
         </div>
       </form>
-      <div class="col-md-12 col-lg-12 text-center">
-        <img src="images/erweima.jpg" width="144" height="144">
-        <br>
-        <p class="bold-font margin-t-10">扫一扫微信账号登录</p>
-      </div>
     </div>
   </div>
 </div>
