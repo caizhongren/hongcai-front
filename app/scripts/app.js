@@ -171,9 +171,23 @@ hongcaiApp
         views:{
           '':{
             templateUrl:'views/register/register-new.html',
+            controller: 'RegisterMobileCtrl',
+            controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
           }
         }
       })
+      .state('root.register-bind',{
+        url: '/register-bind',
+        views:{
+          '':{
+            templateUrl:'views/register/register-bind.html',
+            // controller: 'SecuritySettingsCtrl',
+            // controllerUrl: 'scripts/controller/user-center/security-settings-ctrl'
+          }
+        }
+      })
+
+
       .state('root.registerMobile', {
         url: '/register-mobile/:inviteCode',
         views: {
