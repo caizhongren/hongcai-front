@@ -181,8 +181,8 @@ hongcaiApp
         views:{
           '':{
             templateUrl:'views/register/register-bind.html',
-            // controller: 'SecuritySettingsCtrl',
-            // controllerUrl: 'scripts/controller/user-center/security-settings-ctrl'
+            controller: 'SecuritySettingsCtrl',
+            controllerUrl: 'scripts/controller/user-center/security-settings-ctrl'
           }
         }
       })
