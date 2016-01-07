@@ -72,7 +72,7 @@
     </div>
   </div>
   <div ng-if="isLogged !== true">
-    <a ui-sref="root.registerMobile" class="banner-red-button" style="padding-bottom: 30px;">立即注册</a>
+    <a ui-sref="root.register" class="banner-red-button" style="padding-bottom: 30px;">立即注册</a>
   </div>
   <div ng-if="isLogged === true">
     <a ui-sref="root.project-list-query({status: '6,7,8,9,10,11,12', minCycle: 0, maxCycle: 100, minEarning: 0, maxEarning: 100, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:'release_start_time', sortType: false })" class="banner-red-button" style="padding-bottom: 30px;">查看理财项目</a>
