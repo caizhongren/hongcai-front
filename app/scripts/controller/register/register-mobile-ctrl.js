@@ -18,7 +18,6 @@ angular.module('hongcaiApp')
 
     $scope.submitRegisterMobile = function(user) {
       RegisterService.saveRegister.save({
-        name: user.name,
         type: 0,
         picCaptcha: user.picCaptcha,
         account: user.mobile,
@@ -29,12 +28,13 @@ angular.module('hongcaiApp')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);
-          $state.go('root.register-mobile-success');
+          // $state.go('root.register-mobile-success');
+          $state.go('root.register-bind');
           // $rootScope.loginName = response.data.user.name;
           // $rootScope.isLogged = true;
         } else {
           toaster.pop('warning', '提示', response.msg);
-          $state.go('root.registerMobile');
+          $state.go('root.register');
         }
       });
     };
@@ -63,10 +63,14 @@ angular.module('hongcaiApp')
       });
     };
 
+
+
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?';
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
+
+
 
     // 处理推广流量统计
     var from = $stateParams.from;

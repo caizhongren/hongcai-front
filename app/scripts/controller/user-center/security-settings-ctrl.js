@@ -162,9 +162,9 @@ angular.module('hongcaiApp')
     }*/
 
     $scope.checkEmailAndMobile = function() {
-      if (!$scope.email || !$scope.mobile) {
+      if (!$scope.mobile) {
         $scope.openTrusteeshipAccount = false;
-        $scope.msg = '请先绑定邮箱和手机号码';
+        $scope.msg = '请先绑定手机号码';
         $alert({
           scope: $scope,
           template: 'views/modal/alert-dialog.html',
