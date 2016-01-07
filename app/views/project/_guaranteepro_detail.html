@@ -3,7 +3,7 @@
     <h5 class="text-nowrap"><i class="fa fa-shield fa-color-red"></i>&nbsp;{{ item.name }}</h5>
   </div>
   <div class="panel-body">
-    <div class="row" ng-hide="item.categoryCode === '012' || item.categoryCode === '013' || item.categoryCode === '014' || item.categoryCode === '015'">
+    <div class="row" ng-hide="item.categoryCode === '0112' || item.categoryCode === '0113' || item.categoryCode === '0114' || item.categoryCode === '0115'">
       <div class="col-xs-9" style="padding-right:0px" >
         <a ui-sref="root.project-sponsorInstitution({guaranteeId: item.guaranteeId})"><img src="{{baseFileUrl + item.guaranteeUrl}}" width="15" height="15" alt="logo">
           <span>{{item.guaranteeName | limitTo: 10}}</span>
@@ -19,7 +19,7 @@
         <img class="status_flag" src="images/project/status_11.png" ng-show="item.status === 11">
       </div>
     </div>
-    <div class="row" ng-show="item.categoryCode === '012' || item.categoryCode === '013' || item.categoryCode === '014' || item.categoryCode === '015'">
+    <div class="row" ng-show="item.categoryCode === '0112' || item.categoryCode === '0113' || item.categoryCode === '0114' || item.categoryCode === '0115'">
       <div class="col-xs-9" style="padding-right:0px"></div>
       <!-- 为了编译，迫不得已用这么low的写法 -->
       <div class="col-xs-5" style="float:right;margin-top:-22px;">

@@ -31,7 +31,7 @@
           <div class="col-xs-5">
             <a ui-sref="root.project-details({number: projectVo.number})" title="{{projectVo.name}}">
               <h3 class="text-nowrap margin-t-0">{{ projectVo.name | limitTo: 16 }}
-                <img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="projectVo.categoryCode === '04'">
+                <img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="projectVo.categoryCode === '0112'">
                 <!-- <span class="real-type-date">20150101期</span> -->
               </h3>
             </a>
@@ -47,7 +47,7 @@
         </div>
         <div class="row padding-t-20">
           <div class="col-xs-12 col-md-12 col-lg-8">
-            <div class="row" ng-hide="projectVo.categoryCode === '04' || projectVo.categoryCode === '05' || projectVo.categoryCode === '06' || projectVo.categoryCode === '07'">
+            <div class="row" ng-hide="projectVo.categoryCode === '0112' || projectVo.categoryCode === '0113' || projectVo.categoryCode === '0114' || projectVo.categoryCode === '0115'">
               <p><a ui-sref="root.project-sponsorInstitution({guaranteeId: projectVo.guaranteeId})"><img src="{{baseFileUrl + projectVo.guaranteeUrl}}" width="15" height="15" alt="logo">
               <span>{{projectVo.guaranteeName}}</span></a>
               </p>
