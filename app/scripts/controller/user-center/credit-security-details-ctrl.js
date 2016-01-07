@@ -108,11 +108,13 @@ angular.module('hongcaiApp')
             invDays = moment(payDate).diff(moment(prevDate), 'days', true);
           }
 
-          invEarnings = invTotal * invRate * Math.round(invDays) / 365; //计算利率
+          invEarnings = invTotal * invRate * parseInt(invDays) / 365; //计算利率
           if (i === invCycle) {
             invEarnings = invEarnings + invTotal;
           }
+
           prevDate = payDate;
+
           invList = {
             'payDate': moment(payDate).format('YYYY-MM-DD'),
             'invEarnings': invEarnings,
@@ -141,7 +143,7 @@ angular.module('hongcaiApp')
           if (payDiffDate > 0) {
             payDate = invEndDate;
             invDays = moment(payDate).diff(moment(prevDate), 'days', true);
-            invEarnings = invTotal + invTotal * invRate * Math.round(invDays) / 365;
+            invEarnings = invTotal + invTotal * invRate * parseInt(invDays) / 365;
             invList = {
               'payDate': moment(payDate).format('YYYY-MM-DD'),
               'invEarnings': invEarnings,
