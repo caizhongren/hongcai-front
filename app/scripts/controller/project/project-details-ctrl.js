@@ -289,35 +289,21 @@ angular.module('hongcaiApp')
         });
       } else {
         // 非预约项目投资
-        ProjectService.isAvailableInvest.get({
-          amount: project.amount,
-          projectId: project.id
-        }, function(response) {
-          if (response.ret === 1) {
-            if (response.data.flag) {
-              if (response.data.isBalance) {
-                $state.go('root.invest-verify', {
-                  projectId: response.data.projectId,
-                  amount: response.data.amount
-                });
-              } else {
-                $state.go('root.invest-verify', {
-                  projectId: response.data.projectId,
-                  amount: response.data.amount
-                });
-              }
-            } else {
-              $state.go('root.userCenter.account-overview');
-            }
-          } else {
-            $scope.msg = response.msg;
-            $alert({
-              scope: $scope,
-              template: 'views/modal/alert-dialog.html',
-              show: true
-            });
-          }
+
+        $state.go('root.invest-verify', {
+          projectId: project.id,
+          amount: project.amount
         });
+
+        if(!$rootScope.account || $rootScope.account.balance < project.amount){
+          $scope.msg = '账户余额不足';
+          $alert({
+            scope: $scope,
+            template: 'views/modal/alert-dialog.html',
+            show: true
+          });
+        }
+
       }
 
 
