@@ -8,7 +8,8 @@ angular.module('hongcaiApp')
 
     $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
     $scope.chartOptions = {
-      lineWidth:100
+      lineWidth:100,
+      percentageInnerCutout:70
     };
     // 机构保列表
     $scope.jigoubaoList = function() {
