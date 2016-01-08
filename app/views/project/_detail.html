@@ -27,18 +27,18 @@
                             <div class="col-xs-12">
                                 <div ta-bind ng-model="projectInfo.repaymentSource"></div>
                             </div>
-                            <div class="col-xs-12" ng-hide="categoryCode === '015'">
+                            <div class="col-xs-12" ng-hide="categoryCode === '0115'">
                                 <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 项目评级
                             <span ng-if="projectRank.symbol !== ''" ng-class="{'a3' : projectRank.symbol==='AAA','a2' : projectRank.symbol==='AA','a1' : projectRank.symbol==='A','b3' : projectRank.symbol==='BBB','b2' : projectRank.symbol==='BB','b1' : projectRank.symbol==='B','c' : projectRank.symbol==='C'}" class="project-rate">&nbsp;</span>
                           </h4>
                             </div>
-                            <div class="col-xs-12" ng-hide="categoryCode === '015'">
+                            <div class="col-xs-12" ng-hide="categoryCode === '0115'">
                                 <p>{{projectRank.description}}</p>
                             </div>
-                            <div class="col-xs-12" ng-show="categoryCode === '015'">
+                            <div class="col-xs-12" ng-show="categoryCode === '0115'">
                                 <h4 class="page-header"><i class="fa fa-square ft-orange"></i>风控措施</h4>
                             </div>
-                            <div class="col-xs-12" ng-show="categoryCode === '015'">
+                            <div class="col-xs-12" ng-show="categoryCode === '0115'">
                                 <div ta-bind ng-model="projectInfo.riskManagementInfo">
                                 </div </div>
                             </div>
@@ -107,7 +107,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row" ng-hide="categoryCode === '015'">
+                        <div class="row" ng-hide="categoryCode === '0115'">
                             <div class="col-xs-12">
                                 <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 企业相关照片</h4>
                             </div>
