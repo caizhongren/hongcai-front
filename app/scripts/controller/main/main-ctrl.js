@@ -6,12 +6,10 @@ angular.module('hongcaiApp')
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
 
 
-//     // 宏金宝列表
-//     $scope.hongjinbaoList = function() {
-// =======
-//     $scope.dataList = [50, 50];
-//     $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
-
+    $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
+    $scope.chartOptions = {
+      lineWidth:100
+    };
     // 机构保列表
     $scope.jigoubaoList = function() {
 
@@ -59,11 +57,11 @@ angular.module('hongcaiApp')
 
               // 已投金额
               $scope.investmentMoney = $scope.jigoubao[i].soldStock * $scope.jigoubao[i].increaseAmount;
-              
+
               // 剩余金额
               $scope.remainingMoney = $scope.jigoubao[i].total - $scope.investmentMoney;
-              $scope.jigoubao[i].chartData = [$scope.investmentMoney,$scope.remainingMoney];
-  
+              $scope.jigoubao[i].chartData = [$scope.investmentMoney, $scope.remainingMoney];
+
               $scope.labelsList = ['已投', '剩余'];
 
               $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
@@ -210,4 +208,22 @@ angular.module('hongcaiApp')
       from: from
     });
 
-  });
+  })
+.config(['ChartJsProvider', function (ChartJsProvider) {
+    // Configure all charts
+    ChartJsProvider.setOptions({
+      // colours: ['#FF5252', '#FF8A80'],
+      responsive: false,
+      scaleFontSize: 8,
+      tooltipXOffset: 10,
+      segmentStrokeWidth : 1,
+      scaleLineWidth:1,
+      datasetStrokeWidth: 1,
+      barStrokeWidth: 1,
+    });
+    // Configure all line charts
+    ChartJsProvider.setOptions('Line', {
+      datasetFill: false,
+      datasetStrokeWidth: 1,
+    });
+  }]);
