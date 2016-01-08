@@ -16,7 +16,7 @@ angular.module('hongcaiApp')
           $rootScope.pageTitle = projectDetails.data.project.name + ' - 要理财，上宏财!';
 
           $scope.project = projectDetails.data.project;
-          $scope.realProject = projectDetails.data.realProject;
+          $scope.repaymentTypeMap = projectDetails.data.repaymentTypeMap;
           $scope.countdown = projectDetails.data.countDownTime;
           $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
 
@@ -34,8 +34,8 @@ angular.module('hongcaiApp')
           });
           
 
-          $scope.categoryCode = $scope.project.categoryCode;
-          if ($scope.categoryCode === '04' || $scope.categoryCode === '05' || $scope.categoryCode === '06') {
+          $scope.categoryCode = projectDetails.data.category.code;
+          if ($scope.categoryCode === '0112' || $scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
             $scope.tabs = [{
               title: '项目信息',
             }, {
@@ -43,7 +43,7 @@ angular.module('hongcaiApp')
             }, {
               title: '相关文件',
             }];
-          } else if ($scope.categoryCode === '07') {
+          } else if ($scope.categoryCode === '0115') {
             $scope.tabs = [{
               title: '项目信息',
             }, {
@@ -64,8 +64,8 @@ angular.module('hongcaiApp')
           }
 
           $scope.repaymentDate = projectDetails.data.repaymentDate;
-
-          $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额' : '可投金额';
+          $scope.progress = ($scope.project.soldStock + $scope.project.occupancyStock) * 100/$scope.project.countInvest;
+          $scope.totalType = $scope.project.status === 11 && $scope.progress < 100 ? '可预约金额' : '可投金额';
           // 项目可投金额
           $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
           // 用户可用金额
@@ -290,35 +290,21 @@ angular.module('hongcaiApp')
         });
       } else {
         // 非预约项目投资
-        ProjectService.isAvailableInvest.get({
-          amount: project.amount,
-          projectId: project.id
-        }, function(response) {
-          if (response.ret === 1) {
-            if (response.data.flag) {
-              if (response.data.isBalance) {
-                $state.go('root.invest-verify', {
-                  projectId: response.data.projectId,
-                  amount: response.data.amount
-                });
-              } else {
-                $state.go('root.invest-verify', {
-                  projectId: response.data.projectId,
-                  amount: response.data.amount
-                });
-              }
-            } else {
-              $state.go('root.userCenter.account-overview');
-            }
-          } else {
-            $scope.msg = response.msg;
-            $alert({
-              scope: $scope,
-              template: 'views/modal/alert-dialog.html',
-              show: true
-            });
-          }
+
+        $state.go('root.invest-verify', {
+          projectId: project.id,
+          amount: project.amount
         });
+
+        if(!$rootScope.account || $rootScope.account.balance < project.amount){
+          $scope.msg = '账户余额不足';
+          $alert({
+            scope: $scope,
+            template: 'views/modal/alert-dialog.html',
+            show: true
+          });
+        }
+
       }
 
 

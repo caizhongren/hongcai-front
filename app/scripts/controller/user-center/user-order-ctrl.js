@@ -71,13 +71,12 @@ angular.module('hongcaiApp')
           // console.log(getOrderByUser);
           // if($scope.haveTrusteeshipAccount) {
           $scope.orderList = getOrderByUser.data.orderProjectList;
-          $scope.orderCount = getOrderByUser.data.orderCount;
-          $scope.amount = getOrderByUser.data.amount;
           $scope.type = getOrderByUser.data.type;
           $scope.dateInterval = getOrderByUser.data.dateInterval;
           $scope.status = getOrderByUser.data.status;
           $scope.notPayOrder = getOrderByUser.data.notPayOrder;
           $scope.productsMap = getOrderByUser.data.productsMap;
+          $scope.orderStatistics = getOrderByUser.data.orderStatistics;
           
           // $scope.invFromDate = getOrderByUser.data.dateStart || 0;
           // $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
@@ -95,7 +94,6 @@ angular.module('hongcaiApp')
           // }
 
         } else {
-          $scope.showOrderStatistics = false;
           toaster.pop('warning', response.msg);
         }
       });
@@ -228,6 +226,7 @@ angular.module('hongcaiApp')
           $scope.errorDetails = 'Request failed with status: ' + status;
         });
     };
+
 
     $scope.removeWarning = function() {
       angular.element('.notPayOrder').remove();
