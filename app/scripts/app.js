@@ -883,7 +883,7 @@ hongcaiApp
       }
     })
 
-    // 宏金宝详情页
+    // 担保公司页面
     .state('root.project-sponsorInstitution', {
       url: '/project-sponsorInstitution/:guaranteeId',
       views: {
