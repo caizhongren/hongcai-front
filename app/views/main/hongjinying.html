@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="row money-area margin-t-10" ng-show="item.status === 1">
-          <p class="text-center ft-18">可投金额<strong class="ft-20">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </strong>元</p>
+          <p class="text-center ft-18">可投金额<strong class="ft-20">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}}</strong>元</p>
         </div>
         <div class="row money-area margin-t-10" ng-show="item.status !== 1">
           <p class="text-center ft-18">成功投资<strong class="ft-20">{{ (item.soldStock + item.occupancyStock) * item.increaseAmount | noFractionCurrency:"":0 || 0}}</strong>元</p>
