@@ -35,6 +35,7 @@ angular.module('hongcaiApp')
           $scope.jigoubao = response.data.projectList;
           $scope.projectStatusMap = response.data.projectStatusMap;
           $scope.repaymentTypeMap = response.data.repaymentTypeMap;
+          $scope.baseFileUrl = response.data.baseFileUrl;
           $scope.data = [];
           $scope.numberOfPages = function() {
             return Math.ceil($scope.data.length / $scope.pageSize);
