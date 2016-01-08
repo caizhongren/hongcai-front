@@ -254,6 +254,8 @@ hongcaiApp
           }
         }
       })
+
+      // 宏金盈介绍页
       .state('root.banner-investmentplan', {
         url: '/banner-investmentplan',
         views: {
