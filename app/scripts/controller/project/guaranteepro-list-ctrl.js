@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GuaranteeproListCtrl', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils) {
+  .controller('GuaranteeproListCtrl', function($scope, $interval, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils) {
     $rootScope.pageTitle = '宏金宝 - 要理财，上宏财!';
     $scope.sortType = $stateParams.sortType || false;
     $scope.showFlag = $stateParams.showFlag || 0;
@@ -59,20 +59,38 @@ angular.module('hongcaiApp')
             return Math.ceil($scope.data.length / $scope.pageSize);
           };
           for (var i = 0; i < $scope.projectList.length; i++) {
-            $scope.projectList[i].progress = ($scope.projectList[i].soldStock + $scope.projectList[i].occupancyStock) * 100/$scope.projectList[i].countInvest;
-            $scope.projectList[i].countdown = ($scope.projectList[i].releaseStartTime - $scope.serverTime)/1000 + 2;
+            $scope.projectList[i].progress = ($scope.projectList[i].soldStock + $scope.projectList[i].occupancyStock) * 100 / $scope.projectList[i].countInvest;
+            // $scope.projectList[i].countdown = ($scope.projectList[i].releaseStartTime - $scope.serverTime) / 1000 + 2;
+            $scope.projectList[i].countdown = new Date($scope.projectList[i].releaseStartTime).getTime() - $scope.serverTime;
             $scope.projectList[i].showByStatus = $scope.projectList[i].status === 6 || $scope.projectList[i].status === 7 ? true : false;
             $scope.data.push($scope.projectList[i]);
           }
-          $scope._timeDown = [];
-          $scope.counter = 0;
-          var interval = window.setInterval(function() {
-            $scope.counter++;
+
+          $interval(function() {
             for (var i = 0; i < $scope.data.length; i++) {
-              $scope._timeDown[i] = $scope.timeUntil($scope.data[i].countdown);
-            }
-            $scope.$apply();
+              $scope.data[i].countdown -= 1000;
+              if ($scope.data[i].countdown <= 0 && $scope.data[i].status == 2) {
+                $state.reload();
+              }
+
+              $scope._timeDown =  DateUtils.toHourMinSeconds($scope.data[i].countdown);
+              $scope.data[i].jigoubaoDay = $scope._timeDown.day || 0;
+              $scope.data[i].jigoubaoHour = $scope._timeDown.hour;
+              $scope.data[i].jigoubaoMinute = $scope._timeDown.min;
+              $scope.data[i].jigoubaoSecond = $scope._timeDown.seconds;
+            };
           }, 1000);
+          // $scope._timeDown = [];
+          // $scope.counter = 0;
+          // var interval = window.setInterval(function() {
+          //   $scope.counter++;
+          //   for (var i = 0; i < $scope.data.length; i++) {
+          //     $scope._timeDown[i] = $scope.timeUntil($scope.data[i].countdown);
+          //   }
+          //   $scope.$apply();
+          // }, 1000);
+
+
 
           $scope.$on('$stateChangeStart', function() {
             clearInterval(interval);
@@ -138,9 +156,9 @@ angular.module('hongcaiApp')
     $scope.getProjectList();
   })
 
-  .directive('projectPagination', function() {
-    return {
-      restrict: 'AE',
-      templateUrl: 'views/partials/_pagination.html'
-    };
-  });
+.directive('projectPagination', function() {
+  return {
+    restrict: 'AE',
+    templateUrl: 'views/partials/_pagination.html'
+  };
+});
