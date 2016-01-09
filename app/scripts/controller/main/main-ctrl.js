@@ -25,7 +25,7 @@ angular.module('hongcaiApp')
         maxTotalAmount: 200000000,
         sortCondition: 'release_start_time',
         sortType: false,
-        pageSize: 5,
+        pageSize: 3,
         categoryCode: "01"
       }, function(response) {
         if (response.ret === 1) {

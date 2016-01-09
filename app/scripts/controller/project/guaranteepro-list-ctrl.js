@@ -62,34 +62,42 @@ angular.module('hongcaiApp')
             $scope.projectList[i].progress = ($scope.projectList[i].soldStock + $scope.projectList[i].occupancyStock) * 100 / $scope.projectList[i].countInvest;
             // $scope.projectList[i].countdown = ($scope.projectList[i].releaseStartTime - $scope.serverTime) / 1000 + 2;
             $scope.projectList[i].countdown = new Date($scope.projectList[i].releaseStartTime).getTime() - $scope.serverTime;
+            $scope.projectList[i]._timeDown = DateUtils.toHourMinSeconds($scope.projectList[i].countdown);
             $scope.projectList[i].showByStatus = $scope.projectList[i].status === 6 || $scope.projectList[i].status === 7 ? true : false;
+
+            if ($scope.projectList[i].status === 6){
+              $scope.projectList[i].timeDownFun = function(item) {
+                $interval(function() {
+                    item.countdown -= 1000;
+                    if (item.countdown <= 0 && item.status == 2) {
+                      $state.reload();
+                    }
+
+                    item._timeDown =  DateUtils.toHourMinSeconds(item.countdown);
+                }, 1000);
+              }
+              $scope.projectList[i].timeDownFun($scope.projectList[i]);
+            }
+
+
             $scope.data.push($scope.projectList[i]);
+
           }
 
-          $interval(function() {
-            for (var i = 0; i < $scope.data.length; i++) {
-              $scope.data[i].countdown -= 1000;
-              if ($scope.data[i].countdown <= 0 && $scope.data[i].status == 2) {
-                $state.reload();
-              }
-
-              $scope._timeDown =  DateUtils.toHourMinSeconds($scope.data[i].countdown);
-              $scope.data[i].jigoubaoDay = $scope._timeDown.day || 0;
-              $scope.data[i].jigoubaoHour = $scope._timeDown.hour;
-              $scope.data[i].jigoubaoMinute = $scope._timeDown.min;
-              $scope.data[i].jigoubaoSecond = $scope._timeDown.seconds;
-            };
-          }, 1000);
-          // $scope._timeDown = [];
-          // $scope.counter = 0;
-          // var interval = window.setInterval(function() {
-          //   $scope.counter++;
+          // $interval(function() {
           //   for (var i = 0; i < $scope.data.length; i++) {
-          //     $scope._timeDown[i] = $scope.timeUntil($scope.data[i].countdown);
-          //   }
-          //   $scope.$apply();
-          // }, 1000);
+          //     $scope.data[i].countdown -= 1000;
+          //     if ($scope.data[i].countdown <= 0 && $scope.data[i].status == 2) {
+          //       $state.reload();
+          //     }
 
+          //     $scope._timeDown =  DateUtils.toHourMinSeconds($scope.data[i].countdown);
+          //     $scope.data[i].jigoubaoDay = $scope._timeDown.day || 0;
+          //     $scope.data[i].jigoubaoHour = $scope._timeDown.hour;
+          //     $scope.data[i].jigoubaoMinute = $scope._timeDown.min;
+          //     $scope.data[i].jigoubaoSecond = $scope._timeDown.seconds;
+          //   };
+          // }, 1000);
 
 
           $scope.$on('$stateChangeStart', function() {
@@ -137,21 +145,6 @@ angular.module('hongcaiApp')
       });
     };*/
 
-    $scope.timeUntil = function(stDate) {
-      var collectTime = {};
-      stDate = stDate - $scope.counter;
-      if (stDate === 0) {
-        $scope.getProjectList();
-        $state.reload();
-      }
-
-      var time = DateUtils.toDayHourMinSeconds(stDate);
-      collectTime.day = time.day;
-      collectTime.hour = time.hour;
-      collectTime.second = time.seconds;
-      collectTime.min = time.min;
-      return collectTime;
-    };
 
     $scope.getProjectList();
   })
