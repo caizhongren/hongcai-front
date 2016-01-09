@@ -43,6 +43,7 @@ angular.module('hongcaiApp')
           $scope.serverTime = response.data.serverTime;
           $scope.projectList = response.data.projectList;
           $scope.baseFileUrl = response.data.baseFileUrl;
+          $scope.repaymentTypeMap = response.data.repaymentTypeMap;
           $scope.status = $stateParams.status;
           $scope.minCycle = $stateParams.minCycle;
           $scope.maxCycle = $stateParams.maxCycle;

@@ -5,7 +5,7 @@
   <div class="content-right">
     <div class="list-head">
       <div class="bold-title">{{ item.name | limitTo :15}}</div>
-      <div class="title-right-tips"><i class="fa fa-exclamation-circle margin-r-5"></i>到期还本付息</div>
+      <div class="title-right-tips"><i class="fa fa-exclamation-circle margin-r-5"></i>{{repaymentTypeMap[item.repaymentType]}}</div>
       <div ng-show="item.status === 6" class="status-tip-blue fr">预发布</div>
       <div ng-show="item.status === 7" class="status-tip-orange fr">融资中</div>
       <div ng-show="item.status === 8" class="status-tip-orange fr">融资成功</div>
