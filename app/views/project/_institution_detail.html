@@ -6,12 +6,12 @@
     <div class="list-head">
       <div class="bold-title">{{ item.name | limitTo :15}}</div>
       <div class="title-right-tips"><i class="fa fa-exclamation-circle margin-r-5"></i>到期还本付息</div>
-      <div ng-show="item.status === 6" class="status-blue">预发布</div>
-      <div ng-show="item.status === 7" class="status-orange">融资中</div>
-      <div ng-show="item.status === 8" class="status-orange">融资成功</div>
-      <div ng-show="item.status === 9" class="status-green">还款中</div>
-      <div ng-show="item.status === 10" class="status-grey">还款完成</div>
-      <div ng-show="item.status === 11" class="status-blue">预约中</div>
+      <div ng-show="item.status === 6" class="status-tip-blue fr">预发布</div>
+      <div ng-show="item.status === 7" class="status-tip-orange fr">融资中</div>
+      <div ng-show="item.status === 8" class="status-tip-orange fr">融资成功</div>
+      <div ng-show="item.status === 9" class="status-tip-green fr">还款中</div>
+      <div ng-show="item.status === 10" class="status-tip-grey fr">还款完成</div>
+      <div ng-show="item.status === 11" class="status-tip-blue fr">预约中</div>
     </div>
     <div class="list-detail">
       <div class="col-md-2 text-center split-right-line">
