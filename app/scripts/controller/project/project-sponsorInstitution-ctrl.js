@@ -8,7 +8,7 @@ angular.module('hongcaiApp')
     }, function() {
       $scope.projectList = sponsorInstitution.data.projectList;
       $scope.guarantee = sponsorInstitution.data.guarantee;
-      $scope.guaranteeProjectVo = sponsorInstitution.data.guaranteeProjectVo;
+      $scope.guaranteeProjectStat = sponsorInstitution.data.guaranteeProjectStat;
       $scope.originalFile = sponsorInstitution.data.originalFile;
       $scope.thumbnailFile = sponsorInstitution.data.thumbnailFile;
       $scope.baseFileUrl = sponsorInstitution.data.baseFileUrl;
