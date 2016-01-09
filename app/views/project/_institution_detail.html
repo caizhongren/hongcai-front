@@ -16,16 +16,16 @@
     <div class="list-detail">
       <div class="col-md-2 text-center split-right-line">
         <p class="small-black"><i class="fa fa-bar-chart ft-18"></i>&nbsp;年化收益</p>
-        <p><span class="mid-orange">{{item.annualEarnings | number : 2}}</span><span class="small-orange">%</span></p>
+        <p class="margin-b-0"><span class="mid-orange">{{item.annualEarnings | number : 2}}</span><span class="small-orange">%</span></p>
       </div>
       <div class="col-md-2 text-center split-right-line">
         <p class="small-black"><i class="fa fa-clock-o ft-18"></i>&nbsp;投资期限</p>
-        <p ng-if="item.repaymentType > 2"><span class="mid-black">{{item.projectDays}}</span><span class="small-deepblack">天</span></p>
-        <p ng-if="item.repaymentType < 2"><span class="mid-black">{{item.cycle}}</span><span class="small-deepblack">个月</span></p>
+        <p class="margin-b-0" ng-if="item.repaymentType > 2"><span class="mid-black">{{item.projectDays}}</span><span class="small-deepblack">天</span></p>
+        <p class="margin-b-0" ng-if="item.repaymentType < 2"><span class="mid-black">{{item.cycle}}</span><span class="small-deepblack">个月</span></p>
       </div>
       <div class="col-md-2 text-center split-right-line">
         <p class="small-black"><i class="fa fa-jpy ft-18"></i>&nbsp;投资金额</p>
-        <p><span class="mid-black">{{item.total/10000}}</span><span class="small-deepblack">万元</span></p>
+        <p class="margin-b-0"><span class="mid-black">{{item.total/10000}}</span><span class="small-deepblack">万元</span></p>
       </div>
       <div class="col-md-3">
         <div class="margin-t-20">
@@ -37,16 +37,14 @@
         </div>
       </div>
       <div class="col-md-3">
-        <div class="margin-t-20">
-          <div class="padding-l-0 padding-r-0 ft-18" ng-show="item.progress < 100">
-            <a class="btn btn-primary-orange btn-block btn-big-height ft-18" ui-sref="root.project-details({number: item.number})" ng-show="item.status !== 6 && item.status !== 11">我要投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-            <a class="btn btn-grey-spirit2 btn-block bg-grey4 btn-big-height ft-deepgrey ft-18" ui-sref="root.project-details({number: item.number})" ng-show="item.status === 11 && item.reserveAmount === 0">查看详情&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-            <a class="btn btn-grey-spirit2 btn-block bg-grey4 btn-big-height ft-deepgrey ft-18" ui-sref="root.project-details({number: item.number})" ng-show="item.status === 6"><span ng-show="item.jigoubaoDay > 0">{{item.jigoubaoDay}}天</span>{{item.jigoubaoHour}}:{{item.jigoubaoMinute}}:{{item.jigoubaoSecond}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-            <a class="btn btn-primary-orange btn-block btn-big-height ft-18" style="margin-top: -1px;" ui-sref="root.project-details({number: item.number})" ng-show="item.status === 11 && item.reserveAmount !== 0">立即预约&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-          </div>
-          <div class="col-xs-12 padding-l-0 padding-r-0 ft-18" ng-show="item.progress >= 100">
-            <a class="btn btn-grey-spirit2 btn-block bg-grey4 ft-deepgrey btn-big-height ft-18" ui-sref="root.project-details({number: item.number})">查看详情&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-          </div>
+        <div class="padding-l-0 padding-r-0 ft-18" ng-show="item.progress < 100">
+          <a class="btn btn-primary-orange btn-block btn-big-height ft-18" ui-sref="root.project-details({number: item.number})" ng-show="item.status !== 6 && item.status !== 11">我要投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+          <a class="btn btn-grey-spirit2 btn-block bg-grey4 btn-big-height ft-deepgrey ft-18" ui-sref="root.project-details({number: item.number})" ng-show="item.status === 11 && item.reserveAmount === 0">查看详情&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+          <a class="btn btn-grey-spirit2 btn-block bg-grey4 btn-big-height ft-deepgrey ft-18" ui-sref="root.project-details({number: item.number})" ng-show="item.status === 6"><span ng-show="item.jigoubaoDay > 0">{{item.jigoubaoDay}}天</span>{{item.jigoubaoHour}}:{{item.jigoubaoMinute}}:{{item.jigoubaoSecond}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+          <a class="btn btn-primary-orange btn-block btn-big-height ft-18" style="margin-top: -1px;" ui-sref="root.project-details({number: item.number})" ng-show="item.status === 11 && item.reserveAmount !== 0">立即预约&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+        <div class="col-xs-12 padding-l-0 padding-r-0 ft-18" ng-show="item.progress >= 100">
+          <a class="btn btn-grey-spirit2 btn-block bg-grey4 ft-deepgrey btn-big-height ft-18" ui-sref="root.project-details({number: item.number})">查看详情&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
         </div>
       </div>
     </div>
