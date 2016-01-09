@@ -1,4 +1,4 @@
-<div class="col-md-12 col-lg-12" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+<div class="col-md-12 col-lg-12" ng-repeat="item in data">
   <div ng-if="!isLogged">
     <div ng-hide="item.id === 120 && item.showByStatus">
       <div ng-include src='"views/project/_institution_detail.html"'></div>
