@@ -16,8 +16,6 @@ angular.module('hongcaiApp')
     UserCenterService.getUserAccount.get(function(response) {
       if (response.ret === 1) {
         var account = response.data.account;
-
-        $scope.reward = reward;
         $scope.account = response.data.account;
 
       } else {
