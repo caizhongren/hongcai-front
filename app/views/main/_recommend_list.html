@@ -18,11 +18,11 @@
 
         <div class="col-md-12 col-lg-7">
 
-          <a ui-sref="root.project-details({number: project.number})" title="{{project.name}}"><h3 class="margin-t-0">{{project.name}}<img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="project.categoryCode === '04'"></h3></a>
+          <a ui-sref="root.project-details({number: project.number})" title="{{project.name}}"><h3 class="margin-t-0">{{project.name}}<img class="newbie_flag" src="images/project/newbie_flag.png" ng-show="project.categoryCode === '0112'"></h3></a>
 
           <div class="row margin-t-15" style="position: relative;">
             <div class="col-xs-5 text-nowrap">
-              <a class="project-icon" ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" title="{{project.guaranteeName}}" target="_blank" ng-hide="project.categoryCode === '04' || project.categoryCode === '05' || project.categoryCode === '06' || project.categoryCode === '07'">保</a>
+              <a class="project-icon" ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" title="{{project.guaranteeName}}" target="_blank" ng-hide="project.categoryCode === '0112' || project.categoryCode === '0113' || project.categoryCode === '0114' || project.categoryCode === '0115'">保</a>
               <a class="project-icon cursor-d" href="javascript:;" title="{{project.repaymentName}}">月</a>
               <a class="project-icon cursor-d" href="javascript:;" title="{{ project.statusText }}" ng-if="project.status == 6">预</a>
               <a class="project-icon cursor-d" href="javascript:;" title="预约到期：{{ project.reserveEndTime }}" ng-if="project.status == 11">约</a>

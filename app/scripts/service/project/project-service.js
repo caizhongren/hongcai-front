@@ -6,10 +6,6 @@ angular.module('hongcaiApp')
         number: '@number'
       }),
       projectList: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectList'),
-      isAvailableInvest: $resource(DEFAULT_DOMAIN + '/siteProject/isAvailableInvest', {
-        amount: '@amount',
-        projectId: '@projectId'
-      }),
       getFundsProductTypeMap: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProductTypeMap'),
       getFundsTotalStatisticalData: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsTotalStatisticalData'),
       getFundsProjectListByProductType: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProjectListByProductType', {

@@ -44,12 +44,12 @@
             <br>封闭期</div>
           <div class="col-md-1"><img src="/images/main/lingcunbao-06.png" style="margin-top:30px;"></div>
           <div class="col-md-4"><img src="/images/main/lingcunbao-05.png" style="margin-bottom:30px;">
-            <br>可投金额<strong class="ft-18">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </strong>元</div>
+            <br>可投金额<strong class="ft-18">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}}</strong>元</div>
         </div>
         <div class="row margin-t-30 text-center">
-          <div class="col-md-3"><span class="ft-80 ft-orange">{{item.fundsProduct.baseRate+item.fundsProduct.riseRate*3 | number: 1 || 0}}<span class="ft-40">%</span></div>
+          <div class="col-md-3"><span class="ft-80 ft-orange">{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}<span class="ft-40">%</span></div>
           <div class="col-md-1"></div>
-          <div class="col-md-3 ft-orange ft-40"><span class="ft-80">{{ item.fundsProduct.sealingDays || 0}}</span>天</div>
+          <div class="col-md-3 ft-orange ft-40"><span class="ft-80">{{ item.product.sealingDays || 0}}</span>天</div>
           <div class="col-md-1"></div>
           <div class="col-md-4" style="padding-top:40px;padding-left:5%;">
             <a ui-sref="root.current-deposit-details({number: item.number})" style="padding:0;font-size:18px;" class="col-xs-12 btn btn-invite-orange ft-white" role="button" ng-show="item.status === 1">立即加入<i class="fa fa-chevron-circle-right"></i></a>

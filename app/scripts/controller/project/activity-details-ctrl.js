@@ -22,6 +22,7 @@ angular.module('hongcaiApp')
           }, function(response) {
             if (response.ret === 1) {
               $scope.project = response.data.project;
+              $scope.progress = ($scope.project.soldStock + $scope.project.occupancyStock) * 100/$scope.project.countInvest;
             }
           });
           $state.reload();
@@ -79,30 +80,19 @@ angular.module('hongcaiApp')
       });
       return;
     }
-    ProjectService.isAvailableInvest.get({
-      amount: project.amount,
-      projectId: project.id
-    }, function(response) {
-      if (response.ret === 1) {
-        if (response.data.flag) {
-          if (response.data.isBalance) {
-            $state.go('root.hongbao-verify', {
-              activityId: response.data.projectId,
-              amount: response.data.amount
-            });
-          } else {
-            $state.go('root.hongbao-verify', {
-              activityId: response.data.projectId,
-              amount: response.data.amount
-            });
-          }
-        } else {
-          $state.go('root.userCenter.account-overview');
-        }
-      } else {
-        $state.go('root.login');
-      }
+    $state.go('root.invest-verify', {
+      projectId: project.id,
+      amount: project.amount
     });
+
+    if(!$rootScope.account || $rootScope.account.balance < project.amount){
+      $scope.msg = '账户余额不足';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alert-dialog.html',
+        show: true
+      });
+    }
   };
 
   $rootScope.selectPage = $location.path().split('/')[1];

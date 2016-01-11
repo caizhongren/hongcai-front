@@ -1,12 +1,19 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie,FriendLinkService, $alert, $timeout, DateUtils) {
+  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie, FriendLinkService, $alert, $timeout, DateUtils) {
     $scope.spCountDown = -1;
+
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
 
 
-    // 宏金宝列表
-    $scope.hongjinbaoList = function() {
+    $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
+    $scope.chartOptions = {
+      lineWidth:100,
+      percentageInnerCutout:75
+    };
+    // 机构保列表
+    $scope.jigoubaoList = function() {
+
       $scope.showFlag = 1;
       ProjectService.projectList.get({
         status: '6,7,8,9,10,11,12',
@@ -18,41 +25,53 @@ angular.module('hongcaiApp')
         maxTotalAmount: 200000000,
         sortCondition: 'release_start_time',
         sortType: false,
-        pageSize: 5
+        pageSize: 3,
+        categoryCode: "01"
       }, function(response) {
         if (response.ret === 1) {
           $scope.orderProp = 'id';
           $scope.currentPage = 0;
           $scope.pageSize = 5;
           $scope.serverTime = response.data.serverTime;
-          $scope.hongjinbao = response.data.projectList;
+          $scope.jigoubao = response.data.projectList;
+          $scope.projectStatusMap = response.data.projectStatusMap;
+          $scope.repaymentTypeMap = response.data.repaymentTypeMap;
+          $scope.baseFileUrl = response.data.baseFileUrl;
           $scope.data = [];
           $scope.numberOfPages = function() {
             return Math.ceil($scope.data.length / $scope.pageSize);
           };
-          for (var i = 0; i < $scope.hongjinbao.length; i++) {
-            $scope.hongjinbao[i].countdown = new Date($scope.hongjinbao[i].releaseStartTime).getTime() - $scope.serverTime;
-            $scope.hongjinbao[i].showByStatus = $scope.hongjinbao[i].status === 6 || $scope.hongjinbao[i].status === 7 ? true : false;
-            $scope.hongjinbao[i]._timeDown = DateUtils.toHourMinSeconds($scope.hongjinbao[i].countdown);
-            $scope.data.push($scope.hongjinbao[i]);
+          for (var i = 0; i < $scope.jigoubao.length; i++) {
+            $scope.jigoubao[i].countdown = new Date($scope.jigoubao[i].releaseStartTime).getTime() - $scope.serverTime;
+            $scope.jigoubao[i].showByStatus = $scope.jigoubao[i].status === 6 || $scope.jigoubao[i].status === 7 ? true : false;
+            $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
+            $scope.data.push($scope.jigoubao[i]);
           }
           $scope._timeDown = [];
           $scope.counter = 0;
 
-          $interval(function(){
-            for (var i = $scope.hongjinbao.length - 1; i >= 0; i--) {
-              $scope.hongjinbao[i].countdown -= 1000;
-              if ($scope.hongjinbao[i].countdown <= 0 && $scope.hongjinbao[i].status == 2){
+          $interval(function() {
+            for (var i = $scope.jigoubao.length - 1; i >= 0; i--) {
+              $scope.jigoubao[i].countdown -= 1000;
+              if ($scope.jigoubao[i].countdown <= 0 && $scope.jigoubao[i].status == 2) {
                 $state.reload();
               }
-              $scope.hongjinbao[i]._timeDown = DateUtils.toHourMinSeconds($scope.hongjinbao[i].countdown);
-              $scope.hongjinbaoHour = $scope.hongjinbao[i]._timeDown.hour;
-              $scope.hongjinbaoMinute = $scope.hongjinbao[i]._timeDown.min;
-              $scope.hongjinbaoSecond = $scope.hongjinbao[i]._timeDown.seconds;
+
+              // 已投金额
+              $scope.investmentMoney = $scope.jigoubao[i].soldStock * $scope.jigoubao[i].increaseAmount;
+
+              // 剩余金额
+              $scope.remainingMoney = $scope.jigoubao[i].total - $scope.investmentMoney;
+              $scope.jigoubao[i].chartData = [$scope.investmentMoney, $scope.remainingMoney];
+
+              $scope.labelsList = ['已投', '剩余'];
+
+              $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
+              $scope.jigoubaoHour = $scope.jigoubao[i]._timeDown.hour;
+              $scope.jigoubaoMinute = $scope.jigoubao[i]._timeDown.min;
+              $scope.jigoubaoSecond = $scope.jigoubao[i]._timeDown.seconds;
             };
           }, 1000);
-
-
           // $scope.$on('$stateChangeStart', function() {
           //   clearInterval(interval);
           // });
@@ -64,10 +83,7 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.hongjinbaoList();
-
-
-    
+    $scope.jigoubaoList();
 
     // 宏包标列表
     // ProjectService.getGiftProjectList.get(function(response) {
@@ -79,8 +95,8 @@ angular.module('hongcaiApp')
     //   }
     // });
     // 
-    
-    
+
+
     //  宏金盈列表
     MainService.getIndexFundsProductList.get(function(response) {
       if (response.ret === 1) {
@@ -94,7 +110,7 @@ angular.module('hongcaiApp')
         nextDay.setMinutes(0);
         nextDay.setSeconds(0);
         var intervalDay = 1;
-        if (response.data.period != null){
+        if (response.data.period != null) {
           intervalDay = response.data.period.frequency;
         }
 
@@ -102,9 +118,9 @@ angular.module('hongcaiApp')
         var intervalTimeInMills = nextDayTime - $scope.serverTime;
         $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds(intervalTimeInMills);
         $scope.lingcunbao.interval = intervalTimeInMills;
-        $interval(function(){
+        $interval(function() {
           $scope.lingcunbao.interval = $scope.lingcunbao.interval - 1000;
-          if ($scope.lingcunbao.interval <= 0){
+          if ($scope.lingcunbao.interval <= 0) {
             $state.reload();
           }
           $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds($scope.lingcunbao.interval);
@@ -139,13 +155,13 @@ angular.module('hongcaiApp')
             for (var i = 0; i <= $scope.trendList.length - 1; i++) {
               $scope.searchList.push($scope.trendList[i]);
             };
-            $scope.searchList = $scope.searchList.slice(0,5);
+            $scope.searchList = $scope.searchList.slice(0, 5);
           }
         });
       }
     });
 
- 
+
 
     $rootScope.selectPage = $location.path().split('/')[1];
 
@@ -179,7 +195,7 @@ angular.module('hongcaiApp')
     // });
 
     // 最近30天投资排行
-    MainService.monthInvest.get(function(response){
+    MainService.monthInvest.get(function(response) {
       $scope.monthInvestList = response.data.investAmounts;
     });
 
@@ -194,4 +210,22 @@ angular.module('hongcaiApp')
       from: from
     });
 
-  });
+  })
+.config(['ChartJsProvider', function (ChartJsProvider) {
+    // Configure all charts
+    ChartJsProvider.setOptions({
+      // colours: ['#FF5252', '#FF8A80'],
+      responsive: false,
+      scaleFontSize: 8,
+      tooltipXOffset: 10,
+      segmentStrokeWidth : 1,
+      scaleLineWidth:1,
+      datasetStrokeWidth: 1,
+      barStrokeWidth: 1,
+    });
+    // Configure all line charts
+    ChartJsProvider.setOptions('Line', {
+      datasetFill: false,
+      datasetStrokeWidth: 1,
+    });
+  }]);

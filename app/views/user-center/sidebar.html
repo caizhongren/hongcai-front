@@ -12,9 +12,9 @@
     </p>
     <div class="row">
       <div class="safe-pic-area">
-        <div class="safe-pic1 fa fa-credit-card pic-stl1 {{securityStatus.realNameAuthStatus == 1 ? 'user-card ft-orange' : 'user-cardno'}}"></div>
         <div class="safe-pic1 fa fa-mobile pic-stl2 {{securityStatus.mobileStatus == 1 ? 'user-card ft-orange' : 'user-cardno'}}"></div>
-        <div class="safe-pic1 fa fa-envelope-o pic-stl3 {{securityStatus.emailStatus == 1  ? 'user-card ft-orange' : 'user-cardno'}}"></div>
+        <div class="safe-pic1 fa fa-credit-card pic-stl1 {{securityStatus.realNameAuthStatus == 1 ? 'user-card ft-orange' : 'user-cardno'}}"></div>
+        <!-- <div class="safe-pic1 fa fa-envelope-o pic-stl3 {{securityStatus.emailStatus == 1  ? 'user-card ft-orange' : 'user-cardno'}}"></div> -->
       </div>
     </div>
     <div class="row" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus + securityStatus.emailStatus">

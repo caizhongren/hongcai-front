@@ -7,7 +7,7 @@
     <div class="row">
       <form class="col-xs-offset-3" name="rechargeForm">
         <div class="row">
-          <div class="form-group mgn-top">
+          <div class="h-line modal-form">
             <label class="col-xs-3">可用余额：</label>
             <span class="col-xs-3">{{ balance || "0" | number:2}}元</span>
           </div>
@@ -17,7 +17,6 @@
             <label class="col-xs-3">充值金额：</label>
             <input name="amount" type="text" class="verify-input" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required/>&nbsp;&nbsp;元
             <div class="row" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.pattern">
-
               <p class="input-tips user-input-tips col-xs-8">请输入数字(最多精确到小数点后两位)</p>
             </div>
             <div class="row" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">
@@ -27,13 +26,13 @@
         </div>
         <div class="row">
           <div class="form-group">
-            <input type="button" value="确认充值" class="white-button-orange col-xs-offset-3" ng-click="recharge(rechargeAmount);$hide()" ng-disabled="rechargeForm.$invalid" ng-class="{'white-button-orange':rechargeForm.$invalid, 'orange-button':!rechargeForm.$invalid}" />
+            <input type="button" value="确认充值" class="white-button-orange col-xs-offset-3 col-xs-4" ng-click="recharge(rechargeAmount);$hide()" ng-disabled="rechargeForm.$invalid" ng-class="{'white-button-orange':rechargeForm.$invalid, 'orange-button':!rechargeForm.$invalid}" style="box-sizing:content-box;padding: 0px 1px !important;" />
           </div>
         </div>
       </form>
     </div>
     <div class="row margin-t-30 margin-b-30 padding-l-45 padding-r-45">
-      <div class="ft-12"s>
+      <div class="ft-12">
         <h5>温馨提示:</h5>
         <ul class="padding-l-15">
           <li>1. 您的账户资金将由有银监会颁发牌照的第三方支付平台托管；</li>
