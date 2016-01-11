@@ -4,7 +4,7 @@
   </div>
   <div class="content-right">
     <div class="list-head">
-      <div class="bold-title">{{ item.name | limitTo :15}}</div>
+      <div class="bold-title cursor-pointer" ui-sref="root.project-details({number: item.number})">{{ item.name}}</div>
       <div class="title-right-tips"><i class="fa fa-exclamation-circle margin-r-5"></i>{{repaymentTypeMap[item.repaymentType]}}</div>
       <div ng-show="item.status === 6" class="status-tip-blue fr">预发布</div>
       <div ng-show="item.status === 7" class="status-tip-orange fr">融资中</div>
