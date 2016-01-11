@@ -15,20 +15,21 @@
       <div class="col-md-9 col-lg-9 ft-black" ng-repeat="item in jigoubao | limitTo: 3">
         <div class="col-xs-12 max-list-height border-b-da">
           <div ng-switch="item.status">
-            <div class="col-xs-8 margin-t-20">
+            <div class="col-xs-6 margin-t-20">
               <img src="{{baseFileUrl + item.guarantee.url}}" alt="" width="75" height="20">
               <span class="ft-18">&nbsp;{{item.name | limitTo: 15}}</span>
               <span class="ft-12 ft-grey2">{{repaymentTypeMap[item.repaymentType]}}</span>
-            </div>
-            <div class="col-xs-2 col-xs-offset-2 margin-t-20 padding-r-0">
               <div class="fr" ng-switch="item.status">
-                <span ng-switch-when="6" class="status-tip-blue">{{projectStatusMap[item.status]}}</span>
-                <span ng-switch-when="7" class="status-tip-orange">{{projectStatusMap[item.status]}}</span>
-                <span ng-switch-when="8" class="status-tip-orange">{{projectStatusMap[item.status]}}</span>
-                <span ng-switch-when="9" class="status-tip-green">{{projectStatusMap[item.status]}}</span>
-                <span ng-switch-when="10" class="status-tip-grey">{{projectStatusMap[item.status]}}</span>
-                <span ng-switch-when="11" class="status-tip-blue">{{projectStatusMap[item.status]}}</span>
+                <span ng-switch-when="6" class="arrow_box_blue status-tip-blue">{{projectStatusMap[item.status]}}</span>
+                <span ng-switch-when="7" class="arrow_box_orange status-tip-orange">{{projectStatusMap[item.status]}}</span>
+                <span ng-switch-when="8" class="arrow_box_orange status-tip-orange">{{projectStatusMap[item.status]}}</span>
+                <span ng-switch-when="9" class="arrow_box_green status-tip-green">{{projectStatusMap[item.status]}}</span>
+                <span ng-switch-when="10" class="arrow_box_grey status-tip-grey">{{projectStatusMap[item.status]}}</span>
+                <span ng-switch-when="11" class="arrow_box_blue status-tip-blue">{{projectStatusMap[item.status]}}</span>
               </div>
+            </div>
+            <div class="col-xs-2 col-xs-offset-4 margin-t-20 padding-r-0">
+              
             </div>
             <div class="col-xs-8 text-left ft-14 margin-t-30">
               <div class="row">
