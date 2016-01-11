@@ -27,8 +27,8 @@
               <p class="text-center text-nowrap gray-font">项目规模</p>
             </div>
             <div class="col-xs-12 col-sm-4 under-margin">
-              <h3 class="text-center text-nowrap" ng-if="project.projectDays > 0">{{project.projectDays || 0}}天</h3>
-              <h3 class="text-center text-nowrap" ng-if="project.projectDays <= 0">{{project.cycle || 0}}期</h3>
+              <h3 class="text-center text-nowrap" ng-if="project.repaymentType > 2">{{project.projectDays || 0}}天</h3>
+              <h3 class="text-center text-nowrap" ng-if="project.repaymentType <= 2">{{project.cycle || 0}}个月</h3>
               <p class="text-center text-nowrap gray-font">项目期限</p>
             </div>
           </div>
