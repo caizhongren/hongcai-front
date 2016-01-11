@@ -17,7 +17,7 @@
           <div ng-switch="item.status">
             <div class="col-xs-12 margin-t-20">
               <img src="{{baseFileUrl + item.guarantee.url}}" alt="" width="75" height="25" class="fl">
-              <span class="ft-18 fl h-line3">&nbsp;{{item.name}}</span>
+              <span class="ft-18 fl h-line3 cursor-pointer" ui-sref="root.project-details({number: item.number})">&nbsp;{{item.name}}</span>
               <span class="ft-12 ft-grey2 fl margin-l-10 margin-r-20 h-line4">{{repaymentTypeMap[item.repaymentType]}}</span>
               <div class="fl margin-l-20" ng-switch="item.status">
                 <span ng-switch-when="6" class="arrow_box_blue status-tip-blue">{{projectStatusMap[item.status]}}</span>
