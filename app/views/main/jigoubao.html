@@ -15,11 +15,11 @@
       <div class="col-md-9 col-lg-9 ft-black" ng-repeat="item in jigoubao | limitTo: 3">
         <div class="col-xs-12 max-list-height border-b-da">
           <div ng-switch="item.status">
-            <div class="col-xs-6 margin-t-20">
-              <img src="{{baseFileUrl + item.guarantee.url}}" alt="" width="75" height="20">
-              <span class="ft-18">&nbsp;{{item.name | limitTo: 15}}</span>
-              <span class="ft-12 ft-grey2">{{repaymentTypeMap[item.repaymentType]}}</span>
-              <div class="fr" ng-switch="item.status">
+            <div class="col-xs-8 margin-t-20">
+              <img src="{{baseFileUrl + item.guarantee.url}}" alt="" width="75" height="25" class="fl">
+              <span class="ft-18 fl h-line3">&nbsp;{{item.name | limitTo: 15}}</span>
+              <span class="ft-12 ft-grey2 fl margin-l-10 margin-r-20 h-line4">{{repaymentTypeMap[item.repaymentType]}}</span>
+              <div class="fl margin-l-20" ng-switch="item.status">
                 <span ng-switch-when="6" class="arrow_box_blue status-tip-blue">{{projectStatusMap[item.status]}}</span>
                 <span ng-switch-when="7" class="arrow_box_orange status-tip-orange">{{projectStatusMap[item.status]}}</span>
                 <span ng-switch-when="8" class="arrow_box_orange status-tip-orange">{{projectStatusMap[item.status]}}</span>
@@ -28,7 +28,7 @@
                 <span ng-switch-when="11" class="arrow_box_blue status-tip-blue">{{projectStatusMap[item.status]}}</span>
               </div>
             </div>
-            <div class="col-xs-2 col-xs-offset-4 margin-t-20 padding-r-0">
+            <div class="col-xs-2 col-xs-offset-2 margin-t-20 padding-r-0">
               
             </div>
             <div class="col-xs-8 text-left ft-14 margin-t-30">
@@ -52,7 +52,7 @@
             </div>
             <div class="col-xs-4 margin-t-20 padding-r-0">
               <div class="col-xs-3">
-                <canvas class="chart chart-doughnut position-re" chart-data="item.chartData" chart-options="chartOptions" chart-labels="labelsList" chart-colours="coloursList" style="width:150px;height:75px;margin-left:-100px;margin-top:-30px;" width="150" height="75"></canvas>
+                <canvas class="chart chart-doughnut position-re" chart-data="item.chartData" chart-options="chartOptions" chart-labels="labelsList" chart-colours="coloursList" style="width:130px;height:65px;margin-left:-100px;margin-top:-10px;" width="130" height="65"></canvas>
                 <div class="canvas-percent">{{item.soldStock * item.increaseAmount * 100 / item.total | number:1 || 0 }}%</div>
               </div>
               <div class="col-xs-9 padding-r-0 orange-special">
