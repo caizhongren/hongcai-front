@@ -15,8 +15,7 @@
           </div>
         </div>
         <div ng-if="loginForm.account.$dirty && loginForm.account.$invalid" class="col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3">
-          <div ng-if="loginForm.account.$error.required" class="row">
-            <i class="fa fa-times-circle-o login-check-img"></i>
+          <div ng-if="loginForm.account.$error.required" class="row margin-t-20">
             <p class="input-tips login-input-tips">账号不能为空</p>
           </div>
         </div>
@@ -30,14 +29,14 @@
           </div>
         </div>
         <div ng-if="loginForm.password.$dirty && loginForm.password.$invalid" class="margin-t-20 col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3">
-          <div ng-if="loginForm.password.$error.required" class="row">
-            <i class="fa fa-times-circle-o login-check-img"></i>
+          <div ng-if="loginForm.password.$error.required" class="row margin-t-20">
+<!--             <i class="fa fa-times-circle-o login-check-img"></i> -->
             <p class="input-tips login-input-tips">密码不能为空</p>
           </div>
         </div>
         <div ng-if="isPasswordError" ng-init="isPasswordError=false" class="margin-t-20 col-lg-9 col-md-9 col-md-offset-3 col-lg-offset-3">
-          <div class="row">
-            <i class="fa fa-times-circle-o login-check-img"></i>
+          <div class="row margin-t-20">
+            <!-- <i class="fa fa-times-circle-o login-check-img"></i> -->
             <p class="input-tips login-input-tips">账号或密码错误</p>
           </div>
         </div>
