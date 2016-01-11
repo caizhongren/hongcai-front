@@ -3,18 +3,20 @@
   <div class="row">
     <div class="right-title">安全设置</div>
   </div>
-  <div class="row" style="padding-bottom:5%;" ng-hide="mobile && email && haveTrusteeshipAccount">
+  <div class="row" style="padding-bottom:5%;" ng-hide="mobile && haveTrusteeshipAccount">
     <p class="ft-12 text-alg-c">
       *温馨提示*
-      <br>为了您的投资安全，请您务必完成：<span ng-class="{'hc-text-red':!mobile}">手机号码绑定</span>，<span ng-class="{'hc-text-red':!email}">邮箱绑定</span>，和<span ng-class="{'hc-text-red':!haveTrusteeshipAccount}">开通第三方托管账户</span>。
+      <br>为了您的投资安全，请您务必完成：<span ng-class="{'hc-text-red':!mobile}">手机号码绑定</span>和<span ng-class="{'hc-text-red':!haveTrusteeshipAccount}">开通第三方托管账户</span>。
     </p>
   </div>
   <div class="row">
     <div class="safe-process col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">
       <div class="row">
         <p class="process-tips red-safe-pwd col-md-3 col-lg-3">登录密码</p>
+        <p class="process-tips grey-line col-md-1 col-lg-1"></p>
         <p class="process-tips grey-safe-phone col-md-3 col-lg-3 {{ mobile != null ? 'red-safe-phone' : ''}}">手机号认证</p>
-        <p class="process-tips grey-safe-mail col-md-3 col-lg-3 {{ email != null ? 'red-safe-mail' : ''}}">邮箱绑定</p>
+        <p class="process-tips grey-line col-md-1 col-lg-1"></p>
+        <!-- <p class="process-tips grey-safe-mail col-md-3 col-lg-3 {{ email != null ? 'red-safe-mail' : ''}}">邮箱绑定</p> -->
         <p class="process-tips grey-safe-realname col-md-3 col-lg-3 {{ haveTrusteeshipAccount != false ? 'red-safe-realname' : ''}}">开通三方
           <br>托管账户</p>
       </div>
