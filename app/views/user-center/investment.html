@@ -124,7 +124,7 @@
               <button ng-click="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button>
               <a ui-sref="root.project-details({number: item.order.projectNumber})" title="{{item.order.projectName}}" ng-if="item.order.type !== 4">{{ item.order.projectName | limitTo: 15}}</a>
 
-              <a ui-sref="root.investmentplan-details({number: item.order.projectNumber})" ng-if="item.order.type === 4">{{ item.order.projectName.length > 10 ? item.order.projectName.length : (productsMap[item.fundsProject.productId].name + item.order.projectName) }}
+              <a ui-sref="root.investmentplan-details({number: item.order.projectNumber})" ng-if="item.order.type === 4">{{ item.order.projectName.length > 6 ? item.order.projectName : (productsMap[item.fundsProject.productId].name + item.order.projectName) }}
               </a>
               <br>
             </td>
