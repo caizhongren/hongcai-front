@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AccountOverviewCtrl',  function($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
+  .controller('AccountOverviewCtrl',  function($scope, $state, $rootScope, $stateParams,MainService,ProjectService, UserCenterService, toaster) {
     $rootScope.selectSide = 'account-overview';
     var totalAssets = 0;
     var receivedProfit = 0;
@@ -33,7 +33,24 @@ angular.module('hongcaiApp')
 
     });
 
-
+    
+    /*
+    **零存宝、宏金盈列表
+    */
+    MainService.getIndexFundsProductList.get(function(response) {
+    	console.log("hongjinying");
+    	console.log(response);
+    	$scope.fundsProjectProductList = response.data.fundsProjectProductList;
+    });
+    //机构宝
+    ProjectService.projectList.get({
+        status: '7',
+      }, function(response) {
+      	console.log("jigoubao");
+    	console.log(response);
+    	$scope.jigoubao = response.data.projectList;
+      });
+    
 
     // 原版获取投资统计数据
     /*OrderService.statisticsByUser.get(function(response) {

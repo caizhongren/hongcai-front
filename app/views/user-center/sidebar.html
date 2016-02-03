@@ -1,149 +1,94 @@
 <!--user-center-sidebar-->
-<style>
-.collapse .in {
-  height: auto !important;
-}
-</style>
 <div class="left-area col-lg-2 col-md-3">
-  <!-- 个人信息 -->
-  <div class="personal-information row">
-    <p class="p-user-name">{{welcomeTip}}
-      <br><strong>{{ loginName }}</strong>
-    </p>
-    <div class="row">
-      <div class="safe-pic-area">
-        <div class="safe-pic1 fa fa-mobile pic-stl2 {{securityStatus.mobileStatus == 1 ? 'user-card ft-orange' : 'user-cardno'}}"></div>
-        <div class="safe-pic1 fa fa-credit-card pic-stl1 {{securityStatus.realNameAuthStatus == 1 ? 'user-card ft-orange' : 'user-cardno'}}"></div>
-        <!-- <div class="safe-pic1 fa fa-envelope-o pic-stl3 {{securityStatus.emailStatus == 1  ? 'user-card ft-orange' : 'user-cardno'}}"></div> -->
-      </div>
+  <div class="row">
+    <div class="sidebar-personal  bg-orange ft-white">
+      <button class="ftw-b">账户信息</button>
     </div>
-    <div class="row" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus">
-      <div class="security-level low-level" ng-switch-default></div>
-      <div class="security-level high-level" ng-switch-when="2"></div>
-    </div>
-    <div class="row" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus">
-      <div class="col-md-12 col-lg-12">
-        <p class="text-center">&nbsp&nbsp安全等级：
-          <span ng-switch-default>低</span>
-          <span ng-switch-when="2">高</span>
-        </p>
-        <a ui-sref="root.userCenter.security-settings" class="a-up-level" ng-show="securityStatus.realNameAuthStatus + securityStatus.mobileStatus !== 2">【提升】</a>
-      </div>
+    <div>
+      <a ui-sref="root.userCenter.account-overview" class="tips-area {{selectSide == 'account-overview' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-newspaper-o ft-orange1"></div>
+        <p class="{{selectSide == 'account-overview' ? 'now' : ''}}" style="margin-left:36px;">账户总览</p>
+      </a>
+      <a ui-sref="root.userCenter.security-settings" class="tips-area {{selectSide == 'security-settings' ? 'bg-white' : ''}}">
+        <div class="ico-area  message-2 fa fa-shield ft-orange1"></div>
+        <p class="{{selectSide == 'security-settings' ? 'now' : ''}}" style="margin-left:36px;">安全设置</p>
+      </a>
+      <a ui-sref="root.userCenter.bankcard-management" class="tips-area {{selectSide == 'bankcard-management' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-credit-card ft-orange1" ng-class="test"></div>
+        <p class="{{selectSide == 'bankcard-management' ? 'now' : ''}}" style="margin-left:36px;">银行卡管理</p>
+      </a>
     </div>
   </div>
-  <!-- 测试bootstrap折叠菜单 -->
-  <div class="row panel-group" id="accordion">
-    <div class="panel">
-      <div class="sidebar-personal" style="border-top:1px solid #dadada;">
-        <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#qqq" class="ft-white">账户信息</a> -->
-        <button id="accountInfoB" data-toggle="collapse" data-parent="#accordion" data-target="#accountInfo" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">
-          账户信息
-        </button>
-      </div>
-      <div id="accountInfo" class="panel-collapse collapse" style="height:auto !important;">
-        <a ui-sref="root.userCenter.account-overview" class="tips-area {{selectSide == 'account-overview' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'account-overview' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area message-1 fa fa-newspaper-o {{selectSide == 'account-overview' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'account-overview' ? 'now' : ''}}" style="margin-left:36px;">账户总览</p>
-        </a>
-        <a ui-sref="root.userCenter.security-settings" class="tips-area {{selectSide == 'security-settings' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'security-settings' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area  message-2 fa fa-shield {{selectSide == 'security-settings' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'security-settings' ? 'now' : ''}}" style="margin-left:36px;">安全设置</p>
-        </a>
-        <a ui-sref="root.userCenter.bankcard-management" class="tips-area {{selectSide == 'bankcard-management' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'bankcard-management' ? 'hc-bg-orange' : ''}}" ng-mousedown="test = 'white-bankcard'"></div>
-          <div class="ico-area message-1 fa fa-credit-card {{selectSide == 'bankcard-management' ? 'ft-orange' : ''}}" ng-class="test"></div>
-          <p class="{{selectSide == 'bankcard-management' ? 'now' : ''}}" style="margin-left:36px;">银行卡管理</p>
-        </a>
-      </div>
+  <div class="row">
+    <div class="sidebar-personal  bg-orange ft-white">
+      <button class="ftw-b">资金信息</button>
     </div>
-    <div class="panel">
-      <div class="sidebar-personal">
-        <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#www" class="ft-white">资金信息</a> -->
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#capitalInfo" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">资金信息</button>
-      </div>
-      <div id="capitalInfo" class="panel-collapse collapse" style="height:auto !important;">
-        <a ui-sref="root.userCenter.assets-overview" class="tips-area {{selectSide == 'assets-overview' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'assets-overview' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area  message-3 fa fa-line-chart {{selectSide == 'assets-overview' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'assets-overview' ? 'now' : ''}}" style="margin-left:36px;">资产总览</p>
-        </a>
-        <a ui-sref="root.userCenter.recharge" class="tips-area {{selectSide == 'recharge' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'recharge' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area message-1 fa fa-plug {{selectSide == 'recharge' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'recharge' ? 'now' : ''}}" style="margin-left:36px;">充值</p>
-        </a>
-        <a ui-sref="root.userCenter.withdraw" class="tips-area {{selectSide == 'withdraw' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'withdraw' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area message-1 fa fa-money {{selectSide == 'withdraw' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'withdraw' ? 'now' : ''}}" style="margin-left:36px;">提现</p>
-        </a>
-        <a ui-sref="root.userCenter.record" class="tips-area {{selectSide == 'record' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'record' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area message-1 fa fa-edit {{selectSide == 'record' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'record' ? 'now' : ''}}" style="margin-left:36px;">资金流水</p>
-        </a>
-      </div>
-    </div>
-    <div class="panel">
-      <div class="sidebar-personal">
-        <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#eee" class="ft-white">投资信息</a> -->
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#investInfo" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">投资信息</button>
-      </div>
-      <div id="investInfo" class="panel-collapse collapse" style="height:auto !important;">
-        <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'credit' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area message-1 fa fa-gavel {{selectSide == 'credit' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'credit' ? 'now' : ''}}" style="margin-left:36px;">我的债权</p>
-        </a>
-        <a ui-sref="root.userCenter.investment({type:99})" class="tips-area {{selectSide == 'userCenter-investment' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'userCenter-investment' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area message-1 fa fa-bank {{selectSide == 'userCenter-investment' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'userCenter-investment' ? 'now' : ''}}" style="margin-left:36px;">我的订单</p>
-        </a>
-        <a ui-sref="root.userCenter.reservation" class="tips-area {{selectSide == 'reservation' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'reservation' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area message-1 fa fa-file-text {{selectSide == 'reservation' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'reservation' ? 'now' : ''}}" style="margin-left:36px;">预约记录</p>
-        </a>
-      </div>
-    </div>
-    <div class="panel">
-      <div class="sidebar-personal">
-        <!-- <a data-toggle="collapse" data-parent="#accordion" href="account-overview#rrr" class="ft-white">奖励信息</a> -->
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#rewardInfo" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">奖励信息</button>
-      </div>
-      <div id="rewardInfo" class="panel-collapse collapse" style="height:auto !important;">
-        <a ui-sref="root.userCenter.experienceMoney" class="tips-area {{selectSide == 'experienceMoney' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'experienceMoney' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area message-1 fa fa-gavel {{selectSide == 'experienceMoney' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'experienceMoney' ? 'now' : ''}}" style="margin-left:36px;">体验金</p>
-        </a>
-        <a ui-sref="root.userCenter.rate-coupon" class="tips-area {{selectSide == 'increaseCoupon' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'increaseCoupon' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area message-1 fa fa-bank {{selectSide == 'increaseCoupon' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'increaseCoupon' ? 'now' : ''}}" style="margin-left:36px;">加息券</p>
-        </a>
-        <a ui-sref="root.userCenter.invite-rebate" class="tips-area {{selectSide == 'invite-rebate' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'invite-rebate' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area message-1 fa fa-slideshare {{selectSide == 'invite-rebate' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'invite-rebate' ? 'now' : ''}}" style="margin-left:36px;">邀请中心</p>
-        </a>
-      </div>
-    </div>
-    <div class="panel">
-      <div class="sidebar-personal">
-        <button data-toggle="collapse" data-parent="#accordion" data-target="#sysInfo" class="ft-black ftw-b bg-white" style="border:none;width:100%;text-align:left;">系统信息</button>
-      </div>
-      <div id="sysInfo" class="panel-collapse collapse" style="height:auto !important;">
-        <a ui-sref="root.userCenter.message({status:'0,1'})" class="tips-area {{selectSide == 'message' ? 'bg-white' : ''}}">
-          <div class="left-show-area {{selectSide == 'message' ? 'hc-bg-orange' : ''}}"></div>
-          <div class="ico-area message-1 fa fa-envelope {{selectSide == 'message' ? 'ft-orange' : ''}}"></div>
-          <p class="{{selectSide == 'message' ? 'now' : ''}}" style="margin-left:36px;">站内消息</p>
-        </a>
-      </div>
+    <div>
+      <a ui-sref="root.userCenter.assets-overview" class="tips-area {{selectSide == 'assets-overview' ? 'bg-white' : ''}}">
+        <div class="ico-area  message-3 fa fa-line-chart ft-orange1"></div>
+        <p class="{{selectSide == 'assets-overview' ? 'now' : ''}}" style="margin-left:36px;">资产总览</p>
+      </a>
+      <a ui-sref="root.userCenter.recharge" class="tips-area {{selectSide == 'recharge' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-plug ft-orange1"></div>
+        <p class="{{selectSide == 'recharge' ? 'now' : ''}}" style="margin-left:36px;">充值</p>
+      </a>
+      <a ui-sref="root.userCenter.withdraw" class="tips-area {{selectSide == 'withdraw' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-money ft-orange1"></div>
+        <p class="{{selectSide == 'withdraw' ? 'now' : ''}}" style="margin-left:36px;">提现</p>
+      </a>
+      <a ui-sref="root.userCenter.record" class="tips-area {{selectSide == 'record' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-edit ft-orange1"></div>
+        <p class="{{selectSide == 'record' ? 'now' : ''}}" style="margin-left:36px;">资金流水</p>
+      </a>
     </div>
   </div>
-  <!-- 测试结束 -->
+  <div class="row">
+    <div class="sidebar-personal  bg-orange ft-white">
+      <button class="ftw-b">投资信息</button>
+    </div>
+    <div>
+      <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-gavel ft-orange1"></div>
+        <p class="{{selectSide == 'credit' ? 'now' : ''}}" style="margin-left:36px;">我的债权</p>
+      </a>
+      <a ui-sref="root.userCenter.investment({type:99})" class="tips-area {{selectSide == 'userCenter-investment' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-bank ft-orange1"></div>
+        <p class="{{selectSide == 'userCenter-investment' ? 'now' : ''}}" style="margin-left:36px;">我的订单</p>
+      </a>
+      <a ui-sref="root.userCenter.reservation" class="tips-area {{selectSide == 'reservation' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-file-text ft-orange1"></div>
+        <p class="{{selectSide == 'reservation' ? 'now' : ''}}" style="margin-left:36px;">预约记录</p>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="sidebar-personal  bg-orange ft-white">
+      <button class="ftw-b">奖励信息</button>
+    </div>
+    <div>
+      <a ui-sref="root.userCenter.experienceMoney" class="tips-area {{selectSide == 'experienceMoney' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-gavel ft-orange1"></div>
+        <p class="{{selectSide == 'experienceMoney' ? 'now' : ''}}" style="margin-left:36px;">体验金</p>
+      </a>
+      <a ui-sref="root.userCenter.rate-coupon" class="tips-area {{selectSide == 'increaseCoupon' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-bank ft-orange1"></div>
+        <p class="{{selectSide == 'increaseCoupon' ? 'now' : ''}}" style="margin-left:36px;">加息券</p>
+      </a>
+      <a ui-sref="root.userCenter.invite-rebate" class="tips-area {{selectSide == 'invite-rebate' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-slideshare ft-orange1"></div>
+        <p class="{{selectSide == 'invite-rebate' ? 'now' : ''}}" style="margin-left:36px;">邀请中心</p>
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="sidebar-personal  bg-orange ft-white">
+      <button class="ftw-b">系统信息</button>
+    </div>
+    <div>
+      <a ui-sref="root.userCenter.message({status:'0,1'})" class="tips-area {{selectSide == 'message' ? 'bg-white' : ''}}">
+        <div class="ico-area message-1 fa fa-envelope ft-orange1"></div>
+        <p class="{{selectSide == 'message' ? 'now' : ''}}" style="margin-left:36px;">站内消息</p>
+      </a>
+    </div>
+  </div>
 </div>
