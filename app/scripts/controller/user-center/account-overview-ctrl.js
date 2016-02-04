@@ -51,7 +51,29 @@ angular.module('hongcaiApp')
     	$scope.jigoubao = response.data.projectList;
       });
     
-
+    /**
+     * 我的债权统计数据
+     */
+    // $scope.getCreditRightStatistics = function() {
+    UserCenterService.getCreditRightStatistics.get({}, function(response) {
+      if (response.ret === 1) {
+        $scope.creditRightStatis = response.data.creditRightStatis;
+        $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
+      } else {
+        $scope.showCreditRightStatistics = false;
+        toaster.pop('warning', response.msg);
+      }
+    });
+    /**
+     * 加息券统计信息
+     */
+    UserCenterService.getUserIncreaseRateCouponStatis.get({}, function(response) {
+      if (response.ret === 1) {
+        $scope.couponStatis = response.data.couponStatis;
+      } else {
+        toaster.pop('warning', response.msg);
+      }
+    });
     // 原版获取投资统计数据
     /*OrderService.statisticsByUser.get(function(response) {
       if (response.ret === 1) {
