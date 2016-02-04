@@ -5,7 +5,9 @@
     <div class="col-md-4" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus">
       <p class="margin-b-0"><strong>{{ loginName }}</strong>
       <img src="/images/user-no.png" id="user-no" alt="" ng-switch-default data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="实名认证后账户更加安全">
-      <img src="/images/user-yes.png" alt=""  ng-switch-when="2"></p>
+      <img src="/images/user-yes.png" alt=""  ng-switch-when="2" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="实名认证后账户更加安全">
+      <a ui-sref="root.userCenter.security-settings" class="tip-font-blue ft-12">【提升】</a>
+      </p>
       <div class="security-level low-level" ng-switch-default></div>
       <div class="security-level high-level" ng-switch-when="2"></div>
       <p class="text-left margin-b-0">&nbsp&nbsp安全等级：
@@ -53,7 +55,7 @@
     <div class="col-md-4 col-md-offset-1">
       <p class="margin-b-0">累计收益&nbsp;<i class="fa fa-exclamation-circle ft-red2"></i></p>
       <p class="asset-money ft-36 ft-red2">{{account.receivedProfit| number:2}} <small class="ft-black">元</small>
-      <p class="margin-b-0">昨日收益 ：20元<a ui-sref="root.userCenter.assets-overview" class="white-button-orange margin-l-15">查看明细</a></p>
+      <p class="margin-b-0">昨日收益 ：{{ yestodayProfit || 0 | number:2}}元<a ui-sref="root.userCenter.assets-overview" class="white-button-orange margin-l-15">查看明细</a></p>
     </div>
   </div>
   <div class="per-data">
@@ -139,18 +141,18 @@
           </thead>
           <tbody>
             <tr class="border-t-dash" ng-repeat="item in fundsProjectProductList">
-              <td>{{item.name}}</td>
+              <td>{{item.product.name}}{{item.name}}</td>
               <td>{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}%</td>
               <td>{{item.product.sealingDays || 0}}天</td>
               <td>{{item.total}}</td>
-              <td><button class="orange-button col-md-6 col-lg-6 col-md-offset-3">立即投资</button></td>
+              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2" ui-sref="root.current-deposit-details({number: item.number})">立即投资</button></td>
             </tr>
             <tr class="border-t-dash" ng-repeat="item in jigoubao">
               <td>{{item.name}}</td>
               <td>{{item.annualEarnings | number : 2}}%</td>
               <td>{{item.projectDays}}天</td>
               <td>{{item.total}}</td>
-              <td><button class="orange-button col-md-6 col-lg-6 col-md-offset-3">立即投资</button></td>
+              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2" ui-sref="root.project-details({number: item.number})">立即投资</button></td>
             </tr>
           </tbody>
         </table>
@@ -158,4 +160,10 @@
     </div>
   </div>
 </div>
+<script>
+$(function() 
+  { $("[data-toggle='popover']").popover();
 
+});
+
+</script>

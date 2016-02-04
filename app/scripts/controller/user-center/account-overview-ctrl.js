@@ -46,8 +46,8 @@ angular.module('hongcaiApp')
     ProjectService.projectList.get({
         status: '7',
       }, function(response) {
-      	console.log("jigoubao");
-    	console.log(response);
+      	//console.log("jigoubao");
+    	//console.log(response);
     	$scope.jigoubao = response.data.projectList;
       });
     
@@ -74,6 +74,22 @@ angular.module('hongcaiApp')
         toaster.pop('warning', response.msg);
       }
     });
+
+    // 收益曲线
+    UserCenterService.dayProfit.get({
+      startTime: new Date().getTime(),
+      endTime: new Date().getTime() + 60 * 1000,
+    }, function(response){
+    	//console.log(response);
+      var data = response.data;
+      $scope.profit = [];
+      for(var key in data)  {
+        var date = new Date(+key);
+        $scope.profit.push(data[key]);
+        $scope.yestodayProfit = data[key];
+      }
+    });
+
     // 原版获取投资统计数据
     /*OrderService.statisticsByUser.get(function(response) {
       if (response.ret === 1) {
