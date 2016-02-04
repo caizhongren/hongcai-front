@@ -97,7 +97,7 @@
 // -------- bankcard-management
 
 .verify-area {
-  height: 235px;
+  //height: 235px;
   padding: 40px 115px 0 200px;
   border-top: 1px solid #f5f5f5;
   .tip {
@@ -244,8 +244,8 @@
 }
 
 .change-area {
-  margin: -15px auto 10px auto;
-  border: 1px solid #dbdbdb;
+  margin: 15px auto 10px auto;
+  //border: 1px solid #dbdbdb;
 }
 
 .real-name {
@@ -257,7 +257,7 @@
  /*  line-height: 30px;
  margin-left: 10px;
  background-color: #e94828; */
-  margin-top: 0;
+  margin-top: 20px;
 }
 
 .safe-form-group {
@@ -311,6 +311,8 @@
 }
 .change-mail-height {
   height: 140px;
+  overflow:auto;
+
 }
 .safe-email-change {
   margin-top: -29px;
@@ -513,6 +515,7 @@
 .right-area{
   padding: 0;
   border:none !important;
+  overflow-y:hidden;
   .top-content{
     border: 1px solid #dddddd;
   }
@@ -619,7 +622,7 @@
     }
   }
   .currency-style{
-    margin-top:20px;   
+    //margin-top:20px;   
     overflow: auto;
     border:1px solid #dddddd;
     .title{
@@ -634,6 +637,9 @@
         font-weight:bold;
         color:#595656;
         width: 13%;
+      }
+      .tip2{
+        width: 15%;
       }
     }
     .main{
@@ -673,4 +679,37 @@
       }
     }
   }
+}
+.bor-dash-b{
+  border-bottom:1px dashed #dcdcdc;
+}
+.warning-tip{
+  background-color:#fffef5;
+  border:1px solid #f7f4b7;
+  padding:15px 10px;
+  color:#ad6518;
+  overflow:auto;
+}
+.bankcard-tip{
+  background-color:#f3f3f2;
+  border:none;
+  padding:50px 10px;
+  color:#595656;
+  overflow:auto;
+}
+.tip-font-blue{
+  color:#3f89ce;
+}
+.img-valign{
+  vertical-align: middle;
+}
+.tip-green{
+  color:#8ec801;
+}
+.tip-grey{
+  color:#585656;
+}
+.tip-black{
+  color:#686666;
+  padding:20px;
 }
