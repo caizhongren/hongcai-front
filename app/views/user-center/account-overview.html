@@ -109,11 +109,11 @@
       <span class="tip">投资信息</span>
     </div>
     <div class="main">
-      <div class="col-md-4 text-center bor-dash">
+      <div class="col-md-4 text-center bor-dash cursor-pointer" ui-sref="root.userCenter.investment({type:99})">
         <p class="margin-b-0"><span class="ft-red2 ft-36">{{ statistics.totalInvestCount || "0"}}</span>个</p>
         <p><span class="info-data">累计投资</span></p>
       </div>
-      <div class="col-md-4 text-center bor-dash">
+      <div class="col-md-4 text-center bor-dash cursor-pointer" ui-sref="root.userCenter.credit">
         <p class="margin-b-0"><span class="ft-red2 ft-36">{{ statistics.heldingCount || "0" }}</span>个</p>
         <p><span class="info-data">持有投资</span></p>
       </div>
@@ -141,14 +141,14 @@
           </thead>
           <tbody>
             <tr class="border-t-dash" ng-repeat="item in fundsProjectProductList">
-              <td>{{item.product.name}}{{item.name}}</td>
+              <td ui-sref="root.current-deposit-details({number: item.number})" class="cursor-pointer">{{item.product.name}}{{item.name}}</td>
               <td>{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}%</td>
               <td>{{item.product.sealingDays || 0}}天</td>
               <td>{{item.total}}</td>
               <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2" ui-sref="root.current-deposit-details({number: item.number})">立即投资</button></td>
             </tr>
             <tr class="border-t-dash" ng-repeat="item in jigoubao">
-              <td>{{item.name}}</td>
+              <td class="cursor-pointer" ui-sref="root.project-details({number: item.number})">{{item.name}}</td>
               <td>{{item.annualEarnings | number : 2}}%</td>
               <td>{{item.projectDays}}天</td>
               <td>{{item.total}}</td>
