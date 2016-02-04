@@ -26,13 +26,13 @@
   				您尚未绑定任何银行卡，<span class="tip-font-blue">去绑定</span>
     		</div>
     		<!-- 绑定银行卡信息 -->
-    		<div class="col-md-offset-1 col-md-10 bankcard-tip text-center" ng-show="isAuth && haveCard && !isVerifying && !unbinding">
+    		<div class="col-md-offset-1 col-md-10 bankcard-tip text-center unbankbind" ng-show="isAuth && haveCard && !isVerifying && !unbinding">
     			<div class="col-md-offset-2 col-md-2">
   					<img src="/images/register-bind.png" alt="" class="img-valign">
   				</div>
   				<div class="col-md-8 text-left">
   					<p>您的银行卡已绑定</p>
-  					<p class="tip-font-blue">{{bankName}}</p>
+  					<p class="tip-font-blue">{{bankName}}<a ng-click="confirmUnbindBankCard()" class="tip-font-blue ft-12 a-under">去解绑</a></p>
   					<p class="tip-font-blue">{{ cardNo }}</p>
   				</div>
     		</div>

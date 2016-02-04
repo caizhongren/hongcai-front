@@ -7,7 +7,8 @@
     </div>
     <div class="main ft-16">
       <div class="col-md-12" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus">
-      	<p class="ft-16 text-center">您的账户安全等级：<span ng-switch-default class="ft-red2">较低</span></p>
+      	<p class="ft-16 text-center">您的账户安全等级：<span ng-switch-default class="ft-red2">较低</span>
+      	<span class="ft-red2" ng-switch-when="2">高</span></p>
       </div>
       <div class="col-md-12 margin-t-20">
       	<p class="tips col-md-offset-1 col-md-3 col-lg-3 text-left ft-red2 ft-bold"><i class="fa fa-check-circle-o hadset fa-2x margin-r-20"></i>用户名</p>
