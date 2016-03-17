@@ -48,7 +48,7 @@
         <div class="row margin-t-15 margin-b-15">
           <div class="col-xs-2 text-nowrap">交易类型：</div>
           <div class="col-xs-4 text-nowrap">
-            <select class="record-select" class="form-control" ng-model="dealType" ie-select-fix="icons" ng-options="icon.value as icon.label for icon in icons" ng-change="recordSelect();">
+            <select class="record-select" class="form-control" ng-model="dealType" ie-select-fix="icons" ng-options="icon.value as icon.label for icon in icons" ng-change="getDeals(1);">
               <option value="">全部</option>
             </select>
           </div>
