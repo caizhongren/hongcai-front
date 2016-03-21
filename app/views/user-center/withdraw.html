@@ -27,11 +27,11 @@
             </div>
           </div>
           <div class="row margin-t-15">
-            <div class="margin-b-15 text-recharge-tip">
-              <div class="col-md-2 text-right">提现金额：</div>
+            <div class="margin-b-15">
+              <div class="col-md-2 text-right text-recharge-tip">提现金额：</div>
               <input name="amount" type="text" class="verify-input fl mgn-top7" ng-model="amount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus ng-disabled="availableCashRealNo <= 0" required autofocus/>
               <span class="span-money fl">元</span>
-              <div class="col-md-7">预计明天<span class="ft-red5">&nbsp;{{nextDay | date:'yyyy-MM-dd'}} 24时&nbsp;</span>到账（具体时间以银行操作为准）</div>
+              <div class="col-md-7 text-recharge-tip">预计明天<span class="ft-red5">&nbsp;{{nextDay | date:'yyyy-MM-dd'}} 24时&nbsp;</span>到账（具体时间以银行操作为准）</div>
             </div>
           </div>
           <div class="row col-md-10 col-md-offset-1 text-left ft-12 ft-red4">

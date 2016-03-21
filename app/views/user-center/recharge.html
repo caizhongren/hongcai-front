@@ -23,11 +23,11 @@
           </div>
         </div>
         <div class="row">
-          <div class="margin-b-15 text-recharge-tip">
-            <div class="col-md-2 text-right">充值金额：</div>
+          <div class="margin-b-15">
+            <div class="col-md-2 text-right text-recharge-tip">充值金额：</div>
             <input name="amount" type="number" class="verify-input fl mgn-top7" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required/>
             <span class="span-money fl">元</span>
-            <div class="col-md-5">充值后账户余额<span class="ft-red5">&nbsp;{{ balance + rechargeAmount || "0" | number:2}}&nbsp;</span>元</div>
+            <div class="col-md-5 text-recharge-tip">充值后账户余额<span class="ft-red5">&nbsp;{{ balance + rechargeAmount || "0" | number:2}}&nbsp;</span>元</div>
           </div>
         </div>
         <div class="row col-md-10 col-md-offset-1 text-left ft-12 ft-red4">
