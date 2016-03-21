@@ -33,18 +33,18 @@
               <span class="span-money fl">元</span>
               <div class="col-md-7">预计明天<span class="ft-red5">&nbsp;{{nextDay | date:'yyyy-MM-dd'}} 24时&nbsp;</span>到账（具体时间以银行操作为准）</div>
             </div>
-            <div class="row col-md-10 col-md-offset-1 text-left ft-12 ft-red4">
-              <p class="padding-l-50" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">请输入数字(最多精确到小数点后两位)</p>
-              <p class="padding-l-50" ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">不能大于可提现金额</p>
-              <p class="padding-l-50" ng-show="withdrawForm.amount.$dirty && amount<1">提现金额不能小于1元</p>
-              <p class="padding-l-50"  ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">提现金额不能为空</p>
-            </div>
+          </div>
+          <div class="row col-md-10 col-md-offset-1 text-left ft-12 ft-red4">
+            <p class="padding-l-45" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">请输入数字(最多精确到小数点后两位)</p>
+            <p class="padding-l-45" ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">不能大于可提现金额</p>
+            <p class="padding-l-45" ng-show="withdrawForm.amount.$dirty && amount<1">提现金额不能小于1元</p>
+            <p class="padding-l-45"  ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">提现金额不能为空</p>
           </div>
           <div class="row col-md-10 col-md-offset-1 text-left ft-red5">
             <p class="padding-l-45">手续费：2元（第三方支付收取）</p>
           </div>
           <div class="col-md-5 margin-t-15">
-            <div class="form-group col-xs-12 margin-l-15">
+            <div class="form-group col-xs-12 margin-l-15 padding-l-5">
               <input type="button" value="确认提现" class="btn-recharge-orange" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'btn-recharge-grey':withdrawForm.$invalid || checkLargestAmount(amount), 'btn-recharge-orange':!withdrawForm.$invalid && !checkLargestAmount(amount)}" />
             </div>
           </div>
