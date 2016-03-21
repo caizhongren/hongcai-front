@@ -1,91 +1,95 @@
 <!--充值-->
 <div class="right-area right-assets-height recharge col-md-8 col-lg-9">
-  <div class="row" ng-show="userType != 4">
-    <div class="right-title">充值</div>
-  </div>
-  <div class="row" ng-show="userType == 4">
-    <div class="right-title">转账</div>
-  </div>
-  <!--start 安全认证提示 -->
-  <div class="row">
-    <p class="verify-tip safe-card-tips col-md-offset-2 col-lg-offset-2 col-md-7 col-lg-7" ng-show="!isSecurityAuth" ng-init="isSecurityAuth=true">您未完成安全认证，请前往<a ui-sref="root.userCenter.security-settings">【安全设置】</a>更新状态</p>
-  </div>
-  <!--end 安全认证提示 -->
-  <div class="row" ng-show="userType != 4">
-    <form class="col-md-5" name="rechargeForm" ng-show="isSecurityAuth" style="padding-right:20px;">
-      <div class="row">
-        <div class="form-group mgn-top">
-          <p>
-            <label class="col-md-5">可用余额：</label>
-            <span class="ft-red ft-24">{{ balance || "0" | number:2}}</span>&nbsp;&nbsp;元</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group">
-          <label class="col-md-5">充值金额：</label>
-          <input name="amount" type="text" class="verify-input" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required/><span>&nbsp;&nbsp;元</span>
-          <div class="user-tips-area col-md-offset-4" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.pattern">
-            <p class="input-tips user-input-tips">请输入数字(最多精确到小数点后两位)</p>
-          </div>
-          <div class="user-tips-area col-md-offset-4" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">
-            <p class="input-tips user-input-tips">充值金额不能为空</p>
-          </div>
-        </div>
-      </div>
-      <div class="row col-md-10 col-md-offset-2 text-center ft-red">
-        <p>手续费：免费（由平台支付）</p>
-      </div>
-      <div class="row col-md-10 col-md-offset-2 margin-t-15">
-        <div class="form-group">
-          <input type="button" value="确认充值" class="btn-recharge-orange" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid, 'btn-recharge-orange':!rechargeForm.$invalid}" />
-        </div>
-      </div>
-    </form>
-    <div class="col-md-6" style="border-left:1px dashed #dadada;padding-left:50px;">
-      <div class="ft-14">
-        <p><i class="fa fa-tint" style="margin-left:-20px;margin-right:15px;"></i>温馨提示:</p>
-        <p class="p-big">1. 您的账户资金将由有银监会颁发牌照的第三方支付平台托管；</p>
-        <p class="p-big">2. 首先请注意您是否开通网上银行等功能,可能存在充值超过限额：（充值限额，是银行、第三方支付平台、和用户您自己设定的支付限额决定的，取三者最小值）以免造成充值不成功；</p>
-        <p class="p-big">3. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>
-        <p class="p-big">4. 如果充值金额没有及时到账，请联系客服，400-900-7626。</p>
+  <div class="currency-style">
+    <div class="title">
+      <span class="tip">账户充值</span>
+    </div>
+    <!--start 安全认证提示 -->
+    <div class="main" ng-show="!isSecurityAuth" ng-init="isSecurityAuth=true">
+      <div class="col-md-12 text-center">
+        <img src="/images/unbind.png" alt="" class="margin-t-20">
+        <p class="margin-t-20">您尚未绑定银行卡</p>
+        <p>点击下方按钮开通您的第三方托管账户！</p>
+        <button class="col-md-4 col-md-offset-4 btn-recharge-red margin-t-20" ui-sref="root.userCenter.security-settings">开通第三方托管账户</button>
       </div>
     </div>
-  </div>
-  <!--<p>{{isSecurityAuth}}</p>-->
-  <div class="row" ng-show="userType == 4">
-    <form class="col-md-5" name="transferForm" ng-show="isSecurityAuth" style="padding-right:30px;">
-      <div class="row">
-        <div class="form-group mgn-top">
-          <p>
-            <label class="col-md-3 col-lg-2">可转账余额：</label>
-            <span class="ft-red ft-24">{{ balance || "0" | number:2}}</span>元</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group">
-          <label class="col-md-5">转账金额：</label>
-          <input name="amount" type="text" class="verify-input" ng-model="transferAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-foucus required autofocus/><span>&nbsp;&nbsp;元</span>
-          <div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="transferForm.amount.$dirty && transferForm.amount.$error.pattern">
-            <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>请输入数字(最多精确到小数点后两位)</p>
-          </div>
-          <div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="transferForm.amount.$dirty && transferForm.amount.$error.required && !transferForm.amount.$focused">
-            <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>充值金额不能为空</p>
+    <!--end 安全认证提示 -->
+    <div class="main" ng-show="userType != 4">
+      <form class="col-md-10 col-md-offset-1 bg-grey6" name="rechargeForm" ng-show="isSecurityAuth">
+        <div class="row">
+          <div class="margin-b-15 mgn-top text-recharge-tip">
+            <div class="col-md-2 text-right">可用余额：</div>
+            <div class="col-md-5"><span class="ft-red4 ft-24">{{ balance || "0" | number:2}}</span>&nbsp;&nbsp;元</div>
           </div>
         </div>
-      </div>
-      <div class="row col-md-10 col-md-offset-2">
-        <div class="form-group">
-          <input type="button" value="确认转账" class="btn-recharge-orange" ng-click="transferToPlaform(transferAmount)" ng-disabled="transferForm.$invalid" ng-class="{'btn-recharge-orange':transferForm.$invalid, 'blue-button':!transferForm.$invalid}" />
+        <div class="row">
+          <div class="margin-b-15 text-recharge-tip">
+            <div class="col-md-2 text-right">充值金额：</div>
+            <input name="amount" type="text" class="verify-input fl mgn-top7" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required/>
+            <span class="span-money fl">元</span>
+            <div class="col-md-5">充值后账户余额<span class="ft-red5">&nbsp;{{ balance || "0" | number:2}}&nbsp;</span>元</div>
+          </div>
+          <div class="row col-md-10 col-md-offset-1 text-left ft-12 ft-red4">
+            <p class="padding-l-50" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.pattern">请输入数字(最多精确到小数点后两位)</p>
+            <p class="padding-l-50" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">充值金额不能为空</p>
+          </div>
+        </div>
+        <div class="row col-md-10 col-md-offset-1 text-left ft-red5">
+          <p class="padding-l-45">手续费：免费（由平台支付）</p>
+        </div>
+        <div class="col-md-5 margin-t-15">
+          <div class="form-group col-xs-12 margin-l-15">
+            <input type="button" value="确认充值" class="btn-recharge-orange" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid, 'btn-recharge-orange':!rechargeForm.$invalid}" />
+          </div>
+        </div>
+      </form>
+      <div class="col-md-10 col-md-offset-1 bg-yellow margin-t-20">
+        <div class="ft-14 padding-20">
+          <p class="ft-red4"><i class="fa fa-tint ft-red4" style="margin-right:15px;"></i>温馨提示:</p>
+          <p class="p-big ft-red4">1. 您的账户资金将由有银监会颁发牌照的第三方支付平台托管；</p>
+          <p class="p-big">2. 首先请注意您是否开通网上银行等功能,可能存在充值超过限额：</p>
+          <p class="p-big">（充值限额，是银行、第三方支付平台、和用户您自己设定的支付限额决定的，取三者最小值）以免造成充值不成功；</p>
+          <p class="p-big">3. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>
+          <p class="p-big">4. 如果充值金额没有及时到账，请联系客服，400-900-7626。</p>
         </div>
       </div>
-    </form>
-    <div class="col-md-6" style="border-left:1px dashed #dadada;padding-left:50px;">
-      <div class="ft-14">
-        <p><i class="fa fa-tint" style="margin-left:-20px;margin-right:15px;"></i>温馨提示:</p>
-        <p class="p-big">1. 您的账户资金将由有银监会颁发牌照的第三方支付平台托管；</p>
-        <p class="p-big">2. 首先请注意您是否开通网上银行等功能,可能存在充值超过限额：（充值限额，是银行、第三方支付平台、和用户您自己设定的支付限额决定的，取三者最小值）以免造成充值不成功；</p>
-        <p class="p-big">3. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>
-        <p class="p-big">4. 如果充值金额没有及时到账，请联系客服，400-900-7626。</p>
+    </div>
+    <!--<p>{{isSecurityAuth}}</p>-->
+    <div class="main" ng-show="userType == 4">
+      <form class="col-md-5" name="transferForm" ng-show="isSecurityAuth" style="padding-right:30px;">
+        <div class="row">
+          <div class="form-group mgn-top">
+            <p>
+              <label class="col-md-3 col-lg-2">可转账余额：</label>
+              <span class="ft-red ft-24">{{ balance || "0" | number:2}}</span>元</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label class="col-md-5">转账金额：</label>
+            <input name="amount" type="text" class="verify-input" ng-model="transferAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-foucus required autofocus/><span>&nbsp;&nbsp;元</span>
+            <div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="transferForm.amount.$dirty && transferForm.amount.$error.pattern">
+              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>请输入数字(最多精确到小数点后两位)</p>
+            </div>
+            <div class="user-tips-area col-md-offset-2 col-lg-offset-2" ng-show="transferForm.amount.$dirty && transferForm.amount.$error.required && !transferForm.amount.$focused">
+              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>充值金额不能为空</p>
+            </div>
+          </div>
+        </div>
+        <div class="row col-md-10 col-md-offset-2">
+          <div class="form-group">
+            <input type="button" value="确认转账" class="btn-recharge-orange" ng-click="transferToPlaform(transferAmount)" ng-disabled="transferForm.$invalid" ng-class="{'btn-recharge-orange':transferForm.$invalid, 'blue-button':!transferForm.$invalid}" />
+          </div>
+        </div>
+      </form>
+      <div class="col-md-6" style="border-left:1px dashed #dadada;padding-left:50px;">
+        <div class="ft-14">
+          <p><i class="fa fa-tint" style="margin-left:-20px;margin-right:15px;"></i>温馨提示:</p>
+          <p class="p-big">1. 您的账户资金将由有银监会颁发牌照的第三方支付平台托管；</p>
+          <p class="p-big">2. 首先请注意您是否开通网上银行等功能,可能存在充值超过限额：（充值限额，是银行、第三方支付平台、和用户您自己设定的支付限额决定的，取三者最小值）以免造成充值不成功；</p>
+          <p class="p-big">3. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>
+          <p class="p-big">4. 如果充值金额没有及时到账，请联系客服，400-900-7626。</p>
+        </div>
       </div>
     </div>
   </div>
