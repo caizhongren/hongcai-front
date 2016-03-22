@@ -1,8 +1,8 @@
 <!--user-center-sidebar-->
 <div class="left-area col-lg-2 col-md-3">
   <div class="row">
-    <div class="sidebar-personal  bg-orange ft-white">
-      <button class="ftw-b">账户信息</button>
+    <div class="sidebar-personal ft-white {{showFlag11 == true ? 'bg-orange' : 'side-white'}}">
+      <button class="ftw-b {{showFlag11 == true ? 'bg-orange' : 'side-whitebg'}}">账户信息</button>
     </div>
     <div>
       <a ui-sref="root.userCenter.account-overview" class="tips-area {{selectSide == 'account-overview' ? 'bg-white' : ''}}">
@@ -20,8 +20,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="sidebar-personal  bg-orange ft-white">
-      <button class="ftw-b">资金信息</button>
+    <div class="sidebar-personal ft-white {{showFlag21 == true ? 'bg-orange' : 'side-white'}}">
+      <button class="ftw-b {{showFlag21 == true ? 'bg-orange' : 'side-whitebg'}}">资金信息</button>
     </div>
     <div>
       <a ui-sref="root.userCenter.assets-overview" class="tips-area {{selectSide == 'assets-overview' ? 'bg-white' : ''}}">
@@ -43,8 +43,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="sidebar-personal  bg-orange ft-white">
-      <button class="ftw-b">投资信息</button>
+    <div class="sidebar-personal  bg-orange ft-white {{showFlag31 == true ? 'bg-orange' : 'side-white'}}">
+      <button class="ftw-b {{showFlag31 == true ? 'bg-orange' : 'side-whitebg'}}">投资信息</button>
     </div>
     <div>
       <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'bg-white' : ''}}">
@@ -62,8 +62,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="sidebar-personal  bg-orange ft-white">
-      <button class="ftw-b">奖励信息</button>
+    <div class="sidebar-personal  bg-orange ft-white {{showFlag41 == true ? 'bg-orange' : 'side-white'}}">
+      <button class="ftw-b {{showFlag41 == true ? 'bg-orange' : 'side-whitebg'}}">奖励信息</button>
     </div>
     <div>
       <a ui-sref="root.userCenter.experienceMoney" class="tips-area {{selectSide == 'experienceMoney' ? 'bg-white' : ''}}">
@@ -81,8 +81,8 @@
     </div>
   </div>
   <div class="row">
-    <div class="sidebar-personal  bg-orange ft-white">
-      <button class="ftw-b">系统信息</button>
+    <div class="sidebar-personal  bg-orange ft-white {{showFlag51 == true ? 'bg-orange' : 'side-white'}}">
+      <button class="ftw-b {{showFlag51 == true ? 'bg-orange' : 'side-whitebg'}}">系统信息</button>
     </div>
     <div>
       <a ui-sref="root.userCenter.message({status:'0,1'})" class="tips-area {{selectSide == 'message' ? 'bg-white' : ''}}">
