@@ -509,7 +509,7 @@
 }
 .record {
   select {
-    width: 100%;
+    width: 93%;
   }
 }
 .right-area{
@@ -646,6 +646,7 @@
       background-color:white;
       overflow: auto;
       padding-top:20px;
+      overflow-x: hidden;
       .info-data{
         display:block;
         background-color:#fd8f3f;
@@ -750,4 +751,27 @@
   font-size: 20px;
   border:none;
   border-radius: 5px;
+}
+.record-text{
+  border-left:1px dashed #7f7f7f;
+  height: 48px;
+  line-height: 24px;
+  float: left;
+  margin-left:20px;
+  padding-left: 20px;
+}
+.table-dashed{
+  thead,tbody{
+    tr td{
+      border-bottom: 1px dashed #d8d8d8 !important;
+      border-top: none !important;
+    }
+  }
+  thead{
+    tr{
+      border-top: 2px solid #e0e0e0 !important;
+      border-bottom: 1px solid #e0e0e0 !important;
+      background-color: #f9f9f9;
+    }
+  }
 }
