@@ -2,17 +2,16 @@
 <div class="right-area col-md-8 col-lg-9">
   <div class="top-content">
   <div class="personal-info">
-    <div class="col-md-4" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus">
+    <div class="col-md-4 padding-l-30" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus">
       <p class="margin-b-0"><strong>{{ loginName }}</strong>
       <img src="/images/user-no.png" id="user-no" alt="" ng-switch-default data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="实名认证后账户更加安全">
       <img src="/images/user-yes.png" alt=""  ng-switch-when="2" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="实名认证后账户更加安全">
-      <a ui-sref="root.userCenter.security-settings" class="tip-font-blue ft-12">【提升】</a>
       </p>
       <div class="security-level low-level" ng-switch-default></div>
       <div class="security-level high-level" ng-switch-when="2"></div>
-      <p class="text-left margin-b-0">&nbsp&nbsp安全等级：
-        <span ng-switch-default>低</span>
-        <span ng-switch-when="2">高</span>
+      <p class="text-left margin-b-0">安全等级：
+        <span ng-switch-default>低<a ui-sref="root.userCenter.security-settings" class="ft-orange ft-14">(立即提升)</a></span>
+        <span ng-switch-when="2">高</span></span>
       </p>
     </div>
     <div class="col-md-4">
@@ -29,31 +28,31 @@
         <img src="/images/bank-auth-no.png" alt="" ng-show="securityStatus.realNameAuthStatus!==1">
       </div>
       <div class="col-xs-9 col-xs-offset-1 auth-font">
-        <p class="margin-b-0 ft-orange" ng-show="securityStatus.realNameAuthStatus===1">银行卡已绑定！</p>
-        <p class="margin-b-0" ng-show="securityStatus.realNameAuthStatus!==1">银行卡未绑定，点击<a href="" title="">绑定</a></p>
+        <p class="margin-b-0 ft-orange" ng-show="securityStatus.realNameAuthStatus===1">第三方账户已绑定！</p>
+        <p class="margin-b-0" ng-show="securityStatus.realNameAuthStatus!==1">第三方账户未绑定，点击<a href="" title="">绑定</a></p>
       </div>
     </div>
   </div>
   <div class="personal-data">
     <div class="col-md-7 bor-right">
-      <div class="col-xs-6">
-        <p class="margin-b-0">账户余额&nbsp;<i class="fa fa-exclamation-circle ft-red2"></i></p>
+      <div class="col-xs-8">
+        <p class="margin-b-0">账户余额&nbsp;<!-- <i class="fa fa-exclamation-circle ft-red2"></i> --></p>
         <p class="asset-money ft-36 ft-red2">{{account.balance| number:2}} <small class="ft-black">元</small>
         <p class="margin-b-0">体验金 <span class="ft-red2">{{account.experienceAmount || 0 | number:0}} </span>元,加息券 <span class="ft-red2">{{couponStatis.couponCount}} </span>张</p>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-4">
         <p class="over-auto">
-          <button ui-sref="root.userCenter.recharge" class="orange-button col-md-6 col-lg-6" ng-show="userType != 4">充值</button>
+          <button ui-sref="root.userCenter.recharge" class="orange-button col-md-8 col-lg-8" ng-show="userType != 4">充值</button>
           <!--<input type="button" ui-sref="root.userCenter.recharge" class="orange-button account-button col-md-6 col-lg-6" value="充值" ng-show="userType != 4" />-->
         </p>
         <p class="over-auto margin-t-20">
-          <button ui-sref="root.userCenter.withdraw" class="white-button-orange col-md-6 col-lg-6" ng-show="userType != 4">提现</button>
+          <button ui-sref="root.userCenter.withdraw" class="white-button-orange col-md-8 col-lg-8" ng-show="userType != 4">提现</button>
           <!--<input type="button" ui-sref="root.userCenter.withdraw" class="white-button-orange account-button col-md-6 col-lg-6" value="提现" ng-show="userType != 4" />-->
         </p>
       </div>
     </div>
     <div class="col-md-4 col-md-offset-1">
-      <p class="margin-b-0">累计收益&nbsp;<i class="fa fa-exclamation-circle ft-red2"></i></p>
+      <p class="margin-b-0">累计收益&nbsp;<!-- <i class="fa fa-exclamation-circle ft-red2"></i> --></p>
       <p class="asset-money ft-36 ft-red2">{{account.receivedProfit| number:2}} <small class="ft-black">元</small>
       <p class="margin-b-0">昨日收益 ：{{ yestodayProfit || 0 | number:2}}元<a ui-sref="root.userCenter.assets-overview" class="white-button-orange margin-l-15">查看明细</a></p>
     </div>
@@ -145,14 +144,14 @@
               <td>{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}%</td>
               <td>{{item.product.sealingDays || 0}}天</td>
               <td>{{item.total}}</td>
-              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2" ui-sref="root.current-deposit-details({number: item.number})">立即投资</button></td>
+              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.current-deposit-details({number: item.number})">立即投资</button></td>
             </tr>
             <tr class="border-t-dash" ng-repeat="item in jigoubao">
               <td class="cursor-pointer" ui-sref="root.project-details({number: item.number})">{{item.name}}</td>
               <td>{{item.annualEarnings | number : 2}}%</td>
               <td>{{item.projectDays}}天</td>
               <td>{{item.total}}</td>
-              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2" ui-sref="root.project-details({number: item.number})">立即投资</button></td>
+              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})">立即投资</button></td>
             </tr>
           </tbody>
         </table>
