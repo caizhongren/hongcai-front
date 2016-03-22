@@ -6,8 +6,8 @@
     </div>
     <div class="main">
       <div class="padd row">
-        <div class="col-md-11 bg-grey6 padding-50">
-          <img src="/images/usermoney1.png" alt="" class="fl margin-l-15">
+        <div class="col-md-11 bg-grey6 padding-40">
+          <img src="/images/usermoney3.png" alt="" class="fl">
           <div class="record-text">
             <p>账户资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.waitingCapital + capital.balance + capital.waitingProfit + capital.freezeCapital | number: 2}}</strong>元</p>
@@ -17,7 +17,7 @@
             <p>可用资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.balance | number: 2}}</strong>元</p>
           </div>
-          <img src="/images/usermoney3.png" alt="" class="fl margin-l-30">
+          <img src="/images/usermoney1.png" alt="" class="fl margin-l-30">
           <div class="record-text">
             <p>冻结资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.freezeCapital | number: 2}}</strong>元</p>
@@ -54,7 +54,7 @@
                   </div>
                   <div class="col-xs-1 text-nowrap project-noncheck">交易类型：</div>
                   <div class="col-xs-2 text-nowrap">
-                    <select class="record-select" class="form-control" ng-model="dealType" ie-select-fix="icons" ng-options="icon.value as icon.label for icon in icons" ng-change="recordSelect();">
+                     <select class="record-select" class="form-control" ng-model="dealType" ie-select-fix="icons" ng-options="icon.value as icon.label for icon in icons" ng-change="getDeals(1);">
                       <option value="">全部</option>
                     </select>
                   </div>
