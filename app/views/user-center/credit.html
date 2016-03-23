@@ -34,7 +34,7 @@
         <div class="row margin-l-0 margin-r-0 margin-t-10">
         <!-- <a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create">发起债券转让</a> -->
           <div class="fl col-md-12 ft-14">
-            <div class="col-xs-1 padding-b-5 {{searchStatus === 1 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(1)">持有中</div>
+            <div class="col-xs-1 padding-b-5 {{searchStatus === 1 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(1)">投资中</div>
             <div class="col-xs-1 padding-b-5 {{searchStatus === 4 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(4)">已回款</div>
             <!-- <div class="col-xs-1 padding-b-5 {{searchStatus === 2 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(2)">转让中</div>
             <div class="col-xs-1 padding-b-5 {{searchStatus === 3 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(3)">已转让</div> -->
@@ -61,6 +61,14 @@
             </thead>
             <!-- <tbody ng-repeat="item in heldInCreditList | startFrom:currentPage * pageSize | limitTo:pageSize"> -->
             <tbody>
+              <tr ng-show="heldInCreditList.length<=0">
+                <td colspan="6">
+                  <div>
+                    <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
+                    <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.investmentplan-list">浏览项目</a></p>
+                  </div>
+                </td>
+              </tr>
               <tr ng-repeat="item in heldInCreditList">
                 <td>
                   <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name | limitTo: 15 }}{{item.project.name.length > 15 ? '...':''}}</a>
@@ -170,6 +178,14 @@
             </thead>
             <tbody>
               <!-- <tr ng-repeat="item in heldInCreditList | startFrom:currentPage * pageSize | limitTo:pageSize"> -->
+              <tr ng-show="heldInCreditList.length<=0">
+                <td colspan="6">
+                  <div>
+                    <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
+                    <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.investmentplan-list">浏览项目</a></p>
+                  </div>
+                </td>
+              </tr>
               <tr ng-repeat="item in heldInCreditList">
                 <td>
                  <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name | limitTo: 15 }}{{item.project.name.length > 15 ? '...':''}}</a>
