@@ -10,9 +10,9 @@
         <div class="row padd">
           <div class="col-md-11 bg-grey6 padding-40">
             <div class="col-xs-3 ft-14 border-right-in">
-              <p class="padding-t-10"><i class="fa fa-jpy ft-grey margin-r-5 margin-l-5"></i>累计投资：<strong class="ft-18 ft-red6">{{creditRightStatis.totalInvestCount || 0}}</strong>个</p>
+              <p class="padding-t-10"><i class="fa fa-jpy ft-grey margin-r-5"></i>累计投资：<strong class="ft-18 ft-red6">{{creditRightStatis.totalInvestCount || 0}}</strong>个</p>
               <p><i class="fa fa-line-chart ft-grey margin-r-5"></i>投资中：<strong class="ft-18 ft-red6">{{creditRightStatis.heldingCount || 0}}</strong>个</p>
-              <p><i class="fa fa-usd ft-grey margin-r-5 margin-l-5"></i>已回款：<strong class="ft-18 ft-red6">{{creditRightStatis.endProfitCount || 0}}</strong>个</p>
+              <p><i class="fa fa-usd ft-grey margin-r-5"></i>已回款：<strong class="ft-18 ft-red6">{{creditRightStatis.endProfitCount || 0}}</strong>个</p>
             </div>
             <div class="col-xs-4 ft-14 col-xs-offset-1 text-center">
               <p class="margin-t-20">投资总额（元）</p>
@@ -35,9 +35,9 @@
         <!-- <a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create">发起债券转让</a> -->
           <div class="fl col-md-12 ft-14">
             <div class="col-xs-1 padding-b-5 {{searchStatus === 1 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(1)">持有中</div>
-            <div class="col-xs-1 padding-b-5 {{searchStatus === 2 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(2)">转让中</div>
-            <div class="col-xs-1 padding-b-5 {{searchStatus === 3 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(3)">已转让</div>
             <div class="col-xs-1 padding-b-5 {{searchStatus === 4 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(4)">已回款</div>
+            <!-- <div class="col-xs-1 padding-b-5 {{searchStatus === 2 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(2)">转让中</div>
+            <div class="col-xs-1 padding-b-5 {{searchStatus === 3 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(3)">已转让</div> -->
           </div>
           <!-- <div class="btn-group btn-group-sm fl" role="group" aria-label="...">
             <a type="button" class="btn btn-default {{searchStatus === 1 ? 'active' : ''}}" ng-click="getHeldInCreditRightList(1)">持有中</a>
