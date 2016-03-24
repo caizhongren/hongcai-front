@@ -94,11 +94,11 @@
               </tr>
             </tbody>
           </table>
-          <!-- <ul class="pager">
-            <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
-            {{currentPage +1 }} / {{numberOfPages(heldInCreditList)}} 共 {{heldInCreditList.length}} 条
-            <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= heldInCreditList.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
-          </ul> -->
+          <ul class="pager margin-r-20">
+            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage >= heldInCreditList.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+            <div class="fr height-30">{{currentPage +1 }} / {{numberOfPages(heldInCreditList)}} 共 {{heldInCreditList.length}} 条</div>
+            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+          </ul>
         </div>
         <div ng-show="searchStatus === 2">
           <table class="table table-dashed margin-b-30">
@@ -205,11 +205,11 @@
               </tr>
             </tbody>
           </table>
-          <!-- <ul class="pager">
-            <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
-            {{currentPage +1 }} / {{numberOfPages(heldInCreditList)}} 共 {{heldInCreditList.length}} 条
-            <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= heldInCreditList.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
-          </ul> -->
+          <ul class="pager margin-r-20">
+            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage >= heldInCreditList.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+            <div class="fr height-30">{{currentPage +1 }} / {{numberOfPages(heldInCreditList)}} 共 {{heldInCreditList.length}} 条</div>
+            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+          </ul>
         </div>
       </div>
       <!-- 未购买项目 展示内容 -->

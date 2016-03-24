@@ -82,7 +82,7 @@
                   <div class="row">
                     <div class="col-xs-12">
                       <div class="row">
-                        <div class="col-xs-2 text-right text-nowrap ft-bold">下单时间：</div>
+                        <div class="col-xs-2 text-right text-nowrap ft-bold">订单时间：</div>
                         <div class="col-xs-2">
                           <a ng-click="dateInterval='0';loadOrders();" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 0, 'project-noncheck': dateInterval !== 0 }">
                             全部
@@ -160,10 +160,10 @@
             </tr>
           </tbody>
         </table>
-        <ul class="pager">
-          <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
-          {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
-          <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+        <ul class="pager margin-r-20" ng-hide="data.length<=0">
+          <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
+          <div class="fr height-30">&nbsp;&nbsp;{{currentPage +1 }} / {{numberOfPages()}} &nbsp;共 {{data.length}} 条&nbsp;&nbsp;</div>
+          <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
         </ul>
       </div>
       <div class="row text-center" ng-show="orderStatistics.allInve <= 0">
