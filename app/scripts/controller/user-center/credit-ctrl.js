@@ -184,5 +184,12 @@ angular.module('hongcaiApp')
         }
       });
     }
+    $scope.currentPage = 0;
+    $scope.pageSize = 10;
+    $scope.data = [];
+
+    $scope.numberOfPages = function() {
+      return Math.ceil($scope.data.length / $scope.pageSize);
+    };
 
   });
