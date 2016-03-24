@@ -772,6 +772,11 @@
   padding-left: 20px;
 }
 .table-dashed{
+  thead{
+    tr,th{
+      font-weight: normal;
+    }
+  }
   thead,tbody{
     tr td{
       border-bottom: 1px dashed #d8d8d8 !important;
@@ -780,8 +785,8 @@
   }
   thead{
     tr{
-      border-top: 2px solid #e0e0e0 !important;
-      border-bottom: 1px solid #e0e0e0 !important;
+      border-top: 0.5px solid #e0e0e0 !important;
+      border-bottom: 0.5px solid #e0e0e0 !important;
       background-color: #f9f9f9;
     }
   }
@@ -815,6 +820,10 @@
   background-color: #bfbfbf !important;
   color:white !important;
 }
+.bg-btn-orange{
+  background-color: #ff6022 !important;
+  color:white !important;
+}
 .line-25{
   height: 25px;
   line-height: 25px;
@@ -827,4 +836,14 @@
     padding-left: 0;
     padding-right: 0;
   }
+}
+.text-nowarp{
+  white-space: nowrap;
+}
+.ft-blue{
+  color: #3f98fd !important;
+  text-decoration: underline !important;
+}
+.width-58{
+  width: 58px !important;
 }

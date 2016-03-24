@@ -5,7 +5,7 @@
       <span class="tip">我的订单</span>
     </div>
     <!-- 已开通第三方资金托管账户 -->
-    <div class="main" ng-show="securityStatus.realNameAuthStatus === 1">
+    <div class="main padding-t-0" ng-show="securityStatus.realNameAuthStatus === 1">
       <div ng-show="orderStatistics.allInve > 0">
         <div>
           <div class="notPayOrder" ng-show="notPayOrder">
@@ -14,7 +14,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div class="panel panel-default no-border padding-l-15">
+            <div class="panel panel-default no-border padding-l-15" style="border-bottom:none !important;">
               <ul class="list-group">
                 <li class="list-group-item projects-filter no-border">
                   <div class="row">
@@ -27,6 +27,11 @@
                           </a>
                         </div>
                         <div class="col-xs-2">
+                          <a ng-click="type=4;loadOrders();"  class="project-noncheck" ng-class="{'project-check': type === '4', 'project-noncheck': type !== '4'}">
+                            零存宝
+                          </a>
+                        </div>
+                        <div class="col-xs-2">
                           <a ng-click="type=1;loadOrders();" class="project-noncheck" ng-class="{'project-check': type === '1', 'project-noncheck': type !== '1'}">
                             宏金保
                           </a>
@@ -36,11 +41,11 @@
                             宏金盈
                           </a>
                         </div>
-                        <div class="col-xs-2" ng-show="creditIsShowedFLAG">
+                        <!-- <div class="col-xs-2" ng-show="creditIsShowedFLAG">
                           <a ng-click="type=2;loadOrders();"  class="project-noncheck" ng-class="{'project-check': type === '2', 'project-noncheck': type !== '2'}">
                             债权转让
                           </a>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
                   </div>
@@ -85,7 +90,7 @@
                         </div>
                         <div class="col-xs-2">
                           <a ng-click="dateInterval='7';loadOrders();" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 7, 'project-noncheck': dateInterval !== 7 }">
-                            最近七天
+                            近七天
                           </a>
                         </div>
                         <div class="col-xs-2">
@@ -130,26 +135,26 @@
               <td>{{ item.orderNum}}</td>
               <td>{{ item.order.orderAmount | number: 2 }}</td>
               <td>
-                <button ng-click="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button>
-                <a ui-sref="root.project-details({number: item.order.projectNumber})" title="{{item.order.projectName}}" ng-if="item.order.type !== 4">{{ item.order.projectName | limitTo: 15}}</a>
+                <!-- <button ng-click="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button> -->
+                <a ui-sref="root.project-details({number: item.order.projectNumber})" title="{{item.order.projectName}}" class="ft-blue" ng-if="item.order.type !== 4">{{ item.order.projectName | limitTo: 15}}</a>
 
-                <a ui-sref="root.investmentplan-details({number: item.order.projectNumber})" ng-if="item.order.type === 4">{{ item.order.projectName.length >= 10 ? item.order.projectName : (productsMap[item.fundsProject.productId].name + item.order.projectName) }}
+                <a ui-sref="root.investmentplan-details({number: item.order.projectNumber})" class="ft-blue" ng-if="item.order.type === 4">{{ item.order.projectName.length >= 10 ? item.order.projectName : (productsMap[item.fundsProject.productId].name + item.order.projectName) }}
                 </a>
                 <br>
               </td>
               <td>{{ item.order.createTime | date: 'yyyy-MM-dd' }}</td>
               <td>
-              <span ng-show="item.statusText === '已完成'" class="status-tip-green border-half area-center">{{ item.statusText }}</span>
-              <span ng-show="item.statusText === '已取消'" class="status-tip-grey border-half area-center">{{ item.statusText }}</span>
-              <span ng-show="item.statusText === '未支付'" class="status-tip-green bg-btn-red border-half area-center">{{ item.statusText }}</span>
+              <span ng-show="item.statusText === '已完成'" class="status-tip-green border-half area-center width-58">{{ item.statusText }}</span>
+              <span ng-show="item.statusText === '已取消'" class="status-tip-grey border-half area-center width-58">{{ item.statusText }}</span>
+              <span ng-show="item.statusText === '未支付'" class="status-tip-green bg-btn-red border-half width-58 area-center">{{ item.statusText }}</span>
               </td>
               <!-- <td><a ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">123</a></td> -->
               <td>
-                <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary-orange btn-xs" ng-click="toPay(item.order.projectId, item.order.id, item.order.type);">继续支付</button>
+                <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary-orange btn-xs bg-btn-orange" ng-click="toPay(item.order.projectId, item.order.id, item.order.type);">继续支付</button>
                 <button ng-show="item.order.status === 1 " type="button" class="btn btn-default bg-btn-grey btn-xs" ng-click="cancelOrder(item.order.number);">取消</button>
                 <!-- <button ng-show="item.status === 1 " type="button" title="项目放款后生成协议" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button> -->
-                <button ng-show="item.order.status === 2" type="button" class="btn btn-primary-orange btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">合同模板</button>
-                <button ng-show="item.order.status >= 3 && item.order.status <=6" type="button" class="btn btn-primary-orange btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">下载合同</button>
+                <button ng-show="item.order.status === 2" type="button" class="btn btn-primary-orange bg-btn-orange btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">合同模板</button>
+                <button ng-show="item.order.status >= 3 && item.order.status <=6" type="button" class="btn btn-primary-orange btn-xs bg-btn-orange" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">下载合同</button>
                 <!-- <i ng-show="item.order.status >= 3 && item.order.status <=6" class="fa fa-info-circle ft-grey6" data-template="views/modal/popover-investment-contract.html" data-animation="am-flip-y" data-trigger="hover" bs-popover></i> -->
               </td>
             </tr>
