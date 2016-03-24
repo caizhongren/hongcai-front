@@ -98,8 +98,13 @@
             <td>{{ item.reserveOrder.reserveAmount | number:2}}</td>
             <td>{{ item.reserveOrder.yuebaoRate | number:2}}%</td>
             <td>{{ item.reserveOrder.returnProfit | number:2 }}</td>
-            <td ng-if="item.reserveOrder.status===2"><button type="button" class="btn btn-info btn-xs" ng-click="cancelReservation(item.reserveOrder)">撤销</button></td>
-            <td ng-if="item.reserveOrder.status!==2">{{statusMap[item.reserveOrder.status]}}</td>
+            <td ng-if="item.reserveOrder.status===1 || item.reserveOrder.status===2">
+            <span class="status-tip-grey bg-btn-pink border-half dis-inblock">预约中</span>
+            <span class="status-tip-blue border-half dis-inblock cursor-hand" ng-click="cancelReservation(item.reserveOrder)">撤销</span>
+            <!-- <button type="button" class="btn btn-info btn-xs" ng-click="cancelReservation(item.reserveOrder)">撤销</button> --></td>
+            <!-- {{statusMap[item.reserveOrder.status]}} -->
+            <td ng-if="item.reserveOrder.status===3"><span class="status-tip-green bg-tip-green border-half dis-inblock">预约成功</span></td>
+            <td ng-if="item.reserveOrder.status===5 || item.reserveOrder.status===6"><span class="status-tip-grey bg-tip-grey border-half dis-inblock">已撤销</span></td>
           </tr>
         </tbody>
       </table>
