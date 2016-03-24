@@ -118,6 +118,14 @@
             </tr>
           </thead>
           <tbody>
+            <tr ng-show="data.length<=0">
+              <td colspan="6">
+                <div>
+                  <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
+                  <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.investmentplan-list">浏览项目</a></p>
+                </div>
+              </td>
+            </tr>
             <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
               <td>{{ item.orderNum}}</td>
               <td>{{ item.order.orderAmount | number: 2 }}</td>
@@ -137,8 +145,8 @@
               </td>
               <!-- <td><a ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">123</a></td> -->
               <td>
-                <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary-orange" ng-click="toPay(item.order.projectId, item.order.id, item.order.type);">继续支付</button>
-                <button ng-show="item.order.status === 1 " type="button" class="btn btn-default bg-btn-grey" ng-click="cancelOrder(item.order.number);">取消</button>
+                <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary-orange btn-xs" ng-click="toPay(item.order.projectId, item.order.id, item.order.type);">继续支付</button>
+                <button ng-show="item.order.status === 1 " type="button" class="btn btn-default bg-btn-grey btn-xs" ng-click="cancelOrder(item.order.number);">取消</button>
                 <!-- <button ng-show="item.status === 1 " type="button" title="项目放款后生成协议" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button> -->
                 <button ng-show="item.order.status === 2" type="button" class="btn btn-primary-orange btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">合同模板</button>
                 <button ng-show="item.order.status >= 3 && item.order.status <=6" type="button" class="btn btn-primary-orange btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">下载合同</button>
