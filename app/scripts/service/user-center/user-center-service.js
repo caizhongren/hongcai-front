@@ -104,10 +104,10 @@ angular.module('hongcaiApp')
       getUserMsgByStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/getUserMsgByStatus', {
         status: '$status'
       }),
-      updateSingleUserMsgStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/updateOneUserMsgReadByUserMsgId', {
+      readOneMsg: $resource(DEFAULT_DOMAIN + '/siteMsg/readOne', {
         userMsgId: '$userMsgId'
       }),
-      updateAllUserMsgStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/updateAllUserMsgReadByUserId', {}),
+      readAllMsg: $resource(DEFAULT_DOMAIN + '/siteMsg/readAll', {}),
       pushAllUnpullMessages: $resource(DEFAULT_DOMAIN + '/siteMsg/pushAllUnpullMessages'),
       getUserReserveRecords: $resource(DEFAULT_DOMAIN + '/siteReserve/getUserReserveRecords', {}),
       reserveCancel: $resource(DEFAULT_DOMAIN + '/siteReserve/reserveCancel', {

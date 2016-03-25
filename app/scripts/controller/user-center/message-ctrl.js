@@ -32,7 +32,7 @@ angular.module('hongcaiApp')
 
           if (status === 0) {
             //markSingleMsgRead
-            UserCenterService.updateSingleUserMsgStatus.get({
+            UserCenterService.readOneMsg.get({
               'userMsgId': id
             }, function(response) {
               if (response.ret === 1) {
@@ -53,7 +53,7 @@ angular.module('hongcaiApp')
 
         //markAllMsgRead
         $scope.updateAllMsgStatus = function() {
-          UserCenterService.updateAllUserMsgStatus.get({}, function(response) {
+          UserCenterService.readAllMsg.get({}, function(response) {
             if (response.ret === 1) {
               angular.element('li[class]').removeClass('unread-flag');
               UserCenterService.getUnreadMsgCount.get(function(response) {
