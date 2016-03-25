@@ -19,11 +19,11 @@ angular.module('hongcaiApp')
 
       $scope.orderList = [];
       var startTime = 0;
-      if ($scope.dateInterval === '7') {
+      if ($scope.dateInterval === 7) {
         startTime = new Date().getTime() - 7 * 24 * 60 * 60 * 1000;
-      } else if ($scope.dateInterval === '30') {
+      } else if ($scope.dateInterval === 30) {
         startTime = new Date().getTime() - 30 * 24 * 60 * 60 * 1000;
-      } else if ($scope.dateInterval === '90') {
+      } else if ($scope.dateInterval === 90) {
         startTime = new Date().getTime() - 90 * 24 * 60 * 60 * 1000;
       }
       UserCenterService.getUserReserveRecords.get({
