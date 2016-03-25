@@ -15,8 +15,6 @@ angular.module('hongcaiApp')
     ];
 
     $scope.getReserveOrders = function(dateInterval) {
-      $scope.dateInterval = dateInterval;
-
       $scope.orderList = [];
       var startTime = 0;
       if ($scope.dateInterval === 7) {
