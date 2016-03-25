@@ -64,7 +64,7 @@
               <div class="col-xs-2 text-nowrap">创建日期：</div>
 
               <div class="col-xs-2" ng-repeat="item in dateIntervals">
-                <a ng-click="getReserveOrders(item.interval)" ng-class="dateInterval === item.interval ? 'project-check':'project-noncheck'">
+                <a ng-click="getReserveOrders()" ng-class="dateInterval === item.interval ? 'project-check':'project-noncheck'[dateInterval == item.interval]">
                   {{item.desc}}
                 </a>
               </div>

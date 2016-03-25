@@ -14,9 +14,7 @@ angular.module('hongcaiApp')
       { interval: '90', desc: '三个月'}
     ];
 
-    $scope.getReserveOrders = function(dateInterval) {
-      $scope.dateInterval = dateInterval;
-
+    $scope.getReserveOrders = function() {
       $scope.orderList = [];
       var startTime = 0;
       if ($scope.dateInterval === '7') {
