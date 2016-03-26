@@ -1,47 +1,56 @@
 <div class="right-area right-assets-height recharge userMessage col-md-8 col-lg-9">
-  <div class="row">
-    <div class="right-title word-less-title">站内消息</div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <ul class="list-group">
-        <li class="list-group-item border-none cursor-d">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="row">
-                <div class="col-xs-12 text-nowrap border-b" style="position: relative;">
-                  <div class="btn-group">
-                    <a role="button" class="btn btn-default border-b-none" ng-class="{active: status==='0,1'}" ui-sref="root.userCenter.message({status:'0,1'})">全部</a>
-                    <a type="button" class="btn btn-default border-b-none" ng-class="{active: status=== '0'}" ui-sref="root.userCenter.message({status:'0'})">未读</a>
-                    <a type="button" class="btn btn-default border-b-none" ng-class="{active: status=== '1'}" ui-sref="root.userCenter.message({status:'1'})">已读</a>
+  <div class="currency-style">
+    <div class="title">
+      <span class="tip">预约记录</span>
+    </div>
+    <div class="main">
+      <div class="col-xs-12">
+        <ul class="list-group">
+          <li class="list-group-item border-none cursor-d">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-12 text-nowrap border-b" style="position: relative;">
+                    <div class="btn-group">
+                      <a role="button" class="message-blue" ng-class="{'message-red': status==='0,1'}" ui-sref="root.userCenter.message({status:'0,1'})">全部</a>
+                      <a type="button" class="message-blue" ng-class="{'message-red': status=== '0'}" ui-sref="root.userCenter.message({status:'0'})">未读</a>
+                      <a type="button" class="message-blue" ng-class="{'message-red': status=== '1'}" ui-sref="root.userCenter.message({status:'1'})">已读</a>
+                      <!-- <a type="button" class="btn btn-default border-b-none" ng-class="{active: status=== '1'}" ui-sref="root.userCenter.message({status:'1'})">已读</a> -->
+                    </div>
+                    <span class="pull-right ft-blue2" style="line-height:34px;" ng-click="updateAllMsgStatus()">全部标记为已读</span>
                   </div>
-                  <span class="pull-right" style="line-height:34px;" ng-click="updateAllMsgStatus()">全部标记为已读</span>
                 </div>
               </div>
+          </li>
+          <li class="list-group-item bottom-msgborder padding-b-0" ng-class="{'unread-flag':item.status===0,'read-flag':item.status===1}" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize" ng-click="changeStatus(item.status,item.id,$index)">
+            <div class="row">
+              <div class="col-xs-12 margin-b-20">
+                <div class="pull-left">
+                  <!-- <a href="javascript:;" title="标记为已读"><input type="checkbox"></a> -->
+                  <input type="checkbox" name="title" value="title" />
+                  <span data-toggle="collapse" data-parent="#accordion" href="#{{item.id}}" ng-click="toggleMessage($index)">{{item.title}}</span></div>
+                   <!-- ng-click="toggleMessage($index)" -->
+                <div class="pull-right" data-toggle="collapse" data-parent="#accordion" href="#{{item.id}}">
+                <span class="toggleText dis-block" ng-show="$index !== toggleIndex">{{item.createTime | date: "yy-M-dd HH:mm"}}</span>
+                <span class="toggleCancle ft-red2" ng-show="$index === toggleIndex">删掉此条信息<i class="fa fa-times"></i></span>
+                </div>
+              </div>
+              <div class="col-xs-12 padding-b-30 collapse" id="{{item.id}}">
+                <p class="msg-con">{{item.content}}</p>
+                <p class="fr ft-grey9">{{item.createTime | date: "yy-MM-dd HH:mm"}}</p>
+              </div>
             </div>
-        </li>
-        <li class="list-group-item border-none padding-b-0" ng-class="{'unread-flag':item.status===0,'read-flag':item.status===1}" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize" ng-click="changeStatus(item.status,item.id,$index)">
+          </li>
           <div class="row">
-            <div class="col-xs-12">
-              <div class="pull-left">
-                <!-- <a href="javascript:;" title="标记为已读"><input type="checkbox"></a> -->{{item.title}}</div>
-              <div class="pull-right">{{item.createTime | date: "yy-MM-dd HH:mm"}}</div>
-            </div>
-            <div class="col-xs-12">
-              <p class="msg-con">{{item.content}}</p>
-              <div class="border-b" style="height:15px;margin-bottom: 1px;"></div>
+            <br>
+            <div class="col-sx-12 text-center">
+              <button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1" disabled="disabled">上一页</button>
+              {{currentPage + 1 }} / {{numberOfPages()}} 共 {{data.length}} 条
+              <button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1" disabled="disabled">下一页</button>
             </div>
           </div>
-        </li>
-        <div class="row">
-          <br>
-          <div class="col-sx-12 text-center">
-            <button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1" disabled="disabled">上一页</button>
-            {{currentPage + 1 }} / {{numberOfPages()}} 共 {{data.length}} 条
-            <button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1" disabled="disabled">下一页</button>
-          </div>
-        </div>
-      </ul>
+        </ul>
       </div>
     </div>
   </div>
+</div>

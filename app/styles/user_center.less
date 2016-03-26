@@ -418,7 +418,7 @@
   }
   .btn-group {
     position: absolute;
-    top: 1px;
+    top: 5px;
     a {
       position: relative;
     }
@@ -429,6 +429,7 @@
   }
   .list-group-item {
     cursor: pointer;
+    border:none;
     p {
       margin-top: 10px;
       // padding-bottom: 10px;
@@ -868,4 +869,29 @@
 }
 .cursor-hand{
   cursor: pointer;
+}
+.message-blue,.message-blue:hover{
+  font-size: 14px;
+  color: #2c86d2;
+  width: 58px;
+  display: inline-block;
+  text-align: center;
+}
+.message-red,.message-red:hover{
+  color: white;
+  background-color: #f9683c;
+  border-radius: 3px;
+}
+.bottom-msgborder{
+  border-left: none;
+  boeder-right:none !important;
+  border-top: none;
+  border-bottom: 1px solid #dddddd !important;
+  margin-bottom: 1px;
+}
+.dis-none{
+  display: none;
+}
+.dis-block{
+  display: block;
 }
