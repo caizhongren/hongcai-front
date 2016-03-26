@@ -49,7 +49,7 @@ angular.module('hongcaiApp')
     };
 
     $scope.currentPage = 1;
-    $scope.pageSize = 10;
+    $scope.pageSize = 12;
     $scope.status = $stateParams.status;
 
     
@@ -60,7 +60,9 @@ angular.module('hongcaiApp')
     $scope.loadPage = function(page, pageSize, status){
 
       UserCenterService.getUserMsgByStatus.get({
-        status: status
+        status: status,
+        page: page,
+        pageSize: pageSize
       }, function(response) {
         if (response.ret === 1) {
           $scope.currentPage = page;

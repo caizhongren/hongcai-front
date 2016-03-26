@@ -1,7 +1,7 @@
 <div class="right-area right-assets-height recharge userMessage col-md-8 col-lg-9">
   <div class="currency-style">
     <div class="title">
-      <span class="tip">预约记录</span>
+      <span class="tip">站内消息</span>
     </div>
     <div class="main">
       <div class="col-xs-12">
@@ -22,7 +22,7 @@
                 </div>
               </div>
           </li>
-          <li class="list-group-item bottom-msgborder padding-b-0" ng-class="{'unread-flag':item.status===0,'read-flag':item.status===1}" ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize" ng-click="changeStatus(item.status,item.id,$index)">
+          <li class="list-group-item bottom-msgborder padding-b-0" ng-class="{'unread-flag':item.status===0,'read-flag':item.status===1}" ng-repeat="item in data" ng-click="changeStatus(item.status,item.id,$index)">
             <div class="row">
               <div class="col-xs-12 margin-b-20">
                 <div class="pull-left">
@@ -31,7 +31,7 @@
                   <span data-toggle="collapse" data-parent="#accordion" href="#{{item.id}}" ng-click="toggleMessage($index)">{{item.title}}</span></div>
                    <!-- ng-click="toggleMessage($index)" -->
                 <div class="pull-right" data-toggle="collapse" data-parent="#accordion" href="#{{item.id}}">
-                <span class="toggleText dis-block" ng-show="$index !== toggleIndex">{{item.createTime | date: "yy-M-dd HH:mm"}}</span>
+                <span class="toggleText dis-block" ng-show="$index !== toggleIndex">{{item.createTime | date: "yyyy-MM-dd HH:mm"}}</span>
                 <span class="toggleCancle ft-red2" ng-show="$index === toggleIndex">删掉此条信息<i class="fa fa-times"></i></span>
                 </div>
               </div>
@@ -44,9 +44,9 @@
           <div class="row">
             <br>
             <div class="col-sx-12 text-center">
-              <button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1" disabled="disabled">上一页</button>
-              {{currentPage + 1 }} / {{numberOfPages()}} 共 {{data.length}} 条
-              <button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1" disabled="disabled">下一页</button>
+              <button class="btn btn-default btn-sm" ng-disabled="currentPage == 1" ng-click="loadPage(currentPage - 1, pageSize, status)" disabled="disabled">上一页</button>
+              {{currentPage}} / {{numberOfPages()}} 共 {{count}} 条
+              <button class="btn btn-default btn-sm" ng-disabled="currentPage >= numberOfPages()" ng-click="loadPage(currentPage + 1, pageSize, status)" disabled="disabled">下一页</button>
             </div>
           </div>
         </ul>
