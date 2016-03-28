@@ -8,7 +8,7 @@
     	<div class="col-md-12 over-auto">
     		<div class="col-md-offset-1 col-md-10 warning-tip">
     			<img src="/images/tip.png" alt="" class="col-xs-1">
-    			<p class="col-xs-11 ft-14 margin-l-5 margin-b-0">为保障您的账户安全，暂不支持添加多张银行卡，如果银行卡遗失或损坏，请解绑银行卡，重新更换新的银行卡</p>
+    			<p class="col-xs-10 ft-14 margin-l-5 margin-b-0">为保障您的账户安全，暂不支持添加多张银行卡，如果银行卡遗失或损坏，请解绑银行卡，重新更换新的银行卡</p>
     		</div>
     	</div>
     	<div class="col-md-12 over-auto margin-t-20" ng-show="!isAuth">
@@ -23,7 +23,7 @@
     		</div>
     		<!-- 添加银行卡 -->
     		<div class="col-md-offset-1 col-md-10 bankcard-tip text-center" ng-show="isAuth && !haveCard && !isVerifying && !unbinding" ng-init="isAuth=false" ng-click="bindBankCard()">
-  				您尚未绑定任何银行卡，<span class="tip-font-blue">去绑定</span>
+  				您尚未绑定任何银行卡，<span class="tip-font-blue cursor-hand">去绑定</span>
     		</div>
     		<!-- 绑定银行卡信息 -->
     		<div class="col-md-offset-1 col-md-10 bankcard-tip text-center unbankbind" ng-show="isAuth && haveCard && !isVerifying && !unbinding">

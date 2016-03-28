@@ -7,7 +7,7 @@
     <div class="main">
       <div class="padd row">
         <div class="col-md-11 bg-grey6 padding-40">
-          <img src="/images/usermoney3.png" alt="" class="fl">
+          <img src="/images/usermoney3.png" alt="" class="fl margin-l-30">
           <div class="record-text">
             <p>账户资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.waitingCapital + capital.balance + capital.waitingProfit + capital.freezeCapital | number: 2}}</strong>元</p>
@@ -26,8 +26,8 @@
         <div class="col-md-1 row"></div>
       </div>
       <div class="row margin-b-20">
-        <div class="col-md-7 margin-l-60 record-change">
-          <div class="col-xs-2 text-nowrap line-25">操作日期：</div>
+        <div class="col-md-7 margin-l-45 record-change">
+          <div class="col-xs-2 text-nowrap line-25 ft-bold">操作日期：</div>
           <div class="col-xs-2 text-nowrap">
             <span ng-click="dateInterval=0;getDeals(currentPage);" class="project-noncheck" ng-class="{ true : 'project-yescheck', false : 'project-noncheck'}[dateInterval == 0]">
               全部

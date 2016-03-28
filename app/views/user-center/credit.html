@@ -34,8 +34,8 @@
         <div class="row margin-l-0 margin-r-0 margin-t-10">
         <!-- <a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create">发起债券转让</a> -->
           <div class="fl col-md-12 ft-14">
-            <div class="col-xs-1 padding-b-5 {{searchStatus === 1 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(1)">投资中</div>
-            <div class="col-xs-1 padding-b-5 {{searchStatus === 4 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(4)">已回款</div>
+            <div class="col-xs-1 padding-b-5 {{searchStatus === 1 ? 'credit-toggle' : ''}}" ng-click="loadCredits(currentPage, pageSize, 1)">投资中</div>
+            <div class="col-xs-1 padding-b-5 {{searchStatus === 4 ? 'credit-toggle' : ''}}" ng-click="loadCredits(currentPage, pageSize, 4)">已回款</div>
             <!-- <div class="col-xs-1 padding-b-5 {{searchStatus === 2 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(2)">转让中</div>
             <div class="col-xs-1 padding-b-5 {{searchStatus === 3 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(3)">已转让</div> -->
           </div>
@@ -71,8 +71,8 @@
               </tr>
               <tr ng-repeat="item in heldInCreditList">
                 <td>
-                  <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name | limitTo: 15 }}{{item.project.name.length > 15 ? '...':''}}</a>
-                  <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{productsMap[item.fundsProject.productId].name + item.fundsProject.name}}" ng-if="item.project.type === 3">{{ productsMap[item.fundsProject.productId].name + item.fundsProject.name | limitTo: 15 }}</a>
+                  <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.creditRight.projectName | limitTo: 15 }}{{item.project.name.length > 15 ? '...':''}}</a>
+                  <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{productsMap[item.fundsProject.productId].name + item.fundsProject.name}}" ng-if="item.project.type === 3">{{ item.creditRight.projectName | limitTo: 15 }}</a>
                 </td>
                 <td>{{ item.creditRight.amount | number:2 }}</td>
                 <td>{{ item.order.profit - item.order.returnProfit | number:2 }}</td>
@@ -95,9 +95,9 @@
             </tbody>
           </table>
           <ul class="pager margin-r-20">
-            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage >= heldInCreditList.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
-            <div class="fr height-30">&nbsp;&nbsp;{{ currentPage +1 }} / {{ numberOfPages(heldInCreditList)+1 }} &nbsp;共 {{heldInCreditList.length}} 条&nbsp;&nbsp;</div>
-            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage >= numberOfPages " ng-click="loadCredits(currentPage+1, pageSize, searchStatus)">下一页</button></li>
+            <div class="fr height-30">&nbsp;&nbsp;{{ currentPage}} / {{ numberOfPages}} &nbsp;共 {{count}} 条&nbsp;&nbsp;</div>
+            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage-1, pageSize, searchStatus)">上一页</button></li>
           </ul>
         </div>
         <div ng-show="searchStatus === 2">
@@ -170,7 +170,7 @@
               <tr>
                 <th>项目名称</th>
                 <th>债权价值</th>
-                <th>已收收益</th>
+                <th>已收收益(元)</th>
                 <th>完结时间</th>
                 <th ng-show="creditIsShowedFLAG">状态</th>
                 <th>操作</th>
@@ -206,9 +206,13 @@
             </tbody>
           </table>
           <ul class="pager margin-r-20" ng-hide="heldInCreditList.length<=0">
-            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage >= heldInCreditList.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button></li>
-            <div class="fr height-30">{{currentPage +1 }} / {{numberOfPages(heldInCreditList)+1 }} 共 {{heldInCreditList.length}} 条</div>
-            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button></li>
+            <li class="fr">
+              <button class="btn btn-default btn-sm" ng-disabled="currentPage >= numberOfPages" ng-click="loadCredits(currentPage+1, pageSize, searchStatus)">下一页</button>
+            </li>
+            <div class="fr height-30">&nbsp;&nbsp;{{currentPage}} / {{numberOfPages }} 共 {{count}} 条&nbsp;&nbsp;</div>
+            <li class="fr">
+              <button class="btn btn-default btn-sm" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage - 1, pageSize, searchStatus)">上一页</button>
+            </li>
           </ul>
         </div>
       </div>

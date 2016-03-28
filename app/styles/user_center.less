@@ -418,7 +418,7 @@
   }
   .btn-group {
     position: absolute;
-    top: 1px;
+    top: 5px;
     a {
       position: relative;
     }
@@ -429,6 +429,7 @@
   }
   .list-group-item {
     cursor: pointer;
+    border:none;
     p {
       margin-top: 10px;
       // padding-bottom: 10px;
@@ -868,4 +869,68 @@
 }
 .cursor-hand{
   cursor: pointer;
+}
+.message-blue,.message-blue:hover{
+  font-size: 14px;
+  color: #2c86d2;
+  width: 58px;
+  display: inline-block;
+  text-align: center;
+}
+.message-red,.message-red:hover{
+  color: white;
+  background-color: #f9683c;
+  border-radius: 3px;
+}
+.bottom-msgborder{
+  border-left: none;
+  boeder-right:none !important;
+  border-top: none;
+  border-bottom: 1px solid #dddddd !important;
+  margin-bottom: 1px;
+}
+.dis-none{
+  display: none;
+}
+.dis-block{
+  display: block;
+}
+.setting-probg{
+  background-color: #848282 !important;
+}
+.setting-new{
+  border-top: 1px solid #e5e4e4;
+  padding: 20px 0;
+  .text-label{
+    width: 45%;
+  }
+  .text-user{
+    width: 30%;
+  }
+  .text-tip{
+    width: 25%;
+  }
+  .text-label,.text-user{
+    // width: 33.3333333%;
+    display: inline-block;
+    color: #666666;
+    text-align: left;
+  }
+  .text-tip{
+    // width: 33.333333%;
+    display: inline-block;
+    color: #3f89ce;
+    text-align: right;
+    .orange-button,.white-button-orange{
+      width: 90px;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      display: block;
+      float: right;
+    }
+    .orange-button:hover{
+      color: white !important;
+    }
+  }
 }

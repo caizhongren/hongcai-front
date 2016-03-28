@@ -1540,7 +1540,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     '/gift-rebate',
     '/reservation',
     '/credit',
-    '/credit-create'
+    '/credit-create',
+    '/message'
   ];
 
   // 不需要显示footer的path
