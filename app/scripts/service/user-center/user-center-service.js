@@ -108,6 +108,9 @@ angular.module('hongcaiApp')
         userMsgId: '$userMsgId'
       }),
       readAllMsg: $resource(DEFAULT_DOMAIN + '/siteMsg/readAll', {}),
+      deleteOneMsg: $resource(DEFAULT_DOMAIN + '/siteMsg/deleteUserMsg', {
+        msgId: '$msgId'
+      }),
       pushAllUnpullMessages: $resource(DEFAULT_DOMAIN + '/siteMsg/pushAllUnpullMessages'),
       getUserReserveRecords: $resource(DEFAULT_DOMAIN + '/siteReserve/getUserReserveRecords', {}),
       reserveCancel: $resource(DEFAULT_DOMAIN + '/siteReserve/reserveCancel', {

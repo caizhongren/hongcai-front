@@ -82,6 +82,19 @@ angular.module('hongcaiApp')
 
     $scope.loadPage($scope.currentPage, $scope.pageSize, $stateParams.status);
 
+    //删除某条信息
+    $scope.deleteMsg = function(id){
+      UserCenterService.deleteOneMsg.get({
+        'msgId': id
+      }, function(response) {
+        if(response.ret === 1){
+          $scope.deleteInfo = true;
+          toaster.pop('success', '恭喜您，删除成功！');
+          // window.location.reload();
+          $scope.loadPage($scope.currentPage, $scope.pageSize, $stateParams.status);
+        }
+      });
+    }
 
     //markAllMsgRead
     $scope.updateAllMsgStatus = function() {
