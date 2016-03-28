@@ -24,6 +24,8 @@ angular.module('hongcaiApp')
       getUserAvailableCash: $resource(DEFAULT_DOMAIN + '/siteAccount/getUserAvailableCash'),
       getUserOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser'),
       getOrderByUser: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser', {
+        page: '@page',
+        pageSize: '@pageSize',
         type: '@type',
         dateInterval: '@dateInterval',
         status: '@status'

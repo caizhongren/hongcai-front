@@ -14,6 +14,8 @@ angular.module('hongcaiApp')
     $scope.listInvPond = [];
     $scope.unpaid = 0;
     $scope.paid = 0;
+    $scope.currentPage = 1;
+    $scope.pageSize = 6;
 
 
     $scope.showListNameInfo = function() {
@@ -60,8 +62,11 @@ angular.module('hongcaiApp')
   
 
 
-    $scope.loadOrders = function(){
+    $scope.loadOrders = function(page){
+      $scope.currentPage = page;
       var getOrderByUser = UserCenterService.getOrderByUser.get({
+        page: page,
+        pageSize: $scope.pageSize,
         type: $scope.type,
         dateInterval: $scope.dateInterval,
         status: $scope.status
@@ -79,11 +84,6 @@ angular.module('hongcaiApp')
           $scope.productsMap = getOrderByUser.data.productsMap;
           $scope.orderStatistics = getOrderByUser.data.orderStatistics;
           $scope.orderStatus = getOrderByUser.data.orderStatus;
-          
-          // $scope.invFromDate = getOrderByUser.data.dateStart || 0;
-          // $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
-          $scope.currentPage = 0;
-          $scope.pageSize = 6;
           $scope.data = [];
           $scope.numberOfPages = function() {
             return Math.ceil($scope.count / $scope.pageSize);
@@ -101,7 +101,7 @@ angular.module('hongcaiApp')
       });
     }
 
-    $scope.loadOrders();
+    $scope.loadOrders(1);
     
     
 
