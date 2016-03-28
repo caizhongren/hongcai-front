@@ -104,6 +104,7 @@ angular.module('hongcaiApp')
           UserCenterService.getUnreadMsgCount.get(function(response) {
             if (response.ret === 1) {
               $rootScope.unreadCount = response.data.unreadCount;
+              $state.go('root.userCenter.message',{status:'1'});
             }
           });
         } else {
