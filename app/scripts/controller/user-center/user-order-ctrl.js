@@ -70,13 +70,15 @@ angular.module('hongcaiApp')
         if (getOrderByUser.ret === 1) {
           // console.log(getOrderByUser);
           // if($scope.haveTrusteeshipAccount) {
-          $scope.orderList = getOrderByUser.data.orderProjectList;
+          $scope.orderList = getOrderByUser.data.orderList;
+          $scope.count = getOrderByUser.data.count;
           $scope.type = getOrderByUser.data.type;
           $scope.dateInterval = getOrderByUser.data.dateInterval;
           $scope.status = getOrderByUser.data.status;
           $scope.notPayOrder = getOrderByUser.data.notPayOrder;
           $scope.productsMap = getOrderByUser.data.productsMap;
           $scope.orderStatistics = getOrderByUser.data.orderStatistics;
+          $scope.orderStatus = getOrderByUser.data.orderStatus;
           
           // $scope.invFromDate = getOrderByUser.data.dateStart || 0;
           // $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
@@ -84,7 +86,7 @@ angular.module('hongcaiApp')
           $scope.pageSize = 6;
           $scope.data = [];
           $scope.numberOfPages = function() {
-            return Math.ceil($scope.data.length / $scope.pageSize);
+            return Math.ceil($scope.count / $scope.pageSize);
           };
           for (var i = 0; i < $scope.orderList.length; i++) {
             var item = $scope.orderList[i];

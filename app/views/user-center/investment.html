@@ -132,29 +132,29 @@
               </td>
             </tr>
             <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-              <td>{{ item.orderNum}}</td>
-              <td>{{ item.order.orderAmount | number: 2 }}</td>
+              <td>{{ item.number}}</td>
+              <td>{{ item.orderAmount | number: 2 }}</td>
               <td>
                 <!-- <button ng-click="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button> -->
-                <a ui-sref="root.project-details({number: item.order.projectNumber})" title="{{item.order.projectName}}" class="invment-blue" ng-if="item.order.type !== 4">{{ item.order.projectName | limitTo: 15}}</a>
+                <a ui-sref="root.project-details({number: item.projectNumber})" title="{{item.projectName}}" class="invment-blue" ng-if="item.type !== 4">{{ item.projectName | limitTo: 15}}</a>
 
-                <a ui-sref="root.investmentplan-details({number: item.order.projectNumber})" class="invment-blue" ng-if="item.order.type === 4">{{ item.order.projectName.length >= 10 ? item.order.projectName : (productsMap[item.fundsProject.productId].name + item.order.projectName) }}
+                <a ui-sref="root.investmentplan-details({number: item.projectNumber})" class="invment-blue" ng-if="item.type === 4">{{ item.projectName}}
                 </a>
                 <br>
               </td>
-              <td>{{ item.order.createTime | date: 'yyyy-MM-dd' }}</td>
+              <td>{{ item.createTime | date: 'yyyy-MM-dd' }}</td>
               <td>
-              <span ng-show="item.statusText === '已完成'" class="status-tip-green border-half area-center width-58">{{ item.statusText }}</span>
-              <span ng-show="item.statusText === '已取消'" class="status-tip-grey border-half area-center width-58">{{ item.statusText }}</span>
-              <span ng-show="item.statusText === '未支付'" class="status-tip-green bg-btn-red border-half width-58 area-center">{{ item.statusText }}</span>
+              <span ng-show="item.status !== 1 && item.status !== 97 && item.status !== 99" class="status-tip-green border-half area-center width-58">{{orderStatus[item.status]}}</span>
+              <span ng-show="item.status === 97 || item.status === 99" class="status-tip-grey border-half area-center width-58">{{orderStatus[item.status]}}</span>
+              <span ng-show="item.status === 1" class="status-tip-green bg-btn-red border-half width-58 area-center">{{orderStatus[item.status]}}</span>
               </td>
               <!-- <td><a ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">123</a></td> -->
               <td>
-                <button ng-show="item.order.status === 1 " type="button" class="btn btn-primary-orange btn-xs bg-btn-orange" ng-click="toPay(item.order.projectId, item.order.id, item.order.type);">继续支付</button>
-                <button ng-show="item.order.status === 1 " type="button" class="btn btn-default bg-btn-grey btn-xs" ng-click="cancelOrder(item.order.number);">取消</button>
+                <button ng-show="item.status === 1 " type="button" class="btn btn-primary-orange btn-xs bg-btn-orange" ng-click="toPay(item.projectId, item.id, item.type);">继续支付</button>
+                <button ng-show="item.status === 1 " type="button" class="btn btn-default bg-btn-grey btn-xs" ng-click="cancelOrder(item.number);">取消</button>
                 <!-- <button ng-show="item.status === 1 " type="button" title="项目放款后生成协议" class="btn btn-info btn-xs" ng-click="generateContractPDF(item.projectId, item.orderId, item.status);">合同模板</button> -->
-                <button ng-show="item.order.status === 2" type="button" class="btn btn-primary-orange bg-btn-orange btn-xs" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">合同模板</button>
-                <button ng-show="item.order.status >= 3 && item.order.status <=6" type="button" class="btn btn-primary-orange btn-xs bg-btn-orange" ng-click="generateContractPDF(item.order.projectId, item.order.id, item.order.status, item.order.type);">下载合同</button>
+                <button ng-show="item.status === 2" type="button" class="btn btn-primary-orange bg-btn-orange btn-xs" ng-click="generateContractPDF(item.projectId, item.id, item.status, item.type);">合同模板</button>
+                <button ng-show="item.status >= 3 && item.status <=6" type="button" class="btn btn-primary-orange btn-xs bg-btn-orange" ng-click="generateContractPDF(item.projectId, item.id, item.status, item.type);">下载合同</button>
                 <!-- <i ng-show="item.order.status >= 3 && item.order.status <=6" class="fa fa-info-circle ft-grey6" data-template="views/modal/popover-investment-contract.html" data-animation="am-flip-y" data-trigger="hover" bs-popover></i> -->
               </td>
             </tr>
