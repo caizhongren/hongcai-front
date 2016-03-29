@@ -28,8 +28,8 @@
         <img src="/images/bank-auth-no.png" alt="" ng-show="securityStatus.realNameAuthStatus!==1">
       </div>
       <div class="col-xs-9 col-xs-offset-1 auth-font">
-        <p class="margin-b-0 ft-orange" ng-show="securityStatus.realNameAuthStatus===1">第三方账户已绑定！</p>
-        <p class="margin-b-0" ng-show="securityStatus.realNameAuthStatus!==1">第三方账户未绑定，点击<a href="" title="">绑定</a></p>
+        <p class="margin-b-0 ft-orange" ng-show="securityStatus.realNameAuthStatus===1">第三方账户已开通！</p>
+        <p class="margin-b-0" ng-show="securityStatus.realNameAuthStatus!==1">第三方账户未开通，点击<a href="" title="">开通</a></p>
       </div>
     </div>
   </div>
@@ -108,7 +108,7 @@
       <span class="tip">投资信息</span>
     </div>
     <div class="main">
-      <div class="col-md-4 text-center bor-dash cursor-pointer" ui-sref="root.userCenter.investment({type:99})">
+      <div class="col-md-4 text-center bor-dash cursor-pointer" ui-sref="root.userCenter.credit">
         <p class="margin-b-0"><span class="ft-red2 ft-36">{{ statistics.totalInvestCount || "0"}}</span>个</p>
         <p><span class="info-data">累计投资</span></p>
       </div>
@@ -116,7 +116,7 @@
         <p class="margin-b-0"><span class="ft-red2 ft-36">{{ statistics.heldingCount || "0" }}</span>个</p>
         <p><span class="info-data">持有投资</span></p>
       </div>
-      <div class="col-md-4 text-center cursor-pointer" ui-sref="root.userCenter.assets-overview">
+      <div class="col-md-4 text-center cursor-pointer" ui-sref="root.userCenter.credit">
         <p class="margin-b-0"><span class="ft-red2 ft-36">{{ statistics.totalInvestAmount/10000 || "0" | number:2}}</span>万元</p>
         <p><span class="info-data">投资总额</span></p>
       </div>
