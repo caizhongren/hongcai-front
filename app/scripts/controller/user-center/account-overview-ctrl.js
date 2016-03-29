@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AccountOverviewCtrl',  function($scope, $state, $rootScope, $stateParams, UserCenterService, toaster) {
+  .controller('AccountOverviewCtrl',  function($scope, $state, $rootScope, $stateParams,MainService,ProjectService, UserCenterService, toaster) {
     $rootScope.selectSide = 'account-overview';
     var totalAssets = 0;
     var receivedProfit = 0;
@@ -33,7 +33,62 @@ angular.module('hongcaiApp')
 
     });
 
+    
+    /*
+    **零存宝、宏金盈列表
+    */
+    MainService.getIndexFundsProductList.get(function(response) {
+    	console.log("hongjinying");
+    	console.log(response);
+    	$scope.fundsProjectProductList = response.data.fundsProjectProductList;
+    });
+    //机构宝
+    ProjectService.projectList.get({
+        status: '7',
+      }, function(response) {
+      	//console.log("jigoubao");
+    	//console.log(response);
+    	$scope.jigoubao = response.data.projectList;
+      });
+    
+    /**
+     * 我的债权统计数据
+     */
+    // $scope.getCreditRightStatistics = function() {
+    UserCenterService.getCreditRightStatistics.get({}, function(response) {
+      if (response.ret === 1) {
+        $scope.creditRightStatis = response.data.creditRightStatis;
+        $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
+      } else {
+        $scope.showCreditRightStatistics = false;
+        toaster.pop('warning', response.msg);
+      }
+    });
+    /**
+     * 加息券统计信息
+     */
+    UserCenterService.getUserIncreaseRateCouponStatis.get({}, function(response) {
+      if (response.ret === 1) {
+        $scope.couponStatis = response.data.couponStatis;
+      } else {
+        toaster.pop('warning', response.msg);
+      }
+    });
 
+    // 收益曲线
+    UserCenterService.dayProfit.get({
+      startTime: new Date().getTime(),
+      endTime: new Date().getTime() + 60 * 1000,
+    }, function(response){
+    	//console.log(response);
+      var data = response.data;
+      $scope.profit = [];
+      for(var key in data)  {
+        var date = new Date(+key);
+        $scope.profit.push(data[key]);
+        $scope.yestodayProfit = data[key];
+      }
+    });
 
     // 原版获取投资统计数据
     /*OrderService.statisticsByUser.get(function(response) {

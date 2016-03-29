@@ -13,6 +13,8 @@ angular.module('hongcaiApp')
 
     $rootScope.redirectUrl = $location.path();
     $rootScope.selectSide = 'credit';
+
+
     // 第一步
     $scope.creditStepFlag = 1;
     $scope.Math = window.Math;
@@ -32,7 +34,6 @@ angular.module('hongcaiApp')
     /**
      * 我的债权统计数据
      */
-    // $scope.getCreditRightStatistics = function() {
     UserCenterService.getCreditRightStatistics.get({}, function(response) {
       if (response.ret === 1) {
         $scope.creditRightStatis = response.data.creditRightStatis;
@@ -42,35 +43,40 @@ angular.module('hongcaiApp')
         toaster.pop('warning', response.msg);
       }
     });
-    // };
-
-    // $scope.getCreditRightStatistics ();
 
     /**
-     * 获得持有中债权列表
+     * 加载债权
+     * @param  page      第几页
+     * @param  pageSize  每页数据长度
+     * @param  status   状态
      */
-    $scope.getHeldInCreditRightList = function(searchStatus) {
-      $scope.searchStatus = searchStatus;
-      UserCenterService.getHeldInCreditRightList.get({status: searchStatus}, function(response) {
-        if(response.ret === 1) {
-          // console.log(response);
-          // $scope.haveTrusteeshipAccount = $scope.checkTrusteeshipAccount();
-          // if($scope.haveTrusteeshipAccount) {
+    $scope.loadCredits = function(page, pageSize, status){
+      UserCenterService.getHeldInCreditRightList.get({
+        page: page,
+        pageSize: pageSize,
+        status: status
+      }, function(response) {
+        if (response.ret === 1) {
+          $scope.currentPage = page;
+          $scope.pageSize = pageSize;
+          $scope.searchStatus = status;
+
+
           $scope.heldInCreditList = response.data.heldIdCreditList;
           $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
           $scope.creditRightStatusMap = response.data.creditRightStatusMap;
           $scope.productsMap = response.data.productsMap;
           $scope.fundsPoolInOutMap = response.data.fundsPoolInOutMap;
-          // }
-
+          $scope.count = response.data.count;
+          $scope.numberOfPages = Math.ceil($scope.count / pageSize);
         } else {
           toaster.pop('warning', response.msg);
         }
-
       });
-    };
 
-    $scope.getHeldInCreditRightList(1);
+    }
+
+    
 
     /**
      * 获取转让中债权列表
@@ -184,5 +190,12 @@ angular.module('hongcaiApp')
         }
       });
     }
+
+    $scope.searchStatus = 1;
+    $scope.currentPage = 1;
+    $scope.pageSize = 10;
+
+
+    $scope.loadCredits($scope.currentPage, $scope.pageSize, $scope.searchStatus);
 
   });

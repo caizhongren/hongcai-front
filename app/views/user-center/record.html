@@ -1,87 +1,130 @@
 <!--交易记录-->
 <div class="right-area record col-md-8 col-lg-9 padding-b-30" >
-  <div class="row">
-   <div class="right-title">交易记录</div>
-  </div>
-  <div class="padd border-end">
-    <span>当前账户资产总计：
-      <strong>{{capital.waitingCapital + capital.balance + capital.waitingProfit + capital.freezeCapital | number: 2}}</strong>元。
-    </span>
-    <span>其中可用资产：
-      <strong>{{capital.balance | number: 2}}</strong>元，
-    </span>
-    <span>冻结资产：
-      <strong>{{capital.freezeCapital | number: 2}}</strong>元。
-    </span>
-  </div>
-  <div class="panel panel-defaul padding-l-15">
-    <ul class="list-group">
-      <li class="list-group-item projects-filter">
-        
-        <div class="row">
-          <div class="col-xs-12">
-            <div class="row">
-              <div class="col-xs-2 text-nowrap">操作日期：</div>
-              <div class="col-xs-2 text-nowrap">
-                <a ng-click="dateInterval=0;getDeals(currentPage);" class="project-noncheck" ng-class="{ true : 'project-check', false : 'project-noncheck'}[dateInterval == 0]">
-                  全部
-                </a>
-              </div>
-              <div class="col-xs-2">
-                <a ng-click="dateInterval=7;getDeals(currentPage);" class="project-noncheck" ng-class="{ true: 'project-check', false: 'project-noncheck'}[dateInterval == 7]">
-                  最近七天
-                </a>
-              </div>
-              <div class="col-xs-2">
-                <a ng-click="dateInterval=30;getDeals(currentPage);" class="project-noncheck" ng-class="{true: 'project-check', false: 'project-noncheck' }[dateInterval == 30]">
-                  一个月
-                </a>
-              </div>
-              <div class="col-xs-2">
-                <a ng-click="dateInterval=90;getDeals(currentPage);" class="project-noncheck" ng-class="{true: 'project-check', false: 'project-noncheck' }[dateInterval == 90]">
-                三个月
-                </a>
-              </div>
-            </div>
+  <div class="currency-style">
+    <div class="title">
+      <span class="tip">资金流水</span>
+    </div>
+    <div class="main">
+      <div class="padd row">
+        <div class="col-md-11 bg-grey6 padding-40">
+          <img src="/images/usermoney3.png" alt="" class="fl margin-l-30">
+          <div class="record-text">
+            <p>账户资产总计</p>
+            <p><strong class="ft-red5 ft-24">{{capital.waitingCapital + capital.balance + capital.waitingProfit + capital.freezeCapital | number: 2}}</strong>元</p>
+          </div>
+          <img src="/images/usermoney2.png" alt="" class="fl margin-l-30">
+          <div class="record-text">
+            <p>可用资产总计</p>
+            <p><strong class="ft-red5 ft-24">{{capital.balance | number: 2}}</strong>元</p>
+          </div>
+          <img src="/images/usermoney1.png" alt="" class="fl margin-l-30">
+          <div class="record-text">
+            <p>冻结资产总计</p>
+            <p><strong class="ft-red5 ft-24">{{capital.freezeCapital | number: 2}}</strong>元</p>
           </div>
         </div>
-        <div class="row margin-t-15 margin-b-15">
-          <div class="col-xs-2 text-nowrap">交易类型：</div>
-          <div class="col-xs-4 text-nowrap">
-            <select class="record-select" class="form-control" ng-model="dealType" ie-select-fix="icons" ng-options="icon.value as icon.label for icon in icons" ng-change="getDeals(1);">
+        <div class="col-md-1 row"></div>
+      </div>
+      <div class="row margin-b-20">
+        <div class="col-md-7 margin-l-45 record-change">
+          <div class="col-xs-2 text-nowrap line-25 ft-bold">操作日期：</div>
+          <div class="col-xs-2 text-nowrap">
+            <span ng-click="dateInterval=0;getDeals(currentPage);" class="project-noncheck" ng-class="{ true : 'project-yescheck', false : 'project-noncheck'}[dateInterval == 0]">
+              全部
+            </span>
+          </div>
+          <div class="col-xs-2 text-nowrap">
+            <span ng-click="dateInterval=7;getDeals(currentPage);" class="project-noncheck" ng-class="{ true: 'project-yescheck', false: 'project-noncheck'}[dateInterval == 7]">
+              最近七天
+            </span>
+          </div>
+          <div class="col-xs-2 text-nowrap">
+            <span ng-click="dateInterval=30;getDeals(currentPage);" class="project-noncheck" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 30]">
+              一个月
+            </span>
+          </div>
+          <div class="col-xs-2 text-nowrap">
+            <span ng-click="dateInterval=90;getDeals(currentPage);" class="project-noncheck" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 90]">
+              三个月
+            </span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="col-xs-2 text-nowrap line-25">交易类型：</div>
+          <div class="col-xs-9 col-xs-offset-1 text-nowrap">
+            <select class="record-select line-25" class="form-control" ng-model="dealType" ie-select-fix="icons" ng-options="icon.value as icon.label for icon in icons" ng-change="getDeals(1);">
               <option value="">全部</option>
             </select>
           </div>
-
         </div>
-      </li>
-    </ul>
+      </div>
+      <!-- <div class="panel panel-defaul padding-l-15">
+        
+        <ul class="list-group">
+          <li class="list-group-item projects-filter">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="row">
+                  <div class="col-xs-1 margin-l-45 text-nowrap project-noncheck">操作日期：</div>
+                  <div class="col-xs-1 text-nowrap">
+                    <a ng-click="dateInterval=0;getDeals(currentPage);" class="project-noncheck" ng-class="{ true : 'project-check', false : 'project-noncheck'}[dateInterval == 0]">
+                      全部
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ng-click="dateInterval=7;getDeals(currentPage);" class="project-noncheck" ng-class="{ true: 'project-check', false: 'project-noncheck'}[dateInterval == 7]">
+                      最近七天
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ng-click="dateInterval=30;getDeals(currentPage);" class="project-noncheck" ng-class="{true: 'project-check', false: 'project-noncheck' }[dateInterval == 30]">
+                      一个月
+                    </a>
+                  </div>
+                  <div class="col-xs-2">
+                    <a ng-click="dateInterval=90;getDeals(currentPage);" class="project-noncheck" ng-class="{true: 'project-check', false: 'project-noncheck' }[dateInterval == 90]">
+                    三个月
+                    </a>
+                  </div>
+                  <div class="col-xs-1 text-nowrap project-noncheck">交易类型：</div>
+                  <div class="col-xs-2 text-nowrap">
+                     <select class="record-select" class="form-control" ng-model="dealType" ie-select-fix="icons" ng-options="icon.value as icon.label for icon in icons" ng-change="getDeals(1);">
+                      <option value="">全部</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div> -->
+      <table class="table table-dashed">
+        <thead>
+          <tr>
+            <th>操作日期</th>
+            <th>交易类型</th>
+            <th>收支描述</th>
+            <th>收入(元)</th>
+            <th>支出(元)</th>
+            <th>账户现金(元)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in data | orderBy: '-id'" style="border-top:none !important;">
+            <td>{{ item.createTime | date: 'yyyy-MM-dd HH:mm'}}</td>
+            <td>{{ dealTypes[item.type] }}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.getAmount | number: 2}}</td>
+            <td>{{item.payAmount | number: 2}}</td>
+            <td>{{item.balance | number: 2}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="pager margin-r-20">
+        <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage >= totalPage" ng-click="getDeals(currentPage + 1)">下一页</button></li>
+        <div class="fr height-30">&nbsp;&nbsp;{{currentPage}} / {{totalPage}} &nbsp;共 {{data.length}} 条&nbsp;&nbsp;</div>
+        <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage == 1" ng-click="getDeals(currentPage - 1)">上一页</button></li>
+      </ul>
+    </div>
   </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>操作日期</th>
-        <th>交易类型</th>
-        <th>收支描述</th>
-        <th>收入(元)</th>
-        <th>支出(元)</th>
-        <th>账户现金(元)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="item in data | orderBy: '-id'">
-        <td>{{ item.createTime | date: 'yyyy-MM-dd HH:mm'}}</td>
-        <td>{{ dealTypes[item.type] }}</td>
-        <td>{{item.description}}</td>
-        <td>{{item.getAmount | number: 2}}</td>
-        <td>{{item.payAmount | number: 2}}</td>
-        <td>{{item.balance | number: 2}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <ul class="pager">
-    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage == 1" ng-click="getDeals(currentPage - 1)">上一页</button></li>
-    {{currentPage}} / {{totalPage}} 共 {{data.length}} 条
-    <li><button class="btn btn-default btn-sm" ng-disabled="currentPage >= totalPage" ng-click="getDeals(currentPage + 1)">下一页</button></li>
-  </ul>
 </div>

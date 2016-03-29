@@ -6,35 +6,47 @@
 </style>
 <!-- 资产总览 -->
 <div class="right-area col-md-8 col-lg-9" style="padding-bottom:50px;">
-  <div class="row">
+  <!-- <div class="row">
     <div class="right-title">资产总览</div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="bank-bg set-position">
-        <div class="avail-balance"><img src="/images/avail-balance.png" class="fl"><strong class="ft-14 margin-l-20 fl">可用余额(元)</strong></div>
-        <div class="avail-money ft-red ft-30">{{account.balance | number:2}}</div>
+  </div> -->
+  <div class="currency-style">
+    <div class="title">
+      <span class="tip tip2">资产总览</span>
+    </div>
+    <div class="main bg-white">
+      <div class="col-md-6">
+        <div class="bank-bg set-position">
+          <div class="avail-balance"><img src="/images/avail-balance.png" class="fl"><strong class="ft-14 margin-l-20 fl">可用余额(元)</strong></div>
+          <div class="avail-money ft-red ft-30">{{account.balance | number:2}}</div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="account-right-bank">
+          <p class="margin-l-20"><img src="/images/coll-money.png"><span class="margin-l-10">待收本金：</span> <strong class="ft-24 ft-red">{{account.waitingCapital | number:2}} </strong>元</p>
+        </div>
+        <div class="account-right-bank margin-t-40">
+          <p class="margin-l-20"><img src="/images/freeze-money.png"><span class="margin-l-10">冻结资金：</span> <strong class="ft-24 ft-red">{{account.freezeCapital | number:2}}</strong>元</p>
+        </div>
+        <div class="account-right-bank margin-t-40">
+          <p class="margin-l-20"><img src="/images/uncoll-money.png"><span class="margin-l-10">待收收益：</span> <strong class="ft-24 ft-red"> {{account.waitingProfit | number:2}} </strong>元</p>
+        </div>
       </div>
     </div>
-    <div class="col-md-5">
-      <div class="account-right-bank">
-        <p class="margin-l-20"><img src="/images/coll-money.png"><span class="margin-l-10">待收本金：</span> <strong class="ft-24 ft-red">{{account.waitingCapital | number:2}} </strong>元</p>
-      </div>
-      <div class="account-right-bank margin-t-40">
-        <p class="margin-l-20"><img src="/images/freeze-money.png"><span class="margin-l-10">冻结资金：</span> <strong class="ft-24 ft-red">{{account.freezeCapital | number:2}}</strong>元</p>
-      </div>
-      <div class="account-right-bank margin-t-40">
-        <p class="margin-l-20"><img src="/images/uncoll-money.png"><span class="margin-l-10">待收收益：</span> <strong class="ft-24 ft-red"> {{account.waitingProfit | number:2}} </strong>元</p>
+  </div>
+  <div class="currency-style">
+    <div class="title">
+      <span class="tip">收益曲线</span>
+    </div>
+    <!-- <div class="main row">
+      <div class="right-title">收益曲线</div>
+    </div> -->
+    <div class="main col-md-12" style="min-height:390px;">
+      <div class="col-md-10 col-md-offset-1">
+        <canvas id="line" class="chart-line" chart-data="data" 
+        chart-labels="labels" chart-options="options"
+        chart-click="onClick" height="360" width="700">
+        </canvas>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="right-title">收益曲线</div>
-  </div>
-  <div class="row col-md-10 col-md-offset-1" style="min-height:350px;">
-    <canvas id="line" class="chart-line" chart-data="data" 
-      chart-labels="labels" chart-options="options"
-      chart-click="onClick" height="350" width="700">
-    </canvas> 
   </div>
 </div>

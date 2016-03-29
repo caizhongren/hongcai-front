@@ -14,6 +14,8 @@ angular.module('hongcaiApp')
     $scope.listInvPond = [];
     $scope.unpaid = 0;
     $scope.paid = 0;
+    $scope.currentPage = 1;
+    $scope.pageSize = 6;
 
 
     $scope.showListNameInfo = function() {
@@ -60,8 +62,11 @@ angular.module('hongcaiApp')
   
 
 
-    $scope.loadOrders = function(){
+    $scope.loadOrders = function(page){
+      $scope.currentPage = page;
       var getOrderByUser = UserCenterService.getOrderByUser.get({
+        page: page,
+        pageSize: $scope.pageSize,
         type: $scope.type,
         dateInterval: $scope.dateInterval,
         status: $scope.status
@@ -70,21 +75,18 @@ angular.module('hongcaiApp')
         if (getOrderByUser.ret === 1) {
           // console.log(getOrderByUser);
           // if($scope.haveTrusteeshipAccount) {
-          $scope.orderList = getOrderByUser.data.orderProjectList;
+          $scope.orderList = getOrderByUser.data.orderList;
+          $scope.count = getOrderByUser.data.count;
           $scope.type = getOrderByUser.data.type;
           $scope.dateInterval = getOrderByUser.data.dateInterval;
           $scope.status = getOrderByUser.data.status;
           $scope.notPayOrder = getOrderByUser.data.notPayOrder;
           $scope.productsMap = getOrderByUser.data.productsMap;
           $scope.orderStatistics = getOrderByUser.data.orderStatistics;
-          
-          // $scope.invFromDate = getOrderByUser.data.dateStart || 0;
-          // $scope.invUntilDate = getOrderByUser.data.dateEnd || 0;
-          $scope.currentPage = 0;
-          $scope.pageSize = 6;
+          $scope.orderStatus = getOrderByUser.data.orderStatus;
           $scope.data = [];
           $scope.numberOfPages = function() {
-            return Math.ceil($scope.data.length / $scope.pageSize);
+            return Math.ceil($scope.count / $scope.pageSize);
           };
           for (var i = 0; i < $scope.orderList.length; i++) {
             var item = $scope.orderList[i];
@@ -99,7 +101,7 @@ angular.module('hongcaiApp')
       });
     }
 
-    $scope.loadOrders();
+    $scope.loadOrders(1);
     
     
 
