@@ -179,7 +179,7 @@ angular.module('hongcaiApp')
     $scope.checkStepAmount = function(fundsProject) {
       if (fundsProject.invPlanAmount >= fundsProject.increaseAmount) {
         if (fundsProject.invPlanAmount % fundsProject.increaseAmount === 0) {
-          $scope.repeatCheckFlag = $rootScope.account.experienceAmount >= fundsProject.invPlanAmount ? true : false;
+          // $scope.repeatCheckFlag = $rootScope.account.experienceAmount >= fundsProject.invPlanAmount ? true : false;
           return false;
         } else {
           return true;
@@ -206,7 +206,7 @@ angular.module('hongcaiApp')
     // 检测用户可投最高金额
     $scope.checkLargeUserCanAmount = function(fundsProject) {
       if ($rootScope.account) {
-        var availableAmount = $scope.fundsProjectTest.type !== 1 ? $rootScope.account.balance : $rootScope.account.balance + $rootScope.account.experienceAmount;
+        var availableAmount = $rootScope.account.balance;
         if (availableAmount < fundsProject.invPlanAmount) {
           return true;
         } else {
