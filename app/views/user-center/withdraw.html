@@ -37,7 +37,7 @@
           <div class="row col-md-10 col-md-offset-1 text-left ft-12 ft-red4">
             <p class="padding-l-45" ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.pattern">请输入数字(最多精确到小数点后两位)</p>
             <p class="padding-l-45" ng-show="withdrawForm.amount.$dirty && checkLargestAmount(amount)">不能大于可提现金额</p>
-            <p class="padding-l-45" ng-show="withdrawForm.amount.$dirty && amount<1">提现金额不能小于1元</p>
+            <p class="padding-l-45" ng-show="withdrawForm.amount.$dirty && checkMinAmount(amount)">提现金额不能小于1元</p>
             <p class="padding-l-45"  ng-show="withdrawForm.amount.$dirty && withdrawForm.amount.$error.required && !withdrawForm.amount.$focused">提现金额不能为空</p>
           </div>
           <div class="row col-md-10 col-md-offset-1 text-left ft-red5">
@@ -45,7 +45,7 @@
           </div>
           <div class="col-md-5 margin-t-15">
             <div class="form-group col-xs-12 margin-l-15 padding-l-5">
-              <input type="button" value="确认提现" class="btn-recharge-orange border-half" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'btn-recharge-grey':withdrawForm.$invalid || checkLargestAmount(amount), 'btn-recharge-orange':!withdrawForm.$invalid && !checkLargestAmount(amount)}" />
+              <input type="button" value="确认提现" class="btn-recharge-orange border-half" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'btn-recharge-grey':withdrawForm.$invalid || checkLargestAmount(amount) || checkMinAmount(amount), 'btn-recharge-orange':!withdrawForm.$invalid && !checkLargestAmount(amount) && !checkMinAmount(amount)}" />
             </div>
           </div>
         </div>
