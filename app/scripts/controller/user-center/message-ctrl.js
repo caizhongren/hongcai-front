@@ -9,7 +9,7 @@ angular.module('hongcaiApp')
       $scope.toggleIndex = $index;
       var index = $index;
       $('.list-group-item').siblings().removeClass('bg-grey7').eq(index).addClass('bg-grey7');
-      $('.list-group-item').siblings().find('.collapse').removeClass('in').eq(index);
+      //$('.list-group-item').siblings().find('.collapse').removeClass('in').eq(index);
       // var targetC = $('.list-group-item').eq(index).find('.collapse').hasClass('in');//判断当前是否为打开状态
       // console.log(targetC);
       // if(targetC){
