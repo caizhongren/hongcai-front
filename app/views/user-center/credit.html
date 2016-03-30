@@ -217,13 +217,13 @@
         </div>
       </div>
       <!-- 未购买项目 展示内容 -->
-      <div class="row text-center" ng-hide="showCreditRightStatistics">
+      <div class="main text-center" ng-hide="showCreditRightStatistics">
         <p>亲，您尚未购买任何债权，建议您浏览项目列表，购买感兴趣的债权吧~</p>
         <a class="btn btn-primary-orange margin-t-30" ui-sref="root.main">浏览项目</a>
       </div>
     </div>
     <!-- 未开通第三方资金托管账户 -->
-    <div class="row main text-center" ng-show="securityStatus.realNameAuthStatus !== 1">
+    <div class="main text-center" ng-show="securityStatus.realNameAuthStatus !== 1">
       <p>亲，您尚未开通第三方资金托管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
       <a class="btn btn-primary-orange margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
     </div>
