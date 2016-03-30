@@ -4,8 +4,8 @@
     <div class="title">
       <span class="tip">账户充值</span>
     </div>
-    <!--start 安全认证提示  ng-init="isSecurityAuth=true"-->
-    <div class="main" ng-show="!isSecurityAuth" ng-init="isSecurityAuth=true">
+    <!--start 安全认证提示  securityStatus.realNameAuthStatus !== 1 未认证"-->
+    <div class="main"  ng-show="securityStatus.realNameAuthStatus !== 1">
       <div class="col-md-12 text-center">
         <img src="/images/unbind.png" alt="" class="margin-t-20">
         <!-- <p class="margin-t-20">您尚未绑定银行卡</p> -->
@@ -15,7 +15,7 @@
     </div>
     <!--end 安全认证提示 -->
     <div class="main" ng-show="userType != 4">
-      <form class="col-md-10 col-md-offset-1 bg-grey6" name="rechargeForm" ng-show="isSecurityAuth">
+      <form class="col-md-10 col-md-offset-1 bg-grey6" name="rechargeForm" ng-show="securityStatus.realNameAuthStatus === 1">
         <div class="row">
           <div class="margin-b-15 mgn-top text-recharge-tip">
             <div class="col-md-2 text-right">可用余额：</div>
@@ -43,7 +43,7 @@
           </div>
         </div>
       </form>
-      <div class="col-md-10 col-md-offset-1 bg-yellow margin-t-20" ng-hide="!isSecurityAuth">
+      <div class="col-md-10 col-md-offset-1 bg-yellow margin-t-20" ng-hide="securityStatus.realNameAuthStatus !== 1">
         <div class="ft-14 padding-20">
           <p class="ft-red4"><i class="fa fa-tint ft-red4" style="margin-right:15px;"></i>温馨提示:</p>
           <p class="p-big ft-red4"><span class="ft-grey">1. </span>您的账户资金将由有银监会颁发牌照的第三方支付平台托管；</p>
@@ -56,7 +56,7 @@
     </div>
     <!--<p>{{isSecurityAuth}}</p>-->
     <div class="main" ng-show="userType == 4">
-      <form class="col-md-5" name="transferForm" ng-show="isSecurityAuth" style="padding-right:30px;">
+      <form class="col-md-5" name="transferForm" ng-show="securityStatus.realNameAuthStatus === 1" style="padding-right:30px;">
         <div class="row">
           <div class="form-group mgn-top">
             <p>
