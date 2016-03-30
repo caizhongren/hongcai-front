@@ -191,7 +191,7 @@ angular.module('hongcaiApp')
       });
     }
 
-    $scope.searchStatus = 1;
+    $scope.searchStatus = parseInt($stateParams.searchStatus) || 1;
     $scope.currentPage = 1;
     $scope.pageSize = 10;
 
