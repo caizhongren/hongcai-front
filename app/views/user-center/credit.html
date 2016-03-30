@@ -188,8 +188,8 @@
               </tr>
               <tr ng-repeat="item in heldInCreditList">
                 <td width="25%">
-                 <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.project.name | limitTo: 15 }}{{item.project.name.length > 15 ? '...':''}}</a>
-                  <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{item.order.projectName}}" ng-if="item.project.type === 3">{{ productsMap[item.fundsProject.productId].name + item.order.projectName | limitTo: 15 }}...</a>
+                 <a ui-sref="root.project-details({number: item.project.number})" title="{{item.creditRight.projectName}}" ng-if="item.project.type === 1 || item.project.type === 2">{{ item.creditRight.projectName | limitTo: 15 }}{{item.creditRight.projectName.length > 15 ? '...':''}}</a>
+                  <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{item.order.projectName}}" ng-if="item.project.type === 3">{{ creditRight.projectName | limitTo: 15 }}{{item.creditRight.projectName.length > 15 ? '...':''}}</a>
                 </td>
                 <td>{{ item.creditRight.transferableAmount | number:2 }}</td>
                 <td>{{ item.creditRight.returnProfit | number:2}}</td>
