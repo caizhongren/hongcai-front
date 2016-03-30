@@ -1540,13 +1540,40 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     '/gift-rebate',
     '/reservation',
     '/credit',
-    '/credit-create'
+    '/credit-create',
+    '/message'
   ];
 
   // 不需要显示footer的path
   var notShowFooterRoute = [
     'login',
     'register'
+  ];
+
+  var showFlag1 = [
+    '/account-overview',
+    '/security-settings',
+    '/bankcard-management',
+    ''
+  ];
+  var showFlag2 = [
+    '/assets-overview',
+    '/recharge',
+    '/withdraw',
+    '/record'
+  ];
+  var showFlag3 = [
+    '/credit',
+    '/investment',
+    '/reservation'
+  ];
+  var showFlag4 = [
+    '/experienceMoney',
+    '/rate-coupon',
+    '/invite-rebate'
+  ];
+  var showFlag5 = [
+    '/message'
   ];
 
   $rootScope.$on('$stateChangeStart', function(event, toState) {
@@ -1569,6 +1596,46 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
         return;
       })
       .success(function(response) {
+        $rootScope.showFlag11 = false;
+        $rootScope.showFlag21 = false;
+        $rootScope.showFlag31 = false;
+        $rootScope.showFlag41 = false;
+        $rootScope.showFlag51 = false;
+        if(showFlag1.indexOf('/' + $location.path().split('/')[1]) !== -1){
+          $rootScope.showFlag11 = true;
+          $rootScope.showFlag21 = false;
+          $rootScope.showFlag31 = false;
+          $rootScope.showFlag41 = false;
+          $rootScope.showFlag51 = false;
+        }
+        if(showFlag2.indexOf('/' + $location.path().split('/')[1]) !== -1){
+          $rootScope.showFlag11 = false;
+          $rootScope.showFlag21 = true;
+          $rootScope.showFlag31 = false;
+          $rootScope.showFlag41 = false;
+          $rootScope.showFlag51 = false;
+        }
+        if(showFlag3.indexOf('/' + $location.path().split('/')[1]) !== -1){
+          $rootScope.showFlag11 = false;
+          $rootScope.showFlag21 = false;
+          $rootScope.showFlag31 = true;
+          $rootScope.showFlag41 = false;
+          $rootScope.showFlag51 = false;
+        }
+        if(showFlag4.indexOf('/' + $location.path().split('/')[1]) !== -1){
+          $rootScope.showFlag11 = false;
+          $rootScope.showFlag21 = false;
+          $rootScope.showFlag31 = false;
+          $rootScope.showFlag41 = true;
+          $rootScope.showFlag51 = false;
+        }
+        if(showFlag5.indexOf('/' + $location.path().split('/')[1]) !== -1){
+          $rootScope.showFlag11 = false;
+          $rootScope.showFlag21 = false;
+          $rootScope.showFlag31 = false;
+          $rootScope.showFlag41 = false;
+          $rootScope.showFlag51 = true;
+        }
         if (routespermission.indexOf('/' + $location.path().split('/')[1]) !== -1) {
           if (response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
             $rootScope.isLogged = true;

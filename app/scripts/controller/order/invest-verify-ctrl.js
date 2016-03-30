@@ -13,7 +13,8 @@ angular.module('hongcaiApp')
         $scope.giftCount = response.data.giftCount;
         $scope.investAmount = $stateParams.amount;
         $scope.payAmount = response.data.payAmount;
-        $scope.experienceAmount = response.data.experienceAmount;
+        // $scope.experienceAmount = response.data.experienceAmount;
+        // $scope.experienceAmount = 0;
         $scope.icons = [];
         for (var i = 0; i <= $scope.giftCount; i++) {
           var obj = {};

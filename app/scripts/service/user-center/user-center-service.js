@@ -24,6 +24,8 @@ angular.module('hongcaiApp')
       getUserAvailableCash: $resource(DEFAULT_DOMAIN + '/siteAccount/getUserAvailableCash'),
       getUserOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser'),
       getOrderByUser: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser', {
+        page: '@page',
+        pageSize: '@pageSize',
         type: '@type',
         dateInterval: '@dateInterval',
         status: '@status'
@@ -104,10 +106,13 @@ angular.module('hongcaiApp')
       getUserMsgByStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/getUserMsgByStatus', {
         status: '$status'
       }),
-      updateSingleUserMsgStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/updateOneUserMsgReadByUserMsgId', {
+      readOneMsg: $resource(DEFAULT_DOMAIN + '/siteMsg/readOne', {
         userMsgId: '$userMsgId'
       }),
-      updateAllUserMsgStatus: $resource(DEFAULT_DOMAIN + '/siteMsg/updateAllUserMsgReadByUserId', {}),
+      readAllMsg: $resource(DEFAULT_DOMAIN + '/siteMsg/readAll', {}),
+      deleteOneMsg: $resource(DEFAULT_DOMAIN + '/siteMsg/deleteUserMsg', {
+        msgId: '$msgId'
+      }),
       pushAllUnpullMessages: $resource(DEFAULT_DOMAIN + '/siteMsg/pushAllUnpullMessages'),
       getUserReserveRecords: $resource(DEFAULT_DOMAIN + '/siteReserve/getUserReserveRecords', {}),
       reserveCancel: $resource(DEFAULT_DOMAIN + '/siteReserve/reserveCancel', {

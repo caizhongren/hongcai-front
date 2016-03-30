@@ -1,83 +1,168 @@
 <!--账户总览-->
 <div class="right-area col-md-8 col-lg-9">
-  <div class="row">
-    <div class="right-title">账户总览</div>
-  </div>
-  <div class="row">
-    <div class="account-message">
-      <div class="col-md-12 col-lg-5">
-        <canvas id="pie" class="chart chart-pie " chart-data="data" chart-labels="labels" chart-colours="colours" width="500" height="250" style="width:500px !important;height:250px !important;margin-left:-75px !important;">
-        </canvas>
-        <!-- <cjs-doughnut dataset="doughnutAccountData" options="doughnutOptions" height="313"></cjs-doughnut> -->
+  <div class="top-content">
+  <div class="personal-info">
+    <div class="col-md-4 padding-l-30" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus">
+      <p class="margin-b-0"><strong>{{ loginName }}</strong>
+      <img src="/images/user-no.png" id="user-no" alt="" ng-switch-default data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="实名认证后账户更加安全">
+      <img src="/images/user-yes.png" alt=""  ng-switch-when="2" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="实名认证后账户更加安全">
+      </p>
+      <div class="security-level low-level" ng-switch-default></div>
+      <div class="security-level high-level" ng-switch-when="2"></div>
+      <p class="text-left margin-b-0">安全等级：
+        <span ng-switch-default>低<a ui-sref="root.userCenter.security-settings" class="ft-orange ft-14">(立即提升)</a></span>
+        <span ng-switch-when="2">高</span></span>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <div class="col-xs-2">
+        <img src="/images/tel-auth-yes.png" alt="" ng-show="securityStatus.mobileStatus===1">
       </div>
-      <div class="right-message col-md-12 col-lg-6">
-        <div class="row">
-          <div class="left-message-show col-md-6 col-lg-6">
-            <p class="assets-ico total-assets"></p>
-            <p class="asset-tips">账户总资产</p>
-            <p class="asset-money">{{account.totalAssets | number:2}} <small>元</small>
-            </p>
-          </div>
-          <div class="left-message-show col-md-6 col-lg-6">
-            <p class="assets-ico net-income"></p>
-            <p class="asset-tips">累计净收益</p>
-            <p class="asset-money">{{account.receivedProfit| number:2}} <small>元</small>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="left-message-show col-md-6 col-lg-6">
-            <p class="assets-ico account-balance"></p>
-            <p class="asset-tips">账户余额</p>
-            <p class="asset-money">{{account.balance| number:2}} <small>元</small>
-            </p>
-          </div>
-          <!-- <div class="left-message-show col-md-6 col-lg-6">
-            <div ng-show="reward !== 0">
-              <p class="assets-ico activitty-money"></p>
-              <p class="asset-tips">活动奖金</p>
-              <p class="asset-money">{{account.reward| number:2}} <small>元</small>
-              </p>
-            </div>
-          </div> -->
-          <div class="left-message-show col-md-6 col-lg-6" ui-sref="root.userCenter.experienceMoney" style="cursor:pointer;">
-            <div>
-              <p class="assets-ico activitty-money"></p>
-              <p class="asset-tips">体验金</p>
-              <p class="asset-money">{{account.experienceAmount || 0 | number:2}} <small>元</small>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <input type="button" ui-sref="root.userCenter.recharge" class="orange-button account-button col-md-3 col-lg-3" value="充值" ng-show="userType != 4" />
-          <input type="button" ui-sref="root.userCenter.withdraw" class="white-button-orange account-button account-right-button col-md-3 col-lg-3" value="提现" ng-show="userType != 4" />
-        </div>
-        <div class="row"><a ui-sref="root.userCenter.assets-overview" class="view-more">查看更多></a></div>
+      <div class="col-xs-9 col-xs-offset-1 auth-font ft-orange">
+        手机号码已认证!
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="col-xs-2">
+        <img src="/images/bank-auth-yes.png" alt="" ng-show="securityStatus.realNameAuthStatus===1">
+        <img src="/images/bank-auth-no.png" alt="" ng-show="securityStatus.realNameAuthStatus!==1">
+      </div>
+      <div class="col-xs-9 col-xs-offset-1 auth-font">
+        <p class="margin-b-0 ft-orange" ng-show="securityStatus.realNameAuthStatus===1">第三方账户已开通！</p>
+        <p class="margin-b-0" ng-show="securityStatus.realNameAuthStatus!==1">第三方账户未开通，点击<a href="" title="">开通</a></p>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="right-title">投资信息</div>
+  <div class="personal-data">
+    <div class="col-md-7 bor-right">
+      <div class="col-xs-8">
+        <p class="margin-b-0">账户余额&nbsp;<!-- <i class="fa fa-exclamation-circle ft-red2"></i> --></p>
+        <p class="asset-money ft-36 ft-red2">{{account.balance| number:2}} <small class="ft-black">元</small>
+        <p class="margin-b-0">体验金 <span class="ft-red2">{{account.experienceAmount || 0 | number:0}} </span>元,加息券 <span class="ft-red2">{{couponStatis.couponCount}} </span>张</p>
+      </div>
+      <div class="col-xs-4">
+        <p class="over-auto">
+          <button ui-sref="root.userCenter.recharge" class="orange-button col-md-8 col-lg-8" ng-show="userType != 4">充值</button>
+          <!--<input type="button" ui-sref="root.userCenter.recharge" class="orange-button account-button col-md-6 col-lg-6" value="充值" ng-show="userType != 4" />-->
+        </p>
+        <p class="over-auto margin-t-20">
+          <button ui-sref="root.userCenter.withdraw" class="white-button-orange col-md-8 col-lg-8" ng-show="userType != 4">提现</button>
+          <!--<input type="button" ui-sref="root.userCenter.withdraw" class="white-button-orange account-button col-md-6 col-lg-6" value="提现" ng-show="userType != 4" />-->
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4 col-md-offset-1">
+      <p class="margin-b-0">累计收益&nbsp;<!-- <i class="fa fa-exclamation-circle ft-red2"></i> --></p>
+      <p class="asset-money ft-36 ft-red2">{{account.receivedProfit| number:2}} <small class="ft-black">元</small>
+      <p class="margin-b-0">昨日收益 ：{{ yestodayProfit || 0 | number:2}}元<a ui-sref="root.userCenter.assets-overview" class="white-button-orange margin-l-15">查看明细</a></p>
+    </div>
   </div>
-  <div class="row">
-    <div class="row account-investment">
-      <div class="col-md-4 border-r">
-        <p class="account-number">{{ statistics.totalInvestCount || "0"}}<span class="ft-14">个</span>
-        </p>
-        <p class="account-number-message">累计投资</p>
+  <div class="per-data">
+    <div class="col-md-1">
+      <img src="/images/account1.png" alt="">
+    </div>
+    <div class="col-md-11">
+      <div class="tip-title flex-container col-xs-12  text-center">
+        <div class="flex-item col-xs-2">
+          <p>总资产(元)</p>
+          <p class="ft-red2 ft-24">{{account.totalAssets+account.experienceAmount | number:2}}</p>
+        </div>
+        <div class="flex-item text-center margin-l-15">
+          <p>&nbsp;</p>
+          <p class="ft-offorange ft-24">=</p>
+        </div>
+        <div class="flex-item col-xs-2">
+          <p>账户余额(元)</p>
+          <p class="ft-black2 ft-24">{{account.balance| number:2}}</p>
+        </div>
+        <div class="flex-item text-center margin-l-15">
+          <p>&nbsp;</p>
+          <p class="ft-offorange ft-24">+</p>
+        </div>
+        <div class="flex-item col-xs-2">
+          <p>持有投资(元)</p>
+          <p class="ft-black2 ft-24">{{account.waitingCapital+account.freezeCapital | number:2}}&nbsp;</p>
+        </div>
+        <div class="flex-item text-center">
+          <p>&nbsp;</p>
+          <p class="ft-offorange ft-24">+</p>
+        </div>
+        <div class="flex-item col-xs-2">
+          <p>待收收益(元)</p>
+          <p  class="ft-black2 ft-24">{{account.waitingProfit | number:2}}</p>
+        </div>
+        <div class="flex-item text-center">
+          <p>&nbsp;</p>
+          <p class="ft-offorange ft-24">+</p>
+        </div>
+        <div class="flex-item col-xs-2">
+          <p>体验金(元)</p>
+          <p class="ft-black2 ft-24">{{account.experienceAmount || 0 | number:0}}</p>
+        </div>
       </div>
-      <div class="col-md-4 border-r">
-        <p class="account-number">{{ statistics.heldingCount || "0" }}<span class="ft-14">个</span>
-        </p>
-        <p class="account-number-message">持有中债权</p>
+    </div>
+  </div>
+  </div>
+  <div class="currency-style margin-t-20">
+    <div class="title">
+      <span class="tip">投资信息</span>
+    </div>
+    <div class="main">
+      <div class="col-md-4 text-center bor-dash cursor-pointer" ui-sref="root.userCenter.credit">
+        <p class="margin-b-0"><span class="ft-red2 ft-36">{{ statistics.totalInvestCount || "0"}}</span>个</p>
+        <p><span class="info-data">累计投资</span></p>
       </div>
-      <div class="col-md-4" style="margin-right:0;">
-        <p class="account-number">{{ statistics.totalInvestAmount || "0" | number:2}}<span class="ft-14">元</span>
-        </p>
-        <p class="account-number-message">投资总额</p>
+      <div class="col-md-4 text-center bor-dash cursor-pointer" ui-sref="root.userCenter.credit">
+        <p class="margin-b-0"><span class="ft-red2 ft-36">{{ statistics.heldingCount || "0" }}</span>个</p>
+        <p><span class="info-data">持有投资</span></p>
       </div>
-      <a ui-sref="root.userCenter.investment" class="view-more investment-more">查看更多></a>
+      <div class="col-md-4 text-center cursor-pointer" ui-sref="root.userCenter.credit">
+        <p class="margin-b-0"><span class="ft-red2 ft-36">{{ statistics.totalInvestAmount/10000 || "0" | number:2}}</span>万元</p>
+        <p><span class="info-data">投资总额</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="currency-style margin-t-20">
+    <div class="title">
+      <span class="tip">推荐项目</span>
+    </div>
+    <div class="main">
+      <div class="col-md-12 table-responsive">
+        <table class="table text-center">
+          <thead class="border-b-none">
+            <tr class="bg-offpink border-b-none">
+              <th>项目名称</th>
+              <th>预期年化收益率</th>
+              <th>期限</th>
+              <th>项目金额（元）</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-t-dash" ng-repeat="item in fundsProjectProductList">
+              <td ui-sref="root.current-deposit-details({number: item.number})" class="cursor-pointer">{{item.product.name}}{{item.name}}</td>
+              <td>{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}%</td>
+              <td>{{item.product.sealingDays || 0}}天</td>
+              <td>{{item.total}}</td>
+              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.current-deposit-details({number: item.number})">立即投资</button></td>
+            </tr>
+            <tr class="border-t-dash" ng-repeat="item in jigoubao">
+              <td class="cursor-pointer" ui-sref="root.project-details({number: item.number})">{{item.name}}</td>
+              <td>{{item.annualEarnings | number : 2}}%</td>
+              <td>{{item.projectDays}}天</td>
+              <td>{{item.total}}</td>
+              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})">立即投资</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>  
     </div>
   </div>
 </div>
+<script>
+$(function() 
+  { $("[data-toggle='popover']").popover();
+
+});
+
+</script>

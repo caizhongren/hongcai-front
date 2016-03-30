@@ -11,8 +11,10 @@ angular.module('hongcaiApp')
       // console.log(response);
       if (response.ret === 1) {
         $scope.availableCash = response.data.availableCash;
+        var cash = $scope.availableCash.toString();
+        cash = cash.substring(0, cash.lastIndexOf('.') + 3);
         $scope.cardStatus = response.data.cardStatus;
-        $scope.availableCashRealNo = $scope.availableCash >= 2 ? $scope.availableCash - 2 : 0;
+        $scope.availableCashRealNo = cash >= 2 ? cash - 2 : 0;
       } else {
         console.log('ask withdraw, why getUserAvailableCash did not load data...');
       }
@@ -21,6 +23,10 @@ angular.module('hongcaiApp')
     $scope.checkLargestAmount = function(amount) {
         return amount > $scope.availableCashRealNo;
     };
+
+    $scope.checkMinAmount = function(amount){
+      return amount < 1;
+    }
 
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
     $scope.refreshCode = function() {
