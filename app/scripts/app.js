@@ -692,7 +692,7 @@ hongcaiApp
 
     // 我的债权（个人中心）
     .state('root.userCenter.credit', {
-      url: '/credit',
+      url: '/credit/:searchStatus',
       views: {
         'user-center-right': {
           templateUrl: 'views/user-center/credit.html',
