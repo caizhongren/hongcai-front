@@ -199,8 +199,8 @@
                 </td>
                 <td ng-show="creditIsShowedFLAG">{{ creditRightStatusMap[item.creditRight.status] }}</td>
                 <td>
-                  <a type="button" class="btn btn-default btn-sm border-half bg-btn-grey" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
-                  <a type="button" class="btn btn-default btn-sm border-half bg-btn-grey" ui-sref="root.userCenter.credit-profit-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看详情</a>
+                  <a type="button" class="btn btn-default btn-sm border-half bg-btn-grey padding-t-0 padding-b-0" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
+                  <a type="button" class="btn btn-default btn-sm border-half bg-btn-grey padding-t-0 padding-b-0" ui-sref="root.userCenter.credit-profit-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看详情</a>
                 </td>
               </tr>
             </tbody>
