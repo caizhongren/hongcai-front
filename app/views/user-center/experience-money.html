@@ -1,8 +1,33 @@
 <!--体验金-->
 <div class="right-area col-md-8 col-lg-9">
   <div class="row">
-    <div class="right-title">体验金</div>
+    <div class="currency-style yu-currency-style">
+      <div class="title" style="border-bottom: none;">
+        <span class="tip">体验金</span>
+      </div>
+    </div>
   </div>
+  <div class="padd row yu-bg-grey0 yu-border-1">
+    <div class="col-md-11 yu-bg-grey9 padding-40">
+      <img src="/images/usermoney3.png" alt="" class="fl margin-l-30">
+      <div class="record-text yu-record-text">
+        <p class="yu-ft-14">体验金金额（元）</p>
+        <p><strong class="yu-ft-red2 ft-18">{{account.experienceAmount | number : 2}}</strong></p>
+      </div>
+      <img src="/images/usermoney2.png" alt="" class="fl margin-l-30">
+      <div class="record-text yu-record-text">
+        <p class="yu-ft-14">累计赚取收益金额（元）</p>
+        <p><strong class="yu-ft-red2 ft-18">{{experienceDealStatis.totalProfit ||0 | number : 2}}</strong></p>
+      </div>
+      <img src="/images/usermoney1.png" alt="" class="fl margin-l-30">
+      <div class="record-text yu-record-text">
+        <button class="orange-button yu-button">我要投资</button>
+      </div>
+    </div>
+    
+  </div>
+
+  <!--
   <div class="row">
     <div class="col-md-10 col-md-offset-1 text-center">
       <div class="col-md-4 ">
@@ -24,6 +49,7 @@
       </div>
     </div>
   </div>
+  -->
   <div class="row">
     <div class="right-title">投资记录</div>
   </div>
