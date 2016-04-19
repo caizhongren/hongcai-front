@@ -37,7 +37,8 @@
         <div class="col-xs-1 padding-b-5 credit-toggle {{usedStatus === 0 ? 'credit-toggle' : ''}}" ng-click="usedStatus=true">未使用</div>
         <div class="col-xs-1 padding-b-5 {{usedStatus === 4 ? 'credit-toggle' : ''}}" ng-click="usedStatus === 1">已使用</div>
       </div>
-      <table class="table table-dashed">
+      <!-- 已使用加息券表格 -->
+      <table class="table table-dashed table-rate">
         <thead>
           <tr style="background-color:#F2F2F2;">
             <th>类型/面额</th>
@@ -53,14 +54,17 @@
             <td>
               <div class="bg-coupon-orange ft-white">+{{coupon.rate || 0}}%</div>
             </td>
-            <td>2016-05-16</td>
+            <td class="ft-red6">
+              <p class="margin-b-0">2016-05-06</p>
+              <p>(该加息券七日内过期)</p>
+            </td>
             <td>适用于除零存宝其他项目</td>
             <td>活动奖励</td>
             <td><button class="orange-button">我要投资</button></td>
           </tr>
           <tr>
             <td>
-              <div class="bg-coupon-grey ft-white">+{{coupon.rate || 0}}%</div>
+              <div class="bg-coupon-orange ft-white">+{{coupon.rate || 0}}%</div>
             </td>
             <td>2016-05-16</td>
             <td>适用于除零存宝其他项目</td>
@@ -73,6 +77,30 @@
               <div class="ft-18 ft-grey margin-t-20 margin-b-20">未获得过加息券</div>
             </td>
           </tr> -->
+        </tbody>
+      </table>
+      <!-- 未使用加息券表格 -->
+      <table class="table table-dashed table-rate">
+        <thead>
+          <tr style="background-color:#F2F2F2;">
+            <th>类型/面额</th>
+            <th>过期时间</th>
+            <th>使用规则</th>
+            <th>收益金额</th>
+            <th>状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 有加息券时  ng-show="couponStatis.coupons.length > 0" ng-repeat="coupon in couponStatis.coupons"  {{coupon.createTime | date : "yyyy-MM-dd"}} {{coupon.endTime | date : "yyyy-MM-dd"}}-->
+          <tr>
+            <td>
+              <div class="bg-coupon-grey ft-white">+{{coupon.rate || 0}}%</div>
+            </td>
+            <td>2016-05-16</td>
+            <td>适用于除零存宝其他项目</td>
+            <td><span class="ft-red6 ft-bold">20.00</span>元</td>
+            <td><button class="orange-button">我要投资</button></td>
+          </tr>
         </tbody>
       </table>
     </div>
