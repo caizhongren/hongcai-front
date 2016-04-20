@@ -1465,6 +1465,24 @@ hongcaiApp
           }
         }
       })
+    /*-------------  邀请活动落地页   ----------------------*/
+      .state('root.invite-landing', {
+        url: '/invite-landing',
+        views: {
+          '': {
+            templateUrl: 'views/invite-landing.html',
+          }
+        }
+      })
+      /*-------------  送现金活动落地页   ----------------------*/
+      .state('root.send-money', {
+        url: '/send-money',
+        views: {
+          '': {
+            templateUrl: 'views/send-money.html',
+          }
+        }
+      })
       /*---------------- traffic import route  ----------------------*/
       .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',
@@ -1547,7 +1565,9 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
   // 不需要显示footer的path
   var notShowFooterRoute = [
     'login',
-    'register'
+    'register',
+    'invite-landing',
+    'send-money'
   ];
 
   var showFlag1 = [
