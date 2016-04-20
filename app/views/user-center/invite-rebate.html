@@ -29,7 +29,7 @@
             <p>以下方式分享邀请链接给好友>好友点击链接注册并投资>奖励自动进入您的账户</p>
             <div class="row text-center">
               <div class="col-xs-3">
-                <img src="/images/user-center/invite-wechat.png" alt="">
+                <img src="/images/user-center/invite-wechat.png" alt="" data-toggle="modal" data-target="#myModal1">
               </div>
               <div class="col-xs-3">
                 <img src="/images/user-center/invite-sina.png" alt="">
@@ -38,7 +38,7 @@
                 <img src="/images/user-center/invite-qq.png" alt="">
               </div>
               <div class="col-xs-3">
-                <img src="/images/user-center/invite-copy.png" alt="">
+                <img src="/images/user-center/invite-copy.png" alt="" data-toggle="modal" data-target="#myModal4">
               </div>
             </div>
           </div>
@@ -86,3 +86,50 @@
     </div>
   </div>
 </div>
+
+<!-- 点击复制链接弹出模态框 -->
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">复制链接</h4>
+         </div>
+         <div class="modal-body">
+            <div class="modal-connect">
+              <p class="ft-14">http://97ui.com/?m=Dingyue&#38;a=index2&#38;kid=0</p>
+              <p class="ft-14">复制以上链接邀请好友，更多奖励等你哟!!</p>
+            </div> 
+            <button class="button orange-button copy-btn">复制链接</button>
+         </div>
+
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
+
+<!-- 点击微信分享弹出模态框 -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel1" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+       <div class="modal-header">
+          <button type="button" class="close" 
+             data-dismiss="modal" aria-hidden="true">
+                &times;
+          </button>
+          <h4 class="modal-title" id="myModalLabel1">微信分享</h4>
+       </div>
+       <div class="modal-body">
+        <div class="col-md-5"><img src="" alt=""></div>
+        <div class="col-md-7 text-left ft-14 ft-grey">
+          <p>扫一扫关注微信号</p>
+          <p>客服热线</p>
+          <p>400-990-7626</p>
+        </div>
+       </div>
+
+      </div><!-- /.modal-content -->
+</div><!-- /.modal -->
