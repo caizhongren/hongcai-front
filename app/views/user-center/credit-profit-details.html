@@ -3,7 +3,7 @@
     <div class="title">
       <span class="tip">债权详情</span>
     </div>
-    <div class="main"><a class="pull-right padding-r-15 text-unline" ui-sref="root.userCenter.credit">返回债权列表</a></div>
+    <div class="main"><a class="pull-right padding-r-15 text-unline" ui-sref="root.userCenter.credit">返回我的投资</a></div>
     <div class="main">
       <table class="table table-bordered margin-t-30">
         <thead>
@@ -31,8 +31,12 @@
       </table>
       <div class="container-fluid main">
         <div class="row">
-          <div class="col-xs-12">
-            <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4>
+          <div class="fl col-md-12 ft-14 border-end">
+            <div class="col-xs-1 padding-b-5 credit-untoggle {{detailStatus === 1 ? 'credit-toggle' : ''}}" ng-click="detailStatus=1">项目历程</div>
+            <div class="col-xs-1 padding-b-5 credit-untoggle {{detailStatus === 4 ? 'credit-toggle' : ''}}" ng-click="detailStatus=4">债权列表</div>
+          </div>
+          <div class="col-xs-12" ng-show="detailStatus=1">
+            <!-- <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4> -->
             <ul class="timeline">
               <li>
                 <div class="timeline-badge success"><i class="fa fa-rocket ft-orange buchong1"></i>
@@ -89,6 +93,34 @@
                 </div>
               </li>
             </ul>
+          </div>
+          <div ng-show="detailStatus=4">
+            <table class="table margin-b-30 table-dashed">
+            <thead>
+              <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>身份证号</th>
+                <th>金额</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>asdf1231456</td>
+                <td>王**</td>
+                <td>110110******110</td>
+                <td>100.00</td>
+              </tr>
+              <tr ng-show="false">
+                <td colspan="6">
+                  <div>
+                    <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
+                    <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
           </div>
         </div>
       </div>
