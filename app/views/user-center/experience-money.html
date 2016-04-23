@@ -34,8 +34,8 @@
           <table class="table margin-b-30 table-dashed">
             <thead>
               <tr>
-                <th>到账时间</th>
                 <th>使用时间</th>
+                <th>到账时间</th>
                 <th>年化收益率</th>
                 <th>金额(元)</th>
                 <th>赚取收益(元)</th>
@@ -43,14 +43,14 @@
             </thead>
         
             <tbody class="yu-bg-grey0">
-              <tr>
-                <td>2016-03-15</td>
-                <td>2016-03-15</td>
-                <td>8%</td>
-                <td>10000.00</td>
-                <td>3.00</td>
+              <tr ng-repeat="deal in experienceDealStatis.investDeals">
+                <td>{{deal.experienceDeal.createTime | date: 'yyyy-MM-dd'}}</td>
+                <td>{{deal.experienceDeal.createTime | date: 'yyyy-MM-dd'}}</td>
+                <td>{{deal.creditRight.baseRate | number:1}}%</td>
+                <td>{{deal.experienceDeal.amount | number:1}}</td>
+                <td>{{deal.experienceDeal.profit | number:2}}</td>
               </tr>
-              <tr>
+              <tr ng-show="!experienceDealStatis || experienceDealStatis.investDeals || experienceDealStatis.investDeals.size == 0">
                <td colspan="5">暂无任何数据</td>
              </tr>
             </tbody>
