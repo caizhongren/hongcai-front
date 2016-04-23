@@ -475,6 +475,8 @@ hongcaiApp
 
     /*---------  user-center  ------------------------*/
     .state('root.userCenter', {
+        'url':'/user-center',
+        abstract: true,
         views: {
           'user-center': {
             templateUrl: 'views/user-center/user-center.html'
@@ -662,7 +664,7 @@ hongcaiApp
 
     // 体验金（个人中心）
     .state('root.userCenter.experienceMoney', {
-      url: '/experienceMoney',
+      url: '/experience-money',
       views: {
         'user-center-right': {
           templateUrl: 'views/user-center/experience-money.html',
@@ -1543,23 +1545,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
   // 需要用户登录才能看到的url
   var routespermission = [
-    '/account-overview',
-    '/assets-overview',
-    '/realname-authentication',
-    '/security-settings',
-    '/withdraw',
-    '/recharge',
-    '/invest-verify',
-    '/bankcard-management',
-    '/investment',
-    '/record',
-    '/gift-overview',
-    '/invite-rebate',
-    '/gift-rebate',
-    '/reservation',
-    '/credit',
-    '/credit-create',
-    '/message'
+    '/user-center'
   ];
 
   // 不需要显示footer的path
