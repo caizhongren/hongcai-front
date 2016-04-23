@@ -4,6 +4,7 @@ angular.module('hongcaiApp')
     $rootScope.redirectUrl = $location.path();
     $scope.type = $stateParams.type;
     $scope.number = $stateParams.number;
+    $scope.detailStatus = 1;
     $scope.getCreditDetail = function() {
       UserCenterService.getCreditDetail.get({status: $scope.type,number: $scope.number}, function(response) {
         // console.log(response);
@@ -12,6 +13,8 @@ angular.module('hongcaiApp')
           $scope.project = response.data.project;
           $scope.creditRight = response.data.creditRight;
           $scope.creditRightBillList = response.data.creditRightBillList;
+          $scope.category = response.data.category;
+          $scope.investorMatchOfflineRights = response.data.investorMatchOfflineRights;
           // $scope.order = response.data.order;
 
           var invTotal = response.data.order.orderAmount;
