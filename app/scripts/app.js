@@ -168,7 +168,7 @@ hongcaiApp
       })
       //注册改版
       .state('root.register',{
-        url: '/register',
+        url: '/register?inviteCode',
         views:{
           '':{
             templateUrl:'views/register/register-new.html',
