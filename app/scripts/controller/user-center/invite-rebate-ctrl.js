@@ -1,8 +1,8 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('InviteRebateCtrl', ['$scope', '$state', '$rootScope', 'UserCenterService', '$alert', function($scope, $state, $rootScope, UserCenterService, $alert) {
+  .controller('InviteRebateCtrl', function($scope, $state, $rootScope, UserCenterService, $alert, ShareUtils, VouchersService) {
     $rootScope.selectSide = 'invite-rebate';
-    UserCenterService.getInviteList.get(function(response) {
+    VouchersService.getInviteList.get(function(response) {
       if (response.ret === 1) {
         $scope.voucher = response.data.voucher;
         $scope.inviteCode = response.data.voucher.inviteCode;
@@ -25,6 +25,15 @@ angular.module('hongcaiApp')
       }
     });
 
+
+    VouchersService.inviteStat.get(function(response){
+      if (response.ret === 1){
+        $scope.inviteStat = response.data.inviteStat;
+      }
+
+    });
+
+
     $scope.showMessage = function() {
       $scope.msg = '邀请链接已经复制到剪切板，赶快复制（Ctrl+V）给您的好友，一起在宏财理财吧！';
       $alert({
@@ -42,6 +51,27 @@ angular.module('hongcaiApp')
 
     }
 
+    /**
+     * 分享到微博
+     */
+    $scope.shareWeibo = function(){
+      // window.location.href="http://service.weibo.com/share/share.php?title=" + "点击注册，得68888体验金 http://www.hongcai.com/register?inviteCode=" + $scope.inviteCode;
+
+      ShareUtils.toWeibo('点击注册，得68888体验金 http://www.hongcai.com/register?inviteCode=' + $scope.inviteCode);
 
 
-  }]);
+    }
+
+    /**
+     * 分享到qqzone
+     */
+    $scope.shareQQ = function(){
+
+      ShareUtils.toQQzone('点击注册，得68888体验金 http://www.hongcai.com/register?inviteCode=' + $scope.inviteCode);
+
+
+    }
+
+
+
+  });
