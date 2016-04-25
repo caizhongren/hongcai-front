@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('InviteRebateCtrl', function($scope, $state, $rootScope, UserCenterService, $alert, ShareUtils, VouchersService) {
+  .controller('InviteRebateCtrl', function($scope, $state, $rootScope, UserCenterService, $alert, ShareUtils, VouchersService, ngClipboard, toaster) {
     $rootScope.selectSide = 'invite-rebate';
     VouchersService.getInviteList.get(function(response) {
       if (response.ret === 1) {
@@ -48,6 +48,8 @@ angular.module('hongcaiApp')
      * 复制邀请链接
      */
     $scope.copyInviteUrl = function(){
+      ngClipboard.toClipboard('http://www.hongcai.com/register?inviteCode=' + $scope.inviteCode);
+      toaster.pop('success', '复制成功！');
 
     }
 
