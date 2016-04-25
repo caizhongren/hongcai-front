@@ -17,6 +17,9 @@ angular.module('hongcaiApp')
         for (var i = 0; i < $scope.inviteList.length; i++) {
           $scope.data.push($scope.inviteList[i]);
         }
+
+        $scope.inviteUrl = "http://www.hongcai.com/register?inviteCode=" + response.data.voucher.inviteCode;
+
       } else {
         console.log('ask invite-rebate, why getInviteList did not load data...');
       }
@@ -30,4 +33,15 @@ angular.module('hongcaiApp')
         show: true
       });
     };
+
+    
+    /**
+     * 复制邀请链接
+     */
+    $scope.copyInviteUrl = function(){
+
+    }
+
+
+
   }]);
