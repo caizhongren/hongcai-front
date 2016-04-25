@@ -2425,17 +2425,22 @@ a.cancel-red:focus {
     }
   }
   .invite-connent1{
-     background-color:#ff572c;
-     width:100%;
+    background-color:#ff572c;
+    width:100%;
+    .pointer{
+      cursor: pointer !important;
+    }
   }
   .invite-connent2{
    background-color:#ff572c;
    overflow: auto;
    position:relative; 
    width:100%;
+   display: table;
    img{
     width:80%;
     margin:20px auto;
+    display: table-cell;
    }
    p{
     position:absolute;
@@ -2471,13 +2476,16 @@ a.cancel-red:focus {
   padding:0px;
   position:relative;
   background-color:#f2351c;
+  overflow:auto;
   .send-money-connent{
     //overflow:auto;
+    display: table;
     position:relative;
     width:100%;
     img{
       display:block; 
       margin:0 auto;
+      display: table-cell;
     }
     .send-money-text{
       position:absolute;
@@ -2554,8 +2562,16 @@ a.cancel-red:focus {
     }
   }
   .send-money-bg{
-    position:absolute;
-    bottom:0px;
+    background-color:#f2351c;
+    background-image:url(/images/activity/send-money3.png);
+    background-repeat:no-repeat;
+    //background-position:100% 100%;
+    margin-top:800px;
+    width:100%;
+    background-size:100% 100%;
+    .pointer{
+      cursor: pointer !important;
+    }
   }
 } 
 .yu-tab-hr{
