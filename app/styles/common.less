@@ -290,6 +290,9 @@ button {
 .margin-l--10{
   margin-left:-10px;
 }
+.margin-l--60{
+  margin-left:-60px;
+}
 .margin-l--90{
   margin-left:-90px;
 }
@@ -319,6 +322,9 @@ button {
 }
 .margin-t-30 {
   margin-top: 30px;
+}
+.margin-t-35 {
+  margin-top: 35px;
 }
 .margin-b-0{
   margin-bottom: 0;
@@ -369,6 +375,9 @@ button {
 .padding-l-50{
   padding-left: 50px;
 }
+.padding-l-65{
+  padding-left: 65px;
+}
 .padding-r-0{
   padding-right: 0;
 }
@@ -401,11 +410,14 @@ button {
 .padding-t-30 {
   padding-top: 30px;
 }
+.padding-t-35 {
+  padding-top: 35px;
+}
 .padding-t-40 {
   padding-top: 40px;
 }
 .padding-b-0{
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
 }
 .padding-b-5 {
   padding-bottom: 5px;
@@ -413,6 +425,9 @@ button {
 
 .padding-b-15 {
   padding-bottom: 15px;
+}
+.padding-b-20 {
+  padding-bottom: 20px;
 }
 
 .padding-b-30 {
@@ -443,6 +458,9 @@ button {
 .border-grey {
   border: 1px solid #999;
 }
+.border-grey1 {
+  border: 1px solid #dedede;
+}
 
 .border-r {
   border-right: @border;
@@ -459,6 +477,12 @@ button {
 .border-r-4 {
   border-right: 1px solid #d1d1d1;
 }
+.border-r-5 {
+  border-right: 1px solid #e6e4e4;
+}
+.border-l-5 {
+  border-left: 1px solid #e6e4e4;
+}
 
 .border-b {
   border-bottom: @border;
@@ -466,6 +490,15 @@ button {
 
 .border-b-none {
   border-bottom: none;
+}
+.border-l-none {
+  border-left: none !important;
+}
+.border-r-none {
+  border-right: none !important;
+}
+.border-t-none {
+  border-top: none !important;
 }
 
 .border-l {
@@ -479,11 +512,15 @@ button {
 .border-t-grey {
   border-top: 2px solid #9b9b9b;
 }
-
+.border-t-d-e2{
+  border-top:1px dashed #e2e2e2 !important;
+}
 .ft-offWhite {
   color: #878484;
 }
-
+.ft-offGrey{
+  color:#3b3838;
+}
 .modal-open {
   overflow: visible;
   .btn,
@@ -1394,6 +1431,9 @@ button {
 
 .padding-l-0 {
   padding-left: 0;
+}
+.padding-l-35 {
+  padding-left: 35px;
 }
 
 .padding-r-0 {
@@ -2457,8 +2497,8 @@ a.cancel-red:focus {
     padding:10px 23%;
     padding-top:0px;
     p{
-      font-size:22px;
-      line-height:40px;
+      font-size:18px;
+      line-height:32px;
       color:#fff;
     }
   }
@@ -2504,7 +2544,7 @@ a.cancel-red:focus {
       tbody{
         tr{
           td{
-            font-size:24px;
+            font-size:20px;
             color:#000;
             font-weight:normal;
             //padding:10px;
@@ -2512,10 +2552,10 @@ a.cancel-red:focus {
             border:1px solid #feda4e;
             border-right:none;
             border-bottom:none;
-            height:66px;
+            height:58px;
           }
           td.col0-ft-red{
-              font-size:26px;
+              font-size:22px;
               color:#cd000d;
               font-weight:bold;
               padding:10px 0px;
@@ -2535,7 +2575,7 @@ a.cancel-red:focus {
             border-right:none;
             border-bottom:none;
             text-align:center;
-            height:66px;
+            height:58px;
           }
         }
       }
@@ -2545,7 +2585,7 @@ a.cancel-red:focus {
     padding:10px 26%;
     padding-right:20%;
     p{
-      font-size:22px;
+      font-size:18px;
       line-height:32px;
       color:#fff;
     }
@@ -2575,7 +2615,46 @@ a.cancel-red:focus {
   }
 } 
 .yu-tab-hr{
-    width:310px !important;
-    border-bottom: 1px solid #ecb463 !important;
-    margin-top:20px !important;
- }
+  width:310px !important;
+  border-bottom: 1px solid #ecb463 !important;
+  margin-top:20px !important;
+}
+.input-bg-grey{
+  background-color:#f8f7f7;
+}
+.experience-style{
+  border:1px solid #e6e4e4;
+  .title1{
+    border:1px solid #e6e4e4;
+    background-color:#fd8f3f;
+    height:57px;
+    line-height:57px;
+    .no-top{
+      line-height:0px;
+    }
+  }
+  .title{
+    box-sizing:border-size;
+    border:1px solid #dedddc;
+    background-color:#fef4ec;
+    height:46px;
+    line-height:43px;
+    .border-2{
+      border-bottom:2px solid #fd8f3f;
+    }
+  }
+
+  .main{
+    color:#000;
+    .input-size{
+      width:305px;
+      height:50px;
+    }
+    .ft-red-0{
+      color:#f51f33;
+    }
+    .ft-red-0&hover{
+
+    }
+  }
+}
