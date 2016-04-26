@@ -238,6 +238,9 @@ button {
 .margin-l-10 {
   margin-left: 10px;
 }
+.margin-l--26 {
+  margin-left: -26px;
+}
 
 .margin-r-0 {
   margin-right: 0;
@@ -349,6 +352,9 @@ button {
 .padding-0 {
   padding: 0; 
 }
+.padding-30 {
+  padding: 30px; 
+}
 .padding-l-0{
   padding-left: 0;
 }
@@ -368,15 +374,26 @@ button {
 .padding-l-30 {
   padding-left: 30px;
 }
-
+.padding-l-39 {
+  padding-left: 39px !important;
+}
+.padding-l-40 {
+  padding-left: 40px !important;
+}
 .padding-l-45 {
-  padding-left: 45px;
+  padding-left: 45px !important;
 }
 .padding-l-50{
-  padding-left: 50px;
+  padding-left: 50px !important;
+}
+.padding-l-56{
+  padding-left: 56px;
 }
 .padding-l-65{
   padding-left: 65px;
+}
+.padding-l-90{
+  padding-left: 90px;
 }
 .padding-r-0{
   padding-right: 0;
@@ -405,6 +422,9 @@ button {
 
 .padding-t-20 {
   padding-top: 20px;
+}
+.padding-t-27 {
+  padding-top: 27px;
 }
 
 .padding-t-30 {
@@ -483,7 +503,12 @@ button {
 .border-l-5 {
   border-left: 1px solid #e6e4e4;
 }
-
+.border-l-d-6 {
+  border-left: 1px dashed #928f8f;
+}
+.border-r-d-6 {
+  border-right: 1px dashed #928f8f;
+}
 .border-b {
   border-bottom: @border;
 }
@@ -2624,6 +2649,31 @@ a.cancel-red:focus {
 }
 .experience-style{
   border:1px solid #e6e4e4;
+  .bg-size{
+    height:168px;
+    background-color:#f9f9f9;
+  }
+  .bg-size1{
+    height:346px;
+    background-color:#fff;
+    img{
+      display:block;
+      margin:0 auto;
+    }
+  }
+  .bg-size2{
+    background-color:#fff;
+    p{
+      line-height:36px;
+      margin-bottom:0;
+    }
+  }
+  .bg-size3{
+    background-color:#f3f3f3;
+    line-height:16px;
+    margin-bottom:0;
+    color:#636363 !important;
+  }
   .title1{
     border:1px solid #e6e4e4;
     background-color:#fd8f3f;
@@ -2643,7 +2693,6 @@ a.cancel-red:focus {
       border-bottom:2px solid #fd8f3f;
     }
   }
-
   .main{
     color:#000;
     .input-size{
@@ -2656,5 +2705,21 @@ a.cancel-red:focus {
     .ft-red-0&hover{
 
     }
+    /*.icon{
+      display:inline-block;
+      text-align:center;
+      border:1px solid #fff;
+      width:18px;
+      height:18px;
+      font-size:18px;
+      border-radius:50%;
+      color:#fff;
+      position:relative;
+      top:15px;
+    }
+    .icon:hover{
+      color:#000;
+      border:1px solid #000;
+    }*/
   }
 }
