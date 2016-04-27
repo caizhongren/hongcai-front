@@ -1,7 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('AccountOverviewCtrl',  function($scope, $state, $rootScope, $stateParams,MainService,ProjectService, UserCenterService, toaster) {
-    $rootScope.selectSide = 'account-overview';
     var totalAssets = 0;
     var receivedProfit = 0;
     var balance = 0;

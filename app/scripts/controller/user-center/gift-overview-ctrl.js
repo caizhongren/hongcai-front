@@ -1,7 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('GiftOverviewCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', function($scope, $state, $rootScope, $stateParams, UserCenterService) {
-    $rootScope.selectSide = 'gift-overview';
     UserCenterService.getGiftListByUserId.get(function(response) {
       if (response.ret === 1) {
         $scope.giftList = response.data.giftList;

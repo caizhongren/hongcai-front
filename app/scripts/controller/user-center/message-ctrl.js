@@ -3,8 +3,6 @@ angular.module('hongcaiApp')
   .controller('MessageCtrl', function($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService) {
     $rootScope.pageTitle = '站内信-要理财，上宏财！';
 
-    $rootScope.selectSide = 'message';
-
     $scope.toggleMessage = function($index){
       $scope.toggleIndex = $index;
       var index = $index;

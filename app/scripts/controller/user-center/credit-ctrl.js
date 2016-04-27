@@ -12,7 +12,6 @@ angular.module('hongcaiApp')
     }
 
     $rootScope.redirectUrl = $location.path();
-    $rootScope.selectSide = 'credit';
 
 
     // 第一步

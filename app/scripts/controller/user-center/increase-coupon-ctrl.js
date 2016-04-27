@@ -2,7 +2,6 @@
 angular.module('hongcaiApp')
   .controller('IncreaseCouponCtrl', function($location, $scope, $rootScope, $state, $stateParams, UserCenterService, toaster, $alert) {
     $rootScope.redirectUrl = $location.path();
-    $rootScope.selectSide = 'increaseCoupon';
     $scope.datas = [];
 
     /**

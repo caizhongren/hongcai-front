@@ -12,7 +12,6 @@ angular.module('hongcaiApp')
       scaleShowVerticalLines: false
     }
 
-    $rootScope.selectSide = 'assets-overview';
     UserCenterService.getUserAccount.get(function(response) {
       if (response.ret === 1) {
         var account = response.data.account;

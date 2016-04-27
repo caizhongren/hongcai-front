@@ -2,7 +2,6 @@
 angular.module('hongcaiApp')
   .controller('SecuritySettingsCtrl', function($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN) {
 
-    $rootScope.selectSide = 'security-settings';
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
         var userAuth = response.data.userAuth;

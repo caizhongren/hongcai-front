@@ -476,7 +476,7 @@ hongcaiApp
     /*---------  user-center  ------------------------*/
     .state('root.userCenter', {
         'url':'/user-center',
-        abstract: true,
+        abstract: false,
         views: {
           'user-center': {
             templateUrl: 'views/user-center/user-center.html'
@@ -1556,31 +1556,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     'send-money'
   ];
 
-  var showFlag1 = [
-    '/account-overview',
-    '/security-settings',
-    '/bankcard-management',
-    ''
-  ];
-  var showFlag2 = [
-    '/assets-overview',
-    '/recharge',
-    '/withdraw',
-    '/record'
-  ];
-  var showFlag3 = [
-    '/credit',
-    '/investment',
-    '/reservation'
-  ];
-  var showFlag4 = [
-    '/experienceMoney',
-    '/rate-coupon',
-    '/invite-rebate'
-  ];
-  var showFlag5 = [
-    '/message'
-  ];
+  
 
   $rootScope.$on('$stateChangeStart', function(event, toState) {
     var title = '网贷平台，投资理财平台，投资理财项目-宏财网';
@@ -1588,6 +1564,9 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       title = toState.data.title + ' - 要理财，上宏财!';
     }
     $rootScope.pageTitle = title;
+
+    
+
 
     $rootScope.showFooter = false;
     if (notShowFooterRoute.indexOf($location.path().split('/')[1]) === -1) {
@@ -1602,46 +1581,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
         return;
       })
       .success(function(response) {
-        $rootScope.showFlag11 = false;
-        $rootScope.showFlag21 = false;
-        $rootScope.showFlag31 = false;
-        $rootScope.showFlag41 = false;
-        $rootScope.showFlag51 = false;
-        if(showFlag1.indexOf('/' + $location.path().split('/')[1]) !== -1){
-          $rootScope.showFlag11 = true;
-          $rootScope.showFlag21 = false;
-          $rootScope.showFlag31 = false;
-          $rootScope.showFlag41 = false;
-          $rootScope.showFlag51 = false;
-        }
-        if(showFlag2.indexOf('/' + $location.path().split('/')[1]) !== -1){
-          $rootScope.showFlag11 = false;
-          $rootScope.showFlag21 = true;
-          $rootScope.showFlag31 = false;
-          $rootScope.showFlag41 = false;
-          $rootScope.showFlag51 = false;
-        }
-        if(showFlag3.indexOf('/' + $location.path().split('/')[1]) !== -1){
-          $rootScope.showFlag11 = false;
-          $rootScope.showFlag21 = false;
-          $rootScope.showFlag31 = true;
-          $rootScope.showFlag41 = false;
-          $rootScope.showFlag51 = false;
-        }
-        if(showFlag4.indexOf('/' + $location.path().split('/')[1]) !== -1){
-          $rootScope.showFlag11 = false;
-          $rootScope.showFlag21 = false;
-          $rootScope.showFlag31 = false;
-          $rootScope.showFlag41 = true;
-          $rootScope.showFlag51 = false;
-        }
-        if(showFlag5.indexOf('/' + $location.path().split('/')[1]) !== -1){
-          $rootScope.showFlag11 = false;
-          $rootScope.showFlag21 = false;
-          $rootScope.showFlag31 = false;
-          $rootScope.showFlag41 = false;
-          $rootScope.showFlag51 = true;
-        }
+        
         if (routespermission.indexOf('/' + $location.path().split('/')[1]) !== -1) {
           if (response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
             $rootScope.isLogged = true;
@@ -1679,6 +1619,9 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
         }
       });
 
+
+
+
   });
 
 
@@ -1701,6 +1644,51 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     if ($location.protocol() === 'http' && config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
       $window.location.href = 'https://' + $location.absUrl().split('://')[1];
     }
+
+    $rootScope.selectSide = $location.path().split('/')[2];
+
+    var showFlag1 = [
+        'account-overview',
+        'security-settings',
+        'bankcard-management'
+      ];
+    var showFlag2 = [
+      'assets-overview',
+      'recharge',
+      'withdraw',
+      'record'
+    ];
+    var showFlag3 = [
+      'credit',
+      'investment',
+      'reservation'
+    ];
+    var showFlag4 = [
+      'experience-money',
+      'rate-coupon',
+      'invite-rebate'
+    ];
+    var showFlag5 = [
+      'message'
+    ];
+
+    $rootScope.userCenterPart = 1;
+    if(showFlag1.indexOf($rootScope.selectSide) !== -1){
+      $rootScope.userCenterPart = 1;
+    }
+    if(showFlag2.indexOf($rootScope.selectSide) !== -1){
+      $rootScope.userCenterPart = 2;
+    }
+    if(showFlag3.indexOf($rootScope.selectSide) !== -1){
+      $rootScope.userCenterPart = 3;
+    }
+    if(showFlag4.indexOf($rootScope.selectSide) !== -1){
+      $rootScope.userCenterPart = 4;
+    }
+    if(showFlag5.indexOf($rootScope.selectSide) !== -1){
+      $rootScope.userCenterPart = 5;
+    }
+
   });
 
   $rootScope.reload = function() {

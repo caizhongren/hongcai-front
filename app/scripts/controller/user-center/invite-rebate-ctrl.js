@@ -1,7 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('InviteRebateCtrl', function($scope, $state, $rootScope, UserCenterService, $alert, ShareUtils, VouchersService, ngClipboard, toaster) {
-    $rootScope.selectSide = 'invite-rebate';
     VouchersService.getInviteList.get(function(response) {
       if (response.ret === 1) {
         $scope.voucher = response.data.voucher;

@@ -2,7 +2,6 @@
 angular.module('hongcaiApp')
   .controller('ExperienceMoneyCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
     $rootScope.redirectUrl = $location.path();
-    $rootScope.selectSide = 'experienceMoney';
 
     $scope.tab = 0;
     $scope.pageSize = 10;

@@ -1,7 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('BankCardManagementCtrl', ['$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', '$alert', 'toaster', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $alert, toaster) {
-    $rootScope.selectSide = 'bankcard-management';
     $scope.dosi = true;
     UserCenterService.getUserBankCard.get({}, function(response) {
       if (response.ret === 1) {
