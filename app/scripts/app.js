@@ -1476,15 +1476,24 @@ hongcaiApp
           }
         }
       })
-      /*-------------  送现金活动落地页   ----------------------*/
-      .state('root.send-money', {
-        url: '/send-money',
-        views: {
-          '': {
-            templateUrl: 'views/send-money.html',
-          }
+    /*-------------  送现金活动落地页   ----------------------*/
+    .state('root.send-money', {
+      url: '/send-money',
+      views: {
+        '': {
+          templateUrl: 'views/send-money.html',
         }
-      })
+      }
+    })
+    /*-------------  体验金项目专享详情页   ----------------------*/
+    .state('root.experience-money-detail', {
+      url: '/experience-money-detail',
+      views: {
+        '': {
+          templateUrl: 'views/experience-money-detail.html',
+        }
+      }
+    })
       /*---------------- traffic import route  ----------------------*/
       .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',

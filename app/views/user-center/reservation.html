@@ -6,18 +6,18 @@
     </div>
     <div class="main">
       <div class="padd row">
-        <div class="col-md-11 bg-grey6 padding-40">
+        <div class="col-md-11 bg-grey6 padding-40 padding-l-39">
           <img src="/images/usermoney5.png" alt="" class="col-xs-1">
           <div class="record-text col-xs-2">
             <p>投资总额：</p>
             <p class="text-nowarp"><strong class="ft-red5 ft-24">{{ statistics.reserveAmount || 0  | number: 2 }}</strong>元</p>
           </div>
-          <img src="/images/usermoney6.png" alt="" class="col-xs-1">
+          <img src="/images/usermoney6.png" alt="" class="col-xs-1 margin-l-30">
           <div class="record-text col-xs-3">
             <p>预约期的累计收益：</p>
             <p><strong class="ft-red5 ft-24">{{ statistics.returnProfit || 0  | number: 2 }}</strong>元</p>
           </div>
-          <img src="/images/usermoney4.png" alt="" class="col-xs-1">
+          <img src="/images/usermoney4.png" alt="" class="col-xs-1 margin-l--26">
           <div class="record-text col-xs-3">
             <p class="text-nowarp">超过同期余额宝：</p>
             <p><strong class="ft-red5 ft-24">{{ statistics.returnProfit * 0.1 || 0 | number: 2 }}</strong>元</p>
