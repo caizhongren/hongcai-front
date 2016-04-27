@@ -549,13 +549,13 @@
   .personal-data{
     background-color:white;
     overflow:auto;
-    padding:20px 0;
+    padding:30px 0;
     border-bottom:1px solid #dddddd;
     button{
-      border-radius:5px;
+      border-radius:3px;
     }
     a{
-      border-radius:5px;
+      border-radius:3px;
       padding:3px 5px;
     }
   }
@@ -569,8 +569,8 @@
   .per-data{
     background-color:white;
     overflow:auto;
-    padding:20px 0;
-    .col-md-1{
+    padding:30px 0;
+    .col-md-1{   
       padding-left:30px;
     }
     .col-md-11{
@@ -686,15 +686,26 @@
         border-bottom:none !important;
       }
       table{
+        width:94%;
+        max-width:100%;
+        margin:10px auto;
+        td{
+          padding:10px 0;
+        }
+        th{
+          color:#595656;
+          border-bottom:none !important;
+          padding:5px 0;
+        }
         button{
           border-radius:3px;
         }
         .border-b-dash{
           border-bottom:1px dashed #e3e3e3 !important;
         }
-        .border-t-dash{
+        /*.border-t-dash{
           border-top:1px dashed #e3e3e3 !important;
-        }
+        }*/
       }
     }
   }
@@ -706,6 +717,8 @@
   background-color:#fffef5;
   border:1px solid #f7f4b7;
   padding:15px 10px;
+  margin-top:30px;
+  margin-bottom:30px;
   color:#ad6518;
   overflow:auto;
 }
@@ -918,7 +931,7 @@
   background-color: #848282 !important;
 }
 .setting-new{
-  border-top: 1px solid #e5e4e4;
+  border-top: 1px dashed #e5e4e4;
   padding: 20px 0;
   .text-label{
     width: 45%;
