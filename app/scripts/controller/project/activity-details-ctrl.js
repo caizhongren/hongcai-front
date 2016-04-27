@@ -1,7 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('ActivityDetailsCtrl', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, $timeout, toaster, DateUtils) {
-  $rootScope.redirectUrl = $location.path();
 
   var activityDetails = ProjectService.activityDetails.get({
     number: $stateParams.number,

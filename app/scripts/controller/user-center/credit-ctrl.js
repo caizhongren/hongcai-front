@@ -11,7 +11,6 @@ angular.module('hongcaiApp')
       return $scope.haveTrusteeshipAccount;
     }
 
-    $rootScope.redirectUrl = $location.path();
 
 
     // 第一步

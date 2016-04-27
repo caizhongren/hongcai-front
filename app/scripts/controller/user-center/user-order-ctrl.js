@@ -2,7 +2,6 @@
 angular.module('hongcaiApp')
   .controller('UserOrderCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
 
-    $rootScope.redirectUrl = $location.path();
     $scope.typeInvStatus = {
       '0': '未支付',
       '1': '已支付'
