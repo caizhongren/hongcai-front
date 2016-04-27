@@ -32,27 +32,13 @@ angular.module('hongcaiApp')
           $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContractModel');
         }
 
-        // UserCenterService.generatePartContractPDF.get({
-        //   projectId: projectId,
-        //   orderId: orderId
-        // }, function() {
-        //   $scope.downloadPDF('hongcai/api/v1/siteProject/generatePartContractPDF?orderId=' + orderId + '&projectId=' + projectId);
-        // });
       } else if (status >= 3 && status <= 6) {
         if (type !== 4) {
-          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
+          $scope.downloadPDF('hongcai/api/v1/siteOrder/downloadContract?orderId=' + orderId + '&projectId=' + projectId);
         } else if (type === 4) {
           $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContract?orderId=' + orderId);
         }
 
-        // UserCenterService.generateContractPDF.get({
-        //   projectId: projectId,
-        //   orderId: orderId
-        // }, function() {
-        //   $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId);
-          // 简单的处理方式，可能被浏览器屏蔽。
-          // window.open('hongcai/api/v1/siteProject/generateContractPDF?orderId=' + orderId + '&projectId=' + projectId, '_blank', '');
-        // });
       }
 
     };
