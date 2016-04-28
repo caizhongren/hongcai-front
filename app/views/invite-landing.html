@@ -16,7 +16,7 @@
 	</div>
 	<div class="invite-connent1 col-md-12 padding-t-10 padding-b-10">
 		<div class="col-md-6 col-md-offset-3">
-			<div class="col-md-5 col-md-offset-1 pointer">
+			<div class="col-md-5 col-md-offset-1 pointer" data-toggle="modal" data-target="#myModal1">
 				<img src="/images/activity/invite-landing-btn1.png" alt="" width="100%">
 			</div>
 			<div class="col-md-5 margin-l-50 pointer">
@@ -70,4 +70,27 @@
 	<div class="invite-landing-footer">
 		<img src="/images/activity/invite-landing3.png" alt="" width="100%">
 	</div>
+</div>
+<!-- 点击复制链接弹出模态框 -->
+<div class="modal fade modal-top" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+       <div class="modal-header">
+          <button type="button" class="close" 
+             data-dismiss="modal" aria-hidden="true">
+                &times;
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+            <span >复制链接</span>
+          </h4>
+       </div>
+       <div class="modal-body">
+          <div class="modal-connect">
+            <p class="ft-14" >http://www.hongcai.com/register?inviteCode={{voucher.inviteCode}}</p>
+            <p class="ft-14">复制以上链接邀请好友，更多奖励等你哟!!</p>
+          </div>
+          <button class="button orange-button copy-btn" ng-click="copyInviteUrl()">复制链接</button>
+       </div>
+    </div>
+  </div>
 </div>
