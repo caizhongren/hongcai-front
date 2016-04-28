@@ -1706,6 +1706,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     $state.reload();
   }
 
+  $rootScope.showLoginModal = function(){
+    $modal({
+      scope: $rootScope,
+      template: 'views/modal/modal-toLogin.html',
+      show: true
+    });
+  }
+
 });
 
 
