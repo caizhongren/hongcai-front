@@ -1473,6 +1473,8 @@ hongcaiApp
         views: {
           '': {
             templateUrl: 'views/invite-landing.html',
+            controller: 'InviteLandingCtrl',
+            controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
           }
         }
       })
