@@ -25,7 +25,7 @@
             <div class="col-md-4">
               <img src="/images/user-center/experience-money3.png" alt="" class="fl margin-l-30">
               <div class="record-text yu-record-text">
-                <button class="orange-button yu-button">我要投资</button>
+                <button class="orange-button yu-button" ui-sref="root.experience-project">我要投资</button>
               </div>
             </div>
           </div>
@@ -67,9 +67,9 @@
             </tbody>
           </table>
           <ul class="pager margin-r-20">
-            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="investDeals.page.currentPage >= investDeals.page.pageCount " ng-click="investDeals.page.currentPage++;">下一页</button></li>
+            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="investDeals.page.currentPage >= investDeals.page.pageCount " >下一页</button></li>
             <div class="fr height-30">&nbsp;&nbsp;{{ investDeals.page.currentPage}} / {{ investDeals.page.pageCount}} &nbsp;共 {{investDeals.length}} 条&nbsp;&nbsp;</div>
-            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="investDeals.page.currentPage == 1" ng-click="investDeals.page.currentPage--;">上一页</button></li>
+            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="investDeals.page.currentPage == 1" >上一页</button></li>
           </ul>
         </div>
 
@@ -91,9 +91,9 @@
             </tbody>
           </table>
           <ul class="pager margin-r-20">
-            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="deals.page.currentPage >= deals.page.pageCount " ng-click="deals.page.currentPage++;">下一页</button></li>
+            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="deals.page.currentPage >= deals.page.pageCount ">下一页</button></li>
             <div class="fr height-30">&nbsp;&nbsp;{{ deals.page.currentPage}} / {{ deals.page.pageCount}} &nbsp;共 {{deal.length}} 条&nbsp;&nbsp;</div>
-            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="deals.page.currentPage == 1" ng-click="deals.page.currentPage--;">上一页</button></li>
+            <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="deals.page.currentPage == 1" >上一页</button></li>
           </ul>
         </div>
 

@@ -1488,8 +1488,8 @@ hongcaiApp
       }
     })
     /*-------------  体验金项目专享详情页   ----------------------*/
-    .state('root.experience-money-detail', {
-      url: '/experience-money-detail',
+    .state('root.experience-project', {
+      url: '/experience-project',
       views: {
         '': {
           templateUrl: 'views/experience-money-detail.html',
