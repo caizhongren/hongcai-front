@@ -10,7 +10,10 @@ html {
   font-family:"微软雅黑", Helvetica, Tahoma, Arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei",  "WenQuanYi Micro Hei", SimSun, "宋体", Heiti, "黑体", sans-serif;
   background-color: #F0F0F0;
 }
-
+body.modal-open {
+overflow-y: scroll;
+padding-right: 0 !important;
+}
 // fa标签为红色
 .fa-color-red {
   color: @brand-danger;
@@ -233,19 +236,34 @@ button {
 }
 
 .margin-l-0 {
-  margin-left: 0;
+  margin-left: 0 !important;
 }
 .margin-l-10 {
   margin-left: 10px;
 }
+.margin-l-12 {
+  margin-left: 12px;
+}
+.margin-l-13 {
+  margin-left: 13px;
+}
+.margin-l-24 {
+  margin-left: 24px;
+}
 .margin-l-20 {
   margin-left: 20px;
+}
+.margin-l--10{
+  margin-left:-10px;
 }
 .margin-l--20{
   margin-left:-20px;
 }
 .margin-l--26 {
   margin-left: -26px;
+}
+.margin-l--40 {
+  margin-left: -40px !important;
 }
 .margin-l--56 {
   margin-left: -56px;
@@ -317,6 +335,9 @@ button {
 .margin-r-20{
   margin-right: 20px;
 }
+.margin-t-0 {
+  margin-top: 0px !important;
+}
 .margin-t-5 {
   margin-top: 5px;
 }
@@ -327,7 +348,7 @@ button {
   margin-top: 15px;
 }
 .margin-t-20 {
-  margin-top: 20px;
+  margin-top: 20px !important;
 }
 .margin-t-40 {
   margin-top: 40px !important;
@@ -363,6 +384,10 @@ button {
 }
 .padding-0 {
   padding: 0; 
+}
+.padding-lr-13 {
+  padding-left: 13px; 
+  padding-right: 13px; 
 }
 .padding-30 {
   padding: 30px; 
@@ -401,11 +426,14 @@ button {
 .padding-l-65{
   padding-left: 65px;
 }
+.padding-l-80{
+  padding-left: 80px !important;
+}
 .padding-l-90{
   padding-left: 90px;
 }
 .padding-r-0{
-  padding-right: 0;
+  padding-right: 0 !important;
 }
 .padding-r-15 {
   padding-right: 15px;
@@ -1494,7 +1522,7 @@ button {
 }
 
 .margin-t-0 {
-  padding-top: 2px;
+  margin-top:0px !important;
 }
 .margin-t-20 {
   margin-top: 20px !important;
@@ -2763,21 +2791,8 @@ a.cancel-red:focus {
     .ft-red-0:hover{
 
     }
-    /*.icon{
-      display:inline-block;
-      text-align:center;
-      border:1px solid #fff;
-      width:18px;
-      height:18px;
-      font-size:18px;
-      border-radius:50%;
-      color:#fff;
-      position:relative;
-      top:15px;
-    }
-    .icon:hover{
-      color:#000;
-      border:1px solid #000;
-    }*/
   }
+}
+.no-box-shadow{
+  box-shadow:0 0px 0px rgba(0,0,0,0.0);
 }

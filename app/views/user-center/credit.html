@@ -7,14 +7,14 @@
     <div class="main" ng-show="securityStatus.realNameAuthStatus === 1">
       <!-- 有购买项目 展示内容 -->
       <div ng-show="showCreditRightStatistics">
-        <div class="row padd">
-          <div class="col-md-11 bg-grey6 padding-40">
-            <div class="col-xs-3 ft-14 border-right-in">
+        <div class="row padd margin-t-20 padding-b-30">
+          <div class="col-md-11 bg-grey6 padding-40 record-w margin-l--20 padding-l-80">
+            <div class="col-xs-4 ft-14 border-right-in margin-l--10 padding-r-0">
               <p class="padding-t-10"><i class="fa fa-jpy ft-grey margin-r-5"></i>累计投资：<strong class="ft-18 ft-red6">{{creditRightStatis.totalInvestCount || 0}}</strong>个</p>
               <p><i class="fa fa-line-chart ft-grey margin-r-5"></i>投资中：<strong class="ft-18 ft-red6">{{creditRightStatis.heldingCount || 0}}</strong>个</p>
               <p><i class="fa fa-usd ft-grey margin-r-5"></i>已回款：<strong class="ft-18 ft-red6">{{creditRightStatis.endProfitCount || 0}}</strong>个</p>
             </div>
-            <div class="col-xs-4 ft-14 col-xs-offset-1 text-center">
+            <div class="col-xs-4 ft-14 text-center padding-l-40">
               <p class="margin-t-20">投资总额（元）</p>
               <p class="margin-t-20"><strong class="ft-24 ft-red7">{{creditRightStatis.totalInvestAmount | number:2 || 0}}</strong></p>
             </div>
@@ -33,7 +33,7 @@
         </div>
         <div class="row margin-l-0 margin-r-0 margin-t-10">
         <!-- <a type="button" class="btn btn-primary btn-sm" ui-sref="root.userCenter.credit-create">发起债券转让</a> -->
-          <div class="fl col-md-12 ft-14">
+          <div class="fl col-md-12 ft-14 margin-l-24">
             <div class="col-xs-1 padding-b-5 {{searchStatus === 1 ? 'credit-toggle' : ''}}" ng-click="loadCredits(currentPage, pageSize, 1)">投资中</div>
             <div class="col-xs-1 padding-b-5 {{searchStatus === 4 ? 'credit-toggle' : ''}}" ng-click="loadCredits(currentPage, pageSize, 4)">已回款</div>
             <!-- <div class="col-xs-1 padding-b-5 {{searchStatus === 2 ? 'credit-toggle' : ''}}" ng-click="getHeldInCreditRightList(2)">转让中</div>
@@ -47,7 +47,7 @@
           </div> -->
         </div>
         <div ng-show="searchStatus === 1">
-          <table class="table margin-b-30 table-dashed">
+          <table class="table margin-b-30 table-dashed margin-t-0 record-w">
             <thead>
               <tr>
                 <th>项目名称</th>
@@ -165,7 +165,7 @@
           </ul> -->
         </div>
         <div ng-show="searchStatus === 4">
-          <table class="table table-dashed margin-b-30">
+          <table class="table table-dashed margin-b-30 margin-t-0 record-w">
             <thead>
               <tr>
                 <th>项目名称</th>

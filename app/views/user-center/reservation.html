@@ -6,7 +6,7 @@
     </div>
     <div class="main">
       <div class="padd row padding-b-30">
-        <div class="col-md-11 bg-grey6 padding-40 padding-r-0 record-w margin-l--20">
+        <div class="col-md-11 bg-grey6 padding-40 padding-r-0 record-w margin-l--20 margin-t-20">
           <img src="/images/usermoney5.png" alt="" class="col-xs-1">
           <div class="record-text col-xs-2 xs-width">
             <p>投资总金额（元）</p>
@@ -87,22 +87,22 @@
               <div class="row">
                 <div class="col-xs-2 text-right text-nowrap ft-bold">日期：</div>
                 <div class="col-xs-2 text-nowrap">
-                  <span ng-click="dateInterval=0;getReserveOrders();" class="project-noncheck" ng-class="{ true : 'project-yescheck', false : 'project-noncheck'}[dateInterval == 0]">
+                  <span ng-click="dateInterval=0;getReserveOrders();" class="project-noncheck cursor-pointer" ng-class="{ true : 'project-yescheck', false : 'project-noncheck'}[dateInterval == 0]">
                     全部
                   </span>
                 </div>
                 <div class="col-xs-2 text-nowrap">
-                  <span ng-click="dateInterval=7;getReserveOrders();" class="project-noncheck" ng-class="{ true: 'project-yescheck', false: 'project-noncheck'}[dateInterval == 7]">
+                  <span ng-click="dateInterval=7;getReserveOrders();" class="project-noncheck cursor-pointer" ng-class="{ true: 'project-yescheck', false: 'project-noncheck'}[dateInterval == 7]">
                     最近七天
                   </span>
                 </div>
                 <div class="col-xs-2 text-nowrap">
-                  <span ng-click="dateInterval=30;getReserveOrders();" class="project-noncheck" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 30]">
+                  <span ng-click="dateInterval=30;getReserveOrders();" class="project-noncheck cursor-pointer" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 30]">
                     一个月
                   </span>
                 </div>
                 <div class="col-xs-2 text-nowrap">
-                  <span ng-click="dateInterval=90;getReserveOrders();" class="project-noncheck" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 90]">
+                  <span ng-click="dateInterval=90;getReserveOrders();" class="project-noncheck cursor-pointer" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 90]">
                     三个月
                   </span>
                 </div>
