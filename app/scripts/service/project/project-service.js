@@ -5,6 +5,7 @@ angular.module('hongcaiApp')
       projectDetails: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectDetail', {
         number: '@number'
       }),
+      getExperienceProjectDetail: $resource(DEFAULT_DOMAIN + '/siteProject/getExperienceProjectDetail'),
       projectList: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectList'),
       getFundsProductTypeMap: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProductTypeMap'),
       getFundsTotalStatisticalData: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsTotalStatisticalData'),

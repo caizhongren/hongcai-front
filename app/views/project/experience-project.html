@@ -20,11 +20,11 @@
 				<div class="row">
 					<div class="col-md-4 text-center">
 						<p class="ft-14 margin-b-5">投资人数</p>
-						<p class="ft-40 ft-offGrey margin-b-0 ftw-b">1,000<span class="ft-14">人</span></p>
+						<p class="ft-40 ft-offGrey margin-b-0 ftw-b">{{investCount}}<span class="ft-14">人</span></p>
 					</div>
 					<div class="col-md-4 text-center border-l-5 border-r-5">
 						<p class="ft-14 margin-b-5">年化收益率</p>
-						<p class="ft-40 ft-offGrey margin-b-0 ftw-b">14<span class="ft-14">%</span></p>
+						<p class="ft-40 ft-offGrey margin-b-0 ftw-b">{{project.annualEarnings}}<span class="ft-14">%</span></p>
 					</div>
 					<div class="col-md-4 text-center">
 						<p class="ft-14 margin-b-5">封闭期限</p>
@@ -48,10 +48,10 @@
 			</div>
 			<div class="col-md-4 padding-l-35">
 				<div class="xs-11 padding-t-20">
-					<p class="ft-14">累计投资金额：<span class="ft-30 ftw-b ft-offGrey">102,100</span>元</p>
+					<p class="ft-14">累计投资金额：<span class="ft-30 ftw-b ft-offGrey">{{project.soldStock}}</span>元</p>
 				</div>
 				<div class="col-xs-11 padding-t-10 padding-b-30 padding-l-0">
-					<input type="text" value="10000体验金" class="border-grey1 input-bg-grey input-size">
+					<input type="text" value="{{account.experienceAmount| number : 2}} 元体验金" class="border-grey1 input-bg-grey input-size" readonly="readonly">
 				</div>
 				<a ui-sref="" class="col-xs-11 btn btn-invite-orange ft-white padding-0 ft-18 input-size" role="button">立即投资 <i class="fa fa-chevron-circle-right"></i></a>
 				<a ui-sref="" class="col-xs-11 text-center ft-14 padding-t-20 padding-b-20 ft-red-0 text-unline">获得奖励?</a>
