@@ -1,9 +1,11 @@
-<div class="col-md-12 margin-b-30" style="background-color:#fbfbfb;border-bottom:1px solid #e6e4e4;box-shadow:0 5px 4px 0 rgba(236,234,235,0.7)" ng-include src='"views/main/_self_feature.html"'></div>
+
 <div class="container">
   <!-- 自身特色 -->
+  <div class="col-md-12 margin-b-30 bg-white margin-t-30 border-grey5 margin-l--30 main-new-w" ng-include src='"views/main/_self_feature.html"'></div>
   <!-- 最新公告 -->
+    <!--<div class="row" id="announcement" ng-include src='"views/main/_announcement.html"'></div>-->
   <div class="row main">
-    <div class="row" id="announcement" ng-include src='"views/main/_announcement.html"'></div>
+  
     <!-- new-零存宝 -->
     <div class="row  border-total margin-t-30" ng-include ng-show="fundsProjectProductList" src='"views/main/lingcunbao.html"'></div>
     <!-- 土豪标抽奖页入口 -->

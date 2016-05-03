@@ -12,7 +12,11 @@
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <p class="navbar-text">您好，欢迎来到宏财！<i class="fa fa-phone"></i>400-990-7626</p>
+        <!--<p class="navbar-text">您好，欢迎来到宏财！<i class="fa fa-phone"></i>400-990-7626</p>-->
+        <p class="navbar-text ftw-b">
+          <img src="/images/phone01.png" alt="">
+          <span class="margin-t--10">&nbsp;&nbsp;客服热线：400-990-7626</span>
+        </p>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li ng-if="isLogged === true">
@@ -38,27 +42,29 @@
   </div>
 </nav>
 <nav id="major-bar" class="navbar navbar-default navbar-static-top border-b-none" role="navigation">
-  <div class="container margin-b-10 padding-l-0">
+  <div class="container padding-l-0">
     <ul class="nav navbar-nav">
       <a class="navbar-brand logo-img-2 hidden-xs" href="/" style="margin-top:20px;">&nbsp;</a>
     </ul>
     <ul class="nav navbar-nav navbar-right margin-t-20">
-      <li><a ui-sref="root.main" ng-class="{'active' : selectPage == ''}">首页</a>
+      <li><a ui-sref="root.main" ng-class="{'active' : selectPage == ''}" class="toggle-navbar">首页</a>
       </li>
-      <li class="dropdown"><a class="category" href="javascript:;" ng-class="{'active' : selectPage == 'project-list'}" style="color:black">我要理财<i class="fa fa-sort-desc"></i></a>
+      <li class="dropdown" style=""><a class="category" href="javascript:;" ng-class="{'active' : selectPage == 'project-list'}" style="color:black;border-left: 1px solid transparent;border-right: 1px solid transparent">我要理财<i class="fa fa-sort-desc"></i></a>
         <div id="dropdown">
           <div>
             <a ng-click="goCurrentDepositDetail()" ng-class="{'active' : selectPage == 'project-list'}">零存宝</a>
             <a ui-sref="root.investmentplan-list" ng-class="{'active' : selectPage == 'project-list'}">宏金盈</a>
             <a ui-sref="root.guaranteepro-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}">宏金保</a>
-            <a ui-sref="root.credit-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}" ng-show="creditIsShowedFLAG">债权转让</a>
+            <!--<a ui-sref="root.credit-list-query-no()" ng-class="{'active' : selectPage == 'project-list'}" ng-show="creditIsShowedFLAG">债权转让</a>-->
           </div>
         </div>
       </li>
 
-      <li><a href="/newbie-guide.html" target="_blank" ng-class="{'active': selectPage == 'partner-platform'}" style="color:black" rel="nofollow">新手引导</a>
-      </li>
+      <!--<li><a href="/newbie-guide.html" target="_blank" ng-class="{'active': selectPage == 'partner-platform'}" style="color:black" rel="nofollow">新手引导</a>
+      </li>-->
       <li><a ui-sref="root.safe" ng-class="{'active': selectPage == 'safe'}" style="color:black" rel="nofollow">安全保障</a>
+      </li>
+      <li><a ui-sref="root.partner" ng-class="{'active': selectPage == 'partner'}" style="color:black" rel="nofollow">战略伙伴</a>
       </li>
       <li><a ui-sref="root.about-us.introduction-of-platform" ng-class="{'active': selectPage == 'introduction-of-platform'}" style="color:black" rel="nofollow">关于我们</a>
       </li>
