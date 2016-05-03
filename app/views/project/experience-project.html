@@ -52,9 +52,13 @@
 				</div>
 				<div class="col-xs-11 padding-t-10 padding-b-30 padding-l-0">
 					<input type="text" value="{{account.experienceAmount| number : 2}} 元体验金" class="border-grey1 input-bg-grey input-size" readonly="readonly">
+					<div class="hint text-center ft-red padding-t-0p5 padding-b-0p5 box-shadow" ng-show="showMsg">
+					  <i class="fa fa-info">&nbsp;</i>{{msg}}
+					</div>
 				</div>
-				<a ui-sref="" class="col-xs-11 btn btn-invite-orange ft-white padding-0 ft-18 input-size" role="button">立即投资 <i class="fa fa-chevron-circle-right"></i></a>
-				<a ui-sref="" class="col-xs-11 text-center ft-14 padding-t-20 padding-b-20 ft-red-0 text-unline">获得奖励?</a>
+
+				<a class="col-xs-11 btn btn-invite-orange ft-white padding-0 ft-18 input-size" ng-click="quickInvest()">立即投资 <i class="fa fa-chevron-circle-right"></i></a>
+				<a ng-show="false" class="col-xs-11 text-center ft-14 padding-t-20 padding-b-20 ft-red-0 text-unline">获得奖励?</a>
 			</div>
 		</div>
 	</div>

@@ -34,7 +34,9 @@ angular.module('hongcaiApp')
   		    }
   		  });
   		}
-  	}
+  	}else if(business === 'EXPERIENCE'){
+      page = 10;
+    } 
 
 
   	$scope.page = page;
