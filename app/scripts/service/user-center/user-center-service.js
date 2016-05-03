@@ -143,7 +143,11 @@ angular.module('hongcaiApp')
       putCreditRightInPool: $resource(DEFAULT_DOMAIN + '/siteCredit/putCreditRightInPool', {
         creditRightId: '@creditRightId'
       }),
-      getUserExperienceMoneyDetail: $resource(DEFAULT_DOMAIN + '/siteUser/getUserExperienceMoneyDetail'),
+      userExperienceDeals: $resource(DEFAULT_DOMAIN + '/siteUser/userExperienceDeals', {
+        page : '@page',
+        pageSize : '@pageSize',
+        status : '@status'
+      }),
       getUserIncreaseRateCouponStatis: $resource(DEFAULT_DOMAIN + '/siteUser/getUserIncreaseRateCouponStatis'),
       userIncreaseRateCoupons : $resource(DEFAULT_DOMAIN + '/siteUser/userIncreaseRateCoupons', {
         page : '@page',
@@ -152,6 +156,5 @@ angular.module('hongcaiApp')
       }),
       getUnUsedIncreaseRateCoupons: $resource(DEFAULT_DOMAIN + '/siteUser/getUnUsedIncreaseRateCoupons'),
       resetMobile: $resource(DEFAULT_DOMAIN + '/yeepay/resetMobile', {mobile:'@mobile'})
-
     };
   });

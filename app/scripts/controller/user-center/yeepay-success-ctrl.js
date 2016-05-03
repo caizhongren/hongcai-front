@@ -4,6 +4,7 @@ angular.module('hongcaiApp')
 
   	var business = $stateParams.business;
   	$scope.amount = $stateParams.amount;
+    $scope.profit = $stateParams.profit;
   	var page = 1;
 
   	if (business === 'REGISTER'){
@@ -34,7 +35,9 @@ angular.module('hongcaiApp')
   		    }
   		  });
   		}
-  	}
+  	}else if(business === 'EXPERIENCE'){
+      page = 10;
+    } 
 
 
   	$scope.page = page;

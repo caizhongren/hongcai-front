@@ -335,7 +335,7 @@ hongcaiApp
 
     // 易宝网页操作回调页，包括开通易宝、充值、提现、绑卡、取消绑卡、投资
     .state('root.yeepay-callback', {
-      url: '/yeepay-callback/:business/:status?amount&number',
+      url: '/yeepay-callback/:business/:status?amount&number&profit',
       views: {
         '': {
           templateUrl: 'views/success.html',
