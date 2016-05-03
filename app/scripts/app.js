@@ -1492,7 +1492,9 @@ hongcaiApp
       url: '/experience-project',
       views: {
         '': {
-          templateUrl: 'views/experience-money-detail.html',
+          templateUrl: 'views/project/experience-project.html',
+          controller: 'ExperienceProjectCtrl',
+          controllerUrl: 'scripts/controller/project/experience-project-ctrl'
         }
       }
     })
