@@ -27,14 +27,15 @@ angular.module('hongcaiApp')
             payAmount : 0
           }, function(response) {
             if (response.ret === 1) {
-              var creditRightNum = response.data.creditRightNum;
+              $scope.creditRight = response.data.creditRight;
 
-              if(creditRightNum !== null && creditRightNum !== undefined) {
+              if($scope.creditRight !== null) {
                 $state.go('root.yeepay-callback', {
                   business: 'EXPERIENCE',
                   status: 'SUCCESS',
                   amount: $rootScope.account.experienceAmount,
-                  number: creditRightNum
+                  number: $scope.creditRight.number,
+                  profit: $scope.creditRight.profit
                 });
               } else{
                 $scope.showMsg = true;

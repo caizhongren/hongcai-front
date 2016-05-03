@@ -4,6 +4,7 @@ angular.module('hongcaiApp')
 
   	var business = $stateParams.business;
   	$scope.amount = $stateParams.amount;
+    $scope.profit = $stateParams.profit;
   	var page = 1;
 
   	if (business === 'REGISTER'){
