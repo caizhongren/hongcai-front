@@ -17,13 +17,15 @@
         </div>
         <div class="row cirle margini-t-20 margin-b-20 padding-l-90">
           <img src="/images/index/cirle.png" alt="">
-          <div class="percent-text">
-            <p class="ft-60 ft-orange2 margin-b-0">{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}<span class="ft-30">%</span></p>
-            <p class="ft-16 ft-grey666">预期最高年化</p>
+          <div ng-class="item.product.type === 4 ? 'percent-text' : 'percent-text2'">
+            <p class="ft-60 ft-orange2 margin-b-0 margin-l--20">{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}<span class="ft-30">%</span></p>
+           
           </div>
         </div>
-        <div class="row ft-14 ft-grey1 margin-b-20 padding-l-90">
-          可投金额：<span class="ftw-b">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </span>元
+        <div class="row ft-14 ft-grey1 margin-b-20 padding-l-90"> 
+          <p class="ft-16 ft-grey666 margin-t--65 margin-l-35">预期最高年化</p>
+          <p class="margin-t-40 margin-l-20">可投金额：
+          <span class="ftw-b">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </span>元</p>
         </div>
         <div class="row padding-l-90">
           <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.investmentplan-details({number: item.number})">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>

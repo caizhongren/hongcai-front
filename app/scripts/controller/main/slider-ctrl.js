@@ -6,26 +6,26 @@ angular.module('hongcaiApp')
     //http://www.hongcai.com/hongcai-trends?page=0&perPage=5
 
     $scope.media = [{
-      mimeType: 'image/jpg',
-      src: 'images/banner/banner008.jpg',
-      name: '4000元体验金'
+      mimeType: 'image/png',
+      src: 'images/banner-new/banner01.png',
+      name: '国有企业入驻宏财网'
     }, {
-      mimeType: 'image/jpg',
-      src: 'images/banner/banner007.jpg',
+      mimeType: 'image/png',
+      src: 'images/banner-new/banner02.png',
       href: 'https://www.hongcai.com/media-reports-detail/213',
-      name: '东兴证券、太平洋证券合作'
+      name: '新三板金控第一股严选项目'
     }, {
-      mimeType: 'image/jpg',
-      src: 'images/banner/banner006.jpg',
+      mimeType: 'image/png',
+      src: 'images/banner-new/banner03.png',
       href: 'http://mp.weixin.qq.com/s?__biz=MzA5Nzg0MzA5OQ==&mid=400520084&idx=1&sn=972091ed5d1ebceb6a96a0067cbb1294#rd',
-      name: '点赞就送50元'
+      name: '领现金最高50元'
     }, {
-      mimeType: 'image/jpg',
-      src: 'images/banner/banner003.jpg',
+      mimeType: 'image/png',
+      src: 'images/banner-new/banner04.png',
       href: '/banner-investmentplan',
-      name: '宏金盈简介'
+      name: '邀好友注册、领150元现金'
 
-    }, {
+    }/*, {
       mimeType: 'image/jpg',
       src: 'images/banner/banner002.jpg',
       href: '/consultant-team',
@@ -35,7 +35,7 @@ angular.module('hongcaiApp')
       src: 'images/banner/banner005.jpg',
       href: '/safe',
       name: '安全保障'
-    }];
+    }*/];
 
     // 首页数据统计
     MainService.indexStatistics.get(function(response) {
