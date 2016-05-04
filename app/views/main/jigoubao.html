@@ -1,70 +1,36 @@
 <div id="best-profit" class="panel panel-default margin-t-30">
-  <div class="col-md-12 bg-white main-new-w padding-0 border-t-red border-rb-grey5">
-    <div class="col-md-2 linear-gradient linear-gradient2 padding-0 left-new-w">
-      <h3 class="ft-30 padding-l-20 margin-t-30">宏金盈</h3>
-      <p class="ft-18 padding-l-20">优质债权转让</p>
+  <div class="col-md-12 bg-white main-new-w padding-0 border-t-blue border-rb-grey5">
+    <div class="col-md-2 linear-gradient linear-gradient1 padding-0 left-new-w">
+      <h3 class="ft-30 padding-l-20 margin-t-30">宏金保</h3>
+      <p class="ft-18 padding-l-20">抵押并强担保</p>
       <img src="/images/index/cut.png" alt="">
-      <p class="ft-16 padding-l-20 margin-t-40 padding-b-30 ft-white3">智能匹配优质债权<br>
-         期限多样收益递增
+      <p class="ft-16 padding-l-20 margin-t-40 padding-b-30 ft-white2">老牌担保公司担保<br>
+         优质资产足值抵押
       </p>
       <button class="ft-14 ft-white1 border-none margin-l-20 margin-t-30 cursor-pointer">查看更多&nbsp;&gt;</button>
-      <img src="/images/index/project03.png" alt="" class="pull-right margin-r-5">
+      <img src="/images/index/project02.png" alt="" class="pull-right margin-r-5">
     </div>
-    <div class="col-md-10 padding-r-0 padding-l-0 jigoubao-w">
-      <div class="col-md-4 border-r-5 padding-b-37">
-        <div class="row margini-t-20">
-          <div class="col-md-12 ft-16 ft-grey1 padding-t-10 padding-b-10 margin-b-20 border-b-grey5 padding-l-90">月月盈 | 封闭期 <span class="ftw-b">30</span> 天</div>
+    <div class="col-md-10 padding-r-0" ng-repeat="item in jigoubao | limitTo: 3">
+      <div class="row padding-30 border-b-grey5 padding-b-25">
+        <div class="col-md-4 ft-16 ft-grey1 padding-r-0 margin-t-15">{{item.name}}</div>
+        <div class="col-md-2 padding-l-0 margin-t--8">
+          <p class="ft-30 ft-orange margin-b-0">{{item.annualEarnings | number : 2}} <span class="ft-16">%</span></p>
+          <p class="ft-14 ft-grey666">预期年化收益</p>
         </div>
-        <div class="row cirle margini-t-20 margin-b-20 padding-l-90">
-          <img src="/images/index/cirle.png" alt="">
-          <div class="percent-text">
-            <p class="ft-60 ft-orange2 margin-b-0">8.6<span class="ft-30">%</span></p>
-            <p class="ft-16 ft-grey666">预期最高年化</p>
-          </div>
+        <div class="col-md-2" >
+          <p class="ft-24 ft-grey1 margin-b-0" ng-if="item.repaymentType < 2">{{item.cycle}}<span class="ft-16">个月</span></p>
+          <p class="ft-24 ft-grey1 margin-b-0" ng-if="item.repaymentType > 2">{{item.projectDays}}<span class="ft-16">天</span></p>
+          <p class="ft-14 ft-grey666">投资期限</p>
         </div>
-        <div class="row ft-14 ft-grey1 margin-b-20 padding-l-90">
-          可投金额：<span class="ftw-b">10000000 </span>元
+        <div class="col-md-2">
+          <p class="ft-24 ft-grey1 margin-b-0">{{item.total - item.soldStock * item.increaseAmount || 0 | number:0}}<span class="ft-16">元</span></p>
+          <p class="ft-14 ft-grey666">可投金额</p>
         </div>
-        <div class="row padding-l-90">
-          <a class="btn btn-primary-orange ft-18 btn-ljtz">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-        </div>
-      </div>
-      <div class="col-md-4 border-r-5 padding-b-37">
-        <div class="row margini-t-20">
-          <div class="col-md-12 ft-16 ft-grey1 padding-t-10 padding-b-10 margin-b-20 border-b-grey5 padding-l-90">季度盈 | 封闭期 <span class="ftw-b">90</span> 天</div>
-        </div>
-        <div class="row cirle margini-t-20 margin-b-20 padding-l-90">
-          <img src="/images/index/cirle.png" alt="">
-          <div class="percent-text percent-text1">
-            <p class="ft-60 ft-orange2 margin-b-0">10.5<span class="ft-30">%</span></p>
-            <p class="ft-16 ft-grey666 margin-l-25">预期最高年化</p>
-          </div>
-        </div>
-        <div class="row ft-14 ft-grey1 margin-b-20 padding-l-90">
-          可投金额：<span class="ftw-b">10000000 </span>元
-        </div>
-        <div class="row padding-l-90">
-          <a class="btn btn-primary-orange ft-18 btn-ljtz">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+        <div class="col-md-2">
+           <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number})">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
         </div>
       </div>
-      <div class="col-md-4 padding-b-37">
-        <div class="row margini-t-20">
-          <div class="col-md-12 ft-16 ft-grey1 padding-t-10 padding-b-10 margin-b-20 border-b-grey5 padding-l-90">半年盈 | 封闭期 <span class="ftw-b">180</span> 天</div>
-        </div>
-        <div class="row cirle margini-t-20 margin-b-20 padding-l-90">
-          <img src="/images/index/cirle.png" alt="">
-          <div class="percent-text percent-text1">
-            <p class="ft-60 ft-orange2 margin-b-0">14.5<span class="ft-30">%</span></p>
-            <p class="ft-16 ft-grey666 margin-l-25">预期最高年化</p>
-          </div>
-        </div>
-        <div class="row ft-14 ft-grey1 margin-b-20 padding-l-90">
-          可投金额：<span class="ftw-b">10000000 </span>元
-        </div>
-        <div class="row padding-l-90">
-          <a class="btn btn-primary-orange ft-18 btn-ljtz">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-        </div>
-      </div>
+      
     </div>
   </div>
   <!--<div class="col-xs-12 col-md-12 col-lg-12 bg-white" style="min-height:386px;">
