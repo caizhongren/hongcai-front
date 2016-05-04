@@ -28,7 +28,8 @@
           <span class="ftw-b">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </span>元</p>
         </div>
         <div class="row padding-l-90">
-          <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.investmentplan-details({number: item.number})">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+          <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.investmentplan-details({number: item.number})" ng-show="item.status === 1">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+          <a class="btn btn-grey-spirit2 ft-18 btn-ljtz" ui-sref="root.investmentplan-details({number: item.number})" ng-show="item.status != 1">{{fundsProjectStatusMap[item.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
         </div>
       </div>
       

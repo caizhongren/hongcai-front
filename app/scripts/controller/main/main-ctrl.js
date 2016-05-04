@@ -133,7 +133,8 @@ angular.module('hongcaiApp')
 
     // 媒体报道
     AboutUsService.indexTextList.get({
-      category: 1
+      category: 1,
+      pageSize: 4
     }, function(response) {
       if (response.ret === 1) {
         $scope.mediaList = response.data.textList;
@@ -142,7 +143,8 @@ angular.module('hongcaiApp')
 
     // 宏财研究院
     AboutUsService.indexTextList.get({
-      category: 4
+      category: 4,
+      pageSize: 4
     }, function(response) {
       if (response.ret === 1) {
         $scope.searchList = response.data.textList;
