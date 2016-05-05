@@ -53,7 +53,7 @@
             <td>{{monthInvestList[2].totalAmount | number:2}}</td>
           </tr>
 
-          <tr ng-repeat="item in monthInvestList.slice(3)">
+          <tr ng-repeat="item in monthInvestList.slice(3) | limitTo:5">
             <td><span class="rand__span_default">{{$index + 4}}</span></td>
             <td>{{item.name || '无名'}}</td>
             <td>{{item.totalAmount | number:2}}</td>
