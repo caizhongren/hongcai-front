@@ -1658,6 +1658,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       $window.location.href = 'https://' + $location.absUrl().split('://')[1];
     }
 
+    $rootScope.firstPath = $location.path().split('/')[1];
     $rootScope.selectSide = $location.path().split('/')[2];
 
     var showFlag1 = [
