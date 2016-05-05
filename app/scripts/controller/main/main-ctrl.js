@@ -150,7 +150,8 @@ angular.module('hongcaiApp')
         $scope.searchList = response.data.textList;
         // 宏财动态
         AboutUsService.indexTextList.get({
-          category: 3
+          category: 3,
+          pageSize: 4
         }, function(response) {
           if (response.ret === 1) {
             $scope.trendList = response.data.textList;
