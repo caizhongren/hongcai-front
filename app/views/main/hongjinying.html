@@ -4,16 +4,17 @@
       <h3 class="ft-30 padding-l-20 margin-t-20">宏金盈</h3>
       <p class="ft-18 padding-l-20 margin-b-0">优质债权转让</p>
       <img src="/images/index/cut.png" alt="">
-      <p class="ft-16 padding-l-20 margin-t-40 padding-b-57 ft-white3">智能匹配优质债权<br>
-         期限多样收益递增
-      </p>
+      <div class="ft-16 padding-l-20 margin-t-40 padding-b-36 ft-white3"> 
+        <p>智能匹配优质债权</p>
+         <p class="margin-b-0">期限多样收益递增</p>
+      </div>
       <button class="ft-14 ft-white1 border-none margin-l-20 margin-t-30 cursor-pointer" ui-sref="root.investmentplan-list">查看更多&nbsp;&gt;</button>
       <img src="/images/index/project03.png" alt="" class="pull-right margin-r-5">
     </div>
     <div class="col-md-10 padding-r-0 padding-l-0 jigoubao-w">
-      <div class="col-md-4 border-r-5 padding-b-37" ng-repeat="item in fundsProjectProductList | limitTo: -3">
+      <div class="col-md-4 border-r-5 padding-b-16" ng-repeat="item in fundsProjectProductList | limitTo: -3">
         <div class="row margini-t-20">
-          <div class="col-md-12 ft-16 ft-grey1 padding-t-10 padding-b-10 margin-b-20 border-b-grey5 padding-l-90">{{item.product.name}} | 封闭期 <span class="ftw-b">{{ item.product.sealingDays || 0}}</span> 天</div>
+          <div class="col-md-12 ft-16 ft-grey1 padding-t-15 padding-b-15 margin-b-20 border-b-grey5 padding-l-90">{{item.product.name}} | 封闭期 <span class="ftw-b">{{ item.product.sealingDays || 0}}</span> 天</div>
         </div>
         <div class="row cirle margini-t-20 margin-b-20 padding-l-90">
           <img src="/images/index/cirle.png" alt="">

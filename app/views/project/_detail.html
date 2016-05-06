@@ -1,7 +1,7 @@
 <div class="col-xs-12">
     <div class="panel panel-default project-info" ng-init="toggle.activeTab=0;">
-        <ul class="nav nav-pills nav-justified nav-orange-project">
-            <li ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs"><a ng-click="toggle.switchTab($index)">{{tab.title}}</a>
+        <ul class="clearfix nav-orange2-project margin-l--15 margin-t-10">
+            <li ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs" class="pull-left"><a class="ft-16 ft-grey1" ng-click="toggle.switchTab($index)">{{tab.title}}</a>
             </li>
         </ul>
         <div class="tab-content">
@@ -10,25 +10,25 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 项目简介</h4>
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">项目简介</h4>
                             </div>
                             <div class="col-xs-12">
-                                <div ta-bind ng-model="projectInfo.description"></div>
+                                <div ta-bind ng-model="projectInfo.description" class="line-h-30"></div>
                             </div>
                             <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 资金用途</h4>
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">资金用途</h4>
                             </div>
                             <div class="col-xs-12">
                                 <div ta-bind ng-model="projectInfo.financingPurpose"></div>
                             </div>
                             <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 还款来源</h4>
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">还款来源</h4>
                             </div>
                             <div class="col-xs-12">
                                 <div ta-bind ng-model="projectInfo.repaymentSource"></div>
                             </div>
                             <div class="col-xs-12" ng-hide="categoryCode === '0115'">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 项目评级
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">项目评级
                             <span ng-if="projectRank.symbol !== ''" ng-class="{'a3' : projectRank.symbol==='AAA','a2' : projectRank.symbol==='AA','a1' : projectRank.symbol==='A','b3' : projectRank.symbol==='BBB','b2' : projectRank.symbol==='BB','b1' : projectRank.symbol==='B','c' : projectRank.symbol==='C'}" class="project-rate">&nbsp;</span>
                           </h4>
                             </div>
@@ -36,7 +36,7 @@
                                 <p>{{projectRank.description}}</p>
                             </div>
                             <div class="col-xs-12" ng-show="categoryCode === '0115'">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i>风控措施</h4>
+                                <h4 class="page-header  ft-14 ft-grey1 ftw-b">风控措施</h4>
                             </div>
                             <div class="col-xs-12" ng-show="categoryCode === '0115'">
                                 <div ta-bind ng-model="projectInfo.riskManagementInfo">
@@ -47,22 +47,22 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 企业背景</h4>
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">企业背景</h4>
                             </div>
                             <div class="col-xs-12">
-                                <p>{{enterprise.background}}</p>
+                                <p class="line-h-30">{{enterprise.background}}</p>
                             </div>
                             <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 营业范围</h4>
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">营业范围</h4>
                             </div>
                             <div class="col-xs-12">
-                                <p>{{enterprise.businessScope}}</p>
+                                <p class="line-h-30">{{enterprise.businessScope}}</p>
                             </div>
                             <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 经营状况</h4>
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">经营状况</h4>
                             </div>
                             <div class="col-xs-12">
-                                <p>{{enterprise.businessState}}</p>
+                                <p class="line-h-30">{{enterprise.businessState}}</p>
                             </div>
                         </div>
                     </div>
@@ -72,17 +72,17 @@
                         <div class="row">
                             <div ng-hide="categoryCode==='016'">
                                 <div class="col-xs-12">
-                                    <h4 class="page-header"><i class="fa fa-square ft-orange"></i>担保机构</h4>
+                                    <h4 class="page-header ft-14 ft-grey1 ftw-b">担保机构</h4>
                                 </div>
                                 <div class="col-xs-12">
-                                    <div ta-bind ng-model="projectInfo.guaranteeSuggestion"></div>
+                                    <div class="line-h-30" ta-bind ng-model="projectInfo.guaranteeSuggestion"></div>
                                 </div>
                             </div>
                             <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i>风控措施</h4>
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">风控措施</h4>
                             </div>
                             <div class="col-xs-12">
-                                <div ta-bind ng-model="projectInfo.riskManagementInfo"></div>
+                                <div class="line-h-30" ta-bind ng-model="projectInfo.riskManagementInfo"></div>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 合同协议</h4>
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">合同协议</h4>
                             </div>
                             <div class="col-xs-6 col-sm-4 file-padding" ng-repeat="contract in contractThumbnailFileList">
                                 <div class="thumbnail">
@@ -111,7 +111,7 @@
                         </div>
                         <div class="row" ng-hide="categoryCode === '0115'">
                             <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 企业相关照片</h4>
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">企业相关照片</h4>
                             </div>
                             <div class="row">
                                 <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 file-padding" ng-repeat="enterPrise in enterpriseThumbnailFileList">
@@ -137,7 +137,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-xs-12">
-                                <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 项目历程</h4>
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">项目历程</h4>
                                 <ul class="timeline">
                                     <li>
                                         <div class="timeline-badge primary"><!-- <i class="fa fa-rocket"></i> -->
