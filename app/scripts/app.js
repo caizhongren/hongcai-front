@@ -1467,9 +1467,21 @@ hongcaiApp
           }
         }
       })
+
+    // 活动父 state，所有的活动落地页都在此 state下
+    .state('root.activity', {
+      url: '/activity',
+      abstract: true,
+      views: {
+        '': {
+          templateUrl: 'views/activity/root-activity.html'
+        }
+      }
+    })
+
     /*-------------  邀请活动落地页   ----------------------*/
-      .state('root.invite-landing', {
-        url: '/invite-landing',
+      .state('root.activity.invite-landing', {
+        url: '/invite',
         views: {
           '': {
             templateUrl: 'views/invite-landing.html',
@@ -1479,7 +1491,7 @@ hongcaiApp
         }
       })
     /*-------------  送现金活动落地页   ----------------------*/
-    .state('root.send-money', {
+    .state('root.activity.send-money', {
       url: '/send-money',
       views: {
         '': {
