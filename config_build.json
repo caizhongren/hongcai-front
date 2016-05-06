@@ -9,6 +9,7 @@
   },
   "jumpHttpsPath": ["/register-mobile", "/login", "/register-mail"],
   "ignorePATH": ["/credit-list", "/credit-details", "/credit-verify", "/credit-assignment", "/credit-success", "/credit-create"],
-  "domain":"http://www.hongcai.com"
+  "domain":"http://www.hongcai.com",
+  "en": "online"
 }
 

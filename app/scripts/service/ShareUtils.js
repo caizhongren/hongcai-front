@@ -11,21 +11,21 @@ angular.module('hongcaiApp')
 			if(picurl){
 				sharesinastring += '&pic='+picurl;
 			}
- 			window.open(sharesinastring,'newwindow','height=400,width=400,top=100,left=100'); 
+ 			window.open(sharesinastring,'newwindow','height=500,width=600,top=300,left=300'); 
     	},
 
-		toQQzone: function(title, url, picurl){
-			var shareqqzonestring='http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?summary='+title;  
+		toQQzone: function(title, url, desc){
+			var shareqqzonestring='http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?title='+ encodeURIComponent(title);  
 
 			if(url){
-				shareqqzonestring += '&url='+url;
+				shareqqzonestring += '&url='+encodeURIComponent(url);
 			}
 
-			if(picurl){
-				shareqqzonestring += '&pics='+picurl;
+			if(desc){
+				shareqqzonestring += '&desc='+encodeURIComponent(desc);
 			}
 
- 			window.open(shareqqzonestring,'newwindow','height=400,width=400,top=100,left=100');  
+ 			window.open(shareqqzonestring,'newwindow','height=500,width=600,top=200,left=300'); 
     	}
 
 

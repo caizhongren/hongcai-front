@@ -6,7 +6,7 @@
     </div>
     <div class="main">
       <div class="col-md-12 text-center">
-        <img src="/images/user-center/invite-banner.png" alt="" width="95%" ui-sref="root.invite-landing">
+        <img src="/images/user-center/invite-banner.png" alt="" width="95%" ui-sref="root.activity.invite-landing">
       </div>
       <div class="col-md-12">
         <div class="invite-line ft-14">
@@ -70,7 +70,7 @@
             <td colspan="4">
               <div>
                 <p class="ft-18 ft-grey margin-t-20">暂无邀请记录，快去邀请好友吧！</p>
-                <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45">邀请好友</a></p>
+                <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.activity.invite-landing">邀请好友</a></p>
               </div>
             </td>
           </tr>
@@ -99,7 +99,7 @@
                 &times;
           </button>
           <h4 class="modal-title" id="myModalLabel">
-            <span ng-show="modalFlag">微信分享</span><span ng-show="!modalFlag">复制链接</span>
+            <span ng-show="modalFlag">扫一扫微信邀请</span><span ng-show="!modalFlag">复制链接</span>
           </h4>
        </div>
        <div class="modal-body" ng-show="!modalFlag">
@@ -110,9 +110,9 @@
           <button class="button orange-button copy-btn" ng-click="copyInviteUrl()">复制链接</button>
        </div>
        <div class="modal-body margin-t-30 margin-b-50" ng-show="modalFlag">
-        <div class="col-md-5 text-center"><img src="/images/user-center/wechat.png" alt=""></div>
-        <div class="col-md-7 text-left ft-14 ft-grey">
-          <p class="margin-t-20">扫一扫关注微信号</p>
+        <div class="col-md-7 padding-l-90"><img ng-src="{{wechatQrCode}}" alt=""></div>
+        <div class="col-md-5 text-left ft-14 ft-grey">
+          <p class="margin-t-20">扫一扫微信分享</p>
           <p>客服热线</p>
           <p>400-990-7626</p>
         </div>

@@ -27,8 +27,8 @@
           </div>
         </div>
         <div class="row margin-t-10 margin-b-30">
-          <div class="col-md-12 ft-14 ft-grey1">投资期限：
-            <span class="ft-orange">{{ item.product.sealingDays || 0}}</span> 天&nbsp; &nbsp;可投金额：
+          <div class="col-md-12 ft-14 ft-grey1">投资期限:
+            <span class="ft-orange">{{ item.product.sealingDays || 0}} </span>天&nbsp; &nbsp;可投金额:
             <span class="ft-orange">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </span>元
           </div> 
         </div>
