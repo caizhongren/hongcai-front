@@ -22,7 +22,7 @@ angular.module('hongcaiApp')
     }, {
       mimeType: 'image/png',
       src: 'images/banner-new/banner04.png',
-      href: '/banner-investmentplan',
+      href: '/activity/invite',
       name: '邀好友注册、领150元现金'
 
     }/*, {
