@@ -76,6 +76,10 @@ angular.module('hongcaiApp')
 
     }
 
+    
+    $scope.wechatQrCode = config.en ==='online' ?  '/images/user-center/wechat.png' : '/images/user-center/wechat-test.png'
+    
+
 
 
   });
