@@ -1,17 +1,43 @@
-<div class="row margin-l-0 border-b text-center padding-b-30">
-  <div class="col-xs-4 border-r">
-    <p class="text-center display-i-b">项目规模</p>
-    <p class="margin-t-10"><strong class="ft-30">{{ fundsProject.total }}</strong>元</p>
+<div class="col-xs-12 padding-l-20 padding-r-30 border-b padding-b-20">
+  <span class="ft-18 ft-grey1">{{ fundsProduct.name }}&nbsp;{{ fundsProject.name }}</span>
+  <span class="ft-orange3 ft-14 border-orange margin-l-10 padding-5 padding-tb-3">当日计息 100%本息担保</span>
+</div>
+<div class="row margin-l-0 text-center padding-b-30">
+  <div class="col-xs-4 margin-t-20">
+    <p class="margin-t-10 ft-18 ft-grey1"><span class="ft-40 ft-orange3">{{ fundsProject.total }}</span>元</p>
+    <p class="text-center display-i-b ft-14 ft-grey666">募集金额</p>
   </div>
-  <div class="col-xs-5 text-center border-r" style="position:relative;">
-    <p class="text-center display-i-b">年化收益率</p>
-    <p class="margin-t-10"><strong class="ft-30">{{fundsProjectTest.baseRate | number:1 || 0}}% - {{fundsProjectTest.baseRate+fundsProjectTest.riseRate*3 | number:1 || 0}}%</strong></p>
+  <div class="col-xs-4 text-center margin-t-30" style="position:relative;">
+    <p class="margin-t-10 ft-grey1"><span class="ft-30">{{fundsProjectTest.baseRate | number:1 || 0}} ~ {{fundsProjectTest.baseRate+fundsProjectTest.riseRate*3 | number:1 || 0}}</span><span class="ft-18">%</span></p>
+    <p class="text-center display-i-b ft-14 ft-grey666 margin-t-7">年化收益率</p>
   </div>
-  <div class="col-xs-3 text-center">
-    <p class="text-center display-i-b">封闭期限</p>
-    <p class="margin-t-10"><strong class="ft-30">{{ fundsProjectTest.sealingDays || 0}}</strong>日</p>
+  <div class="col-xs-4 text-center margin-t-30">
+    <p class="margin-t-10 ft-grey1"><span class="ft-30">{{ fundsProjectTest.sealingDays || 0}}</span><span class="ft-18">天</span></p>
+    <p class="text-center display-i-b ft-14 ft-grey666 margin-t-7">封闭期限</p>
   </div>
 </div>
+<div class="row text-left margin-l-60 padding-l-15 margin-t-10 margin-b-30">
+  <div class="row margin-b-15">
+     <div class="col-xs-6 ft-14">
+      <img src="images/project/safe01.png" alt="">
+      <span class="ft-grey666 margin-l--10">保障方式</span>
+      <span class="ft-grey1 margin-l-40">{{"100%本金+利息保障"}}</span>
+      </div>
+      <div class="col-xs-6 ft-14">
+        <img src="images/project/join02.png" alt="">
+        <span class="ft-grey666 margin-l--10">加入条件</span>
+        <span class="ft-grey1 margin-l-40">100元起投 100元递增</span>
+      </div>
+    </div> 
+    <div class="row">
+      <div class="col-xs-6 ft-14">
+        <img src="images/project/join02.png" alt="">
+        <span class="ft-grey666 margin-l--10">退出日期</span>
+        <span class="ft-grey1 margin-l-40">{{fundsProject.repaymentDate | date: 'yyyy年MM月dd日'}}</span>
+      </div>
+    </div>
+</div>
+<!--
 <div class="row text-left margin-l-0 padding-l-15 margin-t-30 margin-b-30">
   <div class="col-xs-4 text-center">
     <img src="/images/investmentplan/join.png" alt="">
@@ -28,4 +54,4 @@
     <p class="margin-t-15">保障方式：</p>
     <p>{{"100%本金+利息保障"}}</p>
   </div>
-</div>
+</div>-->

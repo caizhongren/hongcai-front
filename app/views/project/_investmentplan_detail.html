@@ -1,5 +1,5 @@
 <div class="col-xs-12">
-    <div class="row project-info" ng-init="toggle.activeTab=0;">
+    <div class="row project-info bg-white margin-t-15" ng-init="toggle.activeTab=0;">
         <!-- <div class="col-xs-12 padding-l-0 border-b-blue">
             <ul class="nav nav-pills nav-justified nav-bluenew" style="width: 100%;">
                 <li ng-class="{'nav-blue': toggle.activeTab===$index}" ng-repeat="tab in tabs">
@@ -7,91 +7,95 @@
                 </li>
             </ul>
         </div> -->
-        <div class="col-xs-12 margin-t-15" style="padding:0;">
-            <div class="col-xs-12 padding-l-0 border-b-blue padding-r-0">
-                <ul class="nav nav-pills nav-justified nav-bluenew" style="width: 100%;">
-                    <li ng-class="{'nav-blue': toggle.activeTab===$index}" ng-repeat="tab in tabs">
+        <div class="col-xs-12 margin-t-15 margin-l-77 margin-b-15">
+            <div class="col-xs-12">
+                <ul class="clearfix nav-orange2-project margin-l--20 margin-t-10" style="width: 100%;">
+                    <!-- <li ng-class="{'nav-blue': toggle.activeTab===$index}" ng-repeat="tab in tabs">
                         <a ng-click="toggle.switchTab($index)">{{tab.title}}</a>
-                    </li>
+                    </li> -->
+                    <li class="pull-left margin-r-80" ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs">
+                        <a class="ft-16 ft-grey1" ng-click="toggle.switchTab($index)">{{tab.title}}</a>
+                    </li>  
                 </ul>
             </div>
         </div>
+        <div class="row">
+            <hr width="90%" class="margin-auto border-t-greyd">
+        </div>
         <div class="tab-content">
             <div class="tab-pane" ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs">
-                <section ng-if="tab.title==='计划简介'" style="margin-top:42px;">
-                    <table class="container-fluid border">
+                <section ng-if="tab.title==='计划简介'"  class="margin-b-20" style="margin-top:42px;">
+                    <table width="85%" class="margin-auto border-collapse">
                         <thead>
-                            <th width="16%"></th>
-                            <th width="84%"></th>
+                            <th width="23%"></th><th width="79%"></th>
                         </thead>
                         <tbody>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">名称</td>
-                                <td class="bg-white tab-right">{{fundsProduct.name}}{{fundsProject.name}}</td>
+                            <tr class="">
+                                <td class="bg-grey-f tab-left text-right ft-grey1padding-t-10 padding-b-10">名称</td><td class="bg-grey-f tab-right ft-grey555">{{fundsProduct.name}}{{fundsProject.name}}</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">计划介绍</td>
-                                <td class="bg-white tab-right">宏金盈是宏财网推出的针对宏财网投资人债权进行自动投资及定时自动转让的理财计划，多种期限可选，满足出借人不同的流动性需要。出借人出借的本金将在投资期限到达后一次性返回其账户，利息收益每月(期)发放，并由系统实现自动化的分散投资，更好的满足了出借人的需求。</td>
+                            <tr class="">
+                                <td class="bg-white tab-left text-right ft-grey1">计划介绍</td>
+                                <td class="bg-white tab-right ft-grey555 line-h-27">宏金盈是宏财网推出的针对宏财网投资人债权进行自动投资及定时自动转让的理财计划，多种期限可选，满足出借人不同的流动性需要。出借人出借的本金将在投资期限到达后一次性返回其账户，利息收益每月(期)发放，并由系统实现自动化的分散投资，更好的满足了出借人的需求</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">投标范围</td>
-                                <td class="bg-white tab-right">宏金保、宏财网投资人债权转让、宏财网优选债权。</td>
+                            <tr class="">
+                                <td class="bg-grey-f tab-left text-right ft-grey1">投标范围</td>
+                                <td class="bg-grey-f tab-right ft-grey555">宏金保、宏财网投资人债权转让、宏财网优选债权</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">预期年化收益及计算方式</td>
-                                <td class="bg-white tab-right">递增收益，{{fundsProduct.baseRate}}%-{{fundsProduct.maxRate}}%，每期递增{{fundsProduct.riseRate}}%。</td>
+                            <tr class="">
+                                <td class="bg-white tab-left text-right ft-grey1">收益率</td>
+                                <td class="bg-white tab-right ft-grey555">递增收益，{{fundsProduct.baseRate}}%-{{fundsProduct.maxRate}}%，每期递增{{fundsProduct.riseRate}}%</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">最高续投次数</td>
-                                <td class="bg-white tab-right">{{fundsProduct.repeatInvestMaxCount}}次</td>
+                            <tr class="">
+                                <td class="bg-grey-f tab-left text-right ft-grey1">最高续投次数</td>
+                                <td class="bg-grey-f tab-right ft-grey555">{{fundsProduct.repeatInvestMaxCount}}次</td>
                                 <!-- <td class="bg-grey3 tab-right">{{(fundsProduct.maxRate - fundsProduct.baseRate) / fundsProduct.riseRate | number: 0}}次</td> -->
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">锁定期</td>
-                                <td class="bg-white tab-right">{{fundsProduct.sealingDays || 0}}日</td>
+                            <tr class="">
+                                <td class="bg-white tab-left text-right ft-grey1">锁定期</td>
+                                <td class="bg-white tab-right ft-grey555">{{fundsProduct.sealingDays || 0}}日</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">开放加入时间</td>
-                                <td class="bg-white tab-right">{{fundsProject.releaseStartTime  | date: 'yyyy年MM月dd日'}} 00:10</td>
+                            <tr class="">
+                                <td class="bg-grey-f tab-left text-right ft-grey1">开放加入时间</td>
+                                <td class="bg-grey-f tab-right ft-grey555">{{fundsProject.releaseStartTime  | date: 'yyyy年MM月dd日'}} 00:10</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">退出日期</td>
-                                <td class="bg-white tab-right">{{ fundsProject.repaymentDate | date: 'yyyy年MM月dd日' }}</td>
+                            <tr class="">
+                                <td class="bg-white tab-left text-right ft-grey1">退出日期</td>
+                                <td class="bg-white tab-right ft-grey555">{{ fundsProject.repaymentDate | date: 'yyyy年MM月dd日' }}</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">加入条件</td>
-                                <td class="bg-white tab-right">100元起，100元整数倍递增。</td>
+                            <!--<tr class="">
+                                <td class="bg-grey-f tab-left text-right ft-grey1">加入条件</td>
+                                <td class="bg-grey-f tab-right ft-grey555">100元起，100元整数倍递增。</td>
+                            </tr>-->
+                            <tr class="">
+                                <td class="bg-grey-f tab-left text-right ft-grey1">加入上限</td>
+                                <td class="bg-grey-f tab-right ft-grey555">无条件</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">加入上限</td>
-                                <td class="bg-white tab-right">无条件</td>
+                            <tr class="">
+                                <td class="bg-white tab-left text-right ft-grey1">保障方式</td>
+                                <td class="bg-white tab-right ft-grey555">100%本金+利息保障</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">保障方式</td>
-                                <td class="bg-white tab-right">100%本金+利息保障</td>
+                            <tr class="">
+                                <td class="bg-grey-f tab-left text-right ft-grey1">到期退出方式</td>
+                                <td class="bg-grey-f tab-right ft-grey555">系统通过债权转让方式自动完成退出</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">到期退出方式</td>
-                                <td class="bg-white tab-right">系统通过债权转让方式自动完成退出。</td>
+                            <tr class="">
+                                <td class="bg-white tab-left text-right ft-grey1">续投方式</td>
+                                <td class="bg-white tab-right ft-grey555">按周期自动续投</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">续投方式</td>
-                                <td class="bg-white tab-right">按周期自动续投。</td>
+                            <tr class="">
+                                <td class="bg-grey-f tab-left text-right ft-grey1">赎回方式</td>
+                                <td class="bg-grey-f tab-right ft-grey555">在周期内提前1个工作日取消自动续投，计划结束后自动赎回。</td>
                             </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">赎回方式</td>
-                                <td class="bg-white tab-right">在周期内提前1个工作日取消自动续投，计划结束后自动赎回。</td>
-                            </tr>
-                            <tr class="border-b-da">
-                                <td class="bg-grey5 tab-left text-right">服务协议</td>
-                                <td class="bg-white tab-right"><a class="ft-red text-unline" ng-click="showAgreement();">宏金盈计划协议范本</a></td>
+                            <tr class="">
+                                <td class="bg-white tab-left text-right ft-grey1">服务协议</td>
+                                <td class="bg-white tab-right ft-grey555"><a class="ft-orange3 text-unline" ng-click="showAgreement();">宏金盈计划协议范本</a></td>
                             </tr>
                         </tbody>
                     </table>
                 </section>
                 <section ng-if="tab.title==='加入记录'">
                     <div ng-show="isLogged">
-                        <table class="table table-hover" style="margin-top:50px;">
+                        <table class="table table-hover margin-auto tab-w" style="margin-top:50px;">
                             <!-- 兼容 firefox -->
                             <thead>
                                 <tr>
@@ -127,7 +131,7 @@
                     </div>
                 </section>
                 <section ng-if="tab.title==='常见问题'" style="margin-top:50px;">
-                    <div class="container-fluid">
+                    <div class="container-fluid margin-l-50">
                         <div class="row ft-14">
                             <div class="ask-area col-xs-12">
                                 <h4>一、宏金盈有哪些特点？</h4>
