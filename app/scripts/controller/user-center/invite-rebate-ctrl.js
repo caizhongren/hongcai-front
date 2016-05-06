@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('InviteRebateCtrl', function($scope, $state, $rootScope, UserCenterService, $alert, ShareUtils, VouchersService, ngClipboard, toaster) {
+  .controller('InviteRebateCtrl', function($scope, $state, $rootScope, UserCenterService, $alert, ShareUtils, VouchersService, ngClipboard, toaster, config) {
     VouchersService.getInviteList.get(function(response) {
       if (response.ret === 1) {
         $scope.voucher = response.data.voucher;
@@ -56,19 +56,22 @@ angular.module('hongcaiApp')
      * 分享到微博
      */
     $scope.shareWeibo = function(){
-      // window.location.href="http://service.weibo.com/share/share.php?title=" + "点击注册，得68888体验金 http://www.hongcai.com/register?inviteCode=" + $scope.inviteCode;
 
-      ShareUtils.toWeibo('点击注册，得68888体验金 http://www.hongcai.com/register?inviteCode=' + $scope.inviteCode);
+      var shareLink = config.domain + "/register?inviteCode" + $scope.inviteCode;
+      ShareUtils.toWeibo('点击注册，得68888体验金 ' + shareLink);
 
 
     }
+
 
     /**
      * 分享到qqzone
      */
     $scope.shareQQ = function(){
+      var shareLink = config.domain + "/register?inviteCode" + $scope.inviteCode;
+      var desc = "点击注册，得68888体验金" + shareLink;
 
-      ShareUtils.toQQzone('点击注册，得68888体验金 http://www.hongcai.com/register?inviteCode=' + $scope.inviteCode);
+      ShareUtils.toQQzone('点击注册，得68888体验金', shareLink, desc);
 
 
     }
