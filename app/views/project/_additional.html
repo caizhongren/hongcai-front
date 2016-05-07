@@ -27,7 +27,7 @@
             </table>
           </div>
           <ul ng-show="isLogged" class="list-group">
-            <li class="list-group-item">
+            <!-- <li class="list-group-item"> -->
               <div class="row">
                 <div class="col-sx-12 text-center">
                   <button class="btn btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1" disabled="disabled">上一页</button>
@@ -35,7 +35,7 @@
                   <button class="btn btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1" disabled="disabled">下一页</button>
                 </div>
               </div>
-            </li>
+            <!-- </li> -->
           </ul>
         </section>
         <section ng-if="tab_right.title==='还款计划'">
@@ -61,7 +61,7 @@
           </div>
         </section>
         <div ng-if="!isLogged" class="panel-body text-alg-c margin-t-15 margin-b-15">
-          请<a ng-click="toLogin()" class="ft-red">登录</a>后查看信息
+          请<a ng-click="toRealLogin()" class="ft-red">登录</a>后查看信息
         </div>
       </div>
     </div>

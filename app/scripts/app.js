@@ -1570,7 +1570,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
   // 需要用户登录才能看到的url
   var routespermission = [
-    '/user-center'
+    'user-center'
   ];
 
   // 不需要显示footer的path
@@ -1606,42 +1606,29 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
         return;
       })
       .success(function(response) {
-        
-        if (routespermission.indexOf('/' + $location.path().split('/')[1]) !== -1) {
-          if (response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
-            $rootScope.isLogged = true;
-            $rootScope.loginName = response.data.name;
-            $rootScope.securityStatus = response.data.securityStatus;
-            $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
-            $rootScope.account = response.data.account;
-            $rootScope.unreadCount = response.data.unreadCount;
-            $rootScope.userType = response.data.userType;
-          } else {
-            $rootScope.isLogged = false;
-            $rootScope.loginName = '';
 
+        if (response.ret !== -1 && response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
+          $rootScope.isLogged = true;
+          $rootScope.loginName = response.data.name;
+          $rootScope.securityStatus = response.data.securityStatus;
+          $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
+          $rootScope.account = response.data.account;
+          $rootScope.unreadCount = response.data.unreadCount;
+          $rootScope.userType = response.data.userType;
+        } else {
+          $rootScope.isLogged = false;
+          $rootScope.loginName = '';
+
+          if(routespermission.indexOf($location.path().split('/')[1]) !== -1){
             // 弹出登录弹层
             $modal({
               scope: $rootScope,
               template: 'views/modal/modal-toLogin.html',
               show: true
             });
-
-          }
-        } else {
-          if (response.ret !== -1 && response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
-            $rootScope.isLogged = true;
-            $rootScope.loginName = response.data.name;
-            $rootScope.securityStatus = response.data.securityStatus;
-            $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
-            $rootScope.account = response.data.account;
-            $rootScope.unreadCount = response.data.unreadCount;
-            $rootScope.userType = response.data.userType;
-          } else {
-            $rootScope.isLogged = false;
-            $rootScope.loginName = '';
           }
         }
+        
       });
 
 
