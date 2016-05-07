@@ -184,7 +184,7 @@
                         </tbody>
                     </table>-->
                 </section>
-                <section ng-if="tab.title==='加入记录'">
+                <section ng-if="tab.title==='加入记录'" class="padding-l-50 padding-r-60">
                     <div ng-show="isLogged">
                         <table class="table table-hover" style="margin-top:50px;">
                             <!-- 兼容 firefox -->
@@ -217,7 +217,7 @@
                             </div>
                         </li>
                     </ul>
-                    <div class="row text-center padding-t-30" ng-if="!isLogged">
+                    <div class="row text-center padding-t-30 padding-b-30" ng-if="!isLogged">
                         <h4 class="margin-t-30 padding-t-30">请<a ng-click="toRealLogin()" class="ft-red">登录</a>后查看信息</h4>
                     </div>
                 </section>
