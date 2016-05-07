@@ -450,13 +450,6 @@ angular.module('hongcaiApp')
       datasetFill: true
     };
 
-    $scope.toLogin = function() {
-      var thisUrl = $location.path();
-      $location.path('/login').search({
-        redirectUrl: thisUrl
-      });
-    };
-
     // 弹出登录弹层
     $scope.toRealLogin = function() {
       if (!$rootScope.isLogged) {
