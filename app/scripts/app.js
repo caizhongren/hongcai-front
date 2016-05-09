@@ -830,6 +830,15 @@ hongcaiApp
           }
         }
       })
+      // 宏金盈列表页新
+      .state('root.investmentplan-Newlist', {
+        url: '/investmentplan-Newlist',
+        views: {
+          '': {
+            templateUrl: 'views/project/investmentplan-Newlist.html'
+          }
+        }
+      })
       .state('root.activity-details', {
         url: '/activity/:number/:type',
         views: {
