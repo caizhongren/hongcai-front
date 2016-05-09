@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, DateUtils) {
+  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, DateUtils, AboutUsService) {
     // $rootScope.redirectUrl = $location.path();
     $scope.chk = true;
     $scope.checkFlag = true;
@@ -460,5 +460,16 @@ angular.module('hongcaiApp')
         });
       }
     };
+
+    // 4条媒体报道
+    AboutUsService.indexTextList.get({
+      category: 1,
+      pageSize: 4,
+      withContent:false
+    }, function(response) {
+      if (response.ret === 1) {
+        $scope.mediaList = response.data.textList;
+      }
+    });
     
   });

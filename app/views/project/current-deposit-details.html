@@ -42,10 +42,9 @@
           <img src="images/project/reading02.png" alt="">
         </div>
         <div class="col-xs-9 ft-14 ft-grey555 line-h-15 margin-t-7">
-          <p>互金自律进行时：上海杭州交流团到访互金自</p>
-          <p>互金自律进行时：上海杭州交流团到访互金自</p>
-          <p>互金自律进行时：上海杭州交流团到访互金自</p>
-          <p>互金自律进行时：上海杭州交流团到访互金自</p>
+          <p ng-repeat="item in mediaList | limitTo:4">
+            <a ui-sref="root.about-us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+          </p>
         </div>
       </div>
       <div class="col-xs-6 margin-t-15 margin-l-60">
@@ -53,10 +52,9 @@
           <img src="images/project/reading02.png" alt="">
         </div>
         <div class="col-xs-9 ft-14 ft-grey555 line-h-15 margin-t-7 margin-l-25">
-          <p>互金自律进行时：上海杭州交流团到访互金自</p>
-          <p>互金自律进行时：上海杭州交流团到访互金自</p>
-          <p>互金自律进行时：上海杭州交流团到访互金自</p>
-          <p>互金自律进行时：上海杭州交流团到访互金自</p>
+          <p ng-repeat="item in mediaList | limitTo:-4">
+            <a ui-sref="root.about-us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+          </p>
         </div>
       </div>
     </div>

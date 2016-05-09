@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('InvestmentplanDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', 
-    function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
+  .controller('InvestmentplanDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'ProjectService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', 'AboutUsService', 
+    function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, AboutUsService) {
     if($location.path().indexOf('current-deposit') !== -1){
       $rootScope.pageTitle = '零存宝 - 要理财，上宏财!';
     }
@@ -280,6 +280,17 @@ angular.module('hongcaiApp')
     $scope.toggle.switchTab = function(tabIndex) {
       $scope.toggle.activeTab = tabIndex;
     };
+
+    // 8条媒体报道
+    AboutUsService.indexTextList.get({
+      category: 1,
+      pageSize:8,
+      withContent:false
+    }, function(response) {
+      if (response.ret === 1) {
+        $scope.mediaList = response.data.textList;
+      }
+    });
 
     var urlTab = $stateParams.tab;
     if(urlTab == '加入记录'){

@@ -4,11 +4,12 @@
       相关阅读
     </h3>
     <div class="tab-content">
-      <div class="read-img margin-l-15 margin-t-15 margin-b-30">
+      <div class="read-img margin-l-15 margin-t-15 margin-b-15">
         <img src="images/project/reading01.png" alt="">
         <div class="read-text ft-14 ft-grey1 margin-t-15">
-          <p class="margin-b-0">美诺贝尔奖获得者称 中国</p>
-          <p class="margin-b-0">央行超预期降准释放资金约1.2</p>
+          <p class="margin-b-0" ng-repeat="item in mediaList">
+            <a ui-sref="root.about-us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+          </p>
         </div>
       </div>
     </div>
