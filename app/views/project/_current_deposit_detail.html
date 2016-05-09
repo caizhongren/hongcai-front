@@ -1,9 +1,9 @@
 <div class="col-xs-12">
-    <div class="row project-info bg-white" ng-init="toggle.activeTab=0;" style="margin-top: -15px;">
-        <div class="col-xs-12 margin-t-15" style="padding:0;">
+    <div class="row project-info bg-white" ng-init="toggle.activeTab=0;">
+        <div class="col-xs-12 margin-t-15">
             <div class="col-xs-12 padding-r-0">
                 <ul class="clearfix nav-orange2-project margin-l-60 margin-t-10 margin-b-20" style="width: 100%;">
-                    <li class="pull-left margin-r-80" ng-class="{'active': toggle.activeTab===$index}" ng-repeat="tab in tabs | limitTo: 3"  >
+                    <li class="pull-left margin-r-80" ng-class="{'active': toggle.activeTab===$index}" ng-repeat="tab in tabs | limitTo:3"  >
                     <a class="ft-16 ft-grey1" ng-click="toggle.switchTab($index)" >{{tab.title}}</a>
                     </li>
                 </ul>
@@ -14,7 +14,7 @@
         </div>
         <div class="tab-content">
             <div class="tab-pane margin-t-30 padding-b-50" ng-class="{active: toggle.activeTab===$index}" ng-repeat="tab in tabs">
-                <section ng-if="tab.title==='计划简介'" style="margin-top:42px;">
+                <section ng-if="tab.title==='计划简介'">
                     <div class="col-xs-12 margin-b-30">
                         <div class="row">
                             <div class="col-xs-4 text-center padding-b-30 ft-14 ft-grey555 line-h-24">
@@ -186,7 +186,7 @@
                 </section>
                 <section ng-if="tab.title==='加入记录'" class="padding-l-50 padding-r-60">
                     <div ng-show="isLogged">
-                        <table class="table table-hover" style="margin-top:50px;">
+                        <table class="table table-hover">
                             <!-- 兼容 firefox -->
                             <thead>
                                 <tr>
@@ -221,7 +221,7 @@
                         <h4 class="margin-t-30 padding-t-30">请<a ng-click="toRealLogin()" class="ft-red">登录</a>后查看信息</h4>
                     </div>
                 </section>
-                <section ng-if="tab.title==='常见问题'" style="margin-top:50px;">
+                <section ng-if="tab.title==='常见问题'">
                     <div class="container-fluid">
                         <div class="row ft-14">
                             <div class="ask-area col-xs-12">

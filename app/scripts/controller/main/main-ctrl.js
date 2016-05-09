@@ -4,6 +4,7 @@ angular.module('hongcaiApp')
     $scope.spCountDown = -1;
 
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
+    // alert(screen.width);
 
 
     $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
