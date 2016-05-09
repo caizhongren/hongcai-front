@@ -832,10 +832,12 @@ hongcaiApp
       })
       // 宏金盈列表页新
       .state('root.investmentplan-Newlist', {
-        url: '/investmentplan-Newlist',
+        url: '/fundsproject-list',
         views: {
           '': {
-            templateUrl: 'views/project/investmentplan-Newlist.html'
+            templateUrl: 'views/project/fundsproject-list.html',
+            controller: 'FundsProjectListCtrl',
+            controllerUrl: 'scripts/controller/project/fundsproject-list-ctrl'
           }
         }
       })

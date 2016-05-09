@@ -34,34 +34,18 @@
 	  </div>
 	  <div class="row text-center border-t-d-b margin-t-50 margin-b-50"></div>
 	  <div class="row margin-b-150 text-center">
-	  	<div class="col-xs-4 hot">
-	  		<img src="/images/project/yueyueying01.png" alt="">
+	  	<div class="col-xs-4 hot" ng-repeat="item in fundsProjectProductList | limitTo:-3">
+	  		<span ng-switch="item.product.type">
+		  		<img src="/images/project/yueyueying01.png" alt="月月盈" ng-switch-when="2">
+		  		<img src="/images/project/jiduying02.png" alt="季度盈" ng-switch-when="3">
+		  		<img src="/images/project/bannianying03.png" alt="半年盈" ng-switch-when="4">
+	  		</span>
 	  		<div class="hot-text ft-18 ft-grey1">
-	  			<p>预期最高年化：<span class="ft-24 ft-orange5">8.6</span>%</p>
-	  			<p>续投每月递增：<span class="ft-24">0.4</span>%</p>
-	  			<p>封闭期：<span class="ft-24">30</span>天</p>
-	  			<p>最高续投次数：<span class="ft-24">11</span>次</p>
-	  			<button class="margin-t-20"><a>我要投资 &gt;</a></button>
-	  		</div>
-	  	</div>
-	  	<div class="col-xs-4 hot">
-	  		<img src="/images/project/jiduying02.png" alt="">
-	  		<div class="hot-text ft-18 ft-grey1">
-	  			<p>预期最高年化：<span class="ft-24 ft-orange5">10.5</span>%</p>
-	  			<p>续投每月递增：<span class="ft-24">0.5</span>%</p>
-	  			<p>封闭期：<span class="ft-24">90</span>天</p>
-	  			<p>最高续投次数：<span class="ft-24">5</span>次</p>
-	  			<button class="margin-t-20"><a>我要投资 &gt;</a></button>
-	  		</div>
-	  	</div>
-	  	<div class="col-xs-4 hot">
-	  		<img src="/images/project/bannianying03.png" alt="">
-	  		<div class="hot-text ft-18 ft-grey1">
-	  			<p>预期最高年化：<span class="ft-24 ft-orange5">14.5</span>%</p>
-	  			<p>续投每月递增：<span class="ft-24">1.5</span>%</p>
-	  			<p>封闭期：<span class="ft-24">180</span>天</p>
-	  			<p>最高续投次数：<span class="ft-24">4</span>次</p>
-	  			<button class="margin-t-20"><a>我要投资 &gt;</a></button>
+	  			<p>预期最高年化：<span class="ft-24 ft-orange5">{{item.product.maxRate | number: 1 || 0}}</span>%</p>
+	  			<p>续投每月递增：<span class="ft-24">{{item.product.riseRate | number: 1 || 0}}</span>%</p>
+	  			<p>封闭期：<span class="ft-24">{{item.product.sealingDays}}</span>天</p>
+	  			<p>最高续投次数：<span class="ft-24">{{item.product.repeatInvestMaxCount}}</span>次</p>
+	  			<button class="margin-t-20"  ui-sref="root.investmentplan-details({number: item.number})" ><a>我要投资 &gt;</a></button>
 	  		</div>
 	  	</div>
 	  </div>
