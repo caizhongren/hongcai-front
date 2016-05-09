@@ -203,6 +203,14 @@ angular.module('hongcaiApp')
       $scope.monthInvestList = response.data.investAmounts;
     });
 
+    //体验金项目数据
+    ProjectService.getExperienceProjectDetail.get({}, function(projectDetails) {
+      if (projectDetails.ret === 1) {
+        // $scope.project = projectDetails.data.project;
+        $scope.experienceInvestCount = projectDetails.data.investCount;
+      } 
+    });
+
     // 处理推广流量统计
     var from = $stateParams.from;
     if (from) {
