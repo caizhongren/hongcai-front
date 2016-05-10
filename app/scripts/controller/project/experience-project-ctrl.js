@@ -18,6 +18,12 @@ angular.module('hongcaiApp')
     //投资
     $scope.showMsg = false;
     $scope.quickInvest = function(){
+      if(!$rootScope.isLogged){
+        $rootScope.showLoginModal();
+        return;
+      }
+
+
       if($rootScope.securityStatus.trusteeshipAccountStatus === 1){
         if($scope.account.experienceAmount > 100){
           OrderService.saveExperienceMoneyOrder.get({
