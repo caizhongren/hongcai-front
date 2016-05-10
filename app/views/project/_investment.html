@@ -17,8 +17,7 @@
           </div>
           <div class="col-xs-12 negative-margin">
             <span class="ft-14 ft-grey666">{{totalType}}：</span>
-            <span class="ft-17 ft-orange3">{{(project.status === 11 ? project.reserveAmount : projectInvestNum) || 0 | currency:"":2}}</span>
-            <span class="investment-fontblack  ft-14 ft-grey666">元</span>
+            <span class="ft-17 ft-orange3">{{(project.status === 11 ? project.reserveAmount : projectInvestNum) || 0 | currency:"":2}}</span><span class="investment-fontblack  ft-14 ft-grey666">元</span>
           </div>
           <div class="col-xs-12 positive-margin" ng-show="project.status === 11">
             <span class="ft-14 ft-grey666">预约截止日：</span><span class="ft-orange ft-17">{{ project.reserveEndTime | amDateFormat: 'YYYY/MM/DD HH:mm'}}</span>
