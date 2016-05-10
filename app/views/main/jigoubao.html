@@ -13,8 +13,8 @@
     </div>
     <div class="col-md-10 padding-r-0" ng-repeat="item in jigoubao | limitTo: 3">
       <div class="row padding-30 border-b-grey5 padding-b-25">
-        <div class="col-md-4 ft-16 ft-grey1 padding-r-0 margin-t-15">{{item.name}}</div>
-        <div class="col-md-2 padding-l-0 margin-t--8">
+        <div class="col-md-4 ft-16 ft-grey1 padding-r-0 margin-t-15"><a ui-sref="root.project-details({number:item.number})">{{item.name}}</a></div>
+        <div class="col-md-2 padding-l-0 margin-l--30 margin-t--8">
           <p class="ft-30 ft-orange margin-b-0">{{item.annualEarnings | number : 2}}<span class="ft-16">%</span></p>
           <p class="ft-14 ft-grey666">预期年化收益</p>
         </div>
@@ -27,7 +27,7 @@
           <p class="ft-24 ft-grey1 margin-b-0">{{item.total - item.soldStock * item.increaseAmount || 0 | number:0}}<span class="ft-16">元</span></p>
           <p class="ft-14 ft-grey666">可投金额</p>
         </div>
-        <div class="col-md-2 margin-l--26">
+        <div class="col-md-2 margin-l--5">
             <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number})" ng-show="item.status <= 7">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
             <a class="btn btn-grey-spirit2 ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number})" ng-show="item.status > 7">{{projectStatusMap[item.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
            
