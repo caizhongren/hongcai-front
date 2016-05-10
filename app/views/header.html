@@ -24,7 +24,7 @@
             <span>
               <a class="ft-black" ui-sref="root.userCenter.account-overview">{{loginName}}</a>
               <a ng-href="#" ng-click="logout();" class="logout ft-black">退出 </a>
-              <a ui-sref="root.userCenter.assets-overview" class="ft-black msg"><img src="images/use-money.png"> 可用余额：{{account.balance | number: 2}}元</a>
+              <a ui-sref="root.userCenter.assets-overview" class="ft-black msg"><img src="images/use-money.png" class="margin-t--2" > 可用余额：{{account.balance | number: 2}}元</a>
               <a class="ft-black msg" ui-sref="root.userCenter.message({status:'0,1'})">消息(<span ng-bind="unreadCount || 0 "></span>)</a>
             </span>
           </li>
@@ -47,6 +47,7 @@
       <ul class="nav navbar-nav">
         <a class="navbar-brand logo-img-2 hidden-xs" href="/" style="margin-top:20px;">&nbsp;</a>
       </ul>
+
       <ul class="nav navbar-nav navbar-right margin-t-20">
         <li><a ui-sref="root.main" ng-class="{'toggle-navbar' : firstPath == ''}" >首页</a>
         </li>

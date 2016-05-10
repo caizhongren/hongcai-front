@@ -12,7 +12,7 @@ angular.module('hongcaiApp')
     },*/ {
       mimeType: 'image/png',
       src: 'images/banner-new/banner02.png',
-      href: 'https://www.hongcai.com/media-reports-detail/213',
+      href: 'https://www.hongcai.com/hongcai-trends-detail/491',
       name: '新三板金控第一股严选项目'
     },/* {
       mimeType: 'image/png',
