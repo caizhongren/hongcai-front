@@ -1,8 +1,8 @@
 <div id="guaranteepro-list" class="container padding-t-20">
-  <div class="row bg-white">
+  <div class="row">
     <!-- 项目条件过滤 宏金保 + 债权转让 -->
-    <div class="panel panel-default">
-      <div class="list-group">
+    <div class="panel panel-default margin-t-10 border-none no-boxshadow">
+      <div class="list-group margin-r-20">
         <!-- 项目列表查询 -->
         <div class="row list-group-item projects-filter" ng-include src='"views/project/_list_search.html"' style="margin-left: 20px;"></div>
         <!-- 项目列表过滤 -->
@@ -10,7 +10,7 @@
       </div>
     </div>
     <!-- 项目列表展示详情 宏金保 + 债权转让 -->
-    <div class="row" ng-include src='"views/project/_list_detail.html"'></div>
+    <div class="row margin-t-30" ng-include src='"views/project/_list_detail.html"'></div>
 
     <!-- 分页 -->
     <div project-pagination></div>

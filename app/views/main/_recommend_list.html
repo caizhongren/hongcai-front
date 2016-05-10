@@ -56,12 +56,12 @@
           <div class="row">
             <div class="col-xs-12" ng-show="project.status !== 6 && project.status !== 11">
               <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({number: project.number})">
-                <i class="fa fa-shopping-cart"></i> {{ project.statusText }}
+                <i class="fa"></i> {{ project.statusText }}
               </a>
             </div>
             <div class="col-xs-12" ng-show="project.status === 6 || project.status === 11">
               <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({number: project.number})">
-                <i class="fa fa-shopping-cart"></i> {{ project.statusText }} | {{ _timeDown[$index] }}
+                <i class="fa"></i> {{ project.statusText }} | {{ _timeDown[$index] }}
               </a>
             </div>
           </div>

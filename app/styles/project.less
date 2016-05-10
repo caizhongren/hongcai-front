@@ -2,8 +2,6 @@
 .ft-grey2 {
   color: #625a5a;
 }
-
-
 /*project-list*/
 
 #credit-list,
@@ -323,7 +321,7 @@
 /*project*/
 
 .progress {
-  background-color: #dcdedd;
+  background-color: #e0e0e0;
   // box-shadow: inset 0 4px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -483,11 +481,6 @@
 
 .nagtive-leftmargin {
   margin-left: -6%;
-}
-
-.investment-fontgray {
-  font-size: 17px;
-  color: #999999;
 }
 
 #credit-project-list {
@@ -853,10 +846,10 @@
   }
   .tab-left {
     border-right: 1px solid #fff;
-    padding: 5px 30px;
+    padding: 10px 30px;
   }
   .tab-right {
-    padding: 5px 30px;
+    padding: 5px 60px;
   }
   .border-b-white {
     border-bottom: 1px solid #fff;
@@ -1046,54 +1039,57 @@
 }
 
 .btn-big-height {
-  height: 50px;
-  line-height: 40px;
+  height: 44px !important;
+  line-height: 30px;
 }
 
 //机构宝列表页
 .institution-list {
-  border: 1px solid #c9c8c8;
+  //border: 1px solid #c9c8c8;
+  box-sizing: border-box;
+  border:1px solid transparent;
   margin-bottom: 30px;
   background-color: white;
-  padding: 20px;
-  overflow: auto;
+  //padding: 20px;
+  overflow: hidden;
   .logo-border {
-    width: 137px;
-    height: 145px;
+    width: 152px;
+    height: 168px;
     padding: 0px;
-    border: 1px solid #f3f1f1;
+    //border: 1px solid #f3f1f1;
     float: left;
   }
   .content-right {
-    width: 998px;
+    width: 1026px;
     float: left;
     margin-left: 20px;
     overflow: auto;
     .list-head {
       width: 100%;
-      border-bottom: 1px solid #cfcfcf;
+      //border-bottom: 1px solid #cfcfcf;
       padding: 5px 20px 10px 15px;
       overflow: auto;
       .bold-title {
         font-size: 16px;
-        font-weight: bold;
+        //font-weight: bold;
         color: #333333;
         float: left;
       }
       .title-right-tips {
-        font-size: 14px;
-        color: #888888;
+        font-size: 12px;
+        color: #a3c9fd;
         float: left;
-        margin-left: 20px;
+        margin-left: 15px;
       }
     }
     .list-detail {
-      width: 100%;
-      margin-top: 30px;
+      width: 670px;
+      padding-top: 20px;
+      padding-bottom: 34px;
       overflow: auto;
       .small-black {
         font-size: 14px;
-        color: #888888;
+        color: #666;
       }
       .small-deepblack {
         font-size: 14px;
@@ -1105,11 +1101,11 @@
       }
       .mid-orange {
         font-size: 30px;
-        color: #ff771c;
+        color: #fd6f10;
       }
       .mid-black {
         font-size: 30px;
-        color: #333333;
+        color: #333;
       }
       .split-right-line {
         border-right: 1px solid #dfdfdf;
@@ -1126,8 +1122,9 @@
 }
 
 .institution-list:hover {
-  background-color: #f8f7f7;
+  //background-color: #f8f7f7;
   box-shadow: 3px 3px 10px #EDEDED;
+  border:1px solid #FD8F3F;
   .btn-grey-spirit2{
     background-color: #f0efef;
     color: #9b9b9b;
@@ -1165,5 +1162,92 @@
   }
   span{
     padding-left: 0;
+  }
+}
+.progress-h{
+  height:6px !important;
+  width:160px;
+  position:relative !important;
+  top:8px !important;
+  border-radius:5px !important;
+  span{
+    position:relative;
+    top:0px;
+    right:0px;
+  }
+}
+.progress-h1{
+  height:5px !important;
+  width:120px;
+  position:relative !important;
+  top:20px !important;
+  border-radius:5px !important;
+  span{
+    position:relative;
+    top:-10px;
+    left:0px;
+  }
+}
+.read-header {
+  height:40px;
+  background-color:#FD8F3F;
+  color:#fff;
+  line-height:40px;
+}
+.read-text{
+  line-height:24px;
+}
+.line-h-30{
+  line-height: 30px;
+}
+.line-h-15{
+  line-height: 15px;
+}
+.line-h-24{
+  line-height: 24px;
+}
+.line-h-27{
+  line-height: 27px;
+}
+.hjy-w{
+  width:830px;
+}
+.hjy-w1{
+  width:1200px;
+}
+.tab-w{
+  width:85% !important;
+}
+.col-100{
+  width:100px !important;
+}
+
+//宏金盈列表页
+#investmentplan-Newlist{
+  .hot{
+    position:relative;
+    .hot-text{
+      position:absolute !important;
+      top:30%;
+      left:14%;
+      p{
+        margin-bottom:0px;
+        text-align:left !important;
+        margin-left:20px;
+      }
+      button{
+        width:221px;
+        height:46px;
+        background-color:#ff7d26;
+        border:none !important;
+        box-shadow:none !important;
+        margin-left:20px;
+        a{
+          font-size:24px;
+          color:#fff;
+          text-align:center;
+        }
+      }
+    }
   }
 }

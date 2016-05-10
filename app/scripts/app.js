@@ -168,7 +168,7 @@ hongcaiApp
       })
       //注册改版
       .state('root.register',{
-        url: '/register',
+        url: '/register?inviteCode',
         views:{
           '':{
             templateUrl:'views/register/register-new.html',
@@ -335,7 +335,7 @@ hongcaiApp
 
     // 易宝网页操作回调页，包括开通易宝、充值、提现、绑卡、取消绑卡、投资
     .state('root.yeepay-callback', {
-      url: '/yeepay-callback/:business/:status?amount&number',
+      url: '/yeepay-callback/:business/:status?amount&number&profit',
       views: {
         '': {
           templateUrl: 'views/success.html',
@@ -475,6 +475,8 @@ hongcaiApp
 
     /*---------  user-center  ------------------------*/
     .state('root.userCenter', {
+        'url':'/user-center',
+        abstract: false,
         views: {
           'user-center': {
             templateUrl: 'views/user-center/user-center.html'
@@ -662,7 +664,7 @@ hongcaiApp
 
     // 体验金（个人中心）
     .state('root.userCenter.experienceMoney', {
-      url: '/experienceMoney',
+      url: '/experience-money',
       views: {
         'user-center-right': {
           templateUrl: 'views/user-center/experience-money.html',
@@ -692,7 +694,7 @@ hongcaiApp
 
     // 我的债权（个人中心）
     .state('root.userCenter.credit', {
-      url: '/credit',
+      url: '/credit/:searchStatus',
       views: {
         'user-center-right': {
           templateUrl: 'views/user-center/credit.html',
@@ -825,6 +827,17 @@ hongcaiApp
             templateUrl: 'views/project/investmentplan-list.html',
             controller: 'InvestmentplanListCtrl',
             controllerUrl: 'scripts/controller/project/investmentplan-list-ctrl'
+          }
+        }
+      })
+      // 宏金盈列表页新
+      .state('root.investmentplan-Newlist', {
+        url: '/fundsproject-list',
+        views: {
+          '': {
+            templateUrl: 'views/project/fundsproject-list.html',
+            controller: 'FundsProjectListCtrl',
+            controllerUrl: 'scripts/controller/project/fundsproject-list-ctrl'
           }
         }
       })
@@ -1465,6 +1478,49 @@ hongcaiApp
           }
         }
       })
+
+    // 活动父 state，所有的活动落地页都在此 state下
+    .state('root.activity', {
+      url: '/activity',
+      abstract: true,
+      views: {
+        '': {
+          templateUrl: 'views/activity/root-activity.html'
+        }
+      }
+    })
+
+    /*-------------  邀请活动落地页   ----------------------*/
+      .state('root.activity.invite-landing', {
+        url: '/invite',
+        views: {
+          '': {
+            templateUrl: 'views/invite-landing.html',
+            controller: 'InviteLandingCtrl',
+            controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
+          }
+        }
+      })
+    /*-------------  送现金活动落地页   ----------------------*/
+    .state('root.activity.send-money', {
+      url: '/send-money',
+      views: {
+        '': {
+          templateUrl: 'views/send-money.html',
+        }
+      }
+    })
+    /*-------------  体验金项目专享详情页   ----------------------*/
+    .state('root.experience-project', {
+      url: '/experience-project',
+      views: {
+        '': {
+          templateUrl: 'views/project/experience-project.html',
+          controller: 'ExperienceProjectCtrl',
+          controllerUrl: 'scripts/controller/project/experience-project-ctrl'
+        }
+      }
+    })
       /*---------------- traffic import route  ----------------------*/
       .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',
@@ -1525,56 +1581,18 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
   // 需要用户登录才能看到的url
   var routespermission = [
-    '/account-overview',
-    '/assets-overview',
-    '/realname-authentication',
-    '/security-settings',
-    '/withdraw',
-    '/recharge',
-    '/invest-verify',
-    '/bankcard-management',
-    '/investment',
-    '/record',
-    '/gift-overview',
-    '/invite-rebate',
-    '/gift-rebate',
-    '/reservation',
-    '/credit',
-    '/credit-create',
-    '/message'
+    'user-center'
   ];
 
   // 不需要显示footer的path
   var notShowFooterRoute = [
     'login',
-    'register'
+    'register',
+    'invite-landing',
+    'send-money'
   ];
 
-  var showFlag1 = [
-    '/account-overview',
-    '/security-settings',
-    '/bankcard-management',
-    ''
-  ];
-  var showFlag2 = [
-    '/assets-overview',
-    '/recharge',
-    '/withdraw',
-    '/record'
-  ];
-  var showFlag3 = [
-    '/credit',
-    '/investment',
-    '/reservation'
-  ];
-  var showFlag4 = [
-    '/experienceMoney',
-    '/rate-coupon',
-    '/invite-rebate'
-  ];
-  var showFlag5 = [
-    '/message'
-  ];
+  
 
   $rootScope.$on('$stateChangeStart', function(event, toState) {
     var title = '网贷平台，投资理财平台，投资理财项目-宏财网';
@@ -1582,6 +1600,9 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       title = toState.data.title + ' - 要理财，上宏财!';
     }
     $rootScope.pageTitle = title;
+
+    
+
 
     $rootScope.showFooter = false;
     if (notShowFooterRoute.indexOf($location.path().split('/')[1]) === -1) {
@@ -1596,82 +1617,33 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
         return;
       })
       .success(function(response) {
-        $rootScope.showFlag11 = false;
-        $rootScope.showFlag21 = false;
-        $rootScope.showFlag31 = false;
-        $rootScope.showFlag41 = false;
-        $rootScope.showFlag51 = false;
-        if(showFlag1.indexOf('/' + $location.path().split('/')[1]) !== -1){
-          $rootScope.showFlag11 = true;
-          $rootScope.showFlag21 = false;
-          $rootScope.showFlag31 = false;
-          $rootScope.showFlag41 = false;
-          $rootScope.showFlag51 = false;
-        }
-        if(showFlag2.indexOf('/' + $location.path().split('/')[1]) !== -1){
-          $rootScope.showFlag11 = false;
-          $rootScope.showFlag21 = true;
-          $rootScope.showFlag31 = false;
-          $rootScope.showFlag41 = false;
-          $rootScope.showFlag51 = false;
-        }
-        if(showFlag3.indexOf('/' + $location.path().split('/')[1]) !== -1){
-          $rootScope.showFlag11 = false;
-          $rootScope.showFlag21 = false;
-          $rootScope.showFlag31 = true;
-          $rootScope.showFlag41 = false;
-          $rootScope.showFlag51 = false;
-        }
-        if(showFlag4.indexOf('/' + $location.path().split('/')[1]) !== -1){
-          $rootScope.showFlag11 = false;
-          $rootScope.showFlag21 = false;
-          $rootScope.showFlag31 = false;
-          $rootScope.showFlag41 = true;
-          $rootScope.showFlag51 = false;
-        }
-        if(showFlag5.indexOf('/' + $location.path().split('/')[1]) !== -1){
-          $rootScope.showFlag11 = false;
-          $rootScope.showFlag21 = false;
-          $rootScope.showFlag31 = false;
-          $rootScope.showFlag41 = false;
-          $rootScope.showFlag51 = true;
-        }
-        if (routespermission.indexOf('/' + $location.path().split('/')[1]) !== -1) {
-          if (response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
-            $rootScope.isLogged = true;
-            $rootScope.loginName = response.data.name;
-            $rootScope.securityStatus = response.data.securityStatus;
-            $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
-            $rootScope.account = response.data.account;
-            $rootScope.unreadCount = response.data.unreadCount;
-            $rootScope.userType = response.data.userType;
-          } else {
-            $rootScope.isLogged = false;
-            $rootScope.loginName = '';
 
+        if (response.ret !== -1 && response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
+          $rootScope.isLogged = true;
+          $rootScope.loginName = response.data.name;
+          $rootScope.securityStatus = response.data.securityStatus;
+          $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
+          $rootScope.account = response.data.account;
+          $rootScope.unreadCount = response.data.unreadCount;
+          $rootScope.userType = response.data.userType;
+        } else {
+          $rootScope.isLogged = false;
+          $rootScope.loginName = '';
+
+          if(routespermission.indexOf($location.path().split('/')[1]) !== -1){
             // 弹出登录弹层
             $modal({
               scope: $rootScope,
               template: 'views/modal/modal-toLogin.html',
               show: true
             });
-
-          }
-        } else {
-          if (response.ret !== -1 && response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
-            $rootScope.isLogged = true;
-            $rootScope.loginName = response.data.name;
-            $rootScope.securityStatus = response.data.securityStatus;
-            $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
-            $rootScope.account = response.data.account;
-            $rootScope.unreadCount = response.data.unreadCount;
-            $rootScope.userType = response.data.userType;
-          } else {
-            $rootScope.isLogged = false;
-            $rootScope.loginName = '';
           }
         }
+        
       });
+
+
+
 
   });
 
@@ -1695,10 +1667,64 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     if ($location.protocol() === 'http' && config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
       $window.location.href = 'https://' + $location.absUrl().split('://')[1];
     }
+
+    $rootScope.firstPath = $location.path().split('/')[1];
+    $rootScope.selectSide = $location.path().split('/')[2];
+
+    var showFlag1 = [
+        'account-overview',
+        'security-settings',
+        'bankcard-management'
+      ];
+    var showFlag2 = [
+      'assets-overview',
+      'recharge',
+      'withdraw',
+      'record'
+    ];
+    var showFlag3 = [
+      'credit',
+      'investment',
+      'reservation'
+    ];
+    var showFlag4 = [
+      'experience-money',
+      'rate-coupon',
+      'invite-rebate'
+    ];
+    var showFlag5 = [
+      'message'
+    ];
+
+    $rootScope.userCenterPart = 1;
+    if(showFlag1.indexOf($rootScope.selectSide) !== -1){
+      $rootScope.userCenterPart = 1;
+    }
+    if(showFlag2.indexOf($rootScope.selectSide) !== -1){
+      $rootScope.userCenterPart = 2;
+    }
+    if(showFlag3.indexOf($rootScope.selectSide) !== -1){
+      $rootScope.userCenterPart = 3;
+    }
+    if(showFlag4.indexOf($rootScope.selectSide) !== -1){
+      $rootScope.userCenterPart = 4;
+    }
+    if(showFlag5.indexOf($rootScope.selectSide) !== -1){
+      $rootScope.userCenterPart = 5;
+    }
+
   });
 
   $rootScope.reload = function() {
     $state.reload();
+  }
+
+  $rootScope.showLoginModal = function(){
+    $modal({
+      scope: $rootScope,
+      template: 'views/modal/modal-toLogin.html',
+      show: true
+    });
   }
 
 });

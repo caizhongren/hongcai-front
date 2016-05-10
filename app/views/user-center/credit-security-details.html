@@ -1,4 +1,4 @@
-<div class="userCenter-credit right-area record col-md-8 col-lg-9" >
+<div class="userCenter-credit right-area record col-md-8 col-lg-9 bg-white" >
   <div class="row">
    <div class="right-title">债权详情</div>
    <a class="pull-right padding-r-15 text-unline" ui-sref="root.userCenter.credit">返回债权列表</a>
@@ -31,11 +31,14 @@
   </table>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12">
-        <h4 class="page-header"><i class="fa fa-square ft-orange"></i> 项目历程</h4>
+      <div class="fl col-md-12 ft-14 border-end">
+        <div class="col-xs-1 padding-b-5 credit-untoggle {{detailStatus === 1 ? 'credit-toggle' : ''}}" ng-click="detailStatus=1">项目历程</div>
+        <div class="col-xs-1 padding-b-5 credit-untoggle {{detailStatus === 4 ? 'credit-toggle' : ''}}" ng-click="detailStatus=4" ng-show="category.code === '016'">债权列表</div>
+      </div>
+      <div class="col-xs-12" ng-show="detailStatus === 1">
         <ul class="timeline">
           <li>
-            <div class="timeline-badge success"><i class="fa fa-rocket"></i>
+            <div class="timeline-badge success"><i class="fa fa-rocket ft-orange buchong1"></i>
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
@@ -48,7 +51,7 @@
             </div>
           </li>
           <li>
-            <div class="timeline-badge" ng-class="{'success':project.status === 9 || project.status === 10}"><i class="fa fa-users"></i>
+            <div class="timeline-badge" ng-class="{'success':project.status === 9 || project.status === 10}"><i class="fa fa-users ft-orange buchong1"></i>
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
@@ -63,7 +66,7 @@
             </div>
           </li>
           <li class="timeline-inverted" ng-repeat="item in creditRightBillList">
-            <div class="timeline-badge success"><i class="fa fa-tree"></i>
+            <div class="timeline-badge success"><i class="fa fa-tree ft-orange buchong1"></i>
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
@@ -76,7 +79,7 @@
             </div>
           </li>
           <li class="timeline-inverted" ng-repeat="card in listInvPond">
-            <div class="timeline-badge"><i class="fa fa-list-ol"></i>
+            <div class="timeline-badge"><i class="fa fa-list-ol ft-orange buchong2"></i>
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
@@ -89,6 +92,34 @@
           </li>
         </ul>
       </div>
+      <div ng-show="detailStatus === 4 && category.code === '016'">
+            <table class="table margin-b-30 table-dashed">
+              <thead>
+                <tr>
+                  <th>编号</th>
+                  <th>姓名</th>
+                  <th>身份证号</th>
+                  <th>金额</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in investorMatchOfflineRights">
+                  <td>{{item.offlineRightNumber}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.idNo}}</td>
+                  <td>{{item.amount | number:2}}</td>
+                </tr>
+                <tr ng-show="investorMatchOfflineRights.length <= 0">
+                  <td colspan="6">
+                    <div>
+                      <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
+                      <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
     </div>
   </div>
 </div>

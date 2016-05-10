@@ -1,5 +1,5 @@
 <div class="col-lg-12 col-md-12 margin-t-20 padding-l-0">
-  您现在的位置：我的账户 > 
+  您现在的位置：我的账户 &nbsp;>&nbsp;
   <span ng-show="selectSide == 'account-overview'">账户总览</span>
   <span ng-show="selectSide == 'security-settings'">安全设置</span>
   <span ng-show="selectSide == 'bankcard-management'">银行卡管理</span>
@@ -18,93 +18,115 @@
 <!--user-center-sidebar-->
 <div class="left-area col-lg-2 col-md-3">
   <div class="row">
-    <div class="sidebar-personal ft-white {{showFlag11 == true ? 'bg-orange' : 'side-white'}}">
-      <button class="ftw-b {{showFlag11 == true ? 'bg-orange' : 'side-whitebg'}}">账户信息</button>
+    <div class="sidebar-personal ft-white {{userCenterPart == 1 ? 'bg-orange' : 'side-white'}}">
+      <button class="ftw-b {{userCenterPart == 1 ? 'bg-orange' : 'side-whitebg'}}">账户信息</button>
     </div>
     <div>
       <a ui-sref="root.userCenter.account-overview" class="tips-area {{selectSide == 'account-overview' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-newspaper-o ft-orange1"></div>
-        <p class="{{selectSide == 'account-overview' ? 'now' : ''}}" style="margin-left:36px;">账户总览</p>
+        <!-- <div class="ico-area message-1 fa fa-newspaper-o ft-orange1"></div>
+        <p class="{{selectSide == 'account-overview' ? 'now' : ''}}" style="margin-left:36px;">账户总览</p> -->
+        <span class="sidebar-pic sidebar-pic11 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'account-overview' ? 'now' : ''}} position" style="margin-left:-20px;display: inline-block;">账户总览</p> 
       </a>
       <a ui-sref="root.userCenter.security-settings" class="tips-area {{selectSide == 'security-settings' ? 'bg-white' : ''}}">
-        <div class="ico-area  message-2 fa fa-shield ft-orange1"></div>
-        <p class="{{selectSide == 'security-settings' ? 'now' : ''}}" style="margin-left:36px;">安全设置</p>
+        <!--<div class="ico-area  message-2 fa fa-shield ft-orange1"></div>
+        <p class="{{selectSide == 'security-settings' ? 'now' : ''}}" style="margin-left:36px;">安全设置</p>-->
+        <span class="sidebar-pic sidebar-pic11 sidebar-pic2 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'security-settings' ? 'now' : ''}} position" style="margin-left:-20px;display: inline-block;">安全设置</p> 
       </a>
       <a ui-sref="root.userCenter.bankcard-management" class="tips-area {{selectSide == 'bankcard-management' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-credit-card ft-orange1" ng-class="test"></div>
-        <p class="{{selectSide == 'bankcard-management' ? 'now' : ''}}" style="margin-left:36px;">银行卡管理</p>
+        <!--<div class="ico-area message-1 fa fa-credit-card ft-orange1" ng-class="test"></div>
+        <p class="{{selectSide == 'bankcard-management' ? 'now' : ''}}" style="margin-left:36px;">银行卡管理</p>-->
+        <span class="sidebar-pic sidebar-pic11 sidebar-pic3 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'bankcard-management' ? 'now' : ''}} position" style="margin-left:-20px;display: inline-block;">银行卡管理</p> 
       </a>
     </div>
   </div>
   <div class="row">
-    <div class="sidebar-personal ft-white {{showFlag21 == true ? 'bg-orange' : 'side-white'}}">
-      <button class="ftw-b {{showFlag21 == true ? 'bg-orange' : 'side-whitebg'}}">资金信息</button>
+    <div class="sidebar-personal ft-white {{userCenterPart == 2 ? 'bg-orange' : 'side-white'}}">
+      <button class="ftw-b {{userCenterPart == 2 ? 'bg-orange' : 'side-whitebg'}}">资金信息</button>
     </div>
     <div>
       <a ui-sref="root.userCenter.assets-overview" class="tips-area {{selectSide == 'assets-overview' ? 'bg-white' : ''}}">
-        <div class="ico-area  message-3 fa fa-line-chart ft-orange1"></div>
-        <p class="{{selectSide == 'assets-overview' ? 'now' : ''}}" style="margin-left:36px;">资产总览</p>
+        <!--<div class="ico-area  message-3 fa fa-line-chart ft-orange1"></div>
+        <p class="{{selectSide == 'assets-overview' ? 'now' : ''}}" style="margin-left:36px;">资产总览</p>-->
+        <span class="sidebar-pic sidebar-pic21 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'assets-overview' ? 'now' : ''}} position" style="margin-left:-20px;display: inline-block;">资产总览</p> 
       </a>
       <a ui-sref="root.userCenter.recharge" class="tips-area {{selectSide == 'recharge' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-plug ft-orange1"></div>
-        <p class="{{selectSide == 'recharge' ? 'now' : ''}}" style="margin-left:36px;">充值</p>
+        <!--<div class="ico-area message-1 fa fa-money ft-orange1"></div>
+        <p class="{{selectSide == 'recharge' ? 'now' : ''}}" style="margin-left:36px;">充值</p>-->
+        <span class="sidebar-pic sidebar-pic21 sidebar-pic2 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'recharge' ? 'now' : ''}} position" style="margin-left:-20px;display: inline-block;">充值</p> 
       </a>
       <a ui-sref="root.userCenter.withdraw" class="tips-area {{selectSide == 'withdraw' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-money ft-orange1"></div>
-        <p class="{{selectSide == 'withdraw' ? 'now' : ''}}" style="margin-left:36px;">提现</p>
+        <!--<div class="ico-area message-1 fa ft-orange1 padding-l-25" style="padding-left:25px;"></div>
+        <p class="{{selectSide == 'withdraw' ? 'now' : ''}}" style="margin-left:36px;">提现</p>-->
+        <span class="sidebar-pic sidebar-pic21 sidebar-pic3 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'withdraw' ? 'now' : ''}} position" style="margin-left:-20px;display: inline-block;">提现</p> 
       </a>
       <a ui-sref="root.userCenter.record" class="tips-area {{selectSide == 'record' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-edit ft-orange1"></div>
-        <p class="{{selectSide == 'record' ? 'now' : ''}}" style="margin-left:36px;">资金流水</p>
+        <!--<div class="ico-area message-1 fa fa-list-alt ft-orange1"></div>
+        <p class="{{selectSide == 'record' ? 'now' : ''}}" style="margin-left:36px;">资金流水</p>-->
+        <span class="sidebar-pic sidebar-pic21 sidebar-pic4 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'record' ? 'now' : ''}} position" style="margin-left:-20px;display: inline-block;">资金流水</p> 
       </a>
     </div>
   </div>
   <div class="row">
-    <div class="sidebar-personal  bg-orange ft-white {{showFlag31 == true ? 'bg-orange' : 'side-white'}}">
-      <button class="ftw-b {{showFlag31 == true ? 'bg-orange' : 'side-whitebg'}}">投资信息</button>
+    <div class="sidebar-personal  bg-orange ft-white {{userCenterPart == 3 ? 'bg-orange' : 'side-white'}}">
+      <button class="ftw-b {{userCenterPart == 3 ? 'bg-orange' : 'side-whitebg'}}">投资信息</button>
     </div>
     <div>
       <a ui-sref="root.userCenter.credit" class="tips-area {{selectSide == 'credit' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-gavel ft-orange1"></div>
-        <p class="{{selectSide == 'credit' ? 'now' : ''}}" style="margin-left:36px;">我的投资</p>
+        <!--<div class="ico-area message-1 fa fa-gavel ft-orange1"></div>
+        <p class="{{selectSide == 'credit' ? 'now' : ''}}" style="margin-left:36px;">我的投资</p>-->
+        <span class="sidebar-pic sidebar-pic31 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'credit' ? 'now' : ''}} position" style="margin-left:-20px;display: inline-block;">我的投资</p> 
       </a>
-      <a ui-sref="root.userCenter.investment({type:99})" class="tips-area {{selectSide == 'userCenter-investment' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-bank ft-orange1"></div>
-        <p class="{{selectSide == 'userCenter-investment' ? 'now' : ''}}" style="margin-left:36px;">我的订单</p>
+      <a ui-sref="root.userCenter.investment({type:99})" class="tips-area {{selectSide == 'investment' ? 'bg-white' : ''}}">
+        <!--<div class="ico-area message-1 fa fa-bank ft-orange1"></div>
+        <p class="{{selectSide == 'userCenter-investment' ? 'now' : ''}}" style="margin-left:36px;">我的订单</p>-->
+        <span class="sidebar-pic sidebar-pic31 sidebar-pic2 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'investment' ? 'now' : ''}} position" style="margin-left:-20px;display: inline-block;">我的订单</p> 
       </a>
       <a ui-sref="root.userCenter.reservation" class="tips-area {{selectSide == 'reservation' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-file-text ft-orange1"></div>
-        <p class="{{selectSide == 'reservation' ? 'now' : ''}}" style="margin-left:36px;">预约记录</p>
+        <!--<div class="ico-area message-1 fa fa-file-text ft-orange1"></div>
+        <p class="{{selectSide == 'reservation' ? 'now' : ''}}" style="margin-left:36px;">预约记录</p>-->
+        <span class="sidebar-pic sidebar-pic31 sidebar-pic3 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'reservation' ? 'now' : ''}} position" style="margin-left:-20px;display: inline-block;">预约记录</p> 
       </a>
     </div>
   </div>
   <div class="row">
-    <div class="sidebar-personal  bg-orange ft-white {{showFlag41 == true ? 'bg-orange' : 'side-white'}}">
-      <button class="ftw-b {{showFlag41 == true ? 'bg-orange' : 'side-whitebg'}}">奖励信息</button>
+    <div class="sidebar-personal  bg-orange ft-white {{userCenterPart == 4 ? 'bg-orange' : 'side-white'}}">
+      <button class="ftw-b {{userCenterPart == 4 ? 'bg-orange' : 'side-whitebg'}}">奖励信息</button>
     </div>
     <div>
-      <a ui-sref="root.userCenter.experienceMoney" class="tips-area {{selectSide == 'experienceMoney' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-gavel ft-orange1"></div>
-        <p class="{{selectSide == 'experienceMoney' ? 'now' : ''}}" style="margin-left:36px;">体验金</p>
+      <a ui-sref="root.userCenter.experienceMoney" class="tips-area {{selectSide == 'experience-money' ? 'bg-white' : ''}}">
+        <span class="sidebar-pic margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'experience-money' ? 'now' : ''}} position" style="margin-left:-20px;display:inline-block;">体验金</p>
       </a>
-      <a ui-sref="root.userCenter.rate-coupon" class="tips-area {{selectSide == 'increaseCoupon' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-bank ft-orange1"></div>
-        <p class="{{selectSide == 'increaseCoupon' ? 'now' : ''}}" style="margin-left:36px;">加息券</p>
+      <a ui-sref="root.userCenter.rate-coupon" class="tips-area {{selectSide == 'rate-coupon' ? 'bg-white' : ''}}">
+        <span class="sidebar-pic sidebar-pic2 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'rate-coupon' ? 'now' : ''}} position" style="margin-left:-20px;display:inline-block;">加息券</p>
       </a>
       <a ui-sref="root.userCenter.invite-rebate" class="tips-area {{selectSide == 'invite-rebate' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-slideshare ft-orange1"></div>
-        <p class="{{selectSide == 'invite-rebate' ? 'now' : ''}}" style="margin-left:36px;">邀请中心</p>
+        <span class="sidebar-pic sidebar-pic3 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'invite-rebate' ? 'now' : ''}} position" style="margin-left:-20px;display:inline-block;">邀请中心</p>
       </a>
     </div>
   </div>
   <div class="row">
-    <div class="sidebar-personal  bg-orange ft-white {{showFlag51 == true ? 'bg-orange' : 'side-white'}}">
-      <button class="ftw-b {{showFlag51 == true ? 'bg-orange' : 'side-whitebg'}}">系统信息</button>
+    <div class="sidebar-personal  bg-orange ft-white {{userCenterPart == 5 ? 'bg-orange' : 'side-white'}}">
+      <button class="ftw-b {{userCenterPart == 5 ? 'bg-orange' : 'side-whitebg'}}">系统信息</button>
     </div>
     <div>
       <a ui-sref="root.userCenter.message({status:'0,1'})" class="tips-area {{selectSide == 'message' ? 'bg-white' : ''}}">
-        <div class="ico-area message-1 fa fa-envelope ft-orange1"></div>
-        <p class="{{selectSide == 'message' ? 'now' : ''}}" style="margin-left:36px;">站内消息</p>
+        <!--<div class="ico-area message-1 fa fa-envelope ft-orange1"></div>
+        <p class="{{selectSide == 'message' ? 'now' : ''}}" style="margin-left:36px;">站内消息</p>-->
+        <span class="sidebar-pic sidebar-pic41 margin-l-35 margin-t-15"></span>
+        <p class="{{selectSide == 'message' ? 'now' : ''}} position" style="margin-left:-20px;display: inline-block;">站内消息</p> 
       </a>
     </div>
   </div>

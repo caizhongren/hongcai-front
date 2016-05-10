@@ -1,5 +1,44 @@
 <div id="best-profit" class="panel panel-default margin-t-30">
-  <div class="col-xs-12 col-md-12 col-lg-12 bg-white" style="min-height:386px;">
+  <div class="col-md-12 bg-white main-new-w padding-0 border-t-red border-b-grey5">
+    <div class="col-md-2 linear-gradient linear-gradient2 padding-0 left-new-w">
+      <h3 class="ft-30 padding-l-20 margin-t-20">宏金盈</h3>
+      <p class="ft-18 padding-l-20 margin-b-0">优质债权转让</p>
+      <img src="/images/index/cut.png" alt="">
+      <div class="ft-16 padding-l-20 margin-t-40 padding-b-36 ft-white3"> 
+        <p>智能匹配优质债权</p>
+         <p class="margin-b-0">期限多样收益递增</p>
+      </div>
+      <button class="ft-14 ft-white1 border-none margin-l-20 margin-t-30 cursor-pointer" ui-sref="root.investmentplan-list">查看更多&nbsp;&gt;</button>
+      <img src="/images/index/project03.png" alt="" class="pull-right margin-r-5">
+    </div>
+    <div class="col-md-10 padding-r-0 padding-l-0 jigoubao-w">
+      <div class="col-md-4 border-r-5 padding-b-16" ng-repeat="item in fundsProjectProductList | limitTo: -3">
+        <div class="row margini-t-20">
+          <div class="col-md-12 ft-16 ft-grey1 padding-t-15 padding-b-15 margin-b-20 border-b-grey5 padding-l-90">{{item.product.name}} | 封闭期 <span class="ftw-b">{{ item.product.sealingDays || 0}}</span> 天</div>
+        </div>
+        <div class="row cirle margini-t-20 margin-b-20 padding-l-90">
+          <img src="/images/index/cirle.png" alt="">
+          <div ng-class="item.product.type === 4 ? 'percent-text' : 'percent-text2'">
+            <p class="ft-60 ft-orange2 margin-b-0 margin-l--20">{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}<span class="ft-30">%</span></p>
+           
+          </div>
+        </div>
+        <div class="row ft-14 ft-grey1 margin-b-20 padding-l-90"> 
+          <p class="ft-16 ft-grey666 margin-t--65 margin-l-35">预期最高年化</p>
+          <p class="margin-t-40 margin-l-20">可投金额：
+          <span class="ftw-b">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </span>元</p>
+        </div>
+        <div class="row padding-l-90">
+          <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.investmentplan-details({number: item.number})" ng-show="item.status === 1">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+          <a class="btn btn-grey-spirit2 ft-18 btn-ljtz" ui-sref="root.investmentplan-details({number: item.number})" ng-show="item.status != 1">{{fundsProjectStatusMap[item.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+  <!--<div class="col-xs-12 col-md-12 col-lg-12 bg-white" style="min-height:386px;">
     <div class="row">
       <div class="col-xs-12 col-md-3 col-lg-3 text-center min-height-386 bg-blue">
         <img src="/images/main/hongjinying-1.png" class="margin-t-20">
@@ -29,13 +68,13 @@
             <p class="high-p">预期最高年化</p>
           </div>
         </div>
-        <!-- <div class="row money-area margin-t-10" ng-show="item.status === 1"> -->
-          <p class="text-center ft-18">可投金额<strong class="ft-20">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}}</strong>元</p>
-        <!-- </div> -->
-<!--         <div class="row money-area margin-t-10" ng-show="item.status !== 1">
+        <-- <div class="row money-area margin-t-10" ng-show="item.status === 1"> 
+          <p class="text-center ft-18">可投金额<strong class="ft-20">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}}</strong>元</p>-->
+        <!-- </div> 
+        <div class="row money-area margin-t-10" ng-show="item.status !== 1">
           <p class="text-center ft-18">成功投资<strong class="ft-20">{{ (item.soldStock + item.occupancyStock) * item.increaseAmount | noFractionCurrency:"":0 || 0}}</strong>元</p>
         </div> -->
-        <div class="row hongjinying-btn-area">
+<!--         <div class="row hongjinying-btn-area">
           <a ui-sref="root.investmentplan-details({number: item.number})" style="padding:0;font-size:18px;" class="col-xs-12 btn btn-invite ft-white" role="button" ng-show="item.status === 1">立即投资<i class="fa fa-chevron-circle-right"></i></a>
           <a ui-sref="root.investmentplan-details({number: item.number})"  style="padding:0;font-size:18px;" class="col-xs-12 btn btn-invite-grey bg-grey4 ft-white" role="button" ng-show="item.status !== 1">查看详情<i class="fa fa-chevron-circle-right"></i></a>
         </div>

@@ -1,28 +1,61 @@
-<div class="row">
+<div class="row ft-grey666" ng-if="false">
   <div class="col-xs-12">
     <div class="row">
-      <div class="col-xs-1 pull-left text-nowrap">项目状态：</div>
-      <div class="col-xs-1 text-nowrap">
+      <div class="col-xs-1 pull-left text-nowrap col-100 margin-r-20">项目类型：</div>
+      <div class="col-xs-1 text-nowrap col-100 padding-0 margin-r-20">
         <a ui-sref="root.guaranteepro-list-query({status:'6,7,8,9,10,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '6,7,8,9,10,11,12', 'project-noncheck': status !== '6,7,8,9,10,11,12'}">
                         全部
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
+        <a ui-sref="root.guaranteepro-list-query({status:'6,7,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '6,7,11,12', 'project-noncheck': status !== '6,7,11,12'}">
+                        信托
+                      </a>
+      </div>
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
+        <a ui-sref="root.guaranteepro-list-query({status:'8', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '8', 'project-noncheck': status !== '8'}">
+                        基金
+                      </a>
+      </div>
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
+        <a ui-sref="root.guaranteepro-list-query({status:'9', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '9', 'project-noncheck': status !== '9'}">
+                        证券
+                      </a>
+      </div>
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
+        <a ui-sref="root.guaranteepro-list-query({status:'10', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '10', 'project-noncheck': status !== '10'}">
+                        银行
+                      </a>
+      </div>
+    </div>
+    <!-- </ul> -->
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="row">
+      <div class="col-xs-1 pull-left text-nowrap col-100 margin-r-20">项目状态：</div>
+      <div class="col-xs-1 text-nowrap col-100 padding-0 margin-r-20">
+        <a ui-sref="root.guaranteepro-list-query({status:'6,7,8,9,10,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '6,7,8,9,10,11,12', 'project-noncheck': status !== '6,7,8,9,10,11,12'}">
+                        全部
+                      </a>
+      </div>
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status:'6,7,11,12', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '6,7,11,12', 'project-noncheck': status !== '6,7,11,12'}">
                         融资中
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status:'8', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '8', 'project-noncheck': status !== '8'}">
                         融资结束
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status:'9', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '9', 'project-noncheck': status !== '9'}">
                         还款中
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status:'10', minCycle: minCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType, showFlag: showFlag })" class="project-noncheck" ng-class="{'project-check': status === '10', 'project-noncheck': status !== '10'}">
                         还款完成
                       </a>
@@ -36,33 +69,33 @@
   <div class="col-xs-12">
     <!-- <ul class="list-inline"> -->
     <div class="row">
-      <div class="col-xs-1 text-nowrap">项目期限：</div>
-      <div class="col-xs-1 text-nowrap">
+      <div class="col-xs-1 text-nowrap col-100 margin-r-20">项目期限：</div>
+      <div class="col-xs-1 text-nowrap col-100 padding-0 margin-r-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: 0, maxCycle: 100, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==0 && maxCycle==100, 'project-noncheck': !(minCycle==0 && maxCycle==100)}">
                         全部
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: 0, maxCycle: 2, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==0 && maxCycle==2, 'project-noncheck': !(minCycle==0 && maxCycle==2)}">
                         3个月以下
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: 3, maxCycle: 6, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==3 && maxCycle==6, 'project-noncheck': !(minCycle==3 && maxCycle==6)}">
                         3 - 6个月
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: 6, maxCycle: 12, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==6 && maxCycle==12, 'project-noncheck': !(minCycle==6 && maxCycle==12)}">
                         6 - 12个月
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: 12, maxCycle: 100, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType })" class="project-noncheck" ng-class="{'project-check': minCycle==12 && maxCycle==100, 'project-noncheck': !(minCycle==12 && maxCycle==100)}">
                         12个月以上
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
 
       </div>
     </div>
@@ -71,28 +104,28 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="row">
-      <div class="col-xs-1 text-nowrap">项目收益：</div>
-      <div class="col-xs-1 text-nowrap">
+      <div class="col-xs-1 text-nowrap col-100 margin-r-20">项目收益：</div>
+      <div class="col-xs-1 text-nowrap col-100 padding-0 margin-r-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 0, maxEarning: 100, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==0 && maxEarning==100, 'project-noncheck': !(minEarning==0 && maxEarning==100)}">
                         全部
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 8, maxEarning: 10, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==8 && maxEarning==10, 'project-noncheck': !(minEarning==8 && maxEarning==10)}">
                         8 - 10%
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 10, maxEarning: 12, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==10 && maxEarning==12, 'project-noncheck': !(minEarning==10 && maxEarning==12)}">
                         10 - 12%
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: 12, maxEarning: 100, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minEarning==12 && maxEarning==100, 'project-noncheck': !(minEarning==12 && maxEarning==100)}">
                         12%以上
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
       </div>
     </div>
   </div>
@@ -100,28 +133,28 @@
 <div class="row">
   <div class="col-xs-12">
     <div class="row">
-      <div class="col-xs-1 text-nowrap">项目规模：</div>
-      <div class="col-xs-1 text-nowrap">
+      <div class="col-xs-1 text-nowrap col-100 margin-r-20">项目规模：</div>
+      <div class="col-xs-1 text-nowrap col-100 padding-0 margin-r-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 0, maxTotalAmount: 200000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==0 && maxTotalAmount==200000000, 'project-noncheck': !(minTotalAmount==0 && maxTotalAmount==200000000)}">
                         全部
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 0, maxTotalAmount: 500000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==0 && maxTotalAmount==500000, 'project-noncheck': !(minTotalAmount==0 && maxTotalAmount==500000)}">
                         50万以下
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 500000, maxTotalAmount: 1000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==500000 && maxTotalAmount==1000000, 'project-noncheck': !(minTotalAmount==500000 && maxTotalAmount==1000000)}">
                         50 - 100万
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 1000000, maxTotalAmount: 2000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==1000000 && maxTotalAmount==2000000, 'project-noncheck': !(minTotalAmount==1000000 && maxTotalAmount==2000000)}">
                         100 - 200万
                       </a>
       </div>
-      <div class="col-xs-2">
+      <div class="col-xs-2 col-100 padding-0 margin-r-20 margin-l-20">
         <a ui-sref="root.guaranteepro-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 2000000, maxTotalAmount: 200000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==2000000 && maxTotalAmount==200000000, 'project-noncheck': !(minTotalAmount==2000000 && maxTotalAmount==200000000)}">
                         200万以上
                       </a>

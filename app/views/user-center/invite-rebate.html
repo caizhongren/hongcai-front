@@ -1,52 +1,123 @@
 <!--邀请返利-->
 <div class="right-area col-md-8 col-lg-9">
-  <div class="row">
-    <div class="right-title">邀请返利</div>
-  </div>
-  <div class="row">
-    <div class="row account-investment">
-      <div class="col-md-5 border-r">
-        <p class="account-number-message">您的邀请码</p>
-        <p class="account-number">{{ voucher.inviteCode || "0"}}<span class="ft-14"></span></p>
-        <input type="text" id='inviteCode' value="{{voucher.inviteCode}}" ng-show="false" />
+  <div class="currency-style">
+    <div class="title">
+      <span class="tip">邀请中心</span>
+    </div>
+    <div class="main">
+      <div class="col-md-12 text-center">
+        <img src="/images/user-center/invite-banner.png" alt="" width="95%" ui-sref="root.activity.invite-landing">
       </div>
-      <div class="col-md-7">
-        <p class="text-center">复制以下链接，邀请好友注册宏财网</p>
-        <p class="text-center">
-          https://www.hongcai.com/#!/register-mobile/{{ voucher.inviteCode || "0"}}
-        </p>
-        <!--改成落地页的话，请用下面这条链接-->
-        <!--<h5>https://www.hongcai.com/load-page?inviteCode={{ voucher.inviteCode || "0"}}</h5>-->
-        <!-- <button class="col-md-4 col-md-offset-4 btn btn-primary">复制链接</button> -->
+      <div class="col-md-12">
+        <div class="invite-line ft-14">
+          <div class="col-md-3"><img src="/images/user-center/invite1.png" alt="" class="icon-invite" width="100%">邀请人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.totalNum || 0}}</span>人</div>
+          <div class="col-md-3"><img src="/images/user-center/invite2.png" alt="" class="icon-invite" width="100%">实名人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.realNameAuthNum || 0}}</span>人</div>
+          <div class="col-md-3"><img src="/images/user-center/invite3.png" alt="" class="icon-invite" width="100%">投资人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.investNum || 0}}</span>人</div>
+          <div class="col-md-3"><img src="/images/user-center/invite4.png" alt="" class="icon-invite" width="100%">已得奖金：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.reward || 0 | number:2 }}</span>元</div>
+        </div>
       </div>
+      <div class="col-md-12">
+        <div class="invite-content">
+          <div class="col-md-4 invite-code">
+            <div class="col-xs-6 text-right">
+              <img src="/images/user-center/invite-code.png" alt="">
+            </div>
+            <div class="col-xs-6 fr text-left text-height">
+              <p>邀请码</p>
+              <p>{{ voucher.inviteCode || '无' }}</p>
+            </div>
+          </div>
+          <div class="col-md-8 padding-t-20 text-center">
+            <p>以下方式分享邀请链接给好友>好友点击链接注册并投资>奖励自动进入您的账户</p>
+            <div class="row text-center">
+              <div class="col-xs-3">
+                <img src="/images/user-center/invite-wechat.png" alt="" data-toggle="modal" data-target="#myModal" ng-click="modalFlag=true">
+              </div>
+              <div class="col-xs-3" ng-click="shareWeibo()">
+                <img src="/images/user-center/invite-sina.png" alt="">
+              </div>
+              <div class="col-xs-3" ng-click="shareQQ()">
+                <img src="/images/user-center/invite-qq.png" alt="">
+              </div>
+              <div class="col-xs-3">
+                <img src="/images/user-center/invite-copy.png" alt="" data-toggle="modal" data-target="#myModal" ng-click="modalFlag=false">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 ft-14 margin-t-20">
+        <div class="invite-content">
+          <div class="col-md-1 padding-b-5 credit-toggle">我的邀请</div>
+        </div>
+      </div>
+      <table class="table table-dashed">
+        <thead>
+          <tr>
+            <th>邀请用户</th>
+            <th>注册时间</th>
+            <th colspan="2">状态</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+            <td>{{item.user.name}}</td>
+            <td>{{item.user.createTime | date:'yyyy-MM-dd'}}</td>
+            <td><span ng-class="item.userAuth.realnameAuth ? 'ft-blue2' : 'ft-red2'">{{item.userAuth.realnameAuth ? '已认证' : '未认证'}}</span></td>
+            <td><span ng-class="item.account.investAmount > 0 ? 'ft-blue2' : 'ft-red2'">{{item.account.investAmount > 0 ? "已投资" : "未投资"}}</span></td>
+          </tr>
+          <tr ng-show="data.length <= 0">
+            <td colspan="4">
+              <div>
+                <p class="ft-18 ft-grey margin-t-20">暂无邀请记录，快去邀请好友吧！</p>
+                <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.activity.invite-landing">邀请好友</a></p>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ul class="pager">
+        <li>
+          <button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button>
+        </li>
+        {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
+        <li>
+          <button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button>
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="row">
-    <div class="right-title">我的邀请</div>
-  </div>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>邀请用户</th>
-        <th>注册时间</th>
-        <th>邀请奖励</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-        <td>{{item.user.name}}</td>
-        <td>{{item.user.createTime | date:'yyyy-MM-dd'}}</td>
-        <td>{{item.gift.amount}}</td>
-      </tr>
-    </tbody>
-  </table>
-  <ul class="pager">
-    <li>
-      <button class="btn btn-default btn-sm" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button>
-    </li>
-    {{currentPage +1 }} / {{numberOfPages()}} 共 {{data.length}} 条
-    <li>
-      <button class="btn btn-default btn-sm" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button>
-    </li>
-  </ul>
 </div>
+
+<!-- 点击复制链接弹出模态框 -->
+<div class="modal fade modal-top" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+       <div class="modal-header">
+          <button type="button" class="close" 
+             data-dismiss="modal" aria-hidden="true">
+                &times;
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+            <span ng-show="modalFlag">扫一扫微信邀请</span><span ng-show="!modalFlag">复制链接</span>
+          </h4>
+       </div>
+       <div class="modal-body" ng-show="!modalFlag">
+          <div class="modal-connect">
+            <p class="ft-14" >http://www.hongcai.com/register?inviteCode={{voucher.inviteCode}}</p>
+            <p class="ft-14">复制以上链接邀请好友，更多奖励等你哟!!</p>
+          </div> 
+          <button class="button orange-button copy-btn" ng-click="copyInviteUrl()">复制链接</button>
+       </div>
+       <div class="modal-body margin-t-30 margin-b-50" ng-show="modalFlag">
+        <div class="col-md-7 padding-l-90"><img ng-src="{{wechatQrCode}}" alt=""></div>
+        <div class="col-md-5 text-left ft-14 ft-grey">
+          <p class="margin-t-20">扫一扫微信分享</p>
+          <p>客服热线</p>
+          <p>400-990-7626</p>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+

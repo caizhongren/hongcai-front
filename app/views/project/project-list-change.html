@@ -179,11 +179,11 @@
         <p>项目状态：{{ item.statusText }}</p>
         <p><span class="pull-left">投资进度：</span><p role="progressbar" aria-valuenow="{{item.progress || 0}}" aria-valuemin="0" aria-valuemax="100" style="width: {{item.progress||0}}%;">{{item.progress||0 | number : 2}}%</p></p>
         <div class="col-xs-12" ng-show="item.progress < 100">
-                    <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})" ng-show="item.status != '6'"><i class="fa fa-shopping-cart"></i> 立即投资</a>
-                    <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})" ng-show="item.status == '6'"><i class="fa fa-shopping-cart"></i> 了解详情</a>
+                    <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})" ng-show="item.status != '6'"><i class="fa"></i> 立即投资</a>
+                    <a class="btn btn-danger btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})" ng-show="item.status == '6'"><i class="fa"></i> 了解详情</a>
                   </div>
                   <div class="col-xs-12" ng-show="item.progress >= 100">
-                    <a class="btn list-btn-default btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})"><i class="fa fa-shopping-cart"></i> 了解详情</a>
+                    <a class="btn list-btn-default btn-lg btn-block" ui-sref="root.project-details({projectId: item.id})"><i class="fa"></i> 了解详情</a>
                   </div>
       </div>
     </div>

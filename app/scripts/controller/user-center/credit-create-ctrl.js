@@ -1,8 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('CreditCreateCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService) {
-    $rootScope.redirectUrl = $location.path();
-    $rootScope.selectSide = 'credit';
     // 第一步
     $scope.creditStepFlag = 1;
     $scope.Math = window.Math;

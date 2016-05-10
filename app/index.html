@@ -29,7 +29,7 @@
     <base href="/">
     <meta name="fragment" content="!">
     <meta name="title" content="{{pageTitle}}">
-    <meta name="keywords" content="网贷平台，投资理财平台，投资理财项目">
+    <meta name="keywords" content="网贷平台, 投资理财平台, 投资理财项目">
     <meta name="description" content="宏财网，让高大上金融回归普通大众的互联网金融与网贷平台。严格的风控体系，第三方资金托管投资理财平台，为用户提供全方位的安全理财服务。">
     <meta name="renderer" content="webkit">
     <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
@@ -126,7 +126,7 @@
     <!-- Add your site or application content here -->
 
     <section ui-view="header"></section>
-    <section ui-view class="bg-white" autoscroll="true"></section>
+    <section ui-view class="bg-white8" autoscroll="true"></section>
     <section ui-view="service" class="hidden-xs hidden-sm"></section>
     <section ui-view="footer"></section>
 
@@ -205,11 +205,14 @@
     <script src="scripts/controller/main/banner-investmentplan-ctrl.js"></script>
     <script src="scripts/controller/project/guaranteepro-list-ctrl.js"></script>
     <script src="scripts/controller/project/investmentplan-list-ctrl.js"></script>
+    <script src="scripts/controller/project/fundsproject-list-ctrl.js"></script>
     <script src="scripts/controller/project/appointment-project-ctrl.js"></script>
     <script src="scripts/controller/project/project-category-ctrl.js"></script>
     <script src="scripts/controller/project/project-activity-group-ctrl.js"></script>
     <script src="scripts/controller/project/activity-details-ctrl.js"></script>
     <script src="scripts/controller/activity/lucky-draw-ctrl.js"></script>
+    <script src="scripts/controller/activity/invite-landing-ctrl.js"></script>
+
     <script src="scripts/controller/project/project-details-ctrl.js"></script>
     <script src="scripts/controller/project/investmentplan-details-ctrl.js"></script>
     <script src="scripts/controller/project/project-sponsorInstitution-ctrl.js"></script>
@@ -258,6 +261,7 @@
     <script src="scripts/controller/user-center/experience-money-ctrl.js"></script>
     <script src="scripts/controller/user-center/increase-coupon-ctrl.js"></script>
     <!-- 债券转让 -->
+    <script src="scripts/controller/project/experience-project-ctrl.js"></script>
     <script src="scripts/controller/project/credit-list-ctrl.js"></script>
     <script src="scripts/controller/project/credit-details-ctrl.js"></script>
     <script src="scripts/controller/order/credit-verify-ctrl.js"></script>
@@ -294,7 +298,10 @@
     <script src="scripts/service/enterprise/guarantee-service.js"></script>
     <script src="scripts/service/banner/friend-link-service.js"></script>
 
+    <script src="scripts/service/user-center/voucher-service.js"></script>
+
     <script src="scripts/service/DateUtils.js"></script>
+    <script src="scripts/service/ShareUtils.js"></script>
 
 
     <script src="scripts/directives/check-password.js"></script>
@@ -313,6 +320,8 @@
     <script src="scripts/directives/ieselectfix.js"></script>
     <script src="scripts/directives/auto-fill-sync.js"></script>
     <script src="scripts/directives/fancybox.js"></script>
+    <script src="scripts/directives/ng-clipboard.js"></script>
+
     <script src="scripts/filters/startfrom.js"></script>
     <script src="scripts/filters/menoyformat.js"></script>
     <script src="scripts/filters/addbracket.js"></script>

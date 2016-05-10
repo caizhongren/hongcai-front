@@ -6,18 +6,18 @@
     </div>
     <div class="main">
       <div class="padd row">
-        <div class="col-md-11 bg-grey6 padding-40">
+        <div class="col-md-11 bg-grey6 padding-40 padding-l-45 margin-l--20 margin-t-20 record-w">
           <img src="/images/usermoney3.png" alt="" class="fl">
           <div class="record-text">
             <p>账户资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.waitingCapital + capital.balance + capital.waitingProfit + capital.freezeCapital | number: 2}}</strong>元</p>
           </div>
-          <img src="/images/usermoney2.png" alt="" class="fl margin-l-30">
+          <img src="/images/usermoney2.png" alt="" class="fl margin-l-40">
           <div class="record-text">
             <p>可用资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.balance | number: 2}}</strong>元</p>
           </div>
-          <img src="/images/usermoney1.png" alt="" class="fl margin-l-30">
+          <img src="/images/usermoney1.png" alt="" class="fl margin-l-45">
           <div class="record-text">
             <p>冻结资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.freezeCapital | number: 2}}</strong>元</p>
@@ -29,22 +29,22 @@
         <div class="col-md-7 margin-l-45 record-change">
           <div class="col-xs-2 text-nowrap line-25 ft-bold">操作日期：</div>
           <div class="col-xs-2 text-nowrap">
-            <span ng-click="dateInterval=0;getDeals(currentPage);" class="project-noncheck" ng-class="{ true : 'project-yescheck', false : 'project-noncheck'}[dateInterval == 0]">
+            <span ng-click="dateInterval=0;getDeals(currentPage);" class="project-noncheck cursor-pointer" ng-class="{ true : 'project-yescheck', false : 'project-noncheck'}[dateInterval == 0]">
               全部
             </span>
           </div>
           <div class="col-xs-2 text-nowrap">
-            <span ng-click="dateInterval=7;getDeals(currentPage);" class="project-noncheck" ng-class="{ true: 'project-yescheck', false: 'project-noncheck'}[dateInterval == 7]">
+            <span ng-click="dateInterval=7;getDeals(currentPage);" class="project-noncheck cursor-pointer" ng-class="{ true: 'project-yescheck', false: 'project-noncheck'}[dateInterval == 7]">
               最近七天
             </span>
           </div>
           <div class="col-xs-2 text-nowrap">
-            <span ng-click="dateInterval=30;getDeals(currentPage);" class="project-noncheck" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 30]">
+            <span ng-click="dateInterval=30;getDeals(currentPage);" class="project-noncheck cursor-pointer" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 30]">
               一个月
             </span>
           </div>
           <div class="col-xs-2 text-nowrap">
-            <span ng-click="dateInterval=90;getDeals(currentPage);" class="project-noncheck" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 90]">
+            <span ng-click="dateInterval=90;getDeals(currentPage);" class="project-noncheck cursor-pointer" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 90]">
               三个月
             </span>
           </div>
@@ -98,7 +98,7 @@
           </li>
         </ul>
       </div> -->
-      <table class="table table-dashed">
+      <table class="table table-dashed record-w margin-t-40">
         <thead>
           <tr>
             <th>操作日期</th>

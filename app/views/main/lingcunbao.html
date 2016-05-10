@@ -1,5 +1,68 @@
 <div id="best-profit" class="panel panel-default">
-  <div class="col-xs-12 col-md-12 col-lg-12 bg-white" style="min-height:386px;" ng-repeat="item in fundsProjectProductList | limitTo: 1">
+  <div class="col-md-12 bg-white main-new-w padding-0 border-t-orange border-rb-grey5">
+    <div class="col-md-2 linear-gradient padding-0 left-new-w">
+      <h3 class="ft-30 padding-l-20 margin-t-20">零存宝</h3>
+      <p class="ft-18 padding-l-20 margin-b-0">零钱好管家</p>
+      <img src="/images/index/cut.png" alt="">
+      <div class="ft-16 padding-l-20 margin-t-40 padding-b-73 ft-white1">   
+        <p>投资当日计息</p>
+        <p>收益逐步递增</p>
+      </div>
+      <!-- <button class="ft-14 ft-white1 border-none margin-l-20 margin-t-30 cursor-pointer">查看更多&nbsp;&gt;</button> -->
+      <img src="/images/index/project01.png" alt="" class="pull-right margin-r-5">
+    </div>
+    <div class="col-md-6 border-r-5 padding-b-46" ng-repeat="item in fundsProjectProductList | limitTo: 1">
+      <div class="ft-orange margin-t-50 margin-b-30 margin-l-40">
+        <span class="ftw-b ft-20">零存宝</span> 
+        <span class="ft-20 ftw-b ft-black2">{{item.name}}</span>
+        <span class="ft-orange ft-14 border-orange margin-l-10 padding-5 padding-tb-3">100元起投</span>
+        <span class="ft-orange ft-14 border-orange margin-l-10 padding-5 padding-tb-3">最高限投1万元</span>
+      </div>
+      <div class="col-md-7 col-md-offset-4 padding-l-20">
+        <div class="row">
+          <span class="col-md-3 ft-72 ft-orange">{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}</span>
+          <div class="col-md-4 col-md-offset-1 ft-grey666 margin-t-30">
+            <p class="ft-18 margin-b-0">%</p>
+            <p class="ft-14">年化收益</p>
+          </div>
+        </div>
+        <div class="row margin-t-10 margin-b-30">
+          <div class="col-md-12 ft-14 ft-grey1">投资期限:
+            <span class="ft-orange">{{ item.product.sealingDays || 0}} </span>天&nbsp; &nbsp;可投金额:
+            <span class="ft-orange">{{ (item.total - (item.soldStock + item.occupancyStock) * item.increaseAmount) | noFractionCurrency:"":0 || 0}} </span>元
+          </div> 
+        </div>
+        <div class="row margin-l-5">
+          <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.current-deposit-details({number: item.number})">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 bg-grey-fd">
+      <div class="ft-orange margin-t-50 margin-b-30 margin-l-40">
+        <span class="ftw-b ft-20">新手体验标</span> 
+        <img src="images/index/xinshou.png" alt="" class="margin-l-10 margin-t--50">
+      </div>
+      <div class="col-md-12 margin-l-20">
+        <div class="row margin-l-5">
+          <p class="ft-16 ft-black2">我出本金你赚收益</p>
+        </div>
+        <div class="row margin-t-20 margin-b-30 padding-l-5">
+          <div class="col-md-5 ft-24 ft-orange ftw-b">9.6%</div> 
+          <div class="col-md-3 ft-18 ft-black2">{{(experienceInvestCount || 0  )/10000 | number:2}}万</div> 
+          <div class="col-md-3 ft-18 ft-black2">1天</div> 
+        </div>
+        <div class="row margin-t-10 margin-b-30 ft-14 ft-grey666 padding-l-5">
+          <div class="col-md-5">预期年化收益率</div> 
+          <div class="col-md-3">投资人数</div> 
+          <div class="col-md-3">投资期限</div> 
+        </div>
+        <div class="row margin-l-5">
+          <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.experience-project">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--<div class="col-xs-12 col-md-12 col-lg-12" style="min-height:386px;" ng-repeat="item in fundsProjectProductList | limitTo: 1">
     <div class="row">
       <div class="col-xs-12 col-md-3 col-lg-3 text-center min-height-386 bg-orange" style="position:relative;">
         <div class="red-tips" ng-show="item.status == 1">融资中</div>
@@ -26,10 +89,10 @@
             </a>
           </div>
           <div class="col-md-3 col-lg-3">
-            <!-- 短期理财收益远超货币基金 -->
-          </div>
+            短期理财收益远超货币基金 -->
+          <!-- </div>
           <!-- ng-show="projectVo.status === 6" -->
-          <div class="col-md-6 col-lg-6 text-right" ng-show="true" style="margin-top: -10px;">
+          <!--<div class="col-md-6 col-lg-6 text-right" ng-show="true" style="margin-top: -10px;">
             <img src="images/alarm.png">距离下个项目还有
               <span class="border bg-grey4 ft-white ft-30 padding-t-4">{{ lingcunbao._timeDown.hour || 00 }}</span><span class="ft-grey7 ft-30">:</span>
               <span class="border bg-grey4 ft-white ft-30 padding-t-4">{{ lingcunbao._timeDown.min || 00 }}</span><span class="ft-grey7 ft-30">:</span>
@@ -58,7 +121,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
 </div>
 <!-- <div class="row">
   <div class="col-xs-12 col-md-4 col-lg-4">

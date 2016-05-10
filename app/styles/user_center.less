@@ -366,8 +366,8 @@
 .projects-filter .row > .col-xs-12 > .row .col-xs-1 .project-check, .projects-filter .row > .col-xs-12 > .row .col-xs-2 .project-check {
   display: block;
   background-color: #fd8f3f;
-  height: 25px;
-  line-height: 25px;
+  height: 27px;
+  line-height: 27px;
   text-align: center;
   color: white;
 }
@@ -378,6 +378,7 @@
   line-height: 25px;
   text-align: center;
   padding:0px 10px;
+  color:#666;
 }
 .project-yescheck{
   display: block;
@@ -391,7 +392,7 @@
 .record, .investment,.reservation,.userCenter-news {
   .padd {
     padding-left: 75px;
-    padding-bottom: 20px;
+    padding-bottom: 45px;
     strong {
       .ft-red;
     }
@@ -515,6 +516,7 @@
     text-align: center;
     vertical-align: middle;
   }
+
 }
 #investment-contract {
   width: 20%
@@ -548,13 +550,13 @@
   .personal-data{
     background-color:white;
     overflow:auto;
-    padding:20px 0;
+    padding:30px 0;
     border-bottom:1px solid #dddddd;
     button{
-      border-radius:5px;
+      border-radius:3px;
     }
     a{
-      border-radius:5px;
+      border-radius:3px;
       padding:3px 5px;
     }
   }
@@ -568,8 +570,8 @@
   .per-data{
     background-color:white;
     overflow:auto;
-    padding:20px 0;
-    .col-md-1{
+    padding:30px 0;
+    .col-md-1{   
       padding-left:30px;
     }
     .col-md-11{
@@ -654,10 +656,16 @@
         width: 15%;
       }
     }
+    .yu-currency-style{
+      border-bottom:none;
+      border-left:1px solid #dddddd;
+      border-right:1px solid #dddddd;
+    }
     .main{
       background-color:white;
       overflow: auto;
       padding-top:20px;
+      padding-bottom:40px;
       overflow-x: hidden !important;
       .info-data{
         display:block;
@@ -680,15 +688,28 @@
         border-bottom:none !important;
       }
       table{
+        width:94%;
+        max-width:100%;
+        margin:10px auto;
+        td{
+          padding:10px 0;
+        }
+        th{
+          color:#595656;
+          border-bottom:none !important;
+          padding:5px 0;
+        }
         button{
           border-radius:3px;
+          height:24px;
+          font-size:14px;
         }
         .border-b-dash{
           border-bottom:1px dashed #e3e3e3 !important;
         }
-        .border-t-dash{
+        /*.border-t-dash{
           border-top:1px dashed #e3e3e3 !important;
-        }
+        }*/
       }
     }
   }
@@ -700,6 +721,8 @@
   background-color:#fffef5;
   border:1px solid #f7f4b7;
   padding:15px 10px;
+  margin-top:30px;
+  margin-bottom:30px;
   color:#ad6518;
   overflow:auto;
 }
@@ -736,7 +759,7 @@
   }
 }
 .cursor-pointer{
-  cursor:pointer;
+  cursor:pointer !important;
 }
 .span-money{
   width: 30px;
@@ -771,6 +794,27 @@
   float: left;
   margin-left:20px;
   padding-left: 20px;
+}
+.record-w{
+  width:880px !important;
+}
+.record-w1{
+  width:904px !important;
+}
+.xs-width{
+  width:148px !important;
+}
+.yu-record-text{
+  border-left:1px dotted #7f7f7f;
+  height:49px;
+}
+.yu-ft-14{
+  font-size:14px;
+  color:#686666;
+}
+.yu-ft-red2{
+  font-size:18px;
+  color:#f24848;
 }
 .table-dashed{
   thead{
@@ -813,6 +857,7 @@
 .credit-toggle{
   border-bottom: 3px solid #f9683c;
   color: #f9683c;
+  white-space: nowrap;
 }
 .bg-btn-red{
   background-color: #f83f1a !important;
@@ -820,6 +865,8 @@
 .bg-btn-grey{
   background-color: #bfbfbf !important;
   color:white !important;
+  height:24px;
+  line-height:22px;
 }
 .bg-btn-orange{
   background-color: #ff6022 !important;
@@ -899,7 +946,7 @@
   background-color: #848282 !important;
 }
 .setting-new{
-  border-top: 1px solid #e5e4e4;
+  border-top: 1px dashed #e5e4e4;
   padding: 20px 0;
   .text-label{
     width: 45%;
@@ -933,4 +980,145 @@
       color: white !important;
     }
   }
+}
+.buchong1{
+  position: absolute;
+  top:-4px;
+  right:-33px;
+}
+.buchong2{
+  position: absolute;
+  top:-4px;
+  right:21px;
+}
+
+.yu-bg-grey0{
+    background-color:#ffffff;
+}
+.yu-border-1{
+  border:1px solid #dddddd;
+  border-top:none;
+}
+.yu-bg-grey9{
+  background-color:#f9f9f9;
+  border:1px solid #880X130;
+  margin:30px 30px 30px 40px;
+}
+.yu-button{
+  width:130px;
+  height:36px;
+  color:#fff;
+  font-size:14px;
+  border-radius:3px;
+  margin-top:5px;
+}
+.bg-coupon-orange{
+  background-image: url("/images/user-center/coupon-orange.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-bottom: 0;
+  font-size: 24px;
+  margin-left: 20px;
+  padding:5px 0;
+}
+.bg-coupon-grey{
+  background-image: url("/images/user-center/coupon-grey.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  margin-bottom: 0;
+  font-size: 24px;
+  margin-left: 20px;
+  padding:5px 0;
+}
+.table-dashed{
+  .orange-button,.btn-grey-spirit{
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 27px !important;
+    line-height: 27px;
+    color:white;
+  }
+  .btn-grey-spirit,.btn-grey-spirit:hover{
+    background-color: #bfbfbf;
+    color: white;
+  }
+}
+.table-rate{
+  tr th:nth-child(1){width: 15%;}
+  tr th:nth-child(2){width: 20%;}
+  tr th:nth-child(3){width: 25%;}
+  tr th:nth-child(4){width: 20%;}
+  tr th:nth-child(5){width: 20%;}
+}
+.invite-line{
+  width: 95%;
+  margin:20px auto;
+  background-color: #f9f9f9;
+  height: 48px;
+  line-height: 48px;
+  white-space: nowrap;
+  .icon-invite{
+    width:12px;
+    height: 16px;
+    margin-right: 5px;
+  }
+}
+.invite-content{
+  width: 95%;
+  margin:0 auto;
+  .invite-code{
+    background-color: #f9f9f9;
+    height: 158px;
+    line-height: 158px;
+    .text-height{
+      line-height: 20px;
+      font-size: 14px;
+      color:#686666;
+      font-weight: bold;
+      padding-top: 55px;
+    }
+  }
+  .credit-toggle{
+    width: 86px;
+  }
+}
+.modal-top{
+  margin-top:164px;
+}
+.modal-body{
+  overflow: auto;
+  .modal-connect{
+    width:100%;
+    height:100px;
+    border:1px solid #cbcaca;
+    border-radius:5px;
+    background-color:#fff;
+    margin:50px auto;
+    padding:20px 50px;
+    box-shadow:0px 0px 1px 3px rgba(230,232,233,75%) inset;
+    p{
+      color:#989494;
+      font-size: 14px;
+    }
+  }
+  .copy-btn{
+    display:block;
+    margin:30px auto;
+    width:196px;
+    height:46px;
+    border-radius:5px;
+    font-size:16px;
+  }
+  .orange-button:hover{
+    color:white;
+  }
+}
+.credit-untoggle{
+  width: 86px;
+}
+.modal-open .btn, .modal-open .btn:hover{
+  border-color: #cccccc;
+}
+.border-bd-grey{
+  border-bottom:1px dashed #e5e4e4;
 }

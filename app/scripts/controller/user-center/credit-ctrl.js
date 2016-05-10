@@ -11,8 +11,6 @@ angular.module('hongcaiApp')
       return $scope.haveTrusteeshipAccount;
     }
 
-    $rootScope.redirectUrl = $location.path();
-    $rootScope.selectSide = 'credit';
 
 
     // 第一步
@@ -191,7 +189,7 @@ angular.module('hongcaiApp')
       });
     }
 
-    $scope.searchStatus = 1;
+    $scope.searchStatus = parseInt($stateParams.searchStatus) || 1;
     $scope.currentPage = 1;
     $scope.pageSize = 10;
 

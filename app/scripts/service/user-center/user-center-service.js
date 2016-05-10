@@ -91,15 +91,6 @@ angular.module('hongcaiApp')
       cancelOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/cancelOrder', {
         number: '$number'
       }),
-      generateContractPDF: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDF', {
-        projectId: '$projectId',
-        orderId: '$orderId'
-      }),
-      generateContractPDFModel: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDFModel', {}),
-      generatePartContractPDF: $resource(DEFAULT_DOMAIN + '/siteProject/generatePartContractPDF', {
-        projectId: '$projectId',
-        orderId: '$orderId'
-      }),
       luckyDraw: $resource(DEFAULT_DOMAIN + '/activity/luckyDraw', {}),
       getLuckyList: $resource(DEFAULT_DOMAIN + '/activity/getLuckyList', {}),
       getUnreadMsgCount: $resource(DEFAULT_DOMAIN + '/siteMsg/getUnreadMsgCount'),
@@ -152,10 +143,18 @@ angular.module('hongcaiApp')
       putCreditRightInPool: $resource(DEFAULT_DOMAIN + '/siteCredit/putCreditRightInPool', {
         creditRightId: '@creditRightId'
       }),
-      getUserExperienceMoneyDetail: $resource(DEFAULT_DOMAIN + '/siteUser/getUserExperienceMoneyDetail'),
+      userExperienceDeals: $resource(DEFAULT_DOMAIN + '/siteUser/userExperienceDeals', {
+        page : '@page',
+        pageSize : '@pageSize',
+        status : '@status'
+      }),
       getUserIncreaseRateCouponStatis: $resource(DEFAULT_DOMAIN + '/siteUser/getUserIncreaseRateCouponStatis'),
+      userIncreaseRateCoupons : $resource(DEFAULT_DOMAIN + '/siteUser/userIncreaseRateCoupons', {
+        page : '@page',
+        pageSize : '@pageSize',
+        status : '@status'
+      }),
       getUnUsedIncreaseRateCoupons: $resource(DEFAULT_DOMAIN + '/siteUser/getUnUsedIncreaseRateCoupons'),
       resetMobile: $resource(DEFAULT_DOMAIN + '/yeepay/resetMobile', {mobile:'@mobile'})
-
     };
   });

@@ -1,8 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('UserGiftCtrl', ['$location', '$scope', '$rootScope', '$state', '$stateParams', 'UserCenterService', function($location, $scope, $rootScope, $state, $stateParams, UserCenterService) {
-    $rootScope.redirectUrl = $location.path();
-    $rootScope.selectSide = 'gift-rebate';
     $scope.typeInvStatus = {
       '0': '未支付',
       '1': '已支付'

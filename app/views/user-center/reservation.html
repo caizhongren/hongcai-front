@@ -5,29 +5,29 @@
       <span class="tip">预约记录</span>
     </div>
     <div class="main">
-      <div class="padd row">
-        <div class="col-md-11 bg-grey6 padding-40">
+      <div class="padd row padding-b-30">
+        <div class="col-md-11 bg-grey6 padding-40 padding-r-0 record-w margin-l--20 margin-t-20">
           <img src="/images/usermoney5.png" alt="" class="col-xs-1">
-          <div class="record-text col-xs-2">
-            <p>投资总额：</p>
-            <p class="text-nowarp"><strong class="ft-red5 ft-24">{{ statistics.reserveAmount || 0  | number: 2 }}</strong>元</p>
+          <div class="record-text col-xs-2 xs-width">
+            <p>投资总金额（元）</p>
+            <p class="text-nowarp"><strong class="ft-red5 ft-24">{{ statistics.reserveAmount || 0  | number: 2 }}</strong></p>
           </div>
-          <img src="/images/usermoney6.png" alt="" class="col-xs-1">
+          <img src="/images/usermoney6.png" alt="" class="col-xs-1 margin-l-20">
           <div class="record-text col-xs-3">
-            <p>预约期的累计收益：</p>
-            <p><strong class="ft-red5 ft-24">{{ statistics.returnProfit || 0  | number: 2 }}</strong>元</p>
+            <p>预约期累计收益（元）</p>
+            <p><strong class="ft-red5 ft-24">{{ statistics.returnProfit || 0  | number: 2 }}</strong></p>
           </div>
-          <img src="/images/usermoney4.png" alt="" class="col-xs-1">
+          <img src="/images/usermoney4.png" alt="" class="col-xs-1 margin-l--20">
           <div class="record-text col-xs-3">
-            <p class="text-nowarp">超过同期余额宝：</p>
-            <p><strong class="ft-red5 ft-24">{{ statistics.returnProfit * 0.1 || 0 | number: 2 }}</strong>元</p>
+            <p class="text-nowarp">超同期货币基金（元）</p>
+            <p><strong class="ft-red5 ft-24">{{ statistics.returnProfit * 0.1 || 0 | number: 2 }}</strong></p>
           </div>
         </div>
         <div class="col-md-1 row"></div>
       </div>
-      <div class="panel panel-defaul">
+      <div class="panel panel-defaul no-boxshadow">
       <ul class="list-group">
-        <li class="list-group-item projects-filter">
+        <li class="list-group-item projects-filter border-b-none padding-b-20 padding-t-0 margin-l--56">
           <div class="row">
             <div class="col-xs-12">
               <div class="row">
@@ -87,22 +87,22 @@
               <div class="row">
                 <div class="col-xs-2 text-right text-nowrap ft-bold">日期：</div>
                 <div class="col-xs-2 text-nowrap">
-                  <span ng-click="dateInterval=0;getReserveOrders();" class="project-noncheck" ng-class="{ true : 'project-yescheck', false : 'project-noncheck'}[dateInterval == 0]">
+                  <span ng-click="dateInterval=0;getReserveOrders();" class="project-noncheck cursor-pointer" ng-class="{ true : 'project-yescheck', false : 'project-noncheck'}[dateInterval == 0]">
                     全部
                   </span>
                 </div>
                 <div class="col-xs-2 text-nowrap">
-                  <span ng-click="dateInterval=7;getReserveOrders();" class="project-noncheck" ng-class="{ true: 'project-yescheck', false: 'project-noncheck'}[dateInterval == 7]">
+                  <span ng-click="dateInterval=7;getReserveOrders();" class="project-noncheck cursor-pointer" ng-class="{ true: 'project-yescheck', false: 'project-noncheck'}[dateInterval == 7]">
                     最近七天
                   </span>
                 </div>
                 <div class="col-xs-2 text-nowrap">
-                  <span ng-click="dateInterval=30;getReserveOrders();" class="project-noncheck" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 30]">
+                  <span ng-click="dateInterval=30;getReserveOrders();" class="project-noncheck cursor-pointer" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 30]">
                     一个月
                   </span>
                 </div>
                 <div class="col-xs-2 text-nowrap">
-                  <span ng-click="dateInterval=90;getReserveOrders();" class="project-noncheck" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 90]">
+                  <span ng-click="dateInterval=90;getReserveOrders();" class="project-noncheck cursor-pointer" ng-class="{true: 'project-yescheck', false: 'project-noncheck' }[dateInterval == 90]">
                     三个月
                   </span>
                 </div>
@@ -111,7 +111,7 @@
           </div>
         </li>
       </ul>
-      <table class="table table-dashed">
+      <table class="table table-dashed record-w">
         <thead>
           <tr>
             <th>项目名称</th>

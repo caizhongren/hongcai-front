@@ -4,6 +4,7 @@ angular.module('hongcaiApp')
     $scope.spCountDown = -1;
 
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
+    // alert(screen.width);
 
 
     $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
@@ -133,7 +134,8 @@ angular.module('hongcaiApp')
 
     // 媒体报道
     AboutUsService.indexTextList.get({
-      category: 1
+      category: 1,
+      pageSize: 4
     }, function(response) {
       if (response.ret === 1) {
         $scope.mediaList = response.data.textList;
@@ -142,13 +144,15 @@ angular.module('hongcaiApp')
 
     // 宏财研究院
     AboutUsService.indexTextList.get({
-      category: 4
+      category: 4,
+      pageSize: 4
     }, function(response) {
       if (response.ret === 1) {
         $scope.searchList = response.data.textList;
         // 宏财动态
         AboutUsService.indexTextList.get({
-          category: 3
+          category: 3,
+          pageSize: 4
         }, function(response) {
           if (response.ret === 1) {
             $scope.trendList = response.data.textList;
@@ -197,6 +201,14 @@ angular.module('hongcaiApp')
     // 最近30天投资排行
     MainService.monthInvest.get(function(response) {
       $scope.monthInvestList = response.data.investAmounts;
+    });
+
+    //体验金项目数据
+    ProjectService.getExperienceProjectDetail.get({}, function(projectDetails) {
+      if (projectDetails.ret === 1) {
+        // $scope.project = projectDetails.data.project;
+        $scope.experienceInvestCount = projectDetails.data.investCount;
+      } 
     });
 
     // 处理推广流量统计

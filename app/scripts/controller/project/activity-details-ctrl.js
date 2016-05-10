@@ -1,7 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('ActivityDetailsCtrl', function($scope, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, $timeout, toaster, DateUtils) {
-  $rootScope.redirectUrl = $location.path();
 
   var activityDetails = ProjectService.activityDetails.get({
     number: $stateParams.number,
@@ -129,9 +128,5 @@ angular.module('hongcaiApp')
     $state.go($scope.isLogged === true ? 'root.userCenter.gift-overview' : 'root.login');
   };
 
-  $scope.toLogin = function(){
-      var thisUrl = $location.path();
-      $location.path('/login').search({redirectUrl: thisUrl});
-  };
 });
 

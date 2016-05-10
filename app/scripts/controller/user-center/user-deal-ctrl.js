@@ -4,7 +4,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('UserDealCtrl', function ($scope, $rootScope, toaster, UserCenterService) {
-    $rootScope.selectSide = 'record';
     $scope.type = 0;
     $scope.dateInterval = 0;
     $scope.dealType = 0;

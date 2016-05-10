@@ -1,11 +1,11 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('WithdrawCtrl', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, $alert) {
+
     var currentDate = new Date();
     currentDate.setDate(currentDate.getDate() + 1);
     $scope.nextDay = currentDate;
 
-    $rootScope.selectSide = $location.path().substr($location.path().indexOf('/') + 1);
     $scope.availableCash = 0;
     UserCenterService.getUserAvailableCash.get({}, function(response) {
       // console.log(response);
