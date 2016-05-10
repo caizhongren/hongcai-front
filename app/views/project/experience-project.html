@@ -48,7 +48,7 @@
 			</div>
 			<div class="col-md-4 padding-l-35">
 				<div class="xs-11 padding-t-20">
-					<p class="ft-14">累计投资金额：<span class="ft-30 ftw-b ft-offGrey">{{project.soldStock}}</span>元</p>
+					<p class="ft-14">累计投资金额：<span class="ft-30 ftw-b ft-offGrey">{{project.soldStock | number:0}}</span>元</p>
 				</div>
 				<div class="col-xs-11 padding-t-10 padding-b-30 padding-l-0">
 					<input type="text" value="{{account.experienceAmount || 0| number : 2}} 元体验金" class="border-grey1 input-bg-grey input-size" readonly="readonly">
