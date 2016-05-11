@@ -1603,7 +1603,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
   ];
   // 不需要显示header的path
   var notShowHeaderRoute = [
-    'novice-guide'
+    'novice-guide',
+    'login'
   ];
 
   
