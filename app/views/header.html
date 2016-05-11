@@ -42,7 +42,7 @@
       </div>
     </div>
   </nav>
-  <nav id="major-bar" class="navbar navbar-default navbar-static-top border-b-none" role="navigation">
+  <nav id="major-bar" class="navbar navbar-default navbar-static-top border-b-none" role="navigation" ng-hide="isNoviceGuide">
     <div class="container padding-l-0">
       <ul class="nav navbar-nav">
         <a class="navbar-brand logo-img-2 hidden-xs" href="/" style="margin-top:20px;">&nbsp;</a>
@@ -67,7 +67,7 @@
         </li>-->
         <li><a ui-sref="root.safe" ng-class="{'toggle-navbar': firstPath == 'safe' }" rel="nofollow" class="ft-grey1 ">安全保障</a>
         </li>
-        <li><a href="/novice-guide.html" ng-class="{'toggle-navbar': firstPath == 'banner-partner' }" rel="nofollow" class="ft-grey1 ">新手引导</a>
+        <li><a ui-sref="root.novice-guide" ng-class="{'toggle-navbar': firstPath == 'banner-partner' }" rel="nofollow" class="ft-grey1 ">新手引导</a>
         </li>
         <li><a ui-sref="root.about-us.introduction-of-platform" ng-class="{'toggle-navbar': firstPath == 'introduction-of-platform' }" rel="nofollow" class="ft-grey1 ">关于我们</a>
         </li>

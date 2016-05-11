@@ -1522,14 +1522,16 @@ hongcaiApp
       }
     })
     /*-------------  新手引导页面   ----------------------*/
-    // .state('root.novice-guide', {
-    //   url: '/novice-guide',
-    //   views: {
-    //     '': {
-    //       templateUrl: 'views/novice-guide.html',
-    //     }
-    //   }
-    // })
+    .state('root.novice-guide', {
+      url: '/novice-guide',
+      views: {
+        '': {
+          templateUrl: 'views/novice-guide.html',
+          controller: 'NoviceGuideCtrl',
+          controllerUrl: 'scripts/controller/help-center/experience-project-ctrl'
+        }
+      }
+    })
       /*---------------- traffic import route  ----------------------*/
       .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',
@@ -1609,6 +1611,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
   
 
   $rootScope.$on('$stateChangeStart', function(event, toState) {
+    $rootScope.isNoviceGuide = false;
+
     var title = '网贷平台，投资理财平台，投资理财项目-宏财网';
     if (toState.data && toState.data.title) {
       title = toState.data.title + ' - 要理财，上宏财!';
