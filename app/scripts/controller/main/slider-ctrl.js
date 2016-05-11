@@ -19,13 +19,13 @@ angular.module('hongcaiApp')
       src: 'images/banner-new/banner03.png',
       href: 'http://mp.weixin.qq.com/s?__biz=MzA5Nzg0MzA5OQ==&mid=400520084&idx=1&sn=972091ed5d1ebceb6a96a0067cbb1294#rd',
       name: '领现金最高50元'
-    }, */{
+    }, {
       mimeType: 'image/png',
       src: 'images/banner-new/banner04.png',
       href: '/activity/invite',
       name: '邀好友注册、领150元现金'
 
-    }/*, {
+    }, {
       mimeType: 'image/jpg',
       src: 'images/banner/banner002.jpg',
       href: '/consultant-team',

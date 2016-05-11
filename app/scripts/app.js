@@ -1492,16 +1492,16 @@ hongcaiApp
     })
 
     /*-------------  邀请活动落地页   ----------------------*/
-      .state('root.activity.invite-landing', {
-        url: '/invite',
-        views: {
-          '': {
-            templateUrl: 'views/invite-landing.html',
-            controller: 'InviteLandingCtrl',
-            controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
-          }
-        }
-      })
+      // .state('root.activity.invite-landing', {
+      //   url: '/invite',
+      //   views: {
+      //     '': {
+      //       templateUrl: 'views/invite-landing.html',
+      //       controller: 'InviteLandingCtrl',
+      //       controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
+      //     }
+      //   }
+      // })
     /*-------------  送现金活动落地页   ----------------------*/
     .state('root.activity.send-money', {
       url: '/send-money',
