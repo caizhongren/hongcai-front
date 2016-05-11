@@ -95,22 +95,22 @@
                 </section>
                 <section ng-if="tab.title==='加入记录'">
                     <div ng-show="isLogged">
-                        <table class="table table-hover margin-auto tab-w" style="margin-top:50px;">
+                        <table class="table table-hover margin-auto tab-w" style="margin-top:50px; ">
                             <!-- 兼容 firefox -->
                             <thead>
                                 <tr>
-                                    <th>序号</th>
-                                    <th>投资人</th>
-                                    <th>投标金额</th>
-                                    <th>成交时间</th>
+                                    <th class="text-center">序号</th>
+                                    <th class="text-center">投资人</th>
+                                    <th class="text-center">投标金额</th>
+                                    <th class="text-center">成交时间</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="order in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-                                    <td>{{order.id}}</td>
-                                    <td>{{order.userName}}</td>
-                                    <td>{{order.orderAmount| number : 0}}元</td>
-                                    <td>{{order.createTime | date: "yy-MM-dd"}}</td>
+                                    <td align="center">{{order.id}}</td>
+                                    <td align="center">{{order.userName}}</td>
+                                    <td align="center">{{order.orderAmount| number : 0}}元</td>
+                                    <td align="center">{{order.createTime | date: "yy-MM-dd"}}</td>
                                 </tr>
                             </tbody>
                         </table>
