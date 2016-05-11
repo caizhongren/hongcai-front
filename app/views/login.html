@@ -62,8 +62,8 @@
             <label for="account">用户名</label>
           </div>
           <div class="col-md-12 col-lg-12">-->
-            <input class="login-input" type="text" placeholder="请输入手机号码" id="account" name="account" ng-model="user.account" required auto-fill-sync autofocus /><!--<span class="user-icon"></span> 
-          </div>-->
+            <span class="user-icon2"><img src="/images/login/login-user.png" alt=""></span><input class="login-input" type="text" placeholder="请输入手机号码" id="account" name="account" ng-model="user.account" required auto-fill-sync autofocus /> 
+          <!--</div>-->
         </div>
         <div ng-if="loginForm.account.$dirty && loginForm.account.$invalid" class="col-lg-12 col-md-12 margin-b-15">
           <div ng-if="loginForm.account.$error.required" class="row margin-t-20">
@@ -75,7 +75,7 @@
             <label for="account">密码</label>
           </div>
           <div class="col-md-12 col-lg-12">-->
-            <input class="login-input" type="password" placeholder="请输入您的密码" name="password" ng-model="user.password" required auto-fill-sync autofocus />
+            <span class="user-pwd2"><img src="/images/login/login-pwd.png" alt=""></span><input class="login-input" type="password" placeholder="请输入您的密码" name="password" ng-model="user.password" required auto-fill-sync autofocus />
             <!--<span class="pwd-icon"></span>
           </div>-->
         </div>

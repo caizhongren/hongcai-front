@@ -1628,9 +1628,9 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       $rootScope.showFooter = true;
     }
 
-    $rootScope.showHeader = false;
-    if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) === -1) {
-      $rootScope.showHeader = true;
+    $rootScope.showHeader = true;
+    if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1) {
+      $rootScope.showHeader = false;
     }
 
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
