@@ -44,6 +44,10 @@
       color:#fff;
       opacity: 1 !important;
     }
+    .register-btn{
+      width:302px !important;
+      height:50px !important;
+    }
   }
   .form-group1 {
     div:nth-child(1) {
@@ -171,6 +175,52 @@
       }
     }
   }
+  .new-form-group2 {
+    div:nth-child(1) {
+      text-align: right;
+      font-size: 16px;
+      color: #383838;
+      height: 46px;
+      line-height: 46px;
+      padding-left: 0;
+      padding-right: 0;
+      label {
+        width: 66%;
+        padding: 0 10px;
+        margin-right: 10px;
+        font-size:14px;
+        color:#333;
+      }
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        /* chrome*/
+        label:after {
+          content: ".";
+          display: inline-block;
+          width: 100%;
+          overflow: hidden;
+          height: 0;
+        }
+      }
+    }
+    div:nth-child(2) {
+      border: 1px solid #e6e4e4;
+      width:302px;
+      height: 40px;
+      line-height: 40px;
+      box-shadow:2px 2px #f7f7f7 inset;
+      z-index: 999;
+      input {
+        font-size: 14px;
+        width: 100%;
+        border: none;
+        background-color: white;
+        margin: 0;
+        //padding: 0 !important;
+        height: 37px;
+        padding-left: 20px;
+      }
+    }
+  }
   .form-group3 {
     div:nth-child(1) {
       text-align: right;
@@ -230,6 +280,66 @@
         height: 44px;
         background-color: white;
         float: right;
+      }
+    }
+  }
+  .new-form-group3 {
+    div:nth-child(1) {
+      text-align: right;
+      font-size: 16px;
+      color: #383838;
+      height: 46px;
+      line-height: 46px;
+      padding-left: 0;
+      padding-right: 0;
+      label {
+        padding: 0 10px;
+        margin-right: 10px;
+        font-size: 14px;
+      }
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        /* chrome*/
+        label:after {
+          content: ".";
+          display: inline-block;
+          width: 100%;
+          overflow: hidden;
+          height: 0;
+        }
+      }
+    }
+    div:nth-child(2) {
+      height: 46px;
+      line-height: 46px;
+      z-index: 999;
+      padding: 0;
+      input {
+        width: 61%;
+        font-size: 14px;
+        background-color: white;
+        margin: 0;
+        padding: 0 15px !important;
+        border: 1px solid #e6e4e4;
+        width: 213px;
+        height: 40px;
+        line-height: 40px;
+        box-shadow: 2px 2px #f7f7f7 inset;
+        z-index: 999;
+      }
+      button {
+        width: 78px;
+        color: #fff;
+        font-size: 14px;
+        height: 40px;
+        line-height:40px;
+        background-color: #ff7d26;
+        margin-left: 6px;
+      }
+      button.capcha {
+        box-shadow: 2px 2px #f7f7f7 inset;
+        border: 1px solid #e6e4e4;
+        background-color:#fff !important;
+        color:#000 !important;
       }
     }
   }
@@ -368,7 +478,7 @@
 
 .input-tips {
   font-size: 12px;
-  color: #d8271c;
+  color: #e82c3a;
 }
 
 .pic-verify {
@@ -394,12 +504,13 @@
 
 .p-checkbox {
   float: left;
-  margin-top: 0 !important;
+  margin-top: 3px !important;
 }
 
 .p-remember {
   float: left;
   font-size: 12px;
+  color:#666;
 }
 
 .regist-right-area {
@@ -696,4 +807,26 @@ input:-webkit-autofill {
   height: 44px;
   background: url('/images/login/logo-img-login.png');
   cursor: pointer;
+}
+.logo-img-register{
+  display: block;
+  width: 243px;
+  height: 44px;
+  background: url('/images/login/logo-img-register.png');
+  cursor: pointer;
+}
+//注册
+#register{
+  .register-header{
+    height:80px;
+    font-size:14px;
+    color:#333;
+    line-height:80px;
+    .line{
+      width:1051px;
+      border-bottom:1px solid #000;
+    }
+
+    
+  }
 }

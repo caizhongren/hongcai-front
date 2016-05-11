@@ -171,7 +171,8 @@ hongcaiApp
         url: '/register?inviteCode',
         views:{
           '':{
-            templateUrl:'views/register/register-new.html',
+            // templateUrl:'views/register/register-new.html',
+            templateUrl:'views/register/register-new2.html',
             controller: 'RegisterMobileCtrl',
             controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
           }
@@ -1601,12 +1602,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     'register',
     'invite-landing',
     'send-money',
-    'novice-guide'
+    'novice-guide',
+    'register'
   ];
   // 不需要显示header的path
   var notShowHeaderRoute = [
     'novice-guide',
-    'login'
+    'login',
+    'register'
   ];
 
   
