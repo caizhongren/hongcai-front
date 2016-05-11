@@ -1521,6 +1521,17 @@ hongcaiApp
         }
       }
     })
+    /*-------------  新手引导页面   ----------------------*/
+    .state('root.novice-guide', {
+      url: '/novice-guide',
+      views: {
+        '': {
+          templateUrl: 'views/novice-guide.html',
+          controller: 'NoviceGuideCtrl',
+          controllerUrl: 'scripts/controller/help-center/experience-project-ctrl'
+        }
+      }
+    })
       /*---------------- traffic import route  ----------------------*/
       .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',
@@ -1589,12 +1600,19 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     'login',
     'register',
     'invite-landing',
-    'send-money'
+    'send-money',
+    'novice-guide'
+  ];
+  // 不需要显示header的path
+  var notShowHeaderRoute = [
+    'novice-guide'
   ];
 
   
 
   $rootScope.$on('$stateChangeStart', function(event, toState) {
+    $rootScope.isNoviceGuide = false;
+
     var title = '网贷平台，投资理财平台，投资理财项目-宏财网';
     if (toState.data && toState.data.title) {
       title = toState.data.title + ' - 要理财，上宏财!';
@@ -1607,6 +1625,11 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     $rootScope.showFooter = false;
     if (notShowFooterRoute.indexOf($location.path().split('/')[1]) === -1) {
       $rootScope.showFooter = true;
+    }
+
+    $rootScope.showHeader = false;
+    if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) === -1) {
+      $rootScope.showHeader = true;
     }
 
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
