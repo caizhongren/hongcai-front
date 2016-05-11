@@ -1522,14 +1522,14 @@ hongcaiApp
       }
     })
     /*-------------  新手引导页面   ----------------------*/
-    .state('root.novice-guide', {
-      url: '/novice-guide',
-      views: {
-        '': {
-          templateUrl: 'views/activity/novice-guide.html',
-        }
-      }
-    })
+    // .state('root.novice-guide', {
+    //   url: '/novice-guide',
+    //   views: {
+    //     '': {
+    //       templateUrl: 'views/novice-guide.html',
+    //     }
+    //   }
+    // })
       /*---------------- traffic import route  ----------------------*/
       .state('root.registerMobile-sanGuo', {
         url: '/register-mobile-sanGuo/:from',
