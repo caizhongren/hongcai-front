@@ -1,6 +1,6 @@
 <div class="institution-list">
   <div class="logo-border text-center">
-    <img ng-src="{{baseFileUrl+item.image}}" width="152" height="168" alt="{{item.name}}">
+    <img ng-src="{{baseFileUrl+item.image}}" width="152" height="168" alt="{{item.name}}" class="cursor-pointer" ui-sref="root.project-details({number: item.number})"> 
   </div>
   <div class="content-right">
     <div class="col-xs-8">

@@ -1526,7 +1526,9 @@ hongcaiApp
       url: '/novice-guide',
       views: {
         '': {
-          templateUrl: 'views/activity/novice-guide.html',
+          templateUrl: 'views/novice-guide.html',
+          controller: 'NoviceGuideCtrl',
+          controllerUrl: 'scripts/controller/help-center/experience-project-ctrl'
         }
       }
     })
@@ -1610,6 +1612,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
   
 
   $rootScope.$on('$stateChangeStart', function(event, toState) {
+    $rootScope.isNoviceGuide = false;
+
     var title = '网贷平台，投资理财平台，投资理财项目-宏财网';
     if (toState.data && toState.data.title) {
       title = toState.data.title + ' - 要理财，上宏财!';
