@@ -1645,7 +1645,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       })
       .success(function(response) {
 
-        if (response.ret !== -1 && response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
+        if (response.ret !== -1 && response.data && response.data.userDetail !== '' && response.data.userDetail.user !== undefined && response.data.userDetail.user !== null) {
           $rootScope.isLogged = true;
           $rootScope.loginUser = response.data.userDetail.user;
           $rootScope.loginName = response.data.userDetail.user.name;
