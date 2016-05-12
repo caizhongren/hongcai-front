@@ -36,8 +36,5 @@ angular.module('hongcaiApp')
     $scope.copyInviteUrl = function(){
       ngClipboard.toClipboard('http://www.hongcai.com/register?inviteCode=' + $scope.inviteCode);
       toaster.pop('success', '复制成功！');
-
     }
-    
-
   });
