@@ -1647,12 +1647,13 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
         if (response.ret !== -1 && response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
           $rootScope.isLogged = true;
-          $rootScope.loginName = response.data.name;
+          $rootScope.loginUser = response.data.userDetail.user;
+          $rootScope.loginName = response.data.userDetail.user.name;
           $rootScope.securityStatus = response.data.securityStatus;
           $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
-          $rootScope.account = response.data.account;
+          $rootScope.account = response.data.userDetail.account;
           $rootScope.unreadCount = response.data.unreadCount;
-          $rootScope.userType = response.data.userType;
+          $rootScope.userType = response.data.userDetail.user.userType;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
