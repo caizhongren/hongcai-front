@@ -1,13 +1,13 @@
 <!--网站公告-->
 <div class="right-area col-md-9 col-lg-9">
   <div class="row">
-    <div class="right-title-about">网站公告</div>
+    <div class="right-title-about2"><p>网站公告</p></div>
   </div>
   <div class="row">
-    <div class="introduction-area col-md-12 col-lg-12">
-      <div class="web-show" ng-repeat="item in list.list">
-        <a ui-sref="root.about-us.web-site-notice-detail({textId: item.id})">{{item.title| limitTo: 30 }}...</a>
-        <p class="p-date">{{item.createTime | date:'yyyy-MM-dd'}}</p>
+    <div class="introduction-area col-md-12 col-lg-12 margin-l-30">
+      <div class="web-show border-bd-grey5" ng-repeat="item in list.list">
+        <a class="ft-14 ft-grey555" ui-sref="root.about-us.web-site-notice-detail({textId: item.id})">{{item.title| limitTo: 30 }}...</a>
+        <p class="ft-12 ft-blue4 margin-t-10">{{item.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
       </div>
     </div>
 

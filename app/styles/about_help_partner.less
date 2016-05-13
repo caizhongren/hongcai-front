@@ -17,7 +17,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  background-color:#fafafa;
+  //background-color:#fafafa;
   position:relative;
   sidebar-pic{
     position:absolute;
@@ -39,12 +39,24 @@
 .tips-area p {
   //padding-top: 12px;
   text-decoration: none;
-  padding-left: 30px;
-  margin: 0 auto;
+  padding-left: 10px;
+  margin: 0 20px;
   font-size: 14px;
   height: 100%;
   text-align: left;
-  line-height:45px;
+  line-height:50px;
+  color:#555;
+}
+.tips-header p {
+  text-decoration: none;
+  padding-left: 30px;
+  font-size: 16px;
+  height: 100%;
+  text-align: left;
+  line-height:50px;
+  color:#fff;
+  background-color:#ff7d26;
+  cursor: default;
 }
 .on-it div, .left-show-area {
   width: 4px;
@@ -53,9 +65,15 @@
 }
 
 .on-it {
-  background-color: #f6f6f6;
+  //background-color: #f6f6f6;
   text-decoration: none;
-  color: #fd8f3f;
+  p{
+    color: #ff7d26;
+    border-bottom:1px solid #ff7d26;
+    span{
+      color: #ff7d26;
+    }
+  }
   div {
     float: left;
     background-color: #fd8f3f;
@@ -73,16 +91,18 @@
   }
 }
 .about-left-area {
-  margin-top: 30px;
+  //margin-top: 30px;
   background-color: #fff;
-  color: #333 !important;
-  border-radius: 5px;
+  color: #555;
+  //border-radius: 5px;
   font-size: 14px;
-  border: 1px solid #dbdbdb;
-  border-top: 0px solid #dbdbdb;
+  width:220px;
+  height: 866px;
+  //border: 1px solid #dbdbdb;
+  //border-top: 0px solid #dbdbdb;
   a {
     text-decoration: none !important;
-    font-weight: bold;
+    //font-weight: bold;
   }
   a:active{
     color:#fd8f3f !important;
@@ -97,11 +117,15 @@
   margin-left: 30px;
   margin-bottom: 30px;
   min-height: auto !important;
-  background-color: #f0f0f0;
-  color: #333 !important;
+  //background-color: #f0f0f0;
+  background-color: #fff;
+  //color: #333 !important;
+  color: #555 !important;
   border-radius: 0px;
   font-size: 14px;
-  width: 960px;
+  width: 950px;
+  height:866px;
+  min-height:100%;
   overflow: auto;
   overflow-x: hidden;
 }
@@ -127,6 +151,21 @@
   background: url(/images/sprite.png) no-repeat;
   background-position: -858px -213px;
  }
+ .right-title-about2 {
+  width: 890px;
+  height: 30px;
+  padding-bottom: 30px;
+  padding-left: 60px;
+  margin:20px 30px 30px 45px;
+  font-size: 18px;
+  border-bottom:1px solid #e6e4e4;
+  p{
+    border-bottom:3px solid #ff7d26;
+    width: 83px;
+    padding-bottom: 7px;
+    padding-left: 5px;
+  }
+ }
  // aboutUs + helpCenter + partner + userCenter  public end
 .help-ico {
   background: url(/images/sprite.png) no-repeat;
@@ -142,7 +181,7 @@
 }
 .p-click {
   cursor: pointer;
-  line-height: 18px;
+  line-height: 28px;
   &:hover {
     color: #fd8f3f;
   }
@@ -160,7 +199,7 @@
 }
 .introduction-area {
   padding: 0px 72px !important;
-  color: #333;
+  color: #555 !important;
 }
 .details-title {
   margin: 0px auto 10px auto;
@@ -179,11 +218,12 @@
   height: 135px;
   border-bottom: 1px solid #dfdfdf;
   margin-bottom: 20px;
+  margin-left: 35px;
 }
 .p-title-dynamic{
-  color: #333;
+  color: #555 !important;
   font-weight: bold;
-  height: 30px;
+  height: 20px;
   font-size: 14px;
   display: block;
   white-space: nowrap;
@@ -194,10 +234,10 @@
   }
 }
 .p-dynamic-show{
-  color: #333;
+  color: #555;
   height: 65px;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 28px;
   overflow: hidden;
   &:hover{
     color: #9a9595;
@@ -246,12 +286,40 @@
   margin-bottom: 25px;
 }
  .table-link-us tr{
-  height: 30px;
+  height: 40px;
+  border-bottom:1px dashed #e6e4e4;
+  line-height: 40px;
  }
 .table-link-us{
   font-size: 14px;
-  color: #333;
+  color: #555;
+  width:98.2%;
+  margin-left: 40px;
 }
+.table-link-us{
+  span{
+    display:inline-block;
+    width:26px;
+    height:26px;
+    margin-right:19px;
+    background:url('/images/about-us/bg-left.png') no-repeat 9px 13px;
+  }
+  span.email{
+    background:url('/images/about-us/bg-left.png') no-repeat 9px -27px;
+  }
+  span.url{
+    background:url('/images/about-us/bg-left.png') no-repeat 8px -66px;
+  }
+  span.weibo{
+    background:url('/images/about-us/bg-left.png') no-repeat 9px -106px;
+  }
+  span.weixin{
+    background:url('/images/about-us/bg-left.png') no-repeat 9px -146px;
+  }
+  span.addr{
+    background:url('/images/about-us/bg-left.png') no-repeat 9px -186px;
+  }
+} 
 .p-right {
   float: right;
   height: 20px;
@@ -270,19 +338,24 @@
   text-overflow: ellipsis;
 }
 .web-show {
-  height: 40px;
-  padding: 10px 5px;
+  height: 83px;
+  padding: 15px 5px;
   .p-date {
-  margin-top: 0px;
+    margin-top: 0px;
+  }
+  .web-show a{
+    font-size: 14px;
+    color: #555;
+  }
+  .web-show p{
+    font-size: 14px;
+    color: #7ca6ec;
+  }
+  .web-show a:hover{
+    color: #fd8f3f;
+  }
 }
-}
-.web-show a, .web-show p{
-  font-size: 14px;
-  color: #333;
-}
-.web-show a:hover{
-  color: #fd8f3f;
-}
+
 #pagination-text {
   text-align: center;
 }

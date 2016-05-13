@@ -1050,6 +1050,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.about-us.introduction-of-projecter', {
+        url: '/introduction-of-projecter',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/introduction-of-projecter.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
       /*------------------  partner  ------------------------*/
       .state('root.partner', {
         abstract: true,
