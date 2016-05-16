@@ -1591,6 +1591,18 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     };
   }
 
+  $rootScope.reload = function() {
+    $state.reload();
+  }
+
+  $rootScope.showLoginModal = function(){
+    $modal({
+      scope: $rootScope,
+      template: 'views/modal/modal-toLogin.html',
+      show: true
+    });
+  }
+
   // 需要用户登录才能看到的url
   var routespermission = [
     'user-center'
@@ -1623,19 +1635,12 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     }
     $rootScope.pageTitle = title;
 
-    
-
-
-
-
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
-    $checkSessionServer
-      .error(function(response) {
+    $checkSessionServer.error(function(response) {
 
         window.location.href = config.domain + '/sys-update.html';
         return;
-      })
-      .success(function(response) {
+    }).success(function(response) {
 
         if (response.ret !== -1 && response.data && response.data.userDetail !== '' && response.data.userDetail.user !== undefined && response.data.userDetail.user !== null) {
           $rootScope.isLogged = true;
@@ -1650,21 +1655,12 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
 
-          if(routespermission.indexOf($location.path().split('/')[1]) !== -1){
-            // 弹出登录弹层
-            $modal({
-              scope: $rootScope,
-              template: 'views/modal/modal-toLogin.html',
-              show: true
-            });
+          if(toState.name.startsWith("root.userCenter")){
+            $rootScope.showLoginModal();
           }
         }
         
       });
-
-
-
-
   });
 
 
@@ -1678,6 +1674,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       $rootScope[key] = value;
     });
   }
+
+
   $rootScope.$on('$stateChangeSuccess', function() {
     // branch_switch， 当该路由关联的功能已开发完成，但并没有对外发布。
     if (config.ignorePATH && config.ignorePATH.indexOf('/' + $location.path().split('/')[1]) !== -1) {
@@ -1744,18 +1742,6 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     }
 
   });
-
-  $rootScope.reload = function() {
-    $state.reload();
-  }
-
-  $rootScope.showLoginModal = function(){
-    $modal({
-      scope: $rootScope,
-      template: 'views/modal/modal-toLogin.html',
-      show: true
-    });
-  }
 
 });
 
