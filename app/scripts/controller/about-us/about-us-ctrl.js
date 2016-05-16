@@ -16,7 +16,7 @@ angular.module('hongcaiApp')
         'text': '项目方介绍'
       }, {
         'href': '/introduction-of-platform',
-        'link': 'root.about-us.introduction-of-platform',
+        'link': 'root.about-us.introduction-of-platform2',
         'text': '平台介绍'
       }, {
         'href': '/web-site-notice',
