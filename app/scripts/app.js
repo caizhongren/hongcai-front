@@ -1626,15 +1626,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     
 
 
-    $rootScope.showFooter = false;
-    if (notShowFooterRoute.indexOf($location.path().split('/')[1]) === -1) {
-      $rootScope.showFooter = true;
-    }
 
-    $rootScope.showHeader = true;
-    if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1) {
-      $rootScope.showHeader = false;
-    }
 
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     $checkSessionServer
@@ -1739,6 +1731,16 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     }
     if(showFlag5.indexOf($rootScope.selectSide) !== -1){
       $rootScope.userCenterPart = 5;
+    }
+
+    $rootScope.showFooter = false;
+    if (notShowFooterRoute.indexOf($location.path().split('/')[1]) === -1) {
+      $rootScope.showFooter = true;
+    }
+
+    $rootScope.showHeader = true;
+    if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1) {
+      $rootScope.showHeader = false;
     }
 
   });
