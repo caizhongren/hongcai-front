@@ -1,6 +1,6 @@
 <!--about-sidebar-->
-<div class="col-xs-12 ft-14 ft-grey555 margin-t-20 margin-b-20 padding-0">
+<div ng-controller="AboutUsCtrl" class="col-xs-12 ft-14 ft-grey555 margin-t-20 margin-b-20 padding-0">
 	<img src="/images/about-us/home.png" alt="" width="13px" height="10px">
-		首页 &gt; 关于我们 &gt; 项目方介绍 
+		<a class="cursor-pointer" ui-sref="root.main" href="/">首页 </a>&gt;&nbsp;<a href="/introduction-of-projecter" ui-sref="root.about-us.introduction-of-projecter">关于我们 </a>&gt;&nbsp;{{titleName}}
 </div>
 <aboutsidebar menus='menus'></aboutsidebar>

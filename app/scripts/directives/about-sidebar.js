@@ -1,5 +1,5 @@
 'use strict';
-angular.module('hongcaiApp').directive('aboutsidebar', ['$location', function($location) {
+angular.module('hongcaiApp').directive('aboutsidebar', ['$location', '$rootScope', function($location, $rootScope) {
 	return {
 		restrict: 'E',
 		replace: true,
@@ -17,6 +17,14 @@ angular.module('hongcaiApp').directive('aboutsidebar', ['$location', function($l
 					regexp = new RegExp('^' + pattern + '$', ['i']);
 					if(regexp.test(newValue)) {
 						$a.addClass('on-it');
+						
+						for (var i = scope.menus.left.length - 1; i >= 0; i--) {
+							if(regexp.test(scope.menus.left[i].href)){
+								$rootScope.titleName = scope.menus.left[i].text;
+							}
+						}
+						//console.log($(this).context.text);
+						//$rootScope.title=$(this).context.text
 					} else {
 						$a.removeClass('on-it');
 					}
