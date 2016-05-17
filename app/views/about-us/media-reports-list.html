@@ -1,6 +1,6 @@
 <div class="right-area col-md-9 col-lg-9">
   <div class="row">
-    <div class="right-title-about">媒体报道</div>
+    <div class="right-title-about2"><p>媒体报道</p></div>
   </div>
   <div class="row">
     <div class="introduction-area col-xs-12" ng-repeat="item in list.list">
@@ -8,8 +8,8 @@
         <a ui-sref="root.about-us.media-reports-detail({textId: item.id})">
           <img ng-src="{{list.data.baseFileUrl + item.image}}" width="120" height="120" class="details-img" alt="{{item.title}}">
         </a>
-        <a class="p-title-dynamic col-xs-6" ui-sref="root.about-us.media-reports-detail({textId: item.id})" title="{{item.title}}">{{item.title}}...</a>
-        <p class="col-xs-offset-1 col-xs-3" style="text-align: right;">{{item.createTime | date:'yyyy-MM-dd'}}</p>
+        <a class="p-title-dynamic col-xs-6" ui-sref="root.about-us.media-reports-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a>
+        <p class="col-xs-8 ft-12 ft-blue4">{{item.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
         <a ui-sref="root.about-us.media-reports-detail({textId: item.id})" class="p-dynamic-show col-xs-10">
           <div ta-bind ng-model="item.content" class="news-details"></div>
         </a>

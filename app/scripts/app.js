@@ -1020,11 +1020,13 @@ hongcaiApp
           }
         }
       })
-      .state('root.about-us.introduction-of-platform', {
+      // .state('root.about-us.introduction-of-platform', {
+       .state('root.about-us.introduction-of-platform2', {
         url: '/introduction-of-platform',
         views: {
           'about-us-right-show': {
-            templateUrl: 'views/about-us/introduction-of-platform.html',
+            // templateUrl: 'views/about-us/introduction-of-platform.html',
+            templateUrl: 'views/about-us/introduction-of-platform2.html',
             controller: 'HelpCenterCtrl',
             controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
@@ -1045,6 +1047,16 @@ hongcaiApp
         views: {
           'about-us-right-show': {
             templateUrl: 'views/about-us/consultant-team.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+      .state('root.about-us.introduction-of-projecter', {
+        url: '/introduction-of-projecter',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/introduction-of-projecter.html',
             controller: 'HelpCenterCtrl',
             controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
