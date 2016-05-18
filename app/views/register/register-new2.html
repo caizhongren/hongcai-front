@@ -69,12 +69,12 @@
 	          <div class="col-md-8 col-lg-8 position-re">
 	            <input class="no-boxshadow" type="text" placeholder="图形验证码" id="captcha" name="captcha" ng-model="user.picCaptcha" ensure-captcha="captcha" ng-class="{'borderred':registerForm.captcha.$dirty && registerForm.captcha.$invalid && registerForm.captcha.$error.check && !registerForm.captcha.$focused,'borderwhite':!registerForm.captcha.$dirty || !registerForm.captcha.$invalid || !registerForm.captcha.$error.check || registerForm.captcha.$focused}" required ng-focus />
 	            <!-- <button class="capcha" ng-click="refreshCode();" ng-disabled="registerForm.mobile.$invalid || registerForm.captcha.$error.required">获取验证码</button> -->
-	            <img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify no-padding margin-t--2" ng-click="refreshCode()" width="80" height="60">
+	            <img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify no-padding margin-t--13 margin-l-5" ng-click="refreshCode()" width="78" height="40">
 	            
 	          </div>
 	          <div class="captchaimg-tip" id="imgCaptcha" style="display:none;">
 	            <span class="left-arrow"></span>
-	            <img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify no-padding" ng-click="refreshCode()" width="80" height="70">
+	            <img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify no-padding margin-t--13" ng-click="refreshCode()" width="78" height="40">
 	            <p ng-click="refreshCode()">点击图片刷新验证码</p>
 	          </div>
 	        </div>
@@ -116,8 +116,8 @@
 	          <label class="col-md-3 col-lg-3"></label>
 	          <div class="col-md-8 col-lg-8">
 	            <div class="row margin-l-30 margin-t-15">
-	              <input class="no-boxshadow" type="checkbox" class="p-checkbox" ng-model="rememberUserName" ng-init="rememberUserName = true" />
-	              <p class="p-remember"> 我已阅读并同意<a ui-sref="root.registration-agreement" target="_blank">《宏财网注册协议》</a></p>
+	              <input class="no-boxshadow pull-left" type="checkbox" class="p-checkbox" ng-model="rememberUserName" ng-init="rememberUserName = true" />
+	              <p class="p-remember">&nbsp; 我已阅读并同意<a ui-sref="root.registration-agreement" target="_blank">《宏财网注册协议》</a></p>
 	            </div>
 	          </div>
 	          <br>
