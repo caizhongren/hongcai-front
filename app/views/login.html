@@ -55,7 +55,7 @@
       <form class="form-login col-md-12 col-lg-12 padding-0 margin-0" role="form" name="loginForm" ng-submit="login(user)">
         <div class="form-group1 col-md-12 col-lg-12 margin-b-15">
           <!--<input class="login-input2" type="text" placeholder="请输入正确的手机号码" disabled/>-->
-          <span class="login-input2" ng-show="errMsg">{{errMsg}}</span>
+          <span class="login-input2" ng-if="(loginForm.account.$dirty && loginForm.account.$invalid) || (loginForm.password.$dirty && loginForm.password.$invalid)">请输入正确的账号或密码</span>
         </div>
         <div class="form-group1 col-md-12 col-lg-12 margin-b-15">
           <!--<div class="col-md-3 col-lg-3">
@@ -65,11 +65,11 @@
             <span class="user-icon2"><img src="/images/login/login-user.png" alt=""></span><input class="login-input" type="text" placeholder="请输入手机号码" id="account" name="account" ng-model="user.account" required auto-fill-sync autofocus /> 
           <!--</div>-->
         </div>
-        <div ng-if="loginForm.account.$dirty && loginForm.account.$invalid" class="col-lg-12 col-md-12  margin-t-10">
+<!--         <div ng-if="loginForm.account.$dirty && loginForm.account.$invalid" class="col-lg-12 col-md-12  margin-t-10">
           <div ng-if="loginForm.account.$error.required" class="row">
             <p class="input-tips login-input-tips">账号不能为空</p>
           </div>
-        </div>
+        </div> -->
 
         <div class="form-group1 col-md-12 col-lg-12 margin-b-15">
           <!--<div class="col-md-3 col-lg-3">
@@ -80,12 +80,12 @@
             <!--<span class="pwd-icon"></span>
           </div>-->
         </div>
-        <div ng-if="loginForm.password.$dirty && loginForm.password.$invalid" class="col-lg-12 col-md-12 margin-t-10">
-          <div ng-if="loginForm.password.$error.required" class="row">
+        <!-- <div ng-if="loginForm.password.$dirty && loginForm.password.$invalid" class="col-lg-12 col-md-12 margin-t-10">
+          <div ng-if="loginForm.password.$error.required" class="row"> -->
           <!-- <i class="fa fa-times-circle-o login-check-img"></i> -->
-            <p class="input-tips login-input-tips">密码不能为空</p>
+<!--             <p class="input-tips login-input-tips">密码不能为空</p>
           </div>
-        </div>
+        </div> -->
 <!--         <div ng-if="isPasswordError" ng-init="isPasswordError=false" class="col-lg-12 col-md-12 margin-t-10">
           <div class="row"> -->
             <!-- <i class="fa fa-times-circle-o login-check-img"></i> -->

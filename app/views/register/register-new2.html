@@ -1,45 +1,4 @@
 <!-- 改版注册页面 -->
-<nav id="mini-bar" class="navbar navbar-default navbar-static-top hidden-xs" role="navigation" style="">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <!--<p class="navbar-text">您好，欢迎来到宏财！<i class="fa fa-phone"></i>400-990-7626</p>-->
-          <p class="navbar-text ftw-b">
-            <img src="/images/phone01.png" alt="">
-            <span class="margin-t--10">&nbsp;&nbsp;客服热线：400-990-7626</span>
-          </p>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li ng-if="isLogged === true">
-            <span>
-              <a class="ft-black" ui-sref="root.userCenter.account-overview">{{loginName}}</a>
-              <a ng-href="#" ng-click="logout();" class="logout ft-black">退出 </a>
-              <a ui-sref="root.userCenter.assets-overview" class="ft-black msg"><img src="images/use-money.png" class="margin-t--2" > 可用余额：{{account.balance | number: 2}}元</a>
-              <a class="ft-black msg" ui-sref="root.userCenter.message({status:'0,1'})">消息(<span ng-bind="unreadCount || 0 "></span>)</a>
-            </span>
-          </li>
-          <li ng-if="isLogged !== true">
-            <a ui-sref="root.login" rel="nofollow">请登录<i style="margin-left:20px;font-style: inherit;">|</i></a>
-          </li>
-          <li ng-if="isLogged !== true">
-            <a ui-sref="root.register" rel="nofollow">注册<i style="margin-left:20px;font-style: inherit;">|</i></a>
-          </li>
-          <li ng-show="false"><a href="newbie-guide.html" target="_blank" rel="nofollow">新手引导</a>
-          </li>
-          <li><a ui-sref="root.help-center.introduce" class="help" style="margin-left:20px;" rel="nofollow">帮助</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-</nav>
 <nav id="major-bar" class="navbar navbar-default navbar-static-top border-b-none bg-grey8" role="navigation">
   <div class="container padding-l-0">
     <ul class="nav navbar-nav">
