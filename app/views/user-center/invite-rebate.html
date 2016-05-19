@@ -28,7 +28,7 @@
             </div>
           </div>
           <div class="col-md-8 padding-t-20 text-center">
-            <p>以下方式分享邀请链接给好友>好友点击链接注册并投资>奖励自动进入您的账户</p>
+            <p>以下方式分享邀请链接给好友>&nbsp;好友点击链接注册并投资>&nbsp;奖励自动进入您的账户</p>
             <div class="row text-center">
               <div class="col-xs-3">
                 <img src="/images/user-center/invite-wechat.png" alt="" data-toggle="modal" data-target="#myModal" ng-click="modalFlag=true">
@@ -51,7 +51,7 @@
           <div class="col-md-1 padding-b-5 credit-toggle">我的邀请</div>
         </div>
       </div>
-      <table class="table table-dashed">
+      <table class="table table-dashed w-92" width="92%">
         <thead>
           <tr>
             <th>邀请用户</th>
@@ -61,7 +61,7 @@
         </thead>
         <tbody>
           <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-            <td>{{item.user.name}}</td>
+            <td>{{item.user.mobile || item.user.name}}</td>
             <td>{{item.user.createTime | date:'yyyy-MM-dd'}}</td>
             <td><span ng-class="item.userAuth.realnameAuth ? 'ft-blue2' : 'ft-red2'">{{item.userAuth.realnameAuth ? '已认证' : '未认证'}}</span></td>
             <td><span ng-class="item.account.investAmount > 0 ? 'ft-blue2' : 'ft-red2'">{{item.account.investAmount > 0 ? "已投资" : "未投资"}}</span></td>

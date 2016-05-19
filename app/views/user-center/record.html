@@ -1,23 +1,23 @@
 <!--交易记录-->
-<div class="right-area record col-md-8 col-lg-9 padding-b-30" >
+<div class="right-area record col-md-8 col-lg-9 padding-b-30 bg-offWhite" >
   <div class="currency-style">
     <div class="title">
       <span class="tip">资金流水</span>
     </div>
     <div class="main">
       <div class="padd row">
-        <div class="col-md-11 bg-grey6 padding-40 padding-l-45 margin-l--20 margin-t-20 record-w">
-          <img src="/images/usermoney3.png" alt="" class="fl">
+        <div class="col-md-11 bg-grey6 padding-40 padding-l-45 margin-l--26 margin-t-20 record-w">
+          <img src="/images/usermoney3.png" alt="" class="fl margin-l-40">
           <div class="record-text">
             <p>账户资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.waitingCapital + capital.balance + capital.waitingProfit + capital.freezeCapital | number: 2}}</strong>元</p>
           </div>
-          <img src="/images/usermoney2.png" alt="" class="fl margin-l-40">
+          <img src="/images/usermoney2.png" alt="" class="fl margin-l-90">
           <div class="record-text">
             <p>可用资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.balance | number: 2}}</strong>元</p>
           </div>
-          <img src="/images/usermoney1.png" alt="" class="fl margin-l-45">
+          <img src="/images/usermoney1.png" alt="" class="fl margin-l-90">
           <div class="record-text">
             <p>冻结资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.freezeCapital | number: 2}}</strong>元</p>

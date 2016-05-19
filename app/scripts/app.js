@@ -171,7 +171,8 @@ hongcaiApp
         url: '/register?inviteCode',
         views:{
           '':{
-            templateUrl:'views/register/register-new.html',
+            // templateUrl:'views/register/register-new.html',
+            templateUrl:'views/register/register-new2.html',
             controller: 'RegisterMobileCtrl',
             controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
           }
@@ -1019,11 +1020,13 @@ hongcaiApp
           }
         }
       })
-      .state('root.about-us.introduction-of-platform', {
+      // .state('root.about-us.introduction-of-platform', {
+       .state('root.about-us.introduction-of-platform2', {
         url: '/introduction-of-platform',
         views: {
           'about-us-right-show': {
-            templateUrl: 'views/about-us/introduction-of-platform.html',
+            // templateUrl: 'views/about-us/introduction-of-platform.html',
+            templateUrl: 'views/about-us/introduction-of-platform2.html',
             controller: 'HelpCenterCtrl',
             controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
@@ -1044,6 +1047,16 @@ hongcaiApp
         views: {
           'about-us-right-show': {
             templateUrl: 'views/about-us/consultant-team.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+      .state('root.about-us.introduction-of-projecter', {
+        url: '/introduction-of-projecter',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/introduction-of-projecter.html',
             controller: 'HelpCenterCtrl',
             controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
@@ -1491,16 +1504,16 @@ hongcaiApp
     })
 
     /*-------------  邀请活动落地页   ----------------------*/
-      // .state('root.activity.invite-landing', {
-      //   url: '/invite',
-      //   views: {
-      //     '': {
-      //       templateUrl: 'views/invite-landing.html',
-      //       controller: 'InviteLandingCtrl',
-      //       controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
-      //     }
-      //   }
-      // })
+      .state('root.activity.invite-landing', {
+        url: '/invite',
+        views: {
+          '': {
+            templateUrl: 'views/invite-landing.html',
+            controller: 'InviteLandingCtrl',
+            controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
+          }
+        }
+      })
     /*-------------  送现金活动落地页   ----------------------*/
     .state('root.activity.send-money', {
       url: '/send-money',
@@ -1590,6 +1603,18 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     };
   }
 
+  $rootScope.reload = function() {
+    $state.reload();
+  }
+
+  $rootScope.showLoginModal = function(){
+    $modal({
+      scope: $rootScope,
+      template: 'views/modal/modal-toLogin.html',
+      show: true
+    });
+  }
+
   // 需要用户登录才能看到的url
   var routespermission = [
     'user-center'
@@ -1601,11 +1626,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     'register',
     'invite-landing',
     'send-money',
-    'novice-guide'
+    'novice-guide',
+    'register'
   ];
   // 不需要显示header的path
   var notShowHeaderRoute = [
-    'novice-guide'
+    'novice-guide',
+    'login',
+    'register'
   ];
 
   
@@ -1619,55 +1647,32 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     }
     $rootScope.pageTitle = title;
 
-    
-
-
-    $rootScope.showFooter = false;
-    if (notShowFooterRoute.indexOf($location.path().split('/')[1]) === -1) {
-      $rootScope.showFooter = true;
-    }
-
-    $rootScope.showHeader = false;
-    if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) === -1) {
-      $rootScope.showHeader = true;
-    }
-
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
-    $checkSessionServer
-      .error(function(response) {
+    $checkSessionServer.error(function(response) {
 
         window.location.href = config.domain + '/sys-update.html';
         return;
-      })
-      .success(function(response) {
+    }).success(function(response) {
 
-        if (response.ret !== -1 && response.data && response.data.name !== '' && response.data.name !== undefined && response.data.name !== null) {
+        if (response.ret !== -1 && response.data && response.data.userDetail !== '' && response.data.userDetail.user !== undefined && response.data.userDetail.user !== null) {
           $rootScope.isLogged = true;
-          $rootScope.loginName = response.data.name;
+          $rootScope.loginUser = response.data.userDetail.user;
+          $rootScope.loginName = response.data.userDetail.user.name;
           $rootScope.securityStatus = response.data.securityStatus;
           $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
-          $rootScope.account = response.data.account;
+          $rootScope.account = response.data.userDetail.account;
           $rootScope.unreadCount = response.data.unreadCount;
-          $rootScope.userType = response.data.userType;
+          $rootScope.userType = response.data.userDetail.user.userType;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
 
-          if(routespermission.indexOf($location.path().split('/')[1]) !== -1){
-            // 弹出登录弹层
-            $modal({
-              scope: $rootScope,
-              template: 'views/modal/modal-toLogin.html',
-              show: true
-            });
+          if(toState.name.startsWith("root.userCenter")){
+            $rootScope.showLoginModal();
           }
         }
         
       });
-
-
-
-
   });
 
 
@@ -1681,6 +1686,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       $rootScope[key] = value;
     });
   }
+
+
   $rootScope.$on('$stateChangeSuccess', function() {
     // branch_switch， 当该路由关联的功能已开发完成，但并没有对外发布。
     if (config.ignorePATH && config.ignorePATH.indexOf('/' + $location.path().split('/')[1]) !== -1) {
@@ -1736,19 +1743,17 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       $rootScope.userCenterPart = 5;
     }
 
+    $rootScope.showFooter = false;
+    if (notShowFooterRoute.indexOf($location.path().split('/')[1]) === -1) {
+      $rootScope.showFooter = true;
+    }
+
+    $rootScope.showHeader = true;
+    if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1) {
+      $rootScope.showHeader = false;
+    }
+
   });
-
-  $rootScope.reload = function() {
-    $state.reload();
-  }
-
-  $rootScope.showLoginModal = function(){
-    $modal({
-      scope: $rootScope,
-      template: 'views/modal/modal-toLogin.html',
-      show: true
-    });
-  }
 
 });
 
