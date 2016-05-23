@@ -46,6 +46,7 @@ angular.module('hongcaiApp')
         number: '@number',
         type: '@type'
       }),
+      projectOrders: $resource(DEFAULT_DOMAIN + '/siteProject/projectOrders', {projectId: '@projectId', projectType: '@projectType'}),
       getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {}),
       getOneDayProfitAndNextRate: $resource(DEFAULT_DOMAIN + '/siteFunds/getOneDayProfitAndNextRate', {
         number: '@number'
