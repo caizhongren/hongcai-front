@@ -46,6 +46,29 @@ angular.module('hongcaiApp')
         number: '@number',
         type: '@type'
       }),
+      /**
+       * 宏金宝项目订单列表
+       * @projectId 项目id
+       * @projectType 项目类型
+       */
+      projectOrders: $resource(DEFAULT_DOMAIN + '/siteProject/projectOrders', {
+        projectId: '@projectId', 
+        projectType: '@projectType'
+      }),
+      /**
+       * 宏金宝项目相关文件， 合同图片和借款企业图片
+       * @projectId 项目id
+       */
+      projectFiles: $resource(DEFAULT_DOMAIN + '/siteProject/projectFiles', {
+        projectId: '@projectId'
+      }),
+      /**
+       * 查询借款企业信息
+       * @enterpriseId 企业Id
+       */
+      getEnterpriseById: $resource(DEFAULT_DOMAIN + '/siteEnterprise/getEnterPriseById', {
+        enterpriseId: '@enterpriseId'
+      }),
       getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {}),
       getOneDayProfitAndNextRate: $resource(DEFAULT_DOMAIN + '/siteFunds/getOneDayProfitAndNextRate', {
         number: '@number'

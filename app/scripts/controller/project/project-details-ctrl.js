@@ -83,12 +83,7 @@ angular.module('hongcaiApp')
 
           // $scope.pledges = projectDetails.data.pledges;
           $scope.isAvailable = projectDetails.data.isAvailable;
-          $scope.enterprise = projectDetails.data.enterprise;
-          $scope.orderList = projectDetails.data.orderList;
-          $scope.enterpriseThumbnailFileList = projectDetails.data.enterpriseThumbnailFileList;
-          $scope.enterpriseOriginalFileList = projectDetails.data.enterpriseOriginalFileList;
-          $scope.contractOriginalFileList = projectDetails.data.contractOriginalFileList;
-          $scope.contractThumbnailFileList = projectDetails.data.contractThumbnailFileList;
+          
           $scope.preRepaymentList = projectDetails.data.preRepaymentList;
           $scope.billCount = projectDetails.data.billCount;
           $scope.remainInterest = projectDetails.data.remainInterest;
@@ -99,12 +94,10 @@ angular.module('hongcaiApp')
           $scope.pageSize = 10;
           $scope.data = [];
 
-          $scope.numberOfPages = function() {
-            return Math.ceil($scope.data.length / $scope.pageSize);
-          };
-          for (var i = 0; i < $scope.orderList.length; i++) {
-            $scope.data.push($scope.orderList[i]);
-          }
+          $scope.projectOrders($scope.project.id, $scope.project.type);
+          $scope.projectFiles($scope.project.id);
+          $scope.enterpriseInfo($scope.project.enterpriseId);
+          
         } else if (projectDetails.code === -1054) {
           $state.go('root.project-list-query-no');
         } else {
@@ -134,6 +127,53 @@ angular.module('hongcaiApp')
       });
     };
 
+    /**
+     * 项目订单列表
+     */
+    $scope.projectOrders = function(projectId, projectType){
+      ProjectService.projectOrders.get({
+        projectId: projectId,
+        projectType: projectType
+      }, function(response){
+        $scope.orderList = response.data.orderList;
+        $scope.numberOfPages = function() {
+          return Math.ceil($scope.data.length / $scope.pageSize);
+        };
+        for (var i = 0; i < $scope.orderList.length; i++) {
+          $scope.data.push($scope.orderList[i]);
+        }
+      });
+    }
+
+
+    /**
+     * 项目文件信息
+     */
+    $scope.projectFiles = function(projectId){
+      ProjectService.projectFiles.get({
+        projectId: projectId
+      }, function(response){
+        $scope.enterpriseThumbnailFileList = response.data.enterpriseThumbnailFileList;
+        $scope.enterpriseOriginalFileList = response.data.enterpriseOriginalFileList;
+        $scope.contractOriginalFileList = response.data.contractOriginalFileList;
+        $scope.contractThumbnailFileList = response.data.contractThumbnailFileList;
+      });
+    }
+
+    /**
+     * 项目文件信息
+     */
+    $scope.enterpriseInfo = function(enterpriseId){
+      ProjectService.getEnterpriseById.get({
+        enterpriseId: enterpriseId
+      }, function(response){
+        $scope.enterprise = response.data.enterprise;
+      });
+    }
+
+    /**
+     * 项目预约记录
+     */
     $scope.getReserveRecords = function() {
       ProjectService.getReserveRecords.get({
         number: $stateParams.number
