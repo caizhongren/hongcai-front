@@ -96,6 +96,7 @@ angular.module('hongcaiApp')
 
           $scope.projectOrders($scope.project.id, $scope.project.type);
           $scope.projectFiles($scope.project.id);
+          $scope.projectTexts($scope.project.id);
           $scope.enterpriseInfo($scope.project.enterpriseId);
           
         } else if (projectDetails.code === -1054) {
@@ -161,13 +162,24 @@ angular.module('hongcaiApp')
     }
 
     /**
-     * 项目文件信息
+     * 借款企业信息
      */
     $scope.enterpriseInfo = function(enterpriseId){
       ProjectService.getEnterpriseById.get({
         enterpriseId: enterpriseId
       }, function(response){
         $scope.enterprise = response.data.enterprise;
+      });
+    }
+
+    /**
+     * 媒体报道
+     */
+    $scope.projectTexts = function(projectId){
+      ProjectService.projectTexts.get({
+        projectId: projectId
+      }, function(response){
+        $scope.mediaList = response.data.texts;
       });
     }
 
@@ -501,15 +513,7 @@ angular.module('hongcaiApp')
       }
     };
 
-    // 4条媒体报道
-    AboutUsService.indexTextList.get({
-      category: 1,
-      pageSize: 4,
-      withContent:false
-    }, function(response) {
-      if (response.ret === 1) {
-        $scope.mediaList = response.data.textList;
-      }
-    });
+    
+
     
   });

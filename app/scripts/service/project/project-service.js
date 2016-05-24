@@ -69,6 +69,15 @@ angular.module('hongcaiApp')
       getEnterpriseById: $resource(DEFAULT_DOMAIN + '/siteEnterprise/getEnterPriseById', {
         enterpriseId: '@enterpriseId'
       }),
+      /**
+       * 查询项目关联的文章
+       * @projectId 项目id
+       */
+      projectTexts: $resource(DEFAULT_DOMAIN + '/siteProject/projectTexts', {
+        projectId: '@projectId'
+      }),
+
+      
       getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {}),
       getOneDayProfitAndNextRate: $resource(DEFAULT_DOMAIN + '/siteFunds/getOneDayProfitAndNextRate', {
         number: '@number'
