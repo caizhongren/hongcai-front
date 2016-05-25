@@ -31,7 +31,6 @@ angular.module('hongcaiApp')
     }, function() {
       qrImg.fadeOut();
     });
-
     $feedback.focus(function() {
       qqImg.fadeIn();
     });
