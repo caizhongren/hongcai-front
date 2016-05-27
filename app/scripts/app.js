@@ -1157,6 +1157,16 @@ hongcaiApp
         }
       })
       .state('root.about-us.media-reports-detail', {
+        url: '/media-reports/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/media-reports-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+      .state('root.about-us.media-reports-detail1', {
         url: '/media-reports-detail/:textId',
         views: {
           'about-us-right-show': {
@@ -1178,6 +1188,16 @@ hongcaiApp
         }
       })
       .state('root.about-us.web-site-notice-detail', {
+        url: '/web-site-notice/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/web-site-notice-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+      .state('root.about-us.web-site-notice-detail1', {
         url: '/web-site-notice-detail/:textId',
         views: {
           'about-us-right-show': {
@@ -1199,6 +1219,16 @@ hongcaiApp
         }
       })
       .state('root.about-us.hongcai-trends-detail', {
+        url: '/hongcai-trends/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/hongcai-trends-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+      .state('root.about-us.hongcai-trends-detail1', {
         url: '/hongcai-trends-detail/:textId',
         views: {
           'about-us-right-show': {
