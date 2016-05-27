@@ -25,7 +25,7 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'ipCookie',
   'angular-md5',
   'textAngular',
-  'angular-google-analytics',
+  // 'angular-google-analytics',
   'bgf.paginateAnything',
   'angular-svg-round-progress',
   'seo'
@@ -36,11 +36,7 @@ hongcaiApp
     cfpLoadingBarProvider.includeSpinner = true;
     cfpLoadingBarProvider.includeBar = true;
   }])
-  // .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-  // $locationProvider.html5Mode(true);
-  // $routeProvider.when 'carousel-example-generic';
-  // }])
-  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', 'AnalyticsProvider', '$sceDelegateProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider, AnalyticsProvider, $sceDelegateProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', '$sceDelegateProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider, $sceDelegateProvider) {
     $uiViewScrollProvider.useAnchorScroll();
 
     var $http, interceptor = ['$q', '$injector', function($q, $injector) {
@@ -1611,16 +1607,9 @@ hongcaiApp
     //disable IE ajax request caching
     $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
 
-    AnalyticsProvider.setAccount('UA-58181412-1');
-    AnalyticsProvider.trackPages(true);
-    AnalyticsProvider.useDisplayFeatures(true);
-    AnalyticsProvider.useAnalytics(true);
-    AnalyticsProvider.setPageEvent('$stateChangeSuccess');
-
   }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, Analytics) {
-  Analytics.trackPage('/', '宏财网 hongcai.com - 要理财，上宏财!');
+hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config) {
   // Array 在IE8下没有indexOf 方法。
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(obj, start) {
