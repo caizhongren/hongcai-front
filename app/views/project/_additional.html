@@ -9,8 +9,8 @@
       <div class="tab-pane" ng-class="{active: toggle.activeTabRight===$index}" ng-repeat="tab_right in tabsRight">
         <section ng-if="tab_right.title==='投资记录'">
           <div ng-if="isLogged" class="panel-body">
-            <table class="table table-hover ft-12">
-              <thead>
+            <table class="table table-hover ft-12 text-center">
+              <thead class="thead_center">
                 <tr>
                   <th>成交时间</th>
                   <th>投资人</th>
@@ -40,8 +40,8 @@
         </section>
         <section ng-if="tab_right.title==='还款计划'">
           <div ng-if="isLogged" class="panel-body">
-            <table class="table table-hover ft-12">
-              <thead>
+            <table class="table table-hover ft-12 text-center">
+              <thead class="thead_center">
                 <tr>
                   <th>预期还款时间</th>
                   <th>类型</th>
