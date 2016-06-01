@@ -33,7 +33,14 @@ a {
   text-decoration: none !important;
   outline: none;
 }
-
+.clearfix::after, .clearfix::before {
+    content: ".";
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
 label {
   font-weight: normal !important;
   padding: 5px 8px 0;
@@ -388,6 +395,9 @@ button {
 }
 .margin-l-20{
   margin-left: 20px !important;
+}
+.margin-l-24{
+  margin-left: 24%;
 }
 .margin-l-30{
   margin-left: 30px;
@@ -2925,6 +2935,9 @@ a.cancel-red:focus {
     }
   }
   .invite-connent2{
+    .mar-l-23{
+      margin-left: 23%;
+    }
    background-color:#ff572c;
    overflow: auto;
    position:relative;
@@ -2988,8 +3001,8 @@ a.cancel-red:focus {
       // display: table-cell;
     }
     img:nth-child(1){
-      margin-left: 21%;
-      margin-right: 3%;
+      margin-left: 16%;
+      margin-right: 5%;
       text-align: left;
     }
     .send-money-text{
@@ -3001,10 +3014,10 @@ a.cancel-red:focus {
   .send-money-tab{
     width:100%;
     table.table1{
-      margin-left: 21%;
+      margin-left: 16%;
     }
     table.table2{
-      margin-left: 3%;
+      margin-left: 5%;
       tbody{
         tr{
           tb{
@@ -3023,6 +3036,7 @@ a.cancel-red:focus {
       display: inline !important;
       tbody{
         border:2px solid #ffd11e;
+        border-top: none;
         tr{
           td{
             font-size:20px;
@@ -3042,6 +3056,7 @@ a.cancel-red:focus {
               color:#cd000d;
               font-weight:bold;
               padding:10px 0px;
+              cursor: pointer;
               // background-color: #ffef5b;
             }
           td.col0-ft-red1{
@@ -3099,27 +3114,33 @@ a.cancel-red:focus {
     background-image:url(/images/activity/send-money-bottom.png);
     background-repeat:no-repeat;
     //background-position:100% 100%;
-    margin-top:1030px;
+    margin-top:982px;
     width:100%;
     height: 1180px;
     background-size:100% 100%;
     .send-money-aboutus{
       ul {
         width: 100%;
-        padding-left: 22%;
+        padding-left: 18%;
         li {
-          width: 35%;
+          width: 38%;
           height: 130px;
-          padding: 20px 0 20px 20px;
+          padding-right: 18px;
           div.col-8 {
             color:#888888;
           }
           img{
-            margin-right: 20px;
+            margin: 20px;
           }
           p {
             color: #333333;
             font-size: 18px;
+            margin: 15px 0 2px 0;
+          }
+          span {
+            font-size: 15px;
+            display: inline;
+            width: 72%;
           }
         }
         li.mar-r{
