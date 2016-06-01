@@ -14,6 +14,11 @@ angular.module('hongcaiApp')
       src: 'images/banner-new/banner02.png',
       href: 'https://www.hongcai.com/hongcai-trends-detail/491',
       name: '新三板金控第一股严选项目'
+    }, {
+      mimeType: 'image/png',
+      src: 'images/banner/invest-return-test.png',
+      href: '/fundsproject-list',
+      name: '投资返现55元'
     },/* {
       mimeType: 'image/png',
       src: 'images/banner-new/banner03.png',
