@@ -396,8 +396,8 @@ button {
 .margin-l-20{
   margin-left: 20px !important;
 }
-.margin-l-24{
-  margin-left: 24%;
+.margin-l-030{
+  margin-left: 30%;
 }
 .margin-l-30{
   margin-left: 30px;
@@ -2938,6 +2938,7 @@ a.cancel-red:focus {
     }
   }
   .invite-connent2{
+
     .mar-l-23{
       margin-left: 23%;
     }
@@ -2981,56 +2982,29 @@ a.cancel-red:focus {
 }
 //激励送现金落地页
 .send-money{
-  box-sizing:border-box;
-  margin:0px;
-  padding:0px;
-  position:relative;
-  background-color:#f9513b;
-  overflow:auto;
-  .send-money-connent{
-    //overflow:auto;
-    display: table;
-    position:relative;
-    width:100%;
-    margin-bottom: 38px;
-    // .send-money-left {
-    //   width: 564px;
-    //   height: 67px;
-    //   background: url("../images/activity/send-list.png") no-repeat 2px 175px;
-    // }
+  background-color: #f9513b;
+  background-image: url("/images/activity/send-money-bottom.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  .send-money-header{
+    width: 100%;
     img{
-      display:inline-block;
-      margin:0 auto;
-      // display: table-cell;
-    }
-    img:nth-child(1){
-      margin-left: 16%;
-      margin-right: 5%;
-      text-align: left;
-    }
-    .send-money-text{
-      position:absolute;
-      top:30%;
-      left:48%;
+      display: inline-block;
+      margin: 0 auto;
+      vertical-align: middle;
+      margin-bottom: 20px;
     }
   }
-  .send-money-tab{
-    width:100%;
-    table.table1{
-      margin-left: 16%;
-    }
-    table.table2{
-      margin-left: 5%;
-      tbody{
-        tr{
-          tb{
-            border-right:none;
-          }
-        }
+  .send-money-connent {
+    width: 1035px;
+    margin: 0 auto;
+    // background-color: #f9513b;
+    .send-money-connent-l {
+      img{
+        display: table;
+        margin-bottom: 40px;
       }
-
-    }
-    table{
+      table{
       // border:2px solid #ffd11e;
       width:58%;
       margin:0 auto;
@@ -3089,46 +3063,131 @@ a.cancel-red:focus {
             border-right: 1px solid #ffd11e;
           }
         }
+        }
       }
     }
-  }
-  .send-money-rules{
-    padding:10px 25%;
-    padding-right:20%;
-    p{
-      font-size:18px;
-      line-height:32px;
-      color:#ffffff;
-    }
-    .padd{
-      position:relative;
-      span{
-        position:absolute;
-        top:-16.6px;
-        left:75%;
-        font-size:22px;
-        line-height:22px;
-        color:#fff;
+    .send-money-connent-r {
+      img{
+        display: table;
+        margin-bottom: 40px;
+        margin-top: -8px;
+      }
+      table{
+      // border:2px solid #ffd11e;
+      width:58%;
+      margin:0 auto;
+      height:72px;
+      text-align:center;
+      display: inline !important;
+      tbody{
+        border:2px solid #ffd11e;
+        border-top: none;
+        tr{
+          td{
+            font-size:20px;
+            color:#a45704;
+            font-weight:normal;
+            //padding:10px;
+            background-color:#ffffff;
+             border-top:1px solid #feda4e;
+
+            border-right:none;
+            border-bottom:none;
+            height:64px;
+          }
+          .border-right0{
+            border-right: 0;
+          }
+          td.col0-ft-red{
+              color:#cd000d;
+              font-weight:bold;
+              padding:10px 0px;
+              cursor: pointer;
+              // background-color: #ffef5b;
+            }
+          td.col0-ft-red1{
+              color:#cd000d;
+              font-weight:bold;
+              padding:10px 0px;
+          }
+        }
+      }
+      thead{
+        border: 2px solid #ffd11e;
+        border-bottom: 0;
+        tr{
+          th{
+            font-size:22px;
+            color:#000000;
+            font-weight:bold;
+            padding:10px;
+            background-color:#fff7b0;
+            // border:1px solid #feda4e;
+            border-right:none;
+            border-bottom:none;
+            text-align:center;
+            height:64px;
+          }
+          th.border-right1{
+            border-right: 1px solid #ffd11e;
+          }
+        }
+        }
       }
     }
-  }
-  .send-money-bg{
-    background-color:#f9513b;
-    background-image:url(/images/activity/send-money-bottom.png);
-    background-repeat:no-repeat;
-    //background-position:100% 100%;
-    margin-top:982px;
-    width:100%;
-    height: 1180px;
-    background-size:100% 100%;
+    .invest-btn {
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+      margin: 50px 0;
+      img {
+      cursor: pointer;
+      }
+    }
+    .invite-connent1{
+      p{
+        display: inline-block;
+        margin: 0 20px;
+        font-size: 28px;
+        color: #ffffff;
+        margin-bottom: 40px;
+      }
+      .rule-line {
+        display: inline-block;
+        width: 40%;
+        border: 1px solid #ECB463;
+        margin-bottom: 7px;
+      }
+    }
+    .send-money-rules{
+        padding:10px 5%;
+        padding-right:2%;
+        p{
+          font-size:18px;
+          line-height:32px;
+          color:#ffffff;
+        }
+        .padd{
+            position:relative;
+            span{
+          position:absolute;
+          top:-16.6px;
+          left:75%;
+          font-size:22px;
+          line-height:22px;
+          color:#fff;
+             }
+          }
+      }
     .send-money-aboutus{
+      margin-bottom: 165px;
       ul {
         width: 100%;
-        padding-left: 18%;
         li {
-          width: 38%;
+          width: 49%;
           height: 130px;
           padding-right: 18px;
+          background-color: #fff;
           div.col-8 {
             color:#888888;
           }
@@ -3148,28 +3207,13 @@ a.cancel-red:focus {
         }
         li.mar-r{
           margin-right:20px;
-          // margin-bottom: 20px;
         }
         li.mar-t{
           margin-top:20px;
         }
       }
     }
-    .pointer{
-      cursor: pointer !important;
-    }
   }
-}
-.no-boxshadow{
-  box-shadow:none !important;
-}
-.yu-tab-hr{
-  width:372px !important;
-  border-bottom: 1px solid #ecb463 !important;
-  margin-top:20px !important;
-}
-.input-bg-grey{
-  background-color:#f8f7f7;
 }
 //体验金专享详情页
 .experience-style{
