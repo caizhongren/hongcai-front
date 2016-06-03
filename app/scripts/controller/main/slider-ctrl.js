@@ -5,21 +5,21 @@ angular.module('hongcaiApp')
 
     //http://www.hongcai.com/hongcai-trends?page=0&perPage=5
 
-    $scope.media = [/*{
+    $scope.media = [{
+      mimeType: 'image/png',
+      src: 'images/banner/banner-10.png',
+      href: '/register',
+      name: '注册拿150000元'
+    },{
       mimeType: 'image/png',
       src: 'images/banner-new/banner01.png',
       name: '国有企业入驻宏财网'
-    },*/ {
+    }, {
       mimeType: 'image/png',
       src: 'images/banner-new/banner02.png',
       href: 'https://www.hongcai.com/hongcai-trends-detail/491',
       name: '新三板金控第一股严选项目'
-    }, {
-      mimeType: 'image/png',
-      src: 'images/banner/invest-return-test.png',
-      href: '/fundsproject-list',
-      name: '投资返现55元'
-    },/* {
+    }, /* {
       mimeType: 'image/png',
       src: 'images/banner-new/banner03.png',
       href: 'http://mp.weixin.qq.com/s?__biz=MzA5Nzg0MzA5OQ==&mid=400520084&idx=1&sn=972091ed5d1ebceb6a96a0067cbb1294#rd',
