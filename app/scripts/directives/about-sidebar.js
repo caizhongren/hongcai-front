@@ -8,7 +8,9 @@ angular.module('hongcaiApp').directive('aboutsidebar', ['$location', '$rootScope
 		},
 		link: function postLink(scope, element) {
 			scope.$watch(function() {
-				return $location.path();
+				return '/'+$location.path().split('/')[1];
+				// return $location.path();
+
 			}, function(newValue) {
         // $('a[href]', element).each(function(k, a) {
 				angular.element('a[href]', element).each(function(k, a) {
