@@ -33,7 +33,6 @@ angular.module('hongcaiApp')
             $interval.cancel(interval);
           });
           
-
           $scope.categoryCode = projectDetails.data.category.code;
           if ($scope.categoryCode === '0112' || $scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
             $scope.tabs = [{
@@ -49,7 +48,17 @@ angular.module('hongcaiApp')
             }, {
               title: '相关文件',
             }];
-          } else {
+          } else if($scope.categoryCode === '0116'){
+            $scope.tabs = [{
+              title: '项目信息',
+            }, {
+              title: '风控信息',
+            }, {
+              title: '相关文件',
+            }, {
+              title: '项目历程',
+            }];
+          }else {
             $scope.tabs = [{
               title: '项目信息',
             }, {
