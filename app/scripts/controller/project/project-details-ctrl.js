@@ -351,12 +351,6 @@ angular.module('hongcaiApp')
         });
       } else {
         // 非预约项目投资
-
-        $state.go('root.invest-verify', {
-          projectId: project.id,
-          amount: project.amount
-        });
-
         if(!$rootScope.account || $rootScope.account.balance < project.amount){
           $scope.msg = '账户余额不足';
           $alert({
@@ -365,10 +359,35 @@ angular.module('hongcaiApp')
             show: true
           });
         }
-
+        
+        OrderService.investVerify.get({
+          projectId: project.id,
+          amount: project.amount
+        }, function(response) {
+          if (response.ret === 1) {
+            $state.go('root.invest-verify', {
+              projectId: project.id,
+              amount: project.amount
+            });
+          } else if (response.ret === -1) {
+            if (response.code === 1) {
+              $scope.msg = '抱歉，已经卖光了。';
+              $modal({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            } else {
+              $scope.msg = response.msg;
+              $modal({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            }
+          }
+        });
       }
-
-
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
