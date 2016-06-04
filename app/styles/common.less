@@ -24,14 +24,23 @@ padding-right: 0 !important;
     color: @brand-primary;
   }
 }
-
+ul,ol{
+  list-style: none;
+}
 a {
   color: #333;
   cursor: pointer;
   text-decoration: none !important;
   outline: none;
 }
-
+.clearfix::after, .clearfix::before {
+    content: ".";
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
 label {
   font-weight: normal !important;
   padding: 5px 8px 0;
@@ -56,7 +65,9 @@ button {
 .text-left {
   text-align: left;
 }
-
+.text-center{
+  text-align: center;
+}
 .text-right {
   text-align: right;
 }
@@ -290,6 +301,13 @@ button {
 .bg-yellow{
   background-color: #fdfae6;
 }
+//
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
 .mgn-top {
   margin-top: 20px;
 }
@@ -377,6 +395,9 @@ button {
 }
 .margin-l-20{
   margin-left: 20px !important;
+}
+.margin-l-030{
+  margin-left: 30%;
 }
 .margin-l-30{
   margin-left: 30px;
@@ -573,18 +594,18 @@ button {
 }
 
 .padding-0 {
-  padding: 0; 
+  padding: 0;
 }
 .padding-lr-13 {
-  padding-left: 13px; 
-  padding-right: 13px; 
+  padding-left: 13px;
+  padding-right: 13px;
 }
 .padding-lr-50 {
-  padding-left: 50px; 
-  padding-right: 50px; 
+  padding-left: 50px;
+  padding-right: 50px;
 }
 .padding-30 {
-  padding: 30px; 
+  padding: 30px;
 }
 .padding-l-0{
   padding-left: 0;
@@ -2651,7 +2672,7 @@ button {
     width: 100%;
     text-align: center;
     border-top: 1px solid #eee;
-   
+
   }
 }
 #dropdown a:hover{
@@ -2855,7 +2876,7 @@ a.cancel-red:focus {
 }
 //邀请落地页
 .invite-landing{
-  width:auto; 
+  width:auto;
   overflow-x:auto;
   background-color:#ff572c;
   .invite-landing-header{
@@ -2917,9 +2938,13 @@ a.cancel-red:focus {
     }
   }
   .invite-connent2{
+
+    .mar-l-23{
+      margin-left: 23%;
+    }
    background-color:#ff572c;
    overflow: auto;
-   position:relative; 
+   position:relative;
    width:100%;
    display: table;
    img{
@@ -2957,119 +2982,244 @@ a.cancel-red:focus {
 }
 //激励送现金落地页
 .send-money{
-  box-sizing:border-box;
-  margin:0px;
-  padding:0px;
-  position:relative;
-  background-color:#f2351c;
-  overflow:auto;
-  .send-money-connent{
-    //overflow:auto;
-    display: table;
-    position:relative;
-    width:100%;
+  background-color: #f9513b;
+  background-image: url("/images/activity/send-money-bottom.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  .send-money-header{
+    width: 100%;
+    height: 520px;
+    background: url("/images/activity/top.jpg") no-repeat center center;
+    margin: 0 auto;
     img{
-      display:block; 
-      margin:0 auto;
-      display: table-cell;
-    }
-    .send-money-text{
-      position:absolute;
-      top:30%;
-      left:48%;
+      display: inline-block;
+      margin: 0 auto;
+      vertical-align: middle;
+      margin-bottom: 20px;
     }
   }
-  .send-money-tab{
-    width:100%;
-    table{
-      border:1px solid #ffd11e;
-      width:58%;
+  .send-money-connent {
+    width: 1035px;
+    margin: 0 auto;
+    // background-color: #f9513b;
+    .send-money-connent-l {
+      img{
+        display: table;
+        margin-bottom: 40px;
+      }
+      table{
+      box-shadow: 5px 5px 10px #e8351e;
+      border: 2px solid #FFD11E;
       margin:0 auto;
-      height:72px;
       text-align:center;
+      display: inline-block !important;
       tbody{
+        // border:2px solid #ffd11e;
+        border-top: none;
+        box-shadow:5px 5px 10px #e8351e;
+        -moz-box-shadow: 5px 5px 10px #e8351e;
+        -webkit-box-shadow:5px 5px 10px #e8351e;
+        -o-box-shadow:5px 5px 10px #e8351e;
+        -ms-box-shadow: 5px 5px 10px #e8351e;
         tr{
           td{
             font-size:20px;
-            color:#000;
+            color:#a45704;
             font-weight:normal;
             //padding:10px;
-            background-color:#fdf4d0;
+            background-color:#ffffff;
             border:1px solid #feda4e;
             border-right:none;
             border-bottom:none;
-            height:58px;
+            height:64px;
+            vertical-align: center;
           }
-          td.col0-ft-red{
-              font-size:22px;
+
+          .border-right0{
+            border-right: 0;
+          }
+
+          td.col0-ft-red1{
               color:#cd000d;
               font-weight:bold;
               padding:10px 0px;
-              background-color:#fcefbb;
+              cursor: pointer;
+              // background-color: #ffef5b;
             }
         }
       }
       thead{
+        // border-top: 2px solid #ffd11e;
+        border-bottom: 0;
         tr{
           th{
             font-size:22px;
-            color:#000;
-            font-weight:bold;
+            color:#000000;
+            // font-weight:bold;
             padding:10px;
-            background-color:#fcefbb;
-            border:1px solid #feda4e;
+            background-color:#fff7b0;
             border-right:none;
             border-bottom:none;
             text-align:center;
-            height:58px;
+            height:64px;
+            font-family: "微软雅黑";
+            font-weight: 400;
+          }
+          th.border-right1{
+            border-right: 1px solid #ffd11e;
+            }
+
           }
         }
       }
     }
-  }
-  .send-money-rules{
-    padding:10px 26%;
-    padding-right:20%;
-    p{
-      font-size:18px;
-      line-height:32px;
-      color:#fff;
+    .send-money-connent-r {
+      img{
+        display: table;
+        margin-bottom: 40px;
+        margin-top: -8px;
+      }
+      table{
+      box-shadow: 5px 5px 10px #e8351e;
+      margin:0 auto;
+      text-align:center;
+      display: inline-block !important;
+      border:2px solid #ffd11e;
+      tbody{
+        // border:2px solid #ffd11e;
+        border-top: none;
+        tr{
+          td{
+            font-size:20px;
+            color:#a45704;
+            font-weight:normal;
+            //padding:10px;
+            background-color:#ffffff;
+             border-top:1px solid #feda4e;
+
+            border-right:none;
+            border-bottom:none;
+            height:64px;
+          }
+          .border-right0{
+            border-right: 0;
+          }
+
+          .col0-ft-red{
+              color:#cd000d;
+              // font-weight:bold;
+              padding:10px 0px;
+              cursor: pointer;
+              // background-color: #ffef5b;
+            }
+          td.col0-ft-red1{
+              color:#cd000d;
+              font-weight:bold;
+              padding:10px 0px;
+          }
+        }
+      }
+      thead{
+        // border: 2px solid #ffd11e;
+        border-bottom: 0;
+        tr{
+          th{
+            font-size:22px;
+            font-family: "微软雅黑";
+            font-weight: 400;
+            color:#000000;
+            // font-weight:bold;
+            padding:10px;
+            background-color:#fff7b0;
+            border-right:none;
+            border-bottom:none;
+            text-align:center;
+            height:64px;
+          }
+
+          }
+        }
+      }
     }
-    .padd{
-      position:relative;
-      span{
-        position:absolute;
-        top:-16.6px;
-        left:75%;
-        font-size:22px;
-        line-height:22px;
-        color:#fff;
+    .invest-btn {
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+      margin: 50px 0;
+      img {
+      cursor: pointer;
+      }
+    }
+    .invite-connent1{
+      p{
+        display: inline-block;
+        margin: 0 18px;
+        font-size: 28px;
+        color: #ffffff;
+        margin-bottom: 30px;
+      }
+      .rule-line {
+        display: inline-block;
+        width: 41%;
+        border-top: 1px solid #ECB463;
+        margin-bottom: 7px;
+      }
+    }
+    .send-money-rules{
+        padding:10px 5%;
+        padding-right:2%;
+        p{
+          font-size:18px;
+          line-height:28px;
+          color:#ffffff;
+        }
+        .padd{
+            position:relative;
+            span{
+          position:absolute;
+          top:-16.6px;
+          left:75%;
+          font-size:22px;
+          line-height:22px;
+          color:#fff;
+             }
+          }
+      }
+    .send-money-aboutus{
+      margin-bottom: 165px;
+      ul {
+        width: 100%;
+        li {
+          width: 49%;
+          height: 130px;
+          // padding-right: 18px;
+          background-color: #fff;
+          div.col-8 {
+            color:#888888;
+          }
+          img{
+            margin: 18px;
+          }
+          p {
+            color: #333333;
+            font-size: 18px;
+            margin: 15px 0 2px 0;
+          }
+          span {
+            font-size: 16px;
+            display: inline;
+            width: 72%;
+          }
+        }
+        li.mar-r{
+          margin-right:20px;
+        }
+        li.mar-t{
+          margin-top:20px;
+        }
       }
     }
   }
-  .send-money-bg{
-    background-color:#f2351c;
-    background-image:url(/images/activity/send-money3.png);
-    background-repeat:no-repeat;
-    //background-position:100% 100%;
-    margin-top:800px;
-    width:100%;
-    background-size:100% 100%;
-    .pointer{
-      cursor: pointer !important;
-    }
-  }
-} 
-.no-boxshadow{
-  box-shadow:none !important;
-}
-.yu-tab-hr{
-  width:310px !important;
-  border-bottom: 1px solid #ecb463 !important;
-  margin-top:20px !important;
-}
-.input-bg-grey{
-  background-color:#f8f7f7;
 }
 //体验金专享详情页
 .experience-style{
@@ -3188,7 +3338,7 @@ a.cancel-red:focus {
     .row3{
       position:relative;
       //top:-417px;
-      margin-top: -417px; 
+      margin-top: -417px;
       width:1010px !important;
       height:1344px !important;
       background-image:url(/images/novice-guide/quest-tip.png);
