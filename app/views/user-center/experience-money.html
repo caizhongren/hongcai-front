@@ -7,22 +7,22 @@
       </div>
       <div class="main">
         <div class="padd">
-          <div class="col-md-11 yu-bg-grey9 padding-t-50 padding-b-50 padding-lr-26 margin-auto">
-            <div class="col-md-4 margin-l--14">
+          <div class="col-md-11 yu-bg-grey9 padding-t-50 padding-b-50 margin-auto  padding-lr-26 ">
+            <div class="main-w35 margin-l--14 clearfix fl">
               <img src="/images/user-center/experience-money1.png" alt="" class="fl margin-l-30">
               <div class="record-text yu-record-text">
-                <p class="yu-ft-14">体验金金额（元）</p>
+                <p class="yu-ft-14" >体验金金额（元）</p>
                 <p><strong class="yu-ft-red2 ft-18">{{account.experienceAmount | number : 2}}</strong></p>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="">
               <img src="/images/user-center/experience-money2.png" alt="" class="fl margin-l-5">
               <div class="record-text yu-record-text">
                 <p class="yu-ft-14">累计赚取收益金额（元）</p>
                 <p><strong class="yu-ft-red2 ft-18">{{receiveProfit ||0 | number : 2}}</strong></p>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="">
               <img src="/images/user-center/experience-money3.png" alt="" class="fl margin-l-30">
               <div class="record-text yu-record-text">
                 <button class="orange-button yu-button" ui-sref="root.experience-project">我要投资</button>
@@ -46,7 +46,7 @@
                 <th>赚取收益(元)</th>
               </tr>
             </thead>
-        
+
             <tbody class="yu-bg-grey0">
               <tr ng-repeat="deal in datas">
                 <td>{{deal.usedTime | date: 'yyyy-MM-dd'}}</td>

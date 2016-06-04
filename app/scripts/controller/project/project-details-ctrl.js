@@ -33,7 +33,6 @@ angular.module('hongcaiApp')
             $interval.cancel(interval);
           });
           
-
           $scope.categoryCode = projectDetails.data.category.code;
           if ($scope.categoryCode === '0112' || $scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
             $scope.tabs = [{
@@ -49,7 +48,17 @@ angular.module('hongcaiApp')
             }, {
               title: '相关文件',
             }];
-          } else {
+          } else if($scope.categoryCode === '0116'){
+            $scope.tabs = [{
+              title: '项目信息',
+            }, {
+              title: '风控信息',
+            }, {
+              title: '相关文件',
+            }, {
+              title: '项目历程',
+            }];
+          }else {
             $scope.tabs = [{
               title: '项目信息',
             }, {
@@ -342,12 +351,6 @@ angular.module('hongcaiApp')
         });
       } else {
         // 非预约项目投资
-
-        $state.go('root.invest-verify', {
-          projectId: project.id,
-          amount: project.amount
-        });
-
         if(!$rootScope.account || $rootScope.account.balance < project.amount){
           $scope.msg = '账户余额不足';
           $alert({
@@ -356,10 +359,35 @@ angular.module('hongcaiApp')
             show: true
           });
         }
-
+        
+        OrderService.investVerify.get({
+          projectId: project.id,
+          amount: project.amount
+        }, function(response) {
+          if (response.ret === 1) {
+            $state.go('root.invest-verify', {
+              projectId: project.id,
+              amount: project.amount
+            });
+          } else if (response.ret === -1) {
+            if (response.code === 1) {
+              $scope.msg = '抱歉，已经卖光了。';
+              $modal({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            } else {
+              $scope.msg = response.msg;
+              $modal({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            }
+          }
+        });
       }
-
-
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
