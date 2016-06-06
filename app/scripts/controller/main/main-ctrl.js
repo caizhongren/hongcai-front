@@ -6,7 +6,6 @@ angular.module('hongcaiApp')
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
     // alert(screen.width);
 
-
     $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
     $scope.chartOptions = {
       lineWidth:100,
@@ -126,7 +125,6 @@ angular.module('hongcaiApp')
           }
           $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds($scope.lingcunbao.interval);
         }, 1000);
-
       }
     });
 
