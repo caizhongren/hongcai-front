@@ -98,35 +98,35 @@ angular.module('hongcaiApp')
 
 
     //  宏金盈列表
-    MainService.getIndexFundsProductList.get(function(response) {
-      if (response.ret === 1) {
-        $scope.fundsProjectStatusMap = response.data.fundsProjectStatusMap;
-        $scope.fundsProjectProductList = response.data.fundsProjectProductList;
-        $scope.lingcunbao = $scope.fundsProjectProductList[0];
-        $scope.serverTime = response.data.serverTime;
+    // MainService.getIndexFundsProductList.get(function(response) {
+    //   if (response.ret === 1) {
+    //     $scope.fundsProjectStatusMap = response.data.fundsProjectStatusMap;
+    //     $scope.fundsProjectProductList = response.data.fundsProjectProductList;
+    //     $scope.lingcunbao = $scope.fundsProjectProductList[0];
+    //     $scope.serverTime = response.data.serverTime;
 
-        var nextDay = new Date();
-        nextDay.setHours(0);
-        nextDay.setMinutes(0);
-        nextDay.setSeconds(0);
-        var intervalDay = 1;
-        if (response.data.period != null) {
-          intervalDay = response.data.period.frequency;
-        }
+    //     var nextDay = new Date();
+    //     nextDay.setHours(0);
+    //     nextDay.setMinutes(0);
+    //     nextDay.setSeconds(0);
+    //     var intervalDay = 1;
+    //     if (response.data.period != null) {
+    //       intervalDay = response.data.period.frequency;
+    //     }
 
-        var nextDayTime = nextDay.getTime() + intervalDay * 24 * 60 * 60 * 1000;
-        var intervalTimeInMills = nextDayTime - $scope.serverTime;
-        $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds(intervalTimeInMills);
-        $scope.lingcunbao.interval = intervalTimeInMills;
-        $interval(function() {
-          $scope.lingcunbao.interval = $scope.lingcunbao.interval - 1000;
-          if ($scope.lingcunbao.interval <= 0) {
-            $state.reload();
-          }
-          $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds($scope.lingcunbao.interval);
-        }, 1000);
-      }
-    });
+    //     var nextDayTime = nextDay.getTime() + intervalDay * 24 * 60 * 60 * 1000;
+    //     var intervalTimeInMills = nextDayTime - $scope.serverTime;
+    //     $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds(intervalTimeInMills);
+    //     $scope.lingcunbao.interval = intervalTimeInMills;
+    //     $interval(function() {
+    //       $scope.lingcunbao.interval = $scope.lingcunbao.interval - 1000;
+    //       if ($scope.lingcunbao.interval <= 0) {
+    //         $state.reload();
+    //       }
+    //       $scope.lingcunbao._timeDown = DateUtils.toHourMinSeconds($scope.lingcunbao.interval);
+    //     }, 1000);
+    //   }
+    // });
 
 
 
