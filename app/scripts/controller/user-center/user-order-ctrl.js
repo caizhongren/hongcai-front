@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserOrderCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
+  .controller('UserOrderCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert, ProjectService) {
 
     $scope.typeInvStatus = {
       '0': '未支付',
@@ -27,7 +27,16 @@ angular.module('hongcaiApp')
     $scope.generateContractPDF = function(projectId, orderId, status, type) {
       if (status === 2) {
         if (type !== 4) {
-          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel?orderId=' + orderId + '&projectId=' + projectId);
+          ProjectService.contractPDFModel.get({
+            projectId: projectId
+          }, function(response){
+            console.log(response);
+            if(response.ret !== -1){
+              $scope.downloadPDF(config.baseFileUrl + response.data.contractModel.url);
+            }
+          })
+
+          // $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel?orderId=' + orderId + '&projectId=' + projectId);
         } else if (type === 4) {
           $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContractModel');
         }

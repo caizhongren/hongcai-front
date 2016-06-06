@@ -10,5 +10,6 @@
   "jumpHttpsPath": ["/register-mobile", "/login", "/register-mail"],
   "ignorePATH": ["/credit-list", "/credit-details", "/credit-verify", "/credit-assignment", "/credit-success", "/credit-create"],
   "domain":"http://test321.hongcai.com",
-  "en": "321"
+  "en": "321",
+  "baseFileUrl": "http://test321.hongcai.com/uploads/"
 }
