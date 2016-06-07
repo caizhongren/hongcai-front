@@ -40,10 +40,6 @@ angular.module('hongcaiApp')
         'href': '/investors',
         'link': 'root.help-center.investors',
         'text': '投资介绍'
-      },{
-        'href': '/product',
-        'link': 'root.help-center.product',
-        'text': '产品介绍'
       }, {
         'href': '/account-management',
         'link': 'root.help-center.account-management',
