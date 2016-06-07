@@ -51,16 +51,17 @@
       <ul class="nav navbar-nav navbar-right margin-t-20">
         <li><a ui-sref="root.main" ng-class="{'toggle-navbar' : firstPath == ''}" >首页</a>
         </li>
-        <li class="dropdown"><a class="category cate ft-grey1 border-lr-transparent" href="javascript:;" ng-class="{'toggle-navbar' : selectPage == 'current-deposit' || selectPage == 'fundsproject-list' || selectPage == 'guaranteepro-list'}">我要理财<i class="fa fa-sort-desc"></i></a>
+        <li><a ui-sref="root.guaranteepro-list-query-no()" ng-class="{'toggle-navbar' : firstPath == 'guaranteepro-list'}">我要理财</a>
+          <!-- <li class="dropdown"><a class="category cate ft-grey1 border-lr-transparent" href="javascript:;" ng-class="{'toggle-navbar' : selectPage == 'current-deposit' || selectPage == 'fundsproject-list' || selectPage == 'guaranteepro-list'}">我要理财<i class="fa fa-sort-desc"></i></a>
           <div id="dropdown">
             <div>
               <a ng-click="goCurrentDepositDetail()">零存宝</a>
-            <!--<a ui-sref="root.investmentplan-list" ng-class="{'toggle-navbar' : selectPage == 'investmentplan-list'}">宏金盈</a>-->
+            <a ui-sref="root.investmentplan-list" ng-class="{'toggle-navbar' : selectPage == 'investmentplan-list'}">宏金盈</a>
             <a ui-sref="root.investmentplan-Newlist">宏金盈</a>
             <a ui-sref="root.guaranteepro-list-query-no()">宏金保</a>
-              <!--<a ui-sref="root.credit-list-query-no()" ng-class="{'toggle-navbar' : selectPage == 'project-list'}" ng-show="creditIsShowedFLAG">债权转让</a>-->
+              <a ui-sref="root.credit-list-query-no()" ng-class="{'toggle-navbar' : selectPage == 'project-list'}" ng-show="creditIsShowedFLAG">债权转让</a>
             </div>
-          </div>
+          </div> -->
         </li>
 
         <!--<li><a href="/newbie-guide.html" target="_blank" ng-class="{'toggle-navbar': selectPage == 'partner-platform'}" style="color:black" rel="nofollow">新手引导</a>
