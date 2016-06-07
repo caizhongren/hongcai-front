@@ -25,12 +25,12 @@ angular.module('hongcaiApp')
   
 
     $scope.generateContractPDF = function(projectId, orderId, status, type) {
-      if (status === 2) {
+
+      if (status === 2) { // 下载模板
         if (type !== 4) {
           ProjectService.contractPDFModel.get({
             projectId: projectId
           }, function(response){
-            console.log(response);
             if(response.ret !== -1){
               $scope.downloadPDF(config.baseFileUrl + response.data.contractModel.url);
             }
@@ -43,6 +43,15 @@ angular.module('hongcaiApp')
 
       } else if (status >= 3 && status <= 6) {
         if (type !== 4) {
+          OrderService.downloadContract.get({
+            orderId: orderId,
+            projectId: projectId
+          }, function(response){
+            if(response.ret !== -1){
+              $scope.downloadPDF(config.baseFileUrl + response.data.contractModel.url);
+            }
+          });
+
           $scope.downloadPDF('hongcai/api/v1/siteOrder/downloadContract?orderId=' + orderId + '&projectId=' + projectId);
         } else if (type === 4) {
           $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContract?orderId=' + orderId);

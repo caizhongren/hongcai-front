@@ -14,5 +14,14 @@ angular.module('hongcaiApp')
       saveTuhaoOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/saveTuhaoOrder', {projectId: '@projectId', investAmount: '@investAmount'}),
       transferFunds: $resource(DEFAULT_DOMAIN + '/yeepay/transferFunds', {projectId: '@projectId', orderId: '@orderId'}),
       saveExperienceMoneyOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/saveExperienceMoneyOrder', {projectId: '@projectId', amount: '@amount', isRepeat: '@isRepeat', payAmount: '@payAmount'}),
+
+      /**
+       * 订单合同下载
+       * @type {[type]}
+       */
+      downloadContract: $resource(DEFAULT_DOMAIN + '/siteOrder/downloadContract', {
+        projectId: '@projectId', amount: '@amount', isRepeat: '@isRepeat', payAmount: '@payAmount'
+      }),
+
     };
   });
