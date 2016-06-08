@@ -1367,16 +1367,16 @@ hongcaiApp
           }
         }
       })
-      .state('root.help-center.product', {
-        url: '/product',
-        views: {
-          'help-center-right-show': {
-            templateUrl: 'views/help-center/product.html',
-            controller: 'HelpCenterCtrl',
-            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
-          }
-        }
-      })
+      // .state('root.help-center.product', {
+      //   url: '/product',
+      //   views: {
+      //     'help-center-right-show': {
+      //       templateUrl: 'views/help-center/product.html',
+      //       controller: 'HelpCenterCtrl',
+      //       controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+      //     }
+      //   }
+      // })
 
     /*--------------- credit assignment  ------------------------*/
     //债权转让列表页 FIX,暂时和列表页公用

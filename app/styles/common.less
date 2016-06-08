@@ -57,7 +57,11 @@ hr {
 button {
   outline: none !important;
 }
-
+.display-inb {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
 .text-unline {
   text-decoration: underline !important;
 }
@@ -656,7 +660,9 @@ button {
 .padding-r-15 {
   padding-right: 15px;
 }
-
+.padding-r-20 {
+  padding-right: 20px;
+}
 .padding-r-45 {
   padding-right: 45px;
 }
@@ -1861,6 +1867,9 @@ button {
 .padding-r-0 {
   padding-right: 0;
 }
+.padding-r-20 {
+  padding-right: 20px;
+}
 .margin-0 {
   margin:0px !important;
 }
@@ -3044,6 +3053,7 @@ a.cancel-red:focus {
               font-weight:bold;
               padding:10px 0px;
               cursor: pointer;
+              border-left: none;
               // background-color: #ffef5b;
             }
         }
@@ -3200,14 +3210,14 @@ a.cancel-red:focus {
           img{
             margin: 18px;
           }
-          p {
+          p:nth-child(1) {
             color: #333333;
             font-size: 18px;
             margin: 15px 0 2px 0;
           }
           span {
             font-size: 16px;
-            display: inline;
+            display: inline-block;
             width: 72%;
           }
         }

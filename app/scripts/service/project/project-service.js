@@ -77,6 +77,14 @@ angular.module('hongcaiApp')
         projectId: '@projectId'
       }),
 
+      /**
+       * 项目合同模板
+       * @projectId 项目id
+       */
+      contractPDFModel: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDFModel', {
+        projectId: '@projectId'
+      }),
+
       
       getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {}),
       getOneDayProfitAndNextRate: $resource(DEFAULT_DOMAIN + '/siteFunds/getOneDayProfitAndNextRate', {

@@ -16,8 +16,8 @@ angular.module('hongcaiApp')
       name: '国有企业入驻宏财网'
     }, {
       mimeType: 'image/png',
-      src: 'images/banner-new/banner02.png',
-      href: 'https://www.hongcai.com/hongcai-trends-detail/491',
+      src: 'images/banner-new/banner05.png',
+      href: 'http://www.hongcai.com/hongcai-trends/491',
       name: '新三板金控第一股严选项目'
     }, /* {
       mimeType: 'image/png',
