@@ -10,7 +10,6 @@ angular.module('hongcaiApp').directive('aboutsidebar', ['$location', '$rootScope
 			scope.$watch(function() {
 				return '/'+$location.path().split('/')[1];
 				// return $location.path();
-
 			}, function(newValue) {
         // $('a[href]', element).each(function(k, a) {
 				angular.element('a[href]', element).each(function(k, a) {
@@ -19,7 +18,7 @@ angular.module('hongcaiApp').directive('aboutsidebar', ['$location', '$rootScope
 					regexp = new RegExp('^' + pattern + '$', ['i']);
 					if(regexp.test(newValue)) {
 						$a.addClass('on-it');
-						
+
 						for (var i = scope.menus.left.length - 1; i >= 0; i--) {
 							if(regexp.test(scope.menus.left[i].href)){
 								$rootScope.titleName = scope.menus.left[i].text;
