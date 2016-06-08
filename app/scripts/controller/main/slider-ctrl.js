@@ -8,7 +8,7 @@ angular.module('hongcaiApp')
     $scope.media = [{
       mimeType: 'image/png',
       src: 'images/banner/banner11.png',
-      href: '/register',
+      href: '/activity/send-money',
       name: '投资返现最高688'
     },{
       mimeType: 'image/png',
