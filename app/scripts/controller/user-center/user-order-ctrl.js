@@ -41,7 +41,7 @@ angular.module('hongcaiApp')
             projectId: projectId
           }, function(response){
             if(response.ret !== -1){
-              $scope.downloadPDF($scope.baseFileUrl + response.data.contractModel.url);
+              $scope.downloadPDF($scope.baseFileUrl() + response.data.contractModel.url);
             }
           })
 
@@ -57,7 +57,7 @@ angular.module('hongcaiApp')
             projectId: projectId
           }, function(response){
             if(response.ret !== -1){
-              $scope.downloadPDF($scope.baseFileUrl + response.data.contract.url);
+              $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
             }
           });
 
