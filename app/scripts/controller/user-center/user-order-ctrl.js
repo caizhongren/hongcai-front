@@ -22,6 +22,15 @@ angular.module('hongcaiApp')
       }, 300);
     };
 
+
+    $scope.baseFileUrl = function(){
+      if($location.protocol() === 'http'){
+        return 'http' + config.baseFileUrl.substr(config.baseFileUrl.indexOf("//") - 1);
+      } else {
+        return 'https' + config.baseFileUrl.substr(config.baseFileUrl.indexOf("//") - 1);
+      }
+    }
+
   
 
     $scope.generateContractPDF = function(projectId, orderId, status, type) {
@@ -32,7 +41,7 @@ angular.module('hongcaiApp')
             projectId: projectId
           }, function(response){
             if(response.ret !== -1){
-              $scope.downloadPDF(config.baseFileUrl + response.data.contractModel.url);
+              $scope.downloadPDF($scope.baseFileUrl + response.data.contractModel.url);
             }
           })
 
@@ -48,7 +57,7 @@ angular.module('hongcaiApp')
             projectId: projectId
           }, function(response){
             if(response.ret !== -1){
-              $scope.downloadPDF(config.baseFileUrl + response.data.contract.url);
+              $scope.downloadPDF($scope.baseFileUrl + response.data.contract.url);
             }
           });
 
@@ -60,6 +69,7 @@ angular.module('hongcaiApp')
       }
 
     };
+
 
   
 
