@@ -8,7 +8,7 @@
         <img src="images/project/reading01.png" alt="">
         <div class="read-text ft-14 ft-grey1 margin-t-15">
           <p class="margin-b-0" ng-repeat="item in mediaList">
-            <a ui-sref="root.about-us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+            <a ui-sref="root.about-us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title.length > 17 ? item.title.substr(0,17) : item.title}}</a>
           </p>
         </div>
       </div>
