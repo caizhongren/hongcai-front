@@ -1551,6 +1551,17 @@ hongcaiApp
         }
       }
     })
+    // 父亲节活动页
+      .state('root.activity.father-day', {
+        url: '/father-day',
+        views: {
+          '': {
+            templateUrl: 'views/activity/father-day.html',
+          // controller: 'FatherDayCtrl',
+          // controllerUrl: 'scripts/controller/activity/load-page-ctrl'
+        }
+      }
+    })
     /*-------------  体验金项目专享详情页   ----------------------*/
     .state('root.experience-project', {
       url: '/experience-project',
@@ -1657,7 +1668,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     'register'
   ];
 
-  
+
 
   $rootScope.$on('$stateChangeStart', function(event, toState) {
     $rootScope.isNoviceGuide = false;
@@ -1692,7 +1703,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
             $rootScope.showLoginModal();
           }
         }
-        
+
       });
   });
 
