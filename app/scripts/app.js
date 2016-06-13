@@ -1541,11 +1541,22 @@ hongcaiApp
         }
       })
     /*-------------  送现金活动落地页   ----------------------*/
-    .state('root.activity.send-money', {
+     .state('root.activity.send-money', {
       url: '/send-money',
       views: {
         '': {
           templateUrl: 'views/send-money.html',
+        }
+      }
+    })
+    // 父亲节活动页
+      .state('root.activity.father-day', {
+        url: '/father-day',
+        views: {
+          '': {
+            templateUrl: 'views/activity/father-day.html',
+          // controller: 'FatherDayCtrl',
+          // controllerUrl: 'scripts/controller/activity/load-page-ctrl'
         }
       }
     })
@@ -1655,7 +1666,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     'register'
   ];
 
-  
+
 
   $rootScope.$on('$stateChangeStart', function(event, toState) {
     $rootScope.isNoviceGuide = false;
@@ -1690,7 +1701,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
             $rootScope.showLoginModal();
           }
         }
-        
+
       });
   });
 
