@@ -1654,8 +1654,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
   var notShowFooterRoute = [
     'login',
     'register',
-    'invite-landing',
-    'send-money',
+    'activity',
     'novice-guide',
     'register'
   ];
@@ -1773,10 +1772,11 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       $rootScope.userCenterPart = 5;
     }
 
-    $rootScope.showFooter = false;
-    if (notShowFooterRoute.indexOf($location.path().split('/')[1]) === -1) {
-      $rootScope.showFooter = true;
+    $rootScope.showFooter = true;
+    if (notShowFooterRoute.indexOf($location.path().split('/')[1]) !== -1) {
+      $rootScope.showFooter = false;
     }
+
 
     $rootScope.showHeader = true;
     if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1) {
