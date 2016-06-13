@@ -2,8 +2,6 @@
 angular.module('hongcaiApp')
   .controller('InviteLandingCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, ngClipboard, $aside, $window, $modal, config, toaster, VouchersService) {
     //判断是否开通第三方托管账户
-    //
-    //
     VouchersService.getInviteList.get(function(response) {
       if (response.ret === 1) {
         $scope.voucher = response.data.voucher;

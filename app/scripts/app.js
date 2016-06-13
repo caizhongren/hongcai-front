@@ -117,7 +117,7 @@ hongcaiApp
         }
       })
       .state('root.mainRedirect', {
-        url: '/third/:from',
+        url: '/third/:f',
         views: {
           '': {
             templateUrl: 'views/main.html',
@@ -1508,7 +1508,7 @@ hongcaiApp
 
     /*--------------------  load page  route  -----------------------------------------*/
     .state('root.load-page', {
-        url: '/load-page?from&inviteCode',
+        url: '/load-page?f&inviteCode',
         views: {
           '': {
             templateUrl: 'views/load-page.html',
@@ -1531,7 +1531,7 @@ hongcaiApp
 
     /*-------------  邀请活动落地页   ----------------------*/
       .state('root.activity.invite-landing', {
-        url: '/invite',
+        url: '/invite?act&f',
         views: {
           '': {
             templateUrl: 'views/invite-landing.html',
@@ -1541,11 +1541,13 @@ hongcaiApp
         }
       })
     /*-------------  送现金活动落地页   ----------------------*/
-     .state('root.activity.send-money', {
-      url: '/send-money',
+    .state('root.activity.send-money', {
+      url: '/send-money?act&f',
       views: {
         '': {
           templateUrl: 'views/send-money.html',
+          controller: 'InviteLandingCtrl',
+          controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
         }
       }
     })
@@ -1584,7 +1586,7 @@ hongcaiApp
     })
       /*---------------- traffic import route  ----------------------*/
       .state('root.registerMobile-sanGuo', {
-        url: '/register-mobile-sanGuo/:from',
+        url: '/register-mobile-sanGuo/:f',
         views: {
           '': {
             templateUrl: 'views/register/register-mobile-sanGuo.html',
@@ -1594,7 +1596,7 @@ hongcaiApp
         }
       })
       .state('root.project-details-traffic', {
-        url: '/project/:projectId/:from',
+        url: '/project/:projectId/:f',
         views: {
           '': {
             templateUrl: 'views/project/project-details.html',
@@ -1620,7 +1622,7 @@ hongcaiApp
 
   }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config) {
+hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
   // Array 在IE8下没有indexOf 方法。
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(obj, start) {
@@ -1729,6 +1731,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
     $rootScope.firstPath = $location.path().split('/')[1];
     $rootScope.selectSide = $location.path().split('/')[2];
+
+    $rootScope.act = $state.params.act;
+    $rootScope.channelCode = $state.params.f;
+    if ($rootScope.channelCode) {
+      ipCookie('utm_from', $rootScope.channelCode, {
+        expires: 1
+      });
+    }
 
     var showFlag1 = [
         'account-overview',
