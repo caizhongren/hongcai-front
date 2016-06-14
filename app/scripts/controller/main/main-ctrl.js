@@ -47,34 +47,20 @@ angular.module('hongcaiApp')
             $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
             $scope.data.push($scope.jigoubao[i]);
           }
-          $scope._timeDown = [];
-          $scope.counter = 0;
 
-          $interval(function() {
+          var interval = $interval(function() {
             for (var i = $scope.jigoubao.length - 1; i >= 0; i--) {
               $scope.jigoubao[i].countdown -= 1000;
               if ($scope.jigoubao[i].countdown <= 0 && $scope.jigoubao[i].status == 2) {
                 $state.reload();
               }
 
-              // 已投金额
-              $scope.investmentMoney = $scope.jigoubao[i].soldStock * $scope.jigoubao[i].increaseAmount;
-
-              // 剩余金额
-              $scope.remainingMoney = $scope.jigoubao[i].total - $scope.investmentMoney;
-              $scope.jigoubao[i].chartData = [$scope.investmentMoney, $scope.remainingMoney];
-
-              $scope.labelsList = ['已投', '剩余'];
-
               $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
-              $scope.jigoubaoHour = $scope.jigoubao[i]._timeDown.hour;
-              $scope.jigoubaoMinute = $scope.jigoubao[i]._timeDown.min;
-              $scope.jigoubaoSecond = $scope.jigoubao[i]._timeDown.seconds;
             };
           }, 1000);
-          // $scope.$on('$stateChangeStart', function() {
-          //   clearInterval(interval);
-          // });
+          $scope.$on('$stateChangeStart', function() {
+            clearInterval(interval);
+          });
         } else {
           $scope.data = [];
           toaster.pop('warning', '服务器正在努力的加载....请稍等。');
