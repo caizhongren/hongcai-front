@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('LoadPageCtrl', ['$scope', '$location',  '$state', '$rootScope', '$stateParams','LoginService', 'RegisterService', 'SessionService','ipCookie', 'DEFAULT_DOMAIN', 'toaster', 'md5',  'MainService', 'UserCenterService',function($scope, $location, $state, $rootScope, $stateParams, LoginService, RegisterService, SessionService, ipCookie,DEFAULT_DOMAIN, toaster, md5,  MainService,UserCenterService) {
+  .controller('LoadPageCtrl',function($scope, $location, $state, $rootScope, $stateParams, LoginService, RegisterService, SessionService, ipCookie,DEFAULT_DOMAIN, toaster, md5,  MainService,UserCenterService) {
     // ipCookie('registeInviteCode', $stateParams.inviteCode, {
     //     expires: 7
     //   });
@@ -167,17 +167,13 @@ angular.module('hongcaiApp')
 
     // $scope.online = online;
     //360渠道流量统计
-    var from = $stateParams.from;
-    if (from) {
-      ipCookie('utm_from', from, {
-        expires: 1
-      });
+    if ($rootScope.channelCode) {
       MainService.trafficStats.get({
-        from: from
+        from: $rootScope.channelCode
       });
     }
 
-  }]);
+  });
 
     //快速登录
 

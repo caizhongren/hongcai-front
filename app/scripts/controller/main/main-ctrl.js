@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, ipCookie, FriendLinkService, $alert, $timeout, DateUtils, toaster) {
+  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, FriendLinkService, $alert, $timeout, DateUtils, toaster) {
     $scope.spCountDown = -1;
 
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
@@ -196,16 +196,13 @@ angular.module('hongcaiApp')
     });
 
     // 处理推广流量统计
-    var from = $stateParams.from;
-    if (from) {
-      ipCookie('utm_from', from, {
-        expires: 1
+    if ($rootScope.channelCode) {
+      MainService.trafficStats.get({
+        from: $rootScope.channelCode
       });
     }
-    MainService.trafficStats.get({
-      from: from
-    });
 
+    
   })
 .config(['ChartJsProvider', function (ChartJsProvider) {
     // Configure all charts
