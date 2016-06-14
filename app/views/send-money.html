@@ -69,22 +69,22 @@
               <!-- <th>推荐项目</th> -->
             </tr>
           </thead>
-          <tbody>
+          <tbody ng-show="!rankList || rankList.length == 0">
             <tr>
               <td class="border-right0 boder-l2">181****2851</td>
-              <td class="col0-ft-red border-r2">￥30</td>
+              <td class="col0-ft-red border-r2">￥135</td>
               <!-- <td>&ge; 90天</td> -->
               <!-- <td>宏金宝</td> -->
             </tr>
             <tr>
               <td class="border-right0 boder-l2" width="188px">177****2374</td>
-              <td class="col0-ft-red border-r2">￥5</td>
+              <td class="col0-ft-red border-r2">￥15</td>
               <!-- <td>&ge; 30天</td> -->
               <!-- <td>月月盈</td> -->
             </tr>
             <tr>
               <td class="boder-l2">187****3747</td>
-              <td class="col0-ft-red border-r2">￥88</td>
+              <td class="col0-ft-red border-r2">￥80</td>
               <!-- <td>&ge; 90天</td> -->
               <!-- <td>宏金宝</td> -->
             </tr>
@@ -96,13 +96,21 @@
             </tr>
             <tr>
               <td class=" boder-l2">187****4659</td>
-              <td class="col0-ft-red border-r2">￥10</td>
+              <td class="col0-ft-red border-r2">￥15</td>
               <!-- <td>&ge; 90天</td> -->
               <!-- <td>宏金宝</td> -->
             </tr>
             <tr>
               <td class=" boder-l2 border-b2">187****4659</td>
-              <td class="col0-ft-red border-b2 border-r2">￥20</td>
+              <td class="col0-ft-red border-b2 border-r2">￥15</td>
+              <!-- <td>&ge; 90天</td> -->
+              <!-- <td>宏金宝</td> -->
+            </tr>
+          </tbody>
+          <tbody ng-show="rankList && rankList.length > 0">
+            <tr ng-repeat="rank in rankList">
+              <td class=" boder-l2 border-b2">{{rank.mobile}}</td>
+              <td class="col0-ft-red border-b2 border-r2">￥{{rank.amount}}</td>
               <!-- <td>&ge; 90天</td> -->
               <!-- <td>宏金宝</td> -->
             </tr>
