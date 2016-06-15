@@ -191,7 +191,7 @@ angular.module('hongcaiApp')
 
     $scope.searchStatus = parseInt($stateParams.searchStatus) || 1;
     $scope.currentPage = 1;
-    $scope.pageSize = 10;
+    $scope.pageSize = 6;
 
 
     $scope.loadCredits($scope.currentPage, $scope.pageSize, $scope.searchStatus);
