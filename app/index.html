@@ -6,7 +6,7 @@
     (function() {
       var hm = document.createElement("script");
       hm.src = "http://hm.baidu.com/hm.js?d983dc714a0b23ffe589b3ed9a21478d";
-      var s = document.getElementsByTagName("script")[0]; 
+      var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
     </script>
@@ -50,7 +50,7 @@
     <!-- endbower -->
     <link rel="stylesheet" href="bower_components/fancybox/source/jquery.fancybox.css" />
     <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css" />
-    
+
 
     <!-- endbuild -->
 
@@ -125,7 +125,7 @@
     <!-- Add your site or application content here -->
 
     <section ui-view="header"></section>
-    <section ui-view class="bg-white8" autoscroll="true"></section>
+    <section ui-view class="bg-white8 overflow-hi" autoscroll="true"></section>
     <section ui-view="service" class="hidden-xs hidden-sm"></section>
     <section ui-view="footer"></section>
 
@@ -196,6 +196,7 @@
     <script src="scripts/controller/project/activity-details-ctrl.js"></script>
     <script src="scripts/controller/activity/lucky-draw-ctrl.js"></script>
     <script src="scripts/controller/activity/invite-landing-ctrl.js"></script>
+    <script src="scripts/controller/activity/send-money-ctrl.js"></script>
 
     <script src="scripts/controller/project/project-details-ctrl.js"></script>
     <script src="scripts/controller/project/investmentplan-details-ctrl.js"></script>
@@ -286,6 +287,8 @@
     <script src="scripts/service/banner/friend-link-service.js"></script>
 
     <script src="scripts/service/user-center/voucher-service.js"></script>
+
+    <script src="scripts/service/activity/activity-service.js"></script>
 
     <script src="scripts/service/DateUtils.js"></script>
     <script src="scripts/service/ShareUtils.js"></script>

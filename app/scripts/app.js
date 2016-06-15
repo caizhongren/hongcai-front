@@ -1546,8 +1546,8 @@ hongcaiApp
       views: {
         '': {
           templateUrl: 'views/send-money.html',
-          controller: 'InviteLandingCtrl',
-          controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
+          controller: 'SendMoneyCtrl',
+          controllerUrl: 'scripts/controller/activity/send-money-ctrl'
         }
       }
     })
