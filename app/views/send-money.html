@@ -108,7 +108,7 @@
             </tr>
           </tbody>
           <tbody ng-show="rankList && rankList.length > 0">
-            <tr ng-repeat="rank in rankList">
+            <tr ng-repeat="rank in rankList  | limitTo: 6">
               <td class=" boder-l2 border-b2">{{rank.mobile}}</td>
               <td class="col0-ft-red border-b2 border-r2">￥{{rank.amount}}</td>
               <!-- <td>&ge; 90天</td> -->
