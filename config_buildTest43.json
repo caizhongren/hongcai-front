@@ -1,5 +1,5 @@
 {
-  "YEEPAY_ADDRESS": "http://125.39.218.239:7000/yeepay/2.0.3/member/bha/",
+  "YEEPAY_ADDRESS": "http://test321.hongcai.com:7000/yeepay/2.0.3/member/bha/",
   "viewFlAG": {
     "tuhaoIsShowedFlAG": false,
     "sponsorsIsShowedFlAG": false,
