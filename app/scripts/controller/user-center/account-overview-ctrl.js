@@ -34,28 +34,14 @@ angular.module('hongcaiApp')
 
     
     $scope.jigoubaoList = function() {
-      ProjectService.projectList.get({
-        status: '6,7,8,9,10,11,12',
-        minCycle: 0,
-        maxCycle: 100,
-        minEarning: 0,
-        maxEarning: 100,
-        minTotalAmount: 0,
-        maxTotalAmount: 200000000,
-        sortCondition: 'release_start_time',
-        sortType: false,
-        pageSize: 5,
+      ProjectService.getAccountOverviewProjects.get({
         categoryCode: "01"
       }, function(response) {
         if (response.ret === 1) {
-          $scope.orderProp = 'id';
-          $scope.currentPage = 0;
-          $scope.pageSize = 5;
           $scope.serverTime = response.data.serverTime;
           $scope.jigoubao = response.data.projectList;
           $scope.projectStatusMap = response.data.projectStatusMap;
           $scope.repaymentTypeMap = response.data.repaymentTypeMap;
-          $scope.baseFileUrl = response.data.baseFileUrl;
           $scope.data = [];
           $scope.numberOfPages = function() {
             return Math.ceil($scope.data.length / $scope.pageSize);
