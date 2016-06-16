@@ -48,11 +48,11 @@ angular.module('hongcaiApp')
     }*/];
 
     // 首页数据统计
-    MainService.indexStatistics.get(function(response) {
-      if (response.ret === 1) {
-        $scope.indexStatic = response.data.indexStatic;
-      }
-    });
+    // MainService.indexStatistics.get(function(response) {
+    //   if (response.ret === 1) {
+    //     $scope.indexStatic = response.data.indexStatic;
+    //   }
+    // });
 
     $scope.slickConfig = {
       dots: true,
