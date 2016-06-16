@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AccountOverviewCtrl',  function($scope, $state, $rootScope, $stateParams,MainService,ProjectService, UserCenterService, toaster) {
+  .controller('AccountOverviewCtrl',  function($scope, $state, $interval, $rootScope, $stateParams, ProjectService, UserCenterService, toaster, DateUtils) {
     var totalAssets = 0;
     var receivedProfit = 0;
     var balance = 0;
@@ -33,22 +33,62 @@ angular.module('hongcaiApp')
     });
 
     
-    /*
-    **零存宝、宏金盈列表
-    */
-    MainService.getIndexFundsProductList.get(function(response) {
-    	console.log("hongjinying");
-    	console.log(response);
-    	$scope.fundsProjectProductList = response.data.fundsProjectProductList;
-    });
-    //机构宝
-    ProjectService.projectList.get({
-        status: '7',
+    $scope.jigoubaoList = function() {
+      ProjectService.projectList.get({
+        status: '6,7,8,9,10,11,12',
+        minCycle: 0,
+        maxCycle: 100,
+        minEarning: 0,
+        maxEarning: 100,
+        minTotalAmount: 0,
+        maxTotalAmount: 200000000,
+        sortCondition: 'release_start_time',
+        sortType: false,
+        pageSize: 5,
+        categoryCode: "01"
       }, function(response) {
-      	//console.log("jigoubao");
-    	//console.log(response);
-    	$scope.jigoubao = response.data.projectList;
+        if (response.ret === 1) {
+          $scope.orderProp = 'id';
+          $scope.currentPage = 0;
+          $scope.pageSize = 5;
+          $scope.serverTime = response.data.serverTime;
+          $scope.jigoubao = response.data.projectList;
+          $scope.projectStatusMap = response.data.projectStatusMap;
+          $scope.repaymentTypeMap = response.data.repaymentTypeMap;
+          $scope.baseFileUrl = response.data.baseFileUrl;
+          $scope.data = [];
+          $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+          };
+          for (var i = 0; i < $scope.jigoubao.length; i++) {
+            $scope.jigoubao[i].countdown = new Date($scope.jigoubao[i].releaseStartTime).getTime() - $scope.serverTime;
+            $scope.jigoubao[i].showByStatus = $scope.jigoubao[i].status === 6 || $scope.jigoubao[i].status === 7 ? true : false;
+            $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
+            $scope.data.push($scope.jigoubao[i]);
+          }
+
+          var interval = $interval(function() {
+            for (var i = $scope.jigoubao.length - 1; i >= 0; i--) {
+              $scope.jigoubao[i].countdown -= 1000;
+              if ($scope.jigoubao[i].countdown <= 0 && $scope.jigoubao[i].status == 2) {
+                $state.reload();
+              }
+
+              $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
+            };
+          }, 1000);
+          $scope.$on('$stateChangeStart', function() {
+            clearInterval(interval);
+          });
+        } else {
+          $scope.data = [];
+          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+          //console.log('ask project-list, why projectList did not load data...');
+        }
       });
+    };
+
+    $scope.jigoubaoList();
     
     /**
      * 我的债权统计数据
