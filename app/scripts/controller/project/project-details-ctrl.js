@@ -8,6 +8,8 @@ angular.module('hongcaiApp')
       $scope.checkFlag = !val ? true : false;
     };
 
+
+
     $scope.getProjectDetails = function() {
       var projectDetails = ProjectService.projectDetails.get({
         number: $stateParams.number
@@ -22,7 +24,7 @@ angular.module('hongcaiApp')
 
           var interval = $interval(function(){
             $scope.countdown -= 1000;
-            if ($scope.countdown <= 0 && $scope.project.status == 2){
+            if ($scope.countdown <= 0 && $scope.project.status == 6){
               $state.reload();
             }
             $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
@@ -115,20 +117,7 @@ angular.module('hongcaiApp')
         }
       });
     };
-    $scope.getProjectDetails();
-    $scope.finished = function() {
-      ProjectService.projectDetails.get({
-        projectId: $stateParams.projectId
-      }, function(response) {
-        if (response.ret === 1) {
-          $scope.project = response.data.project;
-        }
-        // 刷新页面
-        if ($scope.statSecond === 0) {
-          $state.reload();
-        }
-      });
-    };
+    
     $scope.Alertdata = function() {
       $alert({
         scope: $scope,
@@ -145,13 +134,16 @@ angular.module('hongcaiApp')
         projectId: projectId,
         projectType: projectType
       }, function(response){
-        $scope.orderList = response.data.orderList;
-        $scope.numberOfPages = function() {
-          return Math.ceil($scope.data.length / $scope.pageSize);
-        };
-        for (var i = 0; i < $scope.orderList.length; i++) {
-          $scope.data.push($scope.orderList[i]);
+        if(response.ret !== -1){
+          $scope.orderList = response.data.orderList;
+          $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+          };
+          for (var i = 0; i < $scope.orderList.length; i++) {
+            $scope.data.push($scope.orderList[i]);
+          }
         }
+        
       });
     }
 
@@ -211,7 +203,7 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.getReserveRecords();
+    
 
     //获取预约收益
     $scope.getProfit = function(project) {
@@ -537,7 +529,8 @@ angular.module('hongcaiApp')
       }
     };
 
-    
+    $scope.getProjectDetails();
+    $scope.getReserveRecords();
 
     
   });
