@@ -141,19 +141,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b-dash" ng-repeat="item in fundsProjectProductList">
-              <td ui-sref="root.current-deposit-details({number: item.number})" class="cursor-pointer">{{item.product.name}}{{item.name}}</td>
-              <td>{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}%</td>
-              <td>{{item.product.sealingDays || 0}}天</td>
-              <td>{{item.total}}</td>
-              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.current-deposit-details({number: item.number})">立即投资</button></td>
-            </tr>
-            <tr class="border-b-dash" ng-repeat="item in jigoubao">
+            <tr class="border-b-dash" ng-repeat="item in jigoubao | limitTo: 5">
               <td class="cursor-pointer" ui-sref="root.project-details({number: item.number})">{{item.name}}</td>
               <td>{{item.annualEarnings | number : 2}}%</td>
               <td>{{item.projectDays}}天</td>
               <td>{{item.total}}</td>
-              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})">立即投资</button></td>
+              <td>
+                <!-- <button class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})">立即投资</button> -->
+                <a class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})" ng-show="item.status == 6">{{item._timeDown.hour}}:{{item._timeDown.min}}:{{item._timeDown.seconds}}</a>
+                <a class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})" ng-show="item.status == 7">立即投资</a>
+                <a class="btn-grey col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})" ng-show="item.status > 7 && item.status !== 11">{{projectStatusMap[item.status]}}</a>
+              </td>
             </tr>
           </tbody>
         </table>
