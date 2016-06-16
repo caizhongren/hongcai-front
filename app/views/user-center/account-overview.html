@@ -65,39 +65,39 @@
     </div>
     <div class="col-md-11">
       <div class="tip-title flex-container col-xs-12  text-center">
-        <div class="flex-item col-xs-2">
+        <div class="flex-item col-xs-2 fl">
           <p>总资产(元)</p>
           <p class="ft-red2 ft-24">{{account.totalAssets+account.experienceAmount | number:2}}</p>
         </div>
-        <div class="flex-item text-center margin-l-15">
+        <div class="flex-item text-center margin-l-15 fl">
           <p>&nbsp;</p>
-          <p class="ft-offorange ft-24">&nbsp;&nbsp;&nbsp;=</p>
+          <p class="ft-offorange ft-24">&nbsp;&nbsp;=&nbsp;</p>
         </div>
-        <div class="flex-item col-xs-2">
+        <div class="flex-item col-xs-2 fl">
           <p>账户余额(元)</p>
           <p class="ft-black2 ft-24">{{account.balance| number:2}}</p>
         </div>
-        <div class="flex-item text-center margin-l-15">
+        <div class="flex-item text-center margin-l-15 fl">
           <p>&nbsp;</p>
           <p class="ft-offorange ft-24">+</p>
         </div>
-        <div class="flex-item col-xs-2">
+        <div class="flex-item col-xs-2 fl">
           <p>持有投资(元)</p>
           <p class="ft-black2 ft-24">{{account.waitingCapital+account.freezeCapital | number:2}}&nbsp;</p>
         </div>
-        <div class="flex-item text-center">
+        <div class="flex-item text-center fl">
           <p>&nbsp;</p>
           <p class="ft-offorange ft-24">&nbsp;&nbsp;&nbsp;+</p>
         </div>
-        <div class="flex-item col-xs-2">
+        <div class="flex-item col-xs-2 fl">
           <p>待收收益(元)</p>
           <p  class="ft-black2 ft-24">{{account.waitingProfit | number:2}}</p>
         </div>
-        <div class="flex-item text-center">
+        <div class="flex-item text-center fl">
           <p>&nbsp;</p>
-          <p class="ft-offorange ft-24">&nbsp;&nbsp;&nbsp;+</p>
+          <p class="ft-offorange ft-24">&nbsp;&nbsp;+&nbsp;</p>
         </div>
-        <div class="flex-item col-xs-2">
+        <div class="flex-item fl">
           <p>体验金(元)</p>
           <p class="ft-black2 ft-24">{{account.experienceAmount || 0 | number:0}}</p>
         </div>
@@ -157,12 +157,12 @@
             </tr>
           </tbody>
         </table>
-      </div>  
+      </div>
     </div>
   </div>
 </div>
 <script>
-$(function() 
+$(function()
   { $("[data-toggle='popover']").popover();
 
 });
