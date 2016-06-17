@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, DateUtils, AboutUsService) {
+  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, DateUtils, AboutUsService, projectStatusMap) {
     // $rootScope.redirectUrl = $location.path();
     $scope.chk = true;
     $scope.checkFlag = true;
@@ -8,6 +8,7 @@ angular.module('hongcaiApp')
       $scope.checkFlag = !val ? true : false;
     };
 
+    $scope.projectStatusMap = projectStatusMap;
 
 
     $scope.getProjectDetails = function() {
