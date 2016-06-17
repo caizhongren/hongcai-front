@@ -550,12 +550,12 @@
 .nav-orange2-project{
   li{
     list-style:none;
-    margin:0 30px; 
+    margin:0 30px;
     a&hover{
       color:#fd874a !important;
     }
   }
-  
+
 }
 .nav-orange2-project > li.active > a,
   .nav-orange2-project > li.active > a:hover,
@@ -726,7 +726,7 @@
   margin-top:18px;
   background-repeat:no-repeat;
   background-image:url(/images/user-center/sidebar-personal.png);
-   
+
 }
 .sidebar-pic2{
   background-position:0px -40px;
@@ -1031,7 +1031,12 @@
    width:190px !important;
 }
 .linear-gradient{
-  background-image:linear-gradient(to bottom,#fd6f10 0%,#ff7d26 100%);
+  background-image:linear-gradient(to bottom,#fd6f10 0%, #ff7d26 100%);
+  background-image:-webkit-linear-gradient(to bottom,#fd6f10 0%, #ff7d26 100%);
+  background-image:-o-linear-gradient(to bottom,#fd6f10 0%, #ff7d26 100%);
+  background-image:-ms-linear-gradient(to bottom,#fd6f10 0%, #ff7d26 100%);
+  background-image:-moz-linear-gradient(to bottom,#fd6f10 0%, #ff7d26 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#fd6f10,endcolorstr=#ff7d26,gradientType=1);
   color:#fff;
   button{
     width:83px;
@@ -1043,6 +1048,11 @@
 }
 .linear-gradient1{
   background-image:linear-gradient(to bottom,#3286f0 0%,#36a4f4 100%);
+  background-image: -webkit-linear-gradient(to bottom,#3286f0 0%, #36a4f4 100%);
+  background-image: -o-linear-gradient(to bottom,#3286f0 0%, #36a4f4 100%);
+  background-image:-ms-linear-gradient(to bottom,#3286f0 0%,#36a4f4 100%);
+  background-image:-moz-linear-gradient(to bottom,#3286f0 0%,#36a4f4 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#3286f0,endcolorstr=#36a4f4,gradientType=1);
   color:#fff;
   button{
     background-color:#5db1fc;
@@ -1100,7 +1110,7 @@
     width: 100%;
     text-align: center;
     z-index: 2;
-    }  
+    }
 .slider-dotted .slick-active {
   background-color: #999;
   cursor: default;
@@ -1109,7 +1119,7 @@
   background-color: #cfcfcf;
   color: #fff;
   border: 1px solid #f0efef;
-}   
+}
 .navbar-default .navbar-nav > li > a:hover {
   color: #fd6f10;
 }
