@@ -293,29 +293,35 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.toInvest = function(project) { //验证用户权限
+    /**
+     * 自定义dialog
+     */
+    $scope.alertDialog = function(msg){
+      $scope.msg = msg;
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alert-dialog.html',
+        show: true
+      });
+    }
+
+    /**
+     * 投资或者预约
+     */
+    $scope.toInvest = function(project) { 
+      //验证用户权限
       if (project.inviteMobile) {
         $rootScope.inviteMobile = project.inviteMobile;
       }
       $scope.amount = project.status === 11 ? project.toReserveAmount : project.amount;
-      if ($scope.amount < $scope.project.minInvest) {
-        // alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
-        // $scope.msg = '投资金额必须大于最小投资金额' + $scope.project.minInvest + '！';
-        $scope.msg = '投资金额必须大于最小投资金额:100元！';
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-dialog.html',
-          show: true
-        });
+      if($scope.amount > $rootScope.account.balance){
+        $scope.alertDialog('余额不足，请先充值');
+        return;
+      } else if ($scope.amount < $scope.project.minInvest) {
+        $scope.alertDialog('投资金额必须大于' + $scope.project.minInvest +'元！');
         return;
       } else if ($scope.amount % $scope.project.increaseAmount) {
-        // alert('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
-        $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍！';
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-dialog.html',
-          show: true
-        });
+        $scope.alertDialog('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
         return;
       }
 

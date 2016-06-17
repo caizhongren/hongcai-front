@@ -1,10 +1,10 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, FriendLinkService, $alert, $timeout, DateUtils, toaster) {
+  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, FriendLinkService, $alert, $timeout, DateUtils, toaster, projectStatusMap) {
     $scope.spCountDown = -1;
 
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
-    // alert(screen.width);
+    $scope.projectStatusMap = projectStatusMap;
 
     $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
     $scope.chartOptions = {
@@ -34,7 +34,6 @@ angular.module('hongcaiApp')
           $scope.pageSize = 5;
           $scope.serverTime = response.data.serverTime;
           $scope.jigoubao = response.data.projectList;
-          $scope.projectStatusMap = response.data.projectStatusMap;
           $scope.repaymentTypeMap = response.data.repaymentTypeMap;
           $scope.baseFileUrl = response.data.baseFileUrl;
           $scope.data = [];
