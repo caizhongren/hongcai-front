@@ -1,9 +1,10 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GuaranteeproListCtrl', function($scope, $interval, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils) {
+  .controller('GuaranteeproListCtrl', function($scope, $interval, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils, projectStatusMap) {
     $rootScope.pageTitle = '宏金宝 - 要理财，上宏财!';
     $scope.sortType = $stateParams.sortType || false;
     $scope.showFlag = $stateParams.showFlag || 0;
+    $scope.projectStatusMap = projectStatusMap;
 
     if ($scope.sortType === 'true') {
       $scope.sortType = true;
