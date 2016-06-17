@@ -294,6 +294,18 @@ angular.module('hongcaiApp')
     };
 
     /**
+     * 自定义dialog
+     */
+    $scope.alertDialog = function(msg){
+      $scope.msg = msg;
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alert-dialog.html',
+        show: true
+      });
+    }
+
+    /**
      * 投资或者预约
      */
     $scope.toInvest = function(project) { 
@@ -303,31 +315,13 @@ angular.module('hongcaiApp')
       }
       $scope.amount = project.status === 11 ? project.toReserveAmount : project.amount;
       if($scope.amount > $rootScope.account.balance){
-        $scope.msg = '余额不足，请先充值';
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-dialog.html',
-          show: true
-        });
+        $scope.alertDialog('余额不足，请先充值');
         return;
-      }
-
-      if ($scope.amount < $scope.project.minInvest) {
-        $scope.msg = '投资金额必须大于最小投资金额:100元！';
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-dialog.html',
-          show: true
-        });
+      } else if ($scope.amount < $scope.project.minInvest) {
+        $scope.alertDialog('投资金额必须大于' + $scope.project.minInvest +'元！');
         return;
       } else if ($scope.amount % $scope.project.increaseAmount) {
-        // alert('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
-        $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍！';
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-dialog.html',
-          show: true
-        });
+        $scope.alertDialog('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
         return;
       }
 
