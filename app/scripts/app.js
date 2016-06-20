@@ -353,6 +353,10 @@ hongcaiApp
           }
         }
       })
+
+      /**
+       * 开通易宝，即实名认证
+       */
       .state('root.rights-transfer', {
         url: '/righs-transfer/:realName/:idCardNo/:type',
         views: {

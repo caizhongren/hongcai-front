@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('RightsTransferCtrl', ['$rootScope', '$scope', 'toaster', '$stateParams', 'UserCenterService', 'config', '$alert', function ($rootScope, $scope, toaster, $stateParams, UserCenterService, config, $alert) {
+  .controller('RightsTransferCtrl', function ($rootScope, $scope, toaster, $stateParams, UserCenterService, config, $alert) {
     function newForm() {
       var f = document.createElement('form');
       document.body.appendChild(f);
@@ -40,7 +40,7 @@ angular.module('hongcaiApp')
           _f.submit();
           $rootScope.securityStatus.realNameAuthStatus = 1;
         } else {
-          console.log('ask security-settings, why yeepayRegister did not load data...');
+          toaster.pop('warning', '提示', response.msg);
         }
       });
 
@@ -72,4 +72,4 @@ angular.module('hongcaiApp')
       });
     }
 
-  }]);
+  });
