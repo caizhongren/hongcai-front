@@ -29,7 +29,7 @@ angular.module('hongcaiApp')
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);
           // $state.go('root.register-mobile-success');
-          $state.go('root.register-bind');
+          $state.go('root.userCenter.security-settings');
           // $rootScope.loginName = response.data.user.name;
           // $rootScope.isLogged = true;
         } else {
