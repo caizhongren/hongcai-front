@@ -44,7 +44,9 @@ angular.module('hongcaiApp')
       }
 
     });
-    // 显示协议
+    /**
+     * 显示协议
+     */
     $scope.showAgreement = function() {
       $modal({
         scope: $scope,

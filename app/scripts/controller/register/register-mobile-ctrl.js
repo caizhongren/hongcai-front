@@ -2,7 +2,9 @@
 angular.module('hongcaiApp')
   .controller('RegisterMobileCtrl', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie, MainService) {
     $rootScope.pageTitle = '手机注册' + ' - 要理财，上宏财!';
-    // 注册链接上是否有邀请码
+    /**
+     * 注册链接上是否有邀请码
+     */
     if ($stateParams.inviteCode) {
       $scope.user = {
         inviteCode: $stateParams.inviteCode
@@ -28,10 +30,7 @@ angular.module('hongcaiApp')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);
-          // $state.go('root.register-mobile-success');
           $state.go('root.userCenter.security-settings');
-          // $rootScope.loginName = response.data.user.name;
-          // $rootScope.isLogged = true;
         } else {
           toaster.pop('warning', '提示', response.msg);
           $state.go('root.register');
@@ -39,10 +38,6 @@ angular.module('hongcaiApp')
       });
     };
 
-
-    // $scope.$watch('user.picCaptcha', function(newVal, oldVal){
-    //   console.log(newVal);
-    // });
 
     $scope.sendMobileCaptcha = function(user) {
       if (!user.picCaptcha){
@@ -72,7 +67,10 @@ angular.module('hongcaiApp')
 
 
 
-    // 处理推广流量统计
+    /**
+     * 处理推广流量
+     * @type {[type]}
+     */
     var from = $stateParams.from;
     if (from) {
       ipCookie('utm_from', from, {

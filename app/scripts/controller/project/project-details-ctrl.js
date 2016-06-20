@@ -78,9 +78,13 @@ angular.module('hongcaiApp')
           $scope.repaymentDate = projectDetails.data.repaymentDate;
           $scope.progress = ($scope.project.soldStock + $scope.project.occupancyStock) * 100/$scope.project.countInvest;
           $scope.totalType = $scope.project.status === 11 && $scope.progress < 100 ? '可预约金额' : '可投金额';
-          // 项目可投金额
+          /**
+           * 项目可投金额
+           */
           $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
-          // 用户可用金额
+          /**
+           * 用户可用金额
+           */
           if ($rootScope.account) {
             if ($scope.project.status === 11) {
               $scope.userCanInvestNum = $scope.project.reserveAmount > $rootScope.account.balance * 10 ? $rootScope.account.balance * 10 : $scope.project.reserveAmount;
@@ -93,7 +97,6 @@ angular.module('hongcaiApp')
           $scope.projectInfo = projectDetails.data.projectInfo;
           $scope.projectRank = projectDetails.data.projectRank;
 
-          // $scope.pledges = projectDetails.data.pledges;
           $scope.isAvailable = projectDetails.data.isAvailable;
           
           $scope.preRepaymentList = projectDetails.data.preRepaymentList;
@@ -101,7 +104,9 @@ angular.module('hongcaiApp')
           $scope.remainInterest = projectDetails.data.remainInterest;
           $scope.remainPrincipal = projectDetails.data.remainPrincipal;
           $scope.baseFileUrl = projectDetails.data.baseFileUrl;
-          // 处理投资记录分页
+          /**
+           * 处理投资记录分页
+           */
           $scope.currentPage = 0;
           $scope.pageSize = 10;
           $scope.data = [];
@@ -206,7 +211,9 @@ angular.module('hongcaiApp')
 
     
 
-    //获取预约收益
+    /**
+     * 获取预约收益
+     */
     $scope.getProfit = function(project) {
       if ($rootScope.autoTransfer !== 1) {
         $scope.msg = '需要完成自动投标授权，请到安全中心设置中授权。';
@@ -262,7 +269,9 @@ angular.module('hongcaiApp')
         return;
       }
     };
-    // 完善资料第一代
+    /**
+     * 完善资料第一代
+     */
     $scope.toRealNameAuth = function() {
       $alert({
         scope: $scope,
@@ -271,7 +280,9 @@ angular.module('hongcaiApp')
       });
     };
 
-    // 跳到充值页面
+    /**
+     * 跳到充值页面
+     */
     $scope.toRecharge = function() {
       if ($rootScope.securityStatus.realNameAuthStatus + $rootScope.autoTransfer >= 1) {
         $modal({
@@ -280,11 +291,12 @@ angular.module('hongcaiApp')
           show: true
         });
       } else {
-        // 去实名
         $scope.toRealNameAuth();
       }
     };
-    // 显示协议
+    /**
+     * 显示协议
+     */
     $scope.showAgreement = function() {
       $modal({
         scope: $scope,
@@ -309,7 +321,6 @@ angular.module('hongcaiApp')
      * 投资或者预约
      */
     $scope.toInvest = function(project) { 
-      //验证用户权限
       if (project.inviteMobile) {
         $rootScope.inviteMobile = project.inviteMobile;
       }
@@ -326,7 +337,9 @@ angular.module('hongcaiApp')
       }
 
       if (project.status === 11) {
-        // 预约项目投资
+        /**
+         * 预约项目投资
+         */
         ProjectService.reserve.get({
           reserveAmount: project.toReserveAmount,
           projectId: project.id,
@@ -349,7 +362,9 @@ angular.module('hongcaiApp')
           }
         });
       } else {
-        // 非预约项目投资
+        /**
+         * 非预约项目投资
+         */
         if(!$rootScope.account || $rootScope.account.balance < project.amount){
           $scope.msg = '账户余额不足';
           $alert({
@@ -447,15 +462,15 @@ angular.module('hongcaiApp')
       myOtherModal.$promise.then(myOtherModal.show);
     };
 
-    // 处理推广流量统计
     if ($rootScope.channelCode) {
       MainService.trafficStats.get({
         from: $rootScope.channelCode
       });
     }
 
-    // 某宝宝的收益率
-    // 接口在这里。参照account-overview-ctrl.js line: 9-55
+    /**
+     * 某宝宝的收益率
+     */
     ProjectService.getYuebaoInterestRatesByDate.get(function(response) {
       if (response.ret === 1) {
         var interestRates = response.data.yuebaoInterestRates;
@@ -525,7 +540,6 @@ angular.module('hongcaiApp')
       datasetFill: true
     };
 
-    // 弹出登录弹层
     $scope.toRealLogin = function() {
       if (!$rootScope.isLogged) {
         $modal({

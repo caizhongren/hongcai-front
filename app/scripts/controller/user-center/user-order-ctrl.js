@@ -35,7 +35,10 @@ angular.module('hongcaiApp')
 
     $scope.generateContractPDF = function(projectId, orderId, status, type) {
 
-      if (status === 2) { // 下载模板
+      /**
+       * 下载模板
+       */
+      if (status === 2) { 
         if (type !== 4) {
           ProjectService.contractPDFModel.get({
             projectId: projectId
@@ -85,8 +88,6 @@ angular.module('hongcaiApp')
       },
       function(response) {
         if (getOrderByUser.ret === 1) {
-          // console.log(getOrderByUser);
-          // if($scope.haveTrusteeshipAccount) {
           $scope.orderList = getOrderByUser.data.orderList;
           $scope.count = getOrderByUser.data.count;
           $scope.type = getOrderByUser.data.type;
@@ -105,7 +106,6 @@ angular.module('hongcaiApp')
             item.url = item.type === 1 ? 'root.project-details({projectId: ' + item.projectId + '})' : 'root.activity-details({activityId: ' + item.projectId + ', type:' + item.type + '})';
             $scope.data.push(item);
             }
-          // }
 
         } else {
           toaster.pop('warning', response.msg);
@@ -117,7 +117,9 @@ angular.module('hongcaiApp')
     
     
 
-    // 继续支付订单
+    /**
+     * 继续支付订单
+     */
     $scope.toPay = function(projectId, orderId, orderType) {
       $scope.msg = '4';
       $scope.page = 'investment';
@@ -130,16 +132,19 @@ angular.module('hongcaiApp')
       window.open('/user-order-transfer/' + projectId + '/' + orderId + '/' + orderType);
     };
 
-    // 取消订单
+    /**
+     * 取消订单
+     */
     $scope.cancelOrder = function(number) {
       if ($window.confirm('确定取消订单?')) {
-        // 确定要删除订单的弹窗。
+        /**
+         * 确定要删除订单的弹窗。
+         */
         UserCenterService.cancelOrder.get({
           number: number
         }, function(response) {
           if (response.ret === 1) {
             $state.reload();
-            // 刷新页面
           } else {
             toaster.pop('warning', '无法取消订单，请重试。');
           }

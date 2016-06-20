@@ -45,7 +45,9 @@ angular.module('hongcaiApp')
       });
 
     } else if ($stateParams.type === '1') {
-      // 调用预约的方法，当预约开通后
+      /**
+       * 调用预约的方法，当预约开通后
+       */
       UserCenterService.authorizeAutoTransfer.get({
       }, function(response) {
         if (response.ret === 1) {

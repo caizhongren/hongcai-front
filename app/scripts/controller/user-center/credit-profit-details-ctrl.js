@@ -17,7 +17,9 @@ angular.module('hongcaiApp')
           var invTotal = response.data.order.orderAmount;
           if (response.data.fundsProject) {
             var rdp = response.data.fundsProject;
-            //总融资额
+            /**
+             * 总融资额
+             */
             var invInitDate = moment(rdp.valueDate).toString();
             var accountDay = rdp.accountDay;
             var invStartDate = moment([moment(invInitDate).year(), moment(invInitDate).month(), accountDay]).toString();
@@ -27,44 +29,28 @@ angular.module('hongcaiApp')
             var invType = rdp.type;
             var invRate = rdp.annualEarnings / 100;
             if (invType === 1) {
-              // 先息后本
+              /**
+               * 先息后本
+               */
               everyMonthInterestPri(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
             } else if (invType === 2) {
-              // 等额本息
+              /**
+               * 等额本息
+               */
               everyMonthInterestEq(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
             }
             if ($scope.creditRightBillList.length) {
               $scope.listInvPond.splice(0, $scope.creditRightBillList.length);
             }
-            /*if (response.data.billList) {
-              var bill = response.data.billList;
-              var billList = {};
-              for (var i = 0; i < bill.length; i++) {
-                billList = {
-                  'payDate': moment(bill[i].successTime).format('YYYY-MM-DD'),
-                  'invEarnings': bill[i].amount,
-                  'invStatus': bill[i].status
-                };
-                $scope.listInvPond.splice(i, 1, billList);
-              }
-            }
-            $scope.paid = 0;
-            $scope.unpaid = 0;
-            for (var x = 0; x < $scope.listInvPond.length; x++) {
-              var status = $scope.listInvPond[x].invStatus;
-              if (status === 1) {
-                $scope.paid += $scope.listInvPond[x].invEarnings;
-              } else {
-                $scope.unpaid = $scope.unpaid + $scope.listInvPond[x].invEarnings;
-              }
-            }*/
           }
         }
       });
     };
 
     var everyMonthInterestPri = function(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate) {
-      // 每月的付费天数，付费日期，上次支付日期，该月的利息；
+      /**
+       * 每月的付费天数，付费日期，上次支付日期，该月的利息；
+       */
       $scope.listInvPond = [];
       var invDays, payDate, prevDate, invEarnings;
       var invList = {};
@@ -84,7 +70,6 @@ angular.module('hongcaiApp')
         // if (diffDate === 0) {
         //   invCycle = invCycle - 1;
         // }
-        // 原先是这样
         invCycle = invCycle - 1;
         for (var i = 0; i <= invCycle; i++) {
           payDate = moment(invStartDate).add(i, 'month').toString();
@@ -96,7 +81,7 @@ angular.module('hongcaiApp')
           } else {
             invDays = moment(payDate).diff(moment(prevDate), 'days', true);
           }
-          invEarnings = invTotal * invRate * parseInt(invDays) / 365; //计算利率
+          invEarnings = invTotal * invRate * parseInt(invDays) / 365; 
           if (i === invCycle) {
             invEarnings = invEarnings + invTotal;
           }
@@ -110,10 +95,15 @@ angular.module('hongcaiApp')
         }
       }
     };
-    // 等额本息  intType = 2
+    /**
+     * 等额本息  intType = 2
+     */
     var everyMonthInterestEq = function(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate) {
       $scope.listInvPond = [];
-      var invDays, payDate, prevDate, invEarnings, currentMonthInterest, payDiffDate; //每月的付费天数，付费日期，上次支付日期，该月的付款金额, 当月生成的的利息；
+      /**
+       * 每月的付费天数，付费日期，上次支付日期，该月的付款金额, 当月生成的的利息；
+       */
+      var invDays, payDate, prevDate, invEarnings, currentMonthInterest, payDiffDate; 
       var invList = {};
       invEarnings = (invTotal * invRate * Math.pow((1 + invRate / invCycle), invCycle)) / (Math.pow((1 + invRate / invCycle), invCycle) - 1) / invCycle;
       var LastPayDate = moment(invStartDate).add(invCycle, 'month').toString();
