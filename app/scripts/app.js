@@ -86,7 +86,6 @@ hongcaiApp
               /*,
                           controller: 'FooterCtrl',
                           controllerUrl: 'scripts/controller/main/footer-ctrl'*/
-              //隐藏放假公告弹窗
           },
           'service': {
             templateUrl: 'views/service.html',
@@ -162,7 +161,10 @@ hongcaiApp
           }
         }
       })
-      //注册改版
+      /**
+       * 注册改版
+       * @type {String}
+       */
       .state('root.register',{
         url: '/register?inviteCode',
         views:{
@@ -252,7 +254,10 @@ hongcaiApp
         }
       })
 
-      // 宏金盈介绍页
+      /**
+       * 宏金盈介绍页
+       * @type {String}
+       */
       .state('root.banner-investmentplan', {
         url: '/banner-investmentplan',
         views: {
@@ -330,7 +335,10 @@ hongcaiApp
         }
       })
 
-    // 易宝网页操作回调页，包括开通易宝、充值、提现、绑卡、取消绑卡、投资
+    /**
+     * 易宝网页操作回调页，包括开通易宝、充值、提现、绑卡、取消绑卡、投资
+     * @type {String}
+     */
     .state('root.yeepay-callback', {
       url: '/yeepay-callback/:business/:status?amount&number&profit',
       views: {
@@ -428,7 +436,10 @@ hongcaiApp
         }
       })
 
-    // 修改手机号码
+    /**
+     * 修改手机号码
+     * @type {String}
+     */
     .state('root.yeepay', {
         url: '/yeepay/:business/:mobile',
         views: {
@@ -440,7 +451,6 @@ hongcaiApp
         }
       })
       /*-------------  lucky-draw  ---------------------------*/
-      // 土豪活动，暂时不上线。
       .state('root.lucky-draw', {
         url: '/lucky-draw',
         views: {
@@ -568,7 +578,10 @@ hongcaiApp
         }
       })
 
-    // 资金流水
+    /**
+     * 资金流水
+     * @type {String}
+     */
     .state('root.userCenter.record', {
         url: '/record',
         views: {
@@ -648,7 +661,10 @@ hongcaiApp
       }
     })
 
-    // 预约订单
+    /**
+     * 预约订单
+     * @type {String}
+     */
     .state('root.userCenter.reservation', {
       url: '/reservation',
       views: {
@@ -663,7 +679,10 @@ hongcaiApp
       }
     })
 
-    // 体验金（个人中心）
+    /**
+     * 体验金（个人中心）
+     * @type {String}
+     */
     .state('root.userCenter.experienceMoney', {
       url: '/experience-money',
       views: {
@@ -678,7 +697,9 @@ hongcaiApp
       }
     })
 
-    // 加息券（个人中心）
+    /**
+     * 加息券（个人中心）
+     */
     .state('root.userCenter.rate-coupon', {
       url: '/rate-coupon',
       views: {
@@ -693,7 +714,9 @@ hongcaiApp
       }
     })
 
-    // 我的债权（个人中心）
+    /**
+     * 我的债权（个人中心）
+     */
     .state('root.userCenter.credit', {
       url: '/credit/:searchStatus',
       views: {
@@ -708,7 +731,9 @@ hongcaiApp
       }
     })
 
-    // 宏金宝债权详情
+    /**
+     * 宏金宝债权详情
+     */
     .state('root.userCenter.credit-security-details', {
       url: '/credit-security-details/:type/:number',
       views: {
@@ -723,7 +748,9 @@ hongcaiApp
       }
     })
 
-    // 宏金盈债权详情
+    /**
+     * 宏金盈债权详情
+     */
     .state('root.userCenter.credit-profit-details', {
         url: '/credit-profit-details/:type/:number',
         views: {
@@ -831,7 +858,9 @@ hongcaiApp
           }
         }
       })
-      // 宏金盈列表页新
+      /**
+       * 宏金盈列表页新
+       */
       .state('root.investmentplan-Newlist', {
         url: '/fundsproject-list',
         views: {
@@ -852,16 +881,6 @@ hongcaiApp
           }
         }
       })
-      /*.state('root.activity-tuHao-details', {
-        url: '/activity/:activityId/:type',
-        views: {
-          '': {
-            templateUrl: 'views/project/activity-details.html',
-            controller: 'ActivityDetailsCtrl',
-            controllerUrl: 'scripts/controller/project/activity-details-ctrl'
-          }
-        }
-      })*/
       .state('root.project-details', {
         url: '/project/:number',
         views: {
@@ -873,9 +892,12 @@ hongcaiApp
         }
       })
 
-    // 零存宝详情页
+    /**
+     * 零存宝详情页
+     * tab表示用户登录前的位置
+     */
     .state('root.current-deposit-details', {
-      url: '/current-deposit/:number?tab', // tab表示用户登录前的位置
+      url: '/current-deposit/:number?tab', 
       views: {
         '': {
           templateUrl: 'views/project/current-deposit-details.html',
@@ -885,9 +907,12 @@ hongcaiApp
       }
     })
 
-    // 宏金盈详情页
+    /**
+     * 宏金盈详情页
+     * tab表示用户登录前的位置
+     */
     .state('root.investmentplan-details', {
-      url: '/investmentplan/:number?tab', // tab表示用户登录前的位置
+      url: '/investmentplan/:number?tab', 
       views: {
         '': {
           templateUrl: 'views/project/investmentplan-details.html',
@@ -897,7 +922,9 @@ hongcaiApp
       }
     })
 
-    // 担保公司页面
+    /**
+     * 担保公司页面
+     */
     .state('root.project-sponsorInstitution', {
       url: '/project-sponsorInstitution/:guaranteeId',
       views: {
@@ -914,7 +941,9 @@ hongcaiApp
       }
     })
 
-    // 预约流程页
+    /**
+     * 预约流程页
+     */
     .state('root.appointment-project', {
         url: '/appointment-project',
         views: {
@@ -971,7 +1000,9 @@ hongcaiApp
     //  }
     // })
     /*---------------------------------------------  order  ---------------------------------------------*/
-    // 投资信息确认页面:购物车
+    /**
+     * 投资信息确认页面:购物车
+     */
     .state('root.invest-verify', {
         url: '/invest-verify/:projectId/:amount',
         views: {
@@ -982,7 +1013,9 @@ hongcaiApp
           }
         }
       })
-      // 宏包信息确认页面
+      /**
+       * 宏包信息确认页面
+       */
       .state('root.hongbao-verify', {
         url: '/hongbao-verify/:activityId/:amount',
         views: {
@@ -993,7 +1026,9 @@ hongcaiApp
           }
         }
       })
-      // 宏金盈购物车
+      /**
+       * 宏金盈购物车
+       */
       .state('root.invplan-verify', {
         url: '/invplan-verify/:projectId/:amount/:isRepeat',
         views: {
@@ -1383,7 +1418,9 @@ hongcaiApp
       // })
 
     /*--------------- credit assignment  ------------------------*/
-    //债权转让列表页 FIX,暂时和列表页公用
+    /**
+     * 债权转让列表页 FIX,暂时和列表页公用
+     */
     .state('root.credit-list-query', {
         url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
         views: {
@@ -1404,7 +1441,9 @@ hongcaiApp
           }
         }
       })
-      //债权转让详情页
+      /**
+       * 债权转让详情页
+       */
       .state('root.credit-details', {
         url: '/credit-details/:assignmentNumber',
         views: {
@@ -1416,7 +1455,9 @@ hongcaiApp
         }
       })
 
-    // 债权转让下单页(确认页)
+    /**
+     * 债权转让下单页(确认页)
+     */
     .state('root.credit-verify', {
         url: '/credit-verify/:creditId/:amount',
         views: {
@@ -1427,7 +1468,9 @@ hongcaiApp
           }
         }
       })
-      // 债权转让宣传介绍页面
+      /**
+       * 债权转让宣传介绍页面
+       */
       .state('root.credit-assignment', {
         url: '/credit-assignment',
         views: {
@@ -1438,7 +1481,9 @@ hongcaiApp
           }
         }
       })
-      // 成功回调页
+      /**
+       * 成功回调页
+       */
       .state('root.credit-success', {
         url: '/credit-success/:etoken',
         views: {
@@ -1522,7 +1567,9 @@ hongcaiApp
         }
       })
 
-    // 活动父 state，所有的活动落地页都在此 state下
+    /**
+     * 活动父 state，所有的活动落地页都在此 state下
+     */
     .state('root.activity', {
       url: '/activity',
       abstract: true,
@@ -1555,7 +1602,9 @@ hongcaiApp
         }
       }
     })
-    // 父亲节活动页
+    /**
+     * 父亲节活动页
+     */
       .state('root.activity.father-day', {
         url: '/father-day',
         views: {
@@ -1611,7 +1660,9 @@ hongcaiApp
       });
     $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://www.hongcai.com/hongcai/api/**']);
 
-    // 导致IE8不兼容的地方。
+    /**
+     * 导致IE8不兼容的地方。
+     */
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
@@ -1627,7 +1678,9 @@ hongcaiApp
   }]);
 
 hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
-  // Array 在IE8下没有indexOf 方法。
+  /**
+   * Array 在IE8下没有indexOf 方法。
+   */
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(obj, start) {
       for (var i = (start || 0), j = this.length; i < j; i++) {
@@ -1651,12 +1704,16 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     });
   }
 
-  // 需要用户登录才能看到的url
+  /**
+   * 需要用户登录才能看到的url
+   */
   var routespermission = [
     'user-center'
   ];
 
-  // 不需要显示footer的path
+  /**
+   * 不需要显示footer的path
+   */
   var notShowFooterRoute = [
     'login',
     'register',
@@ -1664,7 +1721,10 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     'novice-guide',
     'register'
   ];
-  // 不需要显示header的path
+  
+  /**
+   * 不需要显示header的path
+   */
   var notShowHeaderRoute = [
     'novice-guide',
     'login',
@@ -1713,9 +1773,11 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
 
   $rootScope.mobileIOS = ($window.navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
-  // viewFlAG view层面的显示与否的判断，比如main.html的土豪标图片不显示，在viewFlAG里添加, tuhaoShowFLAG: false (变量注入的是rootScope，FLAG保持全部大写)，然后在main.html做一个ng-show, no-hide的判断即可。
-  // ignorePATH route层面的显示与否的判断，比如/lucky-draw抽奖活动咱不对外公布(未上线)，在ignorePATH添加路径/lucky-draw。
-  // branch_switch,当该标识关联的功能已开发完成，但并没有对外发布。
+  /**
+   * viewFlAG view层面的显示与否的判断，比如main.html的土豪标图片不显示，在viewFlAG里添加, tuhaoShowFLAG: false (变量注入的是rootScope，FLAG保持全部大写)，然后在main.html做一个ng-show, no-hide的判断即可。
+   * ignorePATH route层面的显示与否的判断，比如/lucky-draw抽奖活动咱不对外公布(未上线)，在ignorePATH添加路径/lucky-draw。
+   * branch_switch,当该标识关联的功能已开发完成，但并没有对外发布。
+   */
   if (config.viewFlAG) {
     angular.forEach(config.viewFlAG, function(value, key) {
       $rootScope[key] = value;
@@ -1724,11 +1786,15 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
 
   $rootScope.$on('$stateChangeSuccess', function() {
-    // branch_switch， 当该路由关联的功能已开发完成，但并没有对外发布。
+    /**
+     * branch_switch， 当该路由关联的功能已开发完成，但并没有对外发布。
+     */
     if (config.ignorePATH && config.ignorePATH.indexOf('/' + $location.path().split('/')[1]) !== -1) {
       $location.path('//');
     }
-    // 跳转HTTPS的全局配置
+    /**
+     * 跳转HTTPS的全局配置
+     */
     if ($location.protocol() === 'http' && config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
       $window.location.href = 'https://' + $location.absUrl().split('://')[1];
     }

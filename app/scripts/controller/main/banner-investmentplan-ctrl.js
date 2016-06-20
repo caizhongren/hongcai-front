@@ -1,7 +1,9 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('BannerInvPlanCtrl', ['$scope', 'MainService', '$location', function($scope, MainService, $location) {
-    //  宏金盈列表
+    /**
+     * 宏金盈列表
+     */
     MainService.getIndexFundsProductList.get(function(response) {
       if (response.ret === 1) {
         $scope.fundsProjectStatusMap = response.data.fundsProjectStatusMap;

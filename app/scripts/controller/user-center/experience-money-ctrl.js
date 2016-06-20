@@ -3,7 +3,6 @@ angular.module('hongcaiApp')
   .controller('ExperienceMoneyCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
     $scope.datas = [];
 
-    //查询加息券
     $scope.loadExperienceDeals = function(page, pageSize, status){
       UserCenterService.userExperienceDeals.get({
         page: page,

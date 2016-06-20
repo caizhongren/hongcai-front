@@ -100,7 +100,9 @@ angular.module('hongcaiApp')
       }
     });
 
-    // 收益曲线
+    /**
+     * 收益曲线
+     */
     UserCenterService.dayProfit.get({
       startTime: new Date().getTime(),
       endTime: new Date().getTime() + 60 * 1000,
@@ -114,18 +116,6 @@ angular.module('hongcaiApp')
         $scope.yestodayProfit = data[key];
       }
     });
-
-    // 原版获取投资统计数据
-    /*OrderService.statisticsByUser.get(function(response) {
-      if (response.ret === 1) {
-        var orderNum = response.data.orderNum;
-        if (orderNum) {
-          $scope.investingNum = orderNum.isInve;
-          $scope.investedNum = orderNum.overInve;
-          $scope.investNum = orderNum.allInve;
-        }
-      }
-    });*/
 
 
     /**

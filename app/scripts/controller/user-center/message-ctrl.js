@@ -80,7 +80,9 @@ angular.module('hongcaiApp')
 
     $scope.loadPage($scope.currentPage, $scope.pageSize, $stateParams.status);
 
-    //删除某条信息
+    /**
+     * 删除某条信息
+     */
     $scope.deleteMsg = function(id){
       UserCenterService.deleteOneMsg.get({
         'msgId': id

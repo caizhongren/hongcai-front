@@ -15,7 +15,9 @@ angular.module('hongcaiApp')
 
     $scope.getExperienceProjectDetails();
 
-    //投资
+    /**
+     * 投资
+     */
     $scope.showMsg = false;
     $scope.quickInvest = function(){
       if(!$rootScope.isLogged){
@@ -61,7 +63,9 @@ angular.module('hongcaiApp')
       }
     }
 
-    // 完善资料
+    /**
+     * 完善资料
+     */
     $scope.toRealNameAuth = function() {
       $alert({
         scope: $scope,
