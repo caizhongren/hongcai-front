@@ -56,7 +56,7 @@ angular.module('hongcaiApp')
           });
         }else{
           $scope.showMsg = true;
-          $scope.msg = '体验金小于100元，无法投资体验金新手标';
+          $scope.msg = '体验金小于100元，无法投资';
         }
       }else{
         $scope.toRealNameAuth();
