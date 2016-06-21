@@ -51,13 +51,13 @@
 					<p class="ft-14">累计投资金额：<span class="ft-30 ftw-b ft-offGrey">{{project.soldStock | number:0}}</span>元</p>
 				</div>
 				<div class="col-xs-11 padding-t-10 padding-b-30 padding-l-0">
-					<input type="text" ng-value="account.experienceAmount || 0  + '元体验金'" class="border-grey1 input-bg-grey input-size" readonly="readonly">
+					<input type="text" ng-value="(account.experienceAmount || 0)  + '元体验金'" class="border-grey1 input-bg-grey input-size" readonly="readonly">
 					<div class="hint text-center ft-red padding-t-0p5 padding-b-0p5 box-shadow" ng-show="showMsg">
 					  <i class="fa fa-info">&nbsp;</i>{{msg}}
 					</div>
 				</div>
 
-				<a class="col-xs-11 btn btn-invite-orange ft-white padding-0 ft-18" ng-click="quickInvest()">{{isLogged ? '立即投资' : '请先登录' }}<i class="fa fa-chevron-circle-right"></i></a>
+				<button class="col-xs-11 btn btn-invite-orange ft-white padding-0 ft-18" ng-click="quickInvest()" ng-disabled="isLogged && account.experienceAmount <= 0">{{isLogged ? '立即投资' : '请先登录' }}<i class="fa fa-chevron-circle-right"></i></button>
 				<a ng-show="false" class="col-xs-11 text-center ft-14 padding-t-20 padding-b-20 ft-red-0 text-unline">获得奖励?</a>
 			</div>
 		</div>

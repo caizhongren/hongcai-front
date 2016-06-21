@@ -1762,7 +1762,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
 
-          if(toState.name.startsWith("root.userCenter")){
+          if(toState.name.indexOf("root.userCenter") !== -1){
             $rootScope.showLoginModal();
           }
         }
