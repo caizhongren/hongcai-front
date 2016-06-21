@@ -609,7 +609,7 @@ button {
 }
 
 .padding-0 {
-  padding: 0;
+  padding: 0 !important;
 }
 .padding-lr-13 {
   padding-left: 13px;
@@ -2259,6 +2259,11 @@ button {
 .modal-backdrop.am-fade,
 .aside-backdrop.am-fade {
   background: rgba(0, 0, 0, .8);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  /* works for old school versions of the Mozilla browsers like Netscape Navigator. */
+  -moz-opacity:0.8;
+  /* This is for old versions of Safari (1.x) with KHTML rendering engine */
+  -khtml-opacity: 0.8;
 }
 
 #enLarge {
