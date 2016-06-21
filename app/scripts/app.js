@@ -1697,7 +1697,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
   }
 
   $rootScope.showLoginModal = function(){
-    $modal({
+    $rootScope.loginModal = $modal({
       scope: $rootScope,
       template: 'views/modal/modal-toLogin.html',
       show: true

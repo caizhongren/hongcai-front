@@ -540,15 +540,6 @@ angular.module('hongcaiApp')
       datasetFill: true
     };
 
-    $scope.toRealLogin = function() {
-      if (!$rootScope.isLogged) {
-        $modal({
-          scope: $scope,
-          template: 'views/modal/modal-toLogin.html',
-          show: true
-        });
-      }
-    };
 
     $scope.getProjectDetails();
     $scope.getReserveRecords();

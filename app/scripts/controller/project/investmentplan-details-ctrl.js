@@ -83,18 +83,6 @@ angular.module('hongcaiApp')
     }
 
     /**
-     * 弹出登录弹层
-     */
-    $scope.toRealLogin = function() {
-      if (!$rootScope.isLogged) {
-        $modal({
-          scope: $scope,
-          template: 'views/modal/modal-toLogin.html',
-          show: true
-        });
-      }
-    };
-    /**
      * 完善资料第一代
      */
     $scope.toRealNameAuth = function() {
@@ -236,7 +224,7 @@ angular.module('hongcaiApp')
       }
       $scope.invPlanAmount = fundsProject.invPlanAmount;
       if ($scope.invPlanFlag === 0) {
-        $scope.toRealLogin();
+        $rootScope.showLoginModal();
       } else if ($scope.invPlanFlag === 1) {
         $scope.toRealNameAuth();
       } else if ($scope.checkLargeUserCanAmount(fundsProject)) {
