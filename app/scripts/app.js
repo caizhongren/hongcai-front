@@ -1908,7 +1908,13 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
           }
         }
 
-      });
+    });
+
+    // 若存在登录框，则去掉
+    if($rootScope.loginModal){
+      $rootScope.loginModal.hide();
+    }
+
   });
 
 
