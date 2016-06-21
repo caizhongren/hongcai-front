@@ -76,8 +76,8 @@ angular.module('hongcaiApp')
           }
 
           $scope.repaymentDate = projectDetails.data.repaymentDate;
-          $scope.progress = ($scope.project.soldStock + $scope.project.occupancyStock) * 100/$scope.project.countInvest;
-          $scope.totalType = $scope.project.status === 11 && $scope.progress < 100 ? '可预约金额' : '可投金额';
+          $scope.project.progress = ($scope.project.soldStock + $scope.project.occupancyStock) * 100/$scope.project.countInvest;
+          $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额' : '可投金额';
           /**
            * 项目可投金额
            */
