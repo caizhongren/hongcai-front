@@ -19,7 +19,9 @@ angular.module('hongcaiApp')
           var invTotal = response.data.order.orderAmount;
           if (response.data.project) {
             var rdp = response.data.project;
-            //总融资额
+            /**
+             * 总融资额
+             */
             var invType = rdp.repaymentType;
             var multiNum = 1;
             if(invType === 3){
@@ -36,11 +38,15 @@ angular.module('hongcaiApp')
             var invRate = rdp.annualEarnings / 100;
 
             if (invType !== 2) {
-              // 先息后本
+              /**
+               * 先息后本
+               */
               everyMonthInterestPri(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate, multiNum);
             } else if (invType === 2) {
               everyMonthInterestEq(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate);
-              // 等额本息
+              /**
+               * 等额本息
+               */
             }
             if ($scope.creditRightBillList.length) {
               $scope.listInvPond.splice(0, $scope.creditRightBillList.length);
@@ -74,7 +80,9 @@ angular.module('hongcaiApp')
     };
 
     var everyMonthInterestPri = function(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate, multiNum) {
-      // 每月的付费天数，付费日期，上次支付日期，该月的利息；
+      /**
+       * 每月的付费天数，付费日期，上次支付日期，该月的利息；
+       */
       $scope.listInvPond = [];
       var invDays, payDate, prevDate, invEarnings;
       var invList = {};
@@ -94,7 +102,9 @@ angular.module('hongcaiApp')
         // if (diffDate === 0) {
         //   invCycle = invCycle - 1;
         // }
-        // 原先是这样
+        /**
+         * 原先是这样
+         */
         invCycle = invCycle - 1;
         for (var i = 0; i <= invCycle; i++) {
           payDate = moment(invStartDate).add(i * multiNum, 'month').toString();
@@ -126,7 +136,9 @@ angular.module('hongcaiApp')
         }
       }
     };
-    // 等额本息  intType = 2
+    /**
+     * 等额本息  intType = 2
+     */
     var everyMonthInterestEq = function(invTotal, invInitDate, invStartDate, invEndDate, invCycle, invRate) {
       $scope.listInvPond = [];
       var invDays, payDate, prevDate, invEarnings, currentMonthInterest, payDiffDate; //每月的付费天数，付费日期，上次支付日期，该月的付款金额, 当月生成的的利息；

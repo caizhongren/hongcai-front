@@ -41,11 +41,11 @@ angular.module('hongcaiApp')
           if (response.ret === 1) {
             var req = response.data.req;
             var sign = response.data.sign;
-            var _f = newForm(); //创建一个form表单
-            createElements(_f, 'req', req); //创建form中的input对象
+            var _f = newForm(); 
+            createElements(_f, 'req', req); 
             createElements(_f, 'sign', sign);
-            _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; //form提交地址
-            _f.submit(); //提交
+            _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; 
+            _f.submit(); 
           } else {
             toaster.pop('error', response.msg);
           }

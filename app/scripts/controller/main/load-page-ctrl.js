@@ -1,18 +1,10 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('LoadPageCtrl',function($scope, $location, $state, $rootScope, $stateParams, LoginService, RegisterService, SessionService, ipCookie,DEFAULT_DOMAIN, toaster, md5,  MainService,UserCenterService) {
-    // ipCookie('registeInviteCode', $stateParams.inviteCode, {
-    //     expires: 7
-    //   });
+
     $scope.user = {
       inviteCode: $stateParams.inviteCode
     };
-    // if (ipCookie('userName')) {
-    //   $scope.user = [];
-    //   $scope.user.account = ipCookie('userName');
-    // }
-
-    // var lpdialoag = $('#lpdialog');
 
     var loginUrlclicked = "images/suning-corp/suning_11_1.png";
     var registerUrlclicked = "images/suning-corp/suning_10_1.png";
@@ -48,9 +40,6 @@ angular.module('hongcaiApp')
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);
           $state.go('root.register-mobile-success');
-          //$rootScope.loginName = response.data.user.name;
-          //$rootScope.isLogged = true;
-          //$scope.registerSuccess = true;
         } else {
           toaster.pop('warning', '提示', response.msg);
           $state.go('root.registerMobile');
@@ -71,8 +60,6 @@ angular.module('hongcaiApp')
           SessionService.set('user', response.data.user.name);
           $state.go('root.suning-success',{SuccessStatus:2});
           $rootScope.suningMessage = "恭喜您，注册成功！";
-          //$rootScope.loginName = response.data.user.name;
-          //$rootScope.isLogged = true;
         } else {
           toaster.pop('warning', '提示', response.msg);
           $state.go('root.registerMobile');
@@ -93,9 +80,12 @@ angular.module('hongcaiApp')
     };
 
     $scope.selectTab = function(clickedFlag){
-      //clickedFlag ===1 为快速注册
-      //clickedFlag ===2 为快速登陆
-      // md5.createHash("123");
+     
+      /**
+       *  clickedFlag ===1 为快速注册 
+       *  clickedFlag ===2 为快速登陆
+       *  md5.createHash("123");
+       */
 
 
         if(clickedFlag === 1){
@@ -114,7 +104,9 @@ angular.module('hongcaiApp')
     };
 
     $scope.login = function(user) {
-      //记住用户名处理
+      /**
+       * 记住用户名处理
+       */
       if ($scope.rememberUserName) {
         ipCookie('userName', user.account, {
           expires: 60
@@ -165,8 +157,6 @@ angular.module('hongcaiApp')
     };
 
 
-    // $scope.online = online;
-    //360渠道流量统计
     if ($rootScope.channelCode) {
       MainService.trafficStats.get({
         from: $rootScope.channelCode
@@ -174,10 +164,3 @@ angular.module('hongcaiApp')
     }
 
   });
-
-    //快速登录
-
-/*
-
-
- */

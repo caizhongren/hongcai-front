@@ -6,8 +6,8 @@
   <div class="row">
     <div class="introduction-area col-md-12 col-lg-12 margin-l-30 margin-t--13">
       <div class="web-show border-bd-grey5" ng-repeat="item in list.list">
-        <a class="ft-14 ft-grey555 display-inbl col-md-6" ui-sref="root.about-us.web-site-notice-detail({textId: item.id})">{{item.title| limitTo: 50 }}</a>
-        <p class="ft-12 ft-blue4 margin-t-10 display-inbl col-md-6 margin-0">{{item.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+        <a class="ft-14 ft-grey555 display-inbl col-md-9" ui-sref="root.us.web-site-notice-detail({textId: item.id})">{{item.title| limitTo: 50 }}</a>
+        <p class="ft-12 ft-blue4 margin-t-10 display-inbl col-md-3 margin-0">{{item.createTime | date:'yyyy-MM-dd HH:mm:ss'}}</p>
       </div>
     </div>
 

@@ -29,7 +29,11 @@ angular.module('hongcaiApp')
 
       var mobilePattern = /^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678]))\d{8}$/;
       var emailPattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-      if (mobilePattern.test(account)) { // 说明是手机号码找回
+
+      /**
+       * 说明是手机号码找回
+       */
+      if (mobilePattern.test(account)) { 
         UserCenterService.sendMobileCaptcha.get({
           picCaptcha: captcha,
           mobile: account
@@ -46,7 +50,10 @@ angular.module('hongcaiApp')
             });
           }
         });
-      } else if (emailPattern.test(account)) { // 说明是邮箱
+        /**
+         * 说明是邮箱
+         */
+      } else if (emailPattern.test(account)) { 
         UserCenterService.sendResetPwdEmail.get({
           email: account
         }, function(response) {
@@ -79,7 +86,9 @@ angular.module('hongcaiApp')
         });
       }
     };
-    // STEP2 根据account通过手机找回
+    /**
+     * STEP2 根据account通过手机找回
+     */
     $scope.sendMobileCaptcha = function(account, mobile,captcha) {
       UserCenterService.infoVerify.get({
         account: account,
@@ -107,7 +116,9 @@ angular.module('hongcaiApp')
         }
       });
     };
-    // SETP2 根据account通过邮箱找回
+    /**
+     * SETP2 根据account通过邮箱找回
+     */
     $scope.infoVerifyEmail = function(account, email) {
       UserCenterService.infoVerify.get({
         account: account,
@@ -190,19 +201,10 @@ angular.module('hongcaiApp')
 
     $scope.uuId = $stateParams.uuid;
     $scope.etoken = $stateParams.etoken;
-    //校验是否为有效链接
-    /*UserCenterService.checkEmailPasswordUrl.get({
-      uuid: $scope.uuId,
-      etoken: $scope.etoken
-    }, function(response) {
-      if (response.ret === 1) {
-        return;
-      } else {
-        $state.go('root.nofound-page');
-      }
-    });*/ 
 
-    // 通过邮件的方式找回密码
+    /**
+     * 通过邮件的方式找回密码
+     */
     $scope.setEmailNewPwd = function(user) {
       if (user.password !== user.repeatPassword) {
         return;

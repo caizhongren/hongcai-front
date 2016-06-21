@@ -24,7 +24,9 @@ angular.module('hongcaiApp')
     });
 
 
-    // 收益曲线
+    /**
+     * 收益曲线
+     */
     UserCenterService.dayProfit.get({
       startTime: new Date().getTime() - 7 * 24 * 60 * 60 * 1000,
       endTime: new Date().getTime()
