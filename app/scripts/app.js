@@ -1039,6 +1039,147 @@ hongcaiApp
           }
         }
       })
+
+
+      /**
+       * ********************* 关于我们 20160621 *********************** 
+       */
+      .state('root.us', {
+        abstract: true,
+        url: '/us',
+        views: {
+          'about-us-right': {
+            templateUrl: 'views/about-us/about-us.html',
+            controller: 'AboutUsCtrl',
+            controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+          },
+          'about-sidebar': {
+            templateUrl: 'views/about-us/about-sidebar.html',
+            controller: 'AboutUsCtrl',
+            controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+          }
+        }
+      })
+
+      /**
+       * 项目方介绍
+       */
+      .state('root.us.projecter', {
+        url: '/projecter',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/introduction-of-projecter.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+      /**
+       * 平台方介绍
+       */
+      .state('root.us.platform', {
+        url: '/platform',
+        views: {
+          'about-us-right-show': {
+            // templateUrl: 'views/about-us/introduction-of-platform.html',
+            templateUrl: 'views/about-us/introduction-of-platform2.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+      /*-------- media-reports  -------------------*/
+      .state('root.us.media-reports', {
+        url: '/media-reports',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/media-reports-list.html',
+            controller: 'MediaReportsCtrl',
+            controllerUrl: 'scripts/controller/about-us/media-report-ctrl'
+          }
+        }
+      })
+      .state('root.us.media-reports-detail', {
+        url: '/media-reports/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/media-reports-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+      /*-----------  web-site-notice  ---------------------------*/
+      .state('root.us.web-site-notice', {
+        url: '/web-site-notice',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/web-site-notice-list.html',
+            controller: 'WebSiteNoticeCtrl',
+            controllerUrl: 'scripts/controller/about-us/web-site-notice-ctrl'
+          }
+        }
+      })
+      .state('root.us.web-site-notice-detail', {
+        url: '/web-site-notice/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/web-site-notice-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+      /*------------  hongcai-trends  -------------------------*/
+      .state('root.us.hongcai-trends', {
+        url: '/hongcai-trends',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/hongcai-trends-list.html',
+            controller: 'HongcaiTrendsCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-ctrl'
+          }
+        }
+      })
+      .state('root.us.hongcai-trends-detail', {
+        url: '/hongcai-trends/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/hongcai-trends-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+
+      /**
+       * 加入宏财
+       */
+      .state('root.us.company-profile', {
+        url: '/company-profile',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/company-profile.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+      /**
+       * 联系我们
+       */
+      .state('root.us.link-us', {
+        url: '/link-us',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/link-us.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+
+
       /*----------------  about-us  --------------------------------*/
       .state('root.about-us', {
         abstract: true,
