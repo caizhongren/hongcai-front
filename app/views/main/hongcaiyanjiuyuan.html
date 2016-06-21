@@ -6,7 +6,7 @@
         <div class="news__img news__img1"></div>
         <div class="news__list">
           <p ng-repeat="item in searchList">
-            <a ui-sref="root.about-us.hongcai-trends-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+            <a ui-sref="root.us.hongcai-trends-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
             <span>{{item.createTime | date: 'yyyy-MM-dd'}}</span>
           </p>
         </div>
@@ -18,7 +18,7 @@
         <div class="news__img news__img2"></div>
         <div class="news__list">
           <p ng-repeat="item in mediaList">
-            <a ui-sref="root.about-us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+            <a ui-sref="root.us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
            <span>{{item.createTime | date: 'yyyy-MM-dd'}}</span>
           </p>
         </div>

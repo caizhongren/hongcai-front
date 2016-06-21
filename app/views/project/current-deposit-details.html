@@ -43,7 +43,7 @@
         </div>
         <div class="col-xs-9 ft-14 ft-grey555 line-h-15 margin-t-7">
           <p ng-repeat="item in mediaList | limitTo:4">
-            <a ui-sref="root.about-us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+            <a ui-sref="root.us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
           </p>
         </div>
       </div>
@@ -53,7 +53,7 @@
         </div>
         <div class="col-xs-9 ft-14 ft-grey555 line-h-15 margin-t-7 margin-l-25">
           <p ng-repeat="item in mediaList | limitTo:-4">
-            <a ui-sref="root.about-us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+            <a ui-sref="root.us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
           </p>
         </div>
       </div>

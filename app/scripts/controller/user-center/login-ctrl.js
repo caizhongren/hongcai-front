@@ -48,6 +48,7 @@ angular.module('hongcaiApp')
             if ($rootScope.redirectUrl){
               $location.url($rootScope.redirectUrl);
             } else{
+              $rootScope.loginModal.hide();
               $state.reload();
             }
             
