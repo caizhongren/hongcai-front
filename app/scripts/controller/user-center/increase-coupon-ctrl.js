@@ -13,7 +13,9 @@ angular.module('hongcaiApp')
         toaster.pop('warning', response.msg);
       }
     });
-    //查询加息券
+    /**
+     * 查询加息券
+     */
     $scope.loadCoupons = function(page, pageSize, status){
       UserCenterService.userIncreaseRateCoupons.get({
         page: page,

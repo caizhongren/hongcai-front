@@ -32,12 +32,14 @@ angular.module('hongcaiApp')
         $timeout.cancel(mytimeout);
       });
       $scope.project = activityDetails.data.project;
-      $scope.projectType = activityDetails.data.type; //项目类型
+      $scope.projectType = activityDetails.data.type; 
       $scope.isAvailable = activityDetails.data.isAvailable;
       $scope.orderList = activityDetails.data.orderList;
       $scope.canInvestAmount = activityDetails.data.canInvestAmount;
       $scope.project.amount = $scope.canInvestAmount;
-      // 处理投资记录分页
+      /**
+       * 处理投资记录分页
+       */
       $scope.currentPage = 0;
       $scope.pageSize = 10;
       $scope.data = [];
@@ -53,7 +55,7 @@ angular.module('hongcaiApp')
     }
   });
 
-  $scope.isAvailableInvest = function(project) { //验证用户权限
+  $scope.isAvailableInvest = function(project) { 
     if (project.amount <= $scope.project.minInvest) {
       $scope.msg = '投资金额必须大于最小投资金额' + $scope.project.minInvest + '！';
       $alert({

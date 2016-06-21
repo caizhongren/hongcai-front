@@ -1,9 +1,10 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GuaranteeproListCtrl', function($scope, $interval, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils) {
+  .controller('GuaranteeproListCtrl', function($scope, $interval, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils, projectStatusMap) {
     $rootScope.pageTitle = '宏金宝 - 要理财，上宏财!';
     $scope.sortType = $stateParams.sortType || false;
     $scope.showFlag = $stateParams.showFlag || 0;
+    $scope.projectStatusMap = projectStatusMap;
 
     if ($scope.sortType === 'true') {
       $scope.sortType = true;
@@ -27,7 +28,9 @@ angular.module('hongcaiApp')
 
     $scope.pageSize = 6;
 
-    // 宏金保
+    /**
+     * 宏金保
+     */
     $scope.getProjectList = function(page, pageSize) {
       $scope.currentPage = page;
       $scope.showFlag = 1;
@@ -92,21 +95,6 @@ angular.module('hongcaiApp')
 
           }
 
-          // $interval(function() {
-          //   for (var i = 0; i < $scope.data.length; i++) {
-          //     $scope.data[i].countdown -= 1000;
-          //     if ($scope.data[i].countdown <= 0 && $scope.data[i].status == 2) {
-          //       $state.reload();
-          //     }
-
-          //     $scope._timeDown =  DateUtils.toHourMinSeconds($scope.data[i].countdown);
-          //     $scope.data[i].jigoubaoDay = $scope._timeDown.day || 0;
-          //     $scope.data[i].jigoubaoHour = $scope._timeDown.hour;
-          //     $scope.data[i].jigoubaoMinute = $scope._timeDown.min;
-          //     $scope.data[i].jigoubaoSecond = $scope._timeDown.seconds;
-          //   };
-          // }, 1000);
-
 
           $scope.$on('$stateChangeStart', function() {
             clearInterval($interval);
@@ -126,40 +114,6 @@ angular.module('hongcaiApp')
       }
       
     }
-
-
-    // 债券转让
-    // FIX
-    /*$scope.getCreditList = function() {
-      $scope.showFlag = 3;
-      CreditService.getCreditAssignmentList.get({
-        minTransferAmount: $stateParams.minTransferAmount,
-        maxTransferAmount: $stateParams.maxTransferAmount,
-        minCycle: $stateParams.minCycle,
-        maxCycle: $stateParams.maxCycle,
-        minEarning: $stateParams.minEarning,
-        maxEarning: $stateParams.maxEarning,
-        minTotalAmount: $stateParams.minTotalAmount,
-        maxTotalAmount: $stateParams.maxTotalAmount,
-        sortCondition: $stateParams.sortCondition,
-        sortType: $stateParams.sortType
-      }, function(response) {
-        if (response.ret === 1) {
-          $scope.assignmentList = response.data.assignmentList;
-          $scope.pageCount = response.data.pageCount;
-          $scope.dataSize = response.data.count;
-          $scope.currentPage = 0;
-          $scope.pageSize = 8;
-          $scope.data = [];
-          $scope.numberOfPages = function() {
-            return Math.ceil($scope.data.length / $scope.pageSize);
-          };
-          for (var i = 0; i < $scope.assignmentList.length; i++) {
-            $scope.data.push($scope.assignmentList[i]);
-          }
-        }
-      });
-    };*/
 
 
     $scope.getProjectList(1, $scope.pageSize);

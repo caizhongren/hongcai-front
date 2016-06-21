@@ -30,7 +30,6 @@ angular.module('hongcaiApp')
           for (var i = 0; i < $scope.dealList.length; i++) {
             $scope.data.push($scope.dealList[i]);
           }
-          //按交易类型筛选
           $scope.icons = [];
           for (var j in $scope.dealTypes) {
             var obj = {};
@@ -47,11 +46,5 @@ angular.module('hongcaiApp')
 
     $scope.getDeals(1);
 
-
-
-
-    /*$scope.selectedIcon = 'Heart';
-    $scope.selectedIcons = '["Gear"]';
-    $scope.icons = '[{"value":"Gear","label":"<i class=\"fa fa-gear\"></i> Gear"},{"value":"Globe","label":"<i class=\"fa fa-globe\"></i> Globe"},{"value":"Heart","label":"<i class=\"fa fa-heart\"></i> Heart"},{"value":"Camera","label":"<i class=\"fa fa-camera\"></i> Camera"}]';*/
   });
 

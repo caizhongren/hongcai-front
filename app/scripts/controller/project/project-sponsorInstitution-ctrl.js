@@ -13,7 +13,9 @@ angular.module('hongcaiApp')
       $scope.thumbnailFile = sponsorInstitution.data.thumbnailFile;
       $scope.baseFileUrl = sponsorInstitution.data.baseFileUrl;
 
-      //控制展开按钮展示
+      /**
+       * 控制展开按钮展示
+       */
       var arr = $scope.guarantee.description.split('');
       if (arr.length <= 709) {
         $('.fa').hide();

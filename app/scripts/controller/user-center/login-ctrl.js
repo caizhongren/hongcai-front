@@ -18,7 +18,9 @@ angular.module('hongcaiApp')
     }
 
     $scope.login = function(user) {
-      //记住用户名处理
+      /**
+       * 记住用户名处理
+       */
       if ($scope.rememberUserName) {
         ipCookie('userName', user.account, {
           expires: 60
@@ -46,6 +48,7 @@ angular.module('hongcaiApp')
             if ($rootScope.redirectUrl){
               $location.url($rootScope.redirectUrl);
             } else{
+              $rootScope.loginModal.hide();
               $state.reload();
             }
             
@@ -65,7 +68,9 @@ angular.module('hongcaiApp')
 
     $scope.pLogin = function(user) {
 
-      //记住用户名处理
+      /**
+       * 记住用户名处理
+       */
       if ($scope.rememberUserName) {
         ipCookie('bUserName', user.account, {
           expires: 60

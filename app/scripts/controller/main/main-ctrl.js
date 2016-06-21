@@ -1,17 +1,19 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, FriendLinkService, $alert, $timeout, DateUtils, toaster) {
+  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, FriendLinkService, $alert, $timeout, DateUtils, toaster, projectStatusMap) {
     $scope.spCountDown = -1;
 
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
-    // alert(screen.width);
+    $scope.projectStatusMap = projectStatusMap;
 
     $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
     $scope.chartOptions = {
       lineWidth:100,
       percentageInnerCutout:75
     };
-    // 机构保列表
+    /**
+     * 机构保列表
+     */
     $scope.jigoubaoList = function() {
 
       $scope.showFlag = 1;
@@ -34,7 +36,6 @@ angular.module('hongcaiApp')
           $scope.pageSize = 5;
           $scope.serverTime = response.data.serverTime;
           $scope.jigoubao = response.data.projectList;
-          $scope.projectStatusMap = response.data.projectStatusMap;
           $scope.repaymentTypeMap = response.data.repaymentTypeMap;
           $scope.baseFileUrl = response.data.baseFileUrl;
           $scope.data = [];
@@ -71,19 +72,10 @@ angular.module('hongcaiApp')
 
     $scope.jigoubaoList();
 
-    // 宏包标列表
-    // ProjectService.getGiftProjectList.get(function(response) {
-    //   if (response.ret === 1) {
-    //     $scope.activityList = response.data.projectList;
-    //     $scope.stampMap = response.data.stampMap;
-    //     $scope.projectStatusMap = response.data.projectStatusMap;
-    //     $scope.newbieProjectList = response.data.newbieProjectList;
-    //   }
-    // });
-    // 
 
-
-    //  宏金盈列表
+    /**
+     * 宏金盈列表
+     */
     MainService.getIndexFundsProductList.get({
       types: "1"
     }, function(response) {
@@ -95,7 +87,9 @@ angular.module('hongcaiApp')
     });
 
 
-    // 媒体报道
+    /**
+     * 媒体报道
+     */
     AboutUsService.indexTextList.get({
       category: 1,
       pageSize: 4
@@ -105,14 +99,18 @@ angular.module('hongcaiApp')
       }
     });
 
-    // 宏财研究院
+    /**
+     * 宏财研究院
+     */
     AboutUsService.indexTextList.get({
       category: 4,
       pageSize: 4
     }, function(response) {
       if (response.ret === 1) {
         $scope.searchList = response.data.textList;
-        // 宏财动态
+        /**
+         * 宏财动态
+         */
         AboutUsService.indexTextList.get({
           category: 3,
           pageSize: 4
@@ -133,40 +131,26 @@ angular.module('hongcaiApp')
     $rootScope.selectPage = $location.path().split('/')[1];
 
 
-    // 债权转让列表
-    // var creditRightGroup = MainService.indexCreditRightList.get(function() {
-    //   if (creditRightGroup.ret === 1) {
-    //     $scope.creditRightList = creditRightGroup.data.creditAssignmentList;
-    //   }
-    // });
-
-    // 获取最后一个公告
+    /**
+     * 获取最后一个公告
+     */
     AboutUsService.getLatestNotice.get(function(response) {
       if (response.ret === 1) {
         $scope.latestNotice = response.data.latestNotice;
       }
     });
 
-    //获取友情链接
-    // FriendLinkService.friendLinkList.get(function(response) {
-    //   if (response.ret === 1) {
-    //     $scope.friendLinks = response.data.friendLinks;
-    //   } else {
-    //     $scope.msg = response.msg;
-    //     $alert({
-    //       scope: $scope,
-    //       template: 'views/modal/alert-dialog.html',
-    //       show: true
-    //     });
-    //   }
-    // });
 
-    // 最近30天投资排行
+    /**
+     * 最近30天投资排行
+     */
     MainService.monthInvest.get(function(response) {
       $scope.monthInvestList = response.data.investAmounts;
     });
 
-    //体验金项目数据
+    /**
+     * 体验金项目数据
+     */
     ProjectService.getExperienceProjectDetail.get({}, function(projectDetails) {
       if (projectDetails.ret === 1) {
         // $scope.project = projectDetails.data.project;
@@ -174,7 +158,9 @@ angular.module('hongcaiApp')
       } 
     });
 
-    // 处理推广流量统计
+    /**
+     * 处理推广流量统计
+     */
     if ($rootScope.channelCode) {
       MainService.trafficStats.get({
         from: $rootScope.channelCode
@@ -184,9 +170,7 @@ angular.module('hongcaiApp')
     
   })
 .config(['ChartJsProvider', function (ChartJsProvider) {
-    // Configure all charts
     ChartJsProvider.setOptions({
-      // colours: ['#FF5252', '#FF8A80'],
       responsive: false,
       scaleFontSize: 8,
       tooltipXOffset: 10,
@@ -195,7 +179,6 @@ angular.module('hongcaiApp')
       datasetStrokeWidth: 1,
       barStrokeWidth: 1,
     });
-    // Configure all line charts
     ChartJsProvider.setOptions('Line', {
       datasetFill: false,
       datasetStrokeWidth: 1,
