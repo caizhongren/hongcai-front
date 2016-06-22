@@ -35,7 +35,8 @@ angular.module('hongcaiApp')
         account: user.mobile,
         captcha: user.mobileCaptcha,
         password: md5.createHash(user.password),
-        from: ipCookie('utm_from')
+        from: ipCookie('utm_from'),
+        act: ipCookie('act')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);
@@ -54,7 +55,8 @@ angular.module('hongcaiApp')
         account: user.mobile,
         captcha: user.mobileCaptcha,
         password: md5.createHash(user.password),
-        from: ipCookie('utm_from')
+        from: ipCookie('utm_from'),
+        act: ipCookie('act')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);

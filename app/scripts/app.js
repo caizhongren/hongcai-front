@@ -1954,7 +1954,13 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     if ($rootScope.channelCode) {
       ipCookie('utm_from', $rootScope.channelCode, {
         expires: 1
-      });
+      });   
+    }
+
+    if ($rootScope.act) {
+      ipCookie('act', $rootScope.act, {
+        expires: 1
+      });   
     }
 
     var showFlag1 = [
