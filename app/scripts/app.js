@@ -1779,26 +1779,38 @@ hongcaiApp
       }
     })
       /*---------------- traffic import route  ----------------------*/
-      .state('root.registerMobile-sanGuo', {
-        url: '/register-mobile-sanGuo/:f',
-        views: {
-          '': {
-            templateUrl: 'views/register/register-mobile-sanGuo.html',
-            controller: 'RegisterMobileSanGuoCtrl',
-            controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
-          }
+    .state('root.registerMobile-sanGuo', {
+      url: '/register-mobile-sanGuo/:f',
+      views: {
+        '': {
+          templateUrl: 'views/register/register-mobile-sanGuo.html',
+          controller: 'RegisterMobileSanGuoCtrl',
+          controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
         }
-      })
-      .state('root.project-details-traffic', {
-        url: '/project/:projectId/:f',
-        views: {
-          '': {
-            templateUrl: 'views/project/project-details.html',
-            controller: 'ProjectDetailsCtrl',
-            controllerUrl: 'scripts/controller/project/project-details-ctrl'
-          }
+      }
+    })
+    .state('root.project-details-traffic', {
+      url: '/project/:projectId/:f',
+      views: {
+        '': {
+          templateUrl: 'views/project/project-details.html',
+          controller: 'ProjectDetailsCtrl',
+          controllerUrl: 'scripts/controller/project/project-details-ctrl'
         }
-      });
+      }
+    })
+
+    // 系统维护
+    .state('update', {
+      url: '/update?return',
+      views: {
+        '': {
+          templateUrl: 'views/sys-update.html',
+          controller: 'SysUpdateCtrl',
+          controllerUrl: 'scripts/controller/system-update-ctrl'
+        }
+      }
+    });
     $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://www.hongcai.com/hongcai/api/**']);
 
     /**
@@ -1885,8 +1897,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     $checkSessionServer.error(function(response) {
-
-        window.location.href = config.domain + '/sys-update.html';
+        $state.go('update', {return: $location.path()});
         return;
     }).success(function(response) {
 
