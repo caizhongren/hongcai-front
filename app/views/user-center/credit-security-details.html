@@ -4,7 +4,7 @@
      <div class="title">
        <span class="tip">债权详情</span>
      </div>
-   <a class="pull-right padding-r-50 padding-t-5 text-unline" ui-sref="root.userCenter.credit">返回债权列表</a>
+   <a class="pull-right padding-r-15 padding-t-20 margin-b-80 margin-t-20 text-unline" ui-sref="root.userCenter.credit">返回债权列表</a>
 
   <table class="table table-bordered margin-t-30 security-table">
     <thead>
@@ -34,12 +34,13 @@
   </table>
   <div class="container-fluid">
     <div class="row">
-      <div class="fl col-md-12 ft-14 border-end">
-        <div class="col-xs-1 padding-b-5 credit-untoggle {{detailStatus === 1 ? 'credit-toggle' : ''}}" ng-click="detailStatus=1">项目历程</div>
+      <div class="fl col-md-12 ft-14">
+        <!-- <div class="col-xs-1 padding-b-5 credit-untoggle {{detailStatus === 1 ? 'credit-toggle' : ''}}" ng-click="detailStatus=1">项目历程</div> -->
+        <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4>
         <div class="col-xs-1 padding-b-5 credit-untoggle {{detailStatus === 4 ? 'credit-toggle' : ''}}" ng-click="detailStatus=4" ng-show="category.code === '016'">债权列表</div>
       </div>
       <div class="col-xs-12" ng-show="detailStatus === 1">
-        <ul class="timeline">
+        <ul class="timeline margin-t-30 margin-b-100">
           <li>
             <div class="timeline-badge success"><i class="fa fa-rocket ft-orange buchong1"></i>
             </div>
