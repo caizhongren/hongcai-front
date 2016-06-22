@@ -124,7 +124,7 @@
                 <button class="btn btn-lg btn-total-orange btn-block positive-margin1" data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即投资</button>
               </div>
               <form class="padding-l-20 padding-r-20" name="investForm" class="padding-t-10" ng-switch-default>
-                <input type="number" name="project.amount" ng-model="project.amount" class="form-control margin-b-20" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0" ng-switch-default>
+                <input type="number" name="project.amount" ng-model="project.amount" class="form-control margin-b-20" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0" step="{{project.increaseAmount}}" min="0" ng-switch-default>
                 <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                 <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toInvest(project)" ng-disabled="!project.amount" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
                 </button>
