@@ -108,7 +108,7 @@ angular.module('hongcaiApp')
             }
 
         } else {
-          toaster.pop('warning', response.msg);
+          // toaster.pop('warning', response.msg);
         }
       });
     }
