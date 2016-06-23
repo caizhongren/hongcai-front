@@ -8,12 +8,12 @@ angular.module('hongcaiApp')
     $scope.media = [{
       mimeType: 'image/png',
       src: 'images/banner/banner11.png',
-      href: '/activity/send-money',
+      href: '/#!/activity/send-money',
       name: '投资返现最高688'
     },{
       mimeType: 'image/png',
       src: 'images/banner/banner-10.png',
-      href: '/register',
+      href: '/#!/register',
       name: '注册拿150000元'
     },{
       mimeType: 'image/png',
@@ -22,7 +22,7 @@ angular.module('hongcaiApp')
     }, {
       mimeType: 'image/png',
       src: 'images/banner-new/banner05.png',
-      href: 'http://www.hongcai.com/hongcai-trends/491',
+      href: 'http://www.hongcai.com/#!/us/hongcai-trends/491',
       name: '新三板金控第一股严选项目'
     }, /* {
       mimeType: 'image/png',
