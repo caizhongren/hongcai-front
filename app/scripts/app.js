@@ -1916,6 +1916,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
           if(toState.name.indexOf("root.userCenter") !== -1){
             $rootScope.showLoginModal();
+            toaster.pop('warning', '对不起，您还未登录，请先登录')
           }
         }
 

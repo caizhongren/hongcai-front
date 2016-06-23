@@ -27,7 +27,7 @@ angular.module('hongcaiApp')
         $scope.colours = ['#e94828', '#f9b81e', '#62cbc6'];
 
       } else {
-        toaster.pop('warning', response.msg);
+        // toaster.pop('warning', response.msg);
       }
 
     });
@@ -68,7 +68,7 @@ angular.module('hongcaiApp')
           });
         } else {
           $scope.data = [];
-          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+          // toaster.pop('warning', '服务器正在努力的加载....请稍等。');
           //console.log('ask project-list, why projectList did not load data...');
         }
       });
@@ -86,7 +86,7 @@ angular.module('hongcaiApp')
         $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
       } else {
         $scope.showCreditRightStatistics = false;
-        toaster.pop('warning', response.msg);
+        // toaster.pop('warning', response.msg);
       }
     });
     /**
@@ -96,7 +96,7 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         $scope.couponStatis = response.data.couponStatis;
       } else {
-        toaster.pop('warning', response.msg);
+        // toaster.pop('warning', response.msg);
       }
     });
 

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('RechargeCtrl',  function($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $alert) {
+  .controller('RechargeCtrl',  function($location, $scope, $state, $rootScope, UserCenterService, DEFAULT_DOMAIN, $alert) {
     $scope.balance = 0;
     UserCenterService.getUserBalance.get({}, function(response) {
       if (response.ret === 1) {
@@ -28,6 +28,10 @@ angular.module('hongcaiApp')
     };
 
     $scope.recharge = function(amount) {
+      if(amount <= 0){
+        return;
+      }
+
       $scope.msg = '2';
       $scope.rechargeAmount = amount;
       $alert({
@@ -37,4 +41,5 @@ angular.module('hongcaiApp')
       });
       window.open('/#!/recharge-transfer/' + amount);
     };
+
   });
