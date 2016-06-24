@@ -128,7 +128,7 @@
             <td colspan="6" class="border-0">
               <div>
                 <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
-                <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
+                <p><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
               </div>
             </td>
           </tr>
@@ -155,31 +155,6 @@
         <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage <= 1" ng-click="currentPage = currentPage - 1;getReserveOrders();">上一页</button></li>
       </ul>
     </div>
-    <!-- <div class="padd padding-l-15 padding-b-15">
-      <span>预约产品：
-        <strong>{{ statistics.num || 0 }}</strong>个，
-      </span>
-      <span>其中预约中：
-        <strong>{{ statistics.reservingNum || 0 }}</strong>个，
-      </span>
-      <span>预约成功：
-        <strong>{{ statistics.successNum || 0 }}</strong>个，
-      </span>
-      <span>已撤销：
-        <strong>{{ statistics.cancelNum || 0 }}</strong>个。
-      </span>
-    </div> -->
-    <!-- <div class="padd border-end padding-l-15 padding-b-30">
-      <span>投资总额：
-        <strong>{{ statistics.reserveAmount || 0  | number: 2 }}</strong>元，
-      </span>
-      <span>预约期的累计收益：
-        <strong>{{ statistics.returnProfit || 0  | number: 2 }}</strong>元，
-      </span>
-      <span>超过同期余额宝：
-        <strong>{{ statistics.returnProfit * 0.1 || 0 | number: 2 }}</strong>元。
-      </span>
-    </div> -->
     
   </div>
 </div>

@@ -1858,13 +1858,6 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
   }
 
   /**
-   * 需要用户登录才能看到的url
-   */
-  var routespermission = [
-    'user-center'
-  ];
-
-  /**
    * 不需要显示footer的path
    */
   var notShowFooterRoute = [
@@ -1909,7 +1902,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
           $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
           $rootScope.account = response.data.userDetail.account;
           $rootScope.unreadCount = response.data.unreadCount;
-          $rootScope.userType = response.data.userDetail.user.userType;
+          $rootScope.userType = response.data.userDetail.user.type;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
@@ -1979,7 +1972,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
         'account-overview',
         'security-settings',
         'bankcard-management'
-      ];
+    ];
     var showFlag2 = [
       'assets-overview',
       'recharge',
