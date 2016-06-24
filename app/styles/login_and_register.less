@@ -102,6 +102,7 @@
         padding: 0 !important;
         height: 44px;
       }
+
       .user-icon {
         display: inline-block;
         width: 16px;
@@ -846,15 +847,25 @@ input:-webkit-autofill {
   }
 
 }
--moz-placeholder { color: #B1B1C3; }
-::-webkit-input-placeholder { color:#B1B1C3; }
-:-ms-input-placeholder { color:#B1B1C3; }
-input:-ms-input-placeholder,
-textarea:-ms-input-placeholder {
-    color: #B1B1C3;
-}
 
-input::-webkit-input-placeholder,
-textarea::-webkit-input-placeholder {
-    color:#B1B1C3;
-}
+
+
+  input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+      color: #B1B1C3;
+  }
+
+  input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+      color:#B1B1C3;
+  }
+
+  input::-moz-input-placeholder,
+  textarea::-moz-input-placeholder {
+      color:#B1B1C3;
+  }
+  input:-moz-input-placeholder,
+  textarea:-moz-input-placeholder {
+      color:#B1B1C3;
+  }
+
