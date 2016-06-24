@@ -98,7 +98,7 @@ angular.module('hongcaiApp')
     $scope.subscribeCreditRight = function(subscribeAmount) {
       $scope.creAmount = subscribeAmount;
       if ($scope.creFlag === 0) {
-        $rootScope.showLoginModal();
+        $rootScope.tologin();
       } else if ($scope.creFlag === 1) {
         $scope.toRealNameAuth();
       } else if ($scope.creFlag === 2) {

@@ -126,7 +126,7 @@ angular.module('hongcaiApp')
         if (response.ret === 1) {
           $scope.statistics = response.data.creditRightStatis;
         } else {
-          toaster.pop('warning', response.msg);
+          // toaster.pop('warning', response.msg);
         }
       });
     };

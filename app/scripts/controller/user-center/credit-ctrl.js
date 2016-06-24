@@ -44,7 +44,7 @@ angular.module('hongcaiApp')
         $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
       } else {
         $scope.showCreditRightStatistics = false;
-        toaster.pop('warning', response.msg);
+        // toaster.pop('warning', response.msg);
       }
     });
 
