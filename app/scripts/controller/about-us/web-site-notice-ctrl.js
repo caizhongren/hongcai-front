@@ -26,4 +26,16 @@ angular.module('hongcaiApp')
         $scope.perPage = perPage;
       }
     });
+
+
+    $scope.$watch('list.list', function(newVal){
+      if(!newVal){
+        return;
+      }
+      for (var i = newVal.length - 1; i >= 0; i--) {
+        newVal[i].title = newVal[i].title.replace('“', '"').replace('”', '"');
+      }
+
+
+    });
   });

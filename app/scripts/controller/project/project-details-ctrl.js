@@ -123,15 +123,7 @@ angular.module('hongcaiApp')
         }
       });
     };
-    
-    $scope.Alertdata = function() {
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alert-perfectinformation.html',
-        show: true
-      });
-    };
-
+  
     /**
      * 项目订单列表
      */
@@ -270,12 +262,12 @@ angular.module('hongcaiApp')
       }
     };
     /**
-     * 完善资料第一代
+     * 完善资料
      */
     $scope.toRealNameAuth = function() {
       $alert({
         scope: $scope,
-        template: 'views/modal/alert-perfectinformation.html',
+        template: 'views/modal/modal-realNameAuth.html',
         show: true
       });
     };

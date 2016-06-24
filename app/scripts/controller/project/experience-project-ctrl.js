@@ -69,7 +69,7 @@ angular.module('hongcaiApp')
     $scope.toRealNameAuth = function() {
       $alert({
         scope: $scope,
-        template: 'views/modal/alert-perfectinformation.html',
+        template: 'views/modal/modal-realNameAuth.html',
         show: true
       });
     };
