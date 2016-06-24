@@ -101,24 +101,6 @@ angular.module('hongcaiApp')
     });
 
     /**
-     * 收益曲线
-     */
-    UserCenterService.dayProfit.get({
-      startTime: new Date().getTime(),
-      endTime: new Date().getTime() + 60 * 1000,
-    }, function(response){
-    	//console.log(response);
-      var data = response.data;
-      $scope.profit = [];
-      for(var key in data)  {
-        var date = new Date(+key);
-        $scope.profit.push(data[key]);
-        $scope.yestodayProfit = data[key];
-      }
-    });
-
-
-    /**
      * 我的债权统计数据
      */
     $scope.getCreditRightStatistics = function() {
@@ -126,7 +108,7 @@ angular.module('hongcaiApp')
         if (response.ret === 1) {
           $scope.statistics = response.data.creditRightStatis;
         } else {
-          toaster.pop('warning', response.msg);
+          // toaster.pop('warning', response.msg);
         }
       });
     };

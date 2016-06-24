@@ -21,7 +21,7 @@ angular.module('hongcaiApp')
     $scope.showMsg = false;
     $scope.quickInvest = function(){
       if(!$rootScope.isLogged){
-        $rootScope.showLoginModal();
+        $rootScope.tologin();
         return;
       }
 

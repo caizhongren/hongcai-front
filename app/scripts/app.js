@@ -1849,7 +1849,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     $state.reload();
   }
 
-  $rootScope.showLoginModal = function(){
+
+  $rootScope.tologin = function(){
     $rootScope.loginModal = $modal({
       scope: $rootScope,
       template: 'views/modal/modal-toLogin.html',
@@ -1857,12 +1858,13 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     });
   }
 
-  /**
-   * 需要用户登录才能看到的url
-   */
-  var routespermission = [
-    'user-center'
-  ];
+  $rootScope.toRealNameAuth = function() {
+    $rootScope.realNameAuthModal = $modal({
+      scope: $rootScope,
+      template: 'views/modal/modal-realNameAuth.html',
+      show: true
+    });
+  };
 
   /**
    * 不需要显示footer的path
@@ -1909,13 +1911,13 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
           $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
           $rootScope.account = response.data.userDetail.account;
           $rootScope.unreadCount = response.data.unreadCount;
-          $rootScope.userType = response.data.userDetail.user.userType;
+          $rootScope.userType = response.data.userDetail.user.type;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
 
           if(toState.name.indexOf("root.userCenter") !== -1){
-            $rootScope.showLoginModal();
+            $rootScope.tologin();
             toaster.pop('warning', '对不起，您还未登录，请先登录')
           }
         }
@@ -1925,6 +1927,9 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     // 若存在登录框，则去掉
     if($rootScope.loginModal){
       $rootScope.loginModal.hide();
+    }
+    if($rootScope.realNameAuthModal){
+      $rootScope.realNameAuthModal.hide();
     }
 
   });
@@ -1979,7 +1984,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
         'account-overview',
         'security-settings',
         'bankcard-management'
-      ];
+    ];
     var showFlag2 = [
       'assets-overview',
       'recharge',
