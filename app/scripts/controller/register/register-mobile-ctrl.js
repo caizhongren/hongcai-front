@@ -40,6 +40,10 @@ angular.module('hongcaiApp')
     };
 
 
+    /**
+     * 发送短信验证码
+     * 发送成功后要刷新图片验证码
+     */
     $scope.sendMobileCaptcha = function(user) {
       if (!user.picCaptcha){
         $scope.showPicCaptchaError = true;
@@ -52,9 +56,12 @@ angular.module('hongcaiApp')
         mobile: user.mobile
       }, function(response) {
         if (response.ret === 1) {
-
+          $scope.refreshCode();
+          // $scope.user.picCaptcha = undefined;
+          toaster.pop('success', '短信验证码发送成功，请查收');
         } else {
           $scope.showPicCaptchaError = true;
+          toaster.pop('error', '短信验证码发送失败，请稍后重试');
         }
       });
     };
