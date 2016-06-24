@@ -31,7 +31,7 @@ angular.module('hongcaiApp')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);
-          $state.go('root.userCenter.security-settings');
+          $state.go('root.register-mobile-success');
         } else {
           toaster.pop('warning', '提示', response.msg);
           $state.go('root.register');
