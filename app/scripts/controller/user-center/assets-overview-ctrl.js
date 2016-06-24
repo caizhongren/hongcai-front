@@ -9,7 +9,8 @@ angular.module('hongcaiApp')
     $scope.options = {
       bezierCurve: false,
       // scaleGridLineWidth:1,
-      scaleShowVerticalLines: false
+      scaleShowVerticalLines: false,
+      numberPrefix: "$",
     }
 
     UserCenterService.getUserAccount.get(function(response) {
@@ -27,25 +28,18 @@ angular.module('hongcaiApp')
     /**
      * 收益曲线
      */
-    UserCenterService.dayProfit.get({
-      startTime: new Date().getTime() - 7 * 24 * 60 * 60 * 1000,
-      endTime: new Date().getTime()
-    }, function(response){
-      var data = response.data;
+    UserCenterService.dayProfit.get(function(response){
+      var creditRightList = response.data.creditRightList;
       $scope.labels = [];
       var datas = [];
-      for(var key in data)  {
-        var date = new Date(+key);
 
+      for(var i = 0; i <= creditRightList.length - 1; i++){
+        var date = new Date(creditRightList[i].createTime);
         $scope.labels.push((date.getMonth() + 1) + '-' + date.getDate()); 
-        // datas.push(data[key]);
+        datas.push(creditRightList[i].profit);
       } 
 
       $scope.labels.sort();
-      for (var i = 0; i <= $scope.labels.length - 1; i++) {
-        datas.push(data[i]);
-      };
-
       $scope.data = [];
       $scope.data.push(datas);
     });
