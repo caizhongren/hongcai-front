@@ -261,16 +261,6 @@ angular.module('hongcaiApp')
         return;
       }
     };
-    /**
-     * 完善资料
-     */
-    $scope.toRealNameAuth = function() {
-      $alert({
-        scope: $scope,
-        template: 'views/modal/modal-realNameAuth.html',
-        show: true
-      });
-    };
 
     /**
      * 跳到充值页面
