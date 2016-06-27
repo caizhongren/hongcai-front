@@ -88,7 +88,7 @@ angular.module('hongcaiApp')
     $scope.toRealNameAuth = function() {
       $alert({
         scope: $scope,
-        template: 'views/modal/alert-perfectinformation.html',
+        template: 'views/modal/modal-realNameAuth.html',
         show: true
       });
     };
@@ -224,7 +224,7 @@ angular.module('hongcaiApp')
       }
       $scope.invPlanAmount = fundsProject.invPlanAmount;
       if ($scope.invPlanFlag === 0) {
-        $rootScope.showLoginModal();
+        $rootScope.tologin();
       } else if ($scope.invPlanFlag === 1) {
         $scope.toRealNameAuth();
       } else if ($scope.checkLargeUserCanAmount(fundsProject)) {

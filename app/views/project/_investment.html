@@ -26,7 +26,7 @@
 
         <div class="col-xs-12 padding-0 positive-margin" >
           <span class="ft-14 ft-grey666">可用余额：</span>
-          <span class="ft-14 ft-grey666 cursor-pointer" ng-click="showLoginModal()" ng-if="!isLogged">(登录后查看)</span>
+          <span class="ft-14 ft-grey666 cursor-pointer" ng-click="tologin()" ng-if="!isLogged">(登录后查看)</span>
           <span ng-if="isLogged">
             <span class="ft-17 ft-orange">{{account.balance | currency:"":2 || 0 }}</span><span class="investment-fontblack">元</span>
             <a class="ft-red pull-right ft-14 padding-t-3" ng-click="toRecharge();">充值</a>
@@ -53,7 +53,7 @@
 
 
             <div class="positive-margin">
-              <a ng-click="showLoginModal()" class="btn btn-total-orange btn-lg btn-block"><i class="fa fa-user project-leftmargin"></i>请先登录</a>
+              <a ng-click="tologin()" class="btn btn-total-orange btn-lg btn-block"><i class="fa fa-user project-leftmargin"></i>请先登录</a>
             </div>
 
             <div class="positive-margin text-center">
@@ -102,17 +102,17 @@
 
 
         <!-- 登录且可投资或者预约 -->
-        <div class="row" ng-if="isLogged && project.progress < 100 && project.status !== 6">
+        <div class="row padding-t-0" ng-if="isLogged && project.progress < 100 && project.status !== 6">
 
           <!-- 未开通易宝 -->
           <div class="col-xs-12 padding-l-35 padding-r-35" ng-if="securityStatus.realNameAuthStatus !== 1">
             <div class="positive-margin1">
               <input type="number" placeholder="请输入{{project.status === 11 ? '预约' : '投资'}}金额" disabled='disabled' class="form-control margin-b-20">
             </div>
-            <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="Alertdata()"><i class="fa fa-lg project-leftmargin"></i>立即投资</button>
+            <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="toRealNameAuth()"><i class="fa fa-lg project-leftmargin"></i>立即投资</button>
             <div class="positive-margin1 text-center">
               <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
-              <span class="spangray" >请先<a class="ft-red" ui-sref="root.userCenter.security-settings">完善资料</a>，再进行{{project.status === 11 ? '预约' : '投资'}}</span>
+              <span class="spangray" >请先<a class="ft-red" ng-click="toRealNameAuth()">完善资料</a>，再进行{{project.status === 11 ? '预约' : '投资'}}</span>
             </div>
           </div>
 
@@ -124,7 +124,10 @@
                 <button class="btn btn-lg btn-total-orange btn-block positive-margin1" data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即投资</button>
               </div>
               <form class="padding-l-20 padding-r-20" name="investForm" class="padding-t-10" ng-switch-default>
-                <input type="number" name="project.amount" ng-model="project.amount" class="form-control margin-b-20" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0" ng-switch-default>
+<!--                 <p class="text-center text text-danger invest_tip" ng-if="investForm.investAmount.$dirty && !investForm.investAmount.$focused">
+                  <span ng-show="">输入金额格式不对，只能输入数字</span>
+                </p> -->
+                <input type="number" name="investAmount" ng-model="project.amount" class="form-control margin-b-20" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0" step="{{project.increaseAmount}}" min="{{project.increaseAmount}}" ng-switch-default>
                 <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                 <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toInvest(project)" ng-disabled="!project.amount" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
                 </button>

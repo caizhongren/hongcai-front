@@ -27,7 +27,7 @@ angular.module('hongcaiApp')
         $scope.colours = ['#e94828', '#f9b81e', '#62cbc6'];
 
       } else {
-        toaster.pop('warning', response.msg);
+        // toaster.pop('warning', response.msg);
       }
 
     });
@@ -68,7 +68,7 @@ angular.module('hongcaiApp')
           });
         } else {
           $scope.data = [];
-          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+          // toaster.pop('warning', '服务器正在努力的加载....请稍等。');
           //console.log('ask project-list, why projectList did not load data...');
         }
       });
@@ -86,7 +86,7 @@ angular.module('hongcaiApp')
         $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
       } else {
         $scope.showCreditRightStatistics = false;
-        toaster.pop('warning', response.msg);
+        // toaster.pop('warning', response.msg);
       }
     });
     /**
@@ -96,27 +96,9 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         $scope.couponStatis = response.data.couponStatis;
       } else {
-        toaster.pop('warning', response.msg);
+        // toaster.pop('warning', response.msg);
       }
     });
-
-    /**
-     * 收益曲线
-     */
-    UserCenterService.dayProfit.get({
-      startTime: new Date().getTime(),
-      endTime: new Date().getTime() + 60 * 1000,
-    }, function(response){
-    	//console.log(response);
-      var data = response.data;
-      $scope.profit = [];
-      for(var key in data)  {
-        var date = new Date(+key);
-        $scope.profit.push(data[key]);
-        $scope.yestodayProfit = data[key];
-      }
-    });
-
 
     /**
      * 我的债权统计数据
@@ -126,7 +108,7 @@ angular.module('hongcaiApp')
         if (response.ret === 1) {
           $scope.statistics = response.data.creditRightStatis;
         } else {
-          toaster.pop('warning', response.msg);
+          // toaster.pop('warning', response.msg);
         }
       });
     };

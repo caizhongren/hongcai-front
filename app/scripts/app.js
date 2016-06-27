@@ -1779,26 +1779,38 @@ hongcaiApp
       }
     })
       /*---------------- traffic import route  ----------------------*/
-      .state('root.registerMobile-sanGuo', {
-        url: '/register-mobile-sanGuo/:f',
-        views: {
-          '': {
-            templateUrl: 'views/register/register-mobile-sanGuo.html',
-            controller: 'RegisterMobileSanGuoCtrl',
-            controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
-          }
+    .state('root.registerMobile-sanGuo', {
+      url: '/register-mobile-sanGuo/:f',
+      views: {
+        '': {
+          templateUrl: 'views/register/register-mobile-sanGuo.html',
+          controller: 'RegisterMobileSanGuoCtrl',
+          controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
         }
-      })
-      .state('root.project-details-traffic', {
-        url: '/project/:projectId/:f',
-        views: {
-          '': {
-            templateUrl: 'views/project/project-details.html',
-            controller: 'ProjectDetailsCtrl',
-            controllerUrl: 'scripts/controller/project/project-details-ctrl'
-          }
+      }
+    })
+    .state('root.project-details-traffic', {
+      url: '/project/:projectId/:f',
+      views: {
+        '': {
+          templateUrl: 'views/project/project-details.html',
+          controller: 'ProjectDetailsCtrl',
+          controllerUrl: 'scripts/controller/project/project-details-ctrl'
         }
-      });
+      }
+    })
+
+    // 系统维护
+    .state('update', {
+      url: '/update?return',
+      views: {
+        '': {
+          templateUrl: 'views/sys-update.html',
+          controller: 'SysUpdateCtrl',
+          controllerUrl: 'scripts/controller/system-update-ctrl'
+        }
+      }
+    });
     $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://www.hongcai.com/hongcai/api/**']);
 
     /**
@@ -1837,7 +1849,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     $state.reload();
   }
 
-  $rootScope.showLoginModal = function(){
+
+  $rootScope.tologin = function(){
     $rootScope.loginModal = $modal({
       scope: $rootScope,
       template: 'views/modal/modal-toLogin.html',
@@ -1845,12 +1858,13 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     });
   }
 
-  /**
-   * 需要用户登录才能看到的url
-   */
-  var routespermission = [
-    'user-center'
-  ];
+  $rootScope.toRealNameAuth = function() {
+    $rootScope.realNameAuthModal = $modal({
+      scope: $rootScope,
+      template: 'views/modal/modal-realNameAuth.html',
+      show: true
+    });
+  };
 
   /**
    * 不需要显示footer的path
@@ -1885,8 +1899,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     $checkSessionServer.error(function(response) {
-
-        window.location.href = config.domain + '/sys-update.html';
+        $state.go('update', {return: $location.path()});
         return;
     }).success(function(response) {
 
@@ -1898,13 +1911,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
           $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
           $rootScope.account = response.data.userDetail.account;
           $rootScope.unreadCount = response.data.unreadCount;
-          $rootScope.userType = response.data.userDetail.user.userType;
+          $rootScope.userType = response.data.userDetail.user.type;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
 
           if(toState.name.indexOf("root.userCenter") !== -1){
-            $rootScope.showLoginModal();
+            $rootScope.tologin();
+            toaster.pop('warning', '对不起，您还未登录，请先登录')
           }
         }
 
@@ -1913,6 +1927,9 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     // 若存在登录框，则去掉
     if($rootScope.loginModal){
       $rootScope.loginModal.hide();
+    }
+    if($rootScope.realNameAuthModal){
+      $rootScope.realNameAuthModal.hide();
     }
 
   });
@@ -1954,14 +1971,20 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     if ($rootScope.channelCode) {
       ipCookie('utm_from', $rootScope.channelCode, {
         expires: 1
-      });
+      });   
+    }
+
+    if ($rootScope.act) {
+      ipCookie('act', $rootScope.act, {
+        expires: 1
+      });   
     }
 
     var showFlag1 = [
         'account-overview',
         'security-settings',
         'bankcard-management'
-      ];
+    ];
     var showFlag2 = [
       'assets-overview',
       'recharge',

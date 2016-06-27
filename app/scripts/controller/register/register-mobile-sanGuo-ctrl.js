@@ -17,7 +17,8 @@ angular.module('hongcaiApp')
         captcha: user.mobileCaptcha,
         password: md5.createHash(user.password),
         inviteCode: user.inviteCode,
-        from: ipCookie('utm_from')
+        from: ipCookie('utm_from'),
+        act: ipCookie('act')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);

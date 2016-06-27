@@ -21,11 +21,11 @@ angular.module('hongcaiApp')
       /**
        * 记住用户名处理
        */
-      if ($scope.rememberUserName) {
+      // if ($scope.rememberUserName) {
         ipCookie('userName', user.account, {
           expires: 60
         });
-      }
+      // }
       var password = md5.createHash(user.password);
       LoginService.userLogin.get({
         account: user.account,

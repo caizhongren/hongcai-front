@@ -3,9 +3,9 @@
     <div class="title">
       <span class="tip">债权详情</span>
     </div>
-    <div class="main"><a class="pull-right padding-r-15 text-unline" ui-sref="root.userCenter.credit">返回我的投资</a></div>
-    <div class="main">
-      <table class="table table-bordered margin-t-30">
+    <a class="pull-right padding-r-30 padding-t-20 margin-b-20 text-unline" ui-sref="root.userCenter.credit">返回我的投资</a>
+
+      <table class="table table-bordered security-table margin-t-30">
         <thead>
           <tr>
             <th>项目名称</th>
@@ -31,8 +31,11 @@
       </table>
       <div class="container-fluid main">
         <div class="row">
-          <div class="col-xs-12" >
-            <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4>
+          <div class="col-md-12 fl ft-14" >
+            <!-- <h4 class="page-header"><i class="fa fa-square hc-text-red"></i> 项目历程</h4> -->
+            <div class="display-inbl border-b margin-b-20" style="width: 100%">
+                <div class="col-xs-1 padding-b-5 credit-untoggle credit-toggle" ng-click="detailStatus=1">项目历程</div>
+            </div>
             <ul class="timeline">
               <li>
                 <div class="timeline-badge success"><i class="fa fa-rocket ft-orange buchong1"></i>
@@ -40,7 +43,7 @@
                 <div class="timeline-panel">
                   <div class="timeline-heading">
                     <h4 class="timeline-title border-b padding-b-15">项目投标<small class="pull-right">{{ order.createTime | date:'yyyy-MM-dd'}}</small></h4>
-                    
+
                   </div>
                   <div class="timeline-body">
                     <p><strong>{{ order.orderAmount | number: 2 }}</strong>元</p>
@@ -92,6 +95,6 @@
           </div>
         </div>
       </div>
-    </div>
+
   </div>
 </div>
