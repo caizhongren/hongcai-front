@@ -77,19 +77,19 @@
               </tr>
               <tr ng-repeat="item in heldInCreditList">
                 <td>
-                  <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2" class="invment-blue">{{ item.creditRight.projectName | limitTo: 15 }}{{item.project.name.length > 15 ? '...':''}}</a>
-                  <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{productsMap[item.fundsProject.productId].name + item.fundsProject.name}}" class="invment-blue" ng-if="item.project.type === 3">{{ item.creditRight.projectName | limitTo: 15 }}</a>
+                  <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2" class="invment-blue">{{ item.creditRight.projectName | limitTo: 15 }}{{item.project.name.length > 15 ? '...':''}}<img src="/images/user-center/rate-coupon.png" alt="使用加息券" class="used-rate"></a>
+                  <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{productsMap[item.fundsProject.productId].name + item.fundsProject.name}}" class="invment-blue" ng-if="item.project.type === 3">{{ item.creditRight.projectName | limitTo: 15 }}<img src="/images/user-center/rate-coupon.png" alt="使用加息券" class="used-rate"></a>
                 </td>
                 <td>{{ item.creditRight.amount | number:2 }}</td>
-                <td>{{ item.creditRight.returnProfit | number:2 }}</td>
-                <td>{{ item.creditRight.profit - item.creditRight.returnProfit | number:2 }}</td>
+                <td>{{ item.creditRight.returnProfit | number:2 }}<span class="ft-red7">+0.18</span></td>
+                <td>{{ item.creditRight.profit - item.creditRight.returnProfit | number:2 }}<span class="ft-red7">+0.18</span></td>
                 <td>
                   <span ng-if="item.project.type !== 3">{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
                   <span ng-if="item.project.type === 3">{{ item.fundsProject.repaymentDate | date:'yyyy-MM-dd' }}</span>
                 </td>
                 <!-- <td ng-show="creditIsShowedFLAG">{{ creditRightTransferStatusMap[item.creditRight.transferStatus] }}</td> -->
                 <td>
-                  <a type="button" class="btn btn-primary-orange btn-xs border-half bg-btn-red padding-t-0 padding-b-0" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})" ng-show="creditIsShowedFLAG" ng-if="item.creditRight.type == 1">发起转让</a>
+                  <a type="button" class="btn btn-primary-orange btn-xs border-half bg-btn-red padding-t-0 padding-b-0 line-22" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})" ng-show="creditIsShowedFLAG" ng-if="item.creditRight.type == 1">发起转让</a>
                   <a type="button" class="btn btn-primary-orange btn-xs border-half bg-btn-red padding-t-0 padding-b-0" ng-click=" putCreditRightInPool(item.creditRightId);" ng-if="item.creditRight.type == 2 && item.creditRight.fundsPoolInOut == 1">转入债权池</a>
                   <a type="button" class="btn btn-default btn-xs border-half bg-btn-red padding-t-0 padding-b-0" disabled="disabled" ng-if="item.creditRight.type == 2 && item.creditRight.fundsPoolInOut == 2">已转入债权池</a>
                   <a type="button" class="btn btn-default btn-xs border-half bg-btn-grey padding-t-0 padding-b-0" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
@@ -194,11 +194,11 @@
               </tr>
               <tr ng-repeat="item in heldInCreditList">
                 <td width="25%">
-                 <a ui-sref="root.project-details({number: item.project.number})" title="{{item.creditRight.projectName}}" ng-if="item.project.type === 1 || item.project.type === 2" class="invment-blue">{{ item.creditRight.projectName | limitTo: 15 }}{{item.creditRight.projectName.length > 15 ? '...':''}}</a>
-                  <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{item.creditRight.projectName}}" ng-if="item.project.type === 3" class="invment-blue">{{ item.creditRight.projectName | limitTo: 15 }}{{item.creditRight.projectName.length > 15 ? '...':''}}</a>
+                 <a ui-sref="root.project-details({number: item.project.number})" title="{{item.creditRight.projectName}}" ng-if="item.project.type === 1 || item.project.type === 2" class="invment-blue">{{ item.creditRight.projectName | limitTo: 15 }}{{item.creditRight.projectName.length > 15 ? '...':''}}<img src="/images/user-center/rate-coupon.png" alt="使用加息券" class="used-rate"></a>
+                  <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{item.creditRight.projectName}}" ng-if="item.project.type === 3" class="invment-blue">{{ item.creditRight.projectName | limitTo: 15 }}{{item.creditRight.projectName.length > 15 ? '...':''}}<img src="/images/user-center/rate-coupon.png" alt="使用加息券" class="used-rate"></a>
                 </td>
                 <td>{{ item.creditRight.transferableAmount | number:2 }}</td>
-                <td>{{ item.creditRight.returnProfit | number:2}}</td>
+                <td>{{ item.creditRight.returnProfit | number:2}} <span class="ft-red7">+1000.92</span></td>
                 <td>
                   <span ng-if="item.project.type !== 3">{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
                   <span ng-if="item.project.type === 3">{{ item.fundsProject.repaymentDate | date:'yyyy-MM-dd' }}</span>

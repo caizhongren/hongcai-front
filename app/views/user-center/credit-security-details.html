@@ -27,8 +27,8 @@
         <td>{{ creditRight.profit | number:2 }}</td>
         <td>{{ creditRight.transferableAmount | number:2 }}</td>
         <td ng-show="creditIsShowedFLAG">{{  creditRight.transferingAmount | number:2 }}</td>
-        <td>{{ creditRight.returnProfit | number:2 }}</td>
-        <td>{{ creditRight.profit-creditRight.returnProfit | number:2 }}</td>
+        <td>{{ creditRight.returnProfit | number:2 }}<span class="ft-red7">+0.18</span></td>
+        <td>{{ creditRight.profit-creditRight.returnProfit | number:2 }}<span class="ft-red7">+0.18</span></td>
       </tr>
     </tbody>
   </table>
@@ -88,7 +88,7 @@
                 <h4 class="timeline-title">回款计划<small class="pull-right">{{ card.payDate }}</small></h4>
               </div>
               <div class="timeline-body">
-                <p>待回款：<strong>{{ card.invEarnings | number: 2 }}</strong>元</p>
+                <p>待回款：<strong>{{ card.invEarnings | number: 2 }}</strong>元<span class="ft-red7">+<strong>0.18</strong>元</span></p>
               </div>
             </div>
           </li>
