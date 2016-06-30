@@ -15,6 +15,7 @@ angular.module('hongcaiApp')
           $scope.category = response.data.category;
           $scope.investorMatchOfflineRights = response.data.investorMatchOfflineRights;
           // $scope.order = response.data.order;
+          $scope.IncreaseRateCoupon = response.data.IncreaseRateCoupon;
 
           var invTotal = response.data.order.orderAmount;
           if (response.data.project) {
