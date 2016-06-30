@@ -22,6 +22,7 @@ angular.module('hongcaiApp')
       downloadContract: $resource(DEFAULT_DOMAIN + '/siteOrder/downloadContract', {
         projectId: '@projectId', amount: '@amount', isRepeat: '@isRepeat', payAmount: '@payAmount'
       }),
+      getUnUsedIncreaseRateCoupons: $resource(DEFAULT_DOMAIN + '/siteOrder/getUnUsedIncreaseRateCoupons',{projectId : '@projectId', amount : '@amount'}),
 
     };
   });
