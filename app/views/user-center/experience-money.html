@@ -36,7 +36,7 @@
         </div>
 
         <div>
-          <table class="table margin-b-30 table-dashed margin-t-0 record-w1" ng-show="dealStatus === 2">
+          <table class="table margin-b-30 table-dashed margin-t-0 record-w2" ng-show="dealStatus === 2">
             <thead>
               <tr>
                 <th>使用时间</th>
@@ -48,6 +48,14 @@
             </thead>
 
             <tbody class="yu-bg-grey0">
+              <tr ng-show="datas.length <= 0">
+                <td colspan="5" class="border-0">
+                  <div>
+                    <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
+                    <p><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
+                  </div>
+                </td>
+              </tr>
               <tr ng-repeat="deal in datas">
                 <td>{{deal.usedTime | date: 'yyyy-MM-dd'}}</td>
                 <td>{{deal.createTime | date: 'yyyy-MM-dd'}}</td>
@@ -55,13 +63,10 @@
                 <td>{{deal.amount | number:1}}</td>
                 <td>{{deal.profit | number:2}}</td>
               </tr>
-              <tr ng-show="datas.length <= 0">
-               <td colspan="5">暂无任何数据</td>
-             </tr>
             </tbody>
           </table>
 
-          <table class="table table-dashed margin-b-30 margin-t-0 record-w1" ng-show="dealStatus === 1">
+          <table class="table table-dashed margin-b-30 margin-t-0 record-w2" ng-show="dealStatus === 1">
             <thead>
               <tr>
                  <th>领取时间</th>
@@ -70,11 +75,19 @@
               </tr>
             </thead>
             <tbody class="yu-bg-grey0">
-             <tr ng-repeat="deal in datas">
-               <td>{{deal.createTime | date:'yyyy-MM-dd'}}</td>
-               <td>{{deal.description}}</td>
-               <td>{{deal.amount | number: 2}}</td>
-             </tr>
+              <tr ng-show="datas.length <= 0">
+                <td colspan="3" class="border-0">
+                  <div>
+                    <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
+                    <p><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
+                  </div>
+                </td>
+              </tr>
+              <tr ng-repeat="deal in datas">
+                <td>{{deal.createTime | date:'yyyy-MM-dd'}}</td>
+                <td>{{deal.description}}</td>
+                <td>{{deal.amount | number: 2}}</td>
+              </tr>
             </tbody>
           </table>
           <ul class="pager margin-r-20" ng-hide="datas.length <= 0">
