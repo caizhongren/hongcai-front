@@ -12,11 +12,11 @@
         <th class="border-b-none">项目名称</th>
         <th class="border-b-none">年化收益率</th>
         <th class="border-b-none">项目期限</th>
-        <th class="border-b-none">项目预计收益</th>
-        <th class="border-b-none">持有债权</th>
-        <th class="border-b-none" ng-show="creditIsShowedFLAG">已转出债权</th>
-        <th class="border-b-none">已收收益</th>
-        <th class="border-b-none">待收收益</th>
+        <th class="border-b-none">项目预计收益(元)</th>
+        <th class="border-b-none">持有债权(元)</th>
+        <th class="border-b-none" ng-show="creditIsShowedFLAG">已转出债权(元)</th>
+        <th class="border-b-none">已收收益(元)</th>
+        <th class="border-b-none">待收收益(元)</th>
       </tr>
     </thead>
     <tbody>
@@ -76,7 +76,7 @@
               </div>
               <div class="timeline-body">
                 <p><strong>{{item.amount | number: 2 }}&nbsp;元</strong></p>
-                <p><small>利息 ( {{ item.profit | number: 2 }} <span class="ft-red7" ng-show="IncreaseRateCoupon.rate" style="font-size:85%;">+{{ IncreaseRateCoupon.rate / (  creditRight.baseRate + creditRight.riseRate + IncreaseRateCoupon.rate ) * item.amount | number:2 }}元</span> )&nbsp; + &nbsp;本金{{ item.principal | number: 2 }}</small></p>
+                <p><small>利息 ({{ item.profit | number: 2 }}元 <span class="ft-red7" ng-show="IncreaseRateCoupon.rate" style="font-size:85%;">+{{ IncreaseRateCoupon.rate / (  creditRight.baseRate + creditRight.riseRate + IncreaseRateCoupon.rate ) * item.amount | number:2 }}元</span>)&nbsp; + &nbsp;本金{{ item.principal | number: 2 }}元</small></p>
               </div>
             </div>
           </li>
@@ -88,7 +88,7 @@
                 <h4 class="timeline-title">回款计划<small class="pull-right">{{ card.payDate }}</small></h4>
               </div>
               <div class="timeline-body">
-                <p>待回款：<strong>{{ card.invEarnings | number: 2 }}</strong>元<span ng-show="IncreaseRateCoupon.rate" class="ft-red7">+<strong>{{ IncreaseRateCoupon.rate / (  creditRight.baseRate + creditRight.riseRate + IncreaseRateCoupon.rate ) * card.invEarnings | number:2 }}</strong>元</span></p>
+                <p>待回款：<strong>{{ card.invEarnings | number: 2 }}</strong>元<span ng-show="IncreaseRateCoupon.rate" class="ft-red7"> + <strong>{{ IncreaseRateCoupon.rate / (  creditRight.baseRate + creditRight.riseRate + IncreaseRateCoupon.rate ) * card.invEarnings | number:2 }}</strong>元</span></p>
               </div>
             </div>
           </li>
