@@ -50,7 +50,7 @@
         </thead>
         <tbody>
           <!-- 有加息券时  ng-show="couponStatis.coupons.length > 0" ng-repeat="coupon in couponStatis.coupons"  {{coupon.createTime | date : "yyyy-MM-dd"}} {{coupon.endTime | date : "yyyy-MM-dd"}}-->
-          <tr ng-repeat="coupon in datas" ng-show="datas.length > 0">
+          <tr ng-repeat="coupon in datas | orderBy:-datas.endTime " ng-show="datas.length > 0">
             <td>
               <div ng-class="{ 'bg-coupon-orange' : coupon.endTime-currentTime >= 0 , 'bg-coupon-grey' : coupon.endTime-currentTime < 0 }" class=" ft-white">+{{coupon.rate || 0}}%</div>
             </td>
