@@ -52,7 +52,7 @@
           <!-- 有加息券时  ng-show="couponStatis.coupons.length > 0" ng-repeat="coupon in couponStatis.coupons"  {{coupon.createTime | date : "yyyy-MM-dd"}} {{coupon.endTime | date : "yyyy-MM-dd"}}-->
           <tr ng-repeat="coupon in datas" ng-show="datas.length > 0">
             <td>
-              <div class="bg-coupon-orange ft-white">+{{coupon.rate || 0}}%</div>
+              <div ng-class="{ 'bg-coupon-orange' : coupon.endTime-currentTime >= 0 , 'bg-coupon-grey' : coupon.endTime-currentTime < 0 }" class=" ft-white">+{{coupon.rate || 0}}%</div>
             </td>
             <td class="ft-red6" ng-show="(coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) <= 7">
               <p class="margin-b-0">{{coupon.endTime | date:"yyyy-MM-dd"}}</p>
@@ -61,7 +61,9 @@
             <td class="margin-b-0" ng-show="(coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) > 7">{{coupon.endTime | date:"yyyy-MM-dd"}}</td>
             <td>适用于宏金保项目</td>
             <td>活动奖励</td>
-            <td><button class="orange-button" ui-sref="root.main">立即使用</button></td>
+            <td><button ng-if="coupon.endTime-currentTime >= 0" class="orange-button" ui-sref="root.main">立即使用</button>
+                <button ng-if="coupon.endTime-currentTime < 0" class="grey-button border-0 no-boxshadow" ui-sref="root.main">已过期</button>
+            </td>
           </tr>
           <tr ng-show="datas.length <= 0">
             <td colspan="6">您没有可以使用的加息券</td>
