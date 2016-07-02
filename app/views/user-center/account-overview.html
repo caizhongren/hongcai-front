@@ -56,7 +56,6 @@
     <div class="col-md-4 col-md-offset-1">
       <p class="margin-b-0">累计收益&nbsp;<!-- <i class="fa fa-exclamation-circle ft-red2"></i> --></p>
       <p class="asset-money ft-36 ft-red2">{{account.receivedProfit| number:2}} <small class="ft-black">元</small>
-      <p class="margin-b-0">昨日收益 ：{{ yestodayProfit || 0 | number:2}}元<a ui-sref="root.userCenter.assets-overview" class="white-button-orange margin-l-15">查看明细</a></p>
     </div>
   </div>
   <div class="per-data">
@@ -65,39 +64,39 @@
     </div>
     <div class="col-md-11">
       <div class="tip-title flex-container col-xs-12  text-center">
-        <div class="flex-item col-xs-2">
+        <div class="flex-item col-xs-2 fl">
           <p>总资产(元)</p>
           <p class="ft-red2 ft-24">{{account.totalAssets+account.experienceAmount | number:2}}</p>
         </div>
-        <div class="flex-item text-center margin-l-15">
+        <div class="flex-item text-center margin-l-15 fl">
           <p>&nbsp;</p>
-          <p class="ft-offorange ft-24">&nbsp;&nbsp;&nbsp;=</p>
+          <p class="ft-offorange ft-24">&nbsp;&nbsp;=&nbsp;</p>
         </div>
-        <div class="flex-item col-xs-2">
+        <div class="flex-item col-xs-2 fl">
           <p>账户余额(元)</p>
           <p class="ft-black2 ft-24">{{account.balance| number:2}}</p>
         </div>
-        <div class="flex-item text-center margin-l-15">
+        <div class="flex-item text-center margin-l-15 fl">
           <p>&nbsp;</p>
           <p class="ft-offorange ft-24">+</p>
         </div>
-        <div class="flex-item col-xs-2">
+        <div class="flex-item col-xs-2 fl">
           <p>持有投资(元)</p>
           <p class="ft-black2 ft-24">{{account.waitingCapital+account.freezeCapital | number:2}}&nbsp;</p>
         </div>
-        <div class="flex-item text-center">
+        <div class="flex-item text-center fl">
           <p>&nbsp;</p>
           <p class="ft-offorange ft-24">&nbsp;&nbsp;&nbsp;+</p>
         </div>
-        <div class="flex-item col-xs-2">
+        <div class="flex-item col-xs-2 fl">
           <p>待收收益(元)</p>
           <p  class="ft-black2 ft-24">{{account.waitingProfit | number:2}}</p>
         </div>
-        <div class="flex-item text-center">
+        <div class="flex-item text-center fl">
           <p>&nbsp;</p>
-          <p class="ft-offorange ft-24">&nbsp;&nbsp;&nbsp;+</p>
+          <p class="ft-offorange ft-24">&nbsp;&nbsp;+&nbsp;</p>
         </div>
-        <div class="flex-item col-xs-2">
+        <div class="flex-item fl">
           <p>体验金(元)</p>
           <p class="ft-black2 ft-24">{{account.experienceAmount || 0 | number:0}}</p>
         </div>
@@ -141,28 +140,26 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b-dash" ng-repeat="item in fundsProjectProductList">
-              <td ui-sref="root.current-deposit-details({number: item.number})" class="cursor-pointer">{{item.product.name}}{{item.name}}</td>
-              <td>{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}%</td>
-              <td>{{item.product.sealingDays || 0}}天</td>
-              <td>{{item.total}}</td>
-              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.current-deposit-details({number: item.number})">立即投资</button></td>
-            </tr>
-            <tr class="border-b-dash" ng-repeat="item in jigoubao">
+            <tr class="border-b-dash" ng-repeat="item in jigoubao | limitTo: 5">
               <td class="cursor-pointer" ui-sref="root.project-details({number: item.number})">{{item.name}}</td>
               <td>{{item.annualEarnings | number : 2}}%</td>
               <td>{{item.projectDays}}天</td>
               <td>{{item.total}}</td>
-              <td><button class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})">立即投资</button></td>
+              <td>
+                <!-- <button class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})">立即投资</button> -->
+                <a class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})" ng-show="item.status == 6">{{item._timeDown.hour}}:{{item._timeDown.min}}:{{item._timeDown.seconds}}</a>
+                <a class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})" ng-show="item.status == 7">立即投资</a>
+                <a class="btn-grey col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})" ng-show="item.status > 7 && item.status !== 11">{{projectStatusMap[item.status]}}</a>
+              </td>
             </tr>
           </tbody>
         </table>
-      </div>  
+      </div>
     </div>
   </div>
 </div>
 <script>
-$(function() 
+$(function()
   { $("[data-toggle='popover']").popover();
 
 });

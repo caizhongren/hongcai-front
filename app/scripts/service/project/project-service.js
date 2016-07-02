@@ -7,6 +7,7 @@ angular.module('hongcaiApp')
       }),
       getExperienceProjectDetail: $resource(DEFAULT_DOMAIN + '/siteProject/getExperienceProjectDetail'),
       projectList: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectList'),
+      getAccountOverviewProjects: $resource(DEFAULT_DOMAIN + '/siteProject/getAccountOverviewProjects'),
       getFundsProductTypeMap: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProductTypeMap'),
       getFundsTotalStatisticalData: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsTotalStatisticalData'),
       getFundsProjectListByProductType: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProjectListByProductType', {
@@ -69,6 +70,23 @@ angular.module('hongcaiApp')
       getEnterpriseById: $resource(DEFAULT_DOMAIN + '/siteEnterprise/getEnterPriseById', {
         enterpriseId: '@enterpriseId'
       }),
+      /**
+       * 查询项目关联的文章
+       * @projectId 项目id
+       */
+      projectTexts: $resource(DEFAULT_DOMAIN + '/siteProject/projectTexts', {
+        projectId: '@projectId'
+      }),
+
+      /**
+       * 项目合同模板
+       * @projectId 项目id
+       */
+      contractPDFModel: $resource(DEFAULT_DOMAIN + '/siteProject/generateContractPDFModel', {
+        projectId: '@projectId'
+      }),
+
+      
       getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {}),
       getOneDayProfitAndNextRate: $resource(DEFAULT_DOMAIN + '/siteFunds/getOneDayProfitAndNextRate', {
         number: '@number'

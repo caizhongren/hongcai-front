@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AccountOverviewCtrl',  function($scope, $state, $rootScope, $stateParams,MainService,ProjectService, UserCenterService, toaster) {
+  .controller('AccountOverviewCtrl',  function($scope, $state, $interval, $rootScope, $stateParams, ProjectService, UserCenterService, toaster, DateUtils) {
     var totalAssets = 0;
     var receivedProfit = 0;
     var balance = 0;
@@ -27,28 +27,54 @@ angular.module('hongcaiApp')
         $scope.colours = ['#e94828', '#f9b81e', '#62cbc6'];
 
       } else {
-        toaster.pop('warning', response.msg);
+        // toaster.pop('warning', response.msg);
       }
 
     });
 
     
-    /*
-    **零存宝、宏金盈列表
-    */
-    MainService.getIndexFundsProductList.get(function(response) {
-    	console.log("hongjinying");
-    	console.log(response);
-    	$scope.fundsProjectProductList = response.data.fundsProjectProductList;
-    });
-    //机构宝
-    ProjectService.projectList.get({
-        status: '7',
+    $scope.jigoubaoList = function() {
+      ProjectService.getAccountOverviewProjects.get({
+        categoryCode: "01"
       }, function(response) {
-      	//console.log("jigoubao");
-    	//console.log(response);
-    	$scope.jigoubao = response.data.projectList;
+        if (response.ret === 1) {
+          $scope.serverTime = response.data.serverTime;
+          $scope.jigoubao = response.data.projectList;
+          $scope.projectStatusMap = response.data.projectStatusMap;
+          $scope.repaymentTypeMap = response.data.repaymentTypeMap;
+          $scope.data = [];
+          $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+          };
+          for (var i = 0; i < $scope.jigoubao.length; i++) {
+            $scope.jigoubao[i].countdown = new Date($scope.jigoubao[i].releaseStartTime).getTime() - $scope.serverTime;
+            $scope.jigoubao[i].showByStatus = $scope.jigoubao[i].status === 6 || $scope.jigoubao[i].status === 7 ? true : false;
+            $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
+            $scope.data.push($scope.jigoubao[i]);
+          }
+
+          var interval = $interval(function() {
+            for (var i = $scope.jigoubao.length - 1; i >= 0; i--) {
+              $scope.jigoubao[i].countdown -= 1000;
+              if ($scope.jigoubao[i].countdown <= 0 && $scope.jigoubao[i].status == 2) {
+                $state.reload();
+              }
+
+              $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
+            };
+          }, 1000);
+          $scope.$on('$stateChangeStart', function() {
+            clearInterval(interval);
+          });
+        } else {
+          $scope.data = [];
+          // toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+          //console.log('ask project-list, why projectList did not load data...');
+        }
       });
+    };
+
+    $scope.jigoubaoList();
     
     /**
      * 我的债权统计数据
@@ -60,7 +86,7 @@ angular.module('hongcaiApp')
         $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
       } else {
         $scope.showCreditRightStatistics = false;
-        toaster.pop('warning', response.msg);
+        // toaster.pop('warning', response.msg);
       }
     });
     /**
@@ -70,37 +96,9 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         $scope.couponStatis = response.data.couponStatis;
       } else {
-        toaster.pop('warning', response.msg);
+        // toaster.pop('warning', response.msg);
       }
     });
-
-    // 收益曲线
-    UserCenterService.dayProfit.get({
-      startTime: new Date().getTime(),
-      endTime: new Date().getTime() + 60 * 1000,
-    }, function(response){
-    	//console.log(response);
-      var data = response.data;
-      $scope.profit = [];
-      for(var key in data)  {
-        var date = new Date(+key);
-        $scope.profit.push(data[key]);
-        $scope.yestodayProfit = data[key];
-      }
-    });
-
-    // 原版获取投资统计数据
-    /*OrderService.statisticsByUser.get(function(response) {
-      if (response.ret === 1) {
-        var orderNum = response.data.orderNum;
-        if (orderNum) {
-          $scope.investingNum = orderNum.isInve;
-          $scope.investedNum = orderNum.overInve;
-          $scope.investNum = orderNum.allInve;
-        }
-      }
-    });*/
-
 
     /**
      * 我的债权统计数据
@@ -110,7 +108,7 @@ angular.module('hongcaiApp')
         if (response.ret === 1) {
           $scope.statistics = response.data.creditRightStatis;
         } else {
-          toaster.pop('warning', response.msg);
+          // toaster.pop('warning', response.msg);
         }
       });
     };

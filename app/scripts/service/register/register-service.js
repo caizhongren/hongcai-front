@@ -13,7 +13,8 @@ angular.module('hongcaiApp')
             captcha: '@captcha',
             picCaptcha: '@picCaptcha',
             inviteCode: '@inviteCode',
-            from: '@from'
+            from: '@from',
+            act: '@act'
           }
         }
       }),
@@ -26,7 +27,8 @@ angular.module('hongcaiApp')
             account: '@account',
             password: '@password',
             captcha: '@captcha',
-            from: '@from'
+            from: '@from',
+            act: '@act'
           }
         }
       }),

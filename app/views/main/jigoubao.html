@@ -4,7 +4,7 @@
       <h3 class="ft-30 padding-l-20 margin-t-20">宏金保</h3>
       <p class="ft-18 padding-l-20 margin-b-0">抵押并强担保</p>
       <img src="/images/index/cut.png" alt="">
-      <div class="ft-16 padding-l-20 margin-t-30 padding-b-40 ft-white2">        
+      <div class="ft-16 padding-l-20 margin-t-30 padding-b-40 ft-white2">
         <p>老牌担保公司担保</p>
         <p>优质资产足值抵押</p>
       </div>
@@ -24,16 +24,17 @@
           <p class="ft-14 ft-grey666">投资期限</p>
         </div>
         <div class="col-md-2">
-          <p class="ft-24 ft-grey1 margin-b-0">{{item.total - item.soldStock * item.increaseAmount || 0 | number:0}}<span class="ft-16">元</span></p>
+          <p class="ft-24 ft-grey1 margin-b-0">{{item.currentStock * item.increaseAmount || 0 | number:0}}<span class="ft-16">元</span></p>
           <p class="ft-14 ft-grey666">可投金额</p>
         </div>
         <div class="col-md-2 margin-l--5">
-            <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number})" ng-show="item.status <= 7">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-            <a class="btn btn-grey-spirit2 ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number})" ng-show="item.status > 7">{{projectStatusMap[item.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-           
+            <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number})" ng-show="item.status == 6">{{item._timeDown.hour}}:{{item._timeDown.min}}:{{item._timeDown.seconds}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+            <button class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number})" ng-show="item.status == 7">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+            <button class="btn btn-grey-spirit2 ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number})" ng-show="item.status > 7 && item.status !== 11">{{projectStatusMap[item.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+
         </div>
       </div>
-      
+
     </div>
   </div>
   <!--<div class="col-xs-12 col-md-12 col-lg-12 bg-white" style="min-height:386px;">

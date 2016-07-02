@@ -1,6 +1,8 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectListCtrl', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils) {
+  .controller('ProjectListCtrl', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils, projectStatusMap) {
+    $scope.projectStatusMap = projectStatusMap;
+
     $scope.sortType = $stateParams.sortType || false;
     $scope.showFlag = $stateParams.showFlag || 0;
     if ($scope.sortType === 'true') {
@@ -23,7 +25,9 @@ angular.module('hongcaiApp')
       $location.path('/project-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false/0');
     }
 
-    // 宏金保
+    /**
+     * 宏金保
+     */
     $scope.getProjectList = function() {
       $scope.showFlag = 1;
       ProjectService.projectList.get({
@@ -138,8 +142,9 @@ angular.module('hongcaiApp')
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
-    // 默认打开宏金保
-    // $scope.showFlag = 1;
+    /**
+     * 默认打开宏金保
+     */
     if ($scope.showFlag === 0) {
       $scope.getProjectList();
     }

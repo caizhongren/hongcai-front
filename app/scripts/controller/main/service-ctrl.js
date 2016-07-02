@@ -31,7 +31,6 @@ angular.module('hongcaiApp')
     }, function() {
       qrImg.fadeOut();
     });
-
     $feedback.focus(function() {
       qqImg.fadeIn();
     });
@@ -40,24 +39,6 @@ angular.module('hongcaiApp')
       qqImg.fadeOut();
     });
 
-    //$scope.online = online;//获取qq客服离在线状态
-
-    //计算器
-    // $scope.inputValue = 0;
-    /*$scope.params = {
-        'inputValue' : '',
-        'displayValue' : '100-100万',
-        'rate' : '',
-        'displayrate' : 'XX%',
-        'selectedIcon' : '',
-        'icons' : [
-            {value: '3个月', label: '3个月'},
-            {value: '6个月', label: '6个月'},
-            {value: '12个月', label: '12个月'}
-        ],
-        'interest' : '',
-        'payback' : ''
-    };*/
 
     $scope.params = {
       'inputValue': '',

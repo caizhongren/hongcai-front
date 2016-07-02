@@ -3,10 +3,10 @@
     <div class="news__item">
       <div class="block__head ft-16 ft-grey1">宏财研究院<a class="more-info-link cursor-pointer" href="/hongcai-trends">更多></a></div>
       <div class="news__media">
-        <div class="news__img" style="background-image:url(images/hongcaiyanjiuyuan.jpg);"></div>
+        <div class="news__img news__img1"></div>
         <div class="news__list">
           <p ng-repeat="item in searchList">
-            <a ui-sref="root.about-us.hongcai-trends-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+            <a ui-sref="root.us.hongcai-trends-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
             <span>{{item.createTime | date: 'yyyy-MM-dd'}}</span>
           </p>
         </div>
@@ -15,10 +15,10 @@
     <div class="news__item margin-t-20">
       <div class="block__head ft-16 ft-grey1">媒体报道<a class="more-info-link cursor-pointer" href="/media-reports">更多></a></div>
       <div class="news__media">
-        <div class="news__img" style="background-image:url(images/meitibaodao.jpg);"></div>
+        <div class="news__img news__img2"></div>
         <div class="news__list">
           <p ng-repeat="item in mediaList">
-            <a ui-sref="root.about-us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+            <a ui-sref="root.us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
            <span>{{item.createTime | date: 'yyyy-MM-dd'}}</span>
           </p>
         </div>

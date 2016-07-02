@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserOrderCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
+  .controller('UserOrderCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert, ProjectService) {
 
     $scope.typeInvStatus = {
       '0': '未支付',
@@ -22,19 +22,49 @@ angular.module('hongcaiApp')
       }, 300);
     };
 
+
+    $scope.baseFileUrl = function(){
+      if($location.protocol() === 'http'){
+        return 'http' + config.baseFileUrl.substr(config.baseFileUrl.indexOf("//") - 1);
+      } else {
+        return 'https' + config.baseFileUrl.substr(config.baseFileUrl.indexOf("//") - 1);
+      }
+    }
+
   
 
     $scope.generateContractPDF = function(projectId, orderId, status, type) {
-      if (status === 2) {
+
+      /**
+       * 下载模板
+       */
+      if (status === 2) { 
         if (type !== 4) {
-          $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel?orderId=' + orderId + '&projectId=' + projectId);
+          ProjectService.contractPDFModel.get({
+            projectId: projectId
+          }, function(response){
+            if(response.ret !== -1){
+              $scope.downloadPDF($scope.baseFileUrl() + response.data.contractModel.url);
+            }
+          })
+
+          // $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel?orderId=' + orderId + '&projectId=' + projectId);
         } else if (type === 4) {
           $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContractModel');
         }
 
       } else if (status >= 3 && status <= 6) {
         if (type !== 4) {
-          $scope.downloadPDF('hongcai/api/v1/siteOrder/downloadContract?orderId=' + orderId + '&projectId=' + projectId);
+          OrderService.downloadContract.get({
+            orderId: orderId,
+            projectId: projectId
+          }, function(response){
+            if(response.ret !== -1){
+              $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
+            }
+          });
+
+          // $scope.downloadPDF('hongcai/api/v1/siteOrder/downloadContract?orderId=' + orderId + '&projectId=' + projectId);
         } else if (type === 4) {
           $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContract?orderId=' + orderId);
         }
@@ -42,6 +72,7 @@ angular.module('hongcaiApp')
       }
 
     };
+
 
   
 
@@ -57,8 +88,6 @@ angular.module('hongcaiApp')
       },
       function(response) {
         if (getOrderByUser.ret === 1) {
-          // console.log(getOrderByUser);
-          // if($scope.haveTrusteeshipAccount) {
           $scope.orderList = getOrderByUser.data.orderList;
           $scope.count = getOrderByUser.data.count;
           $scope.type = getOrderByUser.data.type;
@@ -77,10 +106,9 @@ angular.module('hongcaiApp')
             item.url = item.type === 1 ? 'root.project-details({projectId: ' + item.projectId + '})' : 'root.activity-details({activityId: ' + item.projectId + ', type:' + item.type + '})';
             $scope.data.push(item);
             }
-          // }
 
         } else {
-          toaster.pop('warning', response.msg);
+          // toaster.pop('warning', response.msg);
         }
       });
     }
@@ -89,7 +117,9 @@ angular.module('hongcaiApp')
     
     
 
-    // 继续支付订单
+    /**
+     * 继续支付订单
+     */
     $scope.toPay = function(projectId, orderId, orderType) {
       $scope.msg = '4';
       $scope.page = 'investment';
@@ -102,16 +132,19 @@ angular.module('hongcaiApp')
       window.open('/user-order-transfer/' + projectId + '/' + orderId + '/' + orderType);
     };
 
-    // 取消订单
+    /**
+     * 取消订单
+     */
     $scope.cancelOrder = function(number) {
       if ($window.confirm('确定取消订单?')) {
-        // 确定要删除订单的弹窗。
+        /**
+         * 确定要删除订单的弹窗。
+         */
         UserCenterService.cancelOrder.get({
           number: number
         }, function(response) {
           if (response.ret === 1) {
             $state.reload();
-            // 刷新页面
           } else {
             toaster.pop('warning', '无法取消订单，请重试。');
           }

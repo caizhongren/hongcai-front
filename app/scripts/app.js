@@ -25,7 +25,7 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'ipCookie',
   'angular-md5',
   'textAngular',
-  'angular-google-analytics',
+  // 'angular-google-analytics',
   'bgf.paginateAnything',
   'angular-svg-round-progress',
   'seo'
@@ -36,11 +36,7 @@ hongcaiApp
     cfpLoadingBarProvider.includeSpinner = true;
     cfpLoadingBarProvider.includeBar = true;
   }])
-  // .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-  // $locationProvider.html5Mode(true);
-  // $routeProvider.when 'carousel-example-generic';
-  // }])
-  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', 'AnalyticsProvider', '$sceDelegateProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider, AnalyticsProvider, $sceDelegateProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$uiViewScrollProvider', '$httpProvider', '$sceDelegateProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $uiViewScrollProvider, $httpProvider, $sceDelegateProvider) {
     $uiViewScrollProvider.useAnchorScroll();
 
     var $http, interceptor = ['$q', '$injector', function($q, $injector) {
@@ -90,7 +86,6 @@ hongcaiApp
               /*,
                           controller: 'FooterCtrl',
                           controllerUrl: 'scripts/controller/main/footer-ctrl'*/
-              //隐藏放假公告弹窗
           },
           'service': {
             templateUrl: 'views/service.html',
@@ -121,7 +116,7 @@ hongcaiApp
         }
       })
       .state('root.mainRedirect', {
-        url: '/third/:from',
+        url: '/third/:f',
         views: {
           '': {
             templateUrl: 'views/main.html',
@@ -166,7 +161,10 @@ hongcaiApp
           }
         }
       })
-      //注册改版
+      /**
+       * 注册改版
+       * @type {String}
+       */
       .state('root.register',{
         url: '/register?inviteCode',
         views:{
@@ -256,7 +254,10 @@ hongcaiApp
         }
       })
 
-      // 宏金盈介绍页
+      /**
+       * 宏金盈介绍页
+       * @type {String}
+       */
       .state('root.banner-investmentplan', {
         url: '/banner-investmentplan',
         views: {
@@ -334,7 +335,10 @@ hongcaiApp
         }
       })
 
-    // 易宝网页操作回调页，包括开通易宝、充值、提现、绑卡、取消绑卡、投资
+    /**
+     * 易宝网页操作回调页，包括开通易宝、充值、提现、绑卡、取消绑卡、投资
+     * @type {String}
+     */
     .state('root.yeepay-callback', {
       url: '/yeepay-callback/:business/:status?amount&number&profit',
       views: {
@@ -357,6 +361,10 @@ hongcaiApp
           }
         }
       })
+
+      /**
+       * 开通易宝，即实名认证
+       */
       .state('root.rights-transfer', {
         url: '/righs-transfer/:realName/:idCardNo/:type',
         views: {
@@ -428,7 +436,10 @@ hongcaiApp
         }
       })
 
-    // 修改手机号码
+    /**
+     * 修改手机号码
+     * @type {String}
+     */
     .state('root.yeepay', {
         url: '/yeepay/:business/:mobile',
         views: {
@@ -440,7 +451,6 @@ hongcaiApp
         }
       })
       /*-------------  lucky-draw  ---------------------------*/
-      // 土豪活动，暂时不上线。
       .state('root.lucky-draw', {
         url: '/lucky-draw',
         views: {
@@ -568,7 +578,10 @@ hongcaiApp
         }
       })
 
-    // 资金流水
+    /**
+     * 资金流水
+     * @type {String}
+     */
     .state('root.userCenter.record', {
         url: '/record',
         views: {
@@ -648,7 +661,10 @@ hongcaiApp
       }
     })
 
-    // 预约订单
+    /**
+     * 预约订单
+     * @type {String}
+     */
     .state('root.userCenter.reservation', {
       url: '/reservation',
       views: {
@@ -663,7 +679,10 @@ hongcaiApp
       }
     })
 
-    // 体验金（个人中心）
+    /**
+     * 体验金（个人中心）
+     * @type {String}
+     */
     .state('root.userCenter.experienceMoney', {
       url: '/experience-money',
       views: {
@@ -678,7 +697,9 @@ hongcaiApp
       }
     })
 
-    // 加息券（个人中心）
+    /**
+     * 加息券（个人中心）
+     */
     .state('root.userCenter.rate-coupon', {
       url: '/rate-coupon',
       views: {
@@ -693,7 +714,9 @@ hongcaiApp
       }
     })
 
-    // 我的债权（个人中心）
+    /**
+     * 我的债权（个人中心）
+     */
     .state('root.userCenter.credit', {
       url: '/credit/:searchStatus',
       views: {
@@ -708,7 +731,9 @@ hongcaiApp
       }
     })
 
-    // 宏金宝债权详情
+    /**
+     * 宏金宝债权详情
+     */
     .state('root.userCenter.credit-security-details', {
       url: '/credit-security-details/:type/:number',
       views: {
@@ -723,7 +748,9 @@ hongcaiApp
       }
     })
 
-    // 宏金盈债权详情
+    /**
+     * 宏金盈债权详情
+     */
     .state('root.userCenter.credit-profit-details', {
         url: '/credit-profit-details/:type/:number',
         views: {
@@ -831,7 +858,9 @@ hongcaiApp
           }
         }
       })
-      // 宏金盈列表页新
+      /**
+       * 宏金盈列表页新
+       */
       .state('root.investmentplan-Newlist', {
         url: '/fundsproject-list',
         views: {
@@ -852,16 +881,6 @@ hongcaiApp
           }
         }
       })
-      /*.state('root.activity-tuHao-details', {
-        url: '/activity/:activityId/:type',
-        views: {
-          '': {
-            templateUrl: 'views/project/activity-details.html',
-            controller: 'ActivityDetailsCtrl',
-            controllerUrl: 'scripts/controller/project/activity-details-ctrl'
-          }
-        }
-      })*/
       .state('root.project-details', {
         url: '/project/:number',
         views: {
@@ -873,9 +892,12 @@ hongcaiApp
         }
       })
 
-    // 零存宝详情页
+    /**
+     * 零存宝详情页
+     * tab表示用户登录前的位置
+     */
     .state('root.current-deposit-details', {
-      url: '/current-deposit/:number?tab', // tab表示用户登录前的位置
+      url: '/current-deposit/:number?tab', 
       views: {
         '': {
           templateUrl: 'views/project/current-deposit-details.html',
@@ -885,9 +907,12 @@ hongcaiApp
       }
     })
 
-    // 宏金盈详情页
+    /**
+     * 宏金盈详情页
+     * tab表示用户登录前的位置
+     */
     .state('root.investmentplan-details', {
-      url: '/investmentplan/:number?tab', // tab表示用户登录前的位置
+      url: '/investmentplan/:number?tab', 
       views: {
         '': {
           templateUrl: 'views/project/investmentplan-details.html',
@@ -897,7 +922,9 @@ hongcaiApp
       }
     })
 
-    // 担保公司页面
+    /**
+     * 担保公司页面
+     */
     .state('root.project-sponsorInstitution', {
       url: '/project-sponsorInstitution/:guaranteeId',
       views: {
@@ -914,7 +941,9 @@ hongcaiApp
       }
     })
 
-    // 预约流程页
+    /**
+     * 预约流程页
+     */
     .state('root.appointment-project', {
         url: '/appointment-project',
         views: {
@@ -971,7 +1000,9 @@ hongcaiApp
     //  }
     // })
     /*---------------------------------------------  order  ---------------------------------------------*/
-    // 投资信息确认页面:购物车
+    /**
+     * 投资信息确认页面:购物车
+     */
     .state('root.invest-verify', {
         url: '/invest-verify/:projectId/:amount',
         views: {
@@ -982,7 +1013,9 @@ hongcaiApp
           }
         }
       })
-      // 宏包信息确认页面
+      /**
+       * 宏包信息确认页面
+       */
       .state('root.hongbao-verify', {
         url: '/hongbao-verify/:activityId/:amount',
         views: {
@@ -993,7 +1026,9 @@ hongcaiApp
           }
         }
       })
-      // 宏金盈购物车
+      /**
+       * 宏金盈购物车
+       */
       .state('root.invplan-verify', {
         url: '/invplan-verify/:projectId/:amount/:isRepeat',
         views: {
@@ -1004,6 +1039,147 @@ hongcaiApp
           }
         }
       })
+
+
+      /**
+       * ********************* 关于我们 20160621 *********************** 
+       */
+      .state('root.us', {
+        abstract: true,
+        url: '/us',
+        views: {
+          'about-us-right': {
+            templateUrl: 'views/about-us/about-us.html',
+            controller: 'AboutUsCtrl',
+            controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+          },
+          'about-sidebar': {
+            templateUrl: 'views/about-us/about-sidebar.html',
+            controller: 'AboutUsCtrl',
+            controllerUrl: 'scripts/controller/about-us/about-us-ctrl'
+          }
+        }
+      })
+
+      /**
+       * 项目方介绍
+       */
+      .state('root.us.projecter', {
+        url: '/projecter',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/introduction-of-projecter.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+      /**
+       * 平台方介绍
+       */
+      .state('root.us.platform', {
+        url: '/platform',
+        views: {
+          'about-us-right-show': {
+            // templateUrl: 'views/about-us/introduction-of-platform.html',
+            templateUrl: 'views/about-us/introduction-of-platform2.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+      /*-------- media-reports  -------------------*/
+      .state('root.us.media-reports', {
+        url: '/media-reports',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/media-reports-list.html',
+            controller: 'MediaReportsCtrl',
+            controllerUrl: 'scripts/controller/about-us/media-report-ctrl'
+          }
+        }
+      })
+      .state('root.us.media-reports-detail', {
+        url: '/media-reports/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/media-reports-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+      /*-----------  web-site-notice  ---------------------------*/
+      .state('root.us.web-site-notice', {
+        url: '/web-site-notice',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/web-site-notice-list.html',
+            controller: 'WebSiteNoticeCtrl',
+            controllerUrl: 'scripts/controller/about-us/web-site-notice-ctrl'
+          }
+        }
+      })
+      .state('root.us.web-site-notice-detail', {
+        url: '/web-site-notice/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/web-site-notice-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+      /*------------  hongcai-trends  -------------------------*/
+      .state('root.us.hongcai-trends', {
+        url: '/hongcai-trends',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/hongcai-trends-list.html',
+            controller: 'HongcaiTrendsCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-ctrl'
+          }
+        }
+      })
+      .state('root.us.hongcai-trends-detail', {
+        url: '/hongcai-trends/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/hongcai-trends-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+
+      /**
+       * 加入宏财
+       */
+      .state('root.us.company-profile', {
+        url: '/company-profile',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/company-profile.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+      /**
+       * 联系我们
+       */
+      .state('root.us.link-us', {
+        url: '/link-us',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/link-us.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+
+
       /*----------------  about-us  --------------------------------*/
       .state('root.about-us', {
         abstract: true,
@@ -1157,6 +1333,16 @@ hongcaiApp
         }
       })
       .state('root.about-us.media-reports-detail', {
+        url: '/media-reports/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/media-reports-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+      .state('root.about-us.media-reports-detail1', {
         url: '/media-reports-detail/:textId',
         views: {
           'about-us-right-show': {
@@ -1178,6 +1364,16 @@ hongcaiApp
         }
       })
       .state('root.about-us.web-site-notice-detail', {
+        url: '/web-site-notice/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/web-site-notice-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+      .state('root.about-us.web-site-notice-detail1', {
         url: '/web-site-notice-detail/:textId',
         views: {
           'about-us-right-show': {
@@ -1199,6 +1395,16 @@ hongcaiApp
         }
       })
       .state('root.about-us.hongcai-trends-detail', {
+        url: '/hongcai-trends/:textId',
+        views: {
+          'about-us-right-show': {
+            templateUrl: 'views/about-us/hongcai-trends-detail.html',
+            controller: 'HongcaiTrendsDetailCtrl',
+            controllerUrl: 'scripts/controller/about-us/hongcai-trends-detail-ctrl'
+          }
+        }
+      })
+      .state('root.about-us.hongcai-trends-detail1', {
         url: '/hongcai-trends-detail/:textId',
         views: {
           'about-us-right-show': {
@@ -1341,19 +1547,21 @@ hongcaiApp
           }
         }
       })
-      .state('root.help-center.product', {
-        url: '/product',
-        views: {
-          'help-center-right-show': {
-            templateUrl: 'views/help-center/product.html',
-            controller: 'HelpCenterCtrl',
-            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
-          }
-        }
-      })
+      // .state('root.help-center.product', {
+      //   url: '/product',
+      //   views: {
+      //     'help-center-right-show': {
+      //       templateUrl: 'views/help-center/product.html',
+      //       controller: 'HelpCenterCtrl',
+      //       controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+      //     }
+      //   }
+      // })
 
     /*--------------- credit assignment  ------------------------*/
-    //债权转让列表页 FIX,暂时和列表页公用
+    /**
+     * 债权转让列表页 FIX,暂时和列表页公用
+     */
     .state('root.credit-list-query', {
         url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
         views: {
@@ -1374,7 +1582,9 @@ hongcaiApp
           }
         }
       })
-      //债权转让详情页
+      /**
+       * 债权转让详情页
+       */
       .state('root.credit-details', {
         url: '/credit-details/:assignmentNumber',
         views: {
@@ -1386,7 +1596,9 @@ hongcaiApp
         }
       })
 
-    // 债权转让下单页(确认页)
+    /**
+     * 债权转让下单页(确认页)
+     */
     .state('root.credit-verify', {
         url: '/credit-verify/:creditId/:amount',
         views: {
@@ -1397,7 +1609,9 @@ hongcaiApp
           }
         }
       })
-      // 债权转让宣传介绍页面
+      /**
+       * 债权转让宣传介绍页面
+       */
       .state('root.credit-assignment', {
         url: '/credit-assignment',
         views: {
@@ -1408,7 +1622,9 @@ hongcaiApp
           }
         }
       })
-      // 成功回调页
+      /**
+       * 成功回调页
+       */
       .state('root.credit-success', {
         url: '/credit-success/:etoken',
         views: {
@@ -1482,7 +1698,7 @@ hongcaiApp
 
     /*--------------------  load page  route  -----------------------------------------*/
     .state('root.load-page', {
-        url: '/load-page?from&inviteCode',
+        url: '/load-page?f&inviteCode',
         views: {
           '': {
             templateUrl: 'views/load-page.html',
@@ -1492,7 +1708,9 @@ hongcaiApp
         }
       })
 
-    // 活动父 state，所有的活动落地页都在此 state下
+    /**
+     * 活动父 state，所有的活动落地页都在此 state下
+     */
     .state('root.activity', {
       url: '/activity',
       abstract: true,
@@ -1505,7 +1723,7 @@ hongcaiApp
 
     /*-------------  邀请活动落地页   ----------------------*/
       .state('root.activity.invite-landing', {
-        url: '/invite',
+        url: '/invite?act&f',
         views: {
           '': {
             templateUrl: 'views/invite-landing.html',
@@ -1516,10 +1734,25 @@ hongcaiApp
       })
     /*-------------  送现金活动落地页   ----------------------*/
     .state('root.activity.send-money', {
-      url: '/send-money',
+      url: '/send-money?act&f',
       views: {
         '': {
           templateUrl: 'views/send-money.html',
+          controller: 'SendMoneyCtrl',
+          controllerUrl: 'scripts/controller/activity/send-money-ctrl'
+        }
+      }
+    })
+    /**
+     * 父亲节活动页
+     */
+      .state('root.activity.father-day', {
+        url: '/father-day',
+        views: {
+          '': {
+            templateUrl: 'views/activity/father-day.html',
+          // controller: 'FatherDayCtrl',
+          // controllerUrl: 'scripts/controller/activity/load-page-ctrl'
         }
       }
     })
@@ -1546,29 +1779,43 @@ hongcaiApp
       }
     })
       /*---------------- traffic import route  ----------------------*/
-      .state('root.registerMobile-sanGuo', {
-        url: '/register-mobile-sanGuo/:from',
-        views: {
-          '': {
-            templateUrl: 'views/register/register-mobile-sanGuo.html',
-            controller: 'RegisterMobileSanGuoCtrl',
-            controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
-          }
+    .state('root.registerMobile-sanGuo', {
+      url: '/register-mobile-sanGuo/:f',
+      views: {
+        '': {
+          templateUrl: 'views/register/register-mobile-sanGuo.html',
+          controller: 'RegisterMobileSanGuoCtrl',
+          controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
         }
-      })
-      .state('root.project-details-traffic', {
-        url: '/project/:projectId/:from',
-        views: {
-          '': {
-            templateUrl: 'views/project/project-details.html',
-            controller: 'ProjectDetailsCtrl',
-            controllerUrl: 'scripts/controller/project/project-details-ctrl'
-          }
+      }
+    })
+    .state('root.project-details-traffic', {
+      url: '/project/:projectId/:f',
+      views: {
+        '': {
+          templateUrl: 'views/project/project-details.html',
+          controller: 'ProjectDetailsCtrl',
+          controllerUrl: 'scripts/controller/project/project-details-ctrl'
         }
-      });
+      }
+    })
+
+    // 系统维护
+    .state('update', {
+      url: '/update?return',
+      views: {
+        '': {
+          templateUrl: 'views/sys-update.html',
+          controller: 'SysUpdateCtrl',
+          controllerUrl: 'scripts/controller/system-update-ctrl'
+        }
+      }
+    });
     $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://www.hongcai.com/hongcai/api/**']);
 
-    // 导致IE8不兼容的地方。
+    /**
+     * 导致IE8不兼容的地方。
+     */
     $urlRouterProvider.otherwise('/');
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
@@ -1581,17 +1828,12 @@ hongcaiApp
     //disable IE ajax request caching
     $httpProvider.defaults.headers.get['If-Modified-Since'] = '0';
 
-    AnalyticsProvider.setAccount('UA-58181412-1');
-    AnalyticsProvider.trackPages(true);
-    AnalyticsProvider.useDisplayFeatures(true);
-    AnalyticsProvider.useAnalytics(true);
-    AnalyticsProvider.setPageEvent('$stateChangeSuccess');
-
   }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, Analytics) {
-  Analytics.trackPage('/', '宏财网 hongcai.com - 要理财，上宏财!');
-  // Array 在IE8下没有indexOf 方法。
+hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
+  /**
+   * Array 在IE8下没有indexOf 方法。
+   */
   if (!Array.prototype.indexOf) {
     Array.prototype.indexOf = function(obj, start) {
       for (var i = (start || 0), j = this.length; i < j; i++) {
@@ -1607,36 +1849,44 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     $state.reload();
   }
 
-  $rootScope.showLoginModal = function(){
-    $modal({
+
+  $rootScope.tologin = function(){
+    $rootScope.loginModal = $modal({
       scope: $rootScope,
       template: 'views/modal/modal-toLogin.html',
       show: true
     });
   }
 
-  // 需要用户登录才能看到的url
-  var routespermission = [
-    'user-center'
-  ];
+  $rootScope.toRealNameAuth = function() {
+    $rootScope.realNameAuthModal = $modal({
+      scope: $rootScope,
+      template: 'views/modal/modal-realNameAuth.html',
+      show: true
+    });
+  };
 
-  // 不需要显示footer的path
+  /**
+   * 不需要显示footer的path
+   */
   var notShowFooterRoute = [
     'login',
     'register',
-    'invite-landing',
-    'send-money',
+    'activity',
     'novice-guide',
     'register'
   ];
-  // 不需要显示header的path
+  
+  /**
+   * 不需要显示header的path
+   */
   var notShowHeaderRoute = [
     'novice-guide',
     'login',
     'register'
   ];
 
-  
+
 
   $rootScope.$on('$stateChangeStart', function(event, toState) {
     $rootScope.isNoviceGuide = false;
@@ -1649,8 +1899,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     $checkSessionServer.error(function(response) {
-
-        window.location.href = config.domain + '/sys-update.html';
+        $state.go('update', {return: $location.path()});
         return;
     }).success(function(response) {
 
@@ -1662,25 +1911,37 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
           $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
           $rootScope.account = response.data.userDetail.account;
           $rootScope.unreadCount = response.data.unreadCount;
-          $rootScope.userType = response.data.userDetail.user.userType;
+          $rootScope.userType = response.data.userDetail.user.type;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
 
-          if(toState.name.startsWith("root.userCenter")){
-            $rootScope.showLoginModal();
+          if(toState.name.indexOf("root.userCenter") !== -1){
+            $rootScope.tologin();
+            toaster.pop('warning', '对不起，您还未登录，请先登录')
           }
         }
-        
-      });
+
+    });
+
+    // 若存在登录框，则去掉
+    if($rootScope.loginModal){
+      $rootScope.loginModal.hide();
+    }
+    if($rootScope.realNameAuthModal){
+      $rootScope.realNameAuthModal.hide();
+    }
+
   });
 
 
 
   $rootScope.mobileIOS = ($window.navigator.userAgent.match(/(iPad|iPhone|iPod)/g) ? true : false);
-  // viewFlAG view层面的显示与否的判断，比如main.html的土豪标图片不显示，在viewFlAG里添加, tuhaoShowFLAG: false (变量注入的是rootScope，FLAG保持全部大写)，然后在main.html做一个ng-show, no-hide的判断即可。
-  // ignorePATH route层面的显示与否的判断，比如/lucky-draw抽奖活动咱不对外公布(未上线)，在ignorePATH添加路径/lucky-draw。
-  // branch_switch,当该标识关联的功能已开发完成，但并没有对外发布。
+  /**
+   * viewFlAG view层面的显示与否的判断，比如main.html的土豪标图片不显示，在viewFlAG里添加, tuhaoShowFLAG: false (变量注入的是rootScope，FLAG保持全部大写)，然后在main.html做一个ng-show, no-hide的判断即可。
+   * ignorePATH route层面的显示与否的判断，比如/lucky-draw抽奖活动咱不对外公布(未上线)，在ignorePATH添加路径/lucky-draw。
+   * branch_switch,当该标识关联的功能已开发完成，但并没有对外发布。
+   */
   if (config.viewFlAG) {
     angular.forEach(config.viewFlAG, function(value, key) {
       $rootScope[key] = value;
@@ -1689,11 +1950,15 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
 
   $rootScope.$on('$stateChangeSuccess', function() {
-    // branch_switch， 当该路由关联的功能已开发完成，但并没有对外发布。
+    /**
+     * branch_switch， 当该路由关联的功能已开发完成，但并没有对外发布。
+     */
     if (config.ignorePATH && config.ignorePATH.indexOf('/' + $location.path().split('/')[1]) !== -1) {
       $location.path('//');
     }
-    // 跳转HTTPS的全局配置
+    /**
+     * 跳转HTTPS的全局配置
+     */
     if ($location.protocol() === 'http' && config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
       $window.location.href = 'https://' + $location.absUrl().split('://')[1];
     }
@@ -1701,11 +1966,25 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     $rootScope.firstPath = $location.path().split('/')[1];
     $rootScope.selectSide = $location.path().split('/')[2];
 
+    $rootScope.act = $state.params.act;
+    $rootScope.channelCode = $state.params.f;
+    if ($rootScope.channelCode) {
+      ipCookie('utm_from', $rootScope.channelCode, {
+        expires: 1
+      });   
+    }
+
+    if ($rootScope.act) {
+      ipCookie('act', $rootScope.act, {
+        expires: 1
+      });   
+    }
+
     var showFlag1 = [
         'account-overview',
         'security-settings',
         'bankcard-management'
-      ];
+    ];
     var showFlag2 = [
       'assets-overview',
       'recharge',
@@ -1743,10 +2022,11 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       $rootScope.userCenterPart = 5;
     }
 
-    $rootScope.showFooter = false;
-    if (notShowFooterRoute.indexOf($location.path().split('/')[1]) === -1) {
-      $rootScope.showFooter = true;
+    $rootScope.showFooter = true;
+    if (notShowFooterRoute.indexOf($location.path().split('/')[1]) !== -1) {
+      $rootScope.showFooter = false;
     }
+
 
     $rootScope.showHeader = true;
     if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1) {
@@ -1759,3 +2039,4 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
 
 hongcaiApp.constant('DEFAULT_DOMAIN', '/hongcai/api/v1');
+hongcaiApp.constant('projectStatusMap', {"96":"终审被拒绝","1":"创建中","97":"拒绝发布","2":"创建完成","98":"融资失败","3":"审核中","99":"已删除","4":"初审通过","5":"终审通过","6":"预发布","7":"融资中","8":"融资成功","9":"还款中","10":"还款完成","11":"预约中","12":"预约处理异常","95":"初审被拒绝"});

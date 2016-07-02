@@ -1,7 +1,9 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('CreditCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
-    //判断是否开通第三方托管账户
+    /**
+     * 判断是否开通第三方托管账户
+     */
     $scope.checkTrusteeshipAccount = function() {
       if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
         $scope.haveTrusteeshipAccount = true;
@@ -13,11 +15,15 @@ angular.module('hongcaiApp')
 
 
 
-    // 第一步
+    /**
+     * 第一步
+     */
     $scope.creditStepFlag = 1;
     $scope.Math = window.Math;
     $scope.disabledFlag1 = $scope.disabledFlag2 = $scope.disabledFlag3 = false;
-    // 解决ng-click ng-disabled的生效的问题。
+    /**
+     * 解决ng-click ng-disabled的生效的问题。
+     */
     $scope.$watch('creditStepFlag', function() {
       if ($scope.creditStepFlag === 1) {
         $scope.disabledFlag2 = true;
@@ -38,7 +44,7 @@ angular.module('hongcaiApp')
         $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
       } else {
         $scope.showCreditRightStatistics = false;
-        toaster.pop('warning', response.msg);
+        // toaster.pop('warning', response.msg);
       }
     });
 
@@ -100,24 +106,42 @@ angular.module('hongcaiApp')
         $scope.transferedCreditList = response.data.transferCreditList;
         $scope.assignmentStatusMap = response.data.assignmentStatusMap;
         for (var i = 0; i < $scope.transferedCreditList.length; i++) {
-          //步进值
+          /**
+           * 步进值
+           */
           var increaseAmount = transferedCreditList[i].project.increaseAmount;
-          //剩余份数
+          /**
+           * 剩余份数
+           */
           var currentStock = transferedCreditList[i].creditAssignment.currentStock;
-          //卖出份数
+          /**
+           * 卖出份数
+           */
           var soldStock = transferedCreditList[i].creditAssignment.soldStock;
-          //折让金
+          /**
+           * 折让金
+           */
           var discountAmount = transferedCreditList[i].creditAssignment.discountAmount;
-          //总份数
+          /**
+           * 总份数
+           */
           var totalStock = soldStock + currentStock;
 
-          //初始债权
+          /**
+           * 初始债权
+           */
           var initAmount = soldStock * increaseAmount;
-          //回收的折让金
+          /**
+           * 回收的折让金
+           */
           var returnDiscountAmount = discountAmount * soldStock / totalStock;
-          //回收款项
+          /**
+           * 回收款项
+           */
           var backAmount = soldStock * increaseAmount + returnDiscountAmount;
-          //收益
+          /**
+           * 收益
+           */
           var profit = backAmount - initAmount;
 
           transferedCreditList[i].initAmount = initAmount;
@@ -191,7 +215,7 @@ angular.module('hongcaiApp')
 
     $scope.searchStatus = parseInt($stateParams.searchStatus) || 1;
     $scope.currentPage = 1;
-    $scope.pageSize = 10;
+    $scope.pageSize = 6;
 
 
     $scope.loadCredits($scope.currentPage, $scope.pageSize, $scope.searchStatus);

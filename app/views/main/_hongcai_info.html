@@ -6,7 +6,7 @@
       </div>
       <div class="panel-body">
         <div class="row mediaList" ng-repeat="item in mediaList">
-          <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref="root.about-us.media-reports-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a>
+          <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref="root.us.media-reports-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a>
           </div>
           <div class="hidden-xs hidden-md col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
         </div>
@@ -21,7 +21,7 @@
       </div>
       <div class="panel-body">
         <div class="row trendList" ng-repeat="item in trendList track by $index">
-          <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref="root.about-us.hongcai-trends-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a>
+          <div class="col-xs-12 col-md-12 col-lg-9"><a ui-sref="root.us.hongcai-trends-detail({textId: item.id})" title="{{item.title}}">{{item.title}}</a>
           </div>
           <div class="hidden-xs hidden-md col-xs-3 text-right">{{item.createTime | date:'MM-dd'}}</div>
         </div>

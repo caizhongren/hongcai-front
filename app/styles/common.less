@@ -24,14 +24,23 @@ padding-right: 0 !important;
     color: @brand-primary;
   }
 }
-
+ul,ol{
+  list-style: none;
+}
 a {
   color: #333;
   cursor: pointer;
   text-decoration: none !important;
-  outline: none;
+  outline: none !important;
 }
-
+.clearfix::after, .clearfix::before {
+    content: ".";
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
 label {
   font-weight: normal !important;
   padding: 5px 8px 0;
@@ -48,7 +57,14 @@ hr {
 button {
   outline: none !important;
 }
-
+.display-inb {
+  display: inline-block;
+  margin-top: 1rem;
+  margin-left: 2rem;
+}
+.display-inbl{
+  display: inline-block;
+}
 .text-unline {
   text-decoration: underline !important;
 }
@@ -56,7 +72,9 @@ button {
 .text-left {
   text-align: left;
 }
-
+.text-center{
+  text-align: center;
+}
 .text-right {
   text-align: right;
 }
@@ -75,7 +93,10 @@ button {
 .ft-14 {
   font-size: 14px;
 }
-
+.ft-14-4d{
+  font-size: 14px;
+  color: #4D4D4D;
+}
 .ft-18 {
   font-size: 18px !important;
 }
@@ -238,6 +259,8 @@ button {
 }
 .ft-blue4{
   color:#7ca6ec;
+  padding-right: 40px;
+  text-align: right;
 }
 .bg-grey {
   background-color: #ebebeb;
@@ -290,12 +313,22 @@ button {
 .bg-yellow{
   background-color: #fdfae6;
 }
+//
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
 .mgn-top {
   margin-top: 20px;
 }
 
 .margin-l-0 {
   margin-left: 0 !important;
+}
+.margin-l-6 {
+  margin-left: 6px;
 }
 .margin-l-10 {
   margin-left: 10px !important;
@@ -357,6 +390,9 @@ button {
 .margin-l--60 {
   margin-left: -60px;
 }
+.margin-l-74 {
+  margin-left: 74px;
+}
 .margin-l--94 {
   margin-left: -94px !important;
 }
@@ -370,13 +406,16 @@ button {
   margin-left: 90px;
 }
 .margin-l-5{
-  margin-left: 5px;
+  margin-left: 5px !important;
 }
 .margin-l-15 {
   margin-left: 15px !important;
 }
 .margin-l-20{
   margin-left: 20px !important;
+}
+.margin-l-030{
+  margin-left: 30%;
 }
 .margin-l-30{
   margin-left: 30px;
@@ -573,18 +612,18 @@ button {
 }
 
 .padding-0 {
-  padding: 0; 
+  padding: 0 !important;
 }
 .padding-lr-13 {
-  padding-left: 13px; 
-  padding-right: 13px; 
+  padding-left: 13px;
+  padding-right: 13px;
 }
 .padding-lr-50 {
-  padding-left: 50px; 
-  padding-right: 50px; 
+  padding-left: 50px;
+  padding-right: 50px;
 }
 .padding-30 {
-  padding: 30px; 
+  padding: 30px;
 }
 .padding-l-0{
   padding-left: 0;
@@ -608,6 +647,7 @@ button {
 .padding-l-30 {
   padding-left: 30px;
 }
+
 .padding-l-40 {
   padding-left: 40px !important;
 }
@@ -635,11 +675,18 @@ button {
 .padding-r-15 {
   padding-right: 15px;
 }
-
+.padding-r-20 {
+  padding-right: 20px;
+}
+.padding-r-35 {
+  padding-right: 35px;
+}
 .padding-r-45 {
   padding-right: 45px;
 }
-
+.padding-r-50 {
+  padding-right: 50px;
+}
 .padding-r-60 {
   padding-right: 60px;
 }
@@ -771,6 +818,9 @@ button {
 .padding-40{
   padding: 50px 30px;
 }
+.overflow-hi{
+  overflow: hidden;
+}
 @border: 1px solid #dbdbdb;
 .border {
   border: @border;
@@ -851,7 +901,7 @@ button {
 }
 
 .border-b-none {
-  border-bottom: none;
+  border-bottom: none !important;
 }
 .border-l-none {
   border-left: none !important;
@@ -1840,6 +1890,9 @@ button {
 .padding-r-0 {
   padding-right: 0;
 }
+.padding-r-20 {
+  padding-right: 20px;
+}
 .margin-0 {
   margin:0px !important;
 }
@@ -1855,11 +1908,12 @@ button {
 .margin-b-15 {
   margin-bottom: 15px;
 }
-
 .margin-b-0 {
   margin-bottom: 0 !important;
 }
-
+.margin-b-100 {
+  margin-bottom: 100px;
+}
 
 /* .l-height {
   line-height: 25px;
@@ -2210,7 +2264,12 @@ button {
 //modal
 .modal-backdrop.am-fade,
 .aside-backdrop.am-fade {
-  background: rgba(0, 0, 0, .8);
+  // background: rgba(0, 0, 0, .8);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  /* works for old school versions of the Mozilla browsers like Netscape Navigator. */
+  -moz-opacity:0.8;
+  /* This is for old versions of Safari (1.x) with KHTML rendering engine */
+  -khtml-opacity: 0.8;
 }
 
 #enLarge {
@@ -2322,8 +2381,8 @@ button {
   width:378px;
   height:304px !important;
   position: absolute;
-  right: 10%;
-  top:6%;
+  right: 19%;
+  top:7%;
   //width: 25%;
   background: #ffffff;
   filter: alpha(opacity=50);
@@ -2651,7 +2710,7 @@ button {
     width: 100%;
     text-align: center;
     border-top: 1px solid #eee;
-   
+
   }
 }
 #dropdown a:hover{
@@ -2855,7 +2914,7 @@ a.cancel-red:focus {
 }
 //邀请落地页
 .invite-landing{
-  width:auto; 
+  width:auto;
   overflow-x:auto;
   background-color:#ff572c;
   .invite-landing-header{
@@ -2917,9 +2976,13 @@ a.cancel-red:focus {
     }
   }
   .invite-connent2{
+
+    .mar-l-23{
+      margin-left: 23%;
+    }
    background-color:#ff572c;
    overflow: auto;
-   position:relative; 
+   position:relative;
    width:100%;
    display: table;
    img{
@@ -2957,119 +3020,245 @@ a.cancel-red:focus {
 }
 //激励送现金落地页
 .send-money{
-  box-sizing:border-box;
-  margin:0px;
-  padding:0px;
-  position:relative;
-  background-color:#f2351c;
-  overflow:auto;
-  .send-money-connent{
-    //overflow:auto;
-    display: table;
-    position:relative;
-    width:100%;
+  background-color: #f9513b;
+  background-image: url("/images/activity/send-money-bottom.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  .send-money-header{
+    width: 100%;
+    height: 520px;
+    background: url("/images/activity/top.jpg") no-repeat center center;
+    margin: 0 auto;
     img{
-      display:block; 
-      margin:0 auto;
-      display: table-cell;
-    }
-    .send-money-text{
-      position:absolute;
-      top:30%;
-      left:48%;
+      display: inline-block;
+      margin: 0 auto;
+      vertical-align: middle;
+      margin-bottom: 20px;
     }
   }
-  .send-money-tab{
-    width:100%;
-    table{
-      border:1px solid #ffd11e;
-      width:58%;
+  .send-money-connent {
+    width: 1035px;
+    margin: 0 auto;
+    // background-color: #f9513b;
+    .send-money-connent-l {
+      img{
+        display: table;
+        margin-bottom: 40px;
+      }
+      table{
+      box-shadow: 5px 5px 10px #e8351e;
+      border: 2px solid #FFD11E;
       margin:0 auto;
-      height:72px;
       text-align:center;
+      display: inline-block !important;
       tbody{
+        // border:2px solid #ffd11e;
+        border-top: none;
+        box-shadow:5px 5px 10px #e8351e;
+        -moz-box-shadow: 5px 5px 10px #e8351e;
+        -webkit-box-shadow:5px 5px 10px #e8351e;
+        -o-box-shadow:5px 5px 10px #e8351e;
+        -ms-box-shadow: 5px 5px 10px #e8351e;
         tr{
           td{
             font-size:20px;
-            color:#000;
+            color:#a45704;
             font-weight:normal;
             //padding:10px;
-            background-color:#fdf4d0;
+            background-color:#ffffff;
             border:1px solid #feda4e;
             border-right:none;
             border-bottom:none;
-            height:58px;
+            height:64px;
+            vertical-align: center;
           }
-          td.col0-ft-red{
-              font-size:22px;
+
+          .border-right0{
+            border-right: 0;
+          }
+
+          td.col0-ft-red1{
               color:#cd000d;
               font-weight:bold;
               padding:10px 0px;
-              background-color:#fcefbb;
+              cursor: pointer;
+              border-left: none;
+              // background-color: #ffef5b;
             }
         }
       }
       thead{
+        // border-top: 2px solid #ffd11e;
+        border-bottom: 0;
         tr{
           th{
             font-size:22px;
-            color:#000;
-            font-weight:bold;
+            color:#000000;
+            // font-weight:bold;
             padding:10px;
-            background-color:#fcefbb;
-            border:1px solid #feda4e;
+            background-color:#fff7b0;
             border-right:none;
             border-bottom:none;
             text-align:center;
-            height:58px;
+            height:64px;
+            font-family: "微软雅黑";
+            font-weight: 400;
+          }
+          th.border-right1{
+            border-right: 1px solid #ffd11e;
+            }
+
           }
         }
       }
     }
-  }
-  .send-money-rules{
-    padding:10px 26%;
-    padding-right:20%;
-    p{
-      font-size:18px;
-      line-height:32px;
-      color:#fff;
+    .send-money-connent-r {
+      img{
+        display: table;
+        margin-bottom: 40px;
+        margin-top: -8px;
+      }
+      table{
+      box-shadow: 5px 5px 10px #e8351e;
+      margin:0 auto;
+      text-align:center;
+      display: inline-block !important;
+      border:2px solid #ffd11e;
+      tbody{
+        // border:2px solid #ffd11e;
+        border-top: none;
+        tr{
+          td{
+            font-size:20px;
+            color:#a45704;
+            font-weight:normal;
+            //padding:10px;
+            background-color:#ffffff;
+             border-top:1px solid #feda4e;
+
+            border-right:none;
+            border-bottom:none;
+            height:64px;
+          }
+          .border-right0{
+            border-right: 0;
+          }
+
+          .col0-ft-red{
+              color:#cd000d;
+              // font-weight:bold;
+              padding:10px 0px;
+              cursor: pointer;
+              // background-color: #ffef5b;
+            }
+          td.col0-ft-red1{
+              color:#cd000d;
+              font-weight:bold;
+              padding:10px 0px;
+          }
+        }
+      }
+      thead{
+        // border: 2px solid #ffd11e;
+        border-bottom: 0;
+        tr{
+          th{
+            font-size:22px;
+            font-family: "微软雅黑";
+            font-weight: 400;
+            color:#000000;
+            // font-weight:bold;
+            padding:10px;
+            background-color:#fff7b0;
+            border-right:none;
+            border-bottom:none;
+            text-align:center;
+            height:64px;
+          }
+
+          }
+        }
+      }
     }
-    .padd{
-      position:relative;
-      span{
-        position:absolute;
-        top:-16.6px;
-        left:75%;
-        font-size:22px;
-        line-height:22px;
-        color:#fff;
+    .invest-btn {
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+      margin: 50px 0;
+      img {
+      cursor: pointer;
+      }
+    }
+    .invite-connent1{
+      p{
+        display: inline-block;
+        margin: 0 18px;
+        font-size: 28px;
+        color: #ffffff;
+        margin-bottom: 30px;
+      }
+      .rule-line {
+        display: inline-block;
+        width: 41%;
+        border-top: 1px solid #ECB463;
+        margin-bottom: 7px;
+      }
+    }
+    .send-money-rules{
+        padding:10px 5%;
+        padding-right:2%;
+        p{
+          font-size:18px;
+          line-height:28px;
+          color:#ffffff;
+        }
+        .padd{
+            position:relative;
+            span{
+          position:absolute;
+          top:-16.6px;
+          left:75%;
+          font-size:22px;
+          line-height:22px;
+          color:#fff;
+             }
+          }
+      }
+    .send-money-aboutus{
+      margin-bottom: 165px;
+      ul {
+        width: 100%;
+        li {
+          width: 49%;
+          height: 130px;
+          // padding-right: 18px;
+          background-color: #fff;
+          div.col-8 {
+            color:#888888;
+          }
+          img{
+            margin: 18px;
+          }
+          p:nth-child(1) {
+            color: #333333;
+            font-size: 18px;
+            margin: 15px 0 2px 0;
+          }
+          span {
+            font-size: 16px;
+            display: inline-block;
+            width: 72%;
+          }
+        }
+        li.mar-r{
+          margin-right:20px;
+        }
+        li.mar-t{
+          margin-top:20px;
+        }
       }
     }
   }
-  .send-money-bg{
-    background-color:#f2351c;
-    background-image:url(/images/activity/send-money3.png);
-    background-repeat:no-repeat;
-    //background-position:100% 100%;
-    margin-top:800px;
-    width:100%;
-    background-size:100% 100%;
-    .pointer{
-      cursor: pointer !important;
-    }
-  }
-} 
-.no-boxshadow{
-  box-shadow:none !important;
-}
-.yu-tab-hr{
-  width:310px !important;
-  border-bottom: 1px solid #ecb463 !important;
-  margin-top:20px !important;
-}
-.input-bg-grey{
-  background-color:#f8f7f7;
 }
 //体验金专享详情页
 .experience-style{
@@ -3188,10 +3377,10 @@ a.cancel-red:focus {
     .row3{
       position:relative;
       //top:-417px;
-      margin-top: -417px; 
+      margin-top: -417px;
       width:1010px !important;
-      height:1344px !important;
-      background-image:url(/images/novice-guide/quest-tip.png);
+      height:750px !important;
+      background-image:url(/images/novice-guide/quest-tip3.png);
       background-repeat:no-repeat;
       .row3-text{
         .text-center2{
@@ -3234,3 +3423,77 @@ a.cancel-red:focus {
 .table thead.thead_center th{
   text-align:center;
 }
+.footer-contact-online{
+  position:relative;
+  .footer-weixin{
+    position:absolute;
+    bottom:0rem;
+    left:140px;
+  }
+  .footer-weixin{
+    display:none;
+  }
+  .qqBox2{
+    display: none;
+    position:absolute;
+    top:-10rem;
+    right:190px;
+    width: 155px;
+    border: 1px solid #e94828;
+    background-color: #fff;
+    padding-left: 0;
+    z-index: 999;
+    .qqBox-header {
+      height: 45px;
+      line-height: 45px;
+      background-color: #e94828;
+      margin-top: 0;
+      color: #fff;
+      position: relative;
+      padding-right: 20px;
+      text-align: right;
+    }
+  }
+  .margin-t-30 {
+    margin-top: 30px;
+  }
+  .margin-b-30 {
+    margin-bottom: 30px;
+  }
+  .fa-comment-o {
+    bottom: 12px;
+    left: 40px;
+    font-size: 24px;
+  }
+  i {
+    position: absolute;
+    bottom: -5px;
+    left: 20px;
+    font-size: 30px;
+  }
+  li {
+    list-style: none;
+    margin: 5px 0;
+    text-align: center;
+    a {
+      font-size: 12px;
+    }
+  }
+}
+.about-btn-orange{
+  color:#fff;
+  background-color:#ff7d26;
+}
+.about-btn-orange:hover{
+    color:#fff;
+    background-color:#fd8f3f;
+  }
+
+  //轮播图居中
+  .carousel-center {
+    position: relative;
+    left: 50%;
+    margin-left: -960px;
+    width: 1920px;
+    overflow:hidden;
+  }

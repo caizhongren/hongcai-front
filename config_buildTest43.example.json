@@ -9,6 +9,7 @@
   },
   "jumpHttpsPath": [],
   "domain":"http://192.168.1.43:8100",
-  "en": "43"
+  "en": "43",
+  "baseFileUrl": "http://192.168.1.43:8100/uploads/"
 
 }

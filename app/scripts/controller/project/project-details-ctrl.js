@@ -1,12 +1,15 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, DateUtils, AboutUsService) {
+  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, DateUtils, AboutUsService, projectStatusMap) {
     // $rootScope.redirectUrl = $location.path();
     $scope.chk = true;
     $scope.checkFlag = true;
     $scope.check = function(val) {
       $scope.checkFlag = !val ? true : false;
     };
+
+    $scope.projectStatusMap = projectStatusMap;
+
 
     $scope.getProjectDetails = function() {
       var projectDetails = ProjectService.projectDetails.get({
@@ -22,7 +25,7 @@ angular.module('hongcaiApp')
 
           var interval = $interval(function(){
             $scope.countdown -= 1000;
-            if ($scope.countdown <= 0 && $scope.project.status == 2){
+            if ($scope.countdown <= 0 && $scope.project.status == 6){
               $state.reload();
             }
             $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
@@ -33,7 +36,6 @@ angular.module('hongcaiApp')
             $interval.cancel(interval);
           });
           
-
           $scope.categoryCode = projectDetails.data.category.code;
           if ($scope.categoryCode === '0112' || $scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
             $scope.tabs = [{
@@ -49,7 +51,17 @@ angular.module('hongcaiApp')
             }, {
               title: '相关文件',
             }];
-          } else {
+          } else if($scope.categoryCode === '0116'){
+            $scope.tabs = [{
+              title: '项目信息',
+            }, {
+              title: '风控信息',
+            }, {
+              title: '相关文件',
+            }, {
+              title: '项目历程',
+            }];
+          }else {
             $scope.tabs = [{
               title: '项目信息',
             }, {
@@ -64,11 +76,15 @@ angular.module('hongcaiApp')
           }
 
           $scope.repaymentDate = projectDetails.data.repaymentDate;
-          $scope.progress = ($scope.project.soldStock + $scope.project.occupancyStock) * 100/$scope.project.countInvest;
-          $scope.totalType = $scope.project.status === 11 && $scope.progress < 100 ? '可预约金额' : '可投金额';
-          // 项目可投金额
+          $scope.project.progress = ($scope.project.soldStock + $scope.project.occupancyStock) * 100/$scope.project.countInvest;
+          $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额' : '可投金额';
+          /**
+           * 项目可投金额
+           */
           $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
-          // 用户可用金额
+          /**
+           * 用户可用金额
+           */
           if ($rootScope.account) {
             if ($scope.project.status === 11) {
               $scope.userCanInvestNum = $scope.project.reserveAmount > $rootScope.account.balance * 10 ? $rootScope.account.balance * 10 : $scope.project.reserveAmount;
@@ -81,7 +97,6 @@ angular.module('hongcaiApp')
           $scope.projectInfo = projectDetails.data.projectInfo;
           $scope.projectRank = projectDetails.data.projectRank;
 
-          // $scope.pledges = projectDetails.data.pledges;
           $scope.isAvailable = projectDetails.data.isAvailable;
           
           $scope.preRepaymentList = projectDetails.data.preRepaymentList;
@@ -89,13 +104,16 @@ angular.module('hongcaiApp')
           $scope.remainInterest = projectDetails.data.remainInterest;
           $scope.remainPrincipal = projectDetails.data.remainPrincipal;
           $scope.baseFileUrl = projectDetails.data.baseFileUrl;
-          // 处理投资记录分页
+          /**
+           * 处理投资记录分页
+           */
           $scope.currentPage = 0;
           $scope.pageSize = 10;
           $scope.data = [];
 
           $scope.projectOrders($scope.project.id, $scope.project.type);
           $scope.projectFiles($scope.project.id);
+          $scope.projectTexts($scope.project.id);
           $scope.enterpriseInfo($scope.project.enterpriseId);
           
         } else if (projectDetails.code === -1054) {
@@ -105,28 +123,7 @@ angular.module('hongcaiApp')
         }
       });
     };
-    $scope.getProjectDetails();
-    $scope.finished = function() {
-      ProjectService.projectDetails.get({
-        projectId: $stateParams.projectId
-      }, function(response) {
-        if (response.ret === 1) {
-          $scope.project = response.data.project;
-        }
-        // 刷新页面
-        if ($scope.statSecond === 0) {
-          $state.reload();
-        }
-      });
-    };
-    $scope.Alertdata = function() {
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alert-perfectinformation.html',
-        show: true
-      });
-    };
-
+  
     /**
      * 项目订单列表
      */
@@ -135,13 +132,16 @@ angular.module('hongcaiApp')
         projectId: projectId,
         projectType: projectType
       }, function(response){
-        $scope.orderList = response.data.orderList;
-        $scope.numberOfPages = function() {
-          return Math.ceil($scope.data.length / $scope.pageSize);
-        };
-        for (var i = 0; i < $scope.orderList.length; i++) {
-          $scope.data.push($scope.orderList[i]);
+        if(response.ret !== -1){
+          $scope.orderList = response.data.orderList;
+          $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+          };
+          for (var i = 0; i < $scope.orderList.length; i++) {
+            $scope.data.push($scope.orderList[i]);
+          }
         }
+        
       });
     }
 
@@ -161,13 +161,24 @@ angular.module('hongcaiApp')
     }
 
     /**
-     * 项目文件信息
+     * 借款企业信息
      */
     $scope.enterpriseInfo = function(enterpriseId){
       ProjectService.getEnterpriseById.get({
         enterpriseId: enterpriseId
       }, function(response){
         $scope.enterprise = response.data.enterprise;
+      });
+    }
+
+    /**
+     * 媒体报道
+     */
+    $scope.projectTexts = function(projectId){
+      ProjectService.projectTexts.get({
+        projectId: projectId
+      }, function(response){
+        $scope.mediaList = response.data.texts;
       });
     }
 
@@ -190,9 +201,11 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.getReserveRecords();
+    
 
-    //获取预约收益
+    /**
+     * 获取预约收益
+     */
     $scope.getProfit = function(project) {
       if ($rootScope.autoTransfer !== 1) {
         $scope.msg = '需要完成自动投标授权，请到安全中心设置中授权。';
@@ -248,16 +261,10 @@ angular.module('hongcaiApp')
         return;
       }
     };
-    // 完善资料第一代
-    $scope.toRealNameAuth = function() {
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alert-perfectinformation.html',
-        show: true
-      });
-    };
 
-    // 跳到充值页面
+    /**
+     * 跳到充值页面
+     */
     $scope.toRecharge = function() {
       if ($rootScope.securityStatus.realNameAuthStatus + $rootScope.autoTransfer >= 1) {
         $modal({
@@ -266,11 +273,12 @@ angular.module('hongcaiApp')
           show: true
         });
       } else {
-        // 去实名
         $scope.toRealNameAuth();
       }
     };
-    // 显示协议
+    /**
+     * 显示协议
+     */
     $scope.showAgreement = function() {
       $modal({
         scope: $scope,
@@ -279,34 +287,41 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.toInvest = function(project) { //验证用户权限
+    /**
+     * 自定义dialog
+     */
+    $scope.alertDialog = function(msg){
+      $scope.msg = msg;
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alert-dialog.html',
+        show: true
+      });
+    }
+
+    /**
+     * 投资或者预约
+     */
+    $scope.toInvest = function(project) { 
       if (project.inviteMobile) {
         $rootScope.inviteMobile = project.inviteMobile;
       }
       $scope.amount = project.status === 11 ? project.toReserveAmount : project.amount;
-      if ($scope.amount < $scope.project.minInvest) {
-        // alert('投资金额必须大于最小投资金额' + $scope.project.minInvest + '！');
-        // $scope.msg = '投资金额必须大于最小投资金额' + $scope.project.minInvest + '！';
-        $scope.msg = '投资金额必须大于最小投资金额:100元！';
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-dialog.html',
-          show: true
-        });
+      if($scope.amount > $rootScope.account.balance){
+        $scope.alertDialog('余额不足，请先充值');
+        return;
+      } else if ($scope.amount < $scope.project.minInvest) {
+        $scope.alertDialog('投资金额必须大于' + $scope.project.minInvest +'元！');
         return;
       } else if ($scope.amount % $scope.project.increaseAmount) {
-        // alert('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
-        $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍！';
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-dialog.html',
-          show: true
-        });
+        $scope.alertDialog('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
         return;
       }
 
       if (project.status === 11) {
-        // 预约项目投资
+        /**
+         * 预约项目投资
+         */
         ProjectService.reserve.get({
           reserveAmount: project.toReserveAmount,
           projectId: project.id,
@@ -329,13 +344,9 @@ angular.module('hongcaiApp')
           }
         });
       } else {
-        // 非预约项目投资
-
-        $state.go('root.invest-verify', {
-          projectId: project.id,
-          amount: project.amount
-        });
-
+        /**
+         * 非预约项目投资
+         */
         if(!$rootScope.account || $rootScope.account.balance < project.amount){
           $scope.msg = '账户余额不足';
           $alert({
@@ -344,10 +355,35 @@ angular.module('hongcaiApp')
             show: true
           });
         }
-
+        
+        OrderService.investVerify.get({
+          projectId: project.id,
+          amount: project.amount
+        }, function(response) {
+          if (response.ret === 1) {
+            $state.go('root.invest-verify', {
+              projectId: project.id,
+              amount: project.amount
+            });
+          } else if (response.ret === -1) {
+            if (response.code === 1) {
+              $scope.msg = '抱歉，已经卖光了。';
+              $modal({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            } else {
+              $scope.msg = response.msg;
+              $modal({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            }
+          }
+        });
       }
-
-
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
@@ -408,19 +444,15 @@ angular.module('hongcaiApp')
       myOtherModal.$promise.then(myOtherModal.show);
     };
 
-    // 处理推广流量统计
-    var from = $stateParams.from;
-    if (from) {
-      ipCookie('utm_from', from, {
-        expires: 1
-      });
+    if ($rootScope.channelCode) {
       MainService.trafficStats.get({
-        from: from
+        from: $rootScope.channelCode
       });
     }
 
-    // 某宝宝的收益率
-    // 接口在这里。参照account-overview-ctrl.js line: 9-55
+    /**
+     * 某宝宝的收益率
+     */
     ProjectService.getYuebaoInterestRatesByDate.get(function(response) {
       if (response.ret === 1) {
         var interestRates = response.data.yuebaoInterestRates;
@@ -490,26 +522,9 @@ angular.module('hongcaiApp')
       datasetFill: true
     };
 
-    // 弹出登录弹层
-    $scope.toRealLogin = function() {
-      if (!$rootScope.isLogged) {
-        $modal({
-          scope: $scope,
-          template: 'views/modal/modal-toLogin.html',
-          show: true
-        });
-      }
-    };
 
-    // 4条媒体报道
-    AboutUsService.indexTextList.get({
-      category: 1,
-      pageSize: 4,
-      withContent:false
-    }, function(response) {
-      if (response.ret === 1) {
-        $scope.mediaList = response.data.textList;
-      }
-    });
+    $scope.getProjectDetails();
+    $scope.getReserveRecords();
+
     
   });

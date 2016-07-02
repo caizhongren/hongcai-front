@@ -44,13 +44,16 @@
       color:#fff;
       opacity: 1 !important;
     }
+    button[type='submit']{
+      color: #fff !important;
+    }
     .register-btn{
       width:302px !important;
       height:50px !important;
     }
   }
   .form-group1 {
-    div:nth-child(1) {
+    div:first-child {
       text-align: right;
       font-size: 16px;
       color: #383838;
@@ -83,7 +86,7 @@
         }
       }
     }
-    div:nth-child(2) {
+    div:first-child + div {
       border: 1px solid #cbcaca;
       border-radius: 5px;
       height: 46px;
@@ -99,6 +102,7 @@
         padding: 0 !important;
         height: 44px;
       }
+
       .user-icon {
         display: inline-block;
         width: 16px;
@@ -125,7 +129,7 @@
     }
   }
   .form-group2 {
-    div:nth-child(1) {
+    div:first-child {
       text-align: right;
       font-size: 16px;
       color: #383838;
@@ -158,7 +162,7 @@
         }
       }
     }
-    div:nth-child(2) {
+    div:first-child + div {
       border: 1px solid #cbcaca;
       border-radius: 5px;
       height: 46px;
@@ -176,7 +180,7 @@
     }
   }
   .new-form-group2 {
-    div:nth-child(1) {
+    div:first-child {
       text-align: right;
       font-size: 16px;
       color: #383838;
@@ -202,7 +206,7 @@
         }
       }
     }
-    div:nth-child(2) {
+    div:first-child + div {
       border: 1px solid #e6e4e4;
       width:302px;
       height: 40px;
@@ -223,7 +227,7 @@
     }
   }
   .form-group3 {
-    div:nth-child(1) {
+    div:first-child {
       text-align: right;
       font-size: 16px;
       color: #383838;
@@ -256,7 +260,7 @@
         }
       }
     }
-    div:nth-child(2) {
+    div:first-child + div {
       height: 46px;
       line-height: 46px;
       z-index: 999;
@@ -285,7 +289,7 @@
     }
   }
   .new-form-group3 {
-    div:nth-child(1) {
+    div:first-child {
       text-align: right;
       font-size: 16px;
       color: #383838;
@@ -309,7 +313,7 @@
         }
       }
     }
-    div:nth-child(2) {
+    div:first-child + div {
       height: 46px;
       line-height: 46px;
       z-index: 999;
@@ -333,7 +337,7 @@
         font-size: 14px;
         height: 40px;
         line-height:40px;
-        background-color: #ff7d26;
+        background-color: #ff7d26 !important;
         margin-left: 6px;
       }
       button.capcha {
@@ -634,7 +638,10 @@
   background-size: 100% 100%;
 }
 .login-bgimg2 {
-  width:100%;
+  width: 1920px;
+  left: -960px;
+  margin-left: 50%;
+  position: relative;
   height:481px;
   overflow:hidden;
   display:block;
@@ -717,7 +724,7 @@
     box-shadow:2px 2px 2px #f7f7f7 inset;
     color:#333;
     font-size:14px;
-    
+
   }
   input.login-input{
     padding-left:60 !important;
@@ -804,17 +811,27 @@ input:-webkit-autofill {
 }
 .logo-img-login{
   display: block;
-  width: 243px;
+  width: 173px;
   height: 44px;
   background: url('/images/login/logo-img-login.png');
   cursor: pointer;
 }
+.logo-img-login1{
+  width: 68px;
+  height: 44px;
+  background: url('/images/login/logo-img-login.png')68px 0;
+}
 .logo-img-register{
   display: block;
-  width: 243px;
-  height: 44px;
+  width: 173px;
+  height: 43px;
   background: url('/images/login/logo-img-register.png');
   cursor: pointer;
+}
+.logo-img-register1{
+  width: 68px;
+  height: 44px;
+  background: url('/images/login/logo-img-register.png') 68px 0;
 }
 //注册
 #register{
@@ -827,7 +844,28 @@ input:-webkit-autofill {
       width:1051px;
       border-bottom:1px solid #000;
     }
-
-    
   }
+
 }
+
+
+
+  input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+      color: #B1B1C3;
+  }
+
+  input::-webkit-input-placeholder,
+  textarea::-webkit-input-placeholder {
+      color:#B1B1C3;
+  }
+
+  input::-moz-input-placeholder,
+  textarea::-moz-input-placeholder {
+      color:#B1B1C3;
+  }
+  input:-moz-input-placeholder,
+  textarea:-moz-input-placeholder {
+      color:#B1B1C3;
+  }
+

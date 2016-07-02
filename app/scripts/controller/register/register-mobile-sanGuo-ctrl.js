@@ -17,7 +17,8 @@ angular.module('hongcaiApp')
         captcha: user.mobileCaptcha,
         password: md5.createHash(user.password),
         inviteCode: user.inviteCode,
-        from: ipCookie('utm_from')
+        from: ipCookie('utm_from'),
+        act: ipCookie('act')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);
@@ -46,13 +47,9 @@ angular.module('hongcaiApp')
     /**
      * 处理推广流量统计
      */
-    var from = $stateParams.from;
-    if (from) {
-      ipCookie('utm_from', from, {
-        expires: 1
-      });
+    if ($rootScope.channelCode) {
       MainService.trafficStats.get({
-        from: from
+        from: $rootScope.channelCode
       });
     }
   }]);

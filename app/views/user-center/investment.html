@@ -22,17 +22,17 @@
                       <div class="row">
                         <div class="col-xs-2 text-right text-nowrap ft-bold">订单类型：</div>
                         <div class="col-xs-2 text-nowrap">
-                          <a ng-click="type=0;loadOrders(1);" class="project-noncheck" ng-class="{'project-check': type === '0', 'project-noncheck': type !== '0'}">
+                          <a ng-click="type='0';loadOrders(1);" class="project-noncheck" ng-class="{'project-check': type === '0', 'project-noncheck': type !== '0'}">
                             全部
                           </a>
                         </div>
                         <div class="col-xs-2">
-                          <a ng-click="type=1;loadOrders(1);" class="project-noncheck" ng-class="{'project-check': type === '1', 'project-noncheck': type !== '1'}">
+                          <a ng-click="type='1';loadOrders(1);" class="project-noncheck" ng-class="{'project-check': type === '1', 'project-noncheck': type !== '1'}">
                             宏金保
                           </a>
                         </div>
                         <div class="col-xs-2">
-                          <a ng-click="type=4;loadOrders(1);"  class="project-noncheck" ng-class="{'project-check': type === '4', 'project-noncheck': type !== '4'}">
+                          <a ng-click="type='4';loadOrders(1);"  class="project-noncheck" ng-class="{'project-check': type === '4', 'project-noncheck': type !== '4'}">
                             宏金盈
                           </a>
                         </div>
@@ -79,22 +79,22 @@
                       <div class="row">
                         <div class="col-xs-2 text-right text-nowrap ft-bold">订单时间：</div>
                         <div class="col-xs-2">
-                          <a ng-click="dateInterval='0';loadOrders(1);" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 0, 'project-noncheck': dateInterval !== 0 }">
+                          <a ng-click="dateInterval=0;loadOrders(1);" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 0, 'project-noncheck': dateInterval !== 0 }">
                             全部
                           </a>
                         </div>
                         <div class="col-xs-2">
-                          <a ng-click="dateInterval='7';loadOrders(1);" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 7, 'project-noncheck': dateInterval !== 7 }">
+                          <a ng-click="dateInterval=7;loadOrders(1);" class="project-noncheck" ng-class="{ 'project-check': dateInterval === 7, 'project-noncheck': dateInterval !== 7 }">
                             近七天
                           </a>
                         </div>
                         <div class="col-xs-2">
-                          <a ng-click="dateInterval='30';loadOrders(1);" class="project-noncheck" ng-class="{'project-check': dateInterval === 30, 'project-noncheck': dateInterval !== 30 }">
+                          <a ng-click="dateInterval=30;loadOrders(1);" class="project-noncheck" ng-class="{'project-check': dateInterval === 30, 'project-noncheck': dateInterval !== 30 }">
                             一个月
                           </a>
                         </div>
                         <div class="col-xs-2">
-                          <a ng-click="dateInterval='90';loadOrders(1);" class="project-noncheck" ng-class="{'project-check': dateInterval === 90, 'project-noncheck': dateInterval !== 90 }">
+                          <a ng-click="dateInterval=90;loadOrders(1);" class="project-noncheck" ng-class="{'project-check': dateInterval === 90, 'project-noncheck': dateInterval !== 90 }">
                             三个月
                           </a>
                         </div>
@@ -122,11 +122,11 @@
               <td colspan="6" class="border-0">
                 <div>
                   <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
-                  <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
+                  <p><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
                 </div>
               </td>
             </tr>
-            <tr ng-repeat="item in data">
+            <tr ng-show="data.length > 0" ng-repeat="item in data">
               <td>{{ item.number}}</td>
               <td>{{ item.orderAmount | number: 2 }}</td>
               <td>
@@ -161,15 +161,15 @@
           <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage == 1" ng-click="loadOrders(currentPage - 1)">上一页</button></li>
         </ul>
       </div>
-      <div class="main text-center margin-t-20" ng-show="orderStatistics.allInve <= 0">
+      <div class="main text-center margin-t-50" ng-show="orderStatistics.allInve <= 0">
         <p>亲，您尚未在宏财网投资，建议您浏览项目列表，购买感兴趣的债权吧~</p>
-        <a class="btn btn-primary-orange margin-t-30" ui-sref="root.main">浏览项目</a>
+        <p><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
       </div>
     </div>
     <!-- 未开通第三方资金托管账户 -->
     <div class="text-center main" ng-show="securityStatus.realNameAuthStatus !== 1">
-      <p>亲，您尚未开通第三方资金托管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
-      <a class="btn btn-primary-orange margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a>
+      <p class="padding-t-50">亲，您尚未开通第三方资金托管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
+      <p class="padding-b-30"><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a></p>
     </div>
   </div>
 </div>

@@ -18,8 +18,8 @@
         </div>
         <div class="row cirle margini-t-20 margin-b-20 padding-l-90">
           <img src="/images/index/cirle.png" alt="">
-          <div ng-class="item.product.type === 4 ? 'percent-text' : 'percent-text2'">
-            <p class="ft-60 ft-orange2 margin-b-0 margin-l--20">{{item.product.baseRate+item.product.riseRate*3 | number: 1 || 0}}<span class="ft-30">%</span></p>
+          <div ng-class="item.product.type === 2 ? 'percent-text2' : 'percent-text'">
+            <p class="ft-60 ft-orange2 margin-b-0 margin-l--20">{{item.product.maxRate | number: 1 || 0}}<span class="ft-30">%</span></p>
            
           </div>
         </div>

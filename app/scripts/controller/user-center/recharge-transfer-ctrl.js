@@ -29,7 +29,10 @@ angular.module('hongcaiApp')
       return e;
     }
 
-    if (business == 'RESET_MOBILE'){ // 更改手机号码
+    /**
+     * /** 更改手机号码
+     */
+    if (business == 'RESET_MOBILE'){ 
       UserCenterService.resetMobile.get({
         mobile:$stateParams.mobile
       }, function(response) {

@@ -17,7 +17,7 @@
             <p>可用资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.balance | number: 2}}</strong>元</p>
           </div>
-          <img src="/images/usermoney1.png" alt="" class="fl margin-l-40">
+          <img src="/images/usermoney1.png" alt="" class="fl margin-l-30">
           <div class="record-text">
             <p>冻结资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.freezeCapital | number: 2}}</strong>元</p>
@@ -59,7 +59,7 @@
         </div>
       </div>
       <!-- <div class="panel panel-defaul padding-l-15">
-        
+
         <ul class="list-group">
           <li class="list-group-item projects-filter">
             <div class="row">
@@ -104,8 +104,9 @@
             <th>操作日期</th>
             <th>交易类型</th>
             <th>收支描述</th>
-            <th>收入(元)</th>
-            <th>支出(元)</th>
+            <!-- <th>收入(元)</th> -->
+            <!-- <th>支出(元)</th> -->
+            <th>收支(元)</th>
             <th>账户现金(元)</th>
           </tr>
         </thead>
@@ -114,8 +115,9 @@
             <td>{{ item.createTime | date: 'yyyy-MM-dd HH:mm'}}</td>
             <td>{{ dealTypes[item.type] }}</td>
             <td>{{item.description}}</td>
-            <td>{{item.getAmount | number: 2}}</td>
-            <td>{{item.payAmount | number: 2}}</td>
+            <!-- <td>{{item.getAmount | number: 2}}</td> -->
+            <!-- <td>{{item.payAmount | number: 2}}</td> -->
+            <td>{{item.payAmount > 0 ? '-' : '+'}}{{item.payAmount > 0 ? item.payAmount : item.getAmount | number: 2}}</td>
             <td>{{item.balance | number: 2}}</td>
           </tr>
         </tbody>

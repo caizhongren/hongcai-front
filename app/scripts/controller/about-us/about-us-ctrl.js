@@ -11,32 +11,32 @@ angular.module('hongcaiApp')
         'link': 'root.about-us.consultant-team',
         'text': '顾问团队'
       }*/{
-        'href': '/introduction-of-projecter',
-        'link': 'root.about-us.introduction-of-projecter',
+        'href': '/us/projecter',
+        'link': 'root.us.projecter',
         'text': '项目方介绍'
       }, {
-        'href': '/introduction-of-platform',
-        'link': 'root.about-us.introduction-of-platform2',
+        'href': '/us/platform',
+        'link': 'root.us.platform',
         'text': '平台介绍'
       }, {
-        'href': '/web-site-notice',
-        'link': 'root.about-us.web-site-notice',
+        'href': '/us/web-site-notice',
+        'link': 'root.us.web-site-notice',
         'text': '网站公告'
       }, {
-        'href': '/media-reports',
-        'link': 'root.about-us.media-reports',
+        'href': '/us/media-reports',
+        'link': 'root.us.media-reports',
         'text': '媒体报道'
       }, {
-        'href': '/hongcai-trends',
-        'link': 'root.about-us.hongcai-trends',
+        'href': '/us/hongcai-trends',
+        'link': 'root.us.hongcai-trends',
         'text': '宏财动态'
       }, {
-        'href': '/company-profile',
-        'link': 'root.about-us.company-profile',
+        'href': '/us/company-profile',
+        'link': 'root.us.company-profile',
         'text': '加入宏财'
       }, {
-        'href': '/link-us',
-        'link': 'root.about-us.link-us',
+        'href': '/us/link-us',
+        'link': 'root.us.link-us',
         'text': '联系我们'
       }]
     };

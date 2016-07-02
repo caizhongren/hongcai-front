@@ -2,7 +2,9 @@
 angular.module('hongcaiApp')
   .controller('RegisterMobileCtrl', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie, MainService) {
     $rootScope.pageTitle = '手机注册' + ' - 要理财，上宏财!';
-    // 注册链接上是否有邀请码
+    /**
+     * 注册链接上是否有邀请码
+     */
     if ($stateParams.inviteCode) {
       $scope.user = {
         inviteCode: $stateParams.inviteCode
@@ -24,14 +26,12 @@ angular.module('hongcaiApp')
         captcha: user.mobileCaptcha,
         password: md5.createHash(user.password),
         inviteCode: user.inviteCode,
-        from: ipCookie('utm_from')
+        from: ipCookie('utm_from'),
+        act: ipCookie('act')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);
-          // $state.go('root.register-mobile-success');
-          $state.go('root.register-bind');
-          // $rootScope.loginName = response.data.user.name;
-          // $rootScope.isLogged = true;
+          $state.go('root.register-mobile-success');
         } else {
           toaster.pop('warning', '提示', response.msg);
           $state.go('root.register');
@@ -40,10 +40,10 @@ angular.module('hongcaiApp')
     };
 
 
-    // $scope.$watch('user.picCaptcha', function(newVal, oldVal){
-    //   console.log(newVal);
-    // });
-
+    /**
+     * 发送短信验证码
+     * 发送成功后要刷新图片验证码
+     */
     $scope.sendMobileCaptcha = function(user) {
       if (!user.picCaptcha){
         $scope.showPicCaptchaError = true;
@@ -56,9 +56,12 @@ angular.module('hongcaiApp')
         mobile: user.mobile
       }, function(response) {
         if (response.ret === 1) {
-
+          $scope.refreshCode();
+          // $scope.user.picCaptcha = undefined;
+          toaster.pop('success', '短信验证码发送成功，请查收');
         } else {
           $scope.showPicCaptchaError = true;
+          toaster.pop('error', '短信验证码发送失败，请稍后重试');
         }
       });
     };
@@ -72,7 +75,10 @@ angular.module('hongcaiApp')
 
 
 
-    // 处理推广流量统计
+    /**
+     * 处理推广流量
+     * @type {[type]}
+     */
     var from = $stateParams.from;
     if (from) {
       ipCookie('utm_from', from, {

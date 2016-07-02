@@ -8,8 +8,6 @@ angular.module('hongcaiApp')
         var user = response.data.user;
         $scope.email = user.email;
         $scope.mobile = user.mobile;
-        // $scope.realName = userAuth.realName;
-        // $scope.idNo = userAuth.idNo;
         if (userAuth && userAuth.yeepayAccountStatus === 1) {
           $scope.haveTrusteeshipAccount = true;
           $scope.openTrustReservation = userAuth.autoTransfer;
@@ -18,8 +16,6 @@ angular.module('hongcaiApp')
         }
 
       } else {
-        //$scope.warning = true;
-        // $state.go('root.login');
         console.log('ask security-settings, why userSecurityInfo did not load data...');
       }
     });
@@ -114,8 +110,6 @@ angular.module('hongcaiApp')
      * 修改手机号码
      */
     $scope.resetMobilenum = function(mobileNum) {
-      // $state.go('root.yeepay', {business: 'RESET_MOBILE'});
-      // 
       var regexp = new RegExp('^((13[0-9])|(15[^4,\\D])|(18[0-9])|(17[0678])|(14[0-9]))\\d{8}$');
       if(!regexp.test(mobileNum)) {
         return;
@@ -134,31 +128,6 @@ angular.module('hongcaiApp')
     };
 
 
-
-
-    /*function newForm() {
-      var f = document.createElement('form');
-      document.body.appendChild(f);
-      f.method = 'post';
-      //f.target = '_blank';
-      return f;
-    }
-
-    function createElements(eForm, eName, eValue) {
-      var e = document.createElement('input');
-      eForm.appendChild(e);
-      e.type = 'text';
-      e.name = eName;
-      if (!document.all) {
-        e.style.display = 'none';
-      } else {
-        e.style.display = 'block';
-        e.style.width = '0px';
-        e.style.height = '0px';
-      }
-      e.value = eValue;
-      return e;
-    }*/
 
     $scope.checkEmailAndMobile = function() {
       if (!$scope.mobile) {
@@ -181,24 +150,6 @@ angular.module('hongcaiApp')
       });
 
       window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/0');
-
-      /*UserCenterService.yeepayRegister.get({
-        realName: user.realName,
-        idCardNo: user.idCardNo
-      }, function(response) {
-        if (response.ret === 1) {
-          var req = response.data.req;
-          var sign = response.data.sign;
-          var _f = newForm();
-          createElements(_f, 'req', req);
-          createElements(_f, 'sign', sign);
-          _f.action = config.YEEPAY_ADDRESS + 'toRegister';
-          _f.submit();
-          $rootScope.securityStatus.realNameAuthStatus = 1;
-        } else {
-          console.log('ask security-settings, why yeepayRegister did not load data...');
-        }
-      });*/
     };
 
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
@@ -220,34 +171,6 @@ angular.module('hongcaiApp')
       };
 
       window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
-
-      /*// 调用预约的方法，当预约开通后
-      UserCenterService.authorizeAutoTransfer.get({
-      }, function(response) {
-        if (response.ret === 1) {
-          if($rootScope.securityStatus.realNameAuthStatus === 0 || !$rootScope.securityStatus.realNameAuthStatus) {
-            $scope.msg = '请先开通托管账户';
-            $alert({
-              scope: $scope,
-              template: 'views/modal/alert-dialog.html',
-              show: true
-            });
-            return;
-          }
-          var req = response.data.req;
-          var sign = response.data.sign;
-          var _f = newForm();
-          createElements(_f, 'req', req);
-          createElements(_f, 'sign', sign);
-          _f.action = config.YEEPAY_ADDRESS + 'toAuthorizeAutoTransfer';
-          _f.submit();
-          // 这块应该如何判断？ TODO
-          // 这里实现方法不太好，如果所有的实现都在用户表里面提现，是再好不过的了。
-          $scope.openTrustReservation = true;
-        } else {
-          console.log('ask security-settings, why authorizeAutoTransfer did not load data...');
-        }
-      });*/
 
     };
   });
