@@ -116,6 +116,7 @@ angular.module('hongcaiApp')
       template: 'views/modal/modal-invest-verify.html',
       show: false
     });
+    
     $scope.showModal = function() {
       myOtherModal.$promise.then(myOtherModal.show);
     };

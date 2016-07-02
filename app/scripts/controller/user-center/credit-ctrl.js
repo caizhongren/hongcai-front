@@ -65,7 +65,6 @@ angular.module('hongcaiApp')
           $scope.pageSize = pageSize;
           $scope.searchStatus = status;
 
-
           $scope.heldInCreditList = response.data.heldIdCreditList;
           $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
           $scope.creditRightStatusMap = response.data.creditRightStatusMap;
