@@ -40,7 +40,7 @@
       <div class="col-xs-7 margin-l-20">
         <p class="margin-b-0">账户余额&nbsp;<!-- <i class="fa fa-exclamation-circle ft-red2"></i> --></p>
         <p class="asset-money ft-36 ft-red2">{{account.balance| number:2}} <small class="ft-black">元</small>
-        <p class="margin-b-0">体验金 <span class="ft-red2">{{account.experienceAmount || 0 | number:0}} </span>元，加息券 <span class="ft-red2">{{couponStatis.couponCount}} </span>张</p>
+        <p class="margin-b-0">体验金 <span class="ft-red2">{{account.experienceAmount || 0 | number:0}} </span>元，加息券 <span class="ft-red2">{{couponStatis.unUsedCoupon || 0}} </span>张</p>
       </div>
       <div class="col-xs-4 margin-l--26 padding-t-10">
         <p class="over-auto">
