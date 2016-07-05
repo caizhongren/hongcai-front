@@ -1,13 +1,13 @@
 <div id="project-detail" class="container" style="padding:20px 0;">
   <div class="row">
-    <div class="col-md-12 padding-t-10 padding-b-20 margin-l-20">
+    <div class="col-md-12 padding-t-10 padding-b-20 margin-l-0 padding-l-5">
       <a ui-sref="root.main">首页</a>  &gt;&nbsp; <a ui-sref="root.guaranteepro-list-query-no">宏金保</a> &gt;&nbsp; {{project.name}}
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12 padding-r-0">
         <!-- 项目描述模块 -->
-        <div class="row col-xs-8" ng-include src='"views/project/_description.html"'>
+        <div class="row col-xs-8 padding-l-0" ng-include src='"views/project/_description.html"'>
         </div>
         <!-- 项目投资模块 -->
         <div class="row col-xs-4 padding-r-0" ng-include src='"views/project/_investment.html"'>
@@ -16,7 +16,7 @@
     </div>
     <div class="col-xs-12 padding-r-0">
       <!-- 项目详情模块 -->
-      <div class="row col-md-8" ng-include src='"views/project/_detail.html"'>
+      <div class="row col-md-8 padding-l-0" ng-include src='"views/project/_detail.html"'>
       </div>
       <!-- 项目附加信息模块 -->
       <div class="row col-md-4 padding-r-0" ng-include src='"views/project/_additional.html"'>
