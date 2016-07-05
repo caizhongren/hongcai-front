@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('InvPlanVerifyCtrl', function($scope, $location, toaster, $state, $rootScope, $stateParams, $modal, ProjectService, SessionService, config, $alert, OrderService, UserCenterService) {
+  .controller('InvPlanVerifyCtrl', function($scope, $location, toaster, $state, $rootScope, $stateParams, $modal, ProjectService, SessionService, config, $alert, OrderService) {
     $scope.checkInvFlag = true;
     ProjectService.isFundsAvailableInvest.get({
       projectId: $stateParams.projectId,
@@ -123,9 +123,9 @@ angular.module('hongcaiApp')
     /**
      * 加息券统计信息
      */
-    UserCenterService.getUnUsedIncreaseRateCoupons.get({}, function(response) {
+    OrderService.getUnUsedIncreaseRateCoupons.get({}, function(response) {
       if (response.ret === 1) {
-        $scope.increaseRateCoupons = response.data.increaseRateCoupons;
+        $scope.increaseRateCoupons = null;
         $scope.selectCoupon = null;
         if($scope.increaseRateCoupons.length > 0){
           for(var i=0; i < $scope.increaseRateCoupons.length; i++){

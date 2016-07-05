@@ -151,7 +151,6 @@ angular.module('hongcaiApp')
         pageSize : '@pageSize',
         status : '@status'
       }),
-      getUnUsedIncreaseRateCoupons: $resource(DEFAULT_DOMAIN + '/siteUser/getUnUsedIncreaseRateCoupons'),
       resetMobile: $resource(DEFAULT_DOMAIN + '/yeepay/resetMobile', {mobile:'@mobile'})
     };
   });

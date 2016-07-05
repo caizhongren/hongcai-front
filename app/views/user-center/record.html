@@ -8,17 +8,17 @@
       <div class="padd row">
         <div class="col-md-11 bg-grey6 padding-40 padding-l-45 margin-l--26 margin-t-20 record-w">
           <img src="/images/usermoney3.png" alt="" class="fl margin-l-10">
-          <div class="record-text">
+          <div class="record-text record-number">
             <p>账户资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.waitingCapital + capital.balance + capital.waitingProfit + capital.freezeCapital | number: 2}}</strong>元</p>
           </div>
           <img src="/images/usermoney2.png" alt="" class="fl margin-l-30">
-          <div class="record-text">
+          <div class="record-text record-number">
             <p>可用资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.balance | number: 2}}</strong>元</p>
           </div>
           <img src="/images/usermoney1.png" alt="" class="fl margin-l-30">
-          <div class="record-text">
+          <div class="record-text record-number">
             <p>冻结资产总计</p>
             <p><strong class="ft-red5 ft-24">{{capital.freezeCapital | number: 2}}</strong>元</p>
           </div>
@@ -111,6 +111,14 @@
           </tr>
         </thead>
         <tbody>
+          <tr ng-show="count<=0">
+            <td colspan="6" class="border-0">
+              <div>
+                <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
+                <p><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main" href="/">浏览项目</a></p>
+              </div>
+            </td>
+          </tr>
           <tr ng-repeat="item in data | orderBy: '-id'" style="border-top:none !important;">
             <td>{{ item.createTime | date: 'yyyy-MM-dd HH:mm'}}</td>
             <td>{{ dealTypes[item.type] }}</td>
@@ -122,7 +130,7 @@
           </tr>
         </tbody>
       </table>
-      <ul class="pager margin-r-20">
+      <ul class="pager margin-r-20" ng-hide="dealList.length<=0">
         <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage >= totalPage" ng-click="getDeals(currentPage + 1)">下一页</button></li>
         <div class="fr height-30">&nbsp;&nbsp;{{currentPage}} / {{totalPage}} &nbsp;共 {{data.length}} 条&nbsp;&nbsp;</div>
         <li class="fr"><button class="btn btn-default btn-sm" ng-disabled="currentPage == 1" ng-click="getDeals(currentPage - 1)">上一页</button></li>

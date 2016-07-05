@@ -9,9 +9,7 @@ angular.module('hongcaiApp')
     UserCenterService.getUserIncreaseRateCouponStatis.get({}, function(response) {
       if (response.ret === 1) {
         $scope.couponStatis = response.data.couponStatis;
-      } else {
-        toaster.pop('warning', response.msg);
-      }
+      } 
     });
     /**
      * 查询加息券
@@ -30,13 +28,11 @@ angular.module('hongcaiApp')
           $scope.numberOfPages = Math.ceil($scope.count / pageSize);
           $scope.datas = response.data.coupons;
           $scope.currentTime = response.data.currentTime;
-        } else {
-          toaster.pop('warning', response.msg);
-        }
+        } 
       });
     };
 
-    $scope.usedStatus = parseInt($stateParams.usedStatus) || 1;
+    $scope.usedStatus = $stateParams.usedStatus || '1,3';
     $scope.currentPage = 1;
     $scope.pageSize = 5;
 

@@ -24,6 +24,7 @@ angular.module('hongcaiApp')
           $scope.userId = getDealByUser.data.userId;
           $scope.capital = getDealByUser.data.capital;
           $scope.dealTypes = getDealByUser.data.dealTypes;
+          $scope.count = getDealByUser.data.count;
           $scope.data = [];
           $scope.totalPage = Math.ceil(getDealByUser.data.count / $scope.pageSize);
 

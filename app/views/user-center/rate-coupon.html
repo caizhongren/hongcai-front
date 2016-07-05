@@ -24,7 +24,7 @@
           <div class="col-xs-4">
             <img src="/images/usermoney1.png" alt="" class="fl margin-l-30">
             <div class="record-text">
-              <p>已使用累计收益</p>
+              <p>累计加息</p>
               <p><strong class="ft-red5 ft-24 margin-r-5">{{couponStatis.totalProfit | number : 2}}</strong>元</p>
             </div>
           </div>
@@ -34,49 +34,53 @@
     </div>
     <div class="main padding-t-0 padding-l-15">
       <div class="fl col-md-12 ft-14 margin-l-13">
-        <div class="col-xs-1 padding-b-5 {{usedStatus === 1 ? 'credit-toggle' : ''}}" ng-click="loadCoupons(1, 5, 1)">未使用</div>
-        <div class="col-xs-1 padding-b-5 {{usedStatus === 2 ? 'credit-toggle' : ''}}" ng-click="loadCoupons(1, 5, 2)">已使用</div>
+        <div class="col-xs-1 padding-b-5 {{usedStatus === '1,3' ? 'credit-toggle' : ''}}" ng-click="loadCoupons(1, 5, '1,3')">未使用</div>
+        <div class="col-xs-1 padding-b-5 {{usedStatus === '2' ? 'credit-toggle' : ''}}" ng-click="loadCoupons(1, 5, '2')">已使用</div>
       </div>
       <!-- 未使用加息券表格 -->
-      <table class="table table-dashed table-rate" ng-show="usedStatus === 1">
+      <table class="table table-dashed table-rate" ng-show="usedStatus === '1,3'">
         <thead>
           <tr style="background-color:#F2F2F2;">
             <th>类型/面额</th>
             <th>过期时间</th>
             <th>使用规则</th>
             <th>来源</th>
-            <th>状态</th>
+            <th>操作</th>
           </tr>
         </thead>
         <tbody>
           <!-- 有加息券时  ng-show="couponStatis.coupons.length > 0" ng-repeat="coupon in couponStatis.coupons"  {{coupon.createTime | date : "yyyy-MM-dd"}} {{coupon.endTime | date : "yyyy-MM-dd"}}-->
-          <tr ng-repeat="coupon in datas" ng-show="datas.length > 0">
+          <tr ng-repeat="coupon in datas | orderBy:-datas.endTime " ng-show="datas.length > 0">
             <td>
-              <div class="bg-coupon-orange ft-white">+{{coupon.rate || 0}}%</div>
+              <div ng-class="{ 'bg-coupon-orange' : coupon.endTime-currentTime >= 0 , 'bg-coupon-grey' : coupon.endTime-currentTime < 0 }" class=" ft-white">+{{coupon.rate || 0}}%</div>
             </td>
             <td class="ft-red6" ng-show="(coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) <= 7">
               <p class="margin-b-0">{{coupon.endTime | date:"yyyy-MM-dd"}}</p>
               <p>(该加息券七日内过期)</p>
             </td>
             <td class="margin-b-0" ng-show="(coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) > 7">{{coupon.endTime | date:"yyyy-MM-dd"}}</td>
-            <td>适用于除零存宝其他项目</td>
+            <td>适用于宏金保项目</td>
             <td>活动奖励</td>
-            <td><button class="orange-button" ui-sref="root.main">我要投资</button></td>
+            <td>
+              <button class="orange-button" ui-sref="root.guaranteepro-list-query-no">立即使用</button>
+              <button ng-if="coupon.endTime-currentTime < 0" class="grey-button border-0 no-boxshadow" ui-sref="root.guaranteepro-list-query-no">已过期</button>
+            </td>
           </tr>
           <tr ng-show="datas.length <= 0">
-            <td colspan="5">您没有可以使用的加息券</td>
+            <td colspan="6">您没有可以使用的加息券</td>
           </tr>
         </tbody>
       </table>
       <!-- 已使用加息券表格 -->
-      <table class="table table-dashed table-rate" ng-show="usedStatus === 2">
+      <table class="table table-dashed table-rate2" ng-show="usedStatus === '2'">
         <thead>
-          <tr style="background-color:#F2F2F2;">
+          <tr class="bg-f2">
             <th>类型/面额</th>
             <th>使用时间</th>
-            <th>使用规则</th>
-            <th>收益金额</th>
-            <th>状态</th>
+            <th>投资项目</th>
+            <th>投资金额(元)</th>
+            <th>加息收益(元)</th>
+            <!-- <th>状态</th> -->
           </tr>
         </thead>
         <tbody>
@@ -86,12 +90,13 @@
               <div class="bg-coupon-grey ft-white">+{{coupon.rate || 0}}%</div>
             </td>
             <td>{{coupon.usedTime | date:"yyyy-MM-dd"}}</td>
-            <td>适用于除零存宝其他项目</td>
-            <td><span class="ft-red6 ft-bold">{{coupon.profit | number:2}}</span>元</td>
-            <td><button class="btn-grey-spirit" ui-sref="root.main">我要投资</button></td>
+            <td>{{coupon.order.projectName}}</td>
+            <td><span class="ft-red6 ft-bold">{{coupon.order.orderAmount | number:2}}</span></td>
+            <td><span class="ft-red6 ft-bold">{{coupon.profit | number:2}}</span></td>
+            <!-- <td><button class="btn-grey-spirit padding-l-10 padding-r-10" ui-sref="root.main">查看详情</button></td> -->
           </tr>
           <tr ng-show="datas.length <= 0">
-            <td colspan="5">无使用记录</td>
+            <td colspan="6">无使用记录</td>
           </tr>
         </tbody>
       </table>

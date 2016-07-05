@@ -42,7 +42,7 @@
               <input type="checkbox">体验金 <span class="ft-orange">{{experienceAmount| number:2}}</span>元
          </div>
          <div class="col-xs-4">
-            <button type="button" class="btn btn-default" ng-model="selectCoupon" data-html="1" data-animation="am-flip-x" ng-options="coupon as coupon.rateText for coupon in increaseRateCoupons" bs-select required>
+            <button type="button" ng-change="selectRateCoupon()" class="btn btn-default" ng-model="selectCoupon" data-html="1" data-animation="am-flip-x" ng-options="coupon as coupon.rateText for coupon in increaseRateCoupons" bs-select required>
             </button>
         </div>
         </div>
@@ -63,10 +63,13 @@
         <form>
           <div class="form-group mgn-top ft-24" ng-show="selectCoupon != null && selectCoupon.rate > 0">
               您将要支付<span class="ftw-b ft-orange">{{payAmount | number:2}}</span>元
-              <span>，并使用<b class="ft-orange">+{{selectCoupon.rate}}%</b>加息券</span>，核实信息无误后请确认
+              <span>，并使用<b class="ft-orange">+{{selectCoupon.rate}}%</b>加息券</span>，预期收益{{profit || 0 | number : 2}}元 <b class="ft-orange">+ {{increaseRateProfit || 0 | number : 2}}元</b>
+              <div class="form-group mgn-top ft-24">
+                核实信息无误后请确认
+              </div>
           </div>
           <div class="form-group mgn-top ft-24" ng-show="selectCoupon == null || selectCoupon.rate <= 0">
-              您将要支付<span class="ftw-b ft-orange">{{payAmount | number:2}}</span>元，核实信息无误后请确认
+              您将要支付<span class="ftw-b ft-orange">{{payAmount | number:2}}</span>元，预期收益{{profit || 0 | number : 2}}元，核实信息无误后请确认
           </div>
           <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-4" ng-class="{'btn-orange': checkInvFlag}" ng-disabled="!checkInvFlag"ng-click="transfer(project, payAmount, 0, selectCoupon)">确认提交</a>
           <a class="btn btn-default col-xs-2 ft-18 col-xs-offset-1"  ui-sref="root.project-details({number: project.number})" style="margin-left:40px;" >取消</a>

@@ -11,10 +11,13 @@ angular.module('hongcaiApp')
           $scope.order = response.data.order;
           $scope.project = response.data.project;
           $scope.creditRight = response.data.creditRight;
+          $scope.waitProfit = $scope.creditRight.profit - $scope.creditRight.returnProfit;
+          $scope.oriRate = $scope.creditRight.baseRate + $scope.creditRight.riseRate;
           $scope.creditRightBillList = response.data.creditRightBillList;
           $scope.category = response.data.category;
           $scope.investorMatchOfflineRights = response.data.investorMatchOfflineRights;
           // $scope.order = response.data.order;
+          $scope.increaseRateCoupon = response.data.IncreaseRateCoupon;
 
           var invTotal = response.data.order.orderAmount;
           if (response.data.project) {
@@ -84,15 +87,17 @@ angular.module('hongcaiApp')
        * 每月的付费天数，付费日期，上次支付日期，该月的利息；
        */
       $scope.listInvPond = [];
-      var invDays, payDate, prevDate, invEarnings;
+      var invDays, payDate, prevDate, invEarnings, profit;
       var invList = {};
       if (invCycle === 1) {
         invDays = moment(invEndDate).diff(moment(invInitDate), 'days', true);
+        profit = invTotal * invRate * Math.round(invDays) / 365;
         invEarnings = invTotal + invTotal * invRate * Math.round(invDays) / 365; //计算利率
         invList = {
           'payDate': moment(invEndDate).format('YYYY-MM-DD'),
           'invEarnings': invEarnings,
-          'invStatus': '0'
+          'invStatus': '0',
+          'profit' : profit
         };
         $scope.listInvPond.push(invList);
       } else {
@@ -121,6 +126,7 @@ angular.module('hongcaiApp')
           }
 
           invEarnings = invTotal * invRate * parseInt(invDays) / 365; //计算利率
+          profit = invEarnings;
           if (i === invCycle) {
             invEarnings = invEarnings + invTotal;
           }
@@ -130,7 +136,8 @@ angular.module('hongcaiApp')
           invList = {
             'payDate': moment(payDate).format('YYYY-MM-DD'),
             'invEarnings': invEarnings,
-            'invStatus': '0'
+            'invStatus': '0',
+            'profit': profit
           };
           $scope.listInvPond.push(invList);
         }
