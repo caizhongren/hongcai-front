@@ -4,11 +4,11 @@
       相关阅读
     </h3>
     <div class="tab-content">
-      <div class="read-img margin-l-15 margin-t-15 margin-b-15">
-        <img src="images/project/reading01.png" alt="">
-        <div class="read-text ft-14 ft-grey1 margin-t-15">
+      <div class="read-img text-center margin-t-15 margin-b-15">
+        <img src="images/project/reading01.png" alt="" width="85%">
+        <div class="read-text text-left margin-l-35 ft-14 ft-grey1 margin-t-15">
           <p class="margin-b-0" ng-repeat="item in mediaList">
-            <a ui-sref="root.us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title | limitTo:20}}{{item.title.length > 20 ? '...' : ''}}</a>
+            <a ui-sref="root.us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title | limitTo:22}}{{item.title.length > 22 ? '...' : ''}}</a>
           </p>
         </div>
       </div>
