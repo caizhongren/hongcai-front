@@ -12,7 +12,7 @@
         <th class="border-b-none">项目名称</th>
         <th class="border-b-none">年化收益率</th>
         <th class="border-b-none">项目期限</th>
-        <th class="border-b-none">项目预计收益(元)</th>
+        <!-- <th class="border-b-none">项目预计收益(元)</th> -->
         <th class="border-b-none">持有债权(元)</th>
         <th class="border-b-none" ng-show="creditIsShowedFLAG">已转出债权(元)</th>
         <th class="border-b-none">已收收益(元)</th>
@@ -21,10 +21,10 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{ order.projectName }}</td>
-        <td>{{ project.annualEarnings }}%</td>
-        <td>{{ project.cycle }}期</td>
-        <td>{{ creditRight.profit | number:2 }}</td>
+        <td>{{ order.projectName }}<img ng-show="increaseRateCoupon.rate" src="/images/user-center/rate-coupon.png" alt="使用加息券" class="used-rate"></td>
+        <td>{{ project.annualEarnings }}%<span ng-show="increaseRateCoupon.rate" class="ft-red7"> + {{increaseRateCoupon.rate}}%</span></td>
+        <td>{{ project.cycle }}月</td>
+        <!-- <td>{{ creditRight.profit | number:2 }}</td> -->
         <td>{{ creditRight.transferableAmount | number:2 }}</td>
         <td ng-show="creditIsShowedFLAG">{{ creditRight.transferingAmount | number:2 }}</td>
         <td>{{ creditRight.returnProfit | number:2 }}<span ng-show="increaseRateCoupon.rate" class="ft-red7"> + {{(oriRate + increaseRateCoupon.rate) * creditRight.returnProfit / oriRate - creditRight.returnProfit| number:2 }}</span></td>
