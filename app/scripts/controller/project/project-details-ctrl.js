@@ -37,7 +37,7 @@ angular.module('hongcaiApp')
           });
           
           $scope.categoryCode = projectDetails.data.category.code;
-          if ($scope.categoryCode === '0112' || $scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
+          if ($scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
             $scope.tabs = [{
               title: '项目信息',
             }, {
@@ -51,7 +51,7 @@ angular.module('hongcaiApp')
             }, {
               title: '相关文件',
             }];
-          } else if($scope.categoryCode === '0116'){
+          } else if($scope.categoryCode === '0112' || $scope.categoryCode === '0116'){
             $scope.tabs = [{
               title: '项目信息',
             }, {
