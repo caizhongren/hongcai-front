@@ -10,7 +10,7 @@ angular.module('hongcaiApp')
 
     $scope.projectStatusMap = projectStatusMap;
 
-
+    $scope.newbieBiaoInvestFlag = true;
     $scope.getProjectDetails = function() {
       var projectDetails = ProjectService.projectDetails.get({
         number: $stateParams.number
@@ -37,6 +37,11 @@ angular.module('hongcaiApp')
           });
           
           $scope.categoryCode = projectDetails.data.category.code;
+          
+          if($scope.categoryCode === '0112'){
+            $scope.newbieBiaoInvestFlag = $rootScope.account.investAmount < 0;
+          }
+
           if ($scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
             $scope.tabs = [{
               title: '项目信息',

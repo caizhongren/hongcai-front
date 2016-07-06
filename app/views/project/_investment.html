@@ -127,9 +127,9 @@
 <!--                 <p class="text-center text text-danger invest_tip" ng-if="investForm.investAmount.$dirty && !investForm.investAmount.$focused">
                   <span ng-show="">输入金额格式不对，只能输入数字</span>
                 </p> -->
-                <input type="number" name="investAmount" ng-model="project.amount" class="form-control margin-b-20" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0" step="{{project.increaseAmount}}" min="{{project.increaseAmount}}" ng-switch-default>
+                <input type="number" name="investAmount" ng-model="project.amount" class="form-control margin-b-20" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0 || !newbieBiaoInvestFlag" step="{{project.increaseAmount}}" min="{{project.increaseAmount}}" ng-switch-default>
                 <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
-                <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toInvest(project)" ng-disabled="!project.amount" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
+                <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toInvest(project)" ng-disabled="!project.amount || !newbieBiaoInvestFlag" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
                 </button>
                 <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toRecharge()" ng-show="account.balance <= 0"><i class="fa"></i>请先充值
                 </button>
