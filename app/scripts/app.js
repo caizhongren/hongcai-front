@@ -28,7 +28,8 @@ var hongcaiApp = angular.module('hongcaiApp', [
   // 'angular-google-analytics',
   'bgf.paginateAnything',
   'angular-svg-round-progress',
-  'seo'
+  'seo',
+  'restangular'
 ]);
 
 hongcaiApp
@@ -1830,7 +1831,11 @@ hongcaiApp
 
   }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
+hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, Restangular, DEFAULT_DOMAIN, toaster, config, ipCookie) {
+  Restangular.setBaseUrl('/hongcai/rest');
+  Restangular.setDefaultHeaders({
+    'Content-Type': 'application/json'
+  })
   /**
    * Array 在IE8下没有indexOf 方法。
    */
@@ -1848,7 +1853,6 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
   $rootScope.reload = function() {
     $state.reload();
   }
-
 
   $rootScope.tologin = function(){
     $rootScope.loginModal = $modal({
