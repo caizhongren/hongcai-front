@@ -8,6 +8,9 @@ angular.module('hongcaiApp')
       newbieBiaoProject: $resource(RESTFUL_DOMAIN + '/projects/newbieBiaoProject', {projectId: '@projectId'}, {
         get: {method:'GET'}
       }),
+      investNewbieBiaoProjectVerify: $resource(RESTFUL_DOMAIN + '/projects/investNewbieBiaoProjectVerify', {number: '@number'}, {
+        get: {method:'GET'}
+      }),
       getExperienceProjectDetail: $resource(DEFAULT_DOMAIN + '/siteProject/getExperienceProjectDetail'),
       projectList: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectList'),
       getAccountOverviewProjects: $resource(DEFAULT_DOMAIN + '/siteProject/getAccountOverviewProjects'),

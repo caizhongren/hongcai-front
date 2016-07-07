@@ -39,10 +39,19 @@ angular.module('hongcaiApp')
           $scope.categoryCode = projectDetails.data.category.code;
 
           if($scope.categoryCode === '0112'){
-            $scope.newbieBiaoInvestFlag = $rootScope.account.investAmount <= 0;
-            if(!$scope.newbieBiaoInvestFlag){
-              $scope.newbieBiaoErrorMsg = '仅限未投资用户参与';
-            }
+            //请求判断用户是否可以投资新手标
+            ProjectService.investNewbieBiaoProjectVerify.get({
+              number : $stateParams.number
+            }, function(response){
+              if(response.ret === -1){
+                  return;
+                }
+
+                $scope.newbieBiaoInvestFlag = response.isOk;
+                if(!$scope.newbieBiaoInvestFlag){
+                  $scope.newbieBiaoErrorMsg = '仅限未投资用户参与';
+                }
+            });
           }
 
           if ($scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
