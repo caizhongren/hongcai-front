@@ -31,15 +31,15 @@ angular.module('hongcaiApp')
             $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
           }, 1000);
 
-          
+
           $scope.$on('$stateChangeStart', function() {
             $interval.cancel(interval);
           });
-          
+
           $scope.categoryCode = projectDetails.data.category.code;
-          
+
           if($scope.categoryCode === '0112'){
-            $scope.newbieBiaoInvestFlag = $rootScope.account.investAmount < 0;
+            $scope.newbieBiaoInvestFlag = $rootScope.account.investAmount <= 0;
           }
 
           if ($scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
@@ -103,7 +103,7 @@ angular.module('hongcaiApp')
           $scope.projectRank = projectDetails.data.projectRank;
 
           $scope.isAvailable = projectDetails.data.isAvailable;
-          
+
           $scope.preRepaymentList = projectDetails.data.preRepaymentList;
           $scope.billCount = projectDetails.data.billCount;
           $scope.remainInterest = projectDetails.data.remainInterest;
@@ -120,7 +120,7 @@ angular.module('hongcaiApp')
           $scope.projectFiles($scope.project.id);
           $scope.projectTexts($scope.project.id);
           $scope.enterpriseInfo($scope.project.enterpriseId);
-          
+
         } else if (projectDetails.code === -1054) {
           $state.go('root.project-list-query-no');
         } else {
@@ -128,7 +128,7 @@ angular.module('hongcaiApp')
         }
       });
     };
-  
+
     /**
      * 项目订单列表
      */
@@ -146,7 +146,7 @@ angular.module('hongcaiApp')
             $scope.data.push($scope.orderList[i]);
           }
         }
-        
+
       });
     }
 
@@ -206,7 +206,7 @@ angular.module('hongcaiApp')
       });
     };
 
-    
+
 
     /**
      * 获取预约收益
@@ -307,7 +307,7 @@ angular.module('hongcaiApp')
     /**
      * 投资或者预约
      */
-    $scope.toInvest = function(project) { 
+    $scope.toInvest = function(project) {
       if (project.inviteMobile) {
         $rootScope.inviteMobile = project.inviteMobile;
       }
@@ -360,7 +360,7 @@ angular.module('hongcaiApp')
             show: true
           });
         }
-        
+
         OrderService.investVerify.get({
           projectId: project.id,
           amount: project.amount
@@ -531,5 +531,5 @@ angular.module('hongcaiApp')
     $scope.getProjectDetails();
     $scope.getReserveRecords();
 
-    
+
   });
