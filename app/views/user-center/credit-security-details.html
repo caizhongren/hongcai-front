@@ -23,7 +23,7 @@
       <tr>
         <td>{{ order.projectName }}<img ng-show="increaseRateCoupon.rate" src="/images/user-center/rate-coupon.png" alt="使用加息券" class="used-rate"></td>
         <td>{{ project.annualEarnings }}%<span ng-show="increaseRateCoupon.rate" class="ft-red7"> + {{increaseRateCoupon.rate}}%</span></td>
-        <td>{{ project.cycle }}月</td>
+        <td>{{ project.projectDays }}天</td>
         <!-- <td>{{ creditRight.profit | number:2 }}</td> -->
         <td>{{ creditRight.transferableAmount | number:2 }}</td>
         <td ng-show="creditIsShowedFLAG">{{ creditRight.transferingAmount | number:2 }}</td>
