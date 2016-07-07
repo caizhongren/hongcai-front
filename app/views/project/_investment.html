@@ -136,7 +136,8 @@
               </form>
               <div class="positive-margin1 text-center">
                 <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
-                <span class="spangray">优质项目，抓紧时间投资吧~~</span>
+                <span  ng-show="!newbieBiaoErrorMsg" class="spangray">优质项目，抓紧时间投资吧~~</span>
+                <span ng-show="newbieBiaoErrorMsg" class="spangray ft-red7">{{newbieBiaoErrorMsg}}</span>
               </div>
             </div>
           </div>

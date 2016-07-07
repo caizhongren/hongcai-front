@@ -40,6 +40,9 @@ angular.module('hongcaiApp')
 
           if($scope.categoryCode === '0112'){
             $scope.newbieBiaoInvestFlag = $rootScope.account.investAmount <= 0;
+            if(!$scope.newbieBiaoInvestFlag){
+              $scope.newbieBiaoErrorMsg = '仅限未投资用户参与';
+            }
           }
 
           if ($scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
