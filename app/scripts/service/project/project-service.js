@@ -1,9 +1,12 @@
 'use strict';
 angular.module('hongcaiApp')
-  .factory('ProjectService', function($resource, $location, DEFAULT_DOMAIN) {
+  .factory('ProjectService', function($resource, $location, DEFAULT_DOMAIN, RESTFUL_DOMAIN) {
     return {
       projectDetails: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectDetail', {
         number: '@number'
+      }),
+      newbieBiaoProject: $resource(RESTFUL_DOMAIN + '/projects/newbieBiaoProject', {projectId: '@projectId'}, {
+        get: {method:'GET'}
       }),
       getExperienceProjectDetail: $resource(DEFAULT_DOMAIN + '/siteProject/getExperienceProjectDetail'),
       projectList: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectList'),

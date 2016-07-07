@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, Restangular, MainService, AboutUsService, ProjectService, FriendLinkService, $alert, $timeout, DateUtils, toaster, projectStatusMap) {
+  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, FriendLinkService, $alert, $timeout, DateUtils, toaster, projectStatusMap) {
     $scope.spCountDown = -1;
 
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
@@ -72,12 +72,8 @@ angular.module('hongcaiApp')
 
     $scope.jigoubaoList();
 
-    Restangular.one('projects').one('newbieBiaoProject').get().then(function(response) {
-      if(response.ret === -1){
-          return;
-        }
-
-        $scope.newbieBiaoProject = response;
+    ProjectService.newbieBiaoProject.get({}, function(response){
+      $scope.newbieBiaoProject = response;
     });
 
     /**
