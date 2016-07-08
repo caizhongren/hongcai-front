@@ -14,12 +14,12 @@
           <div class="row margin-l--30" style="position: relative;">
             <div class="col-xs-12 col-sm-4 under-margin" ng-show="project.floattingRate">
               <h3 class="text-center text-nowrap ft-orange">{{project.annualEarnings - project.floattingRate || 0 | number : 2}}%</h3>
-              <p class="text-center text-nowrap gray-font">年化收益</p>
+              <p class="text-center text-nowrap gray-font">预期年化收益</p>
             </div>
             <img src="images/stamp38.png" alt="" style="position:absolute; top:-40%; left:20%;" ng-show="project.floattingRate">
             <div class="col-xs-12 col-sm-4 under-margin" ng-hide="project.floattingRate">
               <h3 class="text-center text-nowrap ft-orange2 ft-30">{{project.annualEarnings || 0 | number : 2}}<span class="ft-16 ft-grey1">%</span></h3>
-              <p class="text-center text-nowrap ft-14 ft-grey666">年化收益</p>
+              <p class="text-center text-nowrap ft-14 ft-grey666">预期年化收益</p>
             </div>
 
             <div class="col-xs-12 col-sm-4 under-margin">
@@ -29,7 +29,7 @@
             <div class="col-xs-12 col-sm-4 under-margin">
               <h3 class="text-center text-nowrap ft-24 ft-grey1">{{project.projectDays || 0}}<span class="ft-16 ft-grey1">天<span></h3>
               <!-- <h3 class="text-center text-nowrap ft-24 ft-grey1" ng-if="project.repaymentType <= 2">{{project.cycle || 0}}<span class="ft-16 ft-grey1">个月<span></h3> -->
-              <p class="text-center text-nowrap ft-14 ft-grey666 margin-t-15">项目期限</p>
+              <p class="text-center text-nowrap ft-14 ft-grey666 margin-t-15">投资期限</p>
             </div>
           </div>
           <hr style="margin-top: 3px;margin-bottom: 12px;">
