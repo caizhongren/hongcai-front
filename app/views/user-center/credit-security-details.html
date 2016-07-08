@@ -27,7 +27,7 @@
         <!-- <td>{{ creditRight.profit | number:2 }}</td> -->
         <td>{{ creditRight.transferableAmount | number:2 }}</td>
         <td ng-show="creditIsShowedFLAG">{{ creditRight.transferingAmount | number:2 }}</td>
-        <td>{{ creditRight.returnProfit | number:2 }}<span ng-show="increaseRateCoupon.rate" class="ft-red7"> + {{(oriRate + increaseRateCoupon.rate) * creditRight.returnProfit / oriRate - creditRight.returnProfit| number:2 }}</span></td>
+        <td>{{ creditRight.returnProfit | number:2 }}<span ng-show="increaseRateCoupon.rate" class="ft-red7"> + {{(oriRate + increaseRateCoupon.rate) * creditRight.returnProfit / oriRate - creditRight.returnProfit || 0 | number:2 }}</span></td>
         <td>{{ waitProfit | number:2 }}<span ng-show="increaseRateCoupon.rate" class="ft-red7"> + {{(oriRate + increaseRateCoupon.rate) * waitProfit / oriRate - waitProfit | number:2}}</span></td>
       </tr>
     </tbody>
@@ -75,8 +75,8 @@
                 <h4 class="timeline-title border-b padding-b-15">项目回款<small class="pull-right">{{ item.successTime | date:'yyyy-MM-dd'}}</small></h4>
               </div>
               <div class="timeline-body">
-                <p><strong>{{item.amount | number: 2 }}&nbsp;元</strong></p>
-                <p><small>利息 ({{ item.profit | number: 2 }}元 <span class="ft-red7" ng-show="increaseRateCoupon.rate" style="font-size:85%;">+ {{(oriRate + increaseRateCoupon.rate) * item.profit/oriRate - item.profit | number:2 }}元</span>)&nbsp; + &nbsp;本金{{ item.principal | number: 2 }}元</small></p>
+                <!-- <p><strong>{{item.amount | number: 2 }}&nbsp;元</strong></p> -->
+                <p><span ng-show="item.principal > 0">本金<strong>{{ item.principal | number: 2 }}</strong>元&nbsp; + &nbsp;</span>利息 <span ng-show="increaseRateCoupon.rate">(</span> <strong>{{ item.profit | number: 2 }}</strong>元 <span class="ft-red7" ng-show="increaseRateCoupon.rate">+ <strong>{{(oriRate + increaseRateCoupon.rate) * item.profit/oriRate - item.profit | number:2 }}</strong>元<span class="ft-black"> )</span></span></p>
               </div>
             </div>
           </li>
@@ -88,7 +88,7 @@
                 <h4 class="timeline-title">回款计划<small class="pull-right">{{ card.payDate }}</small></h4>
               </div>
               <div class="timeline-body">
-                <p>待回款：<strong>{{ card.invEarnings | number: 2 }}</strong>元<span ng-show="increaseRateCoupon.rate" class="ft-red7"> + <strong>{{(oriRate + increaseRateCoupon.rate ) * card.profit / oriRate - card.profit| number:2 }}</strong>元</span></p>
+                <p>待回款：<span ng-show="card.principal > 0">本金 <strong>{{ card.principal }}</strong>&nbsp; + &nbsp;</span>利息 <span ng-show="increaseRateCoupon.rate">( </span><strong>{{ card.invEarnings | number: 2 }}</strong>元<span ng-show="increaseRateCoupon.rate" class="ft-red7"> + <strong>{{(oriRate + increaseRateCoupon.rate ) * card.profit / oriRate - card.profit| number:2 }}</strong>元<span class="ft-black"> )</span></span></p>
               </div>
             </div>
           </li>
