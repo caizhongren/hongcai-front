@@ -49,7 +49,7 @@ angular.module('hongcaiApp')
 
                 $scope.newbieBiaoInvestFlag = response.isOk;
                 if(!$scope.newbieBiaoInvestFlag){
-                  $scope.newbieBiaoErrorMsg = '仅限未投资用户参与';
+                  $scope.newbieBiaoErrorMsg = '该项目仅限用户首次投资后一周内参与';
                 }
             });
           }
