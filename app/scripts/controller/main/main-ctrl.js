@@ -72,6 +72,29 @@ angular.module('hongcaiApp')
 
     $scope.jigoubaoList();
 
+    ProjectService.newbieBiaoProject.get({}, function(response){
+      if(response.ret === -1){
+          return;
+        }
+
+        $scope.newbieBiaoProject = response;
+        $scope.newbieBiaoProject.countdown = new Date($scope.newbieBiaoProject.releaseStartTime).getTime() - $scope.serverTime;
+        $scope.newbieBiaoProject.showByStatus = $scope.newbieBiaoProject.status === 6 || $scope.newbieBiaoProject.status === 7 ? true : false;
+        $scope.newbieBiaoProject._timeDown = DateUtils.toHourMinSeconds($scope.newbieBiaoProject.countdown);
+        var interval1 = $interval(function(){
+          $scope.newbieBiaoProject.countdown -= 1000;
+          if ($scope.newbieBiaoProject.countdown <= 0 && $scope.newbieBiaoProject.status == 2) {
+            $state.reload();
+          }
+          $scope.newbieBiaoProject._timeDown = DateUtils.toHourMinSeconds($scope.newbieBiaoProject.countdown);
+        },1000);
+
+        $scope.$on('$stateChangeStart', function() {
+          clearInterval(interval1);
+        });
+    });
+
+
 
     /**
      * 宏金盈列表
@@ -155,7 +178,7 @@ angular.module('hongcaiApp')
       if (projectDetails.ret === 1) {
         // $scope.project = projectDetails.data.project;
         $scope.experienceInvestCount = projectDetails.data.investCount;
-      } 
+      }
     });
 
     /**
@@ -167,7 +190,7 @@ angular.module('hongcaiApp')
       });
     }
 
-    
+
   })
 .config(['ChartJsProvider', function (ChartJsProvider) {
     ChartJsProvider.setOptions({

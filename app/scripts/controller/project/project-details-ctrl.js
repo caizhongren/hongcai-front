@@ -10,7 +10,7 @@ angular.module('hongcaiApp')
 
     $scope.projectStatusMap = projectStatusMap;
 
-
+    $scope.newbieBiaoInvestFlag = true;
     $scope.getProjectDetails = function() {
       var projectDetails = ProjectService.projectDetails.get({
         number: $stateParams.number
@@ -31,13 +31,30 @@ angular.module('hongcaiApp')
             $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
           }, 1000);
 
-          
+
           $scope.$on('$stateChangeStart', function() {
             $interval.cancel(interval);
           });
-          
+
           $scope.categoryCode = projectDetails.data.category.code;
-          if ($scope.categoryCode === '0112' || $scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
+
+          if($scope.categoryCode === '0112'){
+            //请求判断用户是否可以投资新手标
+            ProjectService.investNewbieBiaoProjectVerify.get({
+              number : $stateParams.number
+            }, function(response){
+              if(response.ret === -1){
+                  return;
+                }
+
+                $scope.newbieBiaoInvestFlag = response.isOk;
+                if(!$scope.newbieBiaoInvestFlag){
+                  $scope.newbieBiaoErrorMsg = '该项目仅限用户首次投资后一周内参与';
+                }
+            });
+          }
+
+          if ($scope.categoryCode === '0113' || $scope.categoryCode === '0114') {
             $scope.tabs = [{
               title: '项目信息',
             }, {
@@ -51,7 +68,7 @@ angular.module('hongcaiApp')
             }, {
               title: '相关文件',
             }];
-          } else if($scope.categoryCode === '0116'){
+          } else if($scope.categoryCode === '0112' || $scope.categoryCode === '0116'){
             $scope.tabs = [{
               title: '项目信息',
             }, {
@@ -98,7 +115,7 @@ angular.module('hongcaiApp')
           $scope.projectRank = projectDetails.data.projectRank;
 
           $scope.isAvailable = projectDetails.data.isAvailable;
-          
+
           $scope.preRepaymentList = projectDetails.data.preRepaymentList;
           $scope.billCount = projectDetails.data.billCount;
           $scope.remainInterest = projectDetails.data.remainInterest;
@@ -115,7 +132,7 @@ angular.module('hongcaiApp')
           $scope.projectFiles($scope.project.id);
           $scope.projectTexts($scope.project.id);
           $scope.enterpriseInfo($scope.project.enterpriseId);
-          
+
         } else if (projectDetails.code === -1054) {
           $state.go('root.project-list-query-no');
         } else {
@@ -123,7 +140,7 @@ angular.module('hongcaiApp')
         }
       });
     };
-  
+
     /**
      * 项目订单列表
      */
@@ -141,7 +158,7 @@ angular.module('hongcaiApp')
             $scope.data.push($scope.orderList[i]);
           }
         }
-        
+
       });
     }
 
@@ -201,7 +218,7 @@ angular.module('hongcaiApp')
       });
     };
 
-    
+
 
     /**
      * 获取预约收益
@@ -302,7 +319,7 @@ angular.module('hongcaiApp')
     /**
      * 投资或者预约
      */
-    $scope.toInvest = function(project) { 
+    $scope.toInvest = function(project) {
       if (project.inviteMobile) {
         $rootScope.inviteMobile = project.inviteMobile;
       }
@@ -355,7 +372,7 @@ angular.module('hongcaiApp')
             show: true
           });
         }
-        
+
         OrderService.investVerify.get({
           projectId: project.id,
           amount: project.amount
@@ -526,5 +543,5 @@ angular.module('hongcaiApp')
     $scope.getProjectDetails();
     $scope.getReserveRecords();
 
-    
+
   });

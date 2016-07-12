@@ -1,4 +1,4 @@
-<div class="col-xs-12 padding-r-0 padding-l-0 margin-l-40">
+<div class="col-xs-12 padding-l-0 padding-r-0 margin-l-45">
   <div class="form-horizontal">
     <div class="panel panel-default status" style="height:334px;">
       <div class="panel-heading ft-16 padding-tAb bg-white padding-l-30">
@@ -6,7 +6,7 @@
         <span class="ft-orange3 ft-14 border-orange margin-l-10 padding-5 padding-tb-3 margin-l-20">100元起投 100元递增</span>
         <!--<img src="images/zengliang_03.png" class="project-bianju pull-right">-->
       </div>
-      <div class="panel-body padding-l-45 padding-r-45">
+      <div class="panel-body padding-l-40 padding-r-40 " ng-class="{ 'padding-b-0': project.status === 6 && countdown >= 0 }">
         <div class="row">
           <div class="col-xs-12 negative-margin" ng-show="project.status !== 6 && project.status !== 11">
             <span class="pull-left ft-14 ft-grey666 margin-b-20">投资进度：</span>
@@ -37,7 +37,7 @@
         <!-- 倒计时展示 -->
         <div class="col-xs-12 padding-0" ng-show="project.status === 6 && countdown >= 0">
           <div class="row padding-t-0">
-            <div class="col-xs-11 project-timer countdown-background">
+            <div class="col-timer project-timer countdown-background height-timer">
               <p class="countdown-fontsize">开标倒计时：{{ project._timeDown.hour }}时，{{ project._timeDown.min }}分，{{ project._timeDown.seconds }}秒</p>
             </div>
           </div>
@@ -46,17 +46,17 @@
         <div ng-if="!isLogged">
           <!-- 未登录状态 可用余额展示-->
           <!-- 未登录状态 输入框及提示语展示 -->
-          <div class="col-xs-12 padding-0 margin-t-10">
+          <div class="col-xs-12 padding-0 margin-t-10" ng-class="{'margin-t-0':project.status ===6 && countdown >= 0}">
             <div class="margin-t-0">
               <input type="number" placeholder="请输入{{project.status === 11 ? '预约' : '投资'}}总额" disabled='disabled' class="form-control margin-b-20">
             </div>
 
 
-            <div class="positive-margin">
+            <div class="positive-margin1">
               <a ng-click="tologin()" class="btn btn-total-orange btn-lg btn-block"><i class="fa fa-user project-leftmargin"></i>请先登录</a>
             </div>
 
-            <div class="positive-margin text-center">
+            <div class="positive-margin1 text-center">
               <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
               <span class="spangray">请先登录，再进行{{project.status === 11 ? '预约' : '投资'}}</span>
             </div>
@@ -70,8 +70,9 @@
 <!--           <div class="col-xs-12 padding-0 positive-margin" >
             <span class="ft-14 ft-grey666">募资开始时间：{{project.releaseStartTime|date:"yyyy年MM月dd日 HH:mm"}}</span>
           </div> -->
-          <button class="col-xs-12 btn btn-total-orange btn-lg positive-margin1" disabled="disabled"><i class="fa fa-clock-o fa-lg project-leftmargin"></i>预发布</button>
-          <div class="positive-margin1 text-center"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i><span class="spangray">优质项目，敬请期待</span>
+          <button class="col-xs-12 btn btn-total-orange btn-lg" disabled="disabled"><i class="fa fa-clock-o fa-lg project-leftmargin"></i>预发布</button>
+          <div class="positive-margin1 text-center">
+            <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin positive-margin1"></i><span class="spangray">优质项目，敬请期待</span>
           </div>
         </div>
         </div>
@@ -127,16 +128,17 @@
 <!--                 <p class="text-center text text-danger invest_tip" ng-if="investForm.investAmount.$dirty && !investForm.investAmount.$focused">
                   <span ng-show="">输入金额格式不对，只能输入数字</span>
                 </p> -->
-                <input type="number" name="investAmount" ng-model="project.amount" class="form-control margin-b-20" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0" step="{{project.increaseAmount}}" min="{{project.increaseAmount}}" ng-switch-default>
+                <input type="number" name="investAmount" ng-model="project.amount" class="form-control margin-b-20" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0 || !newbieBiaoInvestFlag" step="{{project.increaseAmount}}" min="{{project.increaseAmount}}" ng-switch-default>
                 <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
-                <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toInvest(project)" ng-disabled="!project.amount" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
+                <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toInvest(project)" ng-disabled="!project.amount || !newbieBiaoInvestFlag" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
                 </button>
                 <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toRecharge()" ng-show="account.balance <= 0"><i class="fa"></i>请先充值
                 </button>
               </form>
               <div class="positive-margin1 text-center">
                 <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
-                <span class="spangray">优质项目，抓紧时间投资吧~~</span>
+                <span  ng-show="!newbieBiaoErrorMsg" class="spangray">优质项目，抓紧时间投资吧~~</span>
+                <span ng-show="newbieBiaoErrorMsg" class="spangray ft-red7">{{newbieBiaoErrorMsg}}</span>
               </div>
             </div>
           </div>

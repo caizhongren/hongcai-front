@@ -89,16 +89,21 @@ angular.module('hongcaiApp')
       $scope.listInvPond = [];
       var invDays, payDate, prevDate, invEarnings, profit;
       var invList = {};
+      var principal = 0;
       if (invCycle === 1) {
         invDays = moment(invEndDate).diff(moment(invInitDate), 'days', true);
         profit = invTotal * invRate * Math.round(invDays) / 365;
-        invEarnings = invTotal + invTotal * invRate * Math.round(invDays) / 365; //计算利率
+        // invEarnings = invTotal + invTotal * invRate * Math.round(invDays) / 365; //计算利率
+        invEarnings = invTotal * invRate * Math.round(invDays) / 365; //计算利率
+        principal = invTotal;
         invList = {
           'payDate': moment(invEndDate).format('YYYY-MM-DD'),
           'invEarnings': invEarnings,
           'invStatus': '0',
-          'profit' : profit
+          'profit' : profit,
+          'principal':principal
         };
+
         $scope.listInvPond.push(invList);
       } else {
         // var LastPayDate = moment(invStartDate).add((invCycle - 1), 'month').toString();
@@ -127,17 +132,22 @@ angular.module('hongcaiApp')
 
           invEarnings = invTotal * invRate * parseInt(invDays) / 365; //计算利率
           profit = invEarnings;
-          if (i === invCycle) {
-            invEarnings = invEarnings + invTotal;
-          }
+          // if (i === invCycle) {
+          //   invEarnings = invEarnings + invTotal;
+          // }
 
           prevDate = payDate;
+
+          if(i == invCycle){
+            principal = invTotal;
+          }
 
           invList = {
             'payDate': moment(payDate).format('YYYY-MM-DD'),
             'invEarnings': invEarnings,
             'invStatus': '0',
-            'profit': profit
+            'profit': profit,
+            'principal': principal
           };
           $scope.listInvPond.push(invList);
         }

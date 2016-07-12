@@ -12,15 +12,15 @@
       <img src="/images/index/project02.png" alt="" class="pull-right margin-r-5">
     </div>
     <div class="col-md-10 padding-r-0" ng-repeat="item in jigoubao | limitTo: 3">
-      <div class="row padding-30 border-b-grey5 padding-b-25">
+      <div class="row padding-30 border-b-grey5 padding-b-25 margin-r--10">
         <div class="col-md-4 ft-16 ft-grey1 padding-r-0 margin-t-15"><a ui-sref="root.project-details({number:item.number})">{{item.name}}</a></div>
         <div class="col-md-2 padding-l-0 margin-l--30 margin-t--8">
           <p class="ft-30 ft-orange margin-b-0">{{item.annualEarnings | number : 2}}<span class="ft-16">%</span></p>
           <p class="ft-14 ft-grey666">预期年化收益</p>
         </div>
         <div class="col-md-2" >
-          <p class="ft-24 ft-grey1 margin-b-0" ng-if="item.repaymentType < 2">{{item.cycle}}<span class="ft-16">个月</span></p>
-          <p class="ft-24 ft-grey1 margin-b-0" ng-if="item.repaymentType > 2">{{item.projectDays}}<span class="ft-16">天</span></p>
+          <!-- <p class="ft-24 ft-grey1 margin-b-0" ng-if="item.repaymentType < 2">{{item.cycle}}<span class="ft-16">个月</span></p> -->
+          <p class="ft-24 ft-grey1 margin-b-0">{{item.projectDays}}<span class="ft-16">天</span></p>
           <p class="ft-14 ft-grey666">投资期限</p>
         </div>
         <div class="col-md-2">
