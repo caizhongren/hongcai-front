@@ -12,9 +12,9 @@ angular.module('hongcaiApp')
       name: '投资返现最高688'
     },{
       mimeType: 'image/png',
-      src: 'images/banner/banner-10.png',
+      src: 'images/banner/banner-11.png',
       href: '/#!/register',
-      name: '注册拿150000元'
+      name: '注册拿8888元'
     },{
       mimeType: 'image/png',
       src: 'images/banner-new/banner01.png',
