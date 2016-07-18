@@ -52,7 +52,7 @@ angular.module('hongcaiApp')
           var interval = $interval(function() {
             for (var i = $scope.jigoubao.length - 1; i >= 0; i--) {
               $scope.jigoubao[i].countdown -= 1000;
-              if ($scope.jigoubao[i].countdown <= 0 && $scope.jigoubao[i].status == 2) {
+              if ($scope.jigoubao[i].countdown <= 0 && $scope.jigoubao[i].status == 6) {
                 $state.reload();
               }
 

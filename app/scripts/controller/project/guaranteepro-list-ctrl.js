@@ -80,7 +80,7 @@ angular.module('hongcaiApp')
               $scope.projectList[i].timeDownFun = function(item) {
                 $interval(function() {
                     item.countdown -= 1000;
-                    if (item.countdown <= 0 && item.status == 2) {
+                    if (item.countdown <= 0 && item.status == 6) {
                       $state.reload();
                     }
 
