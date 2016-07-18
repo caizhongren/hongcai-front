@@ -53,7 +53,7 @@ angular.module('hongcaiApp')
             for (var i = $scope.jigoubao.length - 1; i >= 0; i--) {
               $scope.jigoubao[i].countdown -= 1000;
               if ($scope.jigoubao[i].countdown <= 0 && $scope.jigoubao[i].status == 6) {
-                $state.reload();
+                $scope.jigoubao[i].status = 7;
               }
 
               $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
