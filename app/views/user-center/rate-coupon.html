@@ -59,7 +59,7 @@
               <p>(该加息券七日内过期)</p>
             </td>
             <td class="margin-b-0" ng-show="(coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) > 7">{{coupon.endTime | date:"yyyy-MM-dd"}}</td>
-            <td>适用于宏金保项目</td>
+            <td>适用于宏金保&ge;30天项目</td>
             <td>活动奖励</td>
             <td>
               <button class="orange-button" ui-sref="root.guaranteepro-list-query-no">立即使用</button>
@@ -112,5 +112,5 @@
       </ul>
     </div>
   </div>
-  
+
 </div>
