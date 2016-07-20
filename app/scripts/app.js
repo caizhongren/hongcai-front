@@ -1737,9 +1737,18 @@ hongcaiApp
       url: '/send-money?act&f',
       views: {
         '': {
-          templateUrl: 'views/coupon-landing.html',
+          templateUrl: 'views/send-money.html',
           controller: 'SendMoneyCtrl',
           controllerUrl: 'scripts/controller/activity/send-money-ctrl'
+        }
+      }
+    })
+    /*-------------- 送加息券活动落地页 -----------------------*/
+    .state('root.activity.coupon-landing', {
+      url: '/send-coupon?act&f',
+      views: {
+        '': {
+          templateUrl: 'views/coupon-landing.html',
         }
       }
     })

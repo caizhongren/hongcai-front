@@ -8,7 +8,7 @@ angular.module('hongcaiApp')
     $scope.media = [{
       mimeType: 'image/png',
       src: 'images/banner-new/banner06.jpg',
-      href: '/#!/activity/send-money',
+      href: '/#!/activity/send-coupon',
       name: '投资送加息券'
     },{
       mimeType: 'image/png',
