@@ -11,8 +11,8 @@ angular.module('hongcaiApp')
       // console.log(response);
       if (response.ret === 1) {
         $scope.availableCash = response.data.availableCash;
-        var cash = $scope.availableCash.toString();
-        cash = cash.substring(0, cash.lastIndexOf('.') + 3);
+        var cash = Math.floor($scope.availableCash * 100)/100;
+
         $scope.cardStatus = response.data.cardStatus;
         $scope.availableCashRealNo = cash >= 2 ? cash - 2 : 0;
       } else {
