@@ -897,7 +897,7 @@ hongcaiApp
      * tab表示用户登录前的位置
      */
     .state('root.current-deposit-details', {
-      url: '/current-deposit/:number?tab', 
+      url: '/current-deposit/:number?tab',
       views: {
         '': {
           templateUrl: 'views/project/current-deposit-details.html',
@@ -912,7 +912,7 @@ hongcaiApp
      * tab表示用户登录前的位置
      */
     .state('root.investmentplan-details', {
-      url: '/investmentplan/:number?tab', 
+      url: '/investmentplan/:number?tab',
       views: {
         '': {
           templateUrl: 'views/project/investmentplan-details.html',
@@ -1042,7 +1042,7 @@ hongcaiApp
 
 
       /**
-       * ********************* 关于我们 20160621 *********************** 
+       * ********************* 关于我们 20160621 ***********************
        */
       .state('root.us', {
         abstract: true,
@@ -1743,6 +1743,15 @@ hongcaiApp
         }
       }
     })
+    /*-------------- 送加息券活动落地页 -----------------------*/
+    .state('root.activity.coupon-landing', {
+      url: '/send-coupon?act&f',
+      views: {
+        '': {
+          templateUrl: 'views/coupon-landing.html',
+        }
+      }
+    })
     /**
      * 父亲节活动页
      */
@@ -1875,7 +1884,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     'novice-guide',
     'register'
   ];
-  
+
   /**
    * 不需要显示header的path
    */
@@ -1973,14 +1982,14 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       ipCookie('utm_from', $rootScope.channelCode, {
         expires: 1,
         path: '/'
-      });   
+      });
     }
 
     if ($rootScope.act) {
       ipCookie('act', $rootScope.act, {
         expires: 1,
         path: '/'
-      });   
+      });
     }
 
     var showFlag1 = [

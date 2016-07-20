@@ -21,7 +21,6 @@
               <th class="border-right1 border-left2" width="188px">赠送现金</th>
               <th class="border-right1" width="188px">单笔投资</th>
               <th class="border-right2" width="188px">投资期限</th>
-              <!-- <th>推荐项目</th> -->
             </tr>
           </thead>
           <tbody>
@@ -29,37 +28,31 @@
               <td class="col0-ft-red1 boder-l2" ui-sref="root.guaranteepro-list-query-no">10元</td>
               <td class="border-left2">&ge;500元</td>
               <td class="border-r2">&ge;30天</td>
-              <!-- <td>宏金宝</td> -->
             </tr>
             <tr>
               <td class="col0-ft-red1 boder-l2" ui-sref="root.guaranteepro-list-query-no">35元</td>
               <td class="border-left2">&ge;2000元</td>
               <td class="border-r2">&ge;30天</td>
-              <!-- <td>月月盈</td> -->
             </tr>
             <tr>
               <td class="col0-ft-red1 boder-l2" ui-sref="root.guaranteepro-list-query-no">40元</td>
               <td class="border-left2">&ge;5000元</td>
               <td class="border-r2">&ge;30天</td>
-              <!-- <td>宏金宝</td> -->
             </tr>
             <tr>
               <td class="col0-ft-red1 boder-l2" ui-sref="root.guaranteepro-list-query-no">80元</td>
               <td class="border-left2">&ge;10000元</td>
               <td class="border-r2">&ge;30天</td>
-              <!-- <td>宏金宝</td> -->
             </tr>
             <tr>
               <td class="col0-ft-red1 boder-l2" ui-sref="root.guaranteepro-list-query-no">135元</td>
               <td class="border-left2">&ge;30000元</td>
               <td class="border-r2">&ge;30天</td>
-              <!-- <td>宏金宝</td> -->
             </tr>
             <tr>
               <td class="col0-ft-red1 boder-l2 border-b2" ui-sref="root.guaranteepro-list-query-no">388元</td>
               <td class="border-left1 border-b2">&ge;100000元</td>
               <td class="border-b1 border-r2 border-b2">&ge;30天</td>
-              <!-- <td>宏金宝</td> -->
             </tr>
           </tbody>
         </table>
@@ -71,54 +64,38 @@
             <tr>
               <th class="border-left2" width="188px">账户名</th>
               <th class="border-right2" width="188px">获得现金</th>
-              <!-- <th>项目期限</th> -->
-              <!-- <th>推荐项目</th> -->
             </tr>
           </thead>
           <tbody ng-show="!rankList || rankList.length == 0">
             <tr>
               <td class="border-right0 boder-l2">181****2851</td>
               <td class="col0-ft-red border-r2">￥135</td>
-              <!-- <td>&ge; 90天</td> -->
-              <!-- <td>宏金宝</td> -->
             </tr>
             <tr>
               <td class="border-right0 boder-l2" width="188px">177****2374</td>
               <td class="col0-ft-red border-r2">￥15</td>
-              <!-- <td>&ge; 30天</td> -->
-              <!-- <td>月月盈</td> -->
             </tr>
             <tr>
               <td class="boder-l2">187****3747</td>
               <td class="col0-ft-red border-r2">￥80</td>
-              <!-- <td>&ge; 90天</td> -->
-              <!-- <td>宏金宝</td> -->
             </tr>
             <tr>
               <td class=" boder-l2">187****4689</td>
               <td class="col0-ft-red border-r2">￥55</td>
-              <!-- <td>&ge; 90天</td> -->
-              <!-- <td>宏金宝</td> -->
             </tr>
             <tr>
               <td class=" boder-l2">187****4659</td>
               <td class="col0-ft-red border-r2">￥15</td>
-              <!-- <td>&ge; 90天</td> -->
-              <!-- <td>宏金宝</td> -->
             </tr>
             <tr>
               <td class=" boder-l2 border-b2">187****4659</td>
               <td class="col0-ft-red border-b2 border-r2">￥15</td>
-              <!-- <td>&ge; 90天</td> -->
-              <!-- <td>宏金宝</td> -->
             </tr>
           </tbody>
           <tbody ng-show="rankList && rankList.length > 0">
             <tr ng-repeat="rank in rankList  | limitTo: 6">
               <td class=" boder-l2 border-b2">{{rank.mobile}}</td>
               <td class="col0-ft-red border-b2 border-r2">￥{{rank.amount}}</td>
-              <!-- <td>&ge; 90天</td> -->
-              <!-- <td>宏金宝</td> -->
             </tr>
           </tbody>
         </table>
@@ -128,44 +105,25 @@
           <img src="/images/activity/send-money-invest1.png" alt="" ui-sref="root.guaranteepro-list-query-no">
         </div>
     <!-- 投资返现活动细则 -->
-      <div class="invite-connent1">
-      <span class="rule-line line-l"></span>
-      <p class="ft-20 ft-white4 ftw-b text-center">投资返现活动细则 <i class="fa fa-angle-double-down"></i></p>
-      <span class="rule-line line-r"></span>
-      </div>
-      <div class="send-money-rules">
-      <!-- <p>活动时间：2016年6月14日——2016年7月4日。</p> -->
-      <!-- <p>参与用户：宏财网所有用户均可参与。</p> -->
-      <!-- <p>使用规则：</p> -->
-      <div class="row padd">
-        <!-- <div class="col-md-1"><span>&nbsp;&nbsp;&nbsp;&nbsp;1、</span></div> -->
-        <div class="col-md-11"><p>活动规则：&nbsp;&nbsp;&nbsp;1、宏财网所有用户均可参与。</p></div>
-      </div>
-      <div class="row padd">
-        <!-- <div class="col-md-1"><span>&nbsp;  &nbsp;2、</span></div> -->
-        <div class="col-md-11 margin-l-105"><p>2、活动期间内，每档投资只返现1次。单笔投资首次达到对应额度时，赠送对应现金和一张2%加息券。</p></div>
-      </div>
-      <div class="row padd">
-        <!-- <div class="col-md-1"><span>&nbsp;  &nbsp;3、</span></div> -->
-        <div class="col-md-11 margin-l-105"><p>3、每个账号每天只返现1次。连续投资只对第1次满足条件的投资进行返现。</p></div>
-      </div>
-      <div class="row padd">
-        <!-- <div class="col-md-1"><span>&nbsp;  &nbsp;3、</span></div> -->
-        <div class="col-md-11 margin-l-105"><p>4、参加过宏财投资返现活动的用户，请选择其他档投资，依然可获奖金。</p></div>
-      </div>
-      <!-- <p>客服热线：400-990-7626。本活动最终解释权归宏财网所有。</p> -->
-      <!-- <div class="row padd">
-        <div class="col-md-1"><span>&nbsp;  &nbsp;4、</span></div>
-        <div class="col-md-10 margin-l-10"><p>每档投资对应的现金，只限活动期间首次投资该档时赠送。可选不同额度投资，分别获取对应现金。</p></div>
-      </div>
-      <p>&nbsp; &nbsp;1、新用户注册即送1280元现金,老用户(已注册用户)登录即送1280元现金。</p>
-      <p>&nbsp; &nbsp;2、每档额度赠送的现金,投资后立即充值到账,可随时提现或投资。</p>
-      <p>&nbsp; &nbsp;3、每档投资对应的现金,只限活动期间首次投资该档时赠送。可选不同额度投资,分别获取对应现金。</p>
-      <p>&nbsp; &nbsp;4、每档投资对应的现金,只限活动期间内单笔投资达到对应额度时赠送。</p>
-      <p>&nbsp; &nbsp;5、活动最终解释权归宏财网所有。</p>
-      <p>&nbsp; &nbsp;6、联系电话：400-990-7627。</p><br><br>-->
-      </div>
-
+        <div class="invite-connent1">
+          <span class="rule-line line-l"></span>
+          <p class="ft-20 ft-white4 ftw-b text-center">投资返现活动细则 <i class="fa fa-angle-double-down"></i></p>
+          <span class="rule-line line-r"></span>
+        </div>
+        <div class="send-money-rules">
+          <div class="row padd">
+            <div class="col-md-11"><p>活动规则：&nbsp;&nbsp;&nbsp;1、宏财网所有用户均可参与。</p></div>
+          </div>
+          <div class="row padd">
+            <div class="col-md-11 margin-l-105"><p>2、活动期间内，每档投资只返现1次。单笔投资首次达到对应额度时，赠送对应现金和一张2%加息券。</p></div>
+          </div>
+          <div class="row padd">
+            <div class="col-md-11 margin-l-105"><p>3、每个账号每天只返现1次。连续投资只对第1次满足条件的投资进行返现。</p></div>
+          </div>
+          <div class="row padd">
+            <div class="col-md-11 margin-l-105"><p>4、参加过宏财投资返现活动的用户，请选择其他档投资，依然可获奖金。</p></div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- 加息券部分 -->
@@ -231,15 +189,12 @@
         </div>
         <div class="rate-increase-rules">
           <div class="row padd">
-            <!-- <div class="col-md-1"><span>&nbsp;&nbsp;&nbsp;&nbsp;1、</span></div> -->
             <div class="col-md-11"><p>使用规则：&nbsp;&nbsp;&nbsp;1、加息券有效期15天；</p></div>
           </div>
           <div class="row padd">
-            <!-- <div class="col-md-1"><span>&nbsp;  &nbsp;2、</span></div> -->
             <div class="col-md-11 margin-l-105"><p>2、每次投资最多限使用一张加息券，当次投资加息2%；</p></div>
           </div>
           <div class="row padd">
-            <!-- <div class="col-md-1"><span>&nbsp;  &nbsp;3、</span></div> -->
             <div class="col-md-11 margin-l-105"><p>3、现金奖励和加息券额外收益请在“<span class="ft-red ft-bold">我的账户—资金信息—资金流水</span>”中查看。</p></div>
           </div>
         </div>
@@ -298,7 +253,6 @@
           </ul>
         </div>
         <div class="text-center ft-18 ft-white">
-          <!-- <p>本活动最终解释权归宏财网所有 &nbsp;服务热线：400-990-7626&nbsp; 北京竞财投资服务有限公司 &nbsp;京ICP备15025477号-1</p> -->
           <p>本活动最终解释权归宏财网所有 &nbsp;服务热线：400-990-7626</p>
           <p class="ft-16">北京竞财投资服务有限公司 &nbsp;京ICP备15025477号-1</p>
         </div>

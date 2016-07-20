@@ -7,9 +7,9 @@ angular.module('hongcaiApp')
 
     $scope.media = [{
       mimeType: 'image/png',
-      src: 'images/banner/banner12.jpg',
-      href: '/#!/activity/send-money',
-      name: '投资返现最高688'
+      src: 'images/banner-new/banner06.jpg',
+      href: '/#!/activity/send-coupon',
+      name: '投资送加息券'
     },{
       mimeType: 'image/png',
       src: 'images/banner/banner-11.png',
@@ -24,29 +24,7 @@ angular.module('hongcaiApp')
       src: 'images/banner-new/banner05.png',
       href: 'http://www.hongcai.com/#!/us/hongcai-trends/491',
       name: '新三板金控第一股严选项目'
-    }, /* {
-      mimeType: 'image/png',
-      src: 'images/banner-new/banner03.png',
-      href: 'http://mp.weixin.qq.com/s?__biz=MzA5Nzg0MzA5OQ==&mid=400520084&idx=1&sn=972091ed5d1ebceb6a96a0067cbb1294#rd',
-      name: '领现金最高50元'
-    }, {
-      mimeType: 'image/png',
-      src: 'images/banner-new/banner04.png',
-      href: '/activity/invite',
-      name: '邀好友注册、领150元现金'
-
-    }, {
-      mimeType: 'image/jpg',
-      src: 'images/banner/banner002.jpg',
-      href: '/consultant-team',
-      name: '专业权威专家团队'
-    }, {
-      mimeType: 'image/jpg',
-      src: 'images/banner/banner005.jpg',
-      href: '/safe',
-      name: '安全保障'
-    }*/];
-
+    }]
 
     $scope.slickConfig = {
       dots: true,
