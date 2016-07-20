@@ -90,42 +90,7 @@ angular.module('hongcaiApp')
     $scope.getProfitList = function() {
       $scope.showFlag = 2;
 
-
     };
-
-    // 债券转让
-    // FIX
-    /*$scope.getCreditList = function() {
-      $scope.showFlag = 3;
-      CreditService.getCreditAssignmentList.get({
-        minTransferAmount: $stateParams.minTransferAmount,
-        maxTransferAmount: $stateParams.maxTransferAmount,
-        minCycle: $stateParams.minCycle,
-        maxCycle: $stateParams.maxCycle,
-        minEarning: $stateParams.minEarning,
-        maxEarning: $stateParams.maxEarning,
-        minTotalAmount: $stateParams.minTotalAmount,
-        maxTotalAmount: $stateParams.maxTotalAmount,
-        sortCondition: $stateParams.sortCondition,
-        sortType: $stateParams.sortType
-      }, function(response) {
-        if (response.ret === 1) {
-          $scope.assignmentList = response.data.assignmentList;
-          $scope.pageCount = response.data.pageCount;
-          $scope.dataSize = response.data.count;
-          $scope.currentPage = 0;
-          $scope.pageSize = 8;
-          $scope.data = [];
-          $scope.numberOfPages = function() {
-            return Math.ceil($scope.data.length / $scope.pageSize);
-          };
-          for (var i = 0; i < $scope.assignmentList.length; i++) {
-            $scope.data.push($scope.assignmentList[i]);
-          }
-        }
-      });
-    };*/
-
     $scope.timeUntil = function(stDate) {
       var collectTime = {};
       stDate = stDate - $scope.counter;

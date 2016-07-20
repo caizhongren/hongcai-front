@@ -1,16 +1,10 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', function($scope, $state, $interval, $stateParams, $rootScope, $location, MainService, AboutUsService, ProjectService, FriendLinkService, $alert, $timeout, DateUtils, toaster, projectStatusMap) {
+  .controller('MainCtrl', function($scope, $state, $rootScope, $location, MainService, AboutUsService, ProjectService, ProjectUtils, FriendLinkService, DateUtils, toaster, projectStatusMap) {
     $scope.spCountDown = -1;
 
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
     $scope.projectStatusMap = projectStatusMap;
-
-    $scope.coloursList = ['#fd8f3f', '#c0c0c0'];
-    $scope.chartOptions = {
-      lineWidth:100,
-      percentageInnerCutout:75
-    };
     /**
      * 机构保列表
      */
@@ -30,8 +24,10 @@ angular.module('hongcaiApp')
         pageSize: 3,
         categoryCode: "01"
       }, function(response) {
-        if (response.ret === 1) {
-          $scope.orderProp = 'id';
+        if (response.ret === -1 || !response) {
+          $scope.data = [];
+          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+        }
           $scope.currentPage = 0;
           $scope.pageSize = 5;
           $scope.serverTime = response.data.serverTime;
@@ -43,55 +39,22 @@ angular.module('hongcaiApp')
             return Math.ceil($scope.data.length / $scope.pageSize);
           };
           for (var i = 0; i < $scope.jigoubao.length; i++) {
-            $scope.jigoubao[i].countdown = new Date($scope.jigoubao[i].releaseStartTime).getTime() - $scope.serverTime;
-            $scope.jigoubao[i].showByStatus = $scope.jigoubao[i].status === 6 || $scope.jigoubao[i].status === 7 ? true : false;
-            $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
+            ProjectUtils.projectTimedown($scope.jigoubao[i],$scope.serverTime);
             $scope.data.push($scope.jigoubao[i]);
           }
-
-          var interval = $interval(function() {
-            for (var i = $scope.jigoubao.length - 1; i >= 0; i--) {
-              $scope.jigoubao[i].countdown -= 1000;
-              if ($scope.jigoubao[i].countdown <= 0 && $scope.jigoubao[i].status == 6) {
-                $scope.jigoubao[i].status = 7;
-              }
-
-              $scope.jigoubao[i]._timeDown = DateUtils.toHourMinSeconds($scope.jigoubao[i].countdown);
-            };
-          }, 1000);
-          $scope.$on('$stateChangeStart', function() {
-            clearInterval(interval);
-          });
-        } else {
-          $scope.data = [];
-          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
-          //console.log('ask project-list, why projectList did not load data...');
-        }
       });
     };
 
     $scope.jigoubaoList();
 
+/*新手标*/
     ProjectService.newbieBiaoProject.get({}, function(response){
       if(response.ret === -1){
           return;
         }
-
         $scope.newbieBiaoProject = response;
-        $scope.newbieBiaoProject.countdown = new Date($scope.newbieBiaoProject.releaseStartTime).getTime() - $scope.serverTime;
-        $scope.newbieBiaoProject.showByStatus = $scope.newbieBiaoProject.status === 6 || $scope.newbieBiaoProject.status === 7 ? true : false;
-        $scope.newbieBiaoProject._timeDown = DateUtils.toHourMinSeconds($scope.newbieBiaoProject.countdown);
-        var interval1 = $interval(function(){
-          $scope.newbieBiaoProject.countdown -= 1000;
-          if ($scope.newbieBiaoProject.countdown <= 0 && $scope.newbieBiaoProject.status == 2) {
-            $state.reload();
-          }
-          $scope.newbieBiaoProject._timeDown = DateUtils.toHourMinSeconds($scope.newbieBiaoProject.countdown);
-        },1000);
-
-        $scope.$on('$stateChangeStart', function() {
-          clearInterval(interval1);
-        });
+        var serverTime =  response.createTime || (new Date().getTime());
+        ProjectUtils.projectTimedown($scope.newbieBiaoProject, serverTime);
     });
 
 
@@ -149,8 +112,6 @@ angular.module('hongcaiApp')
       }
     });
 
-
-
     $rootScope.selectPage = $location.path().split('/')[1];
 
 
@@ -176,7 +137,6 @@ angular.module('hongcaiApp')
      */
     ProjectService.getExperienceProjectDetail.get({}, function(projectDetails) {
       if (projectDetails.ret === 1) {
-        // $scope.project = projectDetails.data.project;
         $scope.experienceInvestCount = projectDetails.data.investCount;
       }
     });
@@ -189,7 +149,6 @@ angular.module('hongcaiApp')
         from: $rootScope.channelCode
       });
     }
-
 
   })
 .config(['ChartJsProvider', function (ChartJsProvider) {

@@ -1,7 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, DateUtils, AboutUsService, projectStatusMap) {
-    // $rootScope.redirectUrl = $location.path();
+  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, DateUtils, AboutUsService, projectStatusMap) {
     $scope.chk = true;
     $scope.checkFlag = true;
     $scope.check = function(val) {
@@ -17,25 +16,11 @@ angular.module('hongcaiApp')
       }, function() {
         if (projectDetails.ret === 1) {
           $rootScope.pageTitle = projectDetails.data.project.name + ' - 要理财，上宏财!';
-
           $scope.project = projectDetails.data.project;
           $scope.repaymentTypeMap = projectDetails.data.repaymentTypeMap;
-          $scope.countdown = projectDetails.data.countDownTime;
-          $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
-
-          var interval = $interval(function(){
-            $scope.countdown -= 1000;
-            if ($scope.countdown <= 0 && $scope.project.status == 6){
-              $state.reload();
-            }
-            $scope.project._timeDown = DateUtils.toHourMinSeconds($scope.countdown);
-          }, 1000);
-
-
-          $scope.$on('$stateChangeStart', function() {
-            $interval.cancel(interval);
-          });
-
+          /*预发布状态倒计时*/
+          var serverTime = $scope.project.createTime || (new Date().getTime());
+          ProjectUtils.projectTimedown($scope.project,serverTime);
           $scope.categoryCode = projectDetails.data.category.code;
 
           if($scope.categoryCode === '0112'){
@@ -217,8 +202,6 @@ angular.module('hongcaiApp')
         }
       });
     };
-
-
 
     /**
      * 获取预约收益
@@ -420,11 +403,6 @@ angular.module('hongcaiApp')
       // url: 'two.tpl.html'
     }];
 
-    /*$scope.switchTab = function(tabIndex) {
-      $scope.activeTab = tabIndex;
-      // $scope.currentTab = tab.url;
-    };*/
-
     $scope.toggle = {};
     $scope.toggle.switchTab = function(tabIndex) {
       $scope.toggle.activeTab = tabIndex;
@@ -433,22 +411,11 @@ angular.module('hongcaiApp')
 
     $scope.toggle.switchTabRight = function(tabIndexRight) {
       $scope.toggle.activeTabRight = tabIndexRight;
-      // $scope.currentTab = tab.url;
     };
 
     $scope.toggle.switchTabRightReserve = function(tabIndexRightReserve) {
       $scope.toggle.activeTabRightReserve = tabIndexRightReserve;
     };
-
-    // $scope.currentTab = 'one.tpl.html';
-
-    // $scope.onClickTab = function (tab) {
-    //     $scope.currentTab = tab.url;
-    // }
-
-    // $scope.isActiveTab = function(tabUrl) {
-    //     return tabUrl == $scope.currentTab;
-    // }
 
     $scope.image = 'images/test/0.png';
     var myOtherModal = $modal({
