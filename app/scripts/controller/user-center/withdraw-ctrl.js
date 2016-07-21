@@ -16,7 +16,7 @@ angular.module('hongcaiApp')
         $scope.cardStatus = response.data.cardStatus;
         $scope.availableCashRealNo = cash >= 2 ? cash - 2 : 0;
       } else {
-        console.log('ask withdraw, why getUserAvailableCash did not load data...');
+        //console.log('ask withdraw, why getUserAvailableCash did not load data...');
       }
     });
     

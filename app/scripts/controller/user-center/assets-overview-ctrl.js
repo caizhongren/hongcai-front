@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .controller('AssetsOverviewCtrl', function($scope, $state, $rootScope, $stateParams, UserCenterService) {
 
      $scope.onClick = function (points, evt) {
-       console.log(points, evt);
+      //console.log(points, evt);
      };
 
     $scope.options = {
@@ -19,7 +19,7 @@ angular.module('hongcaiApp')
         $scope.account = response.data.account;
 
       } else {
-        console.log('ask assets-overview, why getUserAccount did not load data...');
+        //console.log('ask assets-overview, why getUserAccount did not load data...');
         $state.go('root.login');
       }
     });

@@ -43,7 +43,7 @@ angular.module('hongcaiApp')
             $scope.statistics = response.data.statistics;
             $scope.statusMap = response.data.statusMap;
         } else {
-          console.log('ask reservation, why getUserReserveRecords did not load data...');
+          //console.log('ask reservation, why getUserReserveRecords did not load data...');
         }
       });
     };

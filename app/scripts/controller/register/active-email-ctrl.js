@@ -6,7 +6,7 @@ angular.module('hongcaiApp')
         etoken: $stateParams.etoken
       }, function(response) {
         if (response.ret === 1) {
-          console.log('active success');
+          //console.log('active success');
         } else {
           toaster.pop('warning', '提示', response.msg);
         }

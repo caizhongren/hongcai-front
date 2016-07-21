@@ -1976,7 +1976,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
     $rootScope.act = $state.params.act;
     $rootScope.channelCode = $state.params.f;
-    console.log(ipCookie());
+    // console.log(ipCookie());
 
     if ($rootScope.channelCode) {
       ipCookie('utm_from', $rootScope.channelCode, {
