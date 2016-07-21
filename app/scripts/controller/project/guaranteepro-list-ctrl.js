@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GuaranteeproListCtrl', function($scope, $interval, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils, projectStatusMap) {
+  .controller('GuaranteeproListCtrl', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils, projectStatusMap) {
     $rootScope.pageTitle = '宏金宝 - 要理财，上宏财!';
     $scope.sortType = $stateParams.sortType || false;
     $scope.showFlag = $stateParams.showFlag || 0;
@@ -48,7 +48,11 @@ angular.module('hongcaiApp')
         page: page,
         pageSize: pageSize
       }, function(response) {
-        if (response.ret === 1) {
+        if (response.ret === -1 || !response) {
+          $scope.data = [];
+          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+          console.log('ask project-list, why projectList did not load data...');
+        }
           $scope.serverTime = response.data.serverTime;
           $scope.projectList = response.data.projectList;
           $scope.baseFileUrl = response.data.baseFileUrl;
@@ -63,61 +67,26 @@ angular.module('hongcaiApp')
           $scope.maxTotalAmount = $stateParams.maxTotalAmount;
           $scope.sortCondition = $stateParams.sortCondition;
           $scope.orderProp = 'id';
-          // $scope.currentPage = page;
-          // $scope.pageSize = pageSize;
           $scope.data = [];
           $scope.numberOfPages = function(){
-            return $scope.pageCount;
+          return $scope.pageCount;
           }
           for (var i = 0; i < $scope.projectList.length; i++) {
             $scope.projectList[i].progress = ($scope.projectList[i].soldStock + $scope.projectList[i].occupancyStock) * 100 / $scope.projectList[i].countInvest;
-            // $scope.projectList[i].countdown = ($scope.projectList[i].releaseStartTime - $scope.serverTime) / 1000 + 2;
-            $scope.projectList[i].countdown = new Date($scope.projectList[i].releaseStartTime).getTime() - $scope.serverTime;
-            $scope.projectList[i]._timeDown = DateUtils.toHourMinSeconds($scope.projectList[i].countdown);
             $scope.projectList[i].showByStatus = $scope.projectList[i].status === 6 || $scope.projectList[i].status === 7 ? true : false;
-
-            if ($scope.projectList[i].status === 6){
-              $scope.projectList[i].timeDownFun = function(item) {
-                $interval(function() {
-                    item.countdown -= 1000;
-                    if (item.countdown <= 0 && item.status == 6) {
-                      item.status = 7;
-                    }
-
-                    item._timeDown =  DateUtils.toHourMinSeconds(item.countdown);
-                }, 1000);
-              }
-              $scope.projectList[i].timeDownFun($scope.projectList[i]);
-            }
-
-
             $scope.data.push($scope.projectList[i]);
-
           }
-
-
-          $scope.$on('$stateChangeStart', function() {
-            clearInterval($interval);
-          });
-        } else {
-          $scope.data = [];
-          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
-          console.log('ask project-list, why projectList did not load data...');
-        }
       });
-    };
-
+    $scope.getProjectList(1, $scope.pageSize);
 
     $scope.page = function(page){
       if ($scope.currentPage !== page){
         $scope.getProjectList(page, $scope.pageSize);
       }
-      
     }
 
-
-    $scope.getProjectList(1, $scope.pageSize);
   })
+};
 
 .directive('projectPagination', function() {
   return {
