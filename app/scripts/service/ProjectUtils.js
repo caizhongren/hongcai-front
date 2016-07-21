@@ -2,7 +2,7 @@
 * @Author: fuqiang1
 * @Date:   2016-07-20 14:55:49
 * @Last Modified by:   fuqiang1
-* @Last Modified time: 2016-07-20 16:42:54
+* @Last Modified time: 2016-07-21 14:41:06
 */
 
 'use strict';
@@ -17,7 +17,7 @@ angular.module('hongcaiApp')
         return;
       }
 
-      project.countDown = project.releaseStartTime - serverTime || project.countDownTime;
+      project.countDown = project.releaseStartTime - serverTime;
       project._timeDown = DateUtils.toHourMinSeconds(project.countDown);
       project._interval = $interval(function() {
         project.countDown -= 1000;

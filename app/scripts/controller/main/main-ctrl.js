@@ -28,26 +28,28 @@ angular.module('hongcaiApp')
           $scope.data = [];
           toaster.pop('warning', '服务器正在努力的加载....请稍等。');
         }
-          $scope.currentPage = 0;
-          $scope.pageSize = 5;
-          $scope.serverTime = response.data.serverTime;
-          $scope.jigoubao = response.data.projectList;
-          $scope.repaymentTypeMap = response.data.repaymentTypeMap;
-          $scope.baseFileUrl = response.data.baseFileUrl;
-          $scope.data = [];
-          $scope.numberOfPages = function() {
-            return Math.ceil($scope.data.length / $scope.pageSize);
-          };
-          for (var i = 0; i < $scope.jigoubao.length; i++) {
-            ProjectUtils.projectTimedown($scope.jigoubao[i],$scope.serverTime);
-            $scope.data.push($scope.jigoubao[i]);
-          }
+        $scope.currentPage = 0;
+        $scope.pageSize = 5;
+        $scope.serverTime = response.data.serverTime;
+        $scope.jigoubao = response.data.projectList;
+        $scope.repaymentTypeMap = response.data.repaymentTypeMap;
+        $scope.baseFileUrl = response.data.baseFileUrl;
+        $scope.data = [];
+        $scope.numberOfPages = function() {
+          return Math.ceil($scope.data.length / $scope.pageSize);
+        };
+        for (var i = 0; i < $scope.jigoubao.length; i++) {
+          ProjectUtils.projectTimedown($scope.jigoubao[i],$scope.serverTime);
+          $scope.data.push($scope.jigoubao[i]);
+        }
       });
     };
 
     $scope.jigoubaoList();
 
-/*新手标*/
+    /**
+     * 新手标
+     */
     ProjectService.newbieBiaoProject.get({}, function(response){
       if(response.ret === -1){
           return;
@@ -55,21 +57,6 @@ angular.module('hongcaiApp')
         $scope.newbieBiaoProject = response;
         var serverTime =  response.createTime || (new Date().getTime());
         ProjectUtils.projectTimedown($scope.newbieBiaoProject, serverTime);
-    });
-
-
-
-    /**
-     * 宏金盈列表
-     */
-    MainService.getIndexFundsProductList.get({
-      types: "1"
-    }, function(response) {
-      if (response.ret === 1) {
-        $scope.fundsProjectStatusMap = response.data.fundsProjectStatusMap;
-        $scope.fundsProjectProductList = response.data.fundsProjectProductList;
-        $scope.lingcunbao = $scope.fundsProjectProductList[0];
-      }
     });
 
 
@@ -151,18 +138,3 @@ angular.module('hongcaiApp')
     }
 
   })
-.config(['ChartJsProvider', function (ChartJsProvider) {
-    ChartJsProvider.setOptions({
-      responsive: false,
-      scaleFontSize: 8,
-      tooltipXOffset: 10,
-      segmentStrokeWidth : 1,
-      scaleLineWidth:1,
-      datasetStrokeWidth: 1,
-      barStrokeWidth: 1,
-    });
-    ChartJsProvider.setOptions('Line', {
-      datasetFill: false,
-      datasetStrokeWidth: 1,
-    });
-  }]);

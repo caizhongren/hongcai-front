@@ -72,11 +72,9 @@ angular.module('hongcaiApp')
             $scope.projectList[i].showByStatus = $scope.projectList[i].status === 6 || $scope.projectList[i].status === 7 ? true : false;
             $scope.data.push($scope.projectList[i]);
           }
-
         } else {
           $scope.data = [];
           toaster.pop('warning', '服务器正在努力的加载....请稍等。');
-          //console.log('ask project-list, why projectList did not load data...');
         }
       });
     };

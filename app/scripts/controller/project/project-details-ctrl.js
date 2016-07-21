@@ -8,8 +8,10 @@ angular.module('hongcaiApp')
     };
 
     $scope.projectStatusMap = projectStatusMap;
-
     $scope.newbieBiaoInvestFlag = true;
+    /**
+    * 获取具体某项目
+    */
     $scope.getProjectDetails = function() {
       var projectDetails = ProjectService.projectDetails.get({
         number: $stateParams.number
@@ -18,13 +20,17 @@ angular.module('hongcaiApp')
           $rootScope.pageTitle = projectDetails.data.project.name + ' - 要理财，上宏财!';
           $scope.project = projectDetails.data.project;
           $scope.repaymentTypeMap = projectDetails.data.repaymentTypeMap;
-          /*预发布状态倒计时*/
-          var serverTime = $scope.project.createTime || (new Date().getTime());
+          /**
+           * 预发布倒计时
+           */
+          var serverTime = projectDetails.data.serverTime;
           ProjectUtils.projectTimedown($scope.project,serverTime);
           $scope.categoryCode = projectDetails.data.category.code;
 
           if($scope.categoryCode === '0112'){
-            //请求判断用户是否可以投资新手标
+            /**
+             * 请求判断用户是否可以投资新手标
+             */
             ProjectService.investNewbieBiaoProjectVerify.get({
               number : $stateParams.number
             }, function(response){
