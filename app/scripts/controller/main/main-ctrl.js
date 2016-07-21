@@ -39,7 +39,7 @@ angular.module('hongcaiApp')
           return Math.ceil($scope.data.length / $scope.pageSize);
         };
         for (var i = 0; i < $scope.jigoubao.length; i++) {
-          ProjectUtils.projectTimedown($scope.jigoubao[i],$scope.serverTime);
+          ProjectUtils.projectTimedown($scope.jigoubao[i], $scope.serverTime);
           $scope.data.push($scope.jigoubao[i]);
         }
       });
@@ -50,13 +50,13 @@ angular.module('hongcaiApp')
     /**
      * 新手标
      */
-    ProjectService.newbieBiaoProject.get({}, function(response){
-      if(response.ret === -1){
-          return;
-        }
-        $scope.newbieBiaoProject = response;
-        var serverTime =  response.createTime || (new Date().getTime());
-        ProjectUtils.projectTimedown($scope.newbieBiaoProject, serverTime);
+    ProjectService.newbieBiaoProject.get({}, function(response) {
+      if (response.ret === -1) {
+        return;
+      }
+      $scope.newbieBiaoProject = response;
+      var serverTime = response.createTime || (new Date().getTime());
+      ProjectUtils.projectTimedown($scope.newbieBiaoProject, serverTime);
     });
 
 
