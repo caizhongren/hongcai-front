@@ -1973,9 +1973,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
     $rootScope.firstPath = $location.path().split('/')[1];
     $rootScope.selectSide = $location.path().split('/')[2];
-
-    $rootScope.act = $state.params.act;
-    $rootScope.channelCode = $state.params.f;
+    $rootScope.act = $location.search().act;
+    $rootScope.channelCode = $location.search().f;
 
     if ($rootScope.channelCode) {
       ipCookie('utm_from', $rootScope.channelCode, {
