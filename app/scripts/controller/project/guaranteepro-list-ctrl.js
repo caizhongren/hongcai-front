@@ -48,11 +48,7 @@ angular.module('hongcaiApp')
         page: page,
         pageSize: pageSize
       }, function(response) {
-        if (response.ret === -1 || !response) {
-          $scope.data = [];
-          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
-          console.log('ask project-list, why projectList did not load data...');
-        }
+        if (response.ret === 1) {
           $scope.serverTime = response.data.serverTime;
           $scope.projectList = response.data.projectList;
           $scope.baseFileUrl = response.data.baseFileUrl;
@@ -69,24 +65,30 @@ angular.module('hongcaiApp')
           $scope.orderProp = 'id';
           $scope.data = [];
           $scope.numberOfPages = function(){
-          return $scope.pageCount;
+            return $scope.pageCount;
           }
           for (var i = 0; i < $scope.projectList.length; i++) {
             $scope.projectList[i].progress = ($scope.projectList[i].soldStock + $scope.projectList[i].occupancyStock) * 100 / $scope.projectList[i].countInvest;
             $scope.projectList[i].showByStatus = $scope.projectList[i].status === 6 || $scope.projectList[i].status === 7 ? true : false;
             $scope.data.push($scope.projectList[i]);
           }
+
+        } else {
+          $scope.data = [];
+          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+          console.log('ask project-list, why projectList did not load data...');
+        }
       });
-    $scope.getProjectList(1, $scope.pageSize);
+    };
+
 
     $scope.page = function(page){
       if ($scope.currentPage !== page){
         $scope.getProjectList(page, $scope.pageSize);
       }
     }
-
+    $scope.getProjectList(1, $scope.pageSize);
   })
-};
 
 .directive('projectPagination', function() {
   return {
