@@ -16,7 +16,7 @@ angular.module('hongcaiApp')
         }
 
       } else {
-        console.log('ask security-settings, why userSecurityInfo did not load data...');
+        //console.log('ask security-settings, why userSecurityInfo did not load data...');
       }
     });
 
@@ -26,9 +26,9 @@ angular.module('hongcaiApp')
         picCaptcha: picCaptcha
       }, function(response) {
         if (response.ret === 1) {
-          console.log('sendMobileCaptcha success');
+          //console.log('sendMobileCaptcha success');
         } else {
-          console.log('ask security-settings, why sendMobileCaptcha did not load data...');
+          //console.log('ask security-settings, why sendMobileCaptcha did not load data...');
         }
       });
     };
@@ -45,7 +45,7 @@ angular.module('hongcaiApp')
           $scope.inputCaptcha = null;
           $rootScope.securityStatus.mobileStatus = 1;
         } else {
-          console.log('ask security-settings, why bindMobile did not load data...');
+          //console.log('ask security-settings, why bindMobile did not load data...');
         }
       });
     };
@@ -66,7 +66,7 @@ angular.module('hongcaiApp')
           $scope.newEmail = null;
           $rootScope.securityStatus.emailStatus = 1;
         } else {
-          console.log('ask security-settings, why bindEmail did not load data...');
+          //console.log('ask security-settings, why bindEmail did not load data...');
         }
       });
     };
@@ -101,7 +101,7 @@ angular.module('hongcaiApp')
             $scope.isOldPasswordTrue = false;
           }
         } else {
-          console.log('ask security-settings, why changePassword did not load data...');
+          //console.log('ask security-settings, why changePassword did not load data...');
         }
       });
     };

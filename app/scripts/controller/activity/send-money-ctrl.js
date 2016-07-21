@@ -8,7 +8,7 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         $scope.rankList = response.data.ranks;
       } else {
-        console.log('ask invite-rebate, why getInviteList did not load data...');
+        //console.log('ask invite-rebate, why getInviteList did not load data...');
       }
     });
 

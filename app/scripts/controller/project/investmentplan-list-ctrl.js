@@ -11,7 +11,7 @@ angular.module('hongcaiApp')
         } else {
           toaster.pop('warning', '服务器正在努力的加载....请稍等。');
           if(console){
-            console.log('ask investmentplan-list, why getFundsProductIdList did not load data...');
+            //console.log('ask investmentplan-list, why getFundsProductIdList did not load data...');
           }
         }
       });

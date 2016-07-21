@@ -76,7 +76,7 @@ angular.module('hongcaiApp')
         } else {
           $scope.data = [];
           toaster.pop('warning', '服务器正在努力的加载....请稍等。');
-          console.log('ask project-list, why projectList did not load data...');
+          //console.log('ask project-list, why projectList did not load data...');
         }
       });
     };
