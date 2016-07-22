@@ -54,11 +54,11 @@
             <td>
               <div ng-class="{ 'bg-coupon-orange' : coupon.endTime-currentTime >= 0 , 'bg-coupon-grey' : coupon.endTime-currentTime < 0 }" class=" ft-white">+{{coupon.rate || 0}}%</div>
             </td>
-            <td class="ft-red6" ng-show="(coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) <= 7">
+            <td class="ft-red6" ng-show="coupon.endTime - currentTime >= 0 && (coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) <= 7 ">
               <p class="margin-b-0">{{coupon.endTime | date:"yyyy-MM-dd"}}</p>
               <p>(该加息券七日内过期)</p>
             </td>
-            <td class="margin-b-0" ng-show="(coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) > 7">{{coupon.endTime | date:"yyyy-MM-dd"}}</td>
+            <td class="margin-b-0" ng-show="coupon.endTime - currentTime < 0 || (coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) > 7">{{coupon.endTime | date:"yyyy-MM-dd"}}</td>
             <td>适用于宏金保&ge;30天项目</td>
             <td>活动奖励</td>
             <td>
