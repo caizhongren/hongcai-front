@@ -56,8 +56,8 @@ angular.module('hongcaiApp')
         return;
       }
       $scope.newbieBiaoProject = response;
-      var serverTime = response.createTime || (new Date().getTime());
-      ProjectUtils.projectTimedown($scope.newbieBiaoProject, serverTime);
+      // var serverTime = response.createTime || (new Date().getTime());
+      // ProjectUtils.projectTimedown($scope.newbieBiaoProject, serverTime);
     });
 
 
