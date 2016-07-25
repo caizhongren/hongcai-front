@@ -18,7 +18,7 @@
     <span ng-switch-when="message">站内消息</span>
   </span>
   <div>
-    <div class="warm-hint bg-offPink1 margin-t-20 margin-b-0 "ng-show="true">
+    <div class="warm-hint bg-offPink1 margin-t-20 margin-b-0 " ng-show="false">
       <p class="col-md-9 margin-b-0 ">
         温馨提示：宏财小红送您新手体验金红包
         <span>6000元</span>
@@ -118,10 +118,10 @@
       <button class="ftw-b {{userCenterPart == 4 ? 'bg-orange' : 'side-whitebg'}}">奖励信息</button>
     </div>
     <div>
-      <a ui-sref="root.userCenter.cash-coupon" class="tips-left-area {{selectSide == 'cash-coupon' ? 'bg-white' : ''}}">
+      <!-- <a ui-sref="root.userCenter.cash-coupon" class="tips-left-area {{selectSide == 'cash-coupon' ? 'bg-white' : ''}}">
         <span class="sidebar-pic margin-l-35"></span>
         <p class="{{selectSide == 'cash-coupon' ? 'now' : ''}} position margin-l--10 display-inbl">奖励信息</p>
-      </a>
+      </a> -->
       <a ui-sref="root.userCenter.experienceMoney" class="tips-left-area {{selectSide == 'experience-money' ? 'bg-white' : ''}}">
         <span class="sidebar-pic margin-l-35"></span>
         <p class="{{selectSide == 'experience-money' ? 'now' : ''}} position margin-l--10 display-inbl">体验金</p>
