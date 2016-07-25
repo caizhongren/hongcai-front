@@ -11,23 +11,12 @@
     <span ng-switch-when="credit">我的投资</span>
     <span ng-switch-when="investment">我的订单</span>
     <span ng-switch-when="reservation">预约记录</span>
-    <span ng-switch-when="cash-coupon">奖励信息</span>
+    <span ng-switch-when="cash-coupon">我的奖金</span>
     <span ng-switch-when="experience-money">体验金</span>
     <span ng-switch-when="rate-coupon">加息券</span>
     <span ng-switch-when="invite-rebate">邀请中心</span>
     <span ng-switch-when="message">站内消息</span>
   </span>
-  <div>
-    <div class="warm-hint bg-offPink1 margin-t-20 margin-b-0 "ng-show="true">
-      <p class="col-md-9 margin-b-0 ">
-        温馨提示：宏财小红送您新手体验金红包
-        <span>6000元</span>
-        已到账，如在活动期间参加点赞活动，绑定银行卡，即有更多好礼相送！
-      </p>
-      <p class="col-md-2">立即充值</p>
-      <i class="fa fa-times"></i>
-    </div>
-  </div>
 </div>
 
 <!--user-center-sidebar-->
@@ -120,7 +109,7 @@
     <div>
       <a ui-sref="root.userCenter.cash-coupon" class="tips-left-area {{selectSide == 'cash-coupon' ? 'bg-white' : ''}}">
         <span class="sidebar-pic margin-l-35"></span>
-        <p class="{{selectSide == 'cash-coupon' ? 'now' : ''}} position margin-l--10 display-inbl">奖励信息</p>
+        <p class="{{selectSide == 'cash-coupon' ? 'now' : ''}} position margin-l--10 display-inbl">我的奖金</p>
       </a>
       <a ui-sref="root.userCenter.experienceMoney" class="tips-left-area {{selectSide == 'experience-money' ? 'bg-white' : ''}}">
         <span class="sidebar-pic margin-l-35"></span>

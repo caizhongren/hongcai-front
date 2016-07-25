@@ -17,10 +17,7 @@
   margin-top: 20px;
   margin-bottom: 40px;
 }
-.warm-hint {
-  height: 63px;
-  line-height: 63px;
-}
+
 // account-overview && assets-overview
 .left-message-show {
   padding: 30px 20px;
@@ -1199,4 +1196,28 @@
   -moz-box-shadow:0 0 0 rgba(0,0,0,0) !important;
   -o-box-shadow:0 0 0 rgba(0,0,0,0) !important;
   -ms-box-shadow:0 0 0 rgba(0,0,0,0) !important;
+}
+// cash-coupon
+.cash-coupon {
+  .cash-state {
+    border-bottom: 1px solid #F9683C;
+    width: 93%;
+    .uc-bgorange {
+      background-color: #F9683C;
+      color: #fff;
+    }
+
+    .unused-cash, .used-cash {
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border-radius: 3px 3px 0px 0px;
+    }
+  }
+  .no-cash {
+    img{
+      margin: 45px 0 30px 0;
+    }
+  }
 }
