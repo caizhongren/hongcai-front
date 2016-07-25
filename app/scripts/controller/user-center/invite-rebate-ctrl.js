@@ -20,7 +20,7 @@ angular.module('hongcaiApp')
         $scope.inviteUrl = "http://www.hongcai.com/register?inviteCode=" + response.data.voucher.inviteCode;
 
       } else {
-        console.log('ask invite-rebate, why getInviteList did not load data...');
+        //console.log('ask invite-rebate, why getInviteList did not load data...');
       }
     });
 

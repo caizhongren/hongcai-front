@@ -25,7 +25,7 @@ angular.module('hongcaiApp')
           }
         }
       } else {
-        console.log('ask gift-overview, why getGiftListByUserId did not load data...');
+        //console.log('ask gift-overview, why getGiftListByUserId did not load data...');
       }
     });
 

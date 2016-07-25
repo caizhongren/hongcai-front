@@ -81,7 +81,7 @@ angular.module('hongcaiApp')
       $('#calculater .btn-default').css({
         'color': '#777'
       });
-      console.log($('#calculater .btn-default').length);
+      //console.log($('#calculater .btn-default').length);
     };
 
     $scope.capitalValueChange = function() {

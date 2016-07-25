@@ -30,7 +30,7 @@ angular.module('hongcaiApp')
             $scope.data.push($scope.orderList[i]);
           }
         } else {
-          console.log('ask gift-rebate, why getOrderByUser did not load data...');
+          //console.log('ask gift-rebate, why getOrderByUser did not load data...');
         }
       });
   }]);

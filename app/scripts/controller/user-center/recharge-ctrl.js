@@ -6,7 +6,7 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         $scope.balance = response.data.balance;
       } else {
-        console.log('ask recharge, why getUserBalance did not load data...');
+        //console.log('ask recharge, why getUserBalance did not load data...');
       }
     });
 

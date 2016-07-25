@@ -69,7 +69,7 @@ angular.module('hongcaiApp')
           _f.submit();
           $scope.openTrustReservation = true;
         } else {
-          console.log('ask security-settings, why authorizeAutoTransfer did not load data...');
+          //console.log('ask security-settings, why authorizeAutoTransfer did not load data...');
         }
       });
     }

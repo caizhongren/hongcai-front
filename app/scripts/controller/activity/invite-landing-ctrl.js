@@ -9,7 +9,7 @@ angular.module('hongcaiApp')
         $scope.voucher = response.data.voucher;
         $scope.inviteCode = response.data.voucher.inviteCode;
       } else {
-        console.log('ask invite-rebate, why getInviteList did not load data...');
+        //console.log('ask invite-rebate, why getInviteList did not load data...');
       }
     });
 

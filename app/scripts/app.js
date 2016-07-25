@@ -715,6 +715,23 @@ hongcaiApp
     })
 
     /**
+     * 我的奖金
+     */
+    .state('root.userCenter.cash-coupon', {
+      url: '/cash-coupon',
+      views: {
+        'user-center-right': {
+          templateUrl: 'views/user-center/cash-coupon.html',
+          controller: 'CashCouponCtrl',
+          controllerUrl: 'scripts/controller/user-center/cash-coupon-ctrl'
+        }
+      },
+      data: {
+        title: '我的奖金'
+      }
+    })
+
+    /**
      * 我的债权（个人中心）
      */
     .state('root.userCenter.credit', {
@@ -2008,6 +2025,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       'reservation'
     ];
     var showFlag4 = [
+      'cash-coupon',
       'experience-money',
       'rate-coupon',
       'invite-rebate'

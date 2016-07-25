@@ -1,8 +1,8 @@
-<!--加息券-->
+<!-- 我的奖金 -->
 <div class="right-area col-md-8 col-lg-9">
   <div class="currency-style">
     <div class="title">
-      <span class="tip">加息券</span>
+      <span class="tip">我的奖金</span>
     </div>
     <div class="main">
       <div class="padd">
@@ -10,22 +10,22 @@
           <div class="col-xs-4">
             <img src="/images/usermoney3.png" alt="" class="fl">
             <div class="record-text">
-              <p>未使用加息券</p>
-              <p><strong class="ft-red5 ft-24 margin-r-5">{{couponStatis.unUsedCoupon || 0}}</strong>张</p>
+              <p>可提奖金</p>
+              <p><strong class="ft-red5 ft-24 margin-r-5">2</strong>张</p>
             </div>
           </div>
           <div class="col-xs-4">
-            <img src="/images/usermoney2.png" alt="" class="fl margin-l-30">
+            <img src="/images/usermoney2.png" alt="" class="fl margin-l-20">
             <div class="record-text">
-              <p>已使用加息券</p>
-              <p><strong class="ft-red5 ft-24 margin-r-5">{{couponStatis.usedCoupon || 0}}</strong>张</p>
+              <p>已提奖金</p>
+              <p><strong class="ft-red5 ft-24 margin-r-5">3</strong>张</p>
             </div>
           </div>
           <div class="col-xs-4">
             <img src="/images/usermoney1.png" alt="" class="fl margin-l-30">
             <div class="record-text">
-              <p>累计加息</p>
-              <p><strong class="ft-red5 ft-24 margin-r-5">{{couponStatis.totalProfit | number : 2}}</strong>元</p>
+              <p>奖金提现规则</p>
+              <p></p>
             </div>
           </div>
         </div>
@@ -34,11 +34,11 @@
     </div>
     <div class="main padding-t-0 padding-l-15">
       <div class="fl col-md-12 ft-14 margin-l-13">
-        <div class="col-xs-1 padding-b-5 {{usedStatus === '1,3' ? 'credit-toggle' : ''}}" ng-click="loadCoupons(1, 5, '1,3')">未使用</div>
-        <div class="col-xs-1 padding-b-5 {{usedStatus === '2' ? 'credit-toggle' : ''}}" ng-click="loadCoupons(1, 5, '2')">已使用</div>
+        <div class="col-xs-1 padding-b-5 " ng-click="">未使用</div>
+        <div class="col-xs-1 padding-b-5 " ng-click="">已使用</div>
       </div>
-      <!-- 未使用加息券表格 -->
-      <table class="table table-dashed table-rate" ng-show="usedStatus === '1,3'">
+      <!-- 未使用现金券表格 -->
+      <table class="table table-dashed table-rate" >
         <thead>
           <tr style="background-color:#F2F2F2;">
             <th>类型/面额</th>

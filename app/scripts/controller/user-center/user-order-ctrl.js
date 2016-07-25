@@ -54,6 +54,10 @@ angular.module('hongcaiApp')
         }
 
       } else if (status >= 3 && status <= 6) {
+        if (!$window.confirm('确定下载合同?合同密码为您身份证号码后6位数字')) {
+          return;
+        }
+
         if (type !== 4) {
           OrderService.downloadContract.get({
             orderId: orderId,

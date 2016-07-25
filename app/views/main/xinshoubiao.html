@@ -7,8 +7,6 @@
       <p class="ft-18 padding-l-20 margin-b-0">投资有惊喜</p>
       <img src="/images/index/cut.png" alt="">
       <div class="ft-16 padding-l-20 margin-t-40 padding-b-21 ft-white1">
-        <!-- <p>投资当日计息</p>
-        <p>收益逐步递增</p> -->
         <p>新手专享投资</p>
         <p>特权加息项目</p>
       </div>
@@ -17,10 +15,8 @@
     </div>
     <div class="col-md-6 border-r-5 padding-b-46">
       <div class="ft-orange margin-t-50 margin-b-30 margin-l-24">
-        <!-- <span class="ftw-b ft-20">新手标</span> -->
         <span class="ft-20 ftw-b ft-black2">{{newbieBiaoProject.name}}期</span>
         <span class="ft-orange ft-14 border-orange margin-l-10 padding-5 padding-tb-3">100元起投</span>
-        <!-- <span class="ft-orange ft-14 border-orange margin-l-10 padding-5 padding-tb-3">最高限投1万元</span> -->
         <span class="ft-orange ft-14 border-orange margin-l-10 padding-5 padding-tb-3">无投资上限</span>
       </div>
       <div class="col-md-7 col-md-offset-4 padding-l-0">
@@ -34,7 +30,6 @@
         </div>
         <div class="row margin-t-10 margin-b-30">
           <div class="col-md-12 ft-14 ft-grey1 padding-l-20">投资期限:
-            <!-- <span class="ft-orange">{{ lingcunbao.product.sealingDays || 0}} </span>天&nbsp; &nbsp;可投金额: -->
             <span class="ft-orange">{{ newbieBiaoProject.projectDays || 0}} </span>天&nbsp; &nbsp;可投金额:
             <span class="ft-orange">{{ (newbieBiaoProject.total - (newbieBiaoProject.soldStock + newbieBiaoProject.occupancyStock) * newbieBiaoProject.increaseAmount) | noFractionCurrency:"":0 || 0}} </span>
             元

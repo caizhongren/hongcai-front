@@ -41,7 +41,7 @@ angular.module('hongcaiApp')
         $scope.msg = response.msg;
         $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
       } else {
-        console.log('ask withdraw, why yeepayWithdraw did not load data...');
+        //console.log('ask withdraw, why yeepayWithdraw did not load data...');
       }
     });
     
