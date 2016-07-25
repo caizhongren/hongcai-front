@@ -2,7 +2,7 @@
 angular.module('hongcaiApp')
   .controller('UserCenterCtrl', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
     $rootScope.selectPage = $location.path().split('/')[2];
-    
+
     var timestamp = new Date();
     var welcomeTime = timestamp.getHours();
     if (welcomeTime > 5 && welcomeTime < 9) {
@@ -22,15 +22,15 @@ angular.module('hongcaiApp')
       $('#capitalInfo').addClass('in');
     } else if (['credit', 'investment', 'reservation'].indexOf($rootScope.selectPage) !== -1){
       $('#investInfo').addClass('in');
-    } else if (['experienceMoney', 'rate-coupon', 'invite-rebate'].indexOf($rootScope.selectPage) !== -1){
+    } else if (['experienceMoney', 'rate-coupon', 'invite-rebate','cash-coupon'].indexOf($rootScope.selectPage) !== -1){
       $('#rewardInfo').addClass('in');
     } else if (['message'].indexOf($rootScope.selectPage) !== -1){
       $('#sysInfo').addClass('in');
     } else {
       $('#accountInfo').addClass('in');
     }
-    
 
-    
+
+
 
   });

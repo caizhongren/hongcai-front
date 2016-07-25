@@ -1,0 +1,116 @@
+<!-- 我的奖金 -->
+<div class="right-area col-md-8 col-lg-9">
+  <div class="currency-style">
+    <div class="title">
+      <span class="tip">我的奖金</span>
+    </div>
+    <div class="main">
+      <div class="padd">
+        <div class="col-md-11 bg-grey6 padding-40 margin-l-40 margin-t-20">
+          <div class="col-xs-4">
+            <img src="/images/usermoney3.png" alt="" class="fl">
+            <div class="record-text">
+              <p>可提奖金</p>
+              <p><strong class="ft-red5 ft-24 margin-r-5">2</strong>张</p>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <img src="/images/usermoney2.png" alt="" class="fl margin-l-20">
+            <div class="record-text">
+              <p>已提奖金</p>
+              <p><strong class="ft-red5 ft-24 margin-r-5">3</strong>张</p>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <img src="/images/usermoney1.png" alt="" class="fl margin-l-30">
+            <div class="record-text">
+              <p>奖金提现规则</p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1 row"></div>
+      </div>
+    </div>
+    <div class="main padding-t-0 padding-l-15">
+      <div class="fl col-md-12 ft-14 margin-l-13">
+        <div class="col-xs-1 padding-b-5 " ng-click="">未使用</div>
+        <div class="col-xs-1 padding-b-5 " ng-click="">已使用</div>
+      </div>
+      <!-- 未使用现金券表格 -->
+      <table class="table table-dashed table-rate" >
+        <thead>
+          <tr style="background-color:#F2F2F2;">
+            <th>类型/面额</th>
+            <th>过期时间</th>
+            <th>使用规则</th>
+            <th>来源</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 有加息券时  ng-show="couponStatis.coupons.length > 0" ng-repeat="coupon in couponStatis.coupons"  {{coupon.createTime | date : "yyyy-MM-dd"}} {{coupon.endTime | date : "yyyy-MM-dd"}}-->
+          <tr ng-repeat="coupon in datas | orderBy:-datas.endTime " ng-show="datas.length > 0">
+            <td>
+              <div ng-class="{ 'bg-coupon-orange' : coupon.endTime-currentTime >= 0 , 'bg-coupon-grey' : coupon.endTime-currentTime < 0 }" class=" ft-white">+{{coupon.rate || 0}}%</div>
+            </td>
+            <td class="ft-red6" ng-show="coupon.endTime - currentTime >= 0 && (coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) <= 7 ">
+              <p class="margin-b-0">{{coupon.endTime | date:"yyyy-MM-dd"}}</p>
+              <p>(该加息券七日内过期)</p>
+            </td>
+            <td class="margin-b-0" ng-show="coupon.endTime - currentTime < 0 || (coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) > 7">{{coupon.endTime | date:"yyyy-MM-dd"}}</td>
+            <td>适用于宏金保&ge;30天项目</td>
+            <td>活动奖励</td>
+            <td>
+              <button ng-if="coupon.endTime-currentTime >= 0" class="orange-button" ui-sref="root.guaranteepro-list-query-no">立即使用</button>
+              <button ng-if="coupon.endTime-currentTime < 0" class="grey-button border-0 no-boxshadow" ui-sref="root.guaranteepro-list-query-no">已过期</button>
+            </td>
+          </tr>
+          <tr ng-show="datas.length <= 0">
+            <td colspan="6">您没有可以使用的加息券</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- 已使用加息券表格 -->
+      <table class="table table-dashed table-rate2" ng-show="usedStatus === '2'">
+        <thead>
+          <tr class="bg-f2">
+            <th>类型/面额</th>
+            <th>使用时间</th>
+            <th>投资项目</th>
+            <th>投资金额(元)</th>
+            <th>加息收益(元)</th>
+            <!-- <th>状态</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 有加息券时  ng-show="couponStatis.coupons.length > 0" ng-repeat="coupon in couponStatis.coupons"  {{coupon.createTime | date : "yyyy-MM-dd"}} {{coupon.endTime | date : "yyyy-MM-dd"}}-->
+          <tr ng-repeat="coupon in datas" ng-show="datas.length > 0">
+            <td>
+              <div class="bg-coupon-grey ft-white">+{{coupon.rate || 0}}%</div>
+            </td>
+            <td>{{coupon.usedTime | date:"yyyy-MM-dd"}}</td>
+            <td>{{coupon.order.projectName}}</td>
+            <td><span class="ft-red6 ft-bold">{{coupon.order.orderAmount | number:2}}</span></td>
+            <td><span class="ft-red6 ft-bold">{{coupon.profit | number:2}}</span></td>
+            <!-- <td><button class="btn-grey-spirit padding-l-10 padding-r-10" ui-sref="root.main">查看详情</button></td> -->
+          </tr>
+          <tr ng-show="datas.length <= 0">
+            <td colspan="6">无使用记录</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <ul class="pager margin-r-20" ng-hide="datas.length <= 0">
+        <li class="fr">
+          <button class="btn btn-default btn-sm" ng-disabled="currentPage >= numberOfPages" ng-click="loadCoupons(currentPage+1, pageSize, usedStatus)">下一页</button>
+        </li>
+        <div class="fr height-30">&nbsp;&nbsp;{{currentPage}} / {{numberOfPages }} 共 {{count}} 条&nbsp;&nbsp;</div>
+        <li class="fr">
+          <button class="btn btn-default btn-sm" ng-disabled="currentPage == 1" ng-click="loadCoupons(currentPage - 1, pageSize, usedStatus)">上一页</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
