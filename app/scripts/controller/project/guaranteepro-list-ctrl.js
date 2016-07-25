@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GuaranteeproListCtrl', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, DateUtils, projectStatusMap) {
+  .controller('GuaranteeproListCtrl', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster, ProjectUtils, DateUtils, projectStatusMap) {
     $rootScope.pageTitle = '宏金宝 - 要理财，上宏财!';
     $scope.sortType = $stateParams.sortType || false;
     $scope.showFlag = $stateParams.showFlag || 0;
@@ -73,6 +73,7 @@ angular.module('hongcaiApp')
         for (var i = 0; i < $scope.projectList.length; i++) {
           $scope.projectList[i].progress = ($scope.projectList[i].soldStock + $scope.projectList[i].occupancyStock) * 100 / $scope.projectList[i].countInvest;
           $scope.projectList[i].showByStatus = $scope.projectList[i].status === 6 || $scope.projectList[i].status === 7 ? true : false;
+          ProjectUtils.projectTimedown($scope.projectList[i],$scope.serverTime);
           $scope.data.push($scope.projectList[i]);
         }
       });
