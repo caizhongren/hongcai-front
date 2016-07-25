@@ -24,9 +24,10 @@ angular.module('hongcaiApp')
         pageSize: 3,
         categoryCode: "01"
       }, function(response) {
-        if (response.ret === -1 || !response) {
+        if ( !response || response.ret === -1) {
           $scope.data = [];
           toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+          return;
         }
         $scope.currentPage = 0;
         $scope.pageSize = 5;
