@@ -41,7 +41,7 @@
       <table class="table table-dashed table-rate" ng-show="usedStatus === '1,3'">
         <thead>
           <tr style="background-color:#F2F2F2;">
-            <th>类型/面额</th>
+            <th>面额</th>
             <th>过期时间</th>
             <th>使用规则</th>
             <th>来源</th>
@@ -52,14 +52,14 @@
           <!-- 有加息券时  ng-show="couponStatis.coupons.length > 0" ng-repeat="coupon in couponStatis.coupons"  {{coupon.createTime | date : "yyyy-MM-dd"}} {{coupon.endTime | date : "yyyy-MM-dd"}}-->
           <tr ng-repeat="coupon in datas | orderBy:-datas.endTime " ng-show="datas.length > 0">
             <td>
-              <div ng-class="{ 'bg-coupon-orange' : coupon.endTime-currentTime >= 0 , 'bg-coupon-grey' : coupon.endTime-currentTime < 0 }" class=" ft-white">+{{coupon.rate || 0}}%</div>
+              <div ng-class="{ 'bg-coupon-orange' : coupon.endTime-currentTime >= 0 , 'bg-coupon-grey' : coupon.endTime-currentTime < 0 }" class=" ft-white">+{{coupon.value || 0}}%</div>
             </td>
             <td class="ft-red6" ng-show="coupon.endTime - currentTime >= 0 && (coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) <= 7 ">
               <p class="margin-b-0">{{coupon.endTime | date:"yyyy-MM-dd"}}</p>
               <p>(该加息券七日内过期)</p>
             </td>
             <td class="margin-b-0" ng-show="coupon.endTime - currentTime < 0 || (coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) > 7">{{coupon.endTime | date:"yyyy-MM-dd"}}</td>
-            <td>适用于宏金保&ge;30天项目</td>
+            <td>适用于宏金保<span ng-if="coupon.projectDays > 0">&ge;{{coupon.projectDays}}天</span>项目</td>
             <td>活动奖励</td>
             <td>
               <button ng-if="coupon.endTime-currentTime >= 0" class="orange-button" ui-sref="root.guaranteepro-list-query-no">立即使用</button>
@@ -75,7 +75,7 @@
       <table class="table table-dashed table-rate2" ng-show="usedStatus === '2'">
         <thead>
           <tr class="bg-f2">
-            <th>类型/面额</th>
+            <th>面额</th>
             <th>使用时间</th>
             <th>投资项目</th>
             <th>投资金额(元)</th>
@@ -87,11 +87,11 @@
           <!-- 有加息券时  ng-show="couponStatis.coupons.length > 0" ng-repeat="coupon in couponStatis.coupons"  {{coupon.createTime | date : "yyyy-MM-dd"}} {{coupon.endTime | date : "yyyy-MM-dd"}}-->
           <tr ng-repeat="coupon in datas" ng-show="datas.length > 0">
             <td>
-              <div class="bg-coupon-grey ft-white">+{{coupon.rate || 0}}%</div>
+              <div class="bg-coupon-grey ft-white">+{{coupon.value || 0}}%</div>
             </td>
             <td>{{coupon.usedTime | date:"yyyy-MM-dd"}}</td>
             <td>{{coupon.order.projectName}}</td>
-            <td><span class="ft-red6 ft-bold">{{coupon.order.orderAmount | number:2}}</span></td>
+            <td><span class="ft-red6 ft-bold">{{coupon.order.orderAmount | number:0}}</span></td>
             <td><span class="ft-red6 ft-bold">{{coupon.profit | number:2}}</span></td>
             <!-- <td><button class="btn-grey-spirit padding-l-10 padding-r-10" ui-sref="root.main">查看详情</button></td> -->
           </tr>
