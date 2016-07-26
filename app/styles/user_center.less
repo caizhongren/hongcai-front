@@ -651,7 +651,7 @@
       border-bottom:1px solid #dddddd;
       .tip{
         margin-left:15px;
-        padding:15px 30px 5px;
+        padding:15px 30px 9px;
         border-bottom:3px solid #f9683c;
         display:block;
         font-size:16px;
@@ -800,8 +800,8 @@
   border-radius: 5px;
 }
 .record-text{
-  border-left:1px dashed #7f7f7f;
-  height: 48px;
+  border-left:1px dotted #7f7f7f;
+  height: 56px;
   line-height: 24px;
   float: left;
   margin-left:20px;
@@ -1170,10 +1170,7 @@
   text-overflow: ellipsis;
   background-color:#fafafa;
   position:relative;
-  sidebar-pic{
-    position:absolute;
-    top:30px;
-  }
+
   p.position{
     position:absolute;
     top:18px;
@@ -1199,6 +1196,9 @@
 }
 // cash-coupon
 .cash-coupon {
+  .ft-grey59 {
+    color: #595659;
+  }
   .cash-state {
     border-bottom: 1px solid #F9683C;
     width: 93%;
@@ -1206,10 +1206,13 @@
       background-color: #F9683C;
       color: #fff;
     }
-
+    .uc-bggrey {
+      background-color: #F0EEED;
+      color: #686666;
+    }
     .unused-cash, .used-cash {
-      width: 80px;
-      height: 30px;
+      width: 86px;
+      height: 28px;
       line-height: 30px;
       text-align: center;
       border-radius: 3px 3px 0px 0px;
@@ -1218,6 +1221,83 @@
   .no-cash {
     img{
       margin: 45px 0 30px 0;
+    }
+  }
+  .rules-show {
+     width:330px;
+     height:130px;
+     border:1px solid #E8A79A;
+     border-radius: 5px;
+     background-color: #FDE4DF;
+     z-index: 999;
+     position: absolute;
+     top: 203px;
+     right: 30px;
+     padding: 8px 0 10px 10px;
+     p {
+      line-height: 21px;
+      margin: 0;
+     }
+  }
+  .rules-show:before{
+    content:"";
+    display:block;
+    border-width:6px;
+    position:absolute;
+    top:-12px;
+    right:129px;
+    border-style:solid dashed dashed;
+    border-color:transparent transparent #E8A79A;
+    font-size:0;
+    line-height:0;
+    }
+  .rules-show:after{
+    content:"";
+    display:block;
+    border-width:5px;
+    position:absolute;
+    top:-10px;
+    right:130px;
+    border-style:solid dashed dashed;
+    border-color:transparent transparent #FDE4DF;
+    font-size:0;
+    line-height:0;
+  }
+  .cash-coupon-list {
+    .single-coupon {
+      height: 143px;
+      margin: 0 0 53px 58px;
+      background: url("/images/user-center/cash-bg.png") no-repeat;
+      .single-l {
+        line-height: 150px;
+      }
+      .single-r {
+        padding: 20px 20px 20px 30px;
+        img {
+          margin-top: -6px;
+        }
+        btn,.btn-carry {
+          height: 26px;
+          width: 103px;
+          color: #f86e5f;
+          background-color: transparent;
+          border: 1px solid #f86e5f;
+          border-radius: 6px;
+          margin-top: 15px;
+          margin-left: 102px;
+        }
+      }
+      .single {
+        p {
+          color: #8b8b8b;
+          margin-bottom: 0;
+          line-height: 22px;
+        }
+        span {
+          width: 60%;
+          line-height: 22px;
+        }
+      }
     }
   }
 }
