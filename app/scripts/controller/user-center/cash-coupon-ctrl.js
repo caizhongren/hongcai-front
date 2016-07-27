@@ -1,8 +1,8 @@
 /*
- * @Author: fuqiang1
+ * @Author: hongcai
  * @Date:   2016-07-26 15:32:02
- * @Last Modified by:   Administrator
- * @Last Modified time: 2016-07-27 08:56:21
+ * @Last Modified by:   fuqiang1
+ * @Last Modified time: 2016-07-27 10:05:26
  */
 
 'use strict';
@@ -44,14 +44,14 @@ angular.module('hongcaiApp')
     /*
      *悬浮显示规则
      */
-    $scope.isResultShow = false;
+    $scope.isRulesShow = false;
     $scope.showRules = function() {
-      $scope.isResultShow = true;
+      $scope.isRulesShow = true;
       angular.element('.rules-show').animate({
         height: 'show'
       }, 200);
     };
     $scope.hideRules = function() {
-      $scope.isResultShow = false;
+      $scope.isRulesShow = false;
     };
   });

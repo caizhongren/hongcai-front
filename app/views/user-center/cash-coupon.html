@@ -7,7 +7,7 @@
     <div class="main padding-b-30">
       <div class="padd">
         <!-- 奖金提现规则悬浮框 -->
-        <div class="rules-show" ng-show="isResultShow">
+        <div class="rules-show" ng-show="isRulesShow" ng-mouseleave="hideRules()" >
           <p>1、单笔投资首次达到对应额度时，提取对应奖金；</p>
           <p>2、每个账号每天只奖励1次。连续投资只对第一次满足条件的投资进行奖励；</p>
           <p>3、奖金需要在奖金有效期内提取，过期作废；</p>
@@ -33,7 +33,7 @@
             <img src="/images/user-center/rules.png" alt="" class="fl margin-l-30">
             <div class="record-text position-re">
               <p class="margin-b-0 ft-blue0">奖金提现规则</p>
-              <img src="/images/user-center/rule-icon.png" class="margin-l-30" id="rules" ng-mouseenter="showRules()" ng-mouseleave="hideRules()">
+              <img src="/images/user-center/rule-icon.png" class="margin-l-30" id="rules" ng-mouseenter="showRules()">
             </div>
           </div>
         </div>
