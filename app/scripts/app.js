@@ -1743,7 +1743,7 @@ hongcaiApp
         url: '/invite?act&f',
         views: {
           '': {
-            templateUrl: 'views/invite-landing.html',
+            templateUrl: 'views/activity/invite-landing.html',
             controller: 'InviteLandingCtrl',
             controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
           }
@@ -1754,7 +1754,7 @@ hongcaiApp
       url: '/send-money?act&f',
       views: {
         '': {
-          templateUrl: 'views/send-money.html',
+          templateUrl: 'views/activity/send-money.html',
           controller: 'SendMoneyCtrl',
           controllerUrl: 'scripts/controller/activity/send-money-ctrl'
         }
@@ -1765,7 +1765,16 @@ hongcaiApp
       url: '/send-coupon?act&f',
       views: {
         '': {
-          templateUrl: 'views/coupon-landing.html',
+          templateUrl: 'views/activity/coupon-landing.html',
+        }
+      }
+    })
+    /*-------------- 新手活动落地页 -----------------------*/
+    .state('root.activity.novice-landing', {
+      url: '/novice-activity',
+      views: {
+        '': {
+          templateUrl: 'views/activity/novice-landing.html',
         }
       }
     })
