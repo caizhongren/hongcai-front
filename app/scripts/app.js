@@ -1775,6 +1775,8 @@ hongcaiApp
       views: {
         '': {
           templateUrl: 'views/activity/novice-landing.html',
+          controller: 'NoviceActivityCtrl',
+          controllerUrl: 'scripts/controller/activity/novice-activity-ctrl'
         }
       }
     })
