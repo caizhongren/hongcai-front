@@ -149,7 +149,7 @@
                 <!-- <button class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})">立即投资</button> -->
                 <a class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})" ng-show="item.status == 6">{{item._timeDown.hour}}:{{item._timeDown.min}}:{{item._timeDown.seconds}}</a>
                 <a class="orange-button col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})" ng-show="item.status == 7">立即投资</a>
-                <a class="btn-grey col-md-8 col-lg-8 col-md-offset-2 height-24" ui-sref="root.project-details({number: item.number})" ng-show="item.status > 7 && item.status !== 11">{{projectStatusMap[item.status]}}</a>
+                <a class="col-md-8 col-lg-8 col-md-offset-2 height-24" ng-class="{'btn-grey':item.status > 7&&item.status !== 11,'orange-button':item.status === 11}" ui-sref="root.project-details({number: item.number})" ng-show="item.status > 7">{{projectStatusMap[item.status]}}</a>
               </td>
             </tr>
           </tbody>
