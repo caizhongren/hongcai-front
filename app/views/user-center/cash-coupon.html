@@ -67,10 +67,10 @@
         </div>
       <!-- 已提 -->
         <div class="col-md-5 display-inbl single-coupon" ng-repeat='cashCoupon in datas' ng-show="usedStatus === 2 && gotAmount > 0">
-          <div class="col-md-3 single single-l text-center display-inbl font-white ft-18">￥<span class="ft-36">10</span></div>
+          <div class="col-md-3 single single-l text-center display-inbl font-white ft-18">￥<span class="ft-36">{{cashCoupon.value}}</span></div>
           <div class="col-md-9 single single-r display-inbl">
              <p class="fl">投资项目：</p>
-             <span class="text-left display-inbl">珠宝首饰商贸公司融资项目(3期)</span>
+             <span class="text-left display-inbl">{{cashCoupon.order.projectName}}</span>
              <p>使用时间：{{cashCoupon.usedTime | date: 'yyyy-MM-dd'}}</p>
              <!-- 已提现标志 -->
              <img src="/images/user-center/used-icon.png" class="fr">
