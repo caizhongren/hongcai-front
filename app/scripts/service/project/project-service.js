@@ -59,7 +59,7 @@ angular.module('hongcaiApp')
        * @projectType 项目类型
        */
       projectOrders: $resource(DEFAULT_DOMAIN + '/siteProject/projectOrders', {
-        projectId: '@projectId', 
+        projectId: '@projectId',
         projectType: '@projectType'
       }),
       /**
@@ -92,13 +92,21 @@ angular.module('hongcaiApp')
         projectId: '@projectId'
       }),
 
-      
+
       getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {}),
       getOneDayProfitAndNextRate: $resource(DEFAULT_DOMAIN + '/siteFunds/getOneDayProfitAndNextRate', {
         number: '@number'
       }),
       generateRedPacketByInvest: $resource(DEFAULT_DOMAIN + '/siteRedPacket/generateRedPacketByInvest', {
         creditRightNum: '@number'
+      }),
+
+      /**
+       * 投资项目优惠券
+       */
+      investCoupons: $resource(RESTFUL_DOMAIN + '/projects/investIncreaseRateCoupon', {
+        projectId: '@projectId',
+        amount: '@amount'
       })
 
     };

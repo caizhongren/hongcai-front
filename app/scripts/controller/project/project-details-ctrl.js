@@ -1,6 +1,8 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, DateUtils, AboutUsService, projectStatusMap) {
+  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie,
+
+    MainService, DateUtils, AboutUsService, projectStatusMap) {
     $scope.chk = true;
     $scope.checkFlag = true;
     $scope.check = function(val) {
@@ -9,6 +11,74 @@ angular.module('hongcaiApp')
 
     $scope.projectStatusMap = projectStatusMap;
     $scope.newbieBiaoInvestFlag = true;
+    /**
+     * 用户可使用的券
+     */
+    $scope.investCoupons = function(project) {
+      $scope.coupons = [];
+      $scope.availableAmount = project.total - project.soldStock * project.increaseAmount
+      ProjectService.investCoupons.query({
+        projectId: project.id,
+        amount: $scope.availableAmount
+      }, function(response) {
+        if (response && response.ret !== -1) {
+          $scope.coupons = response;
+          $scope.selectedCoupon = $scope.coupons[0];
+        }
+      });
+    }
+    $scope.showCoupons = false;
+    $scope.checkeCoupon = function() {
+      $scope.showCoupons = !$scope.showCoupons;
+    }
+    $scope.showSelectCoupon = false;
+    $scope.selectCoupon = function(coupon) {
+      $scope.showSelectCoupon = false;
+      $scope.selectedCoupon = coupon;
+      $scope.increaseProfit = $scope.calcProfit(coupon.value);
+      $scope.showCoupons = false;
+    }
+    $scope.unUseCoupon = function() {
+      $scope.showCoupons = false;
+      $scope.profit = 0;
+      $scope.increaseProfit = 0;
+      $scope.selectedCoupon = null;
+    }
+    $scope.profit = 0;
+    //计算预计收益
+    $scope.calcProfit = function(annualEarnings) {
+      var profit = $scope.project.amount * $scope.project.projectDays * annualEarnings / 36500;
+      return profit;
+    }
+    $scope.$watch('project.amount', function(newVal, oldVal) {
+      if (!$rootScope.isLogged) {
+        return;
+      }
+      if (newVal !== oldVal) {
+        $scope.msg = undefined;
+      }
+
+      if ($rootScope.account.balance <= 0) {
+        $scope.msg = '账户余额不足，请先充值';
+      }
+
+      if (newVal) {
+        if (newVal > $scope.availableAmount) {
+          $scope.msg = '投资金额必须小于' + $scope.project.availableAmount;
+        } else if (newVal > $rootScope.account.balance) {
+          $scope.msg = '账户余额不足，请先充值';
+        } else if (newVal % $scope.project.increaseAmount !== 0) {
+          $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍';
+        } else if (newVal < $scope.project.minInvest) {
+          $scope.msg = '投资金额必须大于等于' + $scope.project.minInvest;
+        }
+      }
+      if ($scope.project || $scope.selectedCoupon !== null) {
+        $scope.profit = $scope.calcProfit($scope.project.annualEarnings) || 0;
+        $scope.increaseProfit = $scope.selectedCoupon != null ? $scope.calcProfit($scope.selectedCoupon.value) : 0;
+      }
+    });
+
     /**
      * 获取具体某项目
      */
@@ -90,6 +160,9 @@ angular.module('hongcaiApp')
            * 项目可投金额
            */
           $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
+
+
+
           /**
            * 用户可用金额
            */
@@ -123,6 +196,7 @@ angular.module('hongcaiApp')
           $scope.projectFiles($scope.project.id);
           $scope.projectTexts($scope.project.id);
           $scope.enterpriseInfo($scope.project.enterpriseId);
+          $scope.investCoupons($scope.project);
 
         } else if (projectDetails.code === -1054) {
           $state.go('root.project-list-query-no');
@@ -267,6 +341,7 @@ angular.module('hongcaiApp')
         return;
       }
     };
+
 
     /**
      * 跳到充值页面
