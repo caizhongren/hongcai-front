@@ -55,7 +55,6 @@ angular.module('hongcaiApp')
        * 不选择券
        */
     $scope.unUseCoupon = function() {
-      $scope.showCoupons = false;
       $scope.profit = 0;
       $scope.increaseProfit = 0;
       $scope.selectedCoupon = null;
