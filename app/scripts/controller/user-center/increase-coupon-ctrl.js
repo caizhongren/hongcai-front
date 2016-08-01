@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('IncreaseCouponCtrl', function($location, $scope, $rootScope, $state, $stateParams, UserCenterService, toaster, $alert) {
+  .controller('IncreaseCouponCtrl', function(ipCookie, $location, $scope, $rootScope, $state, $stateParams, UserCenterService, toaster, $alert) {
     $scope.datas = [];
 
     /**
@@ -9,7 +9,7 @@ angular.module('hongcaiApp')
     UserCenterService.getUserIncreaseRateCouponStatis.get({}, function(response) {
       if (response.ret === 1) {
         $scope.couponStatis = response.data.couponStatis;
-      } 
+      }
     });
     /**
      * 查询加息券
@@ -28,7 +28,7 @@ angular.module('hongcaiApp')
           $scope.numberOfPages = Math.ceil($scope.count / pageSize);
           $scope.datas = response.data.coupons;
           $scope.currentTime = response.data.currentTime;
-        } 
+        }
       });
     };
 
@@ -38,4 +38,12 @@ angular.module('hongcaiApp')
 
 
     $scope.loadCoupons($scope.currentPage, $scope.pageSize, $scope.usedStatus);
+    /**
+     * 立即使用
+     */
+    $scope.toProjectList = function($index){
+      $state.go('root.guaranteepro-list-query-no');
+      ipCookie('rateNum',$scope.datas[$index].number);
+      ipCookie('rateType',$scope.datas[$index].type);
+    }
   });

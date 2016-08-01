@@ -62,7 +62,7 @@
             <td>适用于宏金保<span ng-if="coupon.projectDays > 0">&ge;{{coupon.projectDays}}天</span>项目</td>
             <td>活动奖励</td>
             <td>
-              <button ng-if="coupon.endTime-currentTime >= 0" class="orange-button" ui-sref="root.guaranteepro-list-query-no">立即使用</button>
+              <button ng-if="coupon.endTime-currentTime >= 0" class="orange-button" ng-click="toProjectList($index)">立即使用</button>
               <button ng-if="coupon.endTime-currentTime < 0" class="grey-button border-0 no-boxshadow" ui-sref="root.guaranteepro-list-query-no">已过期</button>
             </td>
           </tr>
