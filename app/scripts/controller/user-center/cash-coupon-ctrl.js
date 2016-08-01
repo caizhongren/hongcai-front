@@ -39,7 +39,7 @@ angular.module('hongcaiApp')
         }
       });
     };
-    $scope.userCashCoupons(1);
+    $scope.userCashCoupons('1');
 
     $scope.toProjectList = function($index){
       $state.go('root.guaranteepro-list-query-no');
