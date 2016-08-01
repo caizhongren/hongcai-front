@@ -78,13 +78,18 @@ angular.module('hongcaiApp')
 
       if (newVal) {
         if (newVal > $scope.availableAmount) {
-          $scope.msg = '投资金额必须小于' + $scope.project.availableAmount;
+          $scope.msg = '投资金额必须小于' + $scope.availableAmount;
         } else if (newVal > $rootScope.account.balance) {
           $scope.msg = '账户余额不足，请先充值';
         } else if (newVal % $scope.project.increaseAmount !== 0) {
           $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍';
         } else if (newVal < $scope.project.minInvest) {
           $scope.msg = '投资金额必须大于等于' + $scope.project.minInvest;
+        }
+      }
+      if ($scope.selectedCoupon !== null && $scope.selectedCoupon.type === 1) {
+        if (newVal < $scope.selectedCoupon.minInvestAmount) {
+          $scope.msg = '投资金额不满足返现条件'
         }
       }
       if ($scope.project || $scope.selectedCoupon !== null) {
