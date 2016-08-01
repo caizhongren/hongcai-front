@@ -49,9 +49,9 @@
       <!-- 暂无可提现奖金 & 还没有提取过-->
       <div class="no-cash text-center ft-16 ft-grey59" ng-show="(unGotAmount === 0 &&usedStatus === '1') || (gotAmount === 0 && usedStatus === '2,4')">
         <img src="/images/user-center/no-cash.png">
-        <p ng-show="usedStatus === 1">暂无可提奖金噢~</p>
-        <p ng-show="usedStatus === 2">您还没有提取过奖金</p>
-        <a class="ft-blue0 cursor-pt" ng-show="usedStatus === 1">如何获取 >></a>
+        <p ng-show="usedStatus === '1'">暂无可提奖金噢~</p>
+        <p ng-show="usedStatus === '2,4'">您还没有提取过奖金</p>
+        <a class="ft-blue0 cursor-pt" ng-show="usedStatus === '1'">如何获取 >></a>
       </div>
       <!-- 可提 -->
       <div class="cash-coupon-list">

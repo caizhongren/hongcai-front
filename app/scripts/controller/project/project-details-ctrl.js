@@ -1,3 +1,4 @@
+
 'use strict';
 angular.module('hongcaiApp')
   .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie,
@@ -42,10 +43,13 @@ angular.module('hongcaiApp')
        */
     $scope.showSelectCoupon = false;
     $scope.selectCoupon = function(coupon) {
+        $scope.msg = '';
         $scope.showSelectCoupon = false;
         $scope.selectedCoupon = coupon;
         $scope.increaseProfit = $scope.calcProfit(coupon.value);
-        $scope.showCoupons = false;
+        if($scope.project.amount && $scope.project.amount < coupon.minInvestAmount){
+          $scope.msg = '投资金额不满足返现条件';
+        }
       }
       /**
        * 不选择券
@@ -390,6 +394,8 @@ angular.module('hongcaiApp')
      */
     $scope.transfer = function(project, investAmount, giftCount, selectedCoupon) {
       $scope.investAmount = investAmount;
+      $scope.msg === '4';
+      $scope.page = 'investVerify';
       var couponNumber = selectedCoupon == null ? "" : selectedCoupon.number;
       $alert({
         scope: $scope,
