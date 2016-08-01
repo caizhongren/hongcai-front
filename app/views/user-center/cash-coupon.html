@@ -42,12 +42,12 @@
     </div>
     <div class="main padding-t-0 padding-l-15 margin-b-80">
       <div class="fl col-md-12 ft-14 margin-l-28 padding-l-0 margin-b-30 cash-state">
-        <div class="padding-b-5 display-inbl unused-cash margin-r-5 cursor-pt {{usedStatus === 1 ? 'uc-bgorange' : 'uc-bggrey'}}" ng-click="userCashCoupons(1)">可提奖金</div>
-        <div class="padding-b-5 display-inbl used-cash cursor-pt {{usedStatus === 2 ? 'uc-bgorange' :'uc-bggrey'}}"  ng-click="userCashCoupons(2)">已提奖金</div>
+        <div class="padding-b-5 display-inbl unused-cash margin-r-5 cursor-pt {{usedStatus === '1' ? 'uc-bgorange' : 'uc-bggrey'}}" ng-click="userCashCoupons('1')">可提奖金</div>
+        <div class="padding-b-5 display-inbl used-cash cursor-pt {{usedStatus === '2,4' ? 'uc-bgorange' :'uc-bggrey'}}"  ng-click="userCashCoupons('2,4')">已提奖金</div>
       </div>
       <!-- 未使用现金券  -->
       <!-- 暂无可提现奖金 & 还没有提取过-->
-      <div class="no-cash text-center ft-16 ft-grey59" ng-show="(unGotAmount === 0 &&usedStatus === 1) || (gotAmount === 0 && usedStatus === 2)">
+      <div class="no-cash text-center ft-16 ft-grey59" ng-show="(unGotAmount === 0 &&usedStatus === '1') || (gotAmount === 0 && usedStatus === '2,4')">
         <img src="/images/user-center/no-cash.png">
         <p ng-show="usedStatus === 1">暂无可提奖金噢~</p>
         <p ng-show="usedStatus === 2">您还没有提取过奖金</p>
@@ -55,7 +55,7 @@
       </div>
       <!-- 可提 -->
       <div class="cash-coupon-list">
-        <div class="col-md-5 display-inbl single-coupon" ng-repeat='cashCoupon in datas' ng-show="usedStatus === 1 && unGotAmount > 0">
+        <div class="col-md-5 display-inbl single-coupon" ng-repeat='cashCoupon in datas' ng-show="usedStatus === '1' && unGotAmount > 0">
           <div class="col-md-3 single single-l text-center display-inbl font-white ft-18">￥<span class="ft-36">{{cashCoupon.value}}</span></div>
           <div class="col-md-9 single single-r display-inbl">
              <p ng-show="cashCoupon.projectDays > 0">期限要求：&ge;{{cashCoupon.projectDays}}天</p>
@@ -66,7 +66,7 @@
           </div>
         </div>
       <!-- 已提 -->
-        <div class="col-md-5 display-inbl single-coupon" ng-repeat='cashCoupon in datas' ng-show="usedStatus === 2 && gotAmount > 0">
+        <div class="col-md-5 display-inbl single-coupon" ng-repeat='cashCoupon in datas' ng-show="usedStatus !== '1' && gotAmount > 0">
           <div class="col-md-3 single single-l text-center display-inbl font-white ft-18">￥<span class="ft-36">{{cashCoupon.value}}</span></div>
           <div class="col-md-9 single single-r display-inbl">
              <p class="fl">投资项目：</p>

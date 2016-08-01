@@ -39,7 +39,7 @@ angular.module('hongcaiApp')
         }
       });
     };
-    $scope.userCashCoupons(1);
+    $scope.userCashCoupons('1');
 
     /*
      *悬浮显示规则
