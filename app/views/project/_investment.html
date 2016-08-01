@@ -144,7 +144,7 @@
             <div ng-switch on="isAvailable">
               <div class="col-xs-12" ng-switch-when="1">
                 <!-- 有未完成的订单时展示 -->
-                <button class="btn btn-lg btn-total-orange btn-block positive-margin1" data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即投资</button>
+                <button class="btn btn-lg btn-total-orange btn-block positive-margin1 margin-b-30" data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即投资</button>
               </div>
               <form class="padding-l-15 padding-r-15" name="investForm" class="padding-t-10" ng-switch-default>
                 <span class="ft-grey666">投资金额：</span>
@@ -179,7 +179,7 @@
                     <span class="ft-orange" ng-show="selectedCoupon.type === 2">+{{selectedCoupon.value}}元</span>
                   </span>
                 </div>
-                <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toInvest(project)" ng-disabled="!project.amount || !newbieBiaoInvestFlag || msg" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
+                <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="transfer(project, project.amount, 0, selectedCoupon)" ng-disabled="!project.amount || !newbieBiaoInvestFlag || msg" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
                 </button>
                 <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toRecharge()" ng-show="account.balance <= 0"><i class="fa"></i>请先充值
                 </button>

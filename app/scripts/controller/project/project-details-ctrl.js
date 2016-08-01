@@ -364,21 +364,20 @@ angular.module('hongcaiApp')
       }
     };
 
-
     /**
-     * 跳到充值页面
+     * 调到易宝支付
      */
-    $scope.toRecharge = function() {
-      if ($rootScope.securityStatus.realNameAuthStatus + $rootScope.autoTransfer >= 1) {
-        $modal({
-          scope: $scope,
-          template: 'views/modal/modal-toRecharge.html',
-          show: true
-        });
-      } else {
-        $scope.toRealNameAuth();
-      }
+    $scope.transfer = function(project, investAmount, giftCount, selectedCoupon) {
+      $scope.investAmount = investAmount;
+      var couponNumber = selectedCoupon == null ? "" : selectedCoupon.number;
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+      window.open('/#!/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount + '/' + couponNumber);
     };
+
     /**
      * 显示协议
      */
