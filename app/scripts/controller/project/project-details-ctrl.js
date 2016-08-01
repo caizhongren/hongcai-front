@@ -33,7 +33,7 @@ angular.module('hongcaiApp')
        */
     $scope.showCoupons = false;
     $scope.checkeCoupon = function() {
-        if ($scope.coupons) {
+        if ($scope.coupons.length > 0) {
           $scope.showCoupons = !$scope.showCoupons;
         }
       }

@@ -107,12 +107,12 @@
         <div class="row padding-t-0" ng-if="isLogged && project.progress < 100 && project.status !== 6">
 
           <!-- 未开通易宝 -->
-          <div class="col-xs-12 padding-l-35 padding-r-35" ng-if="securityStatus.realNameAuthStatus !== 1">
-            <div class="positive-margin1">
+          <div class="col-xs-12 padding-l-30 padding-r-30" ng-if="securityStatus.realNameAuthStatus !== 1">
+            <div>
               <span class="ft-grey666">投资金额：</span>
               <input type="number" placeholder="请输入{{project.status === 11 ? '预约' : '投资'}}金额" disabled='disabled' class="form-control margin-b-20 btn-78">
             </div>
-            <div class="margin-b-15" ng-show="!newbieBiaoErrorMsg">
+            <div class="margin-b-15" ng-show="!newbieBiaoErrorMsg" ng-click="checkeCoupon()">
               可用奖励：
               <span class="spangray" ng-show="(selectedCoupon.type === cashType && selectedCoupon.number === cashNum) || (selectedCoupon.type === 2 && selectedCoupon !==null)">
                 现金<span class="ft-orange">{{selectedCoupon.value}}</span>元（需投资金额&ge;{{selectedCoupon.minInvestAmount}})
@@ -121,7 +121,8 @@
                 <span class="ft-orange">{{selectedCoupon.value}}%</span>加息券（有效期至{{selectedCoupon.endTime | date: "yyyy-MM-dd"}}）
               </span>
               <span class="spangray" ng-show="selectedCoupon === null">暂不使用</span>
-              <img src="/images/project/menu-down.jpg" class="fr"  ng-click="checkeCoupon()">
+              <span class="spangray" ng-show="coupons.length == 0">暂无可用奖励</span>
+              <img src="/images/project/menu-down.jpg" class="fr">
               <ul class="award-list spangray" ng-show="showCoupons">
                 <li ng-click="selectCoupon(coupon)"ng-repeat="coupon in coupons">
                     <p class="padding-l-5" ng-show="coupon.type === 2 && coupon.status === 1"> 现金<span class="ft-orange">{{coupon.value}}</span>元（需投资金额&ge;{{coupon.minInvestAmount || 0}}）</p>
@@ -152,7 +153,7 @@
                 </p>
                 <input type="number" name="investAmount" ng-model="project.amount" class="form-control margin-b-20 btn-78" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0 || !newbieBiaoInvestFlag" step="{{project.increaseAmount}}"  ng-switch-default>
                 <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
-                <div class="margin-b-15" ng-show="!newbieBiaoErrorMsg">
+                <div class="margin-b-15" ng-show="!newbieBiaoErrorMsg" ng-click="checkeCoupon()">
                   可用奖励：
                   <span class="spangray" ng-show="(selectedCoupon.type === cashType && selectedCoupon.number === cashNum) || (selectedCoupon.type === 2 && selectedCoupon !==null)">
                     现金<span class="ft-orange">{{selectedCoupon.value}}</span>元（需投资金额&ge;{{selectedCoupon.minInvestAmount}})
@@ -161,7 +162,8 @@
                     <span class="ft-orange">{{selectedCoupon.value}}%</span>加息券（有效期至{{selectedCoupon.endTime | date: "yyyy-MM-dd"}}）
                   </span>
                   <span class="spangray" ng-show="selectedCoupon === null">暂不使用</span>
-                  <img src="/images/project/menu-down.jpg" class="fr"  ng-click="checkeCoupon()">
+                  <span class="spangray" ng-show="coupons.length === 0">暂无可用奖励</span>
+                  <img src="/images/project/menu-down.jpg" class="fr" >
                   <ul class="award-list spangray" ng-show="showCoupons">
                     <li ng-click="selectCoupon(coupon)"ng-repeat="coupon in coupons">
                         <p class="padding-l-5" ng-show="coupon.type === 2 && coupon.status === 1"> 现金<span class="ft-orange">{{coupon.value}}</span>元（需投资金额&ge;{{coupon.minInvestAmount || 0}}）</p>

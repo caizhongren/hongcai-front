@@ -2,7 +2,7 @@
  * @Author: hongcai
  * @Date:   2016-07-26 15:32:02
  * @Last Modified by:   fuqiang1
- * @Last Modified time: 2016-08-01 13:25:18
+ * @Last Modified time: 2016-08-01 18:11:19
  */
 
 'use strict';
@@ -39,11 +39,11 @@ angular.module('hongcaiApp')
         }
       });
     };
-    $scope.userCashCoupons('1');
+    $scope.userCashCoupons(1);
 
     $scope.toProjectList = function($index){
       $state.go('root.guaranteepro-list-query-no');
-      ipCookie('cashNum', $scope.CashCoupons[$index]);
+      ipCookie('cashNum', $scope.CashCoupons[$index].number);
       ipCookie('cashType', $scope.CashCoupons[$index].type);
     }
 
