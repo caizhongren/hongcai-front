@@ -62,7 +62,7 @@
              <p ng-show="cashCoupon.projectDays <= 0">期限要求：无</p>
              <p>投资要求：&ge;{{cashCoupon.minInvestAmount}}元</p>
              <p>有效期：{{cashCoupon.createTime | date: 'yyyy.MM.dd'}}-{{cashCoupon.endTime | date: 'yyyy.MM.dd'}}</p>
-              <button class="btn-carry" ui-sref="root.guaranteepro-list-query-no()">马上提现</button>
+              <button class="btn-carry" ng-click="toProjectList($index)">马上提现</button>
           </div>
         </div>
       <!-- 已提 -->
