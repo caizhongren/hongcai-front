@@ -33,7 +33,9 @@ angular.module('hongcaiApp')
        */
     $scope.showCoupons = false;
     $scope.checkeCoupon = function() {
-        $scope.showCoupons = !$scope.showCoupons;
+        if ($scope.coupons) {
+          $scope.showCoupons = !$scope.showCoupons;
+        }
       }
       /**
        * 选择券
@@ -404,21 +406,6 @@ angular.module('hongcaiApp')
      * 投资或者预约
      */
     $scope.toInvest = function(project) {
-      if (project.inviteMobile) {
-        $rootScope.inviteMobile = project.inviteMobile;
-      }
-      $scope.amount = project.status === 11 ? project.toReserveAmount : project.amount;
-      if ($scope.amount > $rootScope.account.balance) {
-        $scope.alertDialog('余额不足，请先充值');
-        return;
-      } else if ($scope.amount < $scope.project.minInvest) {
-        $scope.alertDialog('投资金额必须大于' + $scope.project.minInvest + '元！');
-        return;
-      } else if ($scope.amount % $scope.project.increaseAmount) {
-        $scope.alertDialog('投资金额必须为' + $scope.project.increaseAmount + '的整数倍！');
-        return;
-      }
-
       if (project.status === 11) {
         /**
          * 预约项目投资
