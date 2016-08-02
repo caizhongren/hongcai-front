@@ -205,28 +205,27 @@ angular.module('hongcaiApp')
        * 验证金额和券
        */
     $scope.validateAmountAndCoupon = function(amount, coupon) {
-      $scope.msg = '';
+      $scope.errorMsg = '';
 
       if (!$rootScope.isLogged) {
         return;
       }
-
       if (amount === undefined || amount <= 0) {
         return;
       }
 
       if ($rootScope.account.balance <= 0) {
-        $scope.msg = '账户余额不足，请先充值';
+        $scope.errorMsg = '账户余额不足，请先充值';
       } else if (amount > $scope.availableAmount) {
-        $scope.msg = '投资金额必须小于' + $scope.availableAmount;
+        $scope.errorMsg = '投资金额必须小于' + $scope.availableAmount;
       } else if (amount > $rootScope.account.balance) {
-        $scope.msg = '账户余额不足，请先充值';
+        $scope.errorMsg = '账户余额不足，请先充值';
       } else if (amount < $scope.project.minInvest) {
-        $scope.msg = '投资金额必须大于等于' + $scope.project.minInvest;
+        $scope.errorMsg = '投资金额必须大于等于' + $scope.project.minInvest;
       } else if (amount % $scope.project.increaseAmount !== 0) {
-        $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍';
+        $scope.errorMsg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍';
       } else if (coupon !== undefined && coupon !== null && coupon.type === 2 && amount < coupon.minInvestAmount) {
-        $scope.msg = '投资金额不满足返现条件';
+        $scope.errorMsg = '投资金额不满足返现条件';
       }
 
       if (($scope.project !== undefined && $scope.project) || $scope.selectedCoupon !== null) {
@@ -236,12 +235,12 @@ angular.module('hongcaiApp')
     }
 
     $scope.$watch('project.amount', function(newVal, oldVal) {
-      $scope.msg = '';
+      $scope.errorMsg = '';
       if (!$rootScope.isLogged) {
         return;
       }
       if (newVal !== oldVal) {
-        $scope.msg = undefined;
+        $scope.errorMsg = undefined;
       }
       $scope.validateAmountAndCoupon(newVal, $scope.selectedCoupon);
     });
@@ -400,7 +399,7 @@ angular.module('hongcaiApp')
      */
     $scope.transfer = function(project, investAmount, giftCount, selectedCoupon) {
       $scope.investAmount = investAmount;
-      $scope.msg === '4';
+      $scope.msg = '4';
       $scope.page = 'investVerify';
       var couponNumber = selectedCoupon == null ? "" : selectedCoupon.number;
       $alert({

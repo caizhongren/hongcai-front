@@ -148,8 +148,8 @@
               </div>
               <form class="padding-l-15 padding-r-15" name="investForm" class="padding-t-10" ng-switch-default>
                 <span class="ft-grey666">投资金额：</span>
-                <p class="text-center text text-danger invest_tip error-msg" ng-show="msg">
-                  <span>{{msg}}</span>
+                <p class="text-center text text-danger invest_tip error-msg" ng-show="errorMsg">
+                  <span>{{errorMsg}}</span>
                 </p>
                 <input type="number" name="investAmount" ng-model="project.amount" class="form-control margin-b-20 btn-78" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0 || !newbieBiaoInvestFlag" step="{{project.increaseAmount}}"  ng-switch-default>
                 <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
@@ -180,7 +180,7 @@
                     <span class="ft-orange" ng-show="selectedCoupon.type === 2">+{{selectedCoupon.value || 0}}元</span>
                   </span>
                 </div>
-                <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="transfer(project, project.amount, 0, selectedCoupon)" ng-disabled="!project.amount || !newbieBiaoInvestFlag || msg || project.amount < 0" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
+                <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="transfer(project, project.amount, 0, selectedCoupon)" ng-disabled="!project.amount || !newbieBiaoInvestFlag || errorMsg || project.amount < 0" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
                 </button>
                 <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toRecharge()" ng-show="account.balance <= 0"><i class="fa"></i>请先充值
                 </button>
