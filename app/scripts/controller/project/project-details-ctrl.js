@@ -2,7 +2,7 @@
 angular.module('hongcaiApp')
   .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, 
 
-    MainService, DateUtils, AboutUsService, projectStatusMap, config, $window) {
+    MainService, DateUtils, AboutUsService, projectStatusMap, config, $window, DEFAULT_DOMAIN) {
     $scope.chk = true;
     $scope.checkFlag = true;
     $scope.check = function(val) {
@@ -403,27 +403,52 @@ angular.module('hongcaiApp')
       $scope.page = 'investVerify';
       var couponNumber = selectedCoupon == null ? "" : selectedCoupon.number;
 
-      OrderService.saveOrder.get({
-        projectId: project.id,
-        investAmount: investAmount,
-        giftCount: giftCount,
-        inviteMobile: $rootScope.inviteMobile,
-        couponNumber: couponNumber
-      }, function(response) {
-        if (response.ret === 1) {
-          var orderId = response.data.orderId;
-          var orderType = 1;
-          $alert({
-            scope: $scope,
-            template: 'views/modal/alertYEEPAY.html',
-            show: true
-          });
+      // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
+      $.ajax({
+          url:DEFAULT_DOMAIN + '/siteOrder/saveOrder?projectId=' + project.id + '&investAmount=' + investAmount
+            + '&giftCount=' + giftCount + '&couponNumber='+ couponNumber,
+          'type':'POST',
+          async:false,
+          dataType:'json',
+          success: function(response){
+            if (response.ret === 1) {
+              var orderId = response.data.orderId;
+              var orderType = 1;
+              $alert({
+                scope: $scope,
+                template: 'views/modal/alertYEEPAY.html',
+                show: true
+              });
 
-          $window.open(config.domain + '/#!/user-order-transfer/' + project.id + '/' + orderId + '/' + orderType, '_blank');
-        } else {
-          toaster.pop('error', response.msg);
-        }
+              $window.open('/#!/user-order-transfer/' + project.id + '/' + orderId + '/' + orderType, '_blank');
+            } else {
+              toaster.pop('error', response.msg);
+            }
+          }
       });
+
+      // var getOrder = $q.defer();
+      // OrderService.saveOrder.get({
+      //   projectId: project.id,
+      //   investAmount: investAmount,
+      //   giftCount: giftCount,
+      //   inviteMobile: $rootScope.inviteMobile,
+      //   couponNumber: couponNumber
+      // }).$promise.then(function(response) {
+      //   if (response.ret === 1) {
+      //     var orderId = response.data.orderId;
+      //     var orderType = 1;
+      //     $alert({
+      //       scope: $scope,
+      //       template: 'views/modal/alertYEEPAY.html',
+      //       show: true
+      //     });
+
+      //     $window.open(config.domain + '/#!/user-order-transfer/' + project.id + '/' + orderId + '/' + orderType, '_blank');
+      //   } else {
+      //     toaster.pop('error', response.msg);
+      //   }
+      // });
 
       
     };
