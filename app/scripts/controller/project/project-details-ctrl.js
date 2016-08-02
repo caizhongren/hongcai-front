@@ -209,7 +209,7 @@ angular.module('hongcaiApp')
           return;
         }
 
-        if(amount === 'undefined' || amount <= 0){
+        if(amount === undefined || amount <= 0){
           return;
         }
 
@@ -265,7 +265,6 @@ angular.module('hongcaiApp')
 
       });
     }
-
 
     /**
      * 项目文件信息
