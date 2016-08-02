@@ -412,13 +412,14 @@ angular.module('hongcaiApp')
       }, function(response) {
         if (response.ret === 1) {
           var orderId = response.data.orderId;
+          var orderType = 1;
           $alert({
             scope: $scope,
             template: 'views/modal/alertYEEPAY.html',
             show: true
           });
 
-          window.open('/#!/invest-verify-transfer/' + project.id + '/' + orderId);
+          window.open('/user-order-transfer/' + project.id + '/' + orderId + '/' + orderType);
         } else {
           toaster.pop('error', response.msg);
         }
