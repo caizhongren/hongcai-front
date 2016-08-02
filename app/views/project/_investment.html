@@ -180,7 +180,7 @@
                     <span class="ft-orange" ng-show="selectedCoupon.type === 2">+{{selectedCoupon.value || 0}}元</span>
                   </span>
                 </div>
-                <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="transfer(project, project.amount, 0, selectedCoupon)" ng-disabled="!project.amount || !newbieBiaoInvestFlag || msg" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
+                <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="transfer(project, project.amount, 0, selectedCoupon)" ng-disabled="!project.amount || !newbieBiaoInvestFlag || msg || project.amount < 0" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资
                 </button>
                 <button class="btn btn-total-orange btn-lg btn-block" ng-switch-default ng-click="toRecharge()" ng-show="account.balance <= 0"><i class="fa"></i>请先充值
                 </button>
