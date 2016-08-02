@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .factory('UserCenterService', function($resource, DEFAULT_DOMAIN) {
+  .factory('UserCenterService', function($resource, DEFAULT_DOMAIN, RESTFUL_DOMAIN) {
     return {
       dayProfit: $resource(DEFAULT_DOMAIN + '/siteCredit/getUserDayProfit', {}),
       userSecurityInfo: $resource(DEFAULT_DOMAIN + '/siteUser/userSecurityInfo', {}),
@@ -149,6 +149,10 @@ angular.module('hongcaiApp')
       userIncreaseRateCoupons : $resource(DEFAULT_DOMAIN + '/siteUser/userIncreaseRateCoupons', {
         page : '@page',
         pageSize : '@pageSize',
+        status : '@status'
+      }),
+      getUserCashCouponsStat: $resource(RESTFUL_DOMAIN + '/cashCoupons/stat'),
+      userCashCoupons: $resource(RESTFUL_DOMAIN + '/cashCoupons', {
         status : '@status'
       }),
       resetMobile: $resource(DEFAULT_DOMAIN + '/yeepay/resetMobile', {mobile:'@mobile'})
