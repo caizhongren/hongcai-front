@@ -2,7 +2,7 @@
 angular.module('hongcaiApp')
   .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, 
 
-    MainService, DateUtils, AboutUsService, projectStatusMap) {
+    MainService, DateUtils, AboutUsService, projectStatusMap, config, $window) {
     $scope.chk = true;
     $scope.checkFlag = true;
     $scope.check = function(val) {
@@ -419,7 +419,7 @@ angular.module('hongcaiApp')
             show: true
           });
 
-          window.open('/user-order-transfer/' + project.id + '/' + orderId + '/' + orderType);
+          $window.open(config.domain + '/#!/user-order-transfer/' + project.id + '/' + orderId + '/' + orderType, '_blank');
         } else {
           toaster.pop('error', response.msg);
         }
