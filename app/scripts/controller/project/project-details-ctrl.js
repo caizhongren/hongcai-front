@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie,
+  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, 
 
     MainService, DateUtils, AboutUsService, projectStatusMap) {
     $scope.chk = true;
@@ -402,12 +402,29 @@ angular.module('hongcaiApp')
       $scope.msg = '4';
       $scope.page = 'investVerify';
       var couponNumber = selectedCoupon == null ? "" : selectedCoupon.number;
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
+
+      OrderService.saveOrder.get({
+        projectId: project.id,
+        investAmount: investAmount,
+        giftCount: giftCount,
+        inviteMobile: $rootScope.inviteMobile,
+        couponNumber: couponNumber
+      }, function(response) {
+        if (response.ret === 1) {
+          var orderId = response.data.orderId;
+          $alert({
+            scope: $scope,
+            template: 'views/modal/alertYEEPAY.html',
+            show: true
+          });
+
+          window.open('/#!/invest-verify-transfer/' + project.id + '/' + orderId);
+        } else {
+          toaster.pop('error', response.msg);
+        }
       });
-      window.open('/#!/invest-verify-transfer/' + project.id + '/' + investAmount + '/' + giftCount + '/' + couponNumber);
+
+      
     };
 
     /**

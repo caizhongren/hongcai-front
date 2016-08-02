@@ -25,31 +25,18 @@ angular.module('hongcaiApp')
       return e;
     }
 
-    OrderService.saveOrder.get({
+    OrderService.transfer.get({
       projectId: $stateParams.projectId,
-      investAmount: $stateParams.investAmount,
-      giftCount: $stateParams.giftCount,
-      inviteMobile: $rootScope.inviteMobile,
-      couponNumber: $stateParams.couponNumber
+      orderId: $stateParams.orderId
     }, function(response) {
       if (response.ret === 1) {
-        var orderId = response.data.orderId;
-        OrderService.transfer.get({
-          projectId: $stateParams.projectId,
-          orderId: orderId
-        }, function(response) {
-          if (response.ret === 1) {
-            var req = response.data.req;
-            var sign = response.data.sign;
-            var _f = newForm(); 
-            createElements(_f, 'req', req); 
-            createElements(_f, 'sign', sign);
-            _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; 
-            _f.submit(); 
-          } else {
-            toaster.pop('error', response.msg);
-          }
-        });
+        var req = response.data.req;
+        var sign = response.data.sign;
+        var _f = newForm(); 
+        createElements(_f, 'req', req); 
+        createElements(_f, 'sign', sign);
+        _f.action = config.YEEPAY_ADDRESS + 'toTransfer'; 
+        _f.submit(); 
       } else {
         toaster.pop('error', response.msg);
       }
