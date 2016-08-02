@@ -1,4 +1,3 @@
-
 'use strict';
 angular.module('hongcaiApp')
   .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie,
@@ -47,7 +46,7 @@ angular.module('hongcaiApp')
         $scope.showSelectCoupon = false;
         $scope.selectedCoupon = coupon;
         $scope.increaseProfit = $scope.calcProfit(coupon.value);
-        if($scope.project.amount && $scope.project.amount < coupon.minInvestAmount){
+        if ($scope.project.amount && $scope.project.amount < coupon.minInvestAmount) {
           $scope.msg = '投资金额不满足返现条件';
         }
       }
@@ -206,6 +205,7 @@ angular.module('hongcaiApp')
       return profit;
     }
     $scope.$watch('project.amount', function(newVal, oldVal) {
+      $scope.msg = '';
       if (!$rootScope.isLogged) {
         return;
       }
@@ -217,7 +217,7 @@ angular.module('hongcaiApp')
         $scope.msg = '账户余额不足，请先充值';
       }
 
-      if (newVal) {
+      if (newVal || $scope.selectedCoupon !==null) {
         if (newVal > $scope.availableAmount) {
           $scope.msg = '投资金额必须小于' + $scope.availableAmount;
         } else if (newVal > $rootScope.account.balance) {
@@ -230,7 +230,7 @@ angular.module('hongcaiApp')
       }
       if ($scope.selectedCoupon !== undefined && $scope.selectedCoupon !== null && $scope.selectedCoupon.type === 2) {
         if (newVal < $scope.selectedCoupon.minInvestAmount) {
-          $scope.msg = '投资金额不满足返现条件'
+          $scope.msg = '投资金额不满足返现条件';
         }
       }
       if (($scope.project !== undefined && $scope.project) || $scope.selectedCoupon !== null) {
