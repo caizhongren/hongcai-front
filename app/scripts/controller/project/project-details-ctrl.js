@@ -42,21 +42,18 @@ angular.module('hongcaiApp')
        */
     $scope.showSelectCoupon = false;
     $scope.selectCoupon = function(coupon) {
-        $scope.msg = '';
         $scope.showSelectCoupon = false;
         $scope.selectedCoupon = coupon;
-        $scope.increaseProfit = $scope.calcProfit(coupon.value);
-        if ($scope.project.amount && $scope.project.amount < coupon.minInvestAmount) {
-          $scope.msg = '投资金额不满足返现条件';
-        }
+        $scope.validateAmountAndCoupon($scope.project.amount, coupon);
       }
+
       /**
        * 不选择券
        */
     $scope.unUseCoupon = function() {
-      $scope.profit = 0;
-      $scope.increaseProfit = 0;
       $scope.selectedCoupon = null;
+
+      $scope.validateAmountAndCoupon($scope.project.amount, $scope.selectedCoupon);
     }
 
 
@@ -204,6 +201,38 @@ angular.module('hongcaiApp')
       var profit = $scope.project.amount * $scope.project.projectDays * annualEarnings / 36500;
       return profit;
     }
+
+    $scope.validateAmountAndCoupon = function(amount, coupon){
+        $scope.msg = '';
+
+        if (!$rootScope.isLogged) {
+          return;
+        }
+
+        if(amount === 'undefined' || amount <= 0){
+          return;
+        }
+
+        if ($rootScope.account.balance <= 0) {
+            $scope.msg = '账户余额不足，请先充值';
+        }else if (amount > $scope.availableAmount) {
+          $scope.msg = '投资金额必须小于' + $scope.availableAmount;
+        } else if (amount > $rootScope.account.balance) {
+          $scope.msg = '账户余额不足，请先充值';
+        } else if (amount % $scope.project.increaseAmount !== 0) {
+          $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍';
+        } else if (amount < $scope.project.minInvest) {
+          $scope.msg = '投资金额必须大于等于' + $scope.project.minInvest;
+        }else if (coupon !== undefined && coupon !== null && coupon.type === 2 && amount < coupon.minInvestAmount) {
+          $scope.msg = '投资金额不满足返现条件';
+        }
+
+        if (($scope.project !== undefined && $scope.project) || $scope.selectedCoupon !== null) {
+          $scope.profit = $scope.calcProfit($scope.project.annualEarnings) || 0;
+          $scope.increaseProfit = coupon != null ? $scope.calcProfit(coupon.value) : 0;
+        }
+    }
+
     $scope.$watch('project.amount', function(newVal, oldVal) {
       $scope.msg = '';
       if (!$rootScope.isLogged) {
@@ -213,31 +242,9 @@ angular.module('hongcaiApp')
         $scope.msg = undefined;
       }
 
-      if ($rootScope.account.balance <= 0) {
-        $scope.msg = '账户余额不足，请先充值';
-      }
-
-      if (newVal || $scope.selectedCoupon !==null) {
-        if (newVal > $scope.availableAmount) {
-          $scope.msg = '投资金额必须小于' + $scope.availableAmount;
-        } else if (newVal > $rootScope.account.balance) {
-          $scope.msg = '账户余额不足，请先充值';
-        } else if (newVal % $scope.project.increaseAmount !== 0) {
-          $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍';
-        } else if (newVal < $scope.project.minInvest) {
-          $scope.msg = '投资金额必须大于等于' + $scope.project.minInvest;
-        }
-      }
-      if ($scope.selectedCoupon !== undefined && $scope.selectedCoupon !== null && $scope.selectedCoupon.type === 2) {
-        if (newVal < $scope.selectedCoupon.minInvestAmount) {
-          $scope.msg = '投资金额不满足返现条件';
-        }
-      }
-      if (($scope.project !== undefined && $scope.project) || $scope.selectedCoupon !== null) {
-        $scope.profit = $scope.calcProfit($scope.project.annualEarnings) || 0;
-        $scope.increaseProfit = $scope.selectedCoupon != null ? $scope.calcProfit($scope.selectedCoupon.value) : 0;
-      }
+      $scope.validateAmountAndCoupon(newVal, $scope.selectedCoupon);
     });
+
     /**
      * 项目订单列表
      */
