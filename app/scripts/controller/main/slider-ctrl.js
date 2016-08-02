@@ -12,6 +12,11 @@ angular.module('hongcaiApp')
       name: '投资送加息券'
     },{
       mimeType: 'image/png',
+      src: 'images/banner-new/banner07.jpg',
+      href: '/#!/activity/novice-activity',
+      name: '14%收益 新手专享'
+    },{
+      mimeType: 'image/png',
       src: 'images/banner/banner-11.png',
       href: '/#!/register',
       name: '注册拿8888元'

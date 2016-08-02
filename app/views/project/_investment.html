@@ -3,8 +3,6 @@
     <div class="panel panel-default status" style="height:334px;">
       <div class="panel-heading ft-16 padding-tAb bg-white padding-l-15">
         <strong class="ft-grey666">投资状态</strong>
-        <!-- <span class="ft-orange3 ft-14 border-orange margin-l-10 padding-5 padding-tb-3 margin-l-20">100元起投 100元递增</span> -->
-        <!--<img src="images/zengliang_03.png" class="project-bianju pull-right">-->
         <span class="ft-14 ft-grey666">（账户余额：</span>
         <span class="ft-14 ft-grey666 cursor-pointer" ng-if="!isLogged">
           登录后查看)
@@ -83,7 +81,6 @@
             <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin margin-t-35" disabled="disabled"><i class="fa fa-lg project-leftmargin"></i>
               <span>{{projectStatusMap[project.status]}}</span>
             </button>
-
             <div class="margin-t-40 text-center"><i class="fa fa-info-circle fa-lg fa-gray i-rightmargin"></i>
               <span class="spangray">
               <span ng-switch-when="8">
@@ -203,7 +200,6 @@
               <form ng-submit="getProfit(project);"class="padding-l-15" name="reserveForm">
                 <span class="ft-grey666">投资金额：</span>
                 <input type="number" min="{{project.minInvest}}" max="{{userCanInvestNum}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-15 btn-76" placeholder="请输入预约总额（元）" required disabled="disabled" ng-if="userCanInvestNum === 0">
-
                 <input type="number" min="{{project.minInvest}}" step="{{project.increaseAmount}}" name="project.toReserveAmount" ng-model="project.toReserveAmount" class="form-control margin-b-20 btn-76" placeholder="请输入预约总额（元）" required ng-if="userCanInvestNum !== 0">
                 <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                 <button class="btn btn-total-orange btn-lg btn-block" ng-if="userCanInvestNum !== 0"><i class="fa project-leftmargin"></i>立即预约</button>
@@ -215,12 +211,7 @@
               </div>
             </div>
           </div>
-
-
         </div>
-
-
-
     </div>
   </div>
 </div>
