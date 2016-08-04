@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, 
+  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie,
 
     MainService, DateUtils, AboutUsService, projectStatusMap, config, $window, DEFAULT_DOMAIN) {
     $scope.chk = true;
@@ -23,8 +23,14 @@ angular.module('hongcaiApp')
         }, function(response) {
           if (response && response.ret !== -1) {
             $scope.coupons = response;
-            $scope.selectedCoupon = $scope.cashType === 1 ? $scope.coupons[1] : $scope.coupons[0];
-            $scope.selectedCoupon = $scope.rateType === 1 ? $scope.coupons[1] : $scope.coupons[0];
+            for (var i = 0; i < $scope.coupons.length; i++) {
+              if ($scope.rateType === '' && $scope.cashType === '') {
+                $scope.selectedCoupon = $scope.coupons[0];
+              }
+              if ($scope.rateNum == $scope.coupons[i].number || $scope.cashNum == $scope.coupons[i].number) {
+                $scope.selectedCoupon = $scope.coupons[i];
+              }
+            }
           }
         });
       }
@@ -64,7 +70,6 @@ angular.module('hongcaiApp')
     $scope.cashType = ipCookie('cashType') || '';
     $scope.rateNum = ipCookie('rateNum') || '';
     $scope.rateType = ipCookie('rateType') || '';
-
     /**
      * 获取具体某项目
      */
@@ -230,7 +235,11 @@ angular.module('hongcaiApp')
 
       if (($scope.project !== undefined && $scope.project) || $scope.selectedCoupon !== null) {
         $scope.profit = $scope.calcProfit($scope.project.annualEarnings) || 0;
-        $scope.increaseProfit = coupon != null ? $scope.calcProfit(coupon.value) : 0;
+        if (coupon.type === 1) {
+          $scope.increaseProfit = $scope.calcProfit(coupon.value);
+        } else {
+          $scope.increaseProfit = amount < coupon.minInvestAmount ? 0 : coupon.value;
+        }
       }
     }
 
@@ -405,26 +414,25 @@ angular.module('hongcaiApp')
 
       // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
       $.ajax({
-          url:DEFAULT_DOMAIN + '/siteOrder/saveOrder?projectId=' + project.id + '&investAmount=' + investAmount
-            + '&giftCount=' + giftCount + '&couponNumber='+ couponNumber,
-          'type':'POST',
-          async:false,
-          dataType:'json',
-          success: function(response){
-            if (response.ret === 1) {
-              var orderId = response.data.orderId;
-              var orderType = 1;
-              $alert({
-                scope: $scope,
-                template: 'views/modal/alertYEEPAY.html',
-                show: true
-              });
+        url: DEFAULT_DOMAIN + '/siteOrder/saveOrder?projectId=' + project.id + '&investAmount=' + investAmount + '&giftCount=' + giftCount + '&couponNumber=' + couponNumber,
+        'type': 'POST',
+        async: false,
+        dataType: 'json',
+        success: function(response) {
+          if (response.ret === 1) {
+            var orderId = response.data.orderId;
+            var orderType = 1;
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alertYEEPAY.html',
+              show: true
+            });
 
-              $window.open('/#!/user-order-transfer/' + project.id + '/' + orderId + '/' + orderType, '_blank');
-            } else {
-              toaster.pop('error', response.msg);
-            }
+            $window.open('/#!/user-order-transfer/' + project.id + '/' + orderId + '/' + orderType, '_blank');
+          } else {
+            toaster.pop('error', response.msg);
           }
+        }
       });
 
       // var getOrder = $q.defer();
@@ -450,7 +458,7 @@ angular.module('hongcaiApp')
       //   }
       // });
 
-      
+
     };
 
     /**
