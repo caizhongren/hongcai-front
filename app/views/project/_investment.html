@@ -175,7 +175,7 @@
                   <span class="spangray" ng-model="profit">
                     <span class="ft-16">{{profit || 0 | number:2}}</span>元
                     <span class="ft-orange" ng-show="selectedCoupon.type === 1"><span class="ft-16">+{{increaseProfit || 0 |  number:2}}</span>元</span>
-                    <span class="ft-orange" ng-show="selectedCoupon.type === 2"><span class="ft-16">+{{selectedCoupon.value || 0}}</span>元</span>
+                    <span class="ft-orange" ng-show="selectedCoupon.type === 2"><span class="ft-16">+{{increaseProfit || 0}}</span>元</span>
                   </span>
                 </div>
                 <button class="btn btn-total-orange btn-lg btn-block" ng-class="{'margin-t-30':newbieBiaoErrorMsg}" ng-switch-default ng-click="transfer(project, project.amount, 0, selectedCoupon)" ng-disabled="!project.amount || !newbieBiaoInvestFlag || errorMsg || project.amount < 0" ng-show="account.balance > 0"><i class="fa project-leftmargin"></i>立即投资

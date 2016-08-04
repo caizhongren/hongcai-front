@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, 
+  .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie,
 
     MainService, DateUtils, AboutUsService, projectStatusMap, config, $window, DEFAULT_DOMAIN) {
     $scope.chk = true;
@@ -230,7 +230,11 @@ angular.module('hongcaiApp')
 
       if (($scope.project !== undefined && $scope.project) || $scope.selectedCoupon !== null) {
         $scope.profit = $scope.calcProfit($scope.project.annualEarnings) || 0;
-        $scope.increaseProfit = coupon != null ? $scope.calcProfit(coupon.value) : 0;
+        if(coupon.type === 1){
+          $scope.increaseProfit = $scope.calcProfit(coupon.value);
+        } else {
+          $scope.increaseProfit = amount < coupon.minInvestAmount ? 0 : coupon.value;
+        }
       }
     }
 
@@ -450,7 +454,7 @@ angular.module('hongcaiApp')
       //   }
       // });
 
-      
+
     };
 
     /**
