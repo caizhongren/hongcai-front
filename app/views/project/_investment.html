@@ -111,17 +111,17 @@
             </div>
             <div class="margin-b-15" ng-show="!newbieBiaoErrorMsg" ng-click="checkeCoupon()">
               可用奖励：
-              <span class="spangray" ng-show="(selectedCoupon.type === cashType && selectedCoupon.number === cashNum) || (selectedCoupon.type === 2 && selectedCoupon !==null)">
+              <span class="spangray" ng-show="selectedCoupon.type === 2 && selectedCoupon !==null">
                 现金<span class="ft-orange ft-16">{{selectedCoupon.value}}</span>元（需投资金额&ge;{{selectedCoupon.minInvestAmount}}）
               </span>
-              <span class="spangray" ng-show="(selectedCoupon.type === rateNum && selectedCoupon.number === rateNum) || (selectedCoupon.type === 1 && selectedCoupon !==null)">
+              <span class="spangray" ng-show="selectedCoupon.type === 1 && selectedCoupon !==null">
                 <span class="ft-orange ft-16">{{selectedCoupon.value}}%</span>加息券（有效期至{{selectedCoupon.endTime | date: "yyyy-MM-dd"}}）
               </span>
               <span class="spangray" ng-show="selectedCoupon === null">暂不使用</span>
               <span class="spangray" ng-show="coupons.length == 0">暂无可用奖励</span>
               <img src="/images/project/menu-down.jpg" class="fr margin-t-5">
               <ul class="award-list spangray" ng-show="showCoupons">
-                <li ng-click="selectCoupon(coupon)"ng-repeat="coupon in coupons">
+                <li ng-click="selectCoupon(coupon)"ng-repeat="coupon in coupons | orderBy : ['-type','value']">
                     <p class="padding-l-5" ng-show="coupon.type === 2 && coupon.status === 1"> 现金<span class="ft-orange">{{coupon.value}}</span>元（需投资金额&ge;{{coupon.minInvestAmount || 0}}）</p>
                     <p class="padding-l-3" ng-show="coupon.type === 1 && coupon.status === 1"><span class="ft-orange padding-l-5">{{coupon.value}}%</span>加息券（有效期至{{coupon.endTime | date: "yyyy-MM-dd"}}）</p>
                 </li>
@@ -152,17 +152,17 @@
                 <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
                 <div class="margin-b-15" ng-show="!newbieBiaoErrorMsg" ng-click="checkeCoupon()">
                   可用奖励：
-                  <span class="spangray" ng-show="(selectedCoupon.type === cashType && selectedCoupon.number === cashNum) || (selectedCoupon.type === 2 && selectedCoupon !==null)">
+                  <span class="spangray" ng-show="selectedCoupon.type === 2 && selectedCoupon !==null">
                     现金<span class="ft-orange ft-16">{{selectedCoupon.value}}</span>元（需投资金额&ge;{{selectedCoupon.minInvestAmount}}）
                   </span>
-                  <span class="spangray" ng-show="(selectedCoupon.type === rateNum && selectedCoupon.number === rateNum) || (selectedCoupon.type === 1 && selectedCoupon !==null)">
+                  <span class="spangray" ng-show="selectedCoupon.type === 1 && selectedCoupon !==null">
                     <span class="ft-orange ft-16">{{selectedCoupon.value}}%</span>加息券（有效期至{{selectedCoupon.endTime | date: "yyyy-MM-dd"}}）
                   </span>
                   <span class="spangray" ng-show="selectedCoupon === null">暂不使用</span>
                   <span class="spangray" ng-show="coupons.length === 0">暂无可用奖励</span>
                   <img src="/images/project/menu-down.jpg" class="fr margin-t-5" >
                   <ul class="award-list spangray" ng-show="showCoupons">
-                    <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : 'value'">
+                    <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : ['-type','value']">
                         <p class="padding-l-5" ng-show="coupon.type === 2 && coupon.status === 1"> 现金<span class="ft-orange">{{coupon.value}}</span>元（需投资金额&ge;{{coupon.minInvestAmount || 0}}）</p>
                         <p class="padding-l-3" ng-show="coupon.type === 1 && coupon.status === 1"><span class="ft-orange padding-l-5">{{coupon.value}}%</span>加息券（有效期至{{coupon.endTime | date: "yyyy-MM-dd"}}）</p>
                     </li>
