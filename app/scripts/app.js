@@ -1867,7 +1867,7 @@ hongcaiApp
 
   }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
+hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
   /**
    * Array 在IE8下没有indexOf 方法。
    */
