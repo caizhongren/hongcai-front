@@ -485,7 +485,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd: '.tmp/scripts',
             src: 'templates.min.js',
-            dest: '<%= yeoman.dist %>'
+            dest: '<%= yeoman.dist %>/scripts'
           }
         ]
       },
