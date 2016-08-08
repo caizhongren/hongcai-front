@@ -26,10 +26,41 @@ module.exports = function(grunt) {
   };
 
   grunt.loadNpmTasks('grunt-connect-proxy');
+  grunt.loadNpmTasks('grunt-angular-templates');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
-
+    ngtemplates: {
+      hongcaiApp: {
+        dest: '.tmp/scripts/templates.js',
+        src: ['app/views/*.html', 'app/views/*/*.html', '!app/views/activity/*.html'],
+        options: {
+          url: function(url) {
+            return url.replace('app/', '');
+          }
+        }
+      }
+    },
+    uglify: {
+      hongcaiApp: {
+        files: [{
+          expand: true,
+          //相对路径
+          src: '.tmp/scripts/templates.js',
+          //src: ['**/*.js', '!**/*.min.js'],  //不包含某个js,某个文件夹下的js
+          dest: '.tmp/scripts',
+          rename: function(dest, src) {
+            var filename = src.substring(src.lastIndexOf('/'), src.length);
+            //  var filename=src;
+            filename = filename.substring(0, filename.lastIndexOf('.'));
+            var fileresult = dest + filename + '.min.js';
+            return fileresult;
+            //return  filename + '.min.js';
+          }
+        }]
+      }
+    },
     ngconstant: {
 
       development: {
@@ -42,7 +73,7 @@ module.exports = function(grunt) {
         }
       },
 
-     developmentTest321: {
+      developmentTest321: {
         options: {
           dest: '.tmp/scripts/config.js',
           name: 'config',
@@ -450,6 +481,11 @@ module.exports = function(grunt) {
             cwd: '<%= yeoman.app %>/styles',
             dest: '<%= yeoman.dist %>/styles',
             src: '{,*/}*.css'
+          }, {
+            expand: true,
+            cwd: '.tmp/scripts',
+            src: 'templates.min.js',
+            dest: '<%= yeoman.dist %>'
           }
         ]
       },
@@ -527,10 +563,11 @@ module.exports = function(grunt) {
     'autoprefixer',
     'concat',
     'ngAnnotate',
+    'ngtemplates',
+    'uglify',
     'copy:dist',
     // 'cdnify',
     'cssmin',
-    'uglify',
     'filerev',
     'usemin',
     'htmlmin'
@@ -546,10 +583,11 @@ module.exports = function(grunt) {
     'autoprefixer',
     'concat',
     'ngAnnotate',
+    'ngtemplates',
+    'uglify',
     'copy:dist',
     // 'cdnify',
     'cssmin',
-    'uglify',
     'filerev',
     'usemin',
     'htmlmin'
@@ -566,10 +604,11 @@ module.exports = function(grunt) {
     'autoprefixer',
     'concat',
     'ngAnnotate',
+    'ngtemplates',
+    'uglify',
     'copy:dist',
     // 'cdnify',
     'cssmin',
-    'uglify',
     'filerev',
     'usemin',
     'htmlmin'
