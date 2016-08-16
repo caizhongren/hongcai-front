@@ -10,6 +10,7 @@
 
 module.exports = function(grunt) {
 
+
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -144,7 +145,7 @@ module.exports = function(grunt) {
       },
       proxies: [{
         context: '/hongcai/api/v1',
-        host: '192.168.1.43',
+        host: '114.255.24.47',
         port: 8000
       }],
       livereload: {
