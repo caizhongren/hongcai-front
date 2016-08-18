@@ -16,24 +16,24 @@
         </div>
         <div class="col-md-11 bg-grey6 padding-30 margin-l-40 margin-t-20">
           <div class="col-xs-4">
-            <img src="/images/user-center/available-cash.png" alt="" class="fl">
+            <div class="fl available-cash"></div>
             <div class="record-text">
               <p>可提奖金（元）</p>
               <p class="ft-red5"><strong class="ft-24">{{unGotAmount}}</strong>.00</p>
             </div>
           </div>
           <div class="col-xs-4">
-            <img src="/images/user-center/used-cash.png" alt="" class="fl margin-l-20">
+            <div class="fl margin-l-20 used-cash1"></div>
             <div class="record-text">
               <p>已提奖金（元）</p>
               <p class="ft-red5"><strong class="ft-24">{{gotAmount}}</strong>.00</p>
             </div>
           </div>
           <div class="col-xs-4">
-            <img src="/images/user-center/rules.png" alt="" class="fl margin-l-30">
+            <div class="fl margin-l-30 rules"></div>
             <div class="record-text position-re">
               <p class="margin-b-0 ft-blue0">奖金提现规则</p>
-              <img src="/images/user-center/rule-icon.png" class="margin-l-30" id="rules" ng-mouseenter="showRules()">
+              <div class="margin-l-30 rule-icon" id="rules" ng-mouseenter="showRules()"></div>
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@
              <span class="text-left display-inbl">{{cashCoupon.order.projectName}}</span>
              <p>使用时间：{{cashCoupon.usedTime | date: 'yyyy-MM-dd'}}</p>
              <!-- 已提现标志 -->
-             <img src="/images/user-center/used-icon.png" class="fr">
+             <div class="fr used-icon"></div>
           </div>
         </div>
       </div>
