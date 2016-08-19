@@ -1098,7 +1098,6 @@ hongcaiApp
         url: '/platform',
         views: {
           'about-us-right-show': {
-            // templateUrl: 'views/about-us/introduction-of-platform.html',
             templateUrl: 'views/about-us/introduction-of-platform2.html',
             controller: 'HelpCenterCtrl',
             controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
