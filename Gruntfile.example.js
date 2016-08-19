@@ -35,7 +35,14 @@ module.exports = function(grunt) {
     ngtemplates: {
       hongcaiApp: {
         dest: '.tmp/scripts/templates.js',
-        src: 'app/views/project/*.html',
+        src: [
+        'app/views/register/*.html','app/views/main/*.html'
+        ,'app/views/project/_description.html','app/views/project/_investment.html'
+        ,'app/views/project/_detail.html','app/views/project/_additional.html'
+        ,'app/views/project/_reading.html','app/views/project/project-detailshtml'
+        ,'app/views/project/guaranteepro-list.html','app/views/project/_list_search.html'
+        ,'app/views/project/_list_filter.html','app/views/project/_list_detail.html'
+        ],
         options: {
           url: function(url) {
             return url.replace('app/', '');

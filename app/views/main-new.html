@@ -8,34 +8,12 @@
 
     <!-- 新手标 -->
     <div class="row  margin-t-20" ng-include src='"views/main/xinshoubiao.html"'></div>
-
-    <!-- new-零存宝 border-total-->
-    <!-- <div class="row  margin-t-20" ng-include ng-show="lingcunbao" src='"views/main/lingcunbao.html"'></div> -->
-    <!-- 土豪标抽奖页入口 -->
-    <!-- <div class="row" ng-include src='"views/main/_tuhao_lucky_draw.html"' ng-show="tuhaoIsShowedFlAG"></div> -->
-    <!-- 新手标、红包标模块 -->
-    <!-- <div class="row" ng-include src='"views/main/_hongbao_list_no_newbie.html"' ng-if="activityList" ng-hide="newbieIsShowedFLAG"></div> -->
-    <!-- <div class="row" ng-include src='"views/main/_newbie_hongbao.html"' ng-show="newbieIsShowedFLAG"></div> -->
-    <!-- 预约广告位 -->
-    <!-- <div class="row" ng-include src='"views/main/_reservation.html"' ng-show="reservationIsShowedFlAG"></div> -->
-    <!-- <br> -->
-    <!-- 热卖推荐模块 -->
-    <!-- <div class="row " ng-include  ng-show="projectVo"></div> -->
     <!-- 微信托 -->
     <div class="row  margin-t-0 border-total" ng-include src='"views/main/weixintuo.html"' ng-if="false"></div>
     <!-- new-机构宝 border-total-->
-    <!--<div class="row container col-xs-12 col-md-12 col-lg-12 text-right ft-333 ft-16 margin-t-20 margin-b-0 padding-r-0"><span class="cursor-pointer" ui-sref="root.guaranteepro-list-query-no()">查看更多></span></div>-->
     <div class="row  margin-t-0 " ng-include src='"views/main/jigoubao.html"'></div>
-
-    <!-- new-宏金盈  border-total-->
-    <!-- <div class="row  margin-t-0" ng-include src='"views/main/hongjinying.html"'></div> -->
-
-    <!-- new-hongjinbao -->
-    <!-- <div class="row  margin-t-30" ng-include src='"views/main/hongjinbao.html"'></div> -->
     <!-- new-zhaiquanzhuanrang -->
     <div class="row  margin-t-30" ng-include ng-show="false" src='"views/main/zhaiquanzhuanrang.html"'></div>
-    <!-- 推荐项目列表 -->
-    <!-- <div class="row recommend" ng-include src='"views/main/_recommend_list.html"'></div> -->
     <!-- 债权转让模块 -->
     <div class="row recommend" ng-include ng-show="creditIsShowedFLAG"></div>
     <!-- 统计数据信息 -->
@@ -51,5 +29,3 @@
 </div>
 <!-- 合作伙伴 -->
 <div class="container-fluid index-cooperation" ng-include src='"views/main/_cooperation_agency.html"'></div>
-<!-- 友情链接 -->
-<!-- <div class="container-fluid index-cooperation" ng-include src='"views/main/_cooperation_linked.html"'></div> -->
