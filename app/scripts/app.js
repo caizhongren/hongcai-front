@@ -361,7 +361,7 @@ hongcaiApp
         }
       })
 
-      /**
+       /**
        * 开通易宝，即实名认证
        */
       .state('root.rights-transfer', {
@@ -1896,6 +1896,17 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
     $rootScope.realNameAuthModal = $modal({
       scope: $rootScope,
       template: 'views/modal/modal-realNameAuth.html',
+      show: true
+    });
+  };
+
+  /**
+   * 激活存管通账户
+   */
+  $rootScope.toActivate = function() {
+    $rootScope.activateModal = $modal({
+      scope: $rootScope,
+      template: 'views/modal/modal-activate.html',
       show: true
     });
   };
