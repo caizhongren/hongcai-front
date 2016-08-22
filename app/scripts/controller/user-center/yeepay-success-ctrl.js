@@ -37,7 +37,9 @@ angular.module('hongcaiApp')
   		}
   	}else if(business === 'EXPERIENCE'){
       page = 10;
-    } 
+    } else if(business === 'USER_ACTIVE'){
+      page = 11;
+    }
 
 
   	$scope.page = page;
