@@ -1,5 +1,6 @@
 {
   "YEEPAY_ADDRESS": "https://member.yeepay.com/member/bha/",
+  "CGT_ADDRESS":"http://220.181.25.233:8602/bha-neo-app/lanmaotech/gateway",
   "viewFlAG": {
     "tuhaoIsShowedFlAG": false,
     "sponsorsIsShowedFlAG": false,
@@ -11,6 +12,7 @@
   "ignorePATH": ["/credit-list", "/credit-details", "/credit-verify", "/credit-assignment", "/credit-success", "/credit-create"],
   "domain":"http://www.hongcai.com",
   "en": "online",
-  "baseFileUrl": "http://www.hongcai.com/uploads/"
+  "baseFileUrl": "http://www.hongcai.com/uploads/",
+  "pay_company": "cgt"
 }
 
