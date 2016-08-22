@@ -19,31 +19,37 @@
 		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ2 == true">
 		1.交易密码是您投资和提现时需要输入的密码。
 		<br>2.交易密码是不同于登录密码的资金安全保护机制，是特别用来保护您的资金安全的交易密码。即使您的账户登录密码处于异常状态，有交易密码保护就可以确保您的账户资金不被他人挪用。
-		<br>3.如果您遗忘了交易密码，可在登录后在投资或者提现时，点击忘记密码，通过进入易宝支付页面，通过手机获取验证码的方式进行重置。</p>
+		<br>3.如果您遗忘了交易密码，可在登录后在投资或者提现时，点击忘记密码，通过手机获取验证码的方式进行重置。</p>
 	</div>
 	<div class="row">
 		<div class="help-ico {{changeSafeQ3 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ3 =! changeSafeQ3"></div>
-		<p class="p-click" ng-click="changeSafeQ3 =! changeSafeQ3">&nbsp;为什么要进行安全认证？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ3 == true">为确保投资人的资金安全，宏财网要求所有投资人与借款企业均需完成安全认证，包括手机认证，邮箱认证，实名认证等；宏财网对于所有资料信息实行严格保密。投资人在首次充值前需完成个人身份信息的验证。投资人可在“我的账户--账户管理--安全设置”页面完成实名认证操作，详情如下：
-		<br>1.手机认证：输入正确有效的手机号码，在收到验证码后输入完成认证即可。
-		<br>2.实名认证：填写真实有效的身份证号码和真实姓名可完成实名认证。
-		<br>3.邮箱验证：填写真实有效的邮箱地址，收到宏财网发送的链接后完成验证。</p>
+		<p class="p-click" ng-click="changeSafeQ3 =! changeSafeQ3">&nbsp;为什么要进行安全认证？如何认证？</p>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ3 == true">为确保投资人的资金安全，宏财网要求所有投资人与借款企业均需完成安全认证，即开通北京网贷风险监控及资金存管系统，简称存管通。投资者和借款企业资金往来始终在存管银行体系内运作，避免了平台任意挪动资金的可能。投资人可在“我的账户--账户管理--安全设置”页面通过完成实名认证操作来开通资金存管账户。</p>
 	</div>
 	<div class="row">
 		<div class="help-ico {{changeSafeQ4 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ4 =! changeSafeQ4"></div>
-		<p class="p-click" ng-click="changeSafeQ4 =! changeSafeQ4">&nbsp;身份证明信息正确，实名认证未通过怎么办？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ4 == true">可能是由于第三方认证系统没有及时更新您的身份信息导致的，您可以联系客服寻求帮助;客服电话：4009907626</p>
+		<p class="p-click" ng-click="changeSafeQ4 =! changeSafeQ4">&nbsp;开通北京网贷风险监控及资金存管系统账户过程中，为何实名认证无法通过</p>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ4 == true">
+      以下三种情况可能会导致实名认证无法通过：
+      <br>1.身份证号和姓名不一致
+      <br>2.更改过户籍所在地
+      <br>3.现役军人<br>
+      <br>解决办法：
+      <br>1、如果是前两种情况，建议您可以到派出所进行查询、更改；
+      <br>2、如果您是现役军人、或者仅有护照号，则暂时无法完成开户。
+      <br>3、如在实名认证中遇到任何问题，可致电客服电话：400-900-9609
+    </p>
 	</div>
-	<div class="row">
-		<div class="help-ico {{changeSafeQ5 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ5 =! changeSafeQ5"></div>
-		<p class="p-click" ng-click="changeSafeQ5 =! changeSafeQ5">&nbsp;进行实名认证后，能够解绑，或者重新实名认证吗？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ5 == true">用户在网站不可以进行解绑操作，如果用户账户资金余额为0，并且没有借款和理财记录的用户，可以联系客服解绑（客服电话：4009907626）；</p>
-	</div>
+	<!-- <div class="row">
+    <div class="help-ico {{changeSafeQ5 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ5 =! changeSafeQ5"></div>
+    <p class="p-click" ng-click="changeSafeQ5 =! changeSafeQ5">&nbsp;进行实名认证后，能够解绑，或者重新实名认证吗？</p>
+    <p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ5 == true">用户在网站不可以进行解绑操作，如果用户账户资金余额为0，并且没有借款和理财记录的用户，可以联系客服解绑（客服电话：4009907626）；</p>
+  </div> -->
 	<div class="row">
 		<div class="help-ico {{changeSafeQ6 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ6 =! changeSafeQ6"></div>
 		<p class="p-click" ng-click="changeSafeQ6 =! changeSafeQ6">&nbsp;怎么样证明宏财网作为中介平台？不接触投资资金？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ6 == true">证明宏财网作为中介平台，最关键是看有没有触碰投资人的资金；搞资金池。
-		<br>无论是充值、满标付款还是其他关于资金的操作，投资人和借款企业的资金都一直在易宝支付的监管账户中。宏财网提供给易宝支付相关部门的投标信息和提现信息，易宝支付核查后将对账户资金做出相应操作，宏财网无权自行操控资金流向；</p>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ6 == true">证明宏财网作为中介平台，最关键是看有没有触碰投资人的资金，搞资金池。
+		<br>在宏财网，无论是充值、投资、提现，还是其他关于资金的操作，均需用户发起交易指令，银行按照指令进行资金划转，用户的资金从交易之初就在银行体系内运转，有效地避免了被平台任意挪用的风险，并杜绝了平台参与交易的可能。</p>
 	</div>
 	<div class="row">
 		<div class="help-ico {{changeSafeQ7 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ7 =! changeSafeQ7"></div>
