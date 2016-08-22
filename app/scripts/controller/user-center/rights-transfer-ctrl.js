@@ -52,7 +52,7 @@ angular.module('hongcaiApp')
       }, function(response) {
         if (response.ret === 1) {
           if($rootScope.securityStatus.realNameAuthStatus === 0 || !$rootScope.securityStatus.realNameAuthStatus) {
-            $scope.msg = '请先开通托管账户';
+            $scope.msg = '请先开通存管账户';
             $alert({
               scope: $scope,
               template: 'views/modal/alert-dialog.html',
