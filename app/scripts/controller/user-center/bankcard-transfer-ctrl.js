@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('BankcardTransferCtrl',function ( $scope, toaster, $stateParams, UserCenterService, PayUtils) {
-  
+
 
     if ($stateParams.type === '0') {
       UserCenterService.bindBankCard.get({}, function(response) {
@@ -23,5 +23,5 @@ angular.module('hongcaiApp')
         }
       });
     }
-    
-  }]);
+
+  });

@@ -1904,11 +1904,15 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
    * 激活存管通账户
    */
   $rootScope.toActivate = function() {
-    $rootScope.activateModal = $modal({
-      scope: $rootScope,
-      template: 'views/modal/modal-activate.html',
-      show: true
-    });
+    var userCenter = $location.path().indexOf('user-center');
+    if($rootScope.isLogged ===true &&  $rootScope.realNameAuthState ===1 &&  $rootScope.isActive=== false && userCenter ===1){
+      $rootScope.activateModal = $modal({
+        scope: $rootScope,
+        template: 'views/modal/modal-activate.html',
+        // controller: 'modalActivateCtrl',
+        show: true
+      });
+    }
   };
 
   /**
@@ -1934,14 +1938,6 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
 
 
   $rootScope.$on('$stateChangeStart', function(event, toState) {
-    $rootScope.isNoviceGuide = false;
-
-    var title = '网贷平台，投资理财平台，投资理财项目-宏财网';
-    if (toState.data && toState.data.title) {
-      title = toState.data.title + ' - 要理财，上宏财!';
-    }
-    $rootScope.pageTitle = title;
-
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     $checkSessionServer.error(function(response) {
         $state.go('update', {return: $location.path()});
@@ -1957,6 +1953,9 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
           $rootScope.account = response.data.userDetail.account;
           $rootScope.unreadCount = response.data.unreadCount;
           $rootScope.userType = response.data.userDetail.user.type;
+
+          $rootScope.realNameAuthState = response.data.securityStatus.realNameAuthStatus;
+          $rootScope.isActive = response.data.securityStatus.userAuth.active;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
@@ -1966,8 +1965,16 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
             toaster.pop('warning', '对不起，您还未登录，请先登录')
           }
         }
-
     });
+
+    $rootScope.isNoviceGuide = false;
+
+    var title = '网贷平台，投资理财平台，投资理财项目-宏财网';
+    if (toState.data && toState.data.title) {
+      title = toState.data.title + ' - 要理财，上宏财!';
+    }
+    $rootScope.pageTitle = title;
+
 
     // 若存在登录框，则去掉
     if($rootScope.loginModal){
@@ -1977,6 +1984,7 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
       $rootScope.realNameAuthModal.hide();
     }
 
+    // $rootScope.toActivate();
   });
 
 
@@ -2081,6 +2089,8 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
     if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1) {
       $rootScope.showHeader = false;
     }
+
+    $rootScope.toActivate();
 
   });
 
