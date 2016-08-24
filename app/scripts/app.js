@@ -1920,8 +1920,6 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
       $rootScope.activateModal = $modal({
         scope: $rootScope,
         template: 'views/modal/modal-activate.html',
-
-        // controller: 'ModalActivateCtrl',
         show: true
       });
     }
@@ -2105,7 +2103,7 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
       $rootScope.showHeader = false;
     }
 
-    
+
 
   });
 
