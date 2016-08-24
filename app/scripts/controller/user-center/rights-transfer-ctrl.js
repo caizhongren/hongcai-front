@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .controller('RightsTransferCtrl', function ($rootScope, $scope, toaster, $stateParams, UserCenterService, config, $alert, PayUtils) {
 
     if ($stateParams.type === '0') {
-      UserCenterService.yeepayRegister.get({
+      UserCenterService.yeepayRegister.post({
         realName: $stateParams.realName,
         idCardNo: $stateParams.idCardNo
       }, function(response) {

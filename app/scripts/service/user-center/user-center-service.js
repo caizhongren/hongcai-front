@@ -4,9 +4,11 @@ angular.module('hongcaiApp')
     return {
       dayProfit: $resource(DEFAULT_DOMAIN + '/siteCredit/getUserDayProfit', {}),
       userSecurityInfo: $resource(DEFAULT_DOMAIN + '/siteUser/userSecurityInfo', {}),
-      yeepayRegister: $resource(DEFAULT_DOMAIN + '/yeepay/register', {
+      yeepayRegister: $resource(RESTFUL_DOMAIN + '/users/0/yeepayRegister', {
         realName: '@realName',
         idNo: '@idNo'
+      }, {
+        'post':   {method:'POST'}
       }),
       authorizeAutoTransfer: $resource(DEFAULT_DOMAIN + '/yeepay/authorizeAutoTransfer', {}),
       yeepayRecharge: $resource(DEFAULT_DOMAIN + '/yeepay/recharge', {
