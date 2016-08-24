@@ -351,7 +351,7 @@ hongcaiApp
 
     /*-------------  toYeepay transfer --------------------*/
     .state('root.recharge-transfer', {
-        url: '/recharge-transfer/:amount',
+        url: '/recharge-transfer/:amount?business',
         views: {
           '': {
             templateUrl: 'views/transfer.html',
@@ -1909,7 +1909,7 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
       $rootScope.activateModal = $modal({
         scope: $rootScope,
         template: 'views/modal/modal-activate.html',
-        // controller: 'modalActivateCtrl',
+        controller: 'ModalActivateCtrl',
         show: true
       });
     }
@@ -1944,6 +1944,7 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
         return;
     }).success(function(response) {
 
+
         if (response.ret !== -1 && response.data && response.data.userDetail !== '' && response.data.userDetail.user !== undefined && response.data.userDetail.user !== null) {
           $rootScope.isLogged = true;
           $rootScope.loginUser = response.data.userDetail.user;
@@ -1965,6 +1966,8 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
             toaster.pop('warning', '对不起，您还未登录，请先登录')
           }
         }
+
+        $rootScope.toActivate();
     });
 
     $rootScope.isNoviceGuide = false;
@@ -2090,7 +2093,7 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
       $rootScope.showHeader = false;
     }
 
-    $rootScope.toActivate();
+    
 
   });
 

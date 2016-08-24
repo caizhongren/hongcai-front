@@ -155,6 +155,9 @@ angular.module('hongcaiApp')
       userCashCoupons: $resource(RESTFUL_DOMAIN + '/cashCoupons', {
         status : '@status'
       }),
+      cgtActive: $resource(RESTFUL_DOMAIN + '/userAuths/cgtActive', {}, {
+        'active':   {method:'POST'}
+      }),
       resetMobile: $resource(DEFAULT_DOMAIN + '/yeepay/resetMobile', {mobile:'@mobile'})
     };
   });
