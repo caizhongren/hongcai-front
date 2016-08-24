@@ -1791,6 +1791,17 @@ hongcaiApp
         }
       }
     })
+    /*-------------  激活存管通落地页   ----------------------*/
+    .state('root.activate-landing', {
+      url: '/activate',
+      views: {
+        '': {
+          templateUrl: 'views/activate-landing.html',
+          // controller: 'ExperienceProjectCtrl',
+          // controllerUrl: 'scripts/controller/project/experience-project-ctrl'
+        }
+      }
+    })
     /*-------------  体验金项目专享详情页   ----------------------*/
     .state('root.experience-project', {
       url: '/experience-project',
