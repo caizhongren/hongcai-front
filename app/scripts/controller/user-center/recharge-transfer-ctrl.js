@@ -23,7 +23,16 @@ angular.module('hongcaiApp')
       //   }
       // });
 
-    } else {
+    } else if(business == 'ACTIVE'){
+      UserCenterService.cgtActive.active({}, function(response){
+        if (response && response.ret !== -1) {
+          PayUtils.redToTrusteeship('toActive', response);
+        } else {
+          toaster.pop('warning', response.msg);
+        }
+      });
+    }
+    else {
       UserCenterService.yeepayRecharge.get({
         amount: $stateParams.amount
       }, function(response) {
@@ -34,8 +43,8 @@ angular.module('hongcaiApp')
           // $scope.msg = response.msg;
           // var alertDialog = $alert({scope: $scope, template: 'views/modal/alert-dialog.html', show: true});
           toaster.pop('warning', response.msg);
-          $state.go('root.userCenter.security-settings');
-          $rootScope.openTrusteeshipAccount = true;
+          // $state.go('root.userCenter.security-settings');
+          // $rootScope.openTrusteeshipAccount = true;
         }
       });
     }
