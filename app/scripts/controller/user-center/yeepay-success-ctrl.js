@@ -7,7 +7,7 @@ angular.module('hongcaiApp')
     $scope.profit = $stateParams.profit;
   	var page = 1;
 
-  	if (business === 'REGISTER'){
+  	if (business === 'PERSONAL_REGISTER'){
   		page == 1;
   	} else if (business == 'RESET_MOBILE'){
   		page = 9;

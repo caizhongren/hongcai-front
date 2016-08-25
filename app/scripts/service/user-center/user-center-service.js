@@ -10,12 +10,19 @@ angular.module('hongcaiApp')
       }, {
         'post':   {method:'POST'}
       }),
-      authorizeAutoTransfer: $resource(DEFAULT_DOMAIN + '/yeepay/authorizeAutoTransfer', {}),
-      yeepayRecharge: $resource(DEFAULT_DOMAIN + '/yeepay/recharge', {
+      /**
+       * 授权自动投标
+       */
+      authorizeAutoTransfer: $resource(RESTFUL_DOMAIN + '/users/0/authorizeAutoTransfer', {}, {'post':   {method:'POST'}}),
+      yeepayRecharge: $resource(RESTFUL_DOMAIN + '/users/0/recharge', {
         amount: '@amount'
+      }, {
+        'post':   {method:'POST'}
       }),
-      yeepayWithdraw: $resource(DEFAULT_DOMAIN + '/yeepay/withdraw', {
+      yeepayWithdraw: $resource(RESTFUL_DOMAIN + '/users/0/withdraw', {
         amount: '@amount'
+      }, {
+        'post':   {method:'POST'}
       }),
       bindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/bindBankCard', {}),
       unbindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/unbindBankCard', {}),

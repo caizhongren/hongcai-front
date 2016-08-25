@@ -19,7 +19,7 @@ angular.module('hongcaiApp')
       /**
        * 调用预约的方法，当预约开通后
        */
-      UserCenterService.authorizeAutoTransfer.get({
+      UserCenterService.authorizeAutoTransfer.post({
       }, function(response) {
         if (response && response.ret !== -1) {
           if($rootScope.securityStatus.realNameAuthStatus === 0 || !$rootScope.securityStatus.realNameAuthStatus) {
