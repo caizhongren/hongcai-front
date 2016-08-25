@@ -7,6 +7,11 @@ angular.module('hongcaiApp')
 
     $scope.media = [{
       mimeType: 'image/png',
+      src: 'images/banner-new/cgt-banner.jpg',
+      href: '/#!/activate',
+      name: '宣传存管通落地页'
+    },{
+      mimeType: 'image/png',
       src: 'images/banner-new/banner07.jpg',
       href: '/#!/activity/novice-activity',
       name: '14%收益 新手专享'

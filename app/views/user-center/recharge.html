@@ -40,7 +40,8 @@
         <div class="ft-14 padding-20 padding-b-50">
           <p class="ft-red4"><i class="fa fa-tint ft-red4" style="margin-right:15px;"></i><b>温馨提示:</b></p>
           <div class="padding-l-20">
-            <p class="ft-red4"><span class="ft-grey">1. </span><b>您的账户资金将由北京网贷风险监控及资金存管系统进行存管；</b></p>
+            <p ng-if="pay_company === 'cgt'" class="ft-red4"><span class="ft-grey">1. </span><b>您的账户资金将由北京网贷风险监控及资金存管系统进行存管；</b></p>
+            <p ng-if="pay_company === 'yeepay'" class="ft-red4"><span class="ft-grey">1. </span><b>您的账户资金将由有银监会颁发牌照的第三方支付平台托管；</b></p>
             <p>2. 首先请注意您是否开通网上银行等功能，可能存在充值超过限额（充值限额，是银行、第三方支付平台、和用户您自己设定的</p><p>支付限额决定的，取三者最小值），以免造成充值不成功；</p>
             <p>3. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>
             <p>4. 如果充值金额没有及时到账，请联系客服，400-900-7626。</p>

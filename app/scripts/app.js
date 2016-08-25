@@ -1916,7 +1916,7 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
    */
   $rootScope.toActivate = function() {
     var userCenter = $location.path().indexOf('user-center');
-    if($rootScope.isLogged ===true &&  $rootScope.realNameAuthState ===1 &&  $rootScope.isActive=== false && userCenter ===1){
+    if(config.pay_company === 'cgt' && $rootScope.isLogged ===true &&  $rootScope.realNameAuthState ===1 &&  $rootScope.isActive=== false && userCenter ===1){
       $rootScope.activateModal = $modal({
         scope: $rootScope,
         template: 'views/modal/modal-activate.html',
@@ -1924,6 +1924,8 @@ hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $
       });
     }
   };
+
+  $rootScope.pay_company = config.pay_company;
 
   /**
    * 不需要显示footer的path

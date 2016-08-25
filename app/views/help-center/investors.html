@@ -6,7 +6,8 @@
 	<div class="row">
 		<div class="help-ico {{changeInvestorsQ1 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeInvestorsQ1 =! changeInvestorsQ1"></div>
 		<p class="p-click" ng-click="changeInvestorsQ1 =! changeInvestorsQ1">&nbsp;我刚刚接触宏财网，如何投资？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeInvestorsQ1 == true">您需要注册宏财网，开通存管通资金存管账户，完成充值，然后进行投资。具体可以参考新手引导的操作流程。</p>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeInvestorsQ1 == true && pay_company === 'cgt'">您需要注册宏财网，开通存管通资金存管账户，完成充值，然后进行投资。具体可以参考新手引导的操作流程。</p>
+    <p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeInvestorsQ1 == true && pay_company === 'yeepay'">您需要注册宏财网，完成手机认证，邮箱认证，实名认证，完成充值，然后进行投资。具体可以参考新手引导的操作流程。</p>
 	</div>
 	<div class="row">
 		<div class="help-ico {{changeInvestorsQ2 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeInvestorsQ2 =! changeInvestorsQ2"></div>

@@ -1,6 +1,9 @@
 <div class="alert" ng-class="[type ? 'alert-' + type : null]" ng-controller="SecuritySettingsCtrl">
   <button type="button" class="close" ng-click="$hide()">&times;</button>
-  <div class="title">开通北京网贷风险监控及资金存管系统账户</div>
+  <div ng-if="pay_company === 'cgt'" class="title">开通北京网贷风险监控及资金存管系统账户</div>
+  <div ng-if="pay_company === 'yeepay'" class="title">
+    <strong>开通第三方存管账户</strong>
+  </div>
   <div class="content">
     <div class="row">
       <form class="form-login col-xs-12 padding-b-30" role="form" name="loginForm" ng-submit="realNameAuth(user);$hide();">
