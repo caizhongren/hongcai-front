@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .controller('RightsTransferCtrl', function ($rootScope, $scope, toaster, $stateParams, UserCenterService, config, $alert, PayUtils) {
 
     if ($stateParams.type === '0') {
-      UserCenterService.yeepayRegister.get({
+      UserCenterService.yeepayRegister.post({
         realName: $stateParams.realName,
         idCardNo: $stateParams.idCardNo
       }, function(response) {
@@ -19,7 +19,7 @@ angular.module('hongcaiApp')
       /**
        * 调用预约的方法，当预约开通后
        */
-      UserCenterService.authorizeAutoTransfer.get({
+      UserCenterService.authorizeAutoTransfer.post({
       }, function(response) {
         if (response && response.ret !== -1) {
           if($rootScope.securityStatus.realNameAuthStatus === 0 || !$rootScope.securityStatus.realNameAuthStatus) {

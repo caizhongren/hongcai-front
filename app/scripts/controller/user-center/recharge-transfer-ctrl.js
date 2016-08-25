@@ -33,7 +33,7 @@ angular.module('hongcaiApp')
       });
     }
     else {
-      UserCenterService.yeepayRecharge.get({
+      UserCenterService.yeepayRecharge.post({
         amount: $stateParams.amount
       }, function(response) {
         if (response && response.ret !== -1) {
