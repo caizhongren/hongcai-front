@@ -36,6 +36,13 @@ angular.module('hongcaiApp')
       name: '新三板金控第一股严选项目'
     }]
 
+    $scope.del = function(i){
+      if($rootScope.pay_company === 'yeepay'){
+        $scope.media.splice(i,1);
+      }
+    }
+    $scope.del();
+
     $scope.slickConfig = {
       dots: true,
       autoplay: true,
