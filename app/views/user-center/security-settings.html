@@ -167,7 +167,7 @@
 		<div class="col-md-12 margin-t-20">
 	      	<div class="col-xs-10 col-xs-offset-1">
 	      		<div class="setting-new">
-	      			<span class="text-label fl ft-16">第三方存管账户 <i class="fa fa-exclamation-circle" ng-show="!haveTrusteeshipAccount" title="开通第三方支付，将使您拥有一个易宝支付账户，您在宏财网的充值、投资、回款都将通过这个账户进行资金往来。"></i></span>
+	      			<span class="text-label fl ft-16">第三方存管账户 <i class="fa fa-exclamation-circle" ng-if="!haveTrusteeshipAccount && pay_company === 'yeepay'" title="开通第三方支付，将使您拥有一个易宝支付账户，您在宏财网的充值、投资、回款都将通过这个账户进行资金往来。"></i><i class="fa fa-exclamation-circle" ng-if="!haveTrusteeshipAccount && pay_company === 'cgt'" title="开通第三方存管，将使您拥有一个存管通账户，您在宏财网的充值、投资、回款都将通过这个账户进行资金往来。"></i></span>
 	      			<span class="text-user fl ft-14">{{haveTrusteeshipAccount ? '已开通' : '未开通'}}</span>
 	      			<span class="text-tip fl ft-14" ng-show="!haveTrusteeshipAccount">
 	      			<a class="orange-button padding-l-15 padding-r-15 border-half" ng-click="openTrusteeshipAccount = !openTrusteeshipAccount;changeMobile=false;changeEmail=false;changPwd =false;checkEmailAndMobile()">立即开通</a>
