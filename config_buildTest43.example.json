@@ -12,6 +12,6 @@
   "domain":"http://192.168.1.43:8100",
   "en": "43",
   "baseFileUrl": "http://192.168.1.43:8100/uploads/",
-  "pay_company": "cgt"
+  "pay_company": "yeepay"
 
 }
