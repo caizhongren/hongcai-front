@@ -110,7 +110,7 @@
 			            <div class="user-tips-area" ng-show="resetMobileForm.mobileNum.$error.pattern">
 			              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>格式错误</p>
 			            </div>
-			            <div class="user-tips-area" ng-show="resetMobileForm.mobileNum.$error.unique">
+			            <div class="user-tips-area" ng-show="resetMobileForm.mobileNum.$focused && resetMobileForm.mobileNum.$error.unique">
 			              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>已被占用</p>
 			            </div>
 			          </div>
