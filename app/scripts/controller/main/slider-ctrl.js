@@ -41,7 +41,7 @@ angular.module('hongcaiApp')
         $scope.media.splice(i,1);
       }
     }
-    $scope.del();
+    $scope.del(0);
 
     $scope.slickConfig = {
       dots: true,
