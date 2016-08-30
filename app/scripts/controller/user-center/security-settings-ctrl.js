@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SecuritySettingsCtrl', function($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN) {
+  .controller('SecuritySettingsCtrl', function($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN,$modal) {
 
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
@@ -158,19 +158,29 @@ angular.module('hongcaiApp')
     };
 
     $scope.openReservation = function() {
-      $scope.msg = '6';
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
 
-      var user = {
-        'realName': 'default',
-        'idCardNo': 'default'
-      };
+      if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
+        $modal({
+          scope: $scope,
+          template: 'views/modal/modal-realNameAuth.html',
+          show: true
+        });
+      }else {
+        $scope.msg = '6';
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alertYEEPAY.html',
+          show: true
+        });
 
-      window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
+        var user = {
+          'realName': 'default',
+          'idCardNo': 'default'
+        };
+
+        window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
+
+      }     
 
     };
   });
