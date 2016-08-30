@@ -4,7 +4,7 @@ angular.module('hongcaiApp')
     return {
       dayProfit: $resource(DEFAULT_DOMAIN + '/siteCredit/getUserDayProfit', {}),
       userSecurityInfo: $resource(DEFAULT_DOMAIN + '/siteUser/userSecurityInfo', {}),
-      yeepayRegister: $resource(RESTFUL_DOMAIN + '/users/0/yeepayRegister', {
+      register: $resource(RESTFUL_DOMAIN + '/users/0/yeepayRegister', {
         realName: '@realName',
         idNo: '@idNo'
       }, {
@@ -14,12 +14,12 @@ angular.module('hongcaiApp')
        * 授权自动投标
        */
       authorizeAutoTransfer: $resource(RESTFUL_DOMAIN + '/users/0/authorizeAutoTransfer', {}, {'post':   {method:'POST'}}),
-      yeepayRecharge: $resource(RESTFUL_DOMAIN + '/users/0/recharge', {
+      recharge: $resource(RESTFUL_DOMAIN + '/users/0/recharge', {
         amount: '@amount'
       }, {
         'post':   {method:'POST'}
       }),
-      yeepayWithdraw: $resource(RESTFUL_DOMAIN + '/users/0/withdraw', {
+      withdraw: $resource(RESTFUL_DOMAIN + '/users/0/withdraw', {
         amount: '@amount'
       }, {
         'post':   {method:'POST'}
