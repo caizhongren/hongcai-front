@@ -7,9 +7,8 @@
 
     <div class="main user-right-h" ng-show="securityStatus.realNameAuthStatus === 1">
       <form class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40" name="withdrawForm" >
-        <p class="verify-tip col-md-9 col-md-offset-2 margin-t-20" ng-show="cardStatus === 'VERIFY_NOT'">提现需要绑定提现银行卡，请您前往<a ui-sref="root.userCenter.bankcard-management">【银行卡管理】</a>完成绑卡操作</p>
+        <p class="verify-tip col-md-9 col-md-offset-2 margin-t-20" ng-show="cardStatus === 'VERIFY_NOT' || cardStatus === 'FAILED'">提现需要绑定提现银行卡，请您前往<a ui-sref="root.userCenter.bankcard-management">【银行卡管理】</a>完成绑卡操作</p>
         <p class="verify-tip col-md-9 col-md-offset-2" ng-show="cardStatus === 'VERIFYING'">您的提现银行卡正在认证中，暂时无法进行提现操作，请耐心等待</p>
-        <p class="verify-tip col-md-9 col-md-offset-2" ng-show="cardStatus === 'FAILED'">您的银行卡认证失败，无法进行提现操作！请重新绑定或者联系客服人员~</p>
         <div ng-show="cardStatus === 'VERIFIED'">
           <div class="row padding-t-10">
             <div class="margin-b-15 mgn-top text-recharge-tip">
