@@ -39,6 +39,8 @@ angular.module('hongcaiApp')
       page = 10;
     } else if(business === 'USER_ACTIVE'){
       page = 11;
+    } else if(business === 'AUTHORIZATION_AUTO_TRANSFER'){
+      page = 12
     }
 
 

@@ -9,19 +9,18 @@ angular.module('hongcaiApp')
      * /** 更改手机号码
      */
     if (business == 'RESET_MOBILE'){ 
-      toaster.pop('warning', '暂不支持');
-
-      // UserCenterService.resetMobile.get({
-      //   mobile:$stateParams.mobile
-      // }, function(response) {
-      //   if (response && response.ret !== -1) {
-      //     PayUtils.redToTrusteeship('toResetMobile', response);
-      //   } else {
-      //     toaster.pop('warning', response.msg);
-      //     $state.go('root.userCenter.security-settings');
-      //     $rootScope.openTrusteeshipAccount = true;
-      //   }
-      // });
+      // toaster.pop('warning', '暂不支持');
+      UserCenterService.resetMobile.post({
+        mobile:$stateParams.mobile
+      }, function(response) {
+        if (response && response.ret !== -1) {
+          PayUtils.redToTrusteeship('toResetMobile', response);
+        } else {
+          toaster.pop('warning', response.msg);
+          $state.go('root.userCenter.security-settings');
+          $rootScope.openTrusteeshipAccount = true;
+        }
+      });
 
     } else if(business == 'ACTIVE'){
       UserCenterService.cgtActive.active({}, function(response){

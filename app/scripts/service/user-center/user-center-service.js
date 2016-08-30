@@ -167,6 +167,10 @@ angular.module('hongcaiApp')
       cgtActive: $resource(RESTFUL_DOMAIN + '/userAuths/cgtActive', {}, {
         'active':   {method:'POST'}
       }),
-      resetMobile: $resource(DEFAULT_DOMAIN + '/yeepay/resetMobile', {mobile:'@mobile'})
+      resetMobile: $resource(RESTFUL_DOMAIN + '/users/0/resetMobile', {
+        mobile:'@mobile'
+      }, {
+        'post':   {method:'POST'}
+      }),
     };
   });
