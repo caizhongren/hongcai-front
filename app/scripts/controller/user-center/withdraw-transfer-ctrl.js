@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .controller('WithdrawTransferCtrl', function ($scope, toaster, $stateParams, UserCenterService, $alert, PayUtils) {
   
 
-    UserCenterService.yeepayWithdraw.post({
+    UserCenterService.withdraw.post({
       amount: $stateParams.amount,
       captcha: $stateParams.captcha
     }, function(response) {
