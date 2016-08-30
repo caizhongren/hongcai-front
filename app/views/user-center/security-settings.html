@@ -83,7 +83,8 @@
       			<span class="text-user fl ft-14">{{ mobile || "未设置"}}</span>
       			<span class="text-tip fl ft-14">
       			<a class="white-button-orange padding-l-15 padding-r-15 border-half" ng-show="!mobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">设置</a>
-      			<a class="white-button-orange padding-l-15 padding-r-15 border-half" ng-show="mobile" ng-click="resetMobile=!resetMobile">{{"修改"}}</a>
+      			<a class="white-button-orange padding-l-15 padding-r-15 border-half" ng-show="securityStatus.realNameAuthStatus === 1 && mobile" ng-click="resetMobile=!resetMobile">{{"修改"}}</a>
+      			<a class="white-button-orange padding-l-15 padding-r-15 border-half" ng-show="securityStatus.realNameAuthStatus !== 1" ng-click="toRealNameAuth()">{{"修改"}}</a>
       			</span>
       		</div>
       	</div>
