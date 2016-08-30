@@ -169,7 +169,6 @@ hongcaiApp
         url: '/register?inviteCode',
         views:{
           '':{
-            // templateUrl:'views/register/register-new.html',
             templateUrl:'views/register/register-new2.html',
             controller: 'RegisterMobileCtrl',
             controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
@@ -352,7 +351,7 @@ hongcaiApp
 
     /*-------------  toYeepay transfer --------------------*/
     .state('root.recharge-transfer', {
-        url: '/recharge-transfer/:amount',
+        url: '/recharge-transfer/:amount?business',
         views: {
           '': {
             templateUrl: 'views/transfer.html',
@@ -362,7 +361,7 @@ hongcaiApp
         }
       })
 
-      /**
+       /**
        * 开通易宝，即实名认证
        */
       .state('root.rights-transfer', {
@@ -1098,7 +1097,6 @@ hongcaiApp
         url: '/platform',
         views: {
           'about-us-right-show': {
-            // templateUrl: 'views/about-us/introduction-of-platform.html',
             templateUrl: 'views/about-us/introduction-of-platform2.html',
             controller: 'HelpCenterCtrl',
             controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
@@ -1793,6 +1791,17 @@ hongcaiApp
         }
       }
     })
+    /*-------------  激活存管通落地页   ----------------------*/
+    .state('root.activate-landing', {
+      url: '/activate',
+      views: {
+        '': {
+          templateUrl: 'views/activate-landing.html',
+          // controller: 'ExperienceProjectCtrl',
+          // controllerUrl: 'scripts/controller/project/experience-project-ctrl'
+        }
+      }
+    })
     /*-------------  体验金项目专享详情页   ----------------------*/
     .state('root.experience-project', {
       url: '/experience-project',
@@ -1867,7 +1876,7 @@ hongcaiApp
 
   }]);
 
-hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
+hongcaiApp.run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
   /**
    * Array 在IE8下没有indexOf 方法。
    */
@@ -1903,6 +1912,22 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
   };
 
   /**
+   * 激活存管通账户
+   */
+  $rootScope.toActivate = function() {
+    var userCenter = $location.path().indexOf('user-center');
+    if(config.pay_company === 'cgt' && $rootScope.isLogged ===true &&  $rootScope.realNameAuthState ===1 &&  $rootScope.isActive=== false && userCenter ===1){
+      $rootScope.activateModal = $modal({
+        scope: $rootScope,
+        template: 'views/modal/modal-activate.html',
+        show: true
+      });
+    }
+  };
+
+  $rootScope.pay_company = config.pay_company;
+
+  /**
    * 不需要显示footer的path
    */
   var notShowFooterRoute = [
@@ -1925,19 +1950,12 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
 
 
   $rootScope.$on('$stateChangeStart', function(event, toState) {
-    $rootScope.isNoviceGuide = false;
-
-    var title = '网贷平台，投资理财平台，投资理财项目-宏财网';
-    if (toState.data && toState.data.title) {
-      title = toState.data.title + ' - 要理财，上宏财!';
-    }
-    $rootScope.pageTitle = title;
-
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     $checkSessionServer.error(function(response) {
         $state.go('update', {return: $location.path()});
         return;
     }).success(function(response) {
+
 
         if (response.ret !== -1 && response.data && response.data.userDetail !== '' && response.data.userDetail.user !== undefined && response.data.userDetail.user !== null) {
           $rootScope.isLogged = true;
@@ -1948,6 +1966,9 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
           $rootScope.account = response.data.userDetail.account;
           $rootScope.unreadCount = response.data.unreadCount;
           $rootScope.userType = response.data.userDetail.user.type;
+
+          $rootScope.realNameAuthState = response.data.securityStatus.realNameAuthStatus;
+          $rootScope.isActive = response.data.securityStatus.userAuth.active;
         } else {
           $rootScope.isLogged = false;
           $rootScope.loginName = '';
@@ -1958,7 +1979,17 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
           }
         }
 
+        $rootScope.toActivate();
     });
+
+    $rootScope.isNoviceGuide = false;
+
+    var title = '网贷平台，投资理财平台，投资理财项目-宏财网';
+    if (toState.data && toState.data.title) {
+      title = toState.data.title + ' - 要理财，上宏财!';
+    }
+    $rootScope.pageTitle = title;
+
 
     // 若存在登录框，则去掉
     if($rootScope.loginModal){
@@ -1968,6 +1999,7 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
       $rootScope.realNameAuthModal.hide();
     }
 
+    // $rootScope.toActivate();
   });
 
 
@@ -2072,6 +2104,8 @@ hongcaiApp.run(function($rootScope, $location, $window, $http, $state, $modal, D
     if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1) {
       $rootScope.showHeader = false;
     }
+
+
 
   });
 

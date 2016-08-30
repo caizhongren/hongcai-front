@@ -9,11 +9,11 @@
           <span class="icon-bar"></span>
         </button>
       </div>
-      <div class="navbar-collapse collapse">
+      <div class="navbar-collapse collapse" id="header">
         <ul class="nav navbar-nav">
           <!--<p class="navbar-text">您好，欢迎来到宏财！<i class="fa fa-phone"></i>400-990-7626</p>-->
           <p class="navbar-text ftw-b">
-            <img src="/images/phone01.png" alt="">
+            <span class="header_phone"></span>
             <span class="margin-t--10">&nbsp;&nbsp;客服热线：400-990-7626</span>
           </p>
         </ul>
@@ -22,7 +22,7 @@
             <span>
               <a class="ft-black" ui-sref="root.userCenter.account-overview">{{loginName}}</a>
               <a ng-href="#" ng-click="logout();" class="logout ft-black">退出 </a>
-              <a ui-sref="root.userCenter.assets-overview" class="ft-black msg"><img src="images/use-money.png" class="margin-t--2" > 可用余额：{{account.balance | number: 2}}元</a>
+              <a ui-sref="root.userCenter.assets-overview" class="ft-black msg"><span class="header_money"></span> 可用余额：{{account.balance | number: 2}}元</a>
               <a class="ft-black msg" ui-sref="root.userCenter.message({status:'0,1'})">消息(<span ng-bind="unreadCount || 0 "></span>)</a>
             </span>
           </li>
@@ -63,7 +63,7 @@
             <label for="account">用户名</label>
           </div>
           <div class="col-md-12 col-lg-12">-->
-            <span class="user-icon2"><img src="/images/login/login-user.png" alt=""></span><input class="login-input" type="text" placeholder="请输入手机号码" id="account" name="account" ng-model="user.account" required auto-fill-sync autofocus />
+            <span class="user-icon2"><i class="fa fa-user ft-white" aria-hidden="true"></i></span><input class="login-input" type="text" placeholder="请输入手机号码" id="account" name="account" ng-model="user.account" required auto-fill-sync autofocus />
           <!--</div>-->
         </div>
 <!--         <div ng-if="loginForm.account.$dirty && loginForm.account.$invalid" class="col-lg-12 col-md-12  margin-t-10">
@@ -77,7 +77,7 @@
             <label for="account">密码</label>
           </div>
           <div class="col-md-12 col-lg-12">-->
-            <span class="user-icon2"><img src="/images/login/login-pwd.png" alt=""></span><input class="login-input" type="password" placeholder="请输入您的密码" name="password" ng-model="user.password" required auto-fill-sync autofocus />
+            <span class="user-icon2"><i class="fa fa-unlock-alt ft-white" aria-hidden="true"></i></span><input class="login-input" type="password" placeholder="请输入您的密码" name="password" ng-model="user.password" required auto-fill-sync autofocus />
             <!--<span class="pwd-icon"></span>
           </div>-->
         </div>

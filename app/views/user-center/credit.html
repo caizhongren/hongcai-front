@@ -3,7 +3,7 @@
     <div class="title">
       <span class="tip">我的投资</span>
     </div>
-    <!-- 已开通第三方资金托管账户 -->
+    <!-- 已开通第三方资金存管账户 -->
     <div class="main" ng-show="securityStatus.realNameAuthStatus === 1">
       <!-- 有购买项目 展示内容 -->
       <div ng-show="showCreditRightStatistics">
@@ -228,11 +228,11 @@
         <p><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
       </div>
     </div>
-    <!-- 未开通第三方资金托管账户 -->
+    <!-- 未开通第三方资金存管账户 -->
     <div class="main text-center" ng-show="securityStatus.realNameAuthStatus !== 1">
-      <p class="padding-t-50">亲，您尚未开通第三方资金托管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
-      <p class="padding-b-30"><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a></p>
-      <!-- <a class="btn btn-primary-orange margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金托管账户</a> -->
+      <p class="padding-t-50">亲，您尚未开通第三方资金存管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
+      <p class="padding-b-30"><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.userCenter.security-settings">开通第三方资金存管账户</a></p>
+      <!-- <a class="btn btn-primary-orange margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金存管账户</a> -->
     </div>
   </div>
 </div>

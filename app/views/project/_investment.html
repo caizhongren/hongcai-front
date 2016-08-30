@@ -119,7 +119,7 @@
               </span>
               <span class="spangray" ng-show="selectedCoupon === null">暂不使用</span>
               <span class="spangray" ng-show="coupons.length == 0">暂无可用奖励</span>
-              <img src="/images/project/menu-down.jpg" class="fr margin-t-5">
+              <span class="menu-down fr"></span>
               <ul class="award-list spangray" ng-show="showCoupons">
                 <li ng-click="selectCoupon(coupon)"ng-repeat="coupon in coupons | orderBy : ['-type','value']">
                     <p class="padding-l-5" ng-show="coupon.type === 2 && coupon.status === 1"> 现金<span class="ft-orange">{{coupon.value}}</span>元（需投资金额&ge;{{coupon.minInvestAmount || 0}}）</p>
@@ -160,7 +160,7 @@
                   </span>
                   <span class="spangray" ng-show="selectedCoupon === null">暂不使用</span>
                   <span class="spangray" ng-show="coupons.length === 0">暂无可用奖励</span>
-                  <img src="/images/project/menu-down.jpg" class="fr margin-t-5" >
+                  <span class="menu-down fr"></span>
                   <ul class="award-list spangray" ng-show="showCoupons">
                     <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : ['-type','value']">
                         <p class="padding-l-5" ng-show="coupon.type === 2 && coupon.status === 1"> 现金<span class="ft-orange">{{coupon.value}}</span>元（需投资金额&ge;{{coupon.minInvestAmount || 0}}）</p>

@@ -34,24 +34,24 @@
           </div>
           <hr style="margin-top: 3px;margin-bottom: 12px;">
           <div class="row margin-t-20">
-            <div class="col-xs-12 under-margin1" ng-hide="categoryCode === '0112' || categoryCode === '0113' || categoryCode === '0114' || categoryCode === '0115'"><img src="images/project/dot01.png" alt="">
-              <span class="margin-l-10">担保机构：<a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" target="_blank">{{project.guaranteeName}}</a></span>
+            <div class="col-xs-12 under-margin1" ng-hide="categoryCode === '0112' || categoryCode === '0113' || categoryCode === '0114' || categoryCode === '0115'">
+              <span class="project_dot">担保机构：<a ui-sref="root.project-sponsorInstitution({guaranteeId: project.guaranteeId})" target="_blank">{{project.guaranteeName}}</a></span>
             </div>
-            <div class="col-xs-12 under-margin1" ng-show="categoryCode === '0112'"><img src="images/project/dot01.png" alt="">
-              <span class="margin-l-10">项目类型：新手标</span>
+            <div class="col-xs-12 under-margin1" ng-show="categoryCode === '0112'">
+              <span class="project_dot">项目类型：新手标</span>
             </div>
-            <div class="col-xs-12 under-margin1" ng-show="categoryCode === '0114'"><img src="images/project/dot01.png" alt="">
-              <span class="margin-l-10">项目类型：羊年迎新标</span>
+            <div class="col-xs-12 under-margin1" ng-show="categoryCode === '0114'">
+              <span class="project_dot">项目类型：羊年迎新标</span>
             </div>
-            <div class="col-xs-12 under-margin1"><img src="images/project/dot01.png" alt="">
-              <span class="margin-l-10">还款方式：{{repaymentTypeMap[project.repaymentType]}}</span>
+            <div class="col-xs-12 under-margin1">
+              <span class="project_dot">还款方式：{{repaymentTypeMap[project.repaymentType]}}</span>
             </div>
-            <div class="col-xs-12" ng-class="{'under-margin1': project.status === 9 || project.status === 10}"><img src="images/project/dot01.png" alt="">
-              <span class="margin-l-10">发布日期：{{ project.publishTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}</span>
+            <div class="col-xs-12" ng-class="{'under-margin1': project.status === 9 || project.status === 10}">
+              <span class="project_dot">发布日期：{{ project.publishTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}</span>
             </div>
             <div ng-if="progress >= 100 && project.status === 9 || project.status === 10">
-              <div class="col-xs-12"><img src="images/project/dot01.png" alt="">
-              <span class="margin-l-10">还款日期：{{ repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</span>
+              <div class="col-xs-12">
+              <span class="project_dot">还款日期：{{ repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</span>
               </div>
             </div>
           </div>

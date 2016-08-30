@@ -16,7 +16,7 @@
               <br>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
-                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.security-settings">安全设置</a>
+                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.account-overview">我的账户</a>
               </div>
             </div>
           </div>
@@ -35,13 +35,13 @@
             </div>
             <div class="success-re col-lg-9 col-md-9">
               <div class="col-lg-12 col-md-12">
-                <p><strong>恭喜您成功开通第三方资金托管账户！</strong>
+                <p><strong>恭喜您成功开通第三方资金存管账户！</strong>
                 </p>
                 <div class="border-b list-l col-lg-12 col-md-12"></div>
               </div>
               <div class="col-lg-12 col-md-12 list-l">
-                <p class="success-p">您的资料已完善成功</p>
-                <p class="success-p">充值投资，在宏财赚取更多收益吧！</p>
+                <!-- <p class="success-p">您的资料已完善成功</p> -->
+                <p class="success-p">认证成功，在宏财赚取更多收益吧</p>
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">现在充值</a>
@@ -78,7 +78,7 @@
                 <p class="success-p" ng-if="isRepeat === 2 ">您未选择续投，<a ui-sref="root.userCenter.credit">【开启续投】</a>下期年化收益增至{{nextRate}}%！</p>
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" href="/">回到首页</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no" href="/guaranteepro-list">浏览项目</a>
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.credit">查看债权</a>
               </div>
             </div>
@@ -98,18 +98,15 @@
             </div>
             <div class="success-re col-lg-9 col-md-9">
               <div class="col-lg-12 col-md-12">
-                <p><strong>恭喜您成功注册宏财！</strong>
-                </p>
+                <p>恭喜您成功注册宏财网！</p>
                 <div class="border-b list-l col-lg-12 col-md-12"></div>
               </div>
               <div class="col-lg-12 col-md-12 list-l">
-                <p class="success-p">完善资料，即可在宏财网进行投资，赚取收益。</p>
-                <!-- <p class="success-p">想要查看获得的宏包，<a ui-sref="root.userCenter.gift-overview" style="color:#e94828;">请点击这里</a>
-                </p> -->
+                <p class="success-p">开通第三方资金存管账户，即可在宏财网进行投资，赚取收益。</p>
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.security-settings">完善资料</a>
-                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
+                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ng-click="toRealNameAuth()">立即开通</a>
               </div>
             </div>
           </div>
@@ -119,7 +116,7 @@
   </div>
   <div style="display: block;" class="mask_layer am-fade" ng-show="getMoney === 1">
     <div class="alert am-fade get-money-bg">
-      <i class="fa fa-times-circle ft-30 ft-white" style="float:right;cursor:pointer;" ng-click="getMoney = 0;"></i>
+      <i class="fa fa-times-circle ft-30 ft-white pull-right cursor-pt" ng-click="getMoney = 0;"></i>
       <img src="{{imgUrl}}" class="Qr-code">
       <img src="{{moneyUrl}}" class="money-num">
     </div>
@@ -166,17 +163,19 @@
             </div>
             <div class="success-re col-lg-9 col-md-9">
               <div class="col-lg-12 col-md-12">
-                <p><strong>您的绑卡申请已成功提交！</strong>
+                <p ng-if="pay_company === 'yeepay'"><strong>您的绑卡申请已成功提交！</strong>
+                <p ng-if="pay_company === 'cgt'"><strong>您的银行卡绑定成功！</strong>
                 </p>
                 <div class="border-b list-l col-lg-12 col-md-12"></div>
               </div>
               <div class="col-lg-12 col-md-12 list-l">
-                <p class="success-p">绑卡申请，需一定时间进行审核，请您耐心等待</p>
-                <p class="success-p">在此期间，您可以浏览项目，获得更多理财信息</p>
+                <p ng-if="pay_company === 'yeepay'" class="success-p">绑卡申请，需一定时间进行审核，请您耐心等待</p>
+                <p ng-if="pay_company === 'yeepay'" class="success-p">在此期间，您可以浏览项目，获得更多理财信息</p>
+                <p ng-if="pay_company === 'cgt'" class="success-p">绑卡成功，在宏财网赚取更多收益吧</p>
               </div>
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
-                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no">浏览项目</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">立即充值</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no">浏览项目</a>
               </div>
             </div>
           </div>
@@ -208,7 +207,12 @@
                 <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no">浏览项目</a>
               </div>
             </div>
-            <div class="col-lg-11 col-lg-offset-1" style="margin-top:20px;">
+            <div ng-if="pay_company === 'cgt'" class="col-lg-11 col-lg-offset-1" style="margin-top:20px;">
+              <p class="success-p">温馨提示：</p>
+              <p class="success-t">1. 第三方资金存管系统收到用户提现申请即对提现进行转账操作，由于不同银行处理速度不同，提现资金将会当天或下个工作日到账（如遇双休日或法定节假日顺延）；</p>
+              <p class="success-t">2. 如果用户迟迟未收到提现资金，可能为银行卡信息填写有误，银行做正在退票操作，预计会在7个工作日内完成退票，请用户耐心等候。用户还可以联系客服（400-990-7626），寻求帮助。</p>
+            </div>
+            <div ng-if="pay_company === 'yeepay'" class="col-lg-11 col-lg-offset-1" style="margin-top:20px;">
               <p class="success-p">温馨提示：</p>
               <p class="success-t">1. 由于宏财网平台不接触投资人资金，投资人资金完全通过第三方支付（易宝支付）来完成资金划拨。由于银行与易宝支付之间的划拨需要(T+1)日，所以当天充值金额（未投资），需要次日才能提现；</p>
               <p class="success-t">2. 三方支付平台收到用户提现申请即对提现进行转账操作，由于不同银行处理速度不同，提现资金将会当天或下个工作日到账（如遇双休日或法定节假日顺延）；</p>
@@ -230,13 +234,15 @@
             </div>
             <div class="success-re col-lg-9 col-md-9">
               <div class="col-lg-12 col-md-12">
-                <p><strong>您的解绑申请已成功受理！</strong>
+                <p ng-if="pay_company === 'yeepay'"><strong>您的解绑申请已成功受理！</strong>
+                <p ng-if="pay_company === 'cgt'"><strong>您的银行卡解绑成功！</strong>
                 </p>
                 <div class="border-b list-l col-lg-12 col-md-12"></div>
               </div>
               <div class="col-lg-12 col-md-12 list-l">
-                <p class="success-p">1.普通绑卡用户发起解绑动作后立即解绑</p>
-                <p class="success-p">2.快捷绑卡用户自解绑动作发起后，第三方资金托管平台需2个自然日自动生效</p>
+                <p ng-if="pay_company === 'yeepay'" class="success-p">1.普通绑卡用户发起解绑动作后立即解绑</p>
+                <p ng-if="pay_company === 'yeepay'" class="success-p">2.快捷绑卡用户自解绑动作发起后，第三方资金存管平台需2个自然日自动生效</p>
+                <p ng-if="pay_company === 'cgt'" class="success-p">可以在“银行卡管理”页面重新绑定新的提现银行卡</p>
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.bankcard-management">银行卡管理</a>
@@ -335,6 +341,65 @@
     </div>
   </div>
 
+
+  <div class="container bg" ng-switch-when="11">
+    <div class="agreement-area row introduction-height">
+      <div class="col-md-12 col-lg-12">
+        <div class="row">
+          <div class="success-page col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
+            <div class="col-lg-2 col-md-2 col-lg-offset-1 col-md-offset-1">
+              <img src="images/register-success.png">
+            </div>
+            <div class="success-re col-lg-9 col-md-9">
+              <div class="col-lg-12 col-md-12">
+                <p><strong>恭喜您成功激活存管通账户</strong>
+                </p>
+                <div class="border-b list-l col-lg-12 col-md-12"></div>
+              </div>
+              <div class="col-lg-12 col-md-12 list-l">
+                <p class="success-p">您的资料已完善成功</p>
+                <p class="success-p">充值投资，在宏财赚取更多收益吧！</p>
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">现在充值</a>
+                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no">浏览项目</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container bg" ng-switch-when="12">
+    <div class="agreement-area row introduction-height">
+      <div class="col-md-12 col-lg-12">
+        <div class="row">
+          <div class="success-page col-lg-8 col-md-8 col-lg-offset-2 col-md-offset-2">
+            <div class="col-lg-2 col-md-2 col-lg-offset-1 col-md-offset-1">
+              <img src="images/register-success.png">
+            </div>
+            <div class="success-re col-lg-9 col-md-9">
+              <div class="col-lg-12 col-md-12">
+                <p><strong>恭喜您成功开通自动投标授权！</strong>
+                </p>
+                <div class="border-b list-l col-lg-12 col-md-12"></div>
+              </div>
+              <div class="col-lg-12 col-md-12 list-l">
+                <!-- <p class="success-p">您的资料已完善成功</p> -->
+                <p class="success-p">Fighting！在宏财赚取更多收益吧</p>
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">现在充值</a>
+                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no">浏览项目</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <!--   <div class="container bg" ng-switch-when="9">
     <div class="agreement-area row introduction-height">
       <div class="col-md-12 col-lg-12">
@@ -363,6 +428,6 @@
     </div>
   </div> -->
 
-  
+
 </div>
 

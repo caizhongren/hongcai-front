@@ -10,17 +10,18 @@
       </div> -->
       <div class="col-md-12">
         <div class="invite-line ft-14">
-          <div class="col-md-3"><img src="/images/user-center/invite1.png" alt="" class="icon-invite" width="100%">邀请人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.totalNum || 0}}</span>人</div>
-          <div class="col-md-3"><img src="/images/user-center/invite2.png" alt="" class="icon-invite" width="100%">实名人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.realNameAuthNum || 0}}</span>人</div>
-          <div class="col-md-3"><img src="/images/user-center/invite3.png" alt="" class="icon-invite" width="100%">投资人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.investNum || 0}}</span>人</div>
-          <div class="col-md-3"><img src="/images/user-center/invite4.png" alt="" class="icon-invite" width="100%">已得奖金：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.reward || 0 | number:2 }}</span>元</div>
+          <div class="col-md-3"><sapn class="icon-invite icon-invite1 display-inbl"></sapn>邀请人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.totalNum || 0}}</span>人</div>
+          <div class="col-md-3"><sapn class="icon-invite icon-invite2 display-inbl"></sapn>实名人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.realNameAuthNum || 0}}</span>人</div>
+          <div class="col-md-3"><sapn class="icon-invite icon-invite3 display-inbl"></sapn>投资人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.investNum || 0}}</span>人</div>
+          <div class="col-md-3"><sapn class="icon-invite icon-invite4 display-inbl"></sapn>已得奖金：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.reward || 0 | number:2 }}</span>元</div>
         </div>
       </div>
       <div class="col-md-12">
         <div class="invite-content">
           <div class="col-md-4 invite-code">
             <div class="col-xs-6 text-right">
-              <img src="/images/user-center/invite-code.png" alt="">
+              <!-- <img src="/images/user-center/invite-code.png" alt=""> -->
+              <div class="invite-code-img"></div>
             </div>
             <div class="col-xs-6 fr text-left text-height">
               <p>邀请码</p>
@@ -31,16 +32,16 @@
             <p>以下方式分享邀请链接给好友>&nbsp;好友点击链接注册并投资>&nbsp;奖励自动进入您的账户</p>
             <div class="row text-center">
               <div class="col-xs-3">
-                <img src="/images/user-center/invite-wechat.png" alt="" data-toggle="modal" data-target="#myModal" ng-click="modalFlag=true">
+                <span class="invite-wechat display-inbl" data-toggle="modal" data-target="#myModal" ng-click="modalFlag=true"></span>
               </div>
               <div class="col-xs-3" ng-click="shareWeibo()">
-                <img src="/images/user-center/invite-sina.png" alt="">
+                <span class="invite-sina display-inbl"></span>
               </div>
               <div class="col-xs-3" ng-click="shareQQ()">
-                <img src="/images/user-center/invite-qq.png" alt="">
+                <span class="invite-qq display-inbl"></span>
               </div>
               <div class="col-xs-3">
-                <img src="/images/user-center/invite-copy.png" alt="" data-toggle="modal" data-target="#myModal" ng-click="modalFlag=false">
+                <span class="invite-copy display-inbl" data-toggle="modal" data-target="#myModal" ng-click="modalFlag=false"></span>
               </div>
             </div>
           </div>
@@ -94,7 +95,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
        <div class="modal-header">
-          <button type="button" class="close" 
+          <button type="button" class="close"
              data-dismiss="modal" aria-hidden="true">
                 &times;
           </button>
@@ -106,7 +107,7 @@
           <div class="modal-connect">
             <p class="ft-14" >http://www.hongcai.com/register?inviteCode={{voucher.inviteCode}}</p>
             <p class="ft-14">复制以上链接邀请好友，更多奖励等你哟!!</p>
-          </div> 
+          </div>
           <button class="button orange-button copy-btn" ng-click="copyInviteUrl()">复制链接</button>
        </div>
        <div class="modal-body margin-t-30 margin-b-50" ng-show="modalFlag">

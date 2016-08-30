@@ -1,5 +1,6 @@
 {
   "YEEPAY_ADDRESS": "http://test321.hongcai.com:7000/yeepay/2.0.3/member/bha/",
+  "CGT_ADDRESS":"http://220.181.25.233:8602/bha-neo-app/lanmaotech/gateway",
   "viewFlAG": {
     "tuhaoIsShowedFlAG": false,
     "sponsorsIsShowedFlAG": false,
@@ -10,5 +11,6 @@
   "jumpHttpsPath": [],
   "domain":"http://192.168.1.43:8100",
   "en": "43",
-  "baseFileUrl": "http://192.168.1.43:8100/uploads/"
+  "baseFileUrl": "http://192.168.1.43:8100/uploads/",
+  "pay_company": "yeepay"
 }

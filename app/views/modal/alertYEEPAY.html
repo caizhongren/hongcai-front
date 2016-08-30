@@ -1,49 +1,58 @@
 <div class="alert" ng-class="[type ? 'alert-' + type : null]">
   <button type="button" class="close" ng-if="dismissable" ng-click="$hide()">&times;</button>
   <div class="title text-center">
-    <strong ng-if="msg === '1'">开通第三方托管账户</strong>
+    <strong ng-if="msg === '1' && pay_company === 'cgt'">开通北京网贷风险监控及资金存管系统账户</strong>
+    <strong ng-if="msg === '1' && pay_company === 'yeepay'">开通第三方存管账户</strong>
     <strong ng-if="msg === '2'">申请充值</strong>
     <strong ng-if="msg === '3'">申请提现</strong>
     <strong ng-if="msg === '4'">支付</strong>
     <strong ng-if="msg === '5'">绑定提现银行卡</strong>
+    <strong ng-if="msg === '6'">申请自动投标权限</strong>
     <strong ng-if="msg === '8'">转账到平台</strong>
   </div>
 
   <div class="content" ng-if="msg === '1'">
-    <p>您已申请开通第三方托管账户</p>
-    <p>请在新窗口内填写信息，完成第三方托管账户的开通</p>
+    <p>您已申请开通第三方资金存管账户</p>
+    <p ng-if="pay_company === 'cgt'">请在北京网贷存管通页面填写信息，完成第三方资金存管账户的开通</p>
+    <p ng-if="pay_company === 'yeepay'">请在新窗口内填写信息，完成第三方存管账户的开通</p>
   </div>
   <div class="content" ng-if="msg === '2'">
     <p>您已申请进行充值操作，充值金额{{rechargeAmount}}元</p>
-    <p>请在新窗口内填写信息，完成充值操作</p>
+    <p ng-if="pay_company === 'cgt'">请在北京网贷存管通页面完成充值操作</p>
+    <p ng-if="pay_company === 'yeepay'">请在新窗口内填写信息，完成充值操作</p>
   </div>
   <div class="content" ng-if="msg === '3'">
     <p>您已申请进行提现操作，提现金额{{withdrawAmount}}元</p>
-    <p>请在新窗口内输入支付密码，完成提现申请</p>
+    <p ng-if="pay_company === 'cgt'">请在北京网贷存管通页面输入交易密码和短信验证码，完成提现操作</p>
+    <p ng-if="pay_company === 'yeepay'">请在新窗口内输入支付密码，完成提现申请</p>
   </div>
   <div class="content" ng-if="msg === '4'">
     <p>您已申请对项目进行投资，投资金额为{{investAmount}}元</p>
-    <p>请在新窗口内输入支付密码及绑定手机验证码，完成支付操作</p>
+    <p ng-if="pay_company === 'cgt'">请在北京网贷存管通页面输入交易密码和短信验证码，完成支付操作</p>
+    <p ng-if="pay_company === 'yeepay'">请在新窗口内输入支付密码及绑定手机验证码，完成支付操作</p>
   </div>
   <div class="content" ng-if="msg === '5'">
     <p>您已申请绑定提现银行卡</p>
-    <p>请在第三方托管平台所提供页面完成绑卡操作</p>
+    <p ng-if="pay_company === 'cgt'">请在北京网贷存管通页面完成绑卡操作</p>
+    <p ng-if="pay_company === 'yeepay'">请在第三方存管平台所提供页面完成绑卡操作</p>
   </div>
   <div class="content" ng-if="msg === '6'">
-    <p>您已申请开通预约权限</p>
-    <p>请在第三方托管平台所提供页面完成预约授权</p>
+    <p ng-if="pay_company === 'cgt'">您已申请开通自动投标权限</p>
+    <p ng-if="pay_company === 'cgt'">请在北京网贷存管通页面完成授权</p>
+    <p ng-if="pay_company === 'yeepay'">您已申请开通预约权限</p>
+    <p ng-if="pay_company === 'yeepay'">请在第三方存管平台所提供页面完成授权</p>
   </div>
   <div class="content" ng-if="msg === '7'">
     <p>您已申请取消绑定的银行卡</p>
-    <p>请在第三方托管平台所提供页面完成取消绑定</p>
+    <p>请在第三方存管平台所提供页面完成取消绑定</p>
   </div>
   <div class="content" ng-if="msg === '8'">
     <p>您已申请转账资金到平台</p>
-    <p>请在第三方托管平台所提供页面完成转账操作</p>
+    <p>请在第三方存管平台所提供页面完成转账操作</p>
   </div>
   <div class="content" ng-if="msg === '9'">
     <p>您已申请修改手机号</p>
-    <p>请在第三方托管平台所提供页面完成修改操作</p>
+    <p>请在第三方存管平台所提供页面完成修改操作</p>
   </div>
   <div class="content" ng-if="msg === '11'">
     <p>解绑银行卡会影响您的提现</p>

@@ -10,6 +10,7 @@
 
 module.exports = function(grunt) {
 
+
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -26,10 +27,48 @@ module.exports = function(grunt) {
   };
 
   grunt.loadNpmTasks('grunt-connect-proxy');
+  grunt.loadNpmTasks('grunt-angular-templates');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   // Define the configuration for all the tasks
   grunt.initConfig({
-
+    ngtemplates: {
+      hongcaiApp: {
+        dest: '.tmp/scripts/templates.js',
+        src: [
+        'app/views/register/*.html','app/views/main/*.html'
+        ,'app/views/project/_description.html','app/views/project/_investment.html'
+        ,'app/views/project/_detail.html','app/views/project/_additional.html'
+        ,'app/views/project/_reading.html','app/views/project/project-detailshtml'
+        ,'app/views/project/guaranteepro-list.html','app/views/project/_list_search.html'
+        ,'app/views/project/_list_filter.html','app/views/project/_list_detail.html'
+        ],
+        options: {
+          url: function(url) {
+            return url.replace('app/', '');
+          }
+        }
+      }
+    },
+    uglify: {
+      hongcaiApp: {
+        files: [{
+          expand: true,
+          //相对路径
+          src: '.tmp/scripts/templates.js',
+          //src: ['**/*.js', '!**/*.min.js'],  //不包含某个js,某个文件夹下的js
+          dest: '.tmp/scripts',
+          rename: function(dest, src) {
+            var filename = src.substring(src.lastIndexOf('/'), src.length);
+            //  var filename=src;
+            filename = filename.substring(0, filename.lastIndexOf('.'));
+            var fileresult = dest + filename + '.min.js';
+            return fileresult;
+            //return  filename + '.min.js';
+          }
+        }]
+      }
+    },
     ngconstant: {
 
       development: {
@@ -42,7 +81,7 @@ module.exports = function(grunt) {
         }
       },
 
-     developmentTest321: {
+      developmentTest321: {
         options: {
           dest: '.tmp/scripts/config.js',
           name: 'config',
@@ -113,7 +152,7 @@ module.exports = function(grunt) {
       },
       proxies: [{
         context: '/hongcai/api/v1',
-        host: '192.168.1.43',
+        host: '114.255.24.47',
         port: 8000
       }],
       livereload: {
@@ -450,6 +489,11 @@ module.exports = function(grunt) {
             cwd: '<%= yeoman.app %>/styles',
             dest: '<%= yeoman.dist %>/styles',
             src: '{,*/}*.css'
+          }, {
+            expand: true,
+            cwd: '.tmp/scripts',
+            src: 'templates.min.js',
+            dest: '<%= yeoman.dist %>/scripts'
           }
         ]
       },
@@ -498,6 +542,8 @@ module.exports = function(grunt) {
       'less',
       'concurrent:server',
       'autoprefixer',
+      'ngtemplates',
+      'uglify',
       'configureProxies:server',
       'connect:livereload',
       'watch'
@@ -527,10 +573,11 @@ module.exports = function(grunt) {
     'autoprefixer',
     'concat',
     'ngAnnotate',
+    'ngtemplates',
+    'uglify',
     'copy:dist',
     // 'cdnify',
     'cssmin',
-    'uglify',
     'filerev',
     'usemin',
     'htmlmin'
@@ -546,10 +593,11 @@ module.exports = function(grunt) {
     'autoprefixer',
     'concat',
     'ngAnnotate',
+    'ngtemplates',
+    'uglify',
     'copy:dist',
     // 'cdnify',
     'cssmin',
-    'uglify',
     'filerev',
     'usemin',
     'htmlmin'
@@ -566,10 +614,11 @@ module.exports = function(grunt) {
     'autoprefixer',
     'concat',
     'ngAnnotate',
+    'ngtemplates',
+    'uglify',
     'copy:dist',
     // 'cdnify',
     'cssmin',
-    'uglify',
     'filerev',
     'usemin',
     'htmlmin'

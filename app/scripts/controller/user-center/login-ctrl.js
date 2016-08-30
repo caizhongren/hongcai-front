@@ -8,7 +8,7 @@ angular.module('hongcaiApp')
       ProjectService.getFundsProjectListByProductType.get({type: 1, range:'0-1'}, function(response) {
         if (response.ret === 1) {
           $state.go('root.current-deposit-details', {number: response.list[0].fundsProject.number});
-        } 
+        }
       });
     }
 
@@ -51,9 +51,10 @@ angular.module('hongcaiApp')
               $rootScope.loginModal.hide();
               $state.reload();
             }
-            
+
           } else {
             $state.go('root.userCenter.account-overview');
+            $rootScope.toActivate();
           }
         } else {
           $scope.isPasswordError = true;
