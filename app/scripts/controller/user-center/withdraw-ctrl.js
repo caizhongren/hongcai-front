@@ -19,7 +19,7 @@ angular.module('hongcaiApp')
         //console.log('ask withdraw, why getUserAvailableCash did not load data...');
       }
     });
-    
+
     $scope.checkLargestAmount = function(amount) {
         return amount > $scope.availableCashRealNo;
     };
@@ -35,6 +35,9 @@ angular.module('hongcaiApp')
 
 
     $scope.withdraw = function(amount, captcha) {
+      if($scope.checkMinAmount(amount) || $scope.checkLargestAmount(amount) || amount ===''){
+        return;
+      }
       $scope.msg = '3';
       $scope.withdrawAmount = amount;
       $alert({
