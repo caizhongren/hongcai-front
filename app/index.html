@@ -376,7 +376,7 @@
     $(function() {
       var form = $(this);
       //遍历所有文本框，添加placeholder模拟事件
-      var elements = form.find("input[type='text'][placeholder]");
+      var elements = form.find("input[type='number'][placeholder]");
       elements.each(function() {
         var s = $(this);
         var pValue = s.attr("placeholder");
