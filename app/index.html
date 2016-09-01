@@ -61,9 +61,6 @@
         document.createElement('aboutsidebar');
         document.createElement('helpsidebar');
         document.createElement('slick');
-        $(function() {
-          $('input, textarea').placeholder();
-        });
       </script>
     <script type='text/javascript' src="scripts/util/html5shiv.min.js"></script>
     <script type='text/javascript' src="scripts/util/respond.min.js"></script>
@@ -454,4 +451,7 @@
   }
   window.placeholderfriendfocus = placeholderfriend.focus;
 })(jQuery);
+$(function() {
+  $('input, textarea').placeholder();
+});
 </script>
