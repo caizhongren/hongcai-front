@@ -30,6 +30,7 @@
         <div class="row col-md-10 col-md-offset-1 text-left ft-12 ft-red4" ng-show="rechargeForm.amount.$dirty">
           <p class="padding-l-45" ng-show="rechargeForm.amount.$error.pattern">请输入大于0的数字(最多精确到小数点后两位)</p>
           <p class="padding-l-45" ng-show="rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">充值金额不能为空</p>
+          <p class="padding-l-45" ng-show="!rechargeForm.amount.$focused && rechargeAmount > bankLimit">该卡本次最多充值{{bankLimit | number:2}}元</p>
         </div>
         <div class="row col-md-10 col-md-offset-1 text-left ft-red5 padding-t-10">
           <p class="padding-l-45">手续费：免费（由平台支付）</p>

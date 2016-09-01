@@ -50,17 +50,20 @@ angular.module('hongcaiApp')
       if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
         $rootScope.toActivate();
         return;
-      }else{
-        $scope.msg = '2';
-        $scope.rechargeAmount = amount;
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alertYEEPAY.html',
-          show: true
-        });
-
-        window.open('/#!/recharge-transfer/' + amount +"/"+ $scope.rechargeWay +"/" + $scope.expectPayCompany);
       }
+      if(amount > $scope.bankLimit){
+        return;
+      }
+      $scope.msg = '2';
+      $scope.rechargeAmount = amount;
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+
+      window.open('/#!/recharge-transfer/' + amount +"/"+ $scope.rechargeWay +"/" + $scope.expectPayCompany);
+
     };
 
     $scope.toBindBank = function(){
