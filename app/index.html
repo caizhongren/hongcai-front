@@ -61,6 +61,9 @@
         document.createElement('aboutsidebar');
         document.createElement('helpsidebar');
         document.createElement('slick');
+        $(function() {
+          $('input, textarea').placeholder();
+        });
       </script>
     <script type='text/javascript' src="scripts/util/html5shiv.min.js"></script>
     <script type='text/javascript' src="scripts/util/respond.min.js"></script>
@@ -79,6 +82,10 @@
         .dis-none{
             display:none;
         }
+        input, textarea {
+          font-family: Helvetica, Arial; color: #000;
+        }
+        .placeholder {color: #aaa;}
     </style>
 
     <![endif]-->
@@ -185,6 +192,8 @@
     <script src="bower_components/Chart.js/Chart.js"></script>
     <script src="bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <script src="bower_components/angular-svg-round-progressbar/build/roundProgress.min.js"></script>
+    <script src="bower_components/jquery.qrcode/dist/jquery.qrcode.js"></script>
+    <script src="bower_components/jquery.placeholder/jquery.placeholder.js"></script>
     <!-- endbower -->
     <script src="bower_components/fancybox/source/jquery.fancybox.js"></script>
     <script src="bower_components/jquery.qrcode/dist/jquery-qrcode.min.js"></script>
