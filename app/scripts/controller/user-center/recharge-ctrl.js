@@ -10,6 +10,22 @@ angular.module('hongcaiApp')
       }
     });
 
+
+    UserCenterService.getUserBankCard.get({}, function(response) {
+      if (response.ret === 1) {
+        var card = response.data.card;
+        if (card) {
+          $scope.bankCode = response.data.card.bankCode;
+          UserCenterService.getBankRechargeLimit.get({
+            bankCode: $scope.bankCode,
+            payCompany: 'FUIOU'
+          },function(response){
+            $scope.bankLimit = response.data.bankLimit[0].singleLimit;
+          });
+        }
+      }
+    });
+
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());

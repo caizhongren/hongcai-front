@@ -175,5 +175,9 @@ angular.module('hongcaiApp')
       }, {
         'post':   {method:'POST'}
       }),
+      getBankRechargeLimit: $resource(DEFAULT_DOMAIN + '/bank/getBankRechargeLimit', {
+        bankCode:'@bankCode',
+        payCompany:'@payCompany'
+      }),
     };
   });
