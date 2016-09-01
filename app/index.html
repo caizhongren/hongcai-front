@@ -352,181 +352,35 @@
 </body>
 </html>
 <script>
-(function($) {
-  var placeholderfriend = {
-    focus: function(s) {
-      s = $(s).hide().prev().show().focus();
-      var idValue = s.attr("id");
-      if (idValue) {
-        s.attr("id", idValue.replace("placeholderfriend", ""));
-      }
-      var clsValue = s.attr("class");
-      if (clsValue) {
-        s.attr("class", clsValue.replace("placeholderfriend", ""));
-      }
-    }
-  }
-  //判断是否支持placeholder
-  function isPlaceholer() {
-    var input = document.createElement('input');
-    return "placeholder" in input;
-  }
-  //不支持的代码
-  if (!isPlaceholer()) {
-    $(function() {
-      var form = $(this);
-      //遍历所有文本框，添加placeholder模拟事件
-      var elements = form.find("input[type='text'][placeholder]");
-      elements.each(function() {
-        var s = $(this);
-        var pValue = s.attr("placeholder");
-        var sValue = s.val();
-        if (pValue) {
-          if (sValue == '') {
-            s.val(pValue);
-          }
+$(function(){
+if(!placeholderSupport()){   // 判断浏览器是否支持 placeholder
+    $('[placeholder]').focus(function() {
+        var input = $(this);
+        if (input.val() == input.attr('placeholder')) {
+            input.val('');
+            input.removeClass('placeholder');
         }
-      });
-      elements.focus(function() {
-        var s = $(this);
-        var pValue = s.attr("placeholder");
-        var sValue = s.val();
-        if (sValue && pValue) {
-          if (sValue == pValue) {
-            s.val('');
-          }
+    }).blur(function() {
+        var input = $(this);
+        if (input.val() == '' || input.val() == input.attr('placeholder')) {
+            input.addClass('placeholder');
+            input.val(input.attr('placeholder'));
         }
-      });
-      elements.blur(function() {
-        var s = $(this);
-        var pValue = s.attr("placeholder");
-        var sValue = s.val();
-        if (!sValue) {
-          s.val(pValue);
-        }
-      });
-      //遍历所有密码框，添加placeholder模拟事件
-      var elementsPass = form.find("input[type='password'][placeholder]");
-      elementsPass.each(function(i) {
-        var s = $(this);
-        var pValue = s.attr("placeholder");
-        var sValue = s.val();
-        if (pValue) {
-          if (sValue == '') {
-            //DOM不支持type的修改，需要复制密码框属性，生成新的DOM
-            var html = this.outerHTML || "";
-            html = html.replace(/\s*type=(['"])?password\1/gi, " type=text placeholderfriend")
-              .replace(/\s*(?:value|on[a-z]+|name)(=(['"])?\S*\1)?/gi, " ")
-              .replace(/\s*placeholderfriend/, " placeholderfriend value='" + pValue
-              + "' " + "onfocus='placeholderfriendfocus(this);' ");
-            var idValue = s.attr("id");
-            if (idValue) {
-              s.attr("id", idValue + "placeholderfriend");
-            }
-            var clsValue = s.attr("class");
-            if (clsValue) {
-              s.attr("class", clsValue + "placeholderfriend");
-            }
-            s.hide();
-            s.after(html);
-          }
-        }
-      });
-      elementsPass.blur(function() {
-        var s = $(this);
-        var sValue = s.val();
-        if (sValue == '') {
-          var idValue = s.attr("id");
-          if (idValue) {
-            s.attr("id", idValue + "placeholderfriend");
-          }
-          var clsValue = s.attr("class");
-          if (clsValue) {
-            s.attr("class", clsValue + "placeholderfriend");
-          }
-          s.hide().next().show();
-        }
-      });
-    });
-  }
-  window.placeholderfriendfocus = placeholderfriend.focus;
-})(jQuery);
-$(function() {
-  $('input, textarea').placeholder();
-});
-function placeholderfun(){
-    if( !('placeholder' in document.createElement('input')) ){
-        function GetStringNumValue(pxstr){
-            return pxstr.substring(0,pxstr.length-2);
-        }
-
-        $('input[placeholder],textarea[placeholder]').each(function(){
-            var $element = $(this),
-            placeholder = $element.attr('placeholder');
-            if($element.attr('type') != 'password'){//非密码
-                if($element.val()===""){
-                    $element.val(placeholder).addClass('placeholder');
-                    $element.css('color','#ccc');
-                }
-                $element.focus(function(){
-                    if($element.val()===placeholder){
-                      $element.val("").removeClass('placeholder');
-                      $element.css('color','#000');
-                    }
-                }).blur(function(){
-                    if($element.val()===""){   //if($element.val()==="" &&  ($element.attr('type') != 'password')){
-                        $element.val(placeholder).addClass('placeholder');
-                        $element.css('color','#ccc');
-                    }else if($element.val() == placeholder){
-                        $element.css('color','#ccc');
-                    }else{
-                        $element.css('color','#000');
-                    }
-                  }).closest('form').submit(function(){
-                    if($element.val() === placeholder){
-                      $element.val('');
-                    }
-                  });
-            }else{//密码框
-                 if (placeholder){
-                     // 文本框ID
-                    var elementId = $element.attr('id');
-                     if (!elementId) {
-                        var now = new Date();
-                        elementId = 'lbl_placeholder' + now.getSeconds() + now.getMilliseconds();
-                        $element.attr('id', elementId);
-                     }
-                 }//end of if (placeholder)
-                  // 添加label标签，用于显示placeholder的值
-                var $label = $('<label>', {
-                                html: $element.val() ? '' : placeholder,
-                                'for': elementId,
-                                css:{
-                                    position: 'absolute',
-                                    cursor: 'text',
-                                    color: '#cccccc',
-                                    fontSize: $element.css('fontSize'),
-                                    fontFamily: $element.css('fontFamily')
-                                }
-                            }).insertAfter($element);
-                 // 绑定事件
-                var _setPosition = function () {
-                        $label.css({
-                            marginTop:'-30px',
-                            marginLeft:'10px'
-                        });
-                    };
-                var _resetPlaceholder = function () {
-                    if ($element.val()) { $label.html(null); }
-                    else {
-                        _setPosition();
-                        $label.html(placeholder);
-                    }
-                };
-                _setPosition();
-                $element.on('focus blur input keyup propertychange resetplaceholder', _resetPlaceholder);
-            }
-        });
-      }
+    }).blur();
+};
+})
+function placeholderSupport() {
+    return 'placeholder' in document.createElement('input');
 }
+
+$(document).ready(function(){
+    var doc=document,inputs=doc.getElementsByTagName('input'),supportPlaceholder='placeholder'in doc.createElement('input'),placeholder=function(input){var text=input.getAttribute('placeholder'),defaultValue=input.defaultValue;
+    if(defaultValue==''){
+        input.value=text}
+        input.onfocus=function(){
+            if(input.value===text){this.value=''}};
+            input.onblur=function(){if(input.value===''){this.value=text}}};
+            if(!supportPlaceholder){
+                for(var i=0,len=inputs.length;i<len;i++){var input=inputs[i],text=input.getAttribute('placeholder');
+                if(input.type==='text'&&text){placeholder(input)}}}});
 </script>
