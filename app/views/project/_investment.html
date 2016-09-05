@@ -146,7 +146,7 @@
               <form class="padding-l-15 padding-r-15" name="investForm" class="padding-t-10" ng-switch-default>
                 <span class="ft-grey666">投资金额：</span>
                 <p class="text-center text text-danger invest_tip error-msg" ng-show="errorMsg">
-                  <span>{{errorMsg}}</span>
+                  <span class="ft-14">{{errorMsg}}</span>
                 </p>
                 <input type="number" name="investAmount" ng-model="project.amount" class="form-control margin-b-15 btn-76" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0 || !newbieBiaoInvestFlag" step="{{project.increaseAmount}}"  ng-switch-default>
                 <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
