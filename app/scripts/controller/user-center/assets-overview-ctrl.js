@@ -39,8 +39,6 @@ angular.module('hongcaiApp')
         datas.push(creditRightList[i].profit);
       }
 
-      console.log($scope.labels);
-      // $scope.labels.sort();
       $scope.data = [];
       $scope.data.push(datas);
     });
