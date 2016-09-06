@@ -37,7 +37,7 @@
           </div>
           <div class="col-md-5 margin-t-15 padding-b-20">
             <div class="form-group col-xs-12 margin-l-15">
-              <input type="button" value="确认提现" class="btn-recharge-orange border-half cursor-pointer ft-16" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'btn-recharge-grey':withdrawForm.$invalid || checkLargestAmount(amount) || checkMinAmount(amount), 'btn-recharge-orange':!withdrawForm.$invalid && !checkLargestAmount(amount) && !checkMinAmount(amount)}" />
+              <input value="确认提现" class="border-half cursor-pointer ft-16 text-center" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'btn-recharge-grey':withdrawForm.$invalid || checkLargestAmount(amount) || checkMinAmount(amount), 'btn-recharge-orange':!withdrawForm.$invalid && !checkLargestAmount(amount) && !checkMinAmount(amount)}" />
             </div>
           </div>
         </div>

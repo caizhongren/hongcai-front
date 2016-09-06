@@ -62,10 +62,11 @@ angular.module('hongcaiApp')
 
     $scope.calculate = function() {
       // popover.saved=true;
-      $scope.targetSelectedIcon = $scope.params.selectedIcon.allottedTime.replace(/个月/g, '');
+      // $scope.targetSelectedIcon = $scope.params.selectedIcon.allottedTime.replace(/个月/g, '');
+      $scope.targetSelectedIcon = $scope.params.selectedIcon;
       if ($scope.params.displayValue && $scope.params.rate && $scope.params.selectedIcon) {
-        $scope.params.interest = $scope.params.inputValue * $scope.params.rate / 1200 * $scope.targetSelectedIcon;
-        $scope.params.payback = parseInt($scope.params.inputValue) + parseInt($scope.params.interest);
+        $scope.params.interest = Math.round($scope.params.inputValue * $scope.params.rate * $scope.targetSelectedIcon / 36500 * 100) / 100;
+        $scope.params.payback = parseInt($scope.params.inputValue) +$scope.params.interest;
         $scope.isResultShow = $scope.isResultShow ? false : true;
         $scope.arrow = '>>';
         if ($scope.isResultShow) {

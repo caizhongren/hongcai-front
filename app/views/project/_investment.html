@@ -117,8 +117,8 @@
               <span class="spangray" ng-show="selectedCoupon.type === 1 && selectedCoupon !==null">
                 <span class="ft-orange ft-16">{{selectedCoupon.value}}%</span>加息券（有效期至{{selectedCoupon.endTime | date: "yyyy-MM-dd"}}）
               </span>
-              <span class="spangray" ng-show="selectedCoupon === null">暂不使用</span>
-              <span class="spangray" ng-show="coupons.length == 0">暂无可用奖励</span>
+              <span class="spangray" ng-show="selectedCoupon === null">暂不使用<span class="ft-white ft-16">0</span></span>
+              <span class="spangray" ng-show="coupons.length == 0">暂无可用奖励<span class="ft-white ft-16">0</span></span>
               <span class="menu-down fr"></span>
               <ul class="award-list spangray" ng-show="showCoupons">
                 <li ng-click="selectCoupon(coupon)"ng-repeat="coupon in coupons | orderBy : ['-type','value']">
@@ -146,7 +146,7 @@
               <form class="padding-l-15 padding-r-15" name="investForm" class="padding-t-10" ng-switch-default>
                 <span class="ft-grey666">投资金额：</span>
                 <p class="text-center text text-danger invest_tip error-msg" ng-show="errorMsg">
-                  <span>{{errorMsg}}</span>
+                  <span class="ft-14">{{errorMsg}}</span>
                 </p>
                 <input type="number" name="investAmount" ng-model="project.amount" class="form-control margin-b-15 btn-76" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0 || !newbieBiaoInvestFlag" step="{{project.increaseAmount}}"  ng-switch-default>
                 <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
@@ -158,8 +158,8 @@
                   <span class="spangray" ng-show="selectedCoupon.type === 1 && selectedCoupon !==null">
                     <span class="ft-orange ft-16">{{selectedCoupon.value}}%</span>加息券（有效期至{{selectedCoupon.endTime | date: "yyyy-MM-dd"}}）
                   </span>
-                  <span class="spangray" ng-show="selectedCoupon === null">暂不使用</span>
-                  <span class="spangray" ng-show="coupons.length === 0">暂无可用奖励</span>
+                  <span class="spangray" ng-show="selectedCoupon === null">暂不使用<span class="ft-white ft-16">0</span></span>
+                  <span class="spangray" ng-show="coupons.length === 0">暂无可用奖励<span class="ft-white ft-16">0</span></span>
                   <span class="menu-down fr"></span>
                   <ul class="award-list spangray" ng-show="showCoupons">
                     <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : ['-type','value']">

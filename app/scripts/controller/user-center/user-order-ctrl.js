@@ -31,14 +31,14 @@ angular.module('hongcaiApp')
       }
     }
 
-  
+
 
     $scope.generateContractPDF = function(projectId, orderId, status, type) {
 
       /**
        * 下载模板
        */
-      if (status === 2) { 
+      if (status === 2) {
         if (type !== 4) {
           ProjectService.contractPDFModel.get({
             projectId: projectId
@@ -54,7 +54,7 @@ angular.module('hongcaiApp')
         }
 
       } else if (status >= 3 && status <= 6) {
-        if (!$window.confirm('确定下载合同?合同密码为您身份证号码后6位数字')) {
+        if (!$window.confirm('确定下载合同?合同查阅密码为您身份证号码后6位数字')) {
           return;
         }
 
@@ -78,7 +78,7 @@ angular.module('hongcaiApp')
     };
 
 
-  
+
 
 
     $scope.loadOrders = function(page){
@@ -118,8 +118,8 @@ angular.module('hongcaiApp')
     }
 
     $scope.loadOrders(1);
-    
-    
+
+
 
     /**
      * 继续支付订单
@@ -157,7 +157,7 @@ angular.module('hongcaiApp')
     };
 
 
-    
+
     // Based on an implementation here: web.student.tuwien.ac.at/~e0427417/jsdownload.html
     $scope.downloadPDF = function(httpPath) {
       // Use an arraybuffer

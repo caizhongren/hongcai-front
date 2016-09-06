@@ -1,5 +1,5 @@
 <div id="calculater" class="popover">
-	<div  class="result">      
+	<div  class="result">
        	<div class="handle" ng-click="switchResult();" ng-class="{'select': isResultShow}"><p class="rotate">{{arrow}}</p></div>
       	<div class="slide">
 			<label>计算结果：</label>
@@ -17,16 +17,16 @@
 				        </tr>
 				        <tr>
 				          <th class="text-nowrap" width="40%">收获利息</th>
-				          <td width="60%">{{params.interest}}元</td>
+				          <td width="60%">{{params.interest || 0 }}元</td>
 				        </tr>
 				        <tr>
 				          <th class="text-nowrap" width="40%">回款总额</th>
-				          <td width="60%">{{params.payback}}元</td>
+				          <td width="60%">{{params.payback || 0 }}元</td>
 				        </tr>
 		      		</tbody>
 		    	</table>
 		  	</div>
-		</div>  
+		</div>
 	</div>
 
   	<div class="arrow"></div>
@@ -35,8 +35,8 @@
 	  	<form name="popoverForm" class="ng-pristine ng-valid">
 	  		<div class="preview">
 	  			<span>投资金额：{{params.displayValue}}</span>
-	  			<span>年化收益率：{{params.displayRate}}</span>
-          <span>项目期限：{{params.selectedIcon.allottedTime}}</span>
+	  			<span>年化收益率：{{params.displayRate ||0}}</span>
+          <span>项目期限：{{params.selectedIcon || 0}}天</span>
 	  		</div>
 			  <div class="cal-input"><label>投资金额：</label>
           <input type="number" min="0" ng-model="params.inputValue" placeholder="输入投资金额" ng-change="capitalValueChange();">
@@ -49,17 +49,18 @@
         </button> -->
         <div class="cal-input">
           <label>项目期限：</label>
-          <select ng-model="params.selectedIcon" ng-options="m.allottedTime for m in params.icons">
+          <input type="number" ng-model="params.selectedIcon" placeholder="输入项目期限">
+          <!-- <select ng-model="params.selectedIcon" ng-options="m.allottedTime for m in params.icons">
             <option value="">-- 选择项目期限 --</option>
-          </select>
+          </select> -->
         </div>
 
 	  		<div class="form-actions">
-	  			<button type="button" class="btn btn-danger" ng-click="$hide()">关闭</button> 
+	  			<button type="button" class="btn btn-danger" ng-click="$hide()">关闭</button>
 	  			<button type="button" class="btn btn-primary" ng-click="calculate()">计算</button>
 	  		</div>
 	  	</form>
   	</div>
-  	
-  	
+
+
 </div>
