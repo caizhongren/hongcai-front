@@ -35,11 +35,11 @@ angular.module('hongcaiApp')
 
       for(var i = 0; i <= creditRightList.length - 1; i++){
         var date = new Date(creditRightList[i].createTime);
-        $scope.labels.push((date.getMonth() + 1) + '-' + date.getDate()); 
+        $scope.labels.push((date.getMonth() + 1) + '-' + date.getDate());
         datas.push(creditRightList[i].profit);
-      } 
+      }
 
-      $scope.labels.sort();
+      // $scope.labels.sort();
       $scope.data = [];
       $scope.data.push(datas);
     });
