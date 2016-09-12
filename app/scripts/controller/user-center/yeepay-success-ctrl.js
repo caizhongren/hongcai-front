@@ -22,7 +22,7 @@ angular.module('hongcaiApp')
   	} else if (business == 'TRANSFER'){
   		page = 2;
   		if($stateParams.number){
-  		  ProjectService.getOneDayProfitAndNextRate.get({
+  		  /*ProjectService.getOneDayProfitAndNextRate.get({
   		    number: $stateParams.number
   		  }, function(response) {
   		    if (response.ret === 1) {
@@ -33,8 +33,19 @@ angular.module('hongcaiApp')
   		    } else {
   		      toaster.pop('warning', response.msg);
   		    }
-  		  });
+  		  });*/
+
+        ProjectService.investSuccessCoupons.get({
+          orderNumber: $stateParams.number
+        }, function(response){
+          $scope.usedCoupon = response.coupon;
+          if($scope.usedCoupon){
+            $scope.usedCoupon.tpye = response.coupon.type;
+            $scope.usedCoupon.value = response.coupon.value;
+          }
+        })
   		}
+
   	}else if(business === 'EXPERIENCE'){
       page = 10;
     } else if(business === 'USER_ACTIVE'){

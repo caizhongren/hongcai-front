@@ -107,6 +107,13 @@ angular.module('hongcaiApp')
       investCoupons: $resource(RESTFUL_DOMAIN + '/projects/investIncreaseRateCoupon', {
         projectId: '@projectId',
         amount: '@amount'
+      }),
+
+      /**
+       * 投资成功回调页优惠券使用
+       */
+      investSuccessCoupons: $resource(RESTFUL_DOMAIN + '/orders/0/orderCoupon', {
+        orderNumber: '@orderNumber'
       })
 
     };
