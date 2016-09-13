@@ -54,6 +54,12 @@ angular.module('hongcaiApp')
         type: '@type'
       }),
       /**
+       * 项目风控信息
+       */
+       getProjectRisk: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectRisk', {
+        number: '@number'
+      }),
+      /**
        * 宏金宝项目订单列表
        * @projectId 项目id
        * @projectType 项目类型

@@ -65,10 +65,7 @@
                   <p class="ft-14 ft-c6 margin-l-25">(客服工作时间：9:00-18:00)</p><br>
                   <p class="ft-16 ft-white margin-l-25">在线客服</p>
                   <div class="footer-contact-online margin-l-25">
-                    <a class="feedback2" href="tencent://message/?uin=2880787006&Site=qq&Menu=yes" target="_self" title="在线客服"></a>&nbsp;&nbsp;
-                    <a class="weibo" target="_blank" href="http://weibo.com/u/5611368371" title="微博"></a>&nbsp;&nbsp;
-                    <a class="qr_new" title="微信"></a>
-                    <img src="images/wechat-qrcode.jpg" alt="" class="footer-weixin" width="172" height="172">
+                    <a class="feedback2" href="tencent://message/?uin=2880787006&Site=qq&Menu=yes" target="_self" title="在线客服" focus-blur></a>
                     <ul class="qqBox2">
                       <li class="qqBox-header ft-16 margin-b-30">
                         <i class="fa fa-user"></i><i class="fa fa-comment-o"></i>&nbsp;&nbsp;在线客服
@@ -86,7 +83,10 @@
                           </span>
                         </a>
                       </li>
-                    </ul>
+                    </ul>&nbsp;&nbsp;
+                    <a class="weibo" target="_blank" href="http://weibo.com/u/5611368371" title="微博"></a>&nbsp;&nbsp;
+                    <a class="qr_new" title="微信" toggle-fade></a>
+                    <img src="images/wechat-qrcode.jpg" alt="" class="footer-weixin" width="172" height="172">
                   </div>
                 </div>
               </div>
@@ -117,15 +117,4 @@
   </div>
 </div>
 <!-- end footer -->
-<script>
-  $(".qr_new").mouseover(function(){
-    $(".footer-weixin").fadeIn();
-  }).mouseleave(function(){
-    $(".footer-weixin").fadeOut();
-  });
-  $(".feedback2").focus(function(){
-    $(".qqBox2").fadeIn();
-  }).blur(function(){
-    $(".qqBox2").fadeOut();
-  });
-</script>
+
