@@ -1,8 +1,8 @@
 /*
  * @Author: hongcai
  * @Date:   2016-07-26 15:32:02
- * @Last Modified by:   Administrator
- * @Last Modified time: 2016-08-02 11:21:36
+ * @Last Modified by:   fuqiang1
+ * @Last Modified time: 2016-09-13 14:55:13
  */
 
 'use strict';
@@ -47,17 +47,4 @@ angular.module('hongcaiApp')
       ipCookie('cashType', $scope.CashCoupons[$index].type);
     }
 
-    /*
-     *悬浮显示规则
-     */
-    $scope.isRulesShow = false;
-    $scope.showRules = function() {
-      $scope.isRulesShow = true;
-      angular.element('.rules-show').animate({
-        height: 'show'
-      }, 200);
-    };
-    $scope.hideRules = function() {
-      $scope.isRulesShow = false;
-    };
   });

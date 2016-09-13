@@ -2,7 +2,7 @@
 angular.module('hongcaiApp')
   .controller('ServiceCtrl', ['$scope', function($scope) {
     var $bottomTools = $('.bottom_tools');
-    var $feedback = $('#feedback');
+
 
     $(window).scroll(function() {
       var scrollHeight = $(document).height();
@@ -66,7 +66,6 @@ angular.module('hongcaiApp')
       $('#calculater .btn-default').css({
         'color': '#777'
       });
-      //console.log($('#calculater .btn-default').length);
     };
 
     $scope.capitalValueChange = function() {
