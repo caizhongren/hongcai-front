@@ -1797,8 +1797,8 @@ hongcaiApp
       views: {
         '': {
           templateUrl: 'views/activate-landing.html',
-          // controller: 'ExperienceProjectCtrl',
-          // controllerUrl: 'scripts/controller/project/experience-project-ctrl'
+          controller: 'ActivateLandingCtrl',
+          controllerUrl: 'scripts/controller/user-center/activate-landing-ctrl'
         }
       }
     })

@@ -38,8 +38,7 @@
     </div>
     <!-- 立即开通按钮 -->
     <div class="activate-h bg-f7 text-center" ng-hide="isLogged && isActive">
-      <div ng-if="isLogged && !isActive" class="activate-btn margin-auto cursor-pt" ui-sref="root.recharge-transfer({amount:0, business: 'ACTIVE'})">立即开通</div>
-      <div ng-if="!isLogged" class="activate-btn margin-auto cursor-pt" ui-sref="root.login">立即开通</div>
+      <div class="activate-btn margin-auto cursor-pt" ng-click="toOpen()">立即开通</div>
       <div class="activate-tip">您的账户已经升级为北京网贷资金存管账户，请点击上方按钮立即开通。</div>
     </div>
   </div>
