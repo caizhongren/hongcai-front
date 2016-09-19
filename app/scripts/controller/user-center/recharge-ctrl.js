@@ -31,15 +31,18 @@ angular.module('hongcaiApp')
       if(amount <= 0){
         return;
       }
-
-      $scope.msg = '2';
-      $scope.rechargeAmount = amount;
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
-      window.open('/#!/recharge-transfer/' + amount);
+      if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
+        $rootScope.toActivate();
+      } else {
+        $scope.msg = '2';
+        $scope.rechargeAmount = amount;
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alertYEEPAY.html',
+          show: true
+        });
+        window.open('/#!/recharge-transfer/' + amount);
+      }
     };
 
   });
