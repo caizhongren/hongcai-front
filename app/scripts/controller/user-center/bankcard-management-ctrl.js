@@ -25,26 +25,29 @@ angular.module('hongcaiApp')
 
 
     $scope.bindBankCard = function() {
-      $scope.msg = '5';
+      $rootScope.toNotice();
+      /*$scope.msg = '5';
       $alert({
         scope: $scope,
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      window.open('/#!/bankcard-transfer/0');
+      window.open('/#!/bankcard-transfer/0');*/
     };
 
     $scope.confirmUnbindBankCard = function(){
-      $scope.msg = '11';
+      $rootScope.toNotice();
+      /*$scope.msg = '11';
       $alert({
         scope: $scope,
         template: 'views/modal/alertYEEPAY.html',
         show: true
-      });
-    }
-    
+      });*/
+    };
+
     $scope.unbindBankCard = function() {
-      UserCenterService.unbindBankCard.get({}, function(response) {
+      $rootScope.toNotice();
+      /*UserCenterService.unbindBankCard.get({}, function(response) {
         if (response.ret === 1) {
           $state.go('root.yeepay-callback', {
             business: 'UNBIND_CARD',
@@ -53,7 +56,7 @@ angular.module('hongcaiApp')
         } else {
           toaster.pop('error', response.msg);
         }
-      });
+      });*/
     };
 
     angular.element('.bankCard .bank-card-show-verify').hover(function(event) {

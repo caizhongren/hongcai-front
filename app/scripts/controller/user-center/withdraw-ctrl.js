@@ -35,7 +35,8 @@ angular.module('hongcaiApp')
 
 
     $scope.withdraw = function(amount, captcha) {
-      if($scope.checkMinAmount(amount) || $scope.checkLargestAmount(amount) || amount ===''){
+      $rootScope.toNotice();
+      /*if($scope.checkMinAmount(amount) || $scope.checkLargestAmount(amount) || amount ===''){
         return;
       }
       $scope.msg = '3';
@@ -46,7 +47,7 @@ angular.module('hongcaiApp')
         show: true
       });
 
-      window.open('/#!/withdraw-transfer/' + amount + '/' + captcha);
+      window.open('/#!/withdraw-transfer/' + amount + '/' + captcha);*/
 
     };
 

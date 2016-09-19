@@ -28,7 +28,8 @@ angular.module('hongcaiApp')
     };
 
     $scope.recharge = function(amount) {
-      if(amount <= 0){
+      $rootScope.toNotice();
+      /*if(amount <= 0){
         return;
       }
 
@@ -39,7 +40,7 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-      window.open('/#!/recharge-transfer/' + amount);
+      window.open('/#!/recharge-transfer/' + amount);*/
     };
 
   });
