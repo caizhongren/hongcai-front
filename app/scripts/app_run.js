@@ -2,7 +2,7 @@
 * @Author: yuyang
 * @Date:   2016-09-13 09:54:32
 * @Last Modified by:   yuyang
-* @Last Modified time: 2016-09-19 18:52:18
+* @Last Modified time: 2016-09-19 19:42:01
 */
 
 'use strict';
@@ -35,12 +35,12 @@ angular.module('hongcaiApp')
     }
 
     $rootScope.toRealNameAuth = function() {
-      $rootScope.toNotice();
-      /*$rootScope.realNameAuthModal = $modal({
+      // $rootScope.toNotice();
+      $rootScope.realNameAuthModal = $modal({
         scope: $rootScope,
         template: 'views/modal/modal-realNameAuth.html',
         show: true
-      });*/
+      });
     };
 
     /**
