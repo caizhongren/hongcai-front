@@ -28,8 +28,8 @@ angular.module('hongcaiApp')
     };
 
     $scope.recharge = function(amount) {
-      $rootScope.toNotice();
-      /*if(amount <= 0){
+      // $rootScope.toNotice();
+      if(amount <= 0){
         return;
       }
       if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
@@ -43,7 +43,7 @@ angular.module('hongcaiApp')
           show: true
         });
         window.open('/#!/recharge-transfer/' + amount);
-      }*/
+      }
     };
 
   });
