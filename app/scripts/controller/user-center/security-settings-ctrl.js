@@ -85,6 +85,7 @@ angular.module('hongcaiApp')
       return md5.createHash(password);
     };
     $scope.changePassword = function(password) {
+
       if (password.repeatNewPassword !== password.newPassword) {
         return;
       }
@@ -96,6 +97,7 @@ angular.module('hongcaiApp')
         if (response.ret === 1) {
           $scope.changPwd = false;
           $scope.password = null;
+          $state.go('root.login');
         } else if (response.ret === -1) {
           if (response.code === -1021) {
             $scope.isOldPasswordTrue = false;
@@ -180,7 +182,7 @@ angular.module('hongcaiApp')
 
         window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
 
-      }     
+      }
 
     };
   });
