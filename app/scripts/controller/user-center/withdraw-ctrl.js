@@ -35,7 +35,8 @@ angular.module('hongcaiApp')
 
 
     $scope.withdraw = function(amount, captcha) {
-      if($scope.checkMinAmount(amount) || $scope.checkLargestAmount(amount) || amount ===''){
+      $rootScope.toNotice();
+      /*if($scope.checkMinAmount(amount) || $scope.checkLargestAmount(amount) || amount ===''){
         return;
       }
       if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
@@ -50,7 +51,8 @@ angular.module('hongcaiApp')
         });
 
         window.open('/#!/withdraw-transfer/' + amount + '/' + captcha);
-      }
+      }*/
+
     };
 
   });

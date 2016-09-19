@@ -2,7 +2,7 @@
 * @Author: yuyang
 * @Date:   2016-09-13 09:54:32
 * @Last Modified by:   yuyang
-* @Last Modified time: 2016-09-13 09:56:45
+* @Last Modified time: 2016-09-19 18:52:18
 */
 
 'use strict';
@@ -35,11 +35,12 @@ angular.module('hongcaiApp')
     }
 
     $rootScope.toRealNameAuth = function() {
-      $rootScope.realNameAuthModal = $modal({
+      $rootScope.toNotice();
+      /*$rootScope.realNameAuthModal = $modal({
         scope: $rootScope,
         template: 'views/modal/modal-realNameAuth.html',
         show: true
-      });
+      });*/
     };
 
     /**
@@ -57,6 +58,18 @@ angular.module('hongcaiApp')
     };
 
     $rootScope.pay_company = config.pay_company;
+
+    /**
+     * 暂停服务弹窗
+     */
+    $rootScope.toNotice = function() {
+      $rootScope.noticeModal = $modal({
+        scope: $rootScope,
+        template: 'views/modal/alert-notice.html',
+        show: true
+      });
+    };
+
 
     /**
      * 不需要显示footer的path
