@@ -31,10 +31,22 @@ angular.module('hongcaiApp')
       if(amount <= 0){
         return;
       }
-      if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
+      /*if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
         $rootScope.toActivate();
         return;
-      }
+      }else{*/
+        $scope.msg = '2';
+        $scope.rechargeAmount = amount;
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alertYEEPAY.html',
+          show: true
+        });
+        window.open('/#!/recharge-transfer/' + amount);
+      // }
+    };
+
+    $scope.toBindBank = function(){
       if($rootScope.bankCardStatus !== 'VERIFIED') {
         $scope.msg = '5';
         $alert({
@@ -45,15 +57,6 @@ angular.module('hongcaiApp')
         window.open('/#!/bankcard-transfer/0');
         return;
       }
-
-      $scope.msg = '2';
-      $scope.rechargeAmount = amount;
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
-      window.open('/#!/recharge-transfer/' + amount);
-    };
+    }
 
   });
