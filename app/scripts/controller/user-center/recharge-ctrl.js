@@ -28,19 +28,22 @@ angular.module('hongcaiApp')
     };
 
     $scope.recharge = function(amount) {
-      $rootScope.toNotice();
-      /*if(amount <= 0){
+      // $rootScope.toNotice();
+      if(amount <= 0){
         return;
       }
-
-      $scope.msg = '2';
-      $scope.rechargeAmount = amount;
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
-      window.open('/#!/recharge-transfer/' + amount);*/
+      if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
+        $rootScope.toActivate();
+      } else {
+        $scope.msg = '2';
+        $scope.rechargeAmount = amount;
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alertYEEPAY.html',
+          show: true
+        });
+        window.open('/#!/recharge-transfer/' + amount);
+      }
     };
 
   });

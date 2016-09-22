@@ -39,10 +39,6 @@ angular.module('hongcaiApp')
           orderNumber: $stateParams.number
         }, function(response){
           $scope.usedCoupon = response.coupon;
-          if($scope.usedCoupon){
-            $scope.usedCoupon.tpye = response.coupon.type;
-            $scope.usedCoupon.value = response.coupon.value;
-          }
         })
   		}
 

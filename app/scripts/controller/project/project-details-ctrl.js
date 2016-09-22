@@ -58,7 +58,6 @@ angular.module('hongcaiApp')
      */
     $scope.unUseCoupon = function() {
       $scope.selectedCoupon = null;
-
       $scope.validateAmountAndCoupon($scope.project.amount, $scope.selectedCoupon);
     }
 
@@ -289,6 +288,20 @@ angular.module('hongcaiApp')
       });
     }
 
+    /**
+     * 项目风控信息
+     */
+    $scope.ProjectRisk = function() {
+      ProjectService.getProjectRisk.get({
+        number: $stateParams.number
+      },function(response){
+        if(!response.ret || response.ret == -1){
+          return;
+        }
+        $scope.riskControl = response.data.riskControl;
+      });
+    }
+    $scope.ProjectRisk();
     /**
      * 借款企业信息
      */

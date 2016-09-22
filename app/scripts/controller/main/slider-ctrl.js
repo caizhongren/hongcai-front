@@ -17,7 +17,7 @@ angular.module('hongcaiApp')
       name: '14%收益 新手专享'
     },{
       mimeType: 'image/png',
-      src: 'images/banner-new/banner06.jpg',
+      src: 'images/banner-new/banner08.jpg',
       href: '/#!/activity/send-coupon',
       name: '投资送加息券'
     },{

@@ -2,10 +2,7 @@
 angular.module('hongcaiApp')
   .controller('ServiceCtrl', ['$scope', function($scope) {
     var $bottomTools = $('.bottom_tools');
-    var $qrTools = $('.qr_tool');
-    var qrImg = $('.qr_img');
-    var qqImg = $('.qqBox');
-    var $feedback = $('#feedback');
+
 
     $(window).scroll(function() {
       var scrollHeight = $(document).height();
@@ -24,19 +21,6 @@ angular.module('hongcaiApp')
       $('html,body').animate({
         scrollTop: 0
       });
-    });
-
-    $qrTools.hover(function() {
-      qrImg.fadeIn();
-    }, function() {
-      qrImg.fadeOut();
-    });
-    $feedback.focus(function() {
-      qqImg.fadeIn();
-    });
-
-    $feedback.blur(function() {
-      qqImg.fadeOut();
     });
 
 
@@ -82,7 +66,6 @@ angular.module('hongcaiApp')
       $('#calculater .btn-default').css({
         'color': '#777'
       });
-      //console.log($('#calculater .btn-default').length);
     };
 
     $scope.capitalValueChange = function() {

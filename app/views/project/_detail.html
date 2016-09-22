@@ -79,10 +79,18 @@
                                 </div>
                             </div>
                             <div class="col-xs-12">
-                                <h4 class="page-header ft-14 ft-grey1 ftw-b">风控措施</h4>
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">担保措施</h4>
                             </div>
                             <div class="col-xs-12">
                                 <div class="line-h-30" ta-bind ng-model="projectInfo.riskManagementInfo"></div>
+                            </div>
+                            <div class="col-xs-12" ng-show="riskControl.length > 0">
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">风控审核</h4>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="line-h-30">
+                                  <p class="margin-b-0" ng-repeat="data in riskControl"><i class="fa fa-check-circle ft-green0 margin-r-5" aria-hidden="true"></i>{{data.name}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>

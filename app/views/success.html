@@ -64,7 +64,7 @@
             </div>
             <div class="success-re col-lg-9 col-md-9">
               <div class="col-lg-12 col-md-12">
-                <p><strong>投资成功！<span ng-if="usedCoupon && usedCoupon.tpye === 2">额外奖励{{usedCoupon.value}}元！</span><span ng-if="usedCoupon && usedCoupon.tpye === 1">额外加息{{usedCoupon.value}}%！</span></strong>
+                <p><strong>投资成功！<span ng-if="usedCoupon && usedCoupon.type === 2">额外奖励{{usedCoupon.value}}元！</span><span ng-if="usedCoupon && usedCoupon.type === 1">额外加息{{usedCoupon.value}}%！</span></strong>
                 </p>
                 <div class="border-b list-l col-lg-11 col-md-11"></div>
               </div>
@@ -175,7 +175,7 @@
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">立即充值</a>
-                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no">浏览项目</a>
+                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no">浏览项目</a>
               </div>
             </div>
           </div>

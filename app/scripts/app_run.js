@@ -2,12 +2,12 @@
 * @Author: yuyang
 * @Date:   2016-09-13 09:54:32
 * @Last Modified by:   yuyang
-* @Last Modified time: 2016-09-19 17:49:34
+* @Last Modified time: 2016-09-19 19:42:01
 */
 
 'use strict';
 angular.module('hongcaiApp')
-  .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, $alert, DEFAULT_DOMAIN, toaster, config, ipCookie) {
+  .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
     /**
      * Array 在IE8下没有indexOf 方法。
      */
@@ -35,12 +35,12 @@ angular.module('hongcaiApp')
     }
 
     $rootScope.toRealNameAuth = function() {
-      $rootScope.toNotice();
-      /*$rootScope.realNameAuthModal = $modal({
+      // $rootScope.toNotice();
+      $rootScope.realNameAuthModal = $modal({
         scope: $rootScope,
         template: 'views/modal/modal-realNameAuth.html',
         show: true
-      });*/
+      });
     };
 
     /**
