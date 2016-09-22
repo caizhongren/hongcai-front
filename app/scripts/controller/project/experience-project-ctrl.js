@@ -25,9 +25,9 @@ angular.module('hongcaiApp')
         return;
       }
 
-      $rootScope.toNotice();
+      // $rootScope.toNotice();
 
-      /*if($rootScope.securityStatus.trusteeshipAccountStatus === 1){
+      if($rootScope.securityStatus.trusteeshipAccountStatus === 1){
         if($scope.account.experienceAmount > 100){
           OrderService.saveExperienceMoneyOrder.get({
             amount: $rootScope.account.experienceAmount,
@@ -61,7 +61,7 @@ angular.module('hongcaiApp')
         }
       }else{
         $scope.toRealNameAuth();
-      }*/
+      }
     }
 
     /**
