@@ -31,10 +31,10 @@ angular.module('hongcaiApp')
       if(amount <= 0){
         return;
       }
-      /*if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
+      if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
         $rootScope.toActivate();
         return;
-      }else{*/
+      }else{
         $scope.msg = '2';
         $scope.rechargeAmount = amount;
         $alert({
@@ -43,7 +43,7 @@ angular.module('hongcaiApp')
           show: true
         });
         window.open('/#!/recharge-transfer/' + amount);
-      // }
+      }
     };
 
     $scope.toBindBank = function(){

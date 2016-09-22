@@ -2,7 +2,7 @@
 * @Author: yuyang
 * @Date:   2016-09-13 09:54:32
 * @Last Modified by:   yuyang
-* @Last Modified time: 2016-09-22 16:54:15
+* @Last Modified time: 2016-09-22 18:07:01
 */
 
 'use strict';
@@ -46,7 +46,7 @@ angular.module('hongcaiApp')
     /**
      * 激活存管通账户
      */
-    /*$rootScope.toActivate = function() {
+    $rootScope.toActivate = function() {
       var userCenter = $location.path().indexOf('user-center');
       if(config.pay_company === 'cgt' && $rootScope.isLogged ===true &&  $rootScope.realNameAuthState ===1 &&  $rootScope.isActive=== false && userCenter ===1){
         $rootScope.activateModal = $modal({
@@ -55,7 +55,7 @@ angular.module('hongcaiApp')
           show: true
         });
       }
-    };*/
+    };
 
     $rootScope.pay_company = config.pay_company;
 
