@@ -35,7 +35,9 @@
           </div>
         </div>
       </form>
-      <p ng-if="bankCardStatus !== 'VERIFIED'" class="verify-tip col-md-9 col-md-offset-2 margin-t-20">充值需要绑定银行卡，请您前往<a ng-click="toBindBank()">【存管通系统】</a>完成绑卡操作</p>
+      <div ng-if="bankCardStatus !== 'VERIFIED'" class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40">
+        <p class="verify-tip col-md-9 col-md-offset-2 margin-t-20">充值需要绑定银行卡，请您前往<a ng-click="toBindBank()">【存管通系统】</a>完成绑卡操作</p>
+      </div>
       <div  ng-hide="securityStatus.realNameAuthStatus !== 1" class="col-md-10 col-md-offset-1 border-bd-grey margin-t-40 margin-b-20 record-w margin-l-40"></div>
       <div class="col-md-10 col-md-offset-1 bg-yellow margin-t-20 record-w margin-l-40" ng-hide="securityStatus.realNameAuthStatus !== 1">
         <div class="ft-14 padding-20 padding-b-50">
