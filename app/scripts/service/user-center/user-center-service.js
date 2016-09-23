@@ -168,7 +168,8 @@ angular.module('hongcaiApp')
         'active':   {method:'POST'}
       }),
       resetMobile: $resource(RESTFUL_DOMAIN + '/users/0/resetMobile', {
-        mobile:'@mobile'
+        mobile:'@mobile',
+        captcha:'@captcha'
       }, {
         'post':   {method:'POST'}
       }),

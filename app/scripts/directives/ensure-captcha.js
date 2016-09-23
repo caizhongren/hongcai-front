@@ -7,6 +7,7 @@ angular.module('hongcaiApp').directive('ensureCaptcha', ['$http', 'DEFAULT_DOMAI
 				var captcha = angular.element('#' + attrs.ensureCaptcha).val();
 				if(!captcha || captcha.length !== 4 ){
 					ctrl.$setValidity('check', false);
+          scope.piccha = false;
 					return;
 				}
 
@@ -16,11 +17,14 @@ angular.module('hongcaiApp').directive('ensureCaptcha', ['$http', 'DEFAULT_DOMAI
 				}).success(function(data) {
 					if(data.ret === 1) {
 						ctrl.$setValidity('check', true);
+            scope.piccha = true;
 					} else {
 						ctrl.$setValidity('check', false);
+            scope.piccha = false;
 					}
 				}).error(function() {
 					ctrl.$setValidity('check', false);
+          scope.piccha = false;
 				});
 			});
 		}
