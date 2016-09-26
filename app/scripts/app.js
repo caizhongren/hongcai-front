@@ -1747,6 +1747,18 @@ hongcaiApp
           }
         }
       })
+
+    /*-------------  10月新邀请活动落地页   ----------------------*/
+      .state('root.activity.newInvite-landing', {
+        url: '/invite-activity',
+        views: {
+          '': {
+            templateUrl: 'views/activity/newInvite-landing.html',
+            controller: 'newInviteCtrl',
+            controllerUrl: 'scripts/controller/activity/newNnvite-landing-ctrl'
+          }
+        }
+      })
     /*-------------  送现金活动落地页   ----------------------*/
     .state('root.activity.send-money', {
       url: '/send-money?act&f',
