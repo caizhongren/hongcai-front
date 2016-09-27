@@ -25,6 +25,7 @@ angular.module('hongcaiApp')
         return;
       }
 
+      // $rootScope.toNotice();
 
       if($rootScope.securityStatus.trusteeshipAccountStatus === 1){
         if($scope.account.experienceAmount > 100){
