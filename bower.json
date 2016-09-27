@@ -16,7 +16,6 @@
     "bower-angular-placeholders": "~0.0.2",
     "fancybox": "^2.1.5",
     "jquery": "^1.11.1",
-    "jquery-qrcode": "^0.14.0",
     "angular-loading-bar": "~0.6.0",
     "angular-slick-carousel": "~2.0.2",
     "ngSticky": "~1.7.5",
