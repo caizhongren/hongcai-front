@@ -24,7 +24,7 @@ angular.module('hongcaiApp')
       }
 
       // 生成自己的二维码
-      angular.element('#qrcode').qrcode({
+      $('#qrcode').qrcode({
         render:'table',
         text:'http://m.test321.hongcai.com/register/?inviteCode=' + $scope.inviteCode
       });
