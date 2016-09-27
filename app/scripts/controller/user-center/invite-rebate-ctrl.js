@@ -22,8 +22,13 @@ angular.module('hongcaiApp')
       } else {
         //console.log('ask invite-rebate, why getInviteList did not load data...');
       }
-    });
 
+      // 生成自己的二维码
+      angular.element('#qrcode').qrcode({
+        render:'table',
+        text:'http://m.test321.hongcai.com/register?inviteCode=' + $scope.inviteCode
+      });
+    });
 
     VouchersService.inviteStat.get(function(response){
       if (response.ret === 1){
@@ -42,22 +47,20 @@ angular.module('hongcaiApp')
       });
     };
 
-    
+
     /**
      * 复制邀请链接
      */
     $scope.copyInviteUrl = function(){
       ngClipboard.toClipboard('http://www.hongcai.com/register?inviteCode=' + $scope.inviteCode);
       toaster.pop('success', '复制成功！');
-
     }
-
     /**
      * 分享到微博
      */
     $scope.shareWeibo = function(){
 
-      var shareLink = config.domain + "/register?inviteCode" + $scope.inviteCode;
+      var shareLink = config.domain + "/register?inviteCode=" + $scope.inviteCode;
       ShareUtils.toWeibo('点击注册，得68888体验金 ' + shareLink);
 
 
@@ -68,17 +71,15 @@ angular.module('hongcaiApp')
      * 分享到qqzone
      */
     $scope.shareQQ = function(){
-      var shareLink = config.domain + "/register?inviteCode" + $scope.inviteCode;
+      var shareLink = config.domain + "/register?inviteCode=" + $scope.inviteCode;
       var desc = "点击注册，得68888体验金" + shareLink;
 
       ShareUtils.toQQzone('点击注册，得68888体验金', shareLink, desc);
 
-
     }
 
-    
+
     $scope.wechatQrCode = config.en ==='online' ?  '/images/user-center/wechat.png' : '/images/user-center/wechat-test.png'
-    
 
 
 
