@@ -9,12 +9,15 @@
     <div class="main user-right-h" ng-if="userType !== 4 && securityStatus.realNameAuthStatus === 1">
       <form ng-if="bankCardStatus === 'VERIFIED'" class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40" name="rechargeForm">
         <div class="row  margin-t-30 ">
-          <div class="margin-b-15 text-recharge-tip">
+          <div class="text-recharge-tip">
             <div class="col-md-2 text-right"><b>可用余额：</b></div>
-            <div class="col-md-5"><span class="ft-red4 ft-24">{{ balance || "0" | number:2}}</span>&nbsp;&nbsp;元</div>
+            <div class="col-md-2"><span class="ft-red4 ft-24">{{ balance || "0" | number:2}}</span>&nbsp;&nbsp;元</div>
+            <div class="payment col-md-2 padding-t-3 cursor-pt pay-active" ng-click="selectPay(1)">快捷支付方式</div>
+            <div class="payment col-md-2 padding-t-3 cursor-pt" ng-click="selectPay(2)">网银支付方式</div>
           </div>
         </div>
-        <div class="row">
+        <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
+        <div class="row margin-t-30">
           <div class="margin-b-15">
             <div class="col-md-2 text-right text-recharge-tip"><b>充值金额：</b></div>
             <input name="amount" type="number" min="0" class="verify-input fl mgn-top7" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required/>

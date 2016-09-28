@@ -16,7 +16,9 @@ angular.module('hongcaiApp')
     }
     else {
       UserCenterService.recharge.post({
-        amount: $stateParams.amount
+        amount: $stateParams.amount,
+        rechargeWay: $stateParams.rechargeWay,
+        expectPayCompany: $stateParams.expectPayCompany
       }, function(response) {
         if (response && response.ret !== -1) {
           PayUtils.redToTrusteeship('toRecharge', response);

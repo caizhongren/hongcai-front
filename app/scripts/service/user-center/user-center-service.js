@@ -15,7 +15,9 @@ angular.module('hongcaiApp')
        */
       authorizeAutoTransfer: $resource(RESTFUL_DOMAIN + '/users/0/authorizeAutoTransfer', {}, {'post':   {method:'POST'}}),
       recharge: $resource(RESTFUL_DOMAIN + '/users/0/recharge', {
-        amount: '@amount'
+        amount: '@amount',
+        rechargeWay: '@rechargeWay',
+        expectPayCompany: '@expectPayCompany'
       }, {
         'post':   {method:'POST'}
       }),
