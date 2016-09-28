@@ -72,5 +72,4 @@ angular.module('hongcaiApp')
       }
     }
     $scope.selectPay(1);
-
   });

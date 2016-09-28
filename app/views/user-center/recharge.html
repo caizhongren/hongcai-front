@@ -12,8 +12,8 @@
           <div class="text-recharge-tip">
             <div class="col-md-2 text-right"><b>可用余额：</b></div>
             <div class="col-md-2"><span class="ft-red4 ft-24">{{ balance || "0" | number:2}}</span>&nbsp;&nbsp;元</div>
-            <div class="payment col-md-2 padding-t-3 cursor-pt pay-active" ng-click="selectPay(1)">快捷支付方式</div>
-            <div class="payment col-md-2 padding-t-3 cursor-pt" ng-click="selectPay(2)">网银支付方式</div>
+            <div class="payment col-md-2 padding-t-3 cursor-pt" ng-class="{'pay-active':payment ==1}" ng-click="selectPay(1)">快捷支付方式</div>
+            <div class="payment col-md-2 padding-t-3 cursor-pt" ng-class="{'pay-active':payment ==2}" ng-click="selectPay(2)">网银支付方式</div>
           </div>
         </div>
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
