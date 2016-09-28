@@ -73,15 +73,12 @@ angular.module('hongcaiApp')
      */
     $scope.shareQQ = function(){
       var shareLink = config.domain + "/register?inviteCode=" + $scope.inviteCode;
-      var desc = "点击注册，得68888体验金" + shareLink;
+      var desc = "点击注册，得8888体验金" + shareLink;
 
-      ShareUtils.toQQzone('点击注册，得68888体验金', shareLink, desc);
+      ShareUtils.toQQzone('点击注册，得8888体验金', shareLink, desc);
 
     }
 
-
     $scope.wechatQrCode = config.en ==='online' ?  '/images/user-center/wechat.png' : '/images/user-center/wechat-test.png'
-
-
 
   });
