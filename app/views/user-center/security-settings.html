@@ -1,5 +1,5 @@
 <!--安全设置-->
-<div class="right-area col-md-8 col-lg-9">
+<div class="right-area col-md-8 col-lg-9 security-setting">
   <div class="currency-style">
     <div class="title">
       <span class="tip">安全设置</span>
@@ -102,23 +102,47 @@
 			    <form class="real-name" name="resetMobileForm">
 			      <div class="col-md-8 col-lg-6 col-md-offset-2 col-lg-offset-3">
 			        <div class="safe-form-group">
-			          <label class="col-md-4 col-lg-4">手机号码：</label>
-			          <input type="text" class="verify-input col-md-6" id="mobileNum" name="mobileNum" ng-model="mobileNum" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[03678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobileNum" ng-focus required autofocus/>
-			          <div ng-if="resetMobileForm.mobileNum.$dirty && resetMobileForm.mobileNum.$invalid">
-			            <div class="user-tips-area" ng-show="resetMobileForm.mobileNum.$error.required &&!resetMobileForm.mobileNum.$focused">
+			          <label class="col-md-4 col-lg-4">新手机号码：</label>
+			          <input type="text" class="verify-input col-md-6" id="mobileNum" name="mobileNum" ng-model="user.mobileNum" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[03678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobileNum" ng-focus required autofocus/>
+			          <div ng-if="resetMobileForm.mobileNum.$invalid">
+			            <div class="user-tips-area" ng-show="resetMobileForm.mobileNum.$dirty && resetMobileForm.mobileNum.$invalid && resetMobileForm.mobileNum.$error.required &&!resetMobileForm.mobileNum.$focused">
 			              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
 			            </div>
-			            <div class="user-tips-area" ng-show="resetMobileForm.mobileNum.$error.pattern">
+			            <div class="user-tips-area" ng-show="resetMobileForm.mobileNum.$error.pattern &&!resetMobileForm.mobileNum.$focused">
 			              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>格式错误</p>
 			            </div>
-			            <div class="user-tips-area" ng-show="!resetMobileForm.mobileNum.$error.required && !resetMobileForm.mobileNum.$error.pattern && resetMobileForm.mobileNum.$error.unique">
+			            <div class="user-tips-area" ng-show="!resetMobileForm.mobileNum.$error.required && !resetMobileForm.mobileNum.$error.pattern && resetMobileForm.mobileNum.$error.unique &&!resetMobileForm.mobileNum.$focused">
 			              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>已被占用</p>
 			            </div>
 			          </div>
 			        </div>
+              <div class="safe-form-group">
+                <label class="col-md-4 col-lg-4">图片验证码：</label>
+                <input type="text" class="verify-input col-md-4" id="picCaptcha" name="picCaptcha" ng-model="user.picCaptcha" ensure-captcha="picCaptcha" ng-focus required/>
+                <img src="{{getPicCaptcha}}" id="checkCaptcha" class="pic-verify col-md-2 col-lg-2 no-padding" ng-click="refreshCode()">
+                <div ng-if="!resetMobileForm.mobileNum.$focused">
+                  <div class="user-tips-area safe-tips-area" ng-show="resetMobileForm.picCaptcha.$dirty && resetMobileForm.picCaptcha.$invalid && resetMobileForm.picCaptcha.$error.required &&!resetMobileForm.picCaptcha.$focused">
+                    <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
+                  </div>
+                  <div class="user-tips-area safe-tips-area" ng-show="!piccha && !resetMobileForm.picCaptcha.$focused && !resetMobileForm.picCaptcha.$error.required">
+                    <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>图形验证码错误</p>
+                  </div>
+                </div>
+              </div>
+              <div class="safe-form-group">
+                <label class="col-md-4 col-lg-4">短信验证码：</label>
+                <input type="text" class="verify-input col-md-4 col-lg-4" id="inputCaptcha" name="inputCaptcha" ng-model="user.inputCaptcha" ng-focus required/>
+                <input type="button" value="获取验证码" class="getVerify getVerify-org" ng-click="sendMobileCaptcha(user.mobileNum, user.picCaptcha)" onclick="countDown(this,60);" id="getVerify" ng-disabled="resetMobileForm.picCaptcha.$invalid || resetMobileForm.mobileNum.$invalid" />
+                <div class="user-tips-area safe-tips-area" ng-show="resetMobileForm.inputCaptcha.$dirty && resetMobileForm.inputCaptcha.$invalid && !resetMobileForm.inputCaptcha.$focused && resetMobileForm.inputCaptcha.$error.required">
+                  <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
+                </div>
+                <div class="user-tips-area safe-tips-area" ng-show="!resetMobileForm.picCaptcha.$invalid && !resetMobileForm.mobileNum.$invalid && !resetMobileForm.inputCaptcha.$invalid && showMsg">
+                  <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>{{captchaErrMsg}}</p>
+                </div>
+              </div>
 			        <div class="safe-form-group">
 			          <label class="col-md-4 col-lg-4"></label>
-			          <input type="submit" value="确定" class="btn-primary-orange col-md-3 col-lg-3" ng-click="resetMobilenum(mobileNum);" ng-disabled="resetMobileForm.$invalid"/>
+			          <input type="submit" value="确定" class="btn-primary-orange col-md-3 col-lg-3" ng-click="resetMobilenum(user);"/>
 			        </div>
 			      </div>
 			    </form>
@@ -216,7 +240,6 @@
       		</div>
       	</div>
       </div>
-
     </div>
   </div>
 </div>
@@ -232,8 +255,8 @@ function countDown(obj, second) {
     obj.disabled = true;
     // 按钮里的内容呈现倒计时状态
     //obj.value = buttonDefaultValue + '(' + second + ')';
-    obj.value = second + "s 后重新发送";
-    obj.className = 'col-xs-offset-1 col-xs-2 white-button grey';
+    obj.value = second + "s";
+    obj.className = 'col-xs-2 getVerify grey';
     // 时间减一
     second--;
     // 一秒后重复执行
@@ -245,8 +268,8 @@ function countDown(obj, second) {
     // 按钮置未可点击状态
     obj.disabled = false;
     // 按钮里的内容恢复初始状态
-    obj.className = 'white-button';
-    obj.value = buttonDefaultValue;
+    obj.className = 'getVerify getVerify-org';
+    obj.value = '重新发送';
   }
 }
 </script>

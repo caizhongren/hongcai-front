@@ -26,7 +26,6 @@ angular.module('hongcaiApp')
       });
       window.open('/#!/transfer-transfer/' + amount);
     };
-
     $scope.recharge = function(amount) {
       // $rootScope.toNotice();
       if(amount <= 0){
@@ -34,7 +33,8 @@ angular.module('hongcaiApp')
       }
       if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
         $rootScope.toActivate();
-      } else {
+        return;
+      }else{
         $scope.msg = '2';
         $scope.rechargeAmount = amount;
         $alert({
@@ -42,8 +42,34 @@ angular.module('hongcaiApp')
           template: 'views/modal/alertYEEPAY.html',
           show: true
         });
-        window.open('/#!/recharge-transfer/' + amount);
+
+        window.open('/#!/recharge-transfer/' + amount +"/"+ $scope.rechargeWay +"/" + $scope.expectPayCompany);
       }
     };
 
+    $scope.toBindBank = function(){
+      if($rootScope.bankCardStatus !== 'VERIFIED') {
+        $scope.msg = '5';
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alertYEEPAY.html',
+          show: true
+        });
+        window.open('/#!/bankcard-transfer/0');
+        return;
+      }
+    }
+
+    //记录选择支付方式
+    $scope.selectPay = function(payment) {
+      $scope.payment = payment;
+      if(payment ===1){
+        $scope.rechargeWay = 'SWIFT';
+        $scope.expectPayCompany = 'FUIOU';
+      }else {
+        $scope.rechargeWay = 'WEB';
+        $scope.expectPayCompany = 'ALLINPAY';
+      }
+    }
+    $scope.selectPay(1);
   });

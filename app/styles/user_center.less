@@ -336,6 +336,9 @@
     outline: none;
   }
 }
+.pay-active {
+    color: #54bbfb;
+}
 // recharge && withdraw && security-settings
 .user-tips-area {
   height: 20px;
@@ -1228,7 +1231,7 @@
   .credit-toggle{
     width: 86px;
   }
-  .invite-wechat, .invite-sina, .invite-qq, .invite-copy {
+  .invite-wechat, .invite-sina, .invite-qq, .invite-copy, .invite-qrcode {
     width: 83px;
     height: 80px;
   }
@@ -1243,6 +1246,35 @@
   }
   .invite-copy {
     background: url('/images/user-center/backgrounds_sidebar.png') no-repeat -216px -158px ;
+  }
+  .invite-qrcode {
+    background: url('/images/user-center/backgrounds_sidebar.png') no-repeat -413px -161px ;
+  }
+}
+// 邀请中心
+.invite-rebate {
+  .invite-main {
+    padding: 0 71px;
+    .intro {
+      line-height: 24px;
+    }
+    .row-img {
+      width: 616px;
+      margin-top: 7px;
+    }
+    .line-h24 {
+      line-height: 24px;
+    }
+  }
+  .rules {
+    .header {
+      width: 73px;
+      height: 18px;
+      line-height: 18px;
+      display: inline-block;
+      background-color: #6accff;
+      padding-left: 3px;
+    }
   }
 }
 .modal-top{
@@ -1470,4 +1502,37 @@
 }
 .experience-money3 {
   background: url('/images/user-center/backgrounds_sidebar.png') no-repeat -63px -269px ;
+}
+
+// 安全设置
+.security-setting {
+  .getVerify {
+    width: 16%;
+    height: 30px;
+    float: left;
+    padding: 4px !important;
+    border-radius: 3px;
+    text-align: center;
+    margin-left: 8px;
+    font-size: 12px;
+  }
+  .getVerify-org {
+    color: #fd8f3f;
+    border: 1px solid #fd8f3f;
+  }
+  .getVerify-org:hover {
+    background-color: #fd8f3f;
+    color: #fff;
+  }
+  .grey {
+    color: #dbdbdb;
+    background-color: #f7f5f5;
+    border: 1px solid #dbdbdb;
+    disabled:disabled;
+  }
+  .pic-verify {
+    width: 17%;
+    height: 30px;
+    padding-right: 10px;
+  }
 }

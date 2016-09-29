@@ -55,7 +55,7 @@
       </div>
       <!-- 可提 -->
       <div class="cash-coupon-list">
-        <div class="col-md-5 display-inbl single-coupon" ng-repeat='cashCoupon in datas' ng-show="usedStatus === '1' && unGotAmount > 0">
+        <div class="col-md-5 display-inbl single-coupon" ng-repeat='cashCoupon in datas | orderBy : "-value"' ng-show="usedStatus === '1' && unGotAmount > 0">
           <div class="col-md-3 single single-l text-center display-inbl font-white ft-18">￥<span class="ft-36">{{cashCoupon.value}}</span></div>
           <div class="col-md-9 single single-r display-inbl">
              <p ng-show="cashCoupon.projectDays > 0">期限要求：&ge;{{cashCoupon.projectDays}}天</p>

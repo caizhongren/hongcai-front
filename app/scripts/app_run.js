@@ -2,7 +2,7 @@
 * @Author: yuyang
 * @Date:   2016-09-13 09:54:32
 * @Last Modified by:   yuyang
-* @Last Modified time: 2016-09-19 19:42:01
+* @Last Modified time: 2016-09-22 18:07:01
 */
 
 'use strict';
@@ -96,7 +96,7 @@ angular.module('hongcaiApp')
     $rootScope.$on('$stateChangeStart', function(event, toState) {
       var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
       $checkSessionServer.error(function(response) {
-          $state.go('update', {return: $location.path()});
+          $state.go('update', {'return': $location.path()});
           return;
       }).success(function(response) {
 
@@ -108,6 +108,7 @@ angular.module('hongcaiApp')
             $rootScope.securityStatus = response.data.securityStatus;
             $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
             $rootScope.account = response.data.userDetail.account;
+            $rootScope.bankCardStatus = response.data.userDetail.bankCardStatus;
             $rootScope.unreadCount = response.data.unreadCount;
             $rootScope.userType = response.data.userDetail.user.type;
 

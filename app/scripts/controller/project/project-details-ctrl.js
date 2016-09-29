@@ -405,14 +405,23 @@ angular.module('hongcaiApp')
      * 跳转到充值
      */
     $scope.toRecharge = function() {
-      if ($rootScope.securityStatus.realNameAuthStatus + $rootScope.autoTransfer >= 1) {
+      if($rootScope.bankCardStatus){
+
+      }
+      if ($rootScope.securityStatus.realNameAuthStatus + $rootScope.autoTransfer >= 1 && $rootScope.bankCardStatus ==='VERIFIED') {
         $modal({
           scope: $scope,
           template: 'views/modal/modal-toRecharge.html',
           show: true
         });
-      } else {
+      } else if($rootScope.securityStatus.realNameAuthStatus !==1){
         $scope.toRealNameAuth();
+      }else if($rootScope.bankCardStatus !=='VERIFIED'){
+        $modal({
+          scope: $scope,
+          template: 'views/modal/modal-toBindBank.html',
+          show: true
+        });
       }
     }
 

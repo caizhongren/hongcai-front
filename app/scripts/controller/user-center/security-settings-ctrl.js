@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SecuritySettingsCtrl', function($scope, $state, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN,$modal) {
+  .controller('SecuritySettingsCtrl', function($scope, $state, $http, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
 
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
@@ -8,6 +8,7 @@ angular.module('hongcaiApp')
         var user = response.data.user;
         $scope.email = user.email;
         $scope.mobile = user.mobile;
+        $scope.userId = user.id;
         if (userAuth && userAuth.yeepayAccountStatus === 1) {
           $scope.haveTrusteeshipAccount = true;
           $scope.openTrustReservation = userAuth.autoTransfer;
@@ -111,22 +112,34 @@ angular.module('hongcaiApp')
     /**
      * 修改手机号码
      */
-    $scope.resetMobilenum = function(mobileNum) {
+    $scope.resetMobilenum = function(user) {
       var regexp = new RegExp('^((13[0-9])|(15[^4,\\D])|(18[0-9])|(17[0678])|(14[0-9]))\\d{8}$');
-      if(!regexp.test(mobileNum)) {
+      if(!regexp.test(user.mobileNum)) {
         return;
       }
-      $scope.msg = '9';
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
-      var url = $state.href('root.yeepay', {
-        business: 'RESET_MOBILE',
-        mobile: mobileNum
-      });
-      window.open(url, '_blank');
+
+      UserCenterService.resetMobile.post({
+        mobile: user.mobileNum,
+        captcha: user.inputCaptcha
+      }, function(response){
+        $scope.showMsg = false;
+        if(response.ret && response.ret !==1){
+          $scope.showMsg = true;
+          $scope.captchaErrMsg = response.msg;
+          return;
+        }
+        toaster.pop('success', '恭喜您，修改成功！');
+        $scope.user.mobileNum = null;
+        $scope.user.picCaptcha = null;
+        $scope.user.inputCaptcha = null;
+        $scope.resetMobile = false;
+        UserCenterService.userSecurityInfo.get({}, function(response) {
+          if (response.ret === 1) {
+            var user = response.data.user;
+            $scope.mobile = user.mobile;
+          }
+        });
+      })
     };
 
 

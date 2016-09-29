@@ -351,7 +351,7 @@ hongcaiApp
 
     /*-------------  toYeepay transfer --------------------*/
     .state('root.recharge-transfer', {
-        url: '/recharge-transfer/:amount?business',
+        url: '/recharge-transfer/:amount/:rechargeWay/:expectPayCompany?business',
         views: {
           '': {
             templateUrl: 'views/transfer.html',
@@ -1744,6 +1744,18 @@ hongcaiApp
             templateUrl: 'views/activity/invite-landing.html',
             controller: 'InviteLandingCtrl',
             controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
+          }
+        }
+      })
+
+    /*-------------  10月新邀请活动落地页   ----------------------*/
+      .state('root.activity.newInvite-landing', {
+        url: '/invite-activity',
+        views: {
+          '': {
+            templateUrl: 'views/activity/newInvite-landing.html',
+            controller: 'newInviteCtrl',
+            controllerUrl: 'scripts/controller/activity/newNnvite-landing-ctrl'
           }
         }
       })
