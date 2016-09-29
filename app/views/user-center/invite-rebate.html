@@ -1,5 +1,5 @@
 <!--邀请返利-->
-<div class="right-area col-md-8 col-lg-9">
+<div class="right-area col-md-8 col-lg-9 invite-rebate">
   <div class="currency-style">
     <div class="title">
       <span class="tip">邀请中心</span>
@@ -10,10 +10,10 @@
       </div> -->
       <div class="col-md-12">
         <div class="invite-line ft-14">
-          <div class="col-md-3"><sapn class="icon-invite icon-invite1 display-inbl"></sapn>邀请人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.totalNum || 0}}</span>人</div>
-          <div class="col-md-3"><sapn class="icon-invite icon-invite2 display-inbl"></sapn>实名人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.realNameAuthNum || 0}}</span>人</div>
-          <div class="col-md-3"><sapn class="icon-invite icon-invite3 display-inbl"></sapn>投资人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.investNum || 0}}</span>人</div>
-          <div class="col-md-3"><sapn class="icon-invite icon-invite4 display-inbl"></sapn>已得奖金：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.reward || 0 | number:2 }}</span>元</div>
+          <div class="col-md-4"><sapn class="icon-invite icon-invite1 display-inbl"></sapn>邀请人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.totalNum || 0}}</span>人</div>
+          <div class="col-md-4"><sapn class="icon-invite icon-invite2 display-inbl"></sapn>实名人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.realNameAuthNum || 0}}</span>人</div>
+          <div class="col-md-4"><sapn class="icon-invite icon-invite3 display-inbl"></sapn>投资人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.investNum || 0}}</span>人</div>
+          <!-- <div class="col-md-3"><sapn class="icon-invite icon-invite4 display-inbl"></sapn>已得奖金：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.reward || 0 | number:2 }}</span>元</div> -->
         </div>
       </div>
       <div class="col-md-12">
@@ -31,22 +31,50 @@
           <div class="col-md-8 padding-t-20 text-center">
             <p>以下方式分享邀请链接给好友>&nbsp;好友点击链接注册并投资>&nbsp;奖励自动进入您的账户</p>
             <div class="row text-center">
-              <div class="col-xs-3">
-                <span class="invite-wechat display-inbl" data-toggle="modal" data-target="#myModal" ng-click="modalFlag=true"></span>
-              </div>
-              <div class="col-xs-3" ng-click="shareWeibo()">
+              <!-- <div class="col-xs-3">
+                <span class="invite-wechat display-inbl" data-toggle="modal" data-target="#myModal" ng-click="weimodalFlag = true;qrmodalFlag = false;modalFlag =false"></span>
+              </div> -->
+              <!-- <div class="col-xs-3" ng-click="shareWeibo()">
                 <span class="invite-sina display-inbl"></span>
+              </div> -->
+
+              <div class="col-xs-4">
+                <span class="invite-qrcode display-inbl" data-toggle="modal" data-target="#myModal" ng-click="qrmodalFlag = true;weimodalFlag = false;modalFlag =false"></span>
               </div>
-              <div class="col-xs-3" ng-click="shareQQ()">
+              <div class="col-xs-4">
+                <span class="invite-copy display-inbl" data-toggle="modal" data-target="#myModal" ng-click="modalFlag = true;qrmodalFlag = false;weimodalFlag =false"></span>
+              </div>
+              <div class="col-xs-4" ng-click="shareQQ()">
                 <span class="invite-qq display-inbl"></span>
-              </div>
-              <div class="col-xs-3">
-                <span class="invite-copy display-inbl" data-toggle="modal" data-target="#myModal" ng-click="modalFlag=false"></span>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- 邀请好友赚奖金 -->
+      <div class="col-md-12">
+        <div class="invite-line ft-14 margin-b-10">
+          <p class="ftw-b ft-red6 margin-b-0 margin-l-30">邀好友赚奖金：2016年10月8日—2016年10月31日</p>
+        </div>
+      </div>
+      <div class="col-md-12 invite-main ft-grey666 margin-b-10">
+        <p class="intro ft-14 margin-b-0">活动期间内邀请好友注册投资，该好友在活动期间累计投资两次（期限≥30天），累计投资金额达2500元（含）以上，邀请人即可获得邀请奖金60元！多邀多得，上不封顶！</p>
+        <div class="text-center margin-t-20 margin-b-20">
+          <img src="/images/user-center/group.png" alt="">
+          <div class="row ft-12 line-h24 row-img margin-auto text-left">
+            <div class="col-md-5">分享专属二维码/复制链接给好友</div>
+            <div class="col-md-4 margin-l--26">好友通过链接注册并购买</div>
+            <div class="col-md-3 margin-l-20">您将获得60元奖金</div>
+          </div>
+        </div>
+        <div class="text-left ft-14 rules line-h24">
+          <div class="header ft-white text-center">活动规则：</div>
+          <p class="margin-b-0">1、邀请关系认定：好友注册时填写邀请人手机号或通过邀请人的专属链接（或二维码）注册；</p>
+          <p class="margin-b-0">2、邀请奖金自动发放至邀请人宏财账户，邀请人可在账户“资金流水”中查看，该奖金可立即提现；</p>
+          <p class="margin-b-0">3、活动中如发现通过非正常手段恶意获取奖金，宏财网保留不派发奖金的权利；</p>
+        </div>
+      </div>
+      <!-- 我的邀请table -->
       <div class="col-md-12 ft-14 margin-t-20">
         <div class="invite-content">
           <div class="col-md-1 padding-b-5 credit-toggle">我的邀请</div>
@@ -91,7 +119,7 @@
 </div>
 
 <!-- 点击复制链接弹出模态框 -->
-<div class="modal fade modal-top" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade modal-top" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
   <div class="modal-dialog">
     <div class="modal-content">
        <div class="modal-header">
@@ -100,23 +128,34 @@
                 &times;
           </button>
           <h4 class="modal-title" id="myModalLabel">
-            <span ng-show="modalFlag">扫一扫微信邀请</span><span ng-show="!modalFlag">复制链接</span>
+            <span ng-show="weimodalFlag">扫一扫微信邀请</span>
+            <span ng-show="modalFlag">复制链接</span>
+            <span ng-show="qrmodalFlag">我的专属归属二维码</span>
           </h4>
        </div>
-       <div class="modal-body" ng-show="!modalFlag">
+       <div class="modal-body" ng-show="modalFlag">
           <div class="modal-connect">
             <p class="ft-14" >http://www.hongcai.com/register?inviteCode={{voucher.inviteCode}}</p>
             <p class="ft-14">复制以上链接邀请好友，更多奖励等你哟!!</p>
           </div>
           <button class="button orange-button copy-btn" ng-click="copyInviteUrl()">复制链接</button>
        </div>
-       <div class="modal-body margin-t-30 margin-b-50" ng-show="modalFlag">
-        <div class="col-md-7 padding-l-90"><img ng-src="{{wechatQrCode}}" alt=""></div>
-        <div class="col-md-5 text-left ft-14 ft-grey">
-          <p class="margin-t-20">扫一扫微信分享</p>
-          <p>客服热线</p>
-          <p>400-990-7626</p>
-        </div>
+       <div class="modal-body margin-t-30 margin-b-50" ng-show="weimodalFlag">
+          <div class="col-md-7 padding-l-90"><img ng-src="{{wechatQrCode}}" alt=""></div>
+          <div class="col-md-5 text-left ft-14 ft-grey">
+            <p class="margin-t-20">扫一扫微信分享</p>
+            <p>客服热线</p>
+            <p>400-990-7626</p>
+          </div>
+       </div>
+       <div class="modal-body margin-t-30 margin-b-50" ng-show="qrmodalFlag">
+          <div id="qrcode" class="col-md-6 padding-l-90">
+          </div>
+          <div class="col-md-5 text-left ft-14 ft-grey">
+            <p class="margin-t-20">分享您的专属二维码给好友</p>
+            <p>好友通过该二维码注册后，</p>
+            <p>即成为您的邀请用户</p>
+          </div>
        </div>
     </div>
   </div>

@@ -28,7 +28,8 @@
     "angular-ui-slider": "~0.1.0",
     "angular-seo": "*",
     "angular-chart.js": "~0.8.5",
-    "angular-svg-round-progressbar": "~0.3.8"
+    "angular-svg-round-progressbar": "~0.3.8",
+    "jquery.qrcode": "0.14.0"
   },
   "devDependencies": {
     "firebug-lite": "~1.5.1",
