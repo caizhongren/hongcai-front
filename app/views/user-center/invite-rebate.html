@@ -10,10 +10,10 @@
       </div> -->
       <div class="col-md-12">
         <div class="invite-line ft-14">
-          <div class="col-md-3"><sapn class="icon-invite icon-invite1 display-inbl"></sapn>邀请人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.totalNum || 0}}</span>人</div>
-          <div class="col-md-3"><sapn class="icon-invite icon-invite2 display-inbl"></sapn>实名人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.realNameAuthNum || 0}}</span>人</div>
-          <div class="col-md-3"><sapn class="icon-invite icon-invite3 display-inbl"></sapn>投资人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.investNum || 0}}</span>人</div>
-          <div class="col-md-3"><sapn class="icon-invite icon-invite4 display-inbl"></sapn>已得奖金：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.reward || 0 | number:2 }}</span>元</div>
+          <div class="col-md-4"><sapn class="icon-invite icon-invite1 display-inbl"></sapn>邀请人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.totalNum || 0}}</span>人</div>
+          <div class="col-md-4"><sapn class="icon-invite icon-invite2 display-inbl"></sapn>实名人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.realNameAuthNum || 0}}</span>人</div>
+          <div class="col-md-4"><sapn class="icon-invite icon-invite3 display-inbl"></sapn>投资人数：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.investNum || 0}}</span>人</div>
+          <!-- <div class="col-md-3"><sapn class="icon-invite icon-invite4 display-inbl"></sapn>已得奖金：<span class="ft-18 ft-red6 ft-bold">{{inviteStat.reward || 0 | number:2 }}</span>元</div> -->
         </div>
       </div>
       <div class="col-md-12">
@@ -31,20 +31,21 @@
           <div class="col-md-8 padding-t-20 text-center">
             <p>以下方式分享邀请链接给好友>&nbsp;好友点击链接注册并投资>&nbsp;奖励自动进入您的账户</p>
             <div class="row text-center">
-              <div class="col-xs-3">
+              <!-- <div class="col-xs-3">
                 <span class="invite-wechat display-inbl" data-toggle="modal" data-target="#myModal" ng-click="weimodalFlag = true;qrmodalFlag = false;modalFlag =false"></span>
-              </div>
+              </div> -->
               <!-- <div class="col-xs-3" ng-click="shareWeibo()">
                 <span class="invite-sina display-inbl"></span>
               </div> -->
-              <div class="col-xs-3" ng-click="shareQQ()">
-                <span class="invite-qq display-inbl"></span>
-              </div>
-              <div class="col-xs-3">
+
+              <div class="col-xs-4">
                 <span class="invite-qrcode display-inbl" data-toggle="modal" data-target="#myModal" ng-click="qrmodalFlag = true;weimodalFlag = false;modalFlag =false"></span>
               </div>
-              <div class="col-xs-3">
+              <div class="col-xs-4">
                 <span class="invite-copy display-inbl" data-toggle="modal" data-target="#myModal" ng-click="modalFlag = true;qrmodalFlag = false;weimodalFlag =false"></span>
+              </div>
+              <div class="col-xs-4" ng-click="shareQQ()">
+                <span class="invite-qq display-inbl"></span>
               </div>
             </div>
           </div>
