@@ -7,14 +7,14 @@ angular.module('hongcaiApp')
 
     $scope.media = [{
       mimeType: 'image/png',
-      src: 'images/banner-new/banner09.jpg',
-      href: '/#!/activity/invite-activity',
-      name: '邀请好友投资送60元现金'
-    },{
-      mimeType: 'image/png',
       src: 'images/banner-new/cgt-banner.jpg',
       href: '/#!/activate',
       name: '宣传存管通落地页'
+    },{
+      mimeType: 'image/png',
+      src: 'images/banner-new/banner09.jpg',
+      href: '/#!/activity/invite-activity',
+      name: '邀请好友投资送60元现金'
     },{
       mimeType: 'image/png',
       src: 'images/banner-new/banner07.jpg',
