@@ -285,6 +285,8 @@ angular.module('hongcaiApp')
         $scope.enterpriseOriginalFileList = response.data.enterpriseOriginalFileList;
         $scope.contractOriginalFileList = response.data.contractOriginalFileList;
         $scope.contractThumbnailFileList = response.data.contractThumbnailFileList;
+        $scope.projectThumbnailFileList = response.data.projectThumbnailFileList;
+        $scope.projectOriginalFileList = response.data.projectOriginalFileList;
       });
     }
 
