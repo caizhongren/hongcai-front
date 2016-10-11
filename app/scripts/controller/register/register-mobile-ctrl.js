@@ -17,6 +17,7 @@ angular.module('hongcaiApp')
         inviteCode: cookiesInviteCode
       };
     }
+
     $scope.submitRegisterMobile = function(user) {
       RegisterService.saveRegister.save({
         type: 0,
@@ -37,6 +38,36 @@ angular.module('hongcaiApp')
         }
       });
     };
+
+
+    /**
+     * 发送短信验证码
+     * 发送成功后要刷新图片验证码
+     */
+    $scope.sendMobileCaptcha = function(user) {
+      if (!user.picCaptcha){
+        $scope.showPicCaptchaError = true;
+      } else {
+        $scope.showPicCaptchaError = false;
+      }
+
+      UserCenterService.sendMobileCaptcha.save({
+        picCaptcha: user.picCaptcha,
+        mobile: user.mobile,
+        business: 0
+      }, function(response) {
+        
+        if (response.ret !== -1) {
+          $scope.refreshCode();
+          // $scope.user.picCaptcha = undefined;
+          toaster.pop('success', '短信验证码发送成功，请查收');
+        } else {
+          $scope.showPicCaptchaError = true;
+          toaster.pop('error', '短信验证码发送失败，请稍后重试');
+        }
+      });
+    };
+
 
 
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?';
