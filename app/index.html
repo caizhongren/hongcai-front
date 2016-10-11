@@ -79,10 +79,6 @@
         .dis-none{
             display:none;
         }
-        input, textarea {
-          font-family: Helvetica, Arial; color: #000;
-        }
-        .placeholder {color: #aaa;}
     </style>
 
     <![endif]-->
@@ -351,36 +347,4 @@
     <script src="scripts/templates.min.js"></script>
 </body>
 </html>
-<script>
-$(function(){
-if(!placeholderSupport()){   // 判断浏览器是否支持 placeholder
-    $('[placeholder]').focus(function() {
-        var input = $(this);
-        if (input.val() == input.attr('placeholder')) {
-            input.val('');
-            input.removeClass('placeholder');
-        }
-    }).blur(function() {
-        var input = $(this);
-        if (input.val() == '' || input.val() == input.attr('placeholder')) {
-            input.addClass('placeholder');
-            input.val(input.attr('placeholder'));
-        }
-    }).blur();
-};
-})
-function placeholderSupport() {
-    return 'placeholder' in document.createElement('input');
-}
 
-$(document).ready(function(){
-    var doc=document,inputs=doc.getElementsByTagName('input'),supportPlaceholder='placeholder'in doc.createElement('input'),placeholder=function(input){var text=input.getAttribute('placeholder'),defaultValue=input.defaultValue;
-    if(defaultValue==''){
-        input.value=text}
-        input.onfocus=function(){
-            if(input.value===text){this.value=''}};
-            input.onblur=function(){if(input.value===''){this.value=text}}};
-            if(!supportPlaceholder){
-                for(var i=0,len=inputs.length;i<len;i++){var input=inputs[i],text=input.getAttribute('placeholder');
-                if(input.type==='text'&&text){placeholder(input)}}}});
-</script>

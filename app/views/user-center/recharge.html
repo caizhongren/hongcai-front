@@ -7,7 +7,7 @@
 
     <!--end 安全认证提示 -->
     <div class="main user-right-h" ng-if="userType !== 4 && securityStatus.realNameAuthStatus === 1">
-      <form ng-if="true" class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40" name="rechargeForm">
+      <form ng-if="bankCardStatus === 'VERIFIED'" class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40" name="rechargeForm">
         <div class="row  margin-t-30 ">
           <div class="text-recharge-tip">
             <div class="col-md-2 text-right"><b>可用余额：</b></div>
@@ -22,7 +22,7 @@
         <div class="row">
           <div class="margin-b-15">
             <div class="col-md-2 text-right text-recharge-tip"><b>充值金额：</b></div>
-            <input name="amount" type="text" min="0" class="verify-input fl mgn-top7" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required placeholder="该卡可充值{{bankLimit}}元" />
+            <input name="amount" type="number" min="0" class="verify-input fl mgn-top7" value="该卡可充值{{bankRemain}}元" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required placeholder="该卡可充值{{bankRemain}}元" id="amount"/>
             <span class="span-money fl">元</span>
             <div class="col-md-5 text-recharge-tip">充值后账户余额<span class="ft-red5">&nbsp;{{ balance + rechargeAmount || "0" | number:2}}&nbsp;</span>元</div>
           </div>
@@ -30,7 +30,7 @@
         <div class="row col-md-10 col-md-offset-1 text-left ft-12 ft-red4" ng-show="rechargeForm.amount.$dirty">
           <p class="padding-l-45" ng-show="rechargeForm.amount.$error.pattern">请输入大于0的数字(最多精确到小数点后两位)</p>
           <p class="padding-l-45" ng-show="rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">充值金额不能为空</p>
-          <p class="padding-l-45" ng-show="!rechargeForm.amount.$focused && rechargeAmount > bankLimit">该卡本次最多充值{{bankLimit | number:2}}元</p>
+          <p class="padding-l-45" ng-show="!rechargeForm.amount.$focused && rechargeAmount > bankRemain">该卡本次最多充值{{bankRemain | number:2}}元</p>
         </div>
         <div class="row col-md-10 col-md-offset-1 text-left ft-red5 padding-t-10">
           <p class="padding-l-45">手续费：免费（由平台支付）</p>
@@ -107,8 +107,5 @@
         <!-- <button class="col-md-4 col-md-offset-4 btn-recharge-red margin-t-20" ui-sref="root.userCenter.security-settings">开通第三方存管账户</button> -->
       </div>
     </div>
-
-
-
   </div>
 </div>

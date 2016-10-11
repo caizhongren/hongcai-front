@@ -10,17 +10,21 @@ angular.module('hongcaiApp')
       }
     });
 
-
+    /*
+     *获取用户已绑定银行卡信息
+     */
     UserCenterService.getUserBankCard.get({}, function(response) {
       if (response.ret === 1) {
-        var card = response.data.card;
-        if (card) {
+        var cardStatus = response.data.card.status;
+        var userId = response.data.card.userId;
+        if (cardStatus !== 'VERIFIED') {
           $scope.bankCode = response.data.card.bankCode;
-          UserCenterService.getBankRechargeLimit.get({
-            bankCode: $scope.bankCode,
+          //获取单笔充值限额信息
+          UserCenterService.getUserRechargeRemainLimit.get({
+            userId: userId,
             payCompany: 'FUIOU'
           },function(response){
-            $scope.bankLimit = response.data.bankLimit[0].singleLimit;
+            $scope.bankRemain = response.data.bankRemain;
           });
         }
       }
@@ -51,7 +55,7 @@ angular.module('hongcaiApp')
         $rootScope.toActivate();
         return;
       }
-      if(amount > $scope.bankLimit){
+      if(amount > $scope.bankRemain){
         return;
       }
       $scope.msg = '2';
@@ -91,4 +95,5 @@ angular.module('hongcaiApp')
       }
     }
     $scope.selectPay(1);
+
   });
