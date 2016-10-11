@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('RegisterMobileCtrl', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie, MainService) {
+  .controller('RegisterMobileCtrl', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie, MainService, UserCenterService) {
     $rootScope.pageTitle = '手机注册' + ' - 要理财，上宏财!';
     /**
      * 注册链接上是否有邀请码
@@ -51,11 +51,13 @@ angular.module('hongcaiApp')
         $scope.showPicCaptchaError = false;
       }
 
-      RegisterService.sendMobileCaptcha.save({
+      UserCenterService.sendMobileCaptcha.save({
         picCaptcha: user.picCaptcha,
-        mobile: user.mobile
+        mobile: user.mobile,
+        business: 0
       }, function(response) {
-        if (response.ret === 1) {
+        
+        if (response.ret !== -1) {
           $scope.refreshCode();
           // $scope.user.picCaptcha = undefined;
           toaster.pop('success', '短信验证码发送成功，请查收');

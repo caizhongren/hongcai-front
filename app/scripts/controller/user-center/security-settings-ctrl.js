@@ -21,15 +21,19 @@ angular.module('hongcaiApp')
       }
     });
 
+    /**
+     * 修改手机号发送验证码
+     */
     $scope.sendMobileCaptcha = function(mobile, picCaptcha) {
-      UserCenterService.sendMobileCaptcha.get({
+      UserCenterService.sendMobileCaptcha.save({
         mobile: mobile,
-        picCaptcha: picCaptcha
+        picCaptcha: picCaptcha,
+        business: 2
       }, function(response) {
-        if (response.ret === 1) {
-          //console.log('sendMobileCaptcha success');
+        if (response.ret !== -1) {
+          toaster.pop('success', '短信验证码发送成功，请注意查收！');
         } else {
-          //console.log('ask security-settings, why sendMobileCaptcha did not load data...');
+          toaster.pop('warning', '发送失败，' + response.msg);
         }
       });
     };

@@ -44,9 +44,22 @@ angular.module('hongcaiApp')
         status: '@status'
       }),
       getUserBalance: $resource(DEFAULT_DOMAIN + '/siteAccount/getUserBalance'),
-      sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/mobileCaptcha', {
-        mobile: '@mobile',
-        picCaptcha: '@picCaptcha'
+
+      /**
+       * 发送短信验证码
+       * mobile: 手机号
+       * picCaptcha: 图形验证码
+       * business: 业务
+       */
+      sendMobileCaptcha: $resource(RESTFUL_DOMAIN + '/users/mobileCaptcha', {}, {
+        save: {
+          method: 'POST',
+          params: {
+            mobile: '@mobile',
+            picCaptcha: '@picCaptcha',
+            business: '@business'
+          }
+        }
       }),
       bindMobile: $resource(DEFAULT_DOMAIN + '/siteUser/bindMobile', {
         mobile: '@mobile',
@@ -61,9 +74,14 @@ angular.module('hongcaiApp')
         repeatNewPassword: '@repeatNewPassword'
       }),
       getUserBankCard: $resource(DEFAULT_DOMAIN + '/bank/getUserBankCard', {}),
+
+      /**
+       * 校验短信验证码
+       */
       checkMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/checkMobileCaptcha', {
         mobile: '@mobile',
-        captcha: '@captcha'
+        captcha: '@captcha',
+        business: '@business'
       }),
       sendResetPwdEmail: $resource(DEFAULT_DOMAIN + '/siteUser/sendResetPwdEmail', {
         email: '@email'
