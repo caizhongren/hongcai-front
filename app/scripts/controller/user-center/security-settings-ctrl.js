@@ -41,7 +41,8 @@ angular.module('hongcaiApp')
     $scope.bindMobile = function(mobileNo, captcha) {
       UserCenterService.bindMobile.get({
         mobile: mobileNo,
-        captcha: captcha
+        captcha: captcha,
+        business: 2
       }, function(response) {
         if (response.ret === 1) {
           $scope.mobile = mobileNo.substr(0, 3) + '****' + mobileNo.substr(7, 11);
