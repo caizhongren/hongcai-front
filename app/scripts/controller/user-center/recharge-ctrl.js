@@ -17,7 +17,7 @@ angular.module('hongcaiApp')
       if (response.ret === 1) {
         var cardStatus = response.data.card.status;
         var userId = response.data.card.userId;
-        if (cardStatus !== 'VERIFIED') {
+        if (cardStatus === 'VERIFIED') {
           $scope.bankCode = response.data.card.bankCode;
           //获取单笔充值限额信息
           UserCenterService.getUserRechargeRemainLimit.get({
