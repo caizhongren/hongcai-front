@@ -14,7 +14,7 @@ angular.module('hongcaiApp')
      *获取用户已绑定银行卡信息
      */
     UserCenterService.getUserBankCard.get({}, function(response) {
-      if (response.ret === 1) {
+      if (response.ret === 1 && response.data.card) {
         var cardStatus = response.data.card.status;
         var userId = response.data.card.userId;
         if (cardStatus === 'VERIFIED') {
