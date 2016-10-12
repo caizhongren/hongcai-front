@@ -193,5 +193,15 @@ angular.module('hongcaiApp')
       }, {
         'post':   {method:'POST'}
       }),
+      //获取用户已绑定卡限额信息
+      getBankRechargeLimit: $resource(DEFAULT_DOMAIN + '/bank/getBankRechargeLimit', {
+        bankCode:'@bankCode',
+        payCompany:'@payCompany'
+      }),
+      //获取单笔充值限额信息
+      getUserRechargeRemainLimit: $resource(DEFAULT_DOMAIN + '/bank/getUserRechargeRemainLimit', {
+        userId:'@userId',
+        payCompany:'@payCompany'
+      }),
     };
   });
