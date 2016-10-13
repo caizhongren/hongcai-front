@@ -34,21 +34,19 @@ angular.module('hongcaiApp')
        * 说明是手机号码找回
        */
       if (mobilePattern.test(account)) { 
-        UserCenterService.sendMobileCaptcha.get({
+        UserCenterService.sendMobileCaptcha.save({
           picCaptcha: captcha,
-          mobile: account
+          mobile: account,
+          business: 1
         }, function(response) {
-          if (response.ret === 1) {
+          if (response.ret !== -1) {
+            toaster.pop('success', '短信验证码发送成功！');
             $scope.areaFlag = 21;
             $scope.phoneNum = account;
           } else {
-            $scope.msg = response.msg;
-            $alert({
-              scope: $scope,
-              template: 'views/modal/alert-dialog.html',
-              show: true
-            });
+            toaster.pop('warning', '发送失败，' + response.msg);
           }
+
         });
         /**
          * 说明是邮箱
@@ -96,22 +94,27 @@ angular.module('hongcaiApp')
         email: ''
       }, function(response) {
         if (response.ret === 1) {
-          UserCenterService.sendMobileCaptcha.get({
+          UserCenterService.sendMobileCaptcha.save({
             mobile: mobile,
-            picCaptcha: captcha
+            picCaptcha: captcha,
+            business: 1
           }, function(response) {
-            if (response.ret === 1) {
-              // TODO
-              // console.log('sendMobileCaptcha success!');
+            if (response.ret !== -1) {
+              toaster.pop('success', '短信验证码发送成功，请注意查收！');
             } else {
-              $scope.msg = response.msg;
-              alert($scope.msg);
-              $alert({
-                scope: $scope,
-                template: 'views/modal/alert-dialog.html',
-                show: true
-              });
+              toaster.pop('warning', '发送失败，' + response.msg);
             }
+            // if (response.ret === 1) {
+            //   toaster.pop('success', '验证码发送成功！');
+            // } else {
+            //   $scope.msg = response.msg;
+            //   alert($scope.msg);
+            //   $alert({
+            //     scope: $scope,
+            //     template: 'views/modal/alert-dialog.html',
+            //     show: true
+            //   });
+            // }
           });
         }
       });
@@ -147,13 +150,13 @@ angular.module('hongcaiApp')
       }
       UserCenterService.checkMobileCaptcha.get({
         mobile: mobile,
-        captcha: user.mobileCaptcha
+        captcha: user.mobileCaptcha,
+        business: 1
       }, function(response) {
         if (response.ret === 1) {
           $scope.areaFlag = 3;
         } else {
-          // TODO
-          // console.log('');
+          toaster.pop('error', response.msg);
         }
       });
     };

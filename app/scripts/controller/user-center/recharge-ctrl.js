@@ -10,6 +10,26 @@ angular.module('hongcaiApp')
       }
     });
 
+    /*
+     *获取用户已绑定银行卡信息
+     */
+    UserCenterService.getUserBankCard.get({}, function(response) {
+      if (response.ret === 1 && response.data.card) {
+        var cardStatus = response.data.card.status;
+        var userId = response.data.card.userId;
+        if (cardStatus === 'VERIFIED') {
+          $scope.bankCode = response.data.card.bankCode;
+          //获取单笔充值限额信息
+          UserCenterService.getUserRechargeRemainLimit.get({
+            userId: userId,
+            payCompany: 'FUIOU'
+          },function(response){
+            $scope.bankRemain = response.data.bankRemain;
+          });
+        }
+      }
+    });
+
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
@@ -34,17 +54,20 @@ angular.module('hongcaiApp')
       if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
         $rootScope.toActivate();
         return;
-      }else{
-        $scope.msg = '2';
-        $scope.rechargeAmount = amount;
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alertYEEPAY.html',
-          show: true
-        });
-
-        window.open('/#!/recharge-transfer/' + amount +"/"+ $scope.rechargeWay +"/" + $scope.expectPayCompany);
       }
+      if(amount > $scope.bankRemain){
+        return;
+      }
+      $scope.msg = '2';
+      $scope.rechargeAmount = amount;
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+
+      window.open('/#!/recharge-transfer/' + amount +"/"+ $scope.rechargeWay +"/" + $scope.expectPayCompany);
+
     };
 
     $scope.toBindBank = function(){
@@ -72,4 +95,5 @@ angular.module('hongcaiApp')
       }
     }
     $scope.selectPay(1);
+
   });

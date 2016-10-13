@@ -32,15 +32,6 @@ angular.module('hongcaiApp')
           }
         }
       }),
-      sendMobileCaptcha: $resource(DEFAULT_DOMAIN + '/siteUser/mobileCaptcha', {}, {
-        save: {
-          method: 'POST',
-          params: {
-            mobile: '@mobile',
-            picCaptcha: '@picCaptcha'
-          }
-        }
-      }),
       activeEmail: $resource(DEFAULT_DOMAIN + '/siteUser/activeEmail', {
         etoken: '@etoken'
       }, {})

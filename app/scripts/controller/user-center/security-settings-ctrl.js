@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('SecuritySettingsCtrl', function($scope, $state, $http, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
-
+    $scope.userbusiness = 2;
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
         var userAuth = response.data.userAuth;
@@ -21,23 +21,12 @@ angular.module('hongcaiApp')
       }
     });
 
-    $scope.sendMobileCaptcha = function(mobile, picCaptcha) {
-      UserCenterService.sendMobileCaptcha.get({
-        mobile: mobile,
-        picCaptcha: picCaptcha
-      }, function(response) {
-        if (response.ret === 1) {
-          //console.log('sendMobileCaptcha success');
-        } else {
-          //console.log('ask security-settings, why sendMobileCaptcha did not load data...');
-        }
-      });
-    };
 
     $scope.bindMobile = function(mobileNo, captcha) {
       UserCenterService.bindMobile.get({
         mobile: mobileNo,
-        captcha: captcha
+        captcha: captcha,
+        business: 2
       }, function(response) {
         if (response.ret === 1) {
           $scope.mobile = mobileNo.substr(0, 3) + '****' + mobileNo.substr(7, 11);
@@ -114,12 +103,12 @@ angular.module('hongcaiApp')
      */
     $scope.resetMobilenum = function(user) {
       var regexp = new RegExp('^((13[0-9])|(15[^4,\\D])|(18[0-9])|(17[0678])|(14[0-9]))\\d{8}$');
-      if(!regexp.test(user.mobileNum)) {
+      if(!regexp.test(user.mobile)) {
         return;
       }
 
       UserCenterService.resetMobile.post({
-        mobile: user.mobileNum,
+        mobile: user.mobile,
         captcha: user.inputCaptcha
       }, function(response){
         $scope.showMsg = false;
@@ -129,7 +118,7 @@ angular.module('hongcaiApp')
           return;
         }
         toaster.pop('success', '恭喜您，修改成功！');
-        $scope.user.mobileNum = null;
+        $scope.user.mobile = null;
         $scope.user.picCaptcha = null;
         $scope.user.inputCaptcha = null;
         $scope.resetMobile = false;
