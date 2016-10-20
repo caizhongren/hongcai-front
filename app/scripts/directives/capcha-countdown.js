@@ -7,7 +7,7 @@
 
 'use strict';
 angular.module('hongcaiApp')
-  .directive('capchaCountdown', ['UserCenterService', 'toaster', function(UserCenterService, toaster) { //定义指令时的名称用驼峰命名，使用时用中划线方式
+  .directive('capchaCountdown', function(UserCenterService, toaster, ipCookie) { //定义指令时的名称用驼峰命名，使用时用中划线方式
     return {
       restrict: 'EA',
       scope: false,
@@ -21,7 +21,8 @@ angular.module('hongcaiApp')
           UserCenterService.sendMobileCaptcha.save({
             picCaptcha: scope.user.picCaptcha,
             mobile: scope.user.mobile,
-            business: scope.userbusiness
+            business: scope.userbusiness,
+            guestId: ipCookie('guestId')
           }, function(response) {
             if (response.ret !== -1) {
               scope.refreshCode();
@@ -62,4 +63,4 @@ angular.module('hongcaiApp')
         elem.on('click', capchaCountdown);
       }
     }
-  }])
+  })

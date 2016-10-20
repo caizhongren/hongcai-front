@@ -4,7 +4,8 @@ angular.module('hongcaiApp')
     return {
       userLogin: $resource(DEFAULT_DOMAIN + '/siteUser/login', {
         account: '@account',
-        password: '@pwd'
+        password: '@pwd',
+        guestId: '@guestId'
       })
     };
   });

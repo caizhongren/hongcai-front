@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'UserCenterService', 'md5', '$alert', function($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster, UserCenterService, md5, $alert) {
+  .controller('GetPwdCtrl', function($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster, UserCenterService, md5, $alert, ipCookie) {
     $scope.areaFlag = 1;
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?';
     $scope.refreshCode = function() {
@@ -37,7 +37,8 @@ angular.module('hongcaiApp')
         UserCenterService.sendMobileCaptcha.save({
           picCaptcha: captcha,
           mobile: account,
-          business: 1
+          business: 1,
+          guestId: ipCookie('guestId')
         }, function(response) {
           if (response.ret !== -1) {
             toaster.pop('success', '短信验证码发送成功！');
@@ -97,7 +98,8 @@ angular.module('hongcaiApp')
           UserCenterService.sendMobileCaptcha.save({
             mobile: mobile,
             picCaptcha: captcha,
-            business: 1
+            business: 1,
+            guestId: ipCookie('guestId')
           }, function(response) {
             if (response.ret !== -1) {
               toaster.pop('success', '短信验证码发送成功，请注意查收！');
@@ -235,4 +237,4 @@ angular.module('hongcaiApp')
         }
       });
     };
-  }]);
+  });

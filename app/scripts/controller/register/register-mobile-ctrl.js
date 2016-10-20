@@ -28,7 +28,8 @@ angular.module('hongcaiApp')
         password: md5.createHash(user.password),
         inviteCode: user.inviteCode,
         from: ipCookie('utm_from'),
-        act: ipCookie('act')
+        act: ipCookie('act'),
+        guestId: ipCookie('guestId')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);

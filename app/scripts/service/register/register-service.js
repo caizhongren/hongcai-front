@@ -14,7 +14,8 @@ angular.module('hongcaiApp')
             picCaptcha: '@picCaptcha',
             inviteCode: '@inviteCode',
             from: '@from',
-            act: '@act'
+            act: '@act',
+            guestId : '@guestId'
           }
         }
       }),
@@ -28,7 +29,8 @@ angular.module('hongcaiApp')
             password: '@password',
             captcha: '@captcha',
             from: '@from',
-            act: '@act'
+            act: '@act',
+            guestId : '@guestId'
           }
         }
       }),

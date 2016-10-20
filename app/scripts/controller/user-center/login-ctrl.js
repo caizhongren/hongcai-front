@@ -29,7 +29,8 @@ angular.module('hongcaiApp')
       var password = md5.createHash(user.password);
       LoginService.userLogin.get({
         account: user.account,
-        password: password
+        password: password,
+        guestId: ipCookie('guestId')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);
@@ -82,7 +83,8 @@ angular.module('hongcaiApp')
         account: user.account,
         password: md5Password,
         userType: 4,
-        type: 1
+        type: 1,
+        guestId: ipCookie('guestId')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);

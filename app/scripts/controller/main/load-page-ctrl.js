@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('LoadPageCtrl',function($scope, $location, $state, $rootScope, $stateParams, LoginService, RegisterService, SessionService, ipCookie,DEFAULT_DOMAIN, toaster, md5,  MainService,UserCenterService) {
+  .controller('LoadPageCtrl',function($scope, $location, $state, $rootScope, $stateParams, LoginService, RegisterService, SessionService, ipCookie, DEFAULT_DOMAIN, toaster, md5,  MainService,UserCenterService) {
 
     $scope.user = {
       inviteCode: $stateParams.inviteCode
@@ -71,7 +71,8 @@ angular.module('hongcaiApp')
 
     $scope.sendMobileCaptcha = function() {
       RegisterService.sendMobileCaptcha.save({
-        mobile: angular.element('#mobile').val()
+        mobile: angular.element('#mobile').val(),
+        guestId: ipCookie('guestId')
       }, function(response) {
         if (response.ret === 1) {
 
@@ -117,7 +118,8 @@ angular.module('hongcaiApp')
       var password = md5.createHash(user.password);
       LoginService.userLogin.get({
         account: user.account,
-        password: password
+        password: password,
+        guestId: ipCookie('guestId')
       }, function(response) {
         if (response.ret === 1) {
           SessionService.set('user', response.data.user.name);

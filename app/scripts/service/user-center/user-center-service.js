@@ -57,7 +57,8 @@ angular.module('hongcaiApp')
           params: {
             mobile: '@mobile',
             picCaptcha: '@picCaptcha',
-            business: '@business'
+            business: '@business',
+            guestId: '@guestId'
           }
         }
       }),
