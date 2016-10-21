@@ -125,6 +125,8 @@ angular.module('hongcaiApp')
               });
             }
 
+            console.log(ipCookie('guestId'));
+
             if(toState.name.indexOf("root.userCenter") !== -1){
               $rootScope.tologin();
               toaster.pop('warning', '对不起，您还未登录，请先登录')
