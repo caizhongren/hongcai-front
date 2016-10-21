@@ -199,9 +199,9 @@ angular.module('hongcaiApp')
         }
       });
     };
-  }])
+  })
 
-  .controller('SetNewPwdCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'SessionService', 'toaster', 'UserCenterService', '$timeout', 'md5', function($scope, $state, $rootScope, $stateParams, SessionService, toaster, UserCenterService, $timeout, md5) {
+  .controller('SetNewPwdCtrl', function($scope, $state, $rootScope, $stateParams, SessionService, toaster, UserCenterService, $timeout, md5) {
     $scope.areaFlag = 3;
 
     $scope.uuId = $stateParams.uuid;
