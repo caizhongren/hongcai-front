@@ -177,7 +177,8 @@ angular.module('hongcaiApp')
       UserCenterService.resetMobilePassword.get({
         mobile: mobile,
         captcha: user.mobileCaptcha,
-        password: md5MobPassword
+        password: md5MobPassword,
+        guestId: ipCookie('guestId')
       }, function(response) {
         if (response.ret === 1) {
           $scope.areaFlag = 4;
