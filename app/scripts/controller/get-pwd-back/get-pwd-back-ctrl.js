@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('GetPwdCtrl', ['$scope', '$timeout', '$state', '$rootScope', '$stateParams', 'SessionService', 'DEFAULT_DOMAIN', 'toaster', 'UserCenterService', 'md5', '$alert', function($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster, UserCenterService, md5, $alert) {
+  .controller('GetPwdCtrl', function($scope, $timeout, $state, $rootScope, $stateParams, SessionService, DEFAULT_DOMAIN, toaster, UserCenterService, md5, $alert, ipCookie) {
     $scope.areaFlag = 1;
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?';
     $scope.refreshCode = function() {
@@ -37,7 +37,8 @@ angular.module('hongcaiApp')
         UserCenterService.sendMobileCaptcha.save({
           picCaptcha: captcha,
           mobile: account,
-          business: 1
+          business: 1,
+          guestId: ipCookie('guestId')
         }, function(response) {
           if (response.ret !== -1) {
             toaster.pop('success', '短信验证码发送成功！');
@@ -97,7 +98,8 @@ angular.module('hongcaiApp')
           UserCenterService.sendMobileCaptcha.save({
             mobile: mobile,
             picCaptcha: captcha,
-            business: 1
+            business: 1,
+            guestId: ipCookie('guestId')
           }, function(response) {
             if (response.ret !== -1) {
               toaster.pop('success', '短信验证码发送成功，请注意查收！');
@@ -175,7 +177,8 @@ angular.module('hongcaiApp')
       UserCenterService.resetMobilePassword.get({
         mobile: mobile,
         captcha: user.mobileCaptcha,
-        password: md5MobPassword
+        password: md5MobPassword,
+        guestId: ipCookie('guestId')
       }, function(response) {
         if (response.ret === 1) {
           $scope.areaFlag = 4;
@@ -197,9 +200,9 @@ angular.module('hongcaiApp')
         }
       });
     };
-  }])
+  })
 
-  .controller('SetNewPwdCtrl', ['$scope', '$state', '$rootScope', '$stateParams', 'SessionService', 'toaster', 'UserCenterService', '$timeout', 'md5', function($scope, $state, $rootScope, $stateParams, SessionService, toaster, UserCenterService, $timeout, md5) {
+  .controller('SetNewPwdCtrl', function($scope, $state, $rootScope, $stateParams, SessionService, toaster, UserCenterService, $timeout, md5) {
     $scope.areaFlag = 3;
 
     $scope.uuId = $stateParams.uuid;
@@ -235,4 +238,4 @@ angular.module('hongcaiApp')
         }
       });
     };
-  }]);
+  });

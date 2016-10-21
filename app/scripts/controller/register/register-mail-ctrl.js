@@ -27,7 +27,8 @@ angular.module('hongcaiApp')
         captcha: user.captcha,
         inviteCode: user.inviteCode,
         from: ipCookie('utm_from'),
-        act: ipCookie('act')
+        act: ipCookie('act'),
+        guestId: ipCookie('guestId')
       }, function(response) {
         // console.log(response.ret);
         if (response.ret === 1) {

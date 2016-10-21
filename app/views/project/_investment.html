@@ -109,7 +109,7 @@
               <span class="ft-grey666">投资金额：</span>
               <input type="number" placeholder="请输入{{project.status === 11 ? '预约' : '投资'}}金额" disabled='disabled' class="form-control margin-b-15 btn-76">
             </div>
-            <div class="margin-b-15" ng-show="!newbieBiaoErrorMsg" ng-click="checkeCoupon()">
+            <div class="margin-b-15 ft-grey666" ng-show="!newbieBiaoErrorMsg" ng-click="checkeCoupon()">
               可用奖励：
               <span class="spangray" ng-show="selectedCoupon.type === 2 && selectedCoupon !==null">
                 现金<span class="ft-orange ft-16">{{selectedCoupon.value}}</span>元（需投资金额&ge;{{selectedCoupon.minInvestAmount}}）
@@ -150,7 +150,7 @@
                 </p>
                 <input type="number" name="investAmount" ng-model="project.amount" class="form-control margin-b-15 btn-76" placeholder="请输入投资金额（元）" ng-disabled="account.balance <= 0 || !newbieBiaoInvestFlag" step="{{project.increaseAmount}}"  ng-switch-default>
                 <input type="hidden" name="project.id" ng-model="project.id" value="{{project.id}}">
-                <div class="margin-b-15" ng-show="!newbieBiaoErrorMsg" ng-click="checkeCoupon()">
+                <div class="margin-b-15 ft-grey666" ng-show="!newbieBiaoErrorMsg" ng-click="checkeCoupon()">
                   可用奖励：
                   <span class="spangray" ng-show="selectedCoupon.type === 2 && selectedCoupon !==null">
                     现金<span class="ft-orange ft-16">{{selectedCoupon.value}}</span>元（需投资金额&ge;{{selectedCoupon.minInvestAmount}}）
@@ -170,7 +170,7 @@
                     <li class="text-center" ng-click="unUseCoupon()">暂不使用</li>
                   </ul>
                 </div>
-                <div class="margin-b-20" ng-hide="project.status ===7 && project.currentStock === 0 || newbieBiaoErrorMsg">
+                <div class="margin-b-20 ft-grey666" ng-hide="project.status ===7 && project.currentStock === 0 || newbieBiaoErrorMsg">
                   预期收益：
                   <span class="spangray" ng-model="profit">
                     <span class="ft-16">{{profit || 0 | number:2}}</span>元
