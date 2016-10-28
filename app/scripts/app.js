@@ -1577,18 +1577,18 @@ hongcaiApp
     /**
      * 债权转让列表页 FIX,暂时和列表页公用
      */
-    .state('root.credit-list-query', {
-        url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
-        views: {
-          '': {
-            templateUrl: 'views/project/credit-list.html',
-            controller: 'CreditListCtrl',
-            controllerUrl: 'scripts/controller/project/credit-list-ctrl'
-          }
-        }
-      })
-      .state('root.credit-list-query-no', {
-        url: '/credit-list',
+    // .state('root.assignments', {
+    //     url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+    //     views: {
+    //       '': {
+    //         templateUrl: 'views/project/credit-list.html',
+    //         controller: 'CreditListCtrl',
+    //         controllerUrl: 'scripts/controller/project/credit-list-ctrl'
+    //       }
+    //     }
+    //   })
+      .state('root.assignments', {
+        url: '/assignments?page&pageSize&sortType&remainDays&annualEarnings',
         views: {
           '': {
             templateUrl: 'views/project/credit-list.html',

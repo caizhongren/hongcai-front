@@ -1,7 +1,10 @@
-<div id="credit-list" class="container padding-t-20">
-  <div class="row bg-offWhite">
+<div id="credit-list" class="container">
+  <div class="col-md-12 margin-b-20 ft-14 margin-l--30 margin-t-20">
+    <a ui-sref="root.main">首页</a>  &gt;&nbsp; <a ui-sref="root.guaranteepro-list-query-no">债权转让</a>
+  </div>
+  <div class="row bg-White">
     <!-- 项目条件过滤 宏金保 + 债权转让 -->
-    <div class="panel panel-default">
+    <div class="panel panel-default border-none">
       <div class="list-group">
         <!-- 项目列表查询 -->
         <div class="row list-group-item projects-filter" ng-include src='"views/project/_credit_list_search.html"' style="margin-left: 20px;"></div>
@@ -10,7 +13,7 @@
       </div>
     </div>
     <!-- 项目列表展示详情 宏金保 + 债权转让 -->
-    <div class="row" ng-include src='"views/project/_credit_list_detail.html"'></div>
+    <div ng-include src='"views/project/_credit_list_detail.html"'></div>
     <!-- 分页 -->
     <div project-pagination></div>
   </div>
