@@ -12,6 +12,77 @@
           <div class="text-recharge-tip">
             <div class="col-md-2 text-right"><b>可用余额：</b></div>
             <div class="col-md-2"><span class="ft-red4 ft-24">{{ balance || "0" | number:2}}</span>&nbsp;&nbsp;元</div>
+            <a class="col-md-2 col-md-offset-6 cursor-pt supportBank" ng-click="lookBink = !lookBink" href="javascript:;" focus-blur>支持银行及限额</a>
+            <table class="supportList border-grey1" ng-if="lookBink">
+              <thead>
+                <tr class="ftw-b border-grey1">
+                  <td>支持银行</td>
+                  <td>单笔/单日/单月</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><i class="ICBK"></i>工商银行</td>
+                  <td>5w/5w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="BKCH"></i>中国银行</td>
+                  <td>5w/10w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="PCBC"></i>建设银行</td>
+                  <td>5w/10w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="ABOC"></i>农业银行</td>
+                  <td>5w/10w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="COMM"></i>交通银行</td>
+                  <td>5w/10w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="CMBC"></i>招商银行</td>
+                  <td>5w/20w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="CIBK"></i>中信银行</td>
+                  <td>5w/20w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="SZDB"></i>平安银行</td>
+                  <td>5w/20w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="MSBC"></i>民生银行</td>
+                  <td>5w/20w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="EVER"></i>光大银行</td>
+                  <td>5w/20w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="HXBK"></i>华夏银行</td>
+                  <td>5w/20w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="GDBK"></i>广发银行</td>
+                  <td>5w/20w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="PSBC"></i>邮政银行</td>
+                  <td>5w/20w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="FJIB"></i>兴业银行</td>
+                  <td>5w/5w/20w</td>
+                </tr>
+                <tr>
+                  <td><i class="SPDB"></i>浦发银行</td>
+                  <td>5w/5w/20w</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <!-- <div class="row margin-t-20">
