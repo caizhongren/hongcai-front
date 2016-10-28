@@ -1122,7 +1122,7 @@ input.btn-recharge-grey {
 .navbar-default .navbar-nav > li > a:hover {
   color: #fd6f10;
 }
-.dropdown>a.cate:hover{
+.dropdown:hover{
   border-top: 1px solid #eee;
   border-left: 1px solid #eee !important;
   border-right: 1px solid #eee !important;
@@ -1134,4 +1134,40 @@ input.btn-recharge-grey {
 }
 table.border-collapse{
    border-collapse:collapse;
+}
+
+#header {
+  #major-bar {
+    .dropdown {
+      .sortselect {
+        position: relative;
+        bottom: 5px;
+        left: 6px;
+      } 
+    }
+  }
+}
+
+.assignments {
+  .linear-gradientRed {
+    background-image:linear-gradient(to bottom,#fe624e 0%,#fd6d5a 100%);
+    background-image: -o-linear-gradient(to bottom,#fe624e 0%, #fd6d5a 100%);
+    background-image:-ms-linear-gradient(to bottom,#fe624e 0%,#fd6d5a 100%);
+    background-image:-moz-linear-gradient(to bottom,#fe624e 0%,#fd6d5a 100%);
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#fe624e), to(#fd6d5a));
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#fe624e,endcolorstr=#fd6d5a,gradientType=1);
+    color:#ffe8e5;
+  }
+  .linear-gradientRed button{
+    background-color:#fd8979;
+    color:#ffe8e5;
+  }
+  .zhuan {
+    padding: 3px 3px 2px;
+    border-radius: 50%;
+    background-color: #fe624e;
+    position: relative;
+    bottom: 2px;
+    right: 5px;
+  }
 }
