@@ -120,7 +120,18 @@ angular.module('hongcaiApp')
        */
       investSuccessCoupons: $resource(RESTFUL_DOMAIN + '/orders/0/orderCoupon', {
         orderNumber: '@orderNumber'
-      })
+      }),
+
+      /**
+       * 债权转让列表
+       */
+       assignmentList: $resource(RESTFUL_DOMAIN + '/assignments', {
+          page:'@page', 
+          pageSize: '@pageSize',
+          sortType: '@sortType',
+          remainDays: '@remainDays',
+          annualEarnings: '@annualEarnings'
+       }),
 
     };
   });
