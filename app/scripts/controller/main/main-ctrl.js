@@ -6,7 +6,7 @@ angular.module('hongcaiApp')
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
     $scope.projectStatusMap = projectStatusMap;
     /**
-     * 机构保列表
+     * 宏金保列表
      */
     $scope.jigoubaoList = function() {
 
@@ -137,5 +137,19 @@ angular.module('hongcaiApp')
         from: $rootScope.channelCode
       });
     }
+
+    /**
+     * 债权转让列表
+     */
+    ProjectService.assignmentList.get({
+      page:1, 
+      pageSize: 3
+    },function(response){
+      if (response.assignments.length <=0) {
+        return;
+      }else {
+        $scope.assignmentList = response.assignments;
+      }
+    });
 
   })
