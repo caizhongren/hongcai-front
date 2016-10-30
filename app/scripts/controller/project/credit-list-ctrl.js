@@ -1,17 +1,49 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'CreditService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, CreditService, toaster) {
-    $scope.sortType = $stateParams.sortType || false;
+  .controller('CreditListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'ProjectService', 'CreditService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, CreditService, toaster) {
+    $scope.sortOrder = $stateParams.sortOrder || false;
+    $scope.pageSize = 6;
+    $scope.sortType = $stateParams.sortType;
+    $scope.remainDays = $stateParams.remainDays;
+    $scope.annualEarnings = $stateParams.annualEarnings;
+    $scope.currentPage = 1;
     // console.log($stateParams);
-    if ($scope.sortType === 'true') {
-      $scope.sortType = true;
-    } else {
-      $scope.sortType = false;
-    }
-    $scope.toggleSort = function() {
-      $scope.sortType = !$scope.sortType;
-    };
 
+
+    ProjectService.assignmentList.get({
+      page: 1, 
+      pageSize: $scope.pageSize,
+      sortType: $scope.sortType,
+      remainDays: $scope.remainDays,
+      annualEarnings: $scope.annualEarnings,
+      sortOrder: $scope.sortOrder
+    }, function(response) {
+      if(response){
+        $scope.data = response.assignments;
+        $scope.pageCount = response.pageCount;
+        $scope.currentPage = 1;
+        $scope.numberOfPages = function() {
+          return Math.ceil($scope.data.length / $scope.pageSize);
+        };
+      }else {
+        toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+      }
+    });
+
+    if ($scope.sortOrder === 'true') {
+      $scope.sortOrder = true;
+    } else {
+      $scope.sortOrder = false;
+    }
+    
+    $scope.page = function(page) {
+      if ($scope.currentPage !== page) {
+        $scope.getProjectList(page, $scope.pageSize);
+      }
+    }
+    $scope.toggleSort = function(){
+      $scope.sortOrder = !$scope.sortOrder
+    } 
     function isEmptyObject(obj) {
       var name;
       for (name in obj) {
@@ -21,40 +53,40 @@ angular.module('hongcaiApp')
     }
 
     if (isEmptyObject($stateParams)) {
-      $location.path('/credit-list/0/10000000/0/100/0/100/0/200000000/release_start_time/false');
+      $location.path('/assignments?1&6&1');
     }
 
-    $scope.currentPage = 1;
-    CreditService.getCreditAssignmentList.get({
-      minTransferAmount: $stateParams.minTransferAmount,
-      maxTransferAmount: $stateParams.maxTransferAmount,
-      minCycle: $stateParams.minCycle,
-      maxCycle: $stateParams.maxCycle,
-      minEarning: $stateParams.minEarning,
-      maxEarning: $stateParams.maxEarning,
-      minTotalAmount: $stateParams.minTotalAmount,
-      maxTotalAmount: $stateParams.maxTotalAmount,
-      sortCondition: $stateParams.sortCondition,
-      sortType: $stateParams.sortType
-    }, function(response) {
-      if (response.ret === 1) {
-        $scope.assignmentList = response.data.assignmentList;
-        $scope.pageCount = response.data.pageCount;
-        $scope.dataSize = response.data.count;
-        $scope.currentPage = 0;
-        $scope.pageSize = 8;
-        $scope.data = [];
-        $scope.numberOfPages = function() {
-          return Math.ceil($scope.data.length / $scope.pageSize);
-        };
-        for (var i = 0; i < $scope.assignmentList.length; i++) {
-          $scope.assignmentList[i].progress = ($scope.assignmentList[i].creditAssignment.soldStock + $scope.assignmentList[i].creditAssignment.occupancyStock) / ($scope.assignmentList[i].creditAssignment.soldStock + $scope.assignmentList[i].creditAssignment.occupancyStock + $scope.assignmentList[i].creditAssignment.currentStock);
-          $scope.data.push($scope.assignmentList[i]);
-        }
-      }
-    });
+    // $scope.currentPage = 1;
+    // CreditService.getCreditAssignmentList.get({
+    //   minTransferAmount: $stateParams.minTransferAmount,
+    //   maxTransferAmount: $stateParams.maxTransferAmount,
+    //   minCycle: $stateParams.minCycle,
+    //   maxCycle: $stateParams.maxCycle,
+    //   minEarning: $stateParams.minEarning,
+    //   maxEarning: $stateParams.maxEarning,
+    //   minTotalAmount: $stateParams.minTotalAmount,
+    //   maxTotalAmount: $stateParams.maxTotalAmount,
+    //   sortCondition: $stateParams.sortCondition,
+    //   sortType: $stateParams.sortType
+    // }, function(response) {
+    //   if (response.ret === 1) {
+    //     $scope.assignmentList = response.data.assignmentList;
+    //     $scope.pageCount = response.data.pageCount;
+    //     $scope.dataSize = response.data.count;
+    //     $scope.currentPage = 0;
+    //     $scope.pageSize = 8;
+    //     $scope.data = [];
+    //     $scope.numberOfPages = function() {
+    //       return Math.ceil($scope.data.length / $scope.pageSize);
+    //     };
+    //     for (var i = 0; i < $scope.assignmentList.length; i++) {
+    //       $scope.assignmentList[i].progress = ($scope.assignmentList[i].creditAssignment.soldStock + $scope.assignmentList[i].creditAssignment.occupancyStock) / ($scope.assignmentList[i].creditAssignment.soldStock + $scope.assignmentList[i].creditAssignment.occupancyStock + $scope.assignmentList[i].creditAssignment.currentStock);
+    //       $scope.data.push($scope.assignmentList[i]);
+    //     }
+    //   }
+    // });
 
 
-    $rootScope.selectPage = $location.path().split('/')[1];
+    // $rootScope.selectPage = $location.path().split('/')[1];
 
   }]);
