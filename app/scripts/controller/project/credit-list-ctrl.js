@@ -10,51 +10,57 @@ angular.module('hongcaiApp')
     // console.log($stateParams);
 
 
-    ProjectService.assignmentList.get({
-      page: 1, 
-      pageSize: $scope.pageSize,
-      sortType: $scope.sortType,
-      remainDays: $scope.remainDays,
-      annualEarnings: $scope.annualEarnings,
-      sortOrder: $scope.sortOrder
-    }, function(response) {
-      if(response){
-        $scope.data = response.assignments;
-        $scope.pageCount = response.pageCount;
-        $scope.currentPage = 1;
-        $scope.numberOfPages = function() {
-          return Math.ceil($scope.data.length / $scope.pageSize);
-        };
-      }else {
-        toaster.pop('warning', '服务器正在努力的加载....请稍等。');
-      }
-    });
+    $scope.getAssignmentList = function(page, pageSize) {
+      ProjectService.assignmentList.get({
+        page: page, 
+        pageSize: pageSize,
+        sortType: $scope.sortType,
+        remainDays: $scope.remainDays,
+        annualEarnings: $scope.annualEarnings,
+        sortOrder: $scope.sortOrder
+      }, function(response) {
+        if(response){
+          $scope.data = response.assignments;
+          $scope.pageCount = response.pageCount;
+          $scope.currentPage = 1;
+          $scope.numberOfPages = function() {
+            return Math.ceil($scope.data.length / $scope.pageSize);
+          };
+        }else {
+          toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+        }
+      });
+    }
 
+    $scope.page = function(page) {
+      if ($scope.currentPage !== page) {
+        $scope.getAssignmentList(page, $scope.pageSize);
+      }
+      $scope.getAssignmentList(1, $scope.pageSize);
+    };
+    
+    $scope.getAssignmentList(1, $scope.pageSize);
     if ($scope.sortOrder === 'true') {
       $scope.sortOrder = true;
     } else {
       $scope.sortOrder = false;
     }
     
-    $scope.page = function(page) {
-      if ($scope.currentPage !== page) {
-        $scope.getProjectList(page, $scope.pageSize);
-      }
-    }
+   
     $scope.toggleSort = function(){
       $scope.sortOrder = !$scope.sortOrder
     } 
-    function isEmptyObject(obj) {
-      var name;
-      for (name in obj) {
-        return false;
-      }
-      return true;
-    }
+    // function isEmptyObject(obj) {
+    //   var name;
+    //   for (name in obj) {
+    //     return false;
+    //   }
+    //   return true;
+    // }
 
-    if (isEmptyObject($stateParams)) {
-      $location.path('/assignments?1&6&1');
-    }
+    // if (isEmptyObject($stateParams)) {
+    //   $location.path('/assignments?1&6&1');
+    // }
 
     // $scope.currentPage = 1;
     // CreditService.getCreditAssignmentList.get({

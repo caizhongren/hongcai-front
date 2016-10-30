@@ -1588,7 +1588,7 @@ hongcaiApp
     //     }
     //   })
       .state('root.assignments', {
-        url: '/assignments?page&pageSize&sortType&remainDays&annualEarnings&sortOrder',
+        url: '/assignments/?page&pageSize&sortType&remainDays&annualEarnings&sortOrder',
         views: {
           '': {
             templateUrl: 'views/project/credit-list.html',
