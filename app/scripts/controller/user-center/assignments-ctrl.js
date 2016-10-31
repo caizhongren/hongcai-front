@@ -78,7 +78,7 @@ angular.module('hongcaiApp')
     /**
      * 获取转让中债权列表
      */
-    $scope.getTranferingCreditRightList = function(searchStatus) {
+    $scope.getTranferingCreditRightList = function(page, pageSize, searchStatus) {
       $scope.searchStatus = searchStatus;
       UserCenterService.assignmentsList.get({
         page: 1,
@@ -87,6 +87,10 @@ angular.module('hongcaiApp')
       },function(response){
         if (response.data.length > 0) {
           $scope.assignmentsList = response.data; 
+          $scope.index = response.index;
+          $scope.totalPage = response.totalPage;
+          $scope.pageSize2 = response.pageSize;
+          $scope.total = response.total;
         }
       });
     }
