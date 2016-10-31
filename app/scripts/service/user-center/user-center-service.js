@@ -219,6 +219,9 @@ angular.module('hongcaiApp')
       cancelAssignment: $resource(RESTFUL_DOMAIN + '/users/0/assignments', {
         assignmentNumber: '@assignmentNumber', 
         status: '@status'
+      }),
+      getAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/0/assignments', {
+        number: '@number'
       })
     };
   });

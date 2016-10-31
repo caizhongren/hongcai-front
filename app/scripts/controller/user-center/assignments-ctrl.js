@@ -87,6 +87,7 @@ angular.module('hongcaiApp')
       },function(response){
         if (response.data.length > 0) {
           $scope.assignmentsList = response.data; 
+          
         }
       });
     }
@@ -114,5 +115,20 @@ angular.module('hongcaiApp')
     $scope.pageSize = 6;
 
     $scope.loadAssignments($scope.currentPage, $scope.pageSize, $scope.searchStatus);
+
+    $scope.showTransferDetail = function() {
+      $alert({
+        scope: $scope,
+        template: 'views/modal/modal-transferDetail.html',
+        show: true
+      });
+    };
+    UserCenterService.getAssignmentsDetail.get({
+      number: $scope.number
+    }, function(response){
+      if(response) {
+        console.log(response);
+      }
+    });
 
   });

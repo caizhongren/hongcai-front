@@ -53,21 +53,8 @@ angular.module('hongcaiApp')
       }
 
     };
-    $scope.showTransferDetail = function() {
-      $alert({
-        scope: $scope,
-        template: 'views/modal/modal-transferDetail.html',
-        show: true
-      });
-    };
-
-    UserCenterService.getSoldCreditAssignmentsDetail.get({
-      
-    }, function(response){
-      if(response) {
-        console.log(response);
-      }
-    });
+    
+    
     
 
   });
