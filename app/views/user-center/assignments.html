@@ -97,8 +97,8 @@
                 <td>{{item.createTime | date:'yyyy-MM-dd'}}</td>
                 <td>{{item.amount || 0 | number: 2}}</td>
                 <td>{{item.annualEarnings || 0 | number: 2}}</td>
-                <td>1500</td>
-                <td>1500.25</td>
+                <td>{{item.soldStock || 0 | number: 2}}</td>
+                <td>{{item.transferedIncome || 0 | number: 2}}</td>
                 <td>
                   <a type="button" class="ft-blue margin-r-5 cursor-pointer" ng-click="cancelCreditAssignment()">撤销</a>
                   <a type="button" class="ft-blue cursor-pointer">详情</a>
@@ -124,8 +124,8 @@
                 <td class="ft-blue cursor-pointer"><span class="assignmentsZhuan">转</span>{{item.name}}</td>
                 <td>{{item.amount || 0 | number: 2}}</td>
                 <td>{{item.annualEarnings || 0 | number: 2}}</td>
-                <td>1000</td>
-                <td>1000.55</td>
+                <td>{{item.soldStock || 0 | number: 2}}</td>
+                <td>{{item.transferedIncome || 0 | number: 2}}</td>
                 <td class="ft-blue cursor-pointer">详情</td>
               </tr>
             </tbody>
