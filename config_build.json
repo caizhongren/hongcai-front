@@ -6,7 +6,7 @@
     "sponsorsIsShowedFlAG": false,
     "reservationIsShowedFlAG": true,
     "newbieIsShowedFLAG": true,
-    "creditIsShowedFLAG": false
+    "creditIsShowedFLAG": true
   },
   "jumpHttpsPath": ["/register-mobile", "/login", "/register-mail"],
   "ignorePATH": ["/credit-list", "/credit-details", "/credit-verify", "/credit-assignment", "/credit-success", "/credit-create"],

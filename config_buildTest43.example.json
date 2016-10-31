@@ -6,7 +6,7 @@
     "sponsorsIsShowedFlAG": false,
     "reservationIsShowedFlAG": true,
     "newbieIsShowedFLAG": true,
-    "creditIsShowedFLAG": false
+    "creditIsShowedFLAG": true
   },
   "jumpHttpsPath": [],
   "domain":"http://192.168.1.43:8100",
