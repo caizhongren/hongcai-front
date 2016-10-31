@@ -5,7 +5,7 @@
       <div class="text-nowrap">
         <div class="col-xs-1" style="margin-top:7px;">
           <a ui-sref="root.assignments({sortOrder:sortOrder, sortType: 1})" ng-click="toggleSort()">
-            发布时间
+            发布时间{{sortType}}{{sortOrder}}
             <i style="color: #e94828;" class="fa" ng-class="{'fa-angle-up': (sortType === 1 && sortOrder === true) , 'fa-angle-down': (sortType === 1 && sortOrder === false) }"></i>
           </a>
         </div>

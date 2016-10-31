@@ -27,6 +27,7 @@ angular.module('hongcaiApp')
             return Math.ceil($scope.data.length / $scope.pageSize);
           };
         }else {
+          $scope.data = [];
           toaster.pop('warning', '服务器正在努力的加载....请稍等。');
         }
       });
