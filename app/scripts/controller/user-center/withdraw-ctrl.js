@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('WithdrawCtrl', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, $alert) {
+  .controller('WithdrawCtrl', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, $alert, $modal) {
 
     var currentDate = new Date();
     currentDate.setDate(currentDate.getDate() + 1);
@@ -27,7 +27,6 @@ angular.module('hongcaiApp')
     $scope.checkMinAmount = function(amount){
       return amount < 1;
     }
-
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
@@ -54,5 +53,21 @@ angular.module('hongcaiApp')
       }
 
     };
+    $scope.showTransferDetail = function() {
+      $alert({
+        scope: $scope,
+        template: 'views/modal/modal-transferDetail.html',
+        show: true
+      });
+    };
+
+    UserCenterService.getSoldCreditAssignmentsDetail.get({
+      
+    }, function(response){
+      if(response) {
+        console.log(response);
+      }
+    });
+    
 
   });

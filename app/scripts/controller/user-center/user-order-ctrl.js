@@ -78,9 +78,6 @@ angular.module('hongcaiApp')
     };
 
 
-
-
-
     $scope.loadOrders = function(page){
       $scope.currentPage = page;
       var getOrderByUser = UserCenterService.getOrderByUser.get({

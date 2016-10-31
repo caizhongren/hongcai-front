@@ -622,7 +622,7 @@
     width: 88%;
   }
 }
-.right-area{
+.right-area, .trans-detail{
   padding: 0;
   border:none !important;
   overflow-y:hidden;
@@ -731,7 +731,7 @@
       color:#ffc194;
     }
   }
-  .currency-style{
+  .currency-style, .modal-bg0{
     //margin-top:20px;
     overflow: hidden;
     border:1px solid #dddddd;
@@ -1547,5 +1547,50 @@
   }
 }
 
+
 //债权转让
+//债券管理页转让详情弹窗
+#trans-detail .modal-dialog1 .modal-bg0 {
+  overflow: hidden;
+  border: 1px solid #dddddd;
+  position: relative;
+  background-color: #fff;
+  width: 685px;
+  height: 484px;
+  margin: 0 auto;
+  background-clip: padding-box;
+  .main {
+    .top {
+      p:nth-child(odd) {
+        width: 44%;
+        padding-left: 12%;
+      }
+      p:nth-child(even) {
+        width: 40%;
+      }
+    }
+    .table-list {
+      ul {
+        height: 222px;
+        overflow-y: scroll;
+        li {
+          p {
+            width: 23%;
+            margin-left: 0;
+            text-align: center;
+          }
+          p:nth-child(4) {
+            width: 26%;
+          }
+        }
+        li:first-child {
+          background-color: #f7f5f5;
+        }
+      }
+    }
+  }
+}
+#trans-detail .modal-bg0 .title .tip {
+  width: 20%;
+}
 
