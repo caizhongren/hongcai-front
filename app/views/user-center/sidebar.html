@@ -9,6 +9,7 @@
     <span ng-switch-when="withdraw">提现</span>
     <span ng-switch-when="record">资金流水</span>
     <span ng-switch-when="credit">我的投资</span>
+    <span ng-switch-when="assignments">债权管理</span>
     <span ng-switch-when="investment">我的订单</span>
     <span ng-switch-when="reservation">预约记录</span>
     <span ng-switch-when="cash-coupon">奖金</span>
@@ -71,6 +72,10 @@
       <a ui-sref="root.userCenter.credit" class="tips-left-area {{selectSide == 'credit' ? 'bg-white' : ''}}">
         <span class="sidebar-pic sidebar-pic31 margin-l-35"></span>
         <p class="{{selectSide == 'credit' ? 'now' : ''}} position margin-l--10 display-inbl">我的投资</p>
+      </a>
+      <a ui-sref="root.userCenter.assignments" class="tips-left-area {{selectSide == 'assignments' ? 'bg-white' : ''}}">
+        <span class="sidebar-pic sidebar-pic31 margin-l-35"></span>
+        <p class="{{selectSide == 'assignments' ? 'now' : ''}} position margin-l--10 display-inbl">债权管理</p>
       </a>
       <a ui-sref="root.userCenter.investment({type:99})" class="tips-left-area {{selectSide == 'investment' ? 'bg-white' : ''}}">
         <span class="sidebar-pic sidebar-pic32 margin-l-35"></span>

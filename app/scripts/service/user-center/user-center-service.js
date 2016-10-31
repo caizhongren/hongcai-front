@@ -204,5 +204,21 @@ angular.module('hongcaiApp')
         userId:'@userId',
         payCompany:'@payCompany'
       }),
+      //个人中心-债权管理
+      //可转让债权列表
+      assignmentsTransferablesList: $resource(RESTFUL_DOMAIN + '/users/transferables', {
+        page: '@page', 
+        pageSize: '@pageSize'
+      }),
+      //已转让债权列表
+      assignmentsList: $resource(RESTFUL_DOMAIN + '/users/0/assignments', {
+        page: '@page', 
+        pageSize: '@pageSize',
+        status: '@status'
+      }),
+      cancelAssignment: $resource(RESTFUL_DOMAIN + '/users/0/assignments', {
+        assignmentNumber: '@assignmentNumber', 
+        status: '@status'
+      })
     };
   });

@@ -20,7 +20,7 @@ angular.module('hongcaiApp')
     if(['record', 'assets-overview', 'recharge', 'withdraw'].indexOf($rootScope.selectPage) !== -1){
       // $('#accountInfo').collapse('toggle')
       $('#capitalInfo').addClass('in');
-    } else if (['credit', 'investment', 'reservation'].indexOf($rootScope.selectPage) !== -1){
+    } else if (['credit', 'investment', 'reservation', 'assignments'].indexOf($rootScope.selectPage) !== -1){
       $('#investInfo').addClass('in');
     } else if (['experienceMoney', 'rate-coupon', 'invite-rebate','cash-coupon'].indexOf($rootScope.selectPage) !== -1){
       $('#rewardInfo').addClass('in');

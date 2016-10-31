@@ -582,31 +582,46 @@ hongcaiApp
      * @type {String}
      */
     .state('root.userCenter.record', {
-        url: '/record',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/record.html',
-            controller: 'UserDealCtrl',
-            controllerUrl: 'scripts/controller/user-center/user-deal-ctrl'
-          }
-        },
-        data: {
-          title: '资金流水'
+      url: '/record',
+      views: {
+        'user-center-right': {
+          templateUrl: 'views/user-center/record.html',
+          controller: 'UserDealCtrl',
+          controllerUrl: 'scripts/controller/user-center/user-deal-ctrl'
         }
-      })
-      .state('root.userCenter.investment', {
-        url: '/investment',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/investment.html',
-            controller: 'UserOrderCtrl',
-            controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
-          }
-        },
-        data: {
-          title: '我的订单'
+      },
+      data: {
+        title: '资金流水'
+      }
+    })
+    .state('root.userCenter.investment', {
+      url: '/investment',
+      views: {
+        'user-center-right': {
+          templateUrl: 'views/user-center/investment.html',
+          controller: 'UserOrderCtrl',
+          controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
         }
-      })
+      },
+      data: {
+        title: '我的订单'
+      }
+    })
+
+    //债权管理
+    .state('root.userCenter.assignments', {
+      url: '/assignments?tab',
+      views: {
+        'user-center-right': {
+          templateUrl: 'views/user-center/assignments.html',
+          controller: 'assignmentsCtrl',
+          controllerUrl: 'scripts/controller/user-center/assignments-ctrl'
+        }
+      },
+      data: {
+        title: '债权管理'
+      }
+    })
 
     .state('root.userCenter.gift-rebate', {
         url: '/gift-rebate/:type',

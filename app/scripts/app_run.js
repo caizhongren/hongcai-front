@@ -217,7 +217,8 @@ angular.module('hongcaiApp')
       var showFlag3 = [
         'credit',
         'investment',
-        'reservation'
+        'reservation',
+        'assignments'
       ];
       var showFlag4 = [
         'cash-coupon',
