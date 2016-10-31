@@ -7,11 +7,11 @@ angular.module('hongcaiApp')
     $scope.remainDays = $stateParams.remainDays;
     $scope.annualEarnings = $stateParams.annualEarnings;
     $scope.currentStocks = $stateParams.currentStocks;
-    $scope.currentPage = 1;
     // console.log($stateParams);
 
 
     $scope.getAssignmentList = function(page, pageSize) {
+      $scope.currentPage = page;
       ProjectService.assignmentList.get({
         page: page, 
         pageSize: pageSize,
@@ -24,18 +24,9 @@ angular.module('hongcaiApp')
         if(response){
           $scope.data = response.assignments;
           $scope.pageCount = response.pageCount;
-          $scope.currentPage = 1;
-          $scope.nodes = [];
-          //页面上要遍历的债权列表去掉status=3并且soldStock=0的债券
-          for(var i=0; i< $scope.data.length; i++) {
-            if($scope.data[i].status === 3 && $scope.data[i].soldStock === 0) {
-              $scope.nodes.push($scope.data[i]);
-              $scope.data.length = $scope.data.length - $scope.nodes.length;
-            }
-          }
-
+          // $scope.currentPage = 1;
           $scope.numberOfPages = function() {
-            return Math.ceil($scope.data.length / $scope.pageSize);
+            return Math.ceil(response.pageSize/$scope.pageSize);
           };
         }else {
           $scope.data = [];
@@ -43,6 +34,7 @@ angular.module('hongcaiApp')
         }
       });
     }
+    $scope.getAssignmentList(1, $scope.pageSize);
 
     $scope.page = function(page) {
       if ($scope.currentPage !== page) {
@@ -51,7 +43,7 @@ angular.module('hongcaiApp')
       $scope.getAssignmentList(1, $scope.pageSize);
     };
     
-    $scope.getAssignmentList(1, $scope.pageSize);
+    
     if ($scope.sortOrder === 'true') {
       $scope.sortOrder = true;
     } else {

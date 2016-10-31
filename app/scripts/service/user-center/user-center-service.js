@@ -204,5 +204,9 @@ angular.module('hongcaiApp')
         userId:'@userId',
         payCompany:'@payCompany'
       }),
+      //个人中心债券管理的转让详情
+      getSoldCreditAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/1/assignments', {
+        
+      })
     };
   });

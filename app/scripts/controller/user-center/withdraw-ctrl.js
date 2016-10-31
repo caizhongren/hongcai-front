@@ -27,7 +27,6 @@ angular.module('hongcaiApp')
     $scope.checkMinAmount = function(amount){
       return amount < 1;
     }
-
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
@@ -61,5 +60,14 @@ angular.module('hongcaiApp')
         show: true
       });
     };
+
+    UserCenterService.getSoldCreditAssignmentsDetail.get({
+      
+    }, function(response){
+      if(response) {
+        console.log(response);
+      }
+    });
+    
 
   });
