@@ -130,7 +130,8 @@ angular.module('hongcaiApp')
           pageSize: '@pageSize',
           sortType: '@sortType',
           remainDays: '@remainDays',
-          annualEarnings: '@annualEarnings'
+          annualEarnings: '@annualEarnings',
+          currentStocks:'@currentStocks'
        }),
 
     };

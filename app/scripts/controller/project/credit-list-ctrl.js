@@ -6,6 +6,7 @@ angular.module('hongcaiApp')
     $scope.sortType = $stateParams.sortType;
     $scope.remainDays = $stateParams.remainDays;
     $scope.annualEarnings = $stateParams.annualEarnings;
+    $scope.currentStocks = $stateParams.currentStocks;
     $scope.currentPage = 1;
     // console.log($stateParams);
 
@@ -17,12 +18,22 @@ angular.module('hongcaiApp')
         sortType: $scope.sortType,
         remainDays: $scope.remainDays,
         annualEarnings: $scope.annualEarnings,
-        sortOrder: $scope.sortOrder
+        sortOrder: $scope.sortOrder,
+        currentStocks: $scope.currentStocks
       }, function(response) {
         if(response){
           $scope.data = response.assignments;
           $scope.pageCount = response.pageCount;
           $scope.currentPage = 1;
+          $scope.nodes = [];
+          //页面上要遍历的债权列表去掉status=3并且soldStock=0的债券
+          for(var i=0; i< $scope.data.length; i++) {
+            if($scope.data[i].status === 3 && $scope.data[i].soldStock === 0) {
+              $scope.nodes.push($scope.data[i]);
+              $scope.data.length = $scope.data.length - $scope.nodes.length;
+            }
+          }
+
           $scope.numberOfPages = function() {
             return Math.ceil($scope.data.length / $scope.pageSize);
           };

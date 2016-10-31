@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('WithdrawCtrl', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, $alert) {
+  .controller('WithdrawCtrl', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, $alert, $modal) {
 
     var currentDate = new Date();
     currentDate.setDate(currentDate.getDate() + 1);
@@ -53,6 +53,13 @@ angular.module('hongcaiApp')
         window.open('/#!/withdraw-transfer/' + amount + '/' + captcha);
       }
 
+    };
+    $scope.showTransferDetail = function() {
+      $alert({
+        scope: $scope,
+        template: 'views/modal/modal-transferDetail.html',
+        show: true
+      });
     };
 
   });

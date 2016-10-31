@@ -81,22 +81,22 @@
     <div class="row">
       <div class="col-xs-1 pull-left text-nowrap col-100 margin-r-20">可投金额：</div>
       <div class="col-xs-1 text-nowrap col-100 padding-0 margin-r-20">
-        <a ui-sref="root.assignments({sortType: 3})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==0 && maxTotalAmount==200000000, 'project-noncheck': !(minTotalAmount==0 && maxTotalAmount==200000000)}">
+        <a ui-sref="root.assignments({currentStocks: '0_1000000'})" class="project-noncheck" ng-class="{'project-check': currentStocks === '0_1000000', 'project-noncheck': !(currentStocks === '0_1000000')}">
                         全部
                       </a>
       </div>
       <div class="col-xs-2 pull-left text-nowrap col-100 padding-0 margin-l-10">
-        <a ui-sref="root.assignments({})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==0 && maxTotalAmount==2000000, 'project-noncheck': !(minTotalAmount==0 && maxTotalAmount==2000000)}">
+        <a ui-sref="root.assignments({currentStocks: '0_10000'})" class="project-noncheck" ng-class="{'project-check': currentStocks === '0_10000', 'project-noncheck': !(currentStocks === '10000_100000')}">
                         1万元以下
                       </a>
       </div>
       <div class="col-xs-2 pull-left text-nowrap col-100 padding-0 margin-l-40">
-        <a ui-sref="root.assignments({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 2000000, maxTotalAmount: 5000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==2000000 && maxTotalAmount==5000000, 'project-noncheck': !(minTotalAmount==2000000 && maxTotalAmount==5000000)}">
+        <a ui-sref="root.assignments({currentStocks: '10000_100000'})" class="project-noncheck" ng-class="{'project-check': currentStocks === '10000_100000', 'project-noncheck': !(currentStocks === '10000_100000')}">
                         1-10万元
                       </a>
       </div>
       <div class="col-xs-2 pull-left text-nowrap col-100 padding-0 margin-l-40">
-        <a ui-sref="root.assignments({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: 5000000, maxTotalAmount: 10000000, sortCondition:sortCondition, sortType: sortType})" class="project-noncheck" ng-class="{'project-check': minTotalAmount==5000000 && maxTotalAmount==10000000, 'project-noncheck': !(minTotalAmount==5000000 && maxTotalAmount==10000000)}">
+        <a ui-sref="root.assignments({currentStocks: '100000_1000000'})" class="project-noncheck" ng-class="{'project-check': currentStocks === '100000_1000000', 'project-noncheck': !(currentStocks === '100000_1000000')}">
                         10万元以上
                       </a>
       </div><!-- 
