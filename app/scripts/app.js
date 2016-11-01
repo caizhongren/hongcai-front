@@ -1603,7 +1603,7 @@ hongcaiApp
     //     }
     //   })
       .state('root.assignments', {
-        url: '/assignments/?page&pageSize&sortType&remainDays&annualEarnings&sortOrder&currentStocks',
+        url: '/assignments?page&pageSize&sortType&remainDays&annualEarnings&sortOrder&currentStocks',
         views: {
           '': {
             templateUrl: 'views/project/credit-list.html',
