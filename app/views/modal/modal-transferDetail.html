@@ -20,7 +20,7 @@
                   <p class="ft-13 display-inb">受让人</p><p class="ft-13 display-inb">转让本金（元）</p><p class="ft-13 display-inb">转让价格（元）</p><p class="ft-13 display-inb">转让时间</p>
                 </li>
                 <li ng-repeat="item in datas">
-                  <p class="ft-13 display-inb">用户</p><p class="ft-13 display-inb">{{item.amount || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.transferedIncome || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.creatTime || newDate() | date : 'yyyy-MM-dd hh:mm:ss'}}</p>
+                  <p class="ft-13 display-inb">用户</p><p class="ft-13 display-inb">{{item.amount || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.transferedIncome || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.createTime || newDate() | date : 'yyyy-MM-dd hh:mm:ss'}}</p>
                 </li>
               </ul>
               <div ng-if="datas.length <= 0">

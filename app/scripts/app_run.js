@@ -187,7 +187,7 @@ angular.module('hongcaiApp')
       if($location.path().split('/')[1].slice(0,$location.path().split('/')[1].indexOf('?')) == 'assignments'){
         $rootScope.firstPath = 'assignments';
       }
-      console.log($rootScope.firstPath);
+
       $rootScope.selectSide = $location.path().split('/')[2];
 
       $rootScope.act = $location.search().act;

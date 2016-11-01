@@ -5,15 +5,14 @@
   </div>
   
   <div class="content">
-    <p>已转让债权份额9000元，未转让债权份额11000元，是否确认撤销？</p>
-    <p>当前有用户正在认购，暂时不可撤销~</p>
-    <p>债权已转让，不可撤销~</p>
+    <p ng-if="data">已转让债权份额{{data.soldStock || 0}}元，未转让债权份额{{data.currentStock || 0}}元，是否确认撤销？</p>
+    <p ng-if="msg">{{msg}}</p>
   </div>
 
-  <div class="bottom col-xs-10 col-xs-offset-1">
-    <a class="btn btn-primary-orange btn-block pull-left margin-r-30 margin-l-40" href="javascript:;" ng-click="$hide()">继续转让</a>
-    <a class="btn btn-primary-orange btn-block pull-left" href="javascript:;" ng-click="$hide()">确认撤销</a>
-    <a class="btn btn-primary-orange btn-block pull-left margin-l" href="javascript:;" ng-click="$hide()">我知道了</a>
+  <div class="bottom col-xs-10 col-xs-offset-1 margin-b-30">
+    <a ng-if="data" class="btn btn-primary-orange btn-block pull-left margin-r-125" href="javascript:;" ng-click="$hide()">继续转让</a>
+    <a ng-if="data" class="btn btn-primary-orange btn-block pull-left" href="javascript:;" ng-click="$hide();deleteCreditAssignment(data.number)">确认撤销</a>
+    <a ng-if="msg" class="btn btn-primary-orange btn-block pull-left margin-l" href="javascript:;" ng-click="$hide()">我知道了</a>
   </div>
   
 </div>
