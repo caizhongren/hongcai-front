@@ -49,8 +49,8 @@ angular.module('hongcaiApp')
     } else {
       $scope.sortOrder = false;
     }
-    
-   
+
+    $scope.sortType = parseInt($scope.sortType || 0);
     $scope.toggleSort = function(){
       $scope.sortOrder = !$scope.sortOrder
     } 

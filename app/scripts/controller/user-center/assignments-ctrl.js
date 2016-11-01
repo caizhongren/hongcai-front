@@ -119,19 +119,21 @@ angular.module('hongcaiApp')
 
     $scope.loadAssignments($scope.currentPage, $scope.pageSize, $scope.searchStatus);
 
-    $scope.showTransferDetail = function() {
-      $alert({
-        scope: $scope,
-        template: 'views/modal/modal-transferDetail.html',
-        show: true
+    
+    $scope.getAssignmentDetail = function(number){
+      UserCenterService.getAssignmentsDetail.get({
+        number: number
+      }, function(response){
+        if(response) {
+          $scope.showTransferDetail = function() {
+            $alert({
+              scope: $scope,
+              template: 'views/modal/modal-transferDetail.html',
+              show: true
+            });
+          };
+        }
       });
-    };
-    UserCenterService.getAssignmentsDetail.get({
-      number: $scope.number
-    }, function(response){
-      if(response) {
-        console.log(response);
-      }
-    });
+    }
 
   });
