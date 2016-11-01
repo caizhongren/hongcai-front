@@ -38,15 +38,15 @@ angular.module('hongcaiApp')
     /**
      * 我的债权统计数据
      */
-    UserCenterService.getCreditRightStatistics.get({}, function(response) {
-      if (response.ret === 1) {
-        $scope.creditRightStatis = response.data.creditRightStatis;
-        $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
-      } else {
-        $scope.showCreditRightStatistics = false;
-        // toaster.pop('warning', response.msg);
-      }
-    });
+    // UserCenterService.getCreditRightStatistics.get({}, function(response) {
+    //   if (response.ret === 1) {
+    //     $scope.creditRightStatis = response.data.creditRightStatis;
+    //     $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
+    //   } else {
+    //     $scope.showCreditRightStatistics = false;
+    //     // toaster.pop('warning', response.msg);
+    //   }
+    // });
 
     /**
      * 加载债权
@@ -71,26 +71,34 @@ angular.module('hongcaiApp')
         } else {
         }
       });
-
     }
     
-
+    $scope.searchStatus = $stateParams.tab || 1;
+    $scope.currentPage = 1;
+    $scope.pageSize = 6;
+    
+    $scope.loadAssignments($scope.currentPage, $scope.pageSize, $scope.searchStatus);
     /**
      * 获取转让中债权列表
      */
-    $scope.getTranferingCreditRightList = function(page, pageSize, searchStatus) {
-      $scope.searchStatus = searchStatus;
+
+
+    $scope.getTranferingAssignmentsList = function(page, pageSize, Status) {
+      $scope.searchStatus = Status =='1,2,5' ? 2 : 3;
       UserCenterService.assignmentsList.get({
-        page: 1,
-        pageSize: 3,
-        status: searchStatus
+        page: page,
+        pageSize: pageSize,
+        status: Status
       },function(response){
-        if (response.data.length > 0) {
-          $scope.assignmentsList = response.data; 
-          $scope.index = response.index;
+        $scope.assignmentsList = [];
+        if (response.data.length>0) {
+          
+          $scope.page2 = response.index;
           $scope.totalPage = response.totalPage;
           $scope.pageSize2 = response.pageSize;
           $scope.total = response.total;
+
+          $scope.assignmentsList = response.data; 
         }
       });
     }
@@ -103,24 +111,29 @@ angular.module('hongcaiApp')
       UserCenterService.cancelAssignment.update({
         assignmentNumber: creditAssignment.number,
         status: 2
-
       },function(response){
-
+        if (response && !response.msg) {
+          $scope.data = response;
+        }else {
+          $scope.msg = response.msg;
+        }
       });
       $alert({
         scope: $scope,
         template: 'views/modal/cancelCreditAssignment.html',
         show: true
+      });  
+    };
+
+    $scope.deleteCreditAssignment = function(assignmentNumber){
+      UserCenterService.deleteAssignment.update({
+        number: assignmentNumber
+      },function(response){
+        if (response.status ===3) {
+          $scope.getTranferingAssignmentsList(1,6,'1,2,5');
+        }
       });
-    }
-    $scope.cancelAssignmentTrue = 1;
-
-    $stateParams.tab = 1;
-    $scope.searchStatus = parseInt($stateParams.tab) || 1;
-    $scope.currentPage = 1;
-    $scope.pageSize = 6;
-
-    $scope.loadAssignments($scope.currentPage, $scope.pageSize, $scope.searchStatus);
+    };
 
     
     $scope.getAssignmentDetail = function(number){

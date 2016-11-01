@@ -221,7 +221,7 @@ angular.module('hongcaiApp')
         update: {
           method: 'PUT',
           params: {
-            assignmentNumber: '@assignmentNumber', 
+            number: '@assignmentNumber', 
             status: '@status'
           }
         } 
@@ -231,7 +231,7 @@ angular.module('hongcaiApp')
         update: {
           method: 'DELETE',
           params: {
-            assignmentNumber: '@assignmentNumber'
+            number: '@assignmentNumber'
           }
         } 
       }),
