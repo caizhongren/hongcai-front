@@ -100,17 +100,20 @@ angular.module('hongcaiApp')
      * 撤销债权转让
      */
     $scope.cancelCreditAssignment = function(creditAssignment) {
-      // UserCenterService.cancelAssignment.get({
-      //   assignmentNumber:creditAssignment.number
-      // },function(response){
+      UserCenterService.cancelAssignment.update({
+        assignmentNumber: creditAssignment.number,
+        status: 2
 
-      // });
+      },function(response){
+
+      });
       $alert({
         scope: $scope,
         template: 'views/modal/cancelCreditAssignment.html',
         show: true
       });
     }
+    $scope.cancelAssignmentTrue = 1;
 
     $stateParams.tab = 1;
     $scope.searchStatus = parseInt($stateParams.tab) || 1;

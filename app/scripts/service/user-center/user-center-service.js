@@ -216,9 +216,24 @@ angular.module('hongcaiApp')
         pageSize: '@pageSize',
         status: '@status'
       }),
-      cancelAssignment: $resource(RESTFUL_DOMAIN + '/users/0/assignments', {
-        assignmentNumber: '@assignmentNumber', 
-        status: '@status'
+      //撤销中
+      cancelAssignment: $resource(RESTFUL_DOMAIN + '/users/0/assignments/:number', {}, {
+        update: {
+          method: 'PUT',
+          params: {
+            assignmentNumber: '@assignmentNumber', 
+            status: '@status'
+          }
+        } 
+      }),
+      //确认撤销
+      deleteAssignment: $resource(RESTFUL_DOMAIN + '/users/0/assignments/:number', {}, {
+        update: {
+          method: 'DELETE',
+          params: {
+            assignmentNumber: '@assignmentNumber'
+          }
+        } 
       })
     };
   });

@@ -35,7 +35,7 @@
           <div class="fl col-md-12 ft-14 margin-l-24">
             <div class="col-xs-1 padding-b-5 cursor-pointer {{searchStatus === 1 ? 'credit-toggle' : ''}}" ng-click="loadAssignments(currentPage, pageSize, 1)">可转让</div>
             <div class="col-xs-1 padding-b-5 cursor-pointer {{searchStatus === 2 ? 'credit-toggle' : ''}}" ng-click="getTranferingCreditRightList(1,3,2)">转让中</div>
-            <div class="col-xs-1 padding-b-5 {{searchStatus === 3 ? 'credit-toggle' : ''}}" ng-click="getTranferingCreditRightList(1,3,3)">已转让</div>
+            <div class="col-xs-1 padding-b-5 cursor-pointer {{searchStatus === 3 ? 'credit-toggle' : ''}}" ng-click="getTranferingCreditRightList(1,3,3)">已转让</div>
           </div>
         </div>
         <div ng-show="searchStatus === 1">
@@ -108,7 +108,7 @@
                 <td>{{item.soldStock || 0 | number: 2}}</td>
                 <td>{{item.transferedIncome || 0 | number: 2}}</td>
                 <td>
-                  <a type="button" class="ft-blue0 margin-r-5 cursor-pointer" ng-click="cancelCreditAssignment()">撤销</a>
+                  <a type="button" class="ft-blue0 margin-r-5 cursor-pointer" ng-click="cancelCreditAssignment(item)">撤销</a>
                   <a type="button" class="ft-blue0 cursor-pointer">详情</a>
                 </td>
               </tr>
