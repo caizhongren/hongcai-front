@@ -220,8 +220,15 @@ angular.module('hongcaiApp')
         assignmentNumber: '@assignmentNumber', 
         status: '@status'
       }),
-      getAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/0/assignments', {
-        number: '@number'
+      // getAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/0/assignments', {
+      //   number: '@number'
+      // })
+      getAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/0/assignments', {number: '@number'},
+        {
+        'get': {
+          method:'GET',
+          isArray: true  
+        }
       })
     };
   });

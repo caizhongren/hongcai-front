@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .controller('CreditDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'CreditService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $location, $stateParams, CreditService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
     var number = $stateParams.assignmentNumber;
     if (!number) {
-      $state.go('root.credit-list-query-no');
+      // $state.go('root.credit-list-query-no');
     }
     CreditService.creditAssignmentDetail.get({
       assignmentNumber: number
@@ -46,7 +46,7 @@ angular.module('hongcaiApp')
           }
         }
       } else {
-        $state.go('root.credit-list-query-no');
+        // $state.go('root.credit-list-query-no');
       }
     });
 
@@ -146,18 +146,22 @@ angular.module('hongcaiApp')
 
     $rootScope.selectPage = $location.path().split('/')[1];
 
+    // $scope.tabs = [{
+    //   title: '还款计划',
+    // }, {
+    //   title: '企业信息',
+    // }, {
+    //   title: '风控信息',
+    // }, {
+    //   title: '相关文件',
+    // }, {
+    //   title: '项目历程',
+    // }];
     $scope.tabs = [{
-      title: '项目信息',
+      title: '投资记录',
     }, {
-      title: '企业信息',
-    }, {
-      title: '风控信息',
-    }, {
-      title: '相关文件',
-    }, {
-      title: '项目历程',
+      title: '还款计划',
     }];
-
 
     $scope.tabsRight = [{
       title: '投资记录',

@@ -120,18 +120,21 @@ angular.module('hongcaiApp')
     $scope.loadAssignments($scope.currentPage, $scope.pageSize, $scope.searchStatus);
 
     
-    $scope.getAssignmentDetail = function(number){
+    $scope.getAssignmentDetail = function(amount,annualEarnings,soldStock,transferedIncome){
+      $scope.amount = amount;
+      $scope.annual = annualEarnings;
+      $scope.soldStock = soldStock;
+      $scope.transIncome = transferedIncome;
       UserCenterService.getAssignmentsDetail.get({
-        number: number
+        number: '341616080411222384680'
       }, function(response){
         if(response) {
-          $scope.showTransferDetail = function() {
-            $alert({
-              scope: $scope,
-              template: 'views/modal/modal-transferDetail.html',
-              show: true
-            });
-          };
+          $alert({
+            scope: $scope,
+            template: 'views/modal/modal-transferDetail.html',
+            show: true
+          });
+          $scope.datas = response;
         }
       });
     }

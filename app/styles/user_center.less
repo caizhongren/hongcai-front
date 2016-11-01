@@ -1559,11 +1559,23 @@
   height: 484px;
   margin: 0 auto;
   background-clip: padding-box;
+  .title {
+    .fa {
+      float: right;
+      margin-top: -35px;
+      font-size: 20px;
+      margin-right: 15px;
+    }
+    .tip {
+      border-bottom: 0;
+      margin-left: 0;
+    }
+  }
   .main {
     .top {
       p:nth-child(odd) {
-        width: 44%;
-        padding-left: 12%;
+        width: 54%;
+        padding-left: 14%;
       }
       p:nth-child(even) {
         width: 40%;
@@ -1593,4 +1605,10 @@
 #trans-detail .modal-bg0 .title .tip {
   width: 20%;
 }
-
+#trans-detail .modal-dialog1 {
+  padding-top: 100px;
+  padding-left: 100px;
+  .margin-t-100 {
+    margin-top: 100px;
+  }
+}
