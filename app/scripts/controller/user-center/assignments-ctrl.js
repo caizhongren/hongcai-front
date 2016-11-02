@@ -54,7 +54,6 @@ angular.module('hongcaiApp')
      * @param  pageSize  每页数据长度
      * @param  status   状态
      */
-    $scope.currentDate = new Date().getTime();
     $scope.loadAssignments = function(page, pageSize, status){
       UserCenterService.assignmentsTransferablesList.get({
         page: page,
@@ -68,6 +67,15 @@ angular.module('hongcaiApp')
           $scope.transferablesList = response.transferables;
           $scope.count = response.count;
           $scope.numberOfPages = Math.ceil($scope.count / pageSize);
+
+          // 测试环境放开限制
+          var currentDate = new Date().getTime();
+          if(status === 1){
+            for (var i = $scope.transferablesList.length - 1; i >= 0; i--) {
+              $scope.transferablesList[i].canTransfer = config.isTest || (currentDate - $scope.transferablesList[i].createTime > 10*24*3600*1000);
+            }
+          }
+
         } else {
         }
       });
