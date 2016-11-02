@@ -89,15 +89,15 @@
         <div class="row">
           <div class="col-md-12">
               <div class="padding-l-0 padding-r-0 ft-18 orange-special">
-                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" ui-sref="root.project-details({number: item.number})" ng-show="item.status == 1&& item.status != 5">立即认购&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-                <a class="btn btn-grey-spirit2 btn-block btn-big-height ft-18" ui-sref="root.project-details({number: item.number})" ng-show="item.status == 2" >撤销中&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-                <a class="btn btn-grey-spirit2 btn-block btn-big-height ft-18" ui-sref="root.project-details({number: item.number})" ng-show="item.status == 4 || item.status == 3 && item.soldStock > 0" >已转让&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-                <a class="btn btn-grey-spirit2 btn-block bg-grey4 btn-big-height ft-deepgrey ft-18" ui-sref="root.project-details({number: item.number})" ng-show="item.status === 11 && item.reserveAmount === 0">查看详情&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" ui-sref="root.project-details({number: item.number})" ng-show="item.status === 6">{{item._timeDown.hour}}:{{item._timeDown.min}}:{{item._timeDown.seconds}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" style="margin-top: -1px;" ui-sref="root.project-details({number: item.number})" ng-show="item.status === 11 && item.reserveAmount !== 0">立即预约&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" ui-sref="root.credit-details({number: item.number})" ng-show="item.status == 1&& item.status != 5">立即认购&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-grey-spirit2 btn-block btn-big-height ft-18" ui-sref="root.credit-details({number: item.number})" ng-show="item.status == 2" >撤销中&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-grey-spirit2 btn-block btn-big-height ft-18" ui-sref="root.credit-details({number: item.number})" ng-show="item.status == 4 || item.status == 3 && item.soldStock > 0" >已转让&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-grey-spirit2 btn-block bg-grey4 btn-big-height ft-deepgrey ft-18" ui-sref="root.credit-details({number: item.number})" ng-show="item.status === 11 && item.reserveAmount === 0">查看详情&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" ui-sref="root.credit-details({number: item.number})" ng-show="item.status === 6">{{item._timeDown.hour}}:{{item._timeDown.min}}:{{item._timeDown.seconds}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" style="margin-top: -1px;" ui-sref="root.credit-details({number: item.number})" ng-show="item.status === 11 && item.reserveAmount !== 0">立即预约&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
               </div>
               <div class="col-xs-12 padding-l-0 padding-r-0 ft-18" ng-show="item.progress >= 100">
-                <a class="btn btn-grey-spirit2 btn-block bg-grey4 ft-deepgrey btn-big-height ft-18" ui-sref="root.project-details({number: item.number})">{{projectStatusMap[item.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-grey-spirit2 btn-block bg-grey4 ft-deepgrey btn-big-height ft-18" ui-sref="root.credit-details({number: item.number})">{{projectStatusMap[item.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
               </div>
           </div>
         </div>
