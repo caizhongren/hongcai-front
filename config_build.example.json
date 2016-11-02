@@ -13,5 +13,6 @@
   "domain":"http://www.hongcai.com",
   "en": "online",
   "baseFileUrl": "http://www.hongcai.com/uploads/",
-  "pay_company": "cgt"
+  "pay_company": "cgt",
+  "isTest": false
 }

@@ -7,21 +7,22 @@
 
     <!--end 安全认证提示 -->
     <div class="main user-right-h">
-      <form class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40 padding-b-30" name="rechargeForm">
+      <form class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40 padding-b-30" name="assignmentsForm">
         <div class="col-md-6 margin-t-30 padding-l-30">
           <div class="row text-recharge-tip">
             <div class="col-md-3 text-left"><b>债权金额：</b></div>
-            <div class="col-md-5"><span class="ft-orange2 ft-24">10000.00</span>元</div>
+            <div class="col-md-5 padding-l-0"><span class="ft-orange2 ft-24">10000.00</span>元</div>
           </div>
           <div class="row text-recharge-tip">
             <div class="col-md-3 text-left"><b>转让金额：</b></div>
-            <input name="amount" type="number" min="0" class="verify-input fl mgn-top7" value="请输入转让金额" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required placeholder="请输入转让金额" id="amount"/>
+            <input name="amount" type="number" min="0" class="verify-input fl mgn-top7" value="请输入转让金额" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" placeholder="请输入转让金额" id="amount" ng-model="transferAmount"/>
             <span class="span-money fl">元</span>
           </div>
-          <div class="row ft-12 ft-red4 margin-l-90">请输入100元的整数倍</div>
+          <div class="row ft-12 ft-red4 margin-l-90" ng-if="msg">请输入100元的整数倍</div>
+          <div class="row ft-12 ft-red4 margin-l-90" ng-if="assignmentsForm.transferAmount.$error.pattern || transferAmount == 0">请输入大于0的数字(最多精确到小数点后两位)</div>
           <div class="row text-recharge-tip">
             <div class="col-md-3 text-left"><b>转让利率：</b></div>
-            <input name="percent" type="number" min="0" class="verify-input fl mgn-top7" value="请输入转让利率" ng-focus required placeholder="请输入转让利率" id="percent"/>
+            <input name="percent" type="number" min="0" class="verify-input fl mgn-top7" value="请输入转让利率" placeholder="请输入转让利率" id="percent"/>
             <span class="span-money fl">元</span>
           </div>
           <div class="row ft-12 margin-l-90">当前转让奖金预计<span class="ft-orange2">125.87</span>元</div>
@@ -39,10 +40,10 @@
         <div class="ft-14 padding-20 padding-b-50">
           <p class="ft-red4"><i class="fa fa-tint ft-red4" style="margin-right:15px;"></i><b>温馨提示:</b></p>
           <div class="padding-l-20">
-            <p>1. 如果您急于转出该笔债权，建议您适当增加转让利率，以吸引投资者关注；/p>
+            <p>1. 如果您急于转出该笔债权，建议您适当增加转让利率，以吸引投资者关注；</p>
             <p>2. 转让收入=转让本金+转让本金当期已产生的利息折算值-手续费；</p>
             <p>3. 预计转让收入是以当日全额转让为前提计算的金额，实际收入已真实交易为准；</p>
-            <p>4. 该笔债权持有时间&lt;30天，手续费=转让本金*0.5%，持有时间&gte;30天，手续费=转让本金*0.2%，2017.01.01号前手续费率为上述定价的五折。单笔转让的手续费最低为3元。</p>
+            <p>4. 该笔债权持有时间&lt;30天，手续费=转让本金*0.5%，持有时间&ge;30天，手续费=转让本金*0.2%，2017.01.01号前手续费率为上述定价的五折。单笔转让的手续费最低为3元。</p>
             <p>5. 转让期间内如遇项目还息，您的转让项目将被暂时冻结，借款方还息操作完成后可以继续转让；</p>
             <p>6. 转让申请成功后，你可以在“个人中心-我的投资-转让记录”中查看转让详情或撤销剩余转让本金。</p>
           </div>

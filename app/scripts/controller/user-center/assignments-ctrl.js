@@ -1,19 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('assignmentsCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert, ProjectService) {
-    /**
-     * 判断是否开通第三方托管账户
-     */
-    $scope.checkTrusteeshipAccount = function() {
-      if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
-        $scope.haveTrusteeshipAccount = true;
-      } else {
-        $scope.haveTrusteeshipAccount = false;
-      }
-      return $scope.haveTrusteeshipAccount;
-    }
-
-
+ 
+  .controller('assignmentsCtrl', function($scope, $rootScope, $stateParams, UserCenterService, $window, toaster, $alert, config, ProjectService) {
 
     /**
      * 第一步
@@ -54,13 +42,12 @@ angular.module('hongcaiApp')
      * @param  pageSize  每页数据长度
      * @param  status   状态
      */
-    $scope.currentDate = new Date().getTime();
     $scope.loadAssignments = function(page, pageSize, status){
       UserCenterService.assignmentsTransferablesList.get({
         page: page,
         pageSize: pageSize
       }, function(response) {
-        if (response.transferables.length >0) {
+        if (response && response.ret !== -1) {
           $scope.currentPage = page;
           $scope.pageSize = pageSize;
           $scope.searchStatus = status;
@@ -68,6 +55,15 @@ angular.module('hongcaiApp')
           $scope.transferablesList = response.transferables;
           $scope.count = response.count;
           $scope.numberOfPages = Math.ceil($scope.count / pageSize);
+
+          // 测试环境放开限制
+          var currentDate = new Date().getTime();
+          if(status === 1){
+            for (var i = $scope.transferablesList.length - 1; i >= 0; i--) {
+              $scope.transferablesList[i].canTransfer = config.isTest || (currentDate - $scope.transferablesList[i].createTime > 10*24*3600*1000);
+            }
+          }
+
         } else {
         }
       });
@@ -130,6 +126,7 @@ angular.module('hongcaiApp')
         number: assignmentNumber
       },function(response){
         if (response.status ===3) {
+          toaster.pop('success', '撤销成功');
           $scope.getTranferingAssignmentsList(1,6,'1,2,5');
         }
       });

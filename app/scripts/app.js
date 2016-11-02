@@ -626,12 +626,12 @@ hongcaiApp
      * 债权管理-债权转让页面
      */
     .state('root.userCenter.assignments-transfer-details', {
-      url: '/assignments-transfer-details',
+      url: '/assignments-transfer-details/:number/:creditRightId/:amount/:annualEarnings',
       views: {
         'user-center-right': {
           templateUrl: 'views/user-center/assignments-transfer-details.html',
-          // controller: 'assignmentsTransferCtrl',
-          // controllerUrl: 'scripts/controller/user-center/assignments-transfer-details-ctrl.js'
+          controller: 'assignmentsTransferCtrl',
+          controllerUrl: 'scripts/controller/user-center/assignments-transfer-details-ctrl.js'
         }
       },
       data: {

@@ -235,8 +235,18 @@ angular.module('hongcaiApp')
           }
         } 
       }),
-      //
-      getAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/:number/assignments', {number: '@number'},
+      
+      //转让页面
+      assignmentsTransfer: $resource(RESTFUL_DOMAIN + '/creditRights/:number/assignments', {
+        number: '@number',
+        creditRightId:'@creditRightId',
+        amount:'@amount',
+        annualEarnings:'@annualEarnings'
+      }, {
+        'post': {method:'POST'}
+      }),
+      
+      getAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/0/assignments', {number: '@number'},
         {
         'get': {
           method:'GET',
