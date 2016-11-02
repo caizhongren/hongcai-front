@@ -1,54 +1,86 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'CreditService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', function($scope, $state, $rootScope, $location, $stateParams, CreditService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService) {
-    var number = $stateParams.assignmentNumber;
+  .controller('CreditDetailsCtrl', ['$scope', '$state', '$rootScope', '$location', '$stateParams', 'CreditService', 'OrderService', '$modal', '$alert', 'toaster', '$timeout', 'ipCookie', 'MainService', 'ProjectService', function($scope, $state, $rootScope, $location, $stateParams, CreditService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, ProjectService) {
+    var number = $stateParams.number;
     if (!number) {
       // $state.go('root.credit-list-query-no');
     }
-    CreditService.creditAssignmentDetail.get({
-      assignmentNumber: number
-    }, function(response) {
-      if (response.ret === 1) {
-        $scope.creditAssignment = response.data.creditAssignment;
-        $scope.project = response.data.project;
-        $scope.projectInfo = response.data.projectInfo;
-        $scope.orderList = response.data.orderList;
-        $scope.enterprise = response.data.enterprise;
-        $scope.enterpriseThumbnailFileList = response.data.enterpriseThumbnailFileList;
-        $scope.enterpriseOriginalFileList = response.data.enterpriseOriginalFileList;
-        /**
-         * 可投金额
-         */
-        $scope.creditAssignmentInvestNum = $scope.creditAssignment.amount - ($scope.creditAssignment.soldStock + $scope.creditAssignment.occupancyStock) * $scope.project.increaseAmount;
-        if ($scope.creditAssignment.status === 1) {
-          if ($rootScope.account) {
-            $scope.userCanCreditInvestNum = $scope.creditAssignmentInvestNum > $rootScope.account.balance ? $rootScope.account.balance : $scope.creditAssignmentInvestNum;
-          } else {
-            $scope.userCanCreditInvestNum = 0
-          }
-          if ($rootScope.isLogged) {
-            if ($rootScope.securityStatus.realNameAuthStatus === 1) {
-              /**
-               * 实名认证用户
-               */
-              $scope.creFlag = 2;
-            } else {
-              /**
-               * 开启普通用户
-               */
-              $scope.creFlag = 1;
-            }
-          } else {
-            /**
-             * 未登录
-             */
-            $scope.creFlag = 0;
-          }
-        }
-      } else {
-        // $state.go('root.credit-list-query-no');
+    // CreditService.creditAssignmentDetail.get({
+    //   assignmentNumber: number
+    // }, function(response) {
+    //   if (response.ret === 1) {
+    //     $scope.creditAssignment = response.data.creditAssignment;
+    //     $scope.project = response.data.project;
+    //     $scope.projectInfo = response.data.projectInfo;
+    //     $scope.orderList = response.data.orderList;
+    //     $scope.enterprise = response.data.enterprise;
+    //     $scope.enterpriseThumbnailFileList = response.data.enterpriseThumbnailFileList;
+    //     $scope.enterpriseOriginalFileList = response.data.enterpriseOriginalFileList;
+    //     /**
+    //      * 可投金额
+    //      */
+    //     $scope.creditAssignmentInvestNum = $scope.creditAssignment.amount - ($scope.creditAssignment.soldStock + $scope.creditAssignment.occupancyStock) * $scope.project.increaseAmount;
+    //     if ($scope.creditAssignment.status === 1) {
+    //       if ($rootScope.account) {
+    //         $scope.userCanCreditInvestNum = $scope.creditAssignmentInvestNum > $rootScope.account.balance ? $rootScope.account.balance : $scope.creditAssignmentInvestNum;
+    //       } else {
+    //         $scope.userCanCreditInvestNum = 0
+    //       }
+    //       if ($rootScope.isLogged) {
+    //         if ($rootScope.securityStatus.realNameAuthStatus === 1) {
+    //           /**
+    //            * 实名认证用户
+    //            */
+    //           $scope.creFlag = 2;
+    //         } else {
+    //           /**
+    //            * 开启普通用户
+    //            */
+    //           $scope.creFlag = 1;
+    //         }
+    //       } else {
+    //         /**
+    //          * 未登录
+    //          */
+    //         $scope.creFlag = 0;
+    //       }
+    //     }
+    //   } else {
+    //     // $state.go('root.credit-list-query-no');
+    //   }
+    // });
+    /**
+     * 债券详情
+     */
+    CreditService.getCreditAssignment.get({
+      number: $stateParams.number
+    },function(response){
+      if(response && response != null) {
+        $scope.creditProject = response;
       }
-    });
+    })
+    /**
+     * 转让记录
+     */
+     $scope.getCreditAssignmentList = function(page, pageSize) {
+      ProjectService.getCreditAssignments.get({
+       number: $stateParams.number,
+       page: page, 
+       pageSize: pageSize
+      }, function(response) {
+        console.log(response);
+      });
+     };
+     $scope.getCreditAssignmentList(1,6);
+     /**
+     * 原项目还款计划
+     */
+    $scope.getProjectBills = function (number) {
+      ProjectService.originProjectBills.get({
+        number: number,
+      })
+    }
+    $scope.getProjectBills($stateParams.number);
 
 
     $scope.toRealNameAuth = function() {
@@ -163,11 +195,11 @@ angular.module('hongcaiApp')
       title: '还款计划',
     }];
 
-    $scope.tabsRight = [{
-      title: '投资记录',
-    }, {
-      title: '还款计划',
-    }];
+    // $scope.tabsRight = [{
+    //   title: '投资记录',
+    // }, {
+    //   title: '还款计划',
+    // }];
 
     $scope.tabsRightReserve = [{
       title: '当前预约',

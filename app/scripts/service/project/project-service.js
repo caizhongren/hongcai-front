@@ -133,6 +133,27 @@ angular.module('hongcaiApp')
           annualEarnings: '@annualEarnings',
           currentStocks:'@currentStocks'
        }),
+       /**
+        *债权转让记录（详情页和个人中心）
+        */
+   
+        getCreditAssignments: $resource(RESTFUL_DOMAIN + '/assignments/:number/orders', {
+          number: '@number',
+          page:'@page', 
+          pageSize: '@pageSize'
+       },
+       {
+       'get': {
+         method:'GET',
+         isArray: true  
+       }
+     }),
+       /**
+        *原项目还款计划（认购详情页）
+        */ 
+      originProjectBills: $resource(RESTFUL_DOMAIN + '/projects/:number/projectBills', {
+        number: '@number'
+      })
 
     };
   });
