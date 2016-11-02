@@ -63,8 +63,8 @@
                 <td>{{item.creditRight.amount | number:2 || 0}}</td>
                 <td>{{item.creditRight.profit - item.creditRight.returnProfit | number:2 || 0}}</td>
                 <td>{{item.project.repaymentDate | date:'yyyy-MM-dd'}}</td>
-                <td ng-if="currentDate - item.project.valueDate > 10*24*3600*1000" class="cursor-pointer ft-blue0" ui-sref="root.userCenter.assignments-transfer-details({number: item.creditRight.number, creditRightId: item.creditRightId, amount: item.creditRight.amount, annualEarnings: item.project.annualEarnings})">转让</td>
-                <td ng-if="currentDate - item.project.valueDate <= 10*24*3600*1000">
+                <td ng-if="item.canTransfer" class="cursor-pointer ft-blue0" ui-sref="root.userCenter.assignments-transfer-details({number: item.creditRight.number, creditRightId: item.creditRightId, amount: item.creditRight.amount, annualEarnings: item.project.annualEarnings})">转让</td>
+                <td ng-if="!item.canTransfer">
                   <p>{{item.project.valueDate +  10*24*3600*1000 | date:'yyyy-MM-dd'}}</p>
                   <p>可转让</p>
                 </td>
