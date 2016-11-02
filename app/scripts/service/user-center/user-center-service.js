@@ -235,10 +235,8 @@ angular.module('hongcaiApp')
           }
         } 
       }),
-      // getAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/0/assignments', {
-      //   number: '@number'
-      // })
-      getAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/0/assignments', {number: '@number'},
+      //
+      getAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/:number/assignments', {number: '@number'},
         {
         'get': {
           method:'GET',

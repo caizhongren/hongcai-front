@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('assignmentsCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
+  .controller('assignmentsCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert, ProjectService) {
     /**
      * 判断是否开通第三方托管账户
      */
@@ -135,24 +135,35 @@ angular.module('hongcaiApp')
       });
     };
 
+    /**
+     * 转让中和已转让的转让详情
+     */
+    $scope.getAssignmentDetail = function(item, page, pageSize){
+      $scope.amount = item.amount;
+      $scope.annual = item.annualEarnings;
+      $scope.soldStock = item.soldStock;
+      $scope.transIncome = item.ransferedIncome;
+        ProjectService.getCreditAssignments.get({
+          number: item.number,
+          page: page,
+          pageSize: pageSize
+        }, function(response){
+          if(response) {
+            $scope.page0 = response.index;
+            $scope.pageSize0 = response.pageSize;
+            $scope.totalPage0 = response.totalPage;
+            $scope.total0 = $scope.total;
+            $alert({
+              scope: $scope,
+              template: 'views/modal/modal-transferDetail.html',
+              show: true
+            });
+            $scope.datas = response;
+          }
+        });
+
+      };
+
     
-    $scope.getAssignmentDetail = function(amount,annualEarnings,soldStock,transferedIncome){
-      $scope.amount = amount;
-      $scope.annual = annualEarnings;
-      $scope.soldStock = soldStock;
-      $scope.transIncome = transferedIncome;
-      UserCenterService.getAssignmentsDetail.get({
-        number: '341616080411222384680'
-      }, function(response){
-        if(response) {
-          $alert({
-            scope: $scope,
-            template: 'views/modal/modal-transferDetail.html',
-            show: true
-          });
-          $scope.datas = response;
-        }
-      });
-    }
 
   });

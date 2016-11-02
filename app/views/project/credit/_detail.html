@@ -6,7 +6,7 @@
     </ul>
     <div class="detail-list">
       <div class="tab-pane" ng-class="{active: toggle.activeTab===$index}"> 
-        <ul>
+        <ul ng-if="toggle.activeTab === 1"> 
           <li>
             <p>预期还款日期</p><p>类型</p><p>金额{{tab.title}}</p>
           </li>
@@ -45,7 +45,7 @@
           </li>
         </ul>
       </div>
-      <ul ng-if="tab.title==='转让记录'">
+      <ul ng-if="toggle.activeTab === 0">
         <li>
           <p>成交时间</p><p>受让人</p><p>成交金额（元）</p>
         </li>
@@ -61,6 +61,11 @@
         <li>
           <p>2016-11-01</p><p>本金+利息</p><p>1500</p>
         </li>
+      </ul>
+      <ul class="pager margin-r-20">
+        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm" ng-disabled="page0 >= totalPage0 " ng-click="getAssignmentDetail(page0 - 1, pageSize0)">下一页</button></li>
+        <div class="display-inb margin-l-0 height-30">&nbsp;&nbsp;1 / 2 &nbsp;共 12 条&nbsp;&nbsp;</div>
+        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm" ng-disabled="page0 == 1" ng-click="getAssignmentDetail(page0 - 1, pageSize0)">上一页</button></li>
       </ul>
     </div>
   </div>

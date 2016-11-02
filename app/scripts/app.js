@@ -1631,7 +1631,7 @@ hongcaiApp
        * 债权转让详情页
        */
       .state('root.credit-details', {
-        url: '/credit-details/:assignmentNumber',
+        url: '/credit-details/:number',
         views: {
           '': {
             templateUrl: 'views/project/credit-details.html',
