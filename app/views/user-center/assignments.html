@@ -63,7 +63,7 @@
                 <td>{{item.creditRight.amount | number:2 || 0}}</td>
                 <td>{{item.creditRight.profit - item.creditRight.returnProfit | number:2 || 0}}</td>
                 <td>{{item.project.repaymentDate | date:'yyyy-MM-dd'}}</td>
-                <td ng-if="currentDate - item.project.valueDate > 10*24*3600*1000" class="cursor-pointer ft-blue0" ui-sref="root.userCenter.assignments-transfer-details">转让</td>
+                <td ng-if="currentDate - item.project.valueDate > 10*24*3600*1000" class="cursor-pointer ft-blue0" ui-sref="root.userCenter.assignments-transfer-details({number: item.creditRight.number, creditRightId: item.creditRightId, amount: item.creditRight.amount, annualEarnings: item.project.annualEarnings})">转让</td>
                 <td ng-if="currentDate - item.project.valueDate <= 10*24*3600*1000">
                   <p>{{item.project.valueDate +  10*24*3600*1000 | date:'yyyy-MM-dd'}}</p>
                   <p>可转让</p>
@@ -170,7 +170,6 @@
     <div class="main text-center" ng-show="securityStatus.realNameAuthStatus !== 1">
       <p class="padding-t-50">亲，您尚未开通第三方资金存管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
       <p class="padding-b-30"><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.userCenter.security-settings">开通第三方资金存管账户</a></p>
-      <!-- <a class="btn btn-primary-orange margin-t-30" ui-sref="root.userCenter.security-settings">开通第三方资金存管账户</a> -->
     </div>
   </div>
 </div>

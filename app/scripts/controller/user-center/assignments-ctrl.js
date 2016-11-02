@@ -1,19 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('assignmentsCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
-    /**
-     * 判断是否开通第三方托管账户
-     */
-    $scope.checkTrusteeshipAccount = function() {
-      if ( $rootScope.securityStatus.trusteeshipAccountStatus === 1) {
-        $scope.haveTrusteeshipAccount = true;
-      } else {
-        $scope.haveTrusteeshipAccount = false;
-      }
-      return $scope.haveTrusteeshipAccount;
-    }
-
-
+  .controller('assignmentsCtrl', function($scope, $rootScope, $stateParams, UserCenterService, $window, toaster, $alert) {
 
     /**
      * 第一步
@@ -60,7 +47,7 @@ angular.module('hongcaiApp')
         page: page,
         pageSize: pageSize
       }, function(response) {
-        if (response.transferables.length >0) {
+        if (response && response.ret !== -1) {
           $scope.currentPage = page;
           $scope.pageSize = pageSize;
           $scope.searchStatus = status;
@@ -130,6 +117,7 @@ angular.module('hongcaiApp')
         number: assignmentNumber
       },function(response){
         if (response.status ===3) {
+          toaster.pop('success', '撤销成功');
           $scope.getTranferingAssignmentsList(1,6,'1,2,5');
         }
       });

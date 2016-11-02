@@ -89,7 +89,7 @@
                 </td>
                 <!-- <td ng-show="creditIsShowedFLAG">{{ creditRightTransferStatusMap[item.creditRight.transferStatus] }}</td> -->
                 <td>
-                  <a type="button" class="btn btn-primary-orange btn-xs border-half bg-btn-red padding-t-0 padding-b-0 line-22" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})" ng-show="creditIsShowedFLAG" ng-if="item.creditRight.type == 1">发起转让</a>
+                 <!--  <a type="button" class="btn btn-primary-orange btn-xs border-half bg-btn-red padding-t-0 padding-b-0 line-22" ui-sref="root.userCenter.credit-create({number: item.creditRight.number})" ng-show="creditIsShowedFLAG" ng-if="item.creditRight.type == 1">发起转让</a> -->
                   <a type="button" class="btn btn-primary-orange btn-xs border-half bg-btn-red padding-t-0 padding-b-0" ng-click=" putCreditRightInPool(item.creditRightId);" ng-if="item.creditRight.type == 2 && item.creditRight.fundsPoolInOut == 1">转入债权池</a>
                   <a type="button" class="btn btn-default btn-xs border-half bg-btn-red padding-t-0 padding-b-0" disabled="disabled" ng-if="item.creditRight.type == 2 && item.creditRight.fundsPoolInOut == 2">已转入债权池</a>
                   <a type="button" class="btn btn-default btn-xs border-half bg-btn-grey padding-t-0 padding-b-0" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2">查看详情</a>
