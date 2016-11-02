@@ -236,7 +236,7 @@ angular.module('hongcaiApp')
         } 
       }),
       //转让页面
-      assignmentsTransfer: $resource(RESTFUL_DOMAIN + '/creditRights/:number/assignments', {
+      assignmentsTransfer: $resource(RESTFUL_DOMAIN + '/creditRights/:number/assign', {
         number: '@number',
         creditRightId:'@creditRightId',
         amount:'@amount',
@@ -244,6 +244,12 @@ angular.module('hongcaiApp')
       }, {
         'post': {method:'POST'}
       }),
+      assignmentCreditDetail: $resource(RESTFUL_DOMAIN + '/creditRights/{creditId}/creditDetail',{
+        creditId: '@creditId'
+      }),
+      assignmentRule: $resource(RESTFUL_DOMAIN + '/assignments/assignmentRule',{}),
+      //债权转让统计
+      assignmentsCount: $resource(RESTFUL_DOMAIN + '/users/0/assignments/stat',{}),
       // getAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/0/assignments', {
       //   number: '@number'
       // })

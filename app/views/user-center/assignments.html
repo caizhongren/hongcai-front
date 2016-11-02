@@ -11,22 +11,22 @@
           <div class="col-md-11 bg-grey6 padding-t-20 padding-b-20 record-w margin-l--20 padding-l-80">
             <div class="col-xs-4 ft-14 border-right-in margin-l--10 padding-r-0">
               <p class="padding-t-10 margin-l--5">
-                <i class="fa fa-jpy ft-grey margin-r-10 margin-l-6"></i>可转让：<strong class="ft-18 ft-red6">{{creditRightStatis.totalInvestCount || 0}}</strong>个
+                <i class="fa fa-jpy ft-grey margin-r-10 margin-l-8"></i>可转让：<strong class="ft-18 ft-red6">{{assignmentsCount.transferableCount || 0}}</strong>个
               </p>
               <p>
-                <i class="fa fa-line-chart ft-grey margin-r-5"></i>转让中：<strong class="ft-18 ft-red6">{{creditRightStatis.heldingCount || 0}}</strong>个
+                <i class="fa fa-line-chart ft-grey margin-r-5"></i>转让中：<strong class="ft-18 ft-red6">{{assignmentsCount.transferingCount || 0}}</strong>个
               </p>
               <p>
-                <i class="fa fa-usd ft-grey margin-r-10"></i>已转让：<strong class="ft-18 ft-red6">{{creditRightStatis.endProfitCount || 0}}</strong>个
+                <i class="fa fa-usd ft-grey margin-r-10 margin-l-3"></i>已转让：<strong class="ft-18 ft-red6">{{assignmentsCount.transferedCount || 0}}</strong>个
               </p>
             </div>
             <div class="col-xs-4 ft-14 text-center padding-l-40">
               <p class="margin-t-20">转让总额（元）</p>
-              <p class="margin-t-20"><strong class="ft-24 ft-red7">0</strong></p>
+              <p class="margin-t-20"><strong class="ft-24 ft-red7">{{assignmentsCount.transferedAmount || 0 | number: 2}}</strong></p>
             </div>
             <div class="col-xs-4 ft-14 text-center">
               <p class="margin-t-20">转让收入（元）</p>
-              <p class="margin-t-20"><strong class="ft-24 ft-red7">0</strong></p>
+              <p class="margin-t-20"><strong class="ft-24 ft-red7">{{assignmentsCount.transferedIncome || 0 | number: 2}}</strong></p>
             </div>
           </div>
           <div class="col-md-1 row"></div>
@@ -63,9 +63,9 @@
                 <td>{{item.creditRight.amount | number:2 || 0}}</td>
                 <td>{{item.creditRight.profit - item.creditRight.returnProfit | number:2 || 0}}</td>
                 <td>{{item.project.repaymentDate | date:'yyyy-MM-dd'}}</td>
-                <td ng-if="item.canTransfer" class="cursor-pointer ft-blue0" ui-sref="root.userCenter.assignments-transfer-details({number: item.creditRight.number, creditRightId: item.creditRightId, amount: item.creditRight.amount, annualEarnings: item.project.annualEarnings})">转让</td>
+                <td ng-if="item.canTransfer" class="cursor-pointer ft-blue0" ui-sref="root.userCenter.assignments-transfer-details({creditId: item.creditRightId})">转让</td>
                 <td ng-if="!item.canTransfer">
-                  <p>{{item.project.valueDate +  10*24*3600*1000 | date:'yyyy-MM-dd'}}</p>
+                  <p class="margin-b-5">{{item.project.valueDate +  10*24*3600*1000 | date:'yyyy-MM-dd'}}</p>
                   <p>可转让</p>
                 </td>
               </tr>
