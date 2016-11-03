@@ -60,7 +60,7 @@
               </tr>
               <tr ng-repeat="item in transferablesList track by $index">
                 <td class="ft-blue0 cursor-pointer">{{item.projectName}}</td>
-                <td>{{item.amount | number:2 || 0}}</td>
+                <td>{{item.transferableAmount | number:2 || 0}}</td>
                 <td>{{item.profit - item.returnProfit | number:2 || 0}}</td>
                 <td>{{item.repaymentDate | date:'yyyy-MM-dd'}}</td>
                 <td ng-if="item.canTransfer" class="cursor-pointer ft-blue0" ui-sref="root.userCenter.assignments-transfer-details({creditId: item.id})">转让</td>

@@ -11,6 +11,7 @@ angular.module('hongcaiApp')
         $scope.lessThanOrEqualBorderDayFee = response.lessThanOrEqualBorderDayFee;
         $scope.greaterThanBorderDayFee = response.greaterThanBorderDayFee;
         $scope.recycleReward = response.recycleReward;
+        $scope.maxReceivedPaymentsRate = response.maxReceivedPaymentsRate;
       }
     });
     UserCenterService.assignmentCreditDetail.get({
@@ -30,14 +31,16 @@ angular.module('hongcaiApp')
         $scope.transferPercent = $scope.creditBaseRate;
         //creatTime(ms)
         $scope.createTime = response.creditRight.createTime;
+        //当前时间
+        $scope.currentDate = new Date().getTime();
 
         //剩余期限
-        $scope.remainDay = Math.ceil((response.project.repaymentDate - response.projectBill.lastRepaymentTime) / (1000*60*60*24));
+        $scope.remainDay = Math.floor((response.project.repaymentDate - $scope.currentDate) / (1000*60*60*24));
+        console.log($scope.remainDay);
 
         //利率最大值
-        $scope.profitMax = 36500 * 0.2 / $scope.remainDay + $scope.creditBaseRate;
+        $scope.profitMax = 36500 * (1 - $scope.maxReceivedPaymentsRate) / $scope.remainDay + $scope.creditBaseRate;
 
-        $scope.currentDate = new Date().getTime();
         //应收利息天数
         $scope.profitDate = ($scope.currentDate - response.projectBill.lastRepaymentTime) / (1000*60*60*24);
         
