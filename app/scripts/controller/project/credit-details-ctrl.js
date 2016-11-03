@@ -2,7 +2,6 @@
 angular.module('hongcaiApp')
   .controller('CreditDetailsCtrl', function($scope, $state, $rootScope, $location, $stateParams, $window, CreditService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, ProjectService, RESTFUL_DOMAIN) {
     var number = $stateParams.number;
-    console.log(number);
     // if (!number) {
       // $state.go('root.credit-list-query-no');
     // }
@@ -71,7 +70,6 @@ angular.module('hongcaiApp')
        pageSize: pageSize
       }, function(response) {
         if(response && response.ret != -1) {
-          console.log(response);
         }
       });
      };
