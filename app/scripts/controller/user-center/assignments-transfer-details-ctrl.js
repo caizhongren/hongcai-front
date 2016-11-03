@@ -53,7 +53,6 @@ angular.module('hongcaiApp')
 
     //确认转让
     $scope.assignmentsTransfer = function(){
-      console.log($scope.transferAmoun);
       if ($scope.msg || $scope.errMsg || $scope.transferAmount ==undefined) {
         return;
       }
