@@ -15,7 +15,7 @@
           </div>
           <div class="row text-recharge-tip">
             <div class="col-md-3 text-left"><b>转让金额：</b></div>
-            <input name="amount" type="number" min="0" class="verify-input fl mgn-top7" value="请输入转让金额" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" placeholder="请输入转让金额" id="amount" ng-model="transferAmount"/>
+            <input name="amount" type="number" min="0" class="verify-input fl mgn-top7" value="请输入转让金额" ng-pattern="/^\d+(\.\d{2})?$/" placeholder="请输入转让金额" id="amount" ng-model="transferAmount"/>
             <span class="span-money fl">元</span>
           </div>
           <div class="row ft-12 ft-red4 margin-l-90" ng-if="msg">{{msg}}</div>
@@ -32,7 +32,7 @@
         <div class="col-md-5 margin-t-15 margin-b-30">
           <div class="col-md-12 margin-l-15 margin-t-61 margin-b-30">该笔转让预计可以回款<span class="ft-orange2 ft-16">{{transferAmount && transferPercent ? transferAmount + profit - counterFee - (transferAmount * remainDay * (transferPercent - creditBaseRate) / 36500) - cashCoupon : 0 | number: 2}}</span>元</div>
           <div class="form-group col-xs-12 margin-l-15 margin-b-0">
-            <input type="button" value="确认转让" class="border-half cursor-pointer ft-16 transferBtn" ng-disabled="assignmentsForm.$invalid" ng-class="{'btn-recharge-grey': (transferAmount || transferPercent) && (msg || errMsg || showErrMsg) , 'btn-recharge-orange':!msg && !errMsg && !showErrMsg}" ng-click="assignmentsTransfer()"/>
+            <input id="transferBtn" type="button" value="确认转让" class="border-half cursor-pointer ft-16 transferBtn" ng-disabled="assignmentsForm.$invalid" ng-class="{'btn-recharge-grey': (transferAmount || transferPercent) && (msg || errMsg || showErrMsg) , 'btn-recharge-orange':!msg && !errMsg && !showErrMsg}" ng-click="assignmentsTransfer()"/>
           </div>
           <div class="col-md-12 margin-l-15 ft-red4" ng-if="showErrMsg">{{showErrMsg}}</div>
         </div>
