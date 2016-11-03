@@ -67,7 +67,7 @@
     <a class="btn btn-primary-orange btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '1'">开通成功</a>
     <a class="btn btn-primary-orange btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '2'">充值成功</a>
     <a class="btn btn-primary-orange btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '3'">提现申请成功</a>
-    <a class="btn btn-primary-orange btn-block pull-left" ui-sref="root.userCenter.investment({type:99})" ng-click="page ==='investment'?reload():'';$hide()" ng-if="msg === '4'">支付成功</a>
+    <a class="btn btn-primary-orange btn-block pull-left" ui-sref="root.userCenter.investment({type:99})" ng-click="page ==='investment'?reload():'';$hide()" ng-if="msg === '4' || msg=== '12'">支付成功</a>
     <a class="btn btn-primary-orange btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '5'">绑卡成功</a>
     <a class="btn btn-primary-orange btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '6'">授权成功</a>
     <a class="btn btn-primary-orange btn-block pull-left" href="javascript:;" ng-click="reload();$hide()" ng-if="msg === '7'">解绑申请成功</a>
@@ -76,8 +76,8 @@
 
     <a class="btn btn-primary-orange btn-block pull-left margin-l" ui-sref="root.help-center.safety-certification" ng-click="$hide()" ng-if="msg === '1' || msg === '6'">遇到问题</a>
     <a class="btn btn-primary-orange btn-block pull-left margin-l" ui-sref="root.help-center.account-management" ng-click="$hide()" ng-if="msg === '2' || msg === '3'">遇到问题</a>
-    <a class="btn btn-primary-orange btn-block pull-left margin-l" ui-sref="root.userCenter.investment({type:99})" ng-click="$hide()" ng-if="msg === '4'">遇到问题</a>
-    <a class="btn btn-primary-orange btn-block pull-left margin-l" ng-click="reload();$hide()" ng-if="msg === '5' || msg === '7' || msg === '9' ">遇到问题</a>
+    <a class="btn btn-primary-orange btn-block pull-left margin-l" ui-sref="root.userCenter.investment({type:99})" ng-click="$hide()" ng-if="msg === '4' || msg === '12'">遇到问题</a>
+    <a class="btn btn-primary-orange btn-block pull-left margin-l" ng-click="reload();$hide()" ng-if="msg === '5' || msg === '7' || msg === '9'">遇到问题</a>
     <a class="btn btn-primary-orange btn-block pull-left margin-l" ng-click="$hide()" ng-if="msg === '11' ">取消</a>
 
   </div>
