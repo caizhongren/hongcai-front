@@ -1,5 +1,5 @@
 <!--债权转让页面-->
-<div class="right-area right-assets-height recharge col-md-8 col-lg-9">
+<div class="right-area right-assets-height recharge col-md-8 col-lg-9 assignment_transfer">
   <div class="currency-style">
     <div class="title">
       <span class="tip">债权转让</span>
@@ -7,32 +7,34 @@
 
     <!--end 安全认证提示 -->
     <div class="main user-right-h">
-      <form class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40 padding-b-30" name="assignmentsForm">
+      <form class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40" name="assignmentsForm">
         <div class="col-md-6 margin-t-30 padding-l-30">
           <div class="row text-recharge-tip">
             <div class="col-md-3 text-left"><b>债权金额：</b></div>
-            <div class="col-md-5 padding-l-0"><span class="ft-orange2 ft-24">10000.00</span>元</div>
+            <div class="col-md-5 padding-l-0"><span class="ft-orange2 ft-24">{{creditRightAmount || 0 | number: 2}}</span>元</div>
           </div>
           <div class="row text-recharge-tip">
             <div class="col-md-3 text-left"><b>转让金额：</b></div>
             <input name="amount" type="number" min="0" class="verify-input fl mgn-top7" value="请输入转让金额" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" placeholder="请输入转让金额" id="amount" ng-model="transferAmount"/>
             <span class="span-money fl">元</span>
           </div>
-          <div class="row ft-12 ft-red4 margin-l-90" ng-if="msg">请输入100元的整数倍</div>
+          <div class="row ft-12 ft-red4 margin-l-90" ng-if="msg">{{msg}}</div>
           <div class="row ft-12 ft-red4 margin-l-90" ng-if="assignmentsForm.transferAmount.$error.pattern || transferAmount == 0">请输入大于0的数字(最多精确到小数点后两位)</div>
           <div class="row text-recharge-tip">
             <div class="col-md-3 text-left"><b>转让利率：</b></div>
-            <input name="percent" type="number" min="0" class="verify-input fl mgn-top7" value="请输入转让利率" placeholder="请输入转让利率" id="percent"/>
-            <span class="span-money fl">元</span>
+            <input name="percent" type="number" min="0" class="verify-input fl mgn-top7" id="percent" ng-model="transferPercent"/>
+            <span class="span-money fl">%</span>
           </div>
-          <div class="row ft-12 margin-l-90">当前转让奖金预计<span class="ft-orange2">125.87</span>元</div>
+          <div class="row ft-12 ft-red4 margin-l-90 margin-b-5" ng-if="errMsg">{{errMsg}}</div>
+          <div class="row ft-12 margin-l-90">当前转让奖金预计<span class="ft-orange2">{{transferAmount && transferPercent ? transferAmount * remainDay * (transferPercent - creditBaseRate) / 36500 : 0  | number: 2}}</span>元</div>
         </div>
         
         <div class="col-md-5 margin-t-15 margin-b-30">
-          <div class="col-md-12 margin-l-15 margin-t-61 margin-b-30">该笔转让预计可以回款<span class="ft-orange2 ft-16">20002.00</span>元</div>
-          <div class="form-group col-xs-12 margin-l-15">
-            <input type="button" value="确认转让" class="border-half cursor-pointer ft-16 btn-recharge-orange" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid || rechargeAmount > bankRemain || rechargeAmount == 0, 'btn-recharge-orange':!rechargeForm.$invalid && rechargeAmount <= bankRemain && rechargeAmount != 0}" />
+          <div class="col-md-12 margin-l-15 margin-t-61 margin-b-30">该笔转让预计可以回款<span class="ft-orange2 ft-16">{{transferAmount && transferPercent ? transferAmount + profit - counterFee - (transferAmount * remainDay * (transferPercent - creditBaseRate) / 36500) - cashCoupon : 0 | number: 2}}</span>元</div>
+          <div class="form-group col-xs-12 margin-l-15 margin-b-0">
+            <input type="button" value="确认转让" class="border-half cursor-pointer ft-16 transferBtn" ng-disabled="assignmentsForm.$invalid" ng-class="{'btn-recharge-grey': (transferAmount || transferPercent) && (msg || errMsg || showErrMsg) , 'btn-recharge-orange':!msg && !errMsg && !showErrMsg}" ng-click="assignmentsTransfer()"/>
           </div>
+          <div class="col-md-12 margin-l-15 ft-red4" ng-if="showErrMsg">{{showErrMsg}}</div>
         </div>
       </form>
       <div  ng-hide="securityStatus.realNameAuthStatus !== 1" class="col-md-10 col-md-offset-1 border-bd-grey margin-t-40 margin-b-20 record-w margin-l-40"></div>
@@ -43,7 +45,7 @@
             <p>1. 如果您急于转出该笔债权，建议您适当增加转让利率，以吸引投资者关注；</p>
             <p>2. 转让收入=转让本金+转让本金当期已产生的利息折算值-手续费；</p>
             <p>3. 预计转让收入是以当日全额转让为前提计算的金额，实际收入已真实交易为准；</p>
-            <p>4. 该笔债权持有时间&lt;30天，手续费=转让本金*0.5%，持有时间&ge;30天，手续费=转让本金*0.2%，2017.01.01号前手续费率为上述定价的五折。单笔转让的手续费最低为3元。</p>
+            <p>4. 该笔债权持有时间&le;30天，手续费=转让本金 * 1%，持有时间&gt;30天，手续费=转让本金 * 0.5%，2017.01.01号前手续费率为上述定价的五折。单笔转让的手续费最低为3元。</p>
             <p>5. 转让期间内如遇项目还息，您的转让项目将被暂时冻结，借款方还息操作完成后可以继续转让；</p>
             <p>6. 转让申请成功后，你可以在“个人中心-我的投资-转让记录”中查看转让详情或撤销剩余转让本金。</p>
           </div>

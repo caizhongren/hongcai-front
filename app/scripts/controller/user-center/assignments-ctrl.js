@@ -1,6 +1,5 @@
 'use strict';
 angular.module('hongcaiApp')
- 
   .controller('assignmentsCtrl', function($scope, $rootScope, $stateParams, UserCenterService, $window, toaster, $alert, config, ProjectService) {
 
     /**
@@ -26,15 +25,11 @@ angular.module('hongcaiApp')
     /**
      * 我的债权统计数据
      */
-    // UserCenterService.getCreditRightStatistics.get({}, function(response) {
-    //   if (response.ret === 1) {
-    //     $scope.creditRightStatis = response.data.creditRightStatis;
-    //     $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
-    //   } else {
-    //     $scope.showCreditRightStatistics = false;
-    //     // toaster.pop('warning', response.msg);
-    //   }
-    // });
+    UserCenterService.assignmentsCount.get({}, function(response) {
+      if (response && response.ret !== 1) {
+        $scope.assignmentsCount = response;
+      }
+    });
 
     /**
      * 加载债权
