@@ -1,4 +1,4 @@
-<div class="userCenter-credit right-area record col-md-8 col-lg-9 padding-b-30 bg-offWhite" >
+<div class="userCenter-assignments right-area record col-md-8 col-lg-9 padding-b-30 bg-offWhite" >
   <div class="currency-style">
     <div class="title">
       <span class="tip">债权管理</span>
@@ -59,7 +59,7 @@
                 </td>
               </tr>
               <tr ng-repeat="item in transferablesList track by $index">
-                <td class="ft-blue0 cursor-pointer">{{item.projectName}}</td>
+                <td class="ft-blue0 cursor-pointer"><span class="assignmentsZhuan" ng-if="item.type === 6">转</span>{{item.projectName}}</td>
                 <td>{{item.transferableAmount | number:2 || 0}}</td>
                 <td>{{item.profit - item.returnProfit | number:2 || 0}}</td>
                 <td>{{item.repaymentDate | date:'yyyy-MM-dd'}}</td>
@@ -101,7 +101,7 @@
                 </td>
               </tr>
               <tr ng-repeat="item in assignmentsList">
-                <td class="ft-blue0 cursor-pointer"><span class="assignmentsZhuan">转</span>{{item.name}}</td>
+                <td class="ft-blue0 cursor-pointer">{{item.name}}</td>
                 <td>{{item.createTime | date:'yyyy-MM-dd'}}</td>
                 <td>{{item.amount || 0 | number: 2}}</td>
                 <td>{{item.annualEarnings || 0 | number: 2}}</td>
@@ -143,7 +143,7 @@
                 </td>
               </tr>
               <tr ng-repeat="item in assignmentsList">
-                <td class="ft-blue0 cursor-pointer"><span class="assignmentsZhuan">转</span>{{item.name}}</td>
+                <td class="ft-blue0 cursor-pointer">{{item.name}}</td>
                 <td>{{item.amount || 0 | number: 2}}</td>
                 <td>{{item.annualEarnings || 0 | number: 2}}</td>
                 <td>{{item.soldStock || 0 | number: 2}}</td>
