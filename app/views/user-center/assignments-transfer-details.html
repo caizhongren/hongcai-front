@@ -32,9 +32,9 @@
         <div class="col-md-5 margin-t-15 margin-b-30">
           <div class="col-md-12 margin-l-15 margin-t-61 margin-b-30">该笔转让预计可以回款<span class="ft-orange2 ft-16">{{transferAmount && transferPercent ? transferAmount + profit - counterFee - (transferAmount * remainDay * (transferPercent - creditBaseRate) / 36500) - cashCoupon : 0 | number: 2}}</span>元</div>
           <div class="form-group col-xs-12 margin-l-15">
-            <input type="button" value="确认转让" class="border-half cursor-pointer ft-16 transferBtn" ng-disabled="assignmentsForm.$invalid" ng-class="{'btn-recharge-grey': transferAmount && (msg || errMsg) , 'btn-recharge-orange':!msg && !errMsg}" ng-click="assignmentsTransfer()"/>
+            <input type="button" value="确认转让" class="border-half cursor-pointer ft-16 transferBtn" ng-disabled="assignmentsForm.$invalid" ng-class="{'btn-recharge-grey': (transferAmount || transferPercent) && (msg || errMsg || showErrMsg) , 'btn-recharge-orange':!msg && !errMsg && !showErrMsg}" ng-click="assignmentsTransfer()"/>
           </div>
-          <div class="col-md-12 margin-l-15 ft-red4">{{showErrMsg}}</div>
+          <div class="col-md-12 margin-l-15 ft-red4" ng-if="showErrMsg">{{showErrMsg}}</div>
         </div>
       </form>
       <div  ng-hide="securityStatus.realNameAuthStatus !== 1" class="col-md-10 col-md-offset-1 border-bd-grey margin-t-40 margin-b-20 record-w margin-l-40"></div>
