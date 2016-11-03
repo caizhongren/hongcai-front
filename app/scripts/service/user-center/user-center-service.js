@@ -245,8 +245,8 @@ angular.module('hongcaiApp')
       }, {
         'post': {method:'POST'}
       }),
-      assignmentCreditDetail: $resource(RESTFUL_DOMAIN + '/creditRights/{creditId}/creditDetail',{
-        creditId: '@creditId'
+      assignmentCreditDetail: $resource(RESTFUL_DOMAIN + '/creditRights/:number/creditDetail',{
+        number: '@number'
       }),
       assignmentRule: $resource(RESTFUL_DOMAIN + '/assignments/assignmentRule',{}),
       //债权转让统计

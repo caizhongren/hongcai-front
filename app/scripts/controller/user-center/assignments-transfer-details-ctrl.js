@@ -2,7 +2,7 @@
 angular.module('hongcaiApp')
   .controller('assignmentsTransferCtrl',function ( $scope, $stateParams, UserCenterService, toaster, $state) {
     
-    var creditRightId = $stateParams.creditId;
+    var creditRightNumber = $stateParams.number;
     UserCenterService.assignmentRule.get({},function(response){
       if (response && response.ret !== -1) {
         $scope.discountFeeRate = response.discountFeeRate;
@@ -15,7 +15,7 @@ angular.module('hongcaiApp')
       }
     });
     UserCenterService.assignmentCreditDetail.get({
-      creditId: creditRightId
+      number: creditRightNumber
     }, function(response) {
       if (response && response.ret !== -1) {
         //现金券判断
@@ -36,7 +36,6 @@ angular.module('hongcaiApp')
 
         //剩余期限
         $scope.remainDay = Math.floor((response.project.repaymentDate - $scope.currentDate) / (1000*60*60*24));
-        console.log($scope.remainDay);
 
         //利率最大值
         $scope.profitMax = 36500 * (1 - $scope.maxReceivedPaymentsRate) / $scope.remainDay + $scope.creditBaseRate;
@@ -50,6 +49,11 @@ angular.module('hongcaiApp')
         //转让奖金=利差年化收益率
         //利差
         // $scope.profitDown = $scope.transferPercent - $scope.creditBaseRate;
+      }else {
+        $('#amount').attr("disabled", true); 
+        $('#percent').attr("disabled", true); 
+        $('#transferBtn').attr("disabled", true); 
+        $scope.showErrMsg = response.msg;
       }
 
     });
