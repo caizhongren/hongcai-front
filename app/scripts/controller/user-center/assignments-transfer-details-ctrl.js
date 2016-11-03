@@ -20,7 +20,7 @@ angular.module('hongcaiApp')
       if (response && response.ret !== -1) {
         //现金券判断
         $scope.cashCoupon = $scope.recycleReward && response.creditRight.coupon && response.creditRight.coupon.type ===2 ? response.creditRight.coupon.value : 0;
-        $scope.creditRightList = response.creditRight;
+        $scope.creditRight = response.creditRight;
         //原有债权金额
         $scope.creditRightAmount = response.creditRight.transferableAmount;
         $scope.assignmentsNumber = response.creditRight.number;
@@ -65,7 +65,7 @@ angular.module('hongcaiApp')
       }
       UserCenterService.assignmentsTransfer.post({
         number: $scope.assignmentsNumber,
-        creditRightId: creditRightId,
+        creditRightId: $scope.creditRight.id,
         amount: $scope.transferAmount,
         annualEarnings: $scope.transferPercent
       }, function(response){
