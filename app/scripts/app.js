@@ -1630,8 +1630,8 @@ hongcaiApp
       /**
        * 债权转让详情页
        */
-      .state('root.credit-details', {
-        url: '/credit-details/:number',
+      .state('root.assignments-detail', {
+        url: '/assignments/:number',
         views: {
           '': {
             templateUrl: 'views/project/credit-details.html',

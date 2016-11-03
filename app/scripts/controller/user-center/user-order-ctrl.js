@@ -121,8 +121,9 @@ angular.module('hongcaiApp')
     /**
      * 继续支付订单
      */
-    $scope.toPay = function(projectId, orderId, orderType) {
-      $scope.msg = '4';
+    $scope.toPay = function(projectId, orderId, orderType, amount) {
+      $scope.msg = '12';
+      $scope.investAmount = amount;
       $scope.page = 'investment';
       $alert({
         scope: $scope,

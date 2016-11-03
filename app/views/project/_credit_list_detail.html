@@ -53,13 +53,13 @@
 <div ng-repeat="item in data | limitTo:pageSize">
   <div class="institution-list" ng-hide="item.status === 3 && item.soldStock === 0">
     <div class="logo-border text-center">
-      <img ng-src="{{baseFileUrl+item.image}}" width="152" height="168" alt="{{item.name}}" class="cursor-pointer" ui-sref="root.credit-details({number: item.number})">
+      <img ng-src="{{baseFileUrl+item.image}}" width="152" height="168" alt="{{item.name}}" class="cursor-pointer" ui-sref="root.assignments-detail({number: item.number})">
     </div>
     <div class="content-right">
       <div class="col-xs-8">
         <div class="list-detail border-r-grey5 padding-b-25">
           <div class="list-head margin-b-5">
-            <div class="bold-title cursor-pointer" ui-sref="root.credit-details({number: item.number})"><span class="zhuan ft-white4 ft-12 margin-r-5">转</span>{{item.name}}</div>
+            <div class="bold-title cursor-pointer" ui-sref="root.assignments-detail({number: item.number})"><span class="zhuan ft-white4 ft-12 margin-r-5">转</span>{{item.name}}</div>
             <div class="title-right-tips border-blue padding-tb-2 padding-lr-13 margin-t--3"><i class="fa fa-exclamation-circle margin-r-5"></i> 按月付息，到期还本</div>
           </div>
           <div class="col-md-4 text-left">
@@ -89,15 +89,15 @@
         <div class="row">
           <div class="col-md-12">
               <div class="padding-l-0 padding-r-0 ft-18 orange-special">
-                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" ui-sref="root.credit-details({number: item.number})" ng-show="item.status == 1&& item.status != 5">立即认购&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-                <a class="btn btn-grey-spirit2 btn-block btn-big-height ft-18" ui-sref="root.credit-details({number: item.number})" ng-show="item.status == 2" >撤销中{{item.number}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-                <a class="btn btn-grey-spirit2 btn-block btn-big-height ft-18" ui-sref="root.credit-details({number: item.number})" ng-show="item.status == 4 || item.status == 3 && item.soldStock > 0" >已转让&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" ui-sref="root.assignments-detail({number: item.number})" ng-show="item.status == 1&& item.status != 5">立即认购&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-grey-spirit2 btn-block btn-big-height ft-18" ui-sref="root.assignments-detail({number: item.number})" ng-show="item.status == 2" >撤销中{{item.number}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-grey-spirit2 btn-block btn-big-height ft-18" ui-sref="root.assignments-detail({number: item.number})" ng-show="item.status == 4 || item.status == 3 && item.soldStock > 0" >已转让&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
                 <a class="btn btn-grey-spirit2 btn-block bg-grey4 btn-big-height ft-deepgrey ft-18" ui-sref="credit-assignsments.detail({number: item.number})" ng-show="item.status === 11 && item.reserveAmount === 0">查看详情&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" ui-sref="root.credit-details({number: item.number})" ng-show="item.status === 6">{{item._timeDown.hour}}:{{item._timeDown.min}}:{{item._timeDown.seconds}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" style="margin-top: -1px;" ui-sref="root.credit-details({number: item.number})" ng-show="item.status === 11 && item.reserveAmount !== 0">立即预约&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" ui-sref="root.assignments-detail({number: item.number})" ng-show="item.status === 6">{{item._timeDown.hour}}:{{item._timeDown.min}}:{{item._timeDown.seconds}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-primary-orange btn-block btn-big-height ft-18" style="margin-top: -1px;" ui-sref="root.assignments-detail({number: item.number})" ng-show="item.status === 11 && item.reserveAmount !== 0">立即预约&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
               </div>
               <div class="col-xs-12 padding-l-0 padding-r-0 ft-18" ng-show="item.progress >= 100">
-                <a class="btn btn-grey-spirit2 btn-block bg-grey4 ft-deepgrey btn-big-height ft-18" ui-sref="root.credit-details({number: item.number})">{{projectStatusMap[item.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
+                <a class="btn btn-grey-spirit2 btn-block bg-grey4 ft-deepgrey btn-big-height ft-18" ui-sref="root.assignments-detail({number: item.number})">{{projectStatusMap[item.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
               </div>
           </div>
         </div>
