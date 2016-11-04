@@ -1,6 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('CreditSecurityCtrl', ['$location', '$scope', '$http', '$rootScope', '$state', '$stateParams', 'UserCenterService', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService) {
+    $rootScope.selectPage_two = $location.path().split('/')[2].split('-')[0];
     $scope.type = $stateParams.type;
     $scope.number = $stateParams.number;
     $scope.detailStatus = 1;

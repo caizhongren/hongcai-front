@@ -115,7 +115,18 @@ angular.module('hongcaiApp')
         show: true
       });  
     };
-
+    //取消撤销
+    $scope.cancelDeleteAssignment = function(assignmentNumber){
+      UserCenterService.deleteAssignment.update({
+        number: assignmentNumber,
+        status: 1
+      },function(response){
+        if (response.status ===3) {
+          
+        }
+      });
+    };
+    //确认撤销
     $scope.deleteCreditAssignment = function(assignmentNumber){
       UserCenterService.deleteAssignment.update({
         number: assignmentNumber

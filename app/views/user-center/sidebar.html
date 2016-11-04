@@ -17,6 +17,8 @@
     <span ng-switch-when="rate-coupon">加息券</span>
     <span ng-switch-when="invite-rebate">邀请中心</span>
     <span ng-switch-when="message">站内消息</span>
+    <span ng-switch-when="credit-security-details">债权详情</span>
+    <span ng-switch-when="assignments-transfer-details">债权转让</span>
   </span>
 </div>
 
@@ -69,13 +71,13 @@
       <button class="ftw-b {{userCenterPart == 3 ? 'bg-orange' : 'side-whitebg'}}">投资信息</button>
     </div>
     <div>
-      <a ui-sref="root.userCenter.credit" class="tips-left-area {{selectSide == 'credit' ? 'bg-white' : ''}}">
+      <a ui-sref="root.userCenter.credit" class="tips-left-area {{selectSide == 'credit' || selectPage_two == 'credit'? 'bg-white' : ''}}">
         <span class="sidebar-pic sidebar-pic31 margin-l-35"></span>
-        <p class="{{selectSide == 'credit' ? 'now' : ''}} position margin-l--10 display-inbl">我的投资</p>
+        <p class="{{selectSide == 'credit' || selectPage_two == 'credit'? 'now' : ''}} position margin-l--10 display-inbl">我的投资</p>
       </a>
-      <a ui-sref="root.userCenter.assignments" class="tips-left-area {{selectSide == 'assignments' ? 'bg-white' : ''}}">
+      <a ui-sref="root.userCenter.assignments" class="tips-left-area {{selectSide == 'assignments'  || selectPage_two == 'assignments'? 'bg-white' : ''}}">
         <span class="sidebar-pic sidebar-pic31 margin-l-35"></span>
-        <p class="{{selectSide == 'assignments' ? 'now' : ''}} position margin-l--10 display-inbl">债权管理</p>
+        <p class="{{selectSide == 'assignments'  || selectPage_two == 'assignments'? 'now' : ''}} position margin-l--10 display-inbl">债权管理</p>
       </a>
       <a ui-sref="root.userCenter.investment({type:99})" class="tips-left-area {{selectSide == 'investment' ? 'bg-white' : ''}}">
         <span class="sidebar-pic sidebar-pic32 margin-l-35"></span>

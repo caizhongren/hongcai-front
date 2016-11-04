@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('assignmentsTransferCtrl',function ( $scope, $stateParams, UserCenterService, toaster, $state) {
-    
+  .controller('assignmentsTransferCtrl',function ($location, $rootScope, $scope, $stateParams, UserCenterService, toaster, $state) {
+    $rootScope.selectPage_two = $location.path().split('/')[2].split('-')[0];
     var creditRightNumber = $stateParams.number;
     UserCenterService.assignmentRule.get({},function(response){
       if (response && response.ret !== -1) {
@@ -35,7 +35,7 @@ angular.module('hongcaiApp')
         $scope.currentDate = new Date().getTime();
 
         //剩余期限
-        $scope.remainDay = Math.floor((response.project.repaymentDate - $scope.currentDate) / (1000*60*60*24));
+        $scope.remainDay = Math.ceil((response.project.repaymentDate - $scope.currentDate) / (1000*60*60*24));
 
         //利率最大值
         $scope.profitMax = 36500 * (1 - $scope.maxReceivedPaymentsRate) / $scope.remainDay + $scope.creditBaseRate;

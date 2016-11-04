@@ -222,7 +222,9 @@ angular.module('hongcaiApp')
         'credit',
         'investment',
         'reservation',
-        'assignments'
+        'assignments',
+        'credit-security-details',
+        'assignments-transfer-details',
       ];
       var showFlag4 = [
         'cash-coupon',
@@ -261,6 +263,8 @@ angular.module('hongcaiApp')
       if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1) {
         $rootScope.showHeader = false;
       }
+      
+      $rootScope.selectPage_two = '';
     });
     
     $rootScope.uuid = function(len, radix){
