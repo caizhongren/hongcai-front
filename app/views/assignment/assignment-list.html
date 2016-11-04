@@ -8,15 +8,15 @@
 
       <div class="list-group">
         <!-- 项目列表查询 -->
-        <div class="row list-group-item projects-filter" ng-include src='"views/project/_credit_list_search.html"' style="margin-left: 20px;">
+        <div class="row list-group-item projects-filter" ng-include src='"views/assignment/_assignment_list_search.html"' style="margin-left: 20px;">
           
         </div>
         <!-- 项目列表过滤 -->
-        <div class="row list-group-item wid-97" ng-include src='"views/project/_credit_list_filter.html"' style="margin-left: 20px; width: 97%;"></div>
+        <div class="row list-group-item wid-97" ng-include src='"views/assignment/_assignment_list_filter.html"' style="margin-left: 20px; width: 97%;"></div>
       </div>
     </div>
     <!-- 项目列表展示详情 宏金保 + 债权转让 -->
-    <div ng-include src='"views/project/_credit_list_detail.html"'></div>
+    <div ng-include src='"views/assignment/_assignment_list_detail.html"'></div>
     <!-- 分页 -->
     <div project-pagination></div>
   </div>
