@@ -21,9 +21,9 @@ angular.module('hongcaiApp')
         $scope.remainDay = response.remainDay;
 
         $scope.projectTexts(response.projectId);
-        $scope.watchInvestAmount = function(newVal){
+        $scope.watchInvestAmount = function(newVal, oldVal){
           $scope.error = '';
-          if( newVal ==null || newVal == undefined) {
+          if( newVal ==null || newVal == undefined || newVal != oldVal) {
               $scope.errMsg = '';
             }
           if( newVal < 0) {
