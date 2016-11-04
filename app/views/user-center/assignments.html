@@ -58,7 +58,7 @@
                   </div>
                 </td>
               </tr>
-              <tr ng-repeat="item in transferablesList track by $index">
+              <tr ng-repeat="item in transferablesList track by $index" ng-if="item.transferableAmount > 0">
                 <td class="ft-blue0 cursor-pointer"><span class="assignmentsZhuan" ng-if="item.type === 6">转</span>{{item.projectName}}</td>
                 <td>{{item.transferableAmount | number:2 || 0}}</td>
                 <td>{{item.profit - item.returnProfit | number:2 || 0}}</td>
