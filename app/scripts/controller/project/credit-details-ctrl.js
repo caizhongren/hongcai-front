@@ -66,22 +66,30 @@ angular.module('hongcaiApp')
         // $scope.annual = $scope.creditProject.annualEarnings;
         $scope.remainDay = response.remainDay;
         $scope.watchInvestAmount = function(newVal){
-          if( newVal == undefined) {
-                  $scope.errMsg = '';
-                } 
-          if(newVal) {
-            if(newVal < 100) {
+          $scope.error = '';
+          if( newVal ==null || newVal == undefined) {
+              $scope.errMsg = '';
+            }
+          if( newVal < 0) {
               $scope.errMsg = '投资金额必须大于等于100';
+            }
+          if(newVal && newVal < 100) {
+              $scope.errMsg = '投资金额必须大于等于100';
+            }
+          if(newVal) {
+            if(newVal == 100 && $rootScope.account.balance >=100 && $scope.creditProject.currentStock *100 >=100) {
+              $scope.errMsg = '';
             }
             if(newVal % 100 !== 0) {
               $scope.errMsg = '投资金额必须为100的整数倍';
             }
-            if(newVal > $scope.creditProject.currentStock && $scope.creditProject.currentStock > $rootScope.account.balance) {
+            if(newVal >  $rootScope.account.balance) {
               $scope.errMsg = '账户余额不足，请先充值';
             }
-            if(newVal < $scope.creditProject.currentStock && $scope.creditProject.currentStock < $rootScope.account.balance ) {
-              $scope.errMsg = '投资金额必须小于' + $scope.creditProject.currentStock;
+            if(newVal > $scope.creditProject.currentStock *100) {
+              $scope.errMsg = '投资金额必须小于' + $scope.creditProject.currentStock *100;
             }
+            console.log(newVal);
             //上次还款到认购当日的天数
             var lastPayDays = Math.floor((new Date().getTime()  - $scope.lastRepayDay)/1000/60/60/24); 
             //当前日期到下次还款日的天数
@@ -164,7 +172,7 @@ angular.module('hongcaiApp')
     */
     
     $scope.toInvest = function(amount) {
-
+      $scope.showUnfinishOrder = false;
       // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
       $.ajax({
         url: RESTFUL_DOMAIN + '/assignments/' + $scope.creditNum + '/orders' + '?amount=' + amount,
@@ -184,6 +192,13 @@ angular.module('hongcaiApp')
             $window.open('/#!/user-order-transfer/' + response.projectId + '/' + response.id + '/' + response.type + '?orderNumber=' + response.number, '_blank');
           } else {
             toaster.pop('error', response.msg);
+              $acope.showUnfinishOrder = true;
+              $alert({
+                 scope: $scope,
+                 template: 'views/modal/alert-unfinishedOrder.html',
+                 show: true
+               });
+            
           }
         }
       });
