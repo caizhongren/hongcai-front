@@ -121,9 +121,16 @@ angular.module('hongcaiApp')
     /**
      * 继续支付订单
      */
-    $scope.toPay = function(projectId, orderId, orderType, amount) {
+    $scope.toPay = function(order) {
+
+      var projectId = order.projectId;
+      var orderId = order.id;
+      var orderType = order.type;
+      var orderAmount = order.orderAmount;
+      var orderNumber = order.number;
+
       $scope.msg = '12';
-      $scope.investAmount = amount;
+      $scope.investAmount = orderAmount;
       $scope.page = 'investment';
       $alert({
         scope: $scope,
@@ -131,7 +138,7 @@ angular.module('hongcaiApp')
         show: true
       });
 
-      window.open('/user-order-transfer/' + projectId + '/' + orderId + '/' + orderType);
+      window.open('/user-order-transfer/' + projectId + '/' + orderId + '/' + orderType + '?orderNumber=' + orderNumber);
     };
 
     /**
