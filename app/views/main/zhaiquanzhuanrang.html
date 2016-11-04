@@ -27,10 +27,10 @@
           <p class="ft-14 ft-grey666">可投金额</p>
         </div>
         <div class="col-md-2 margin-l--5">
-          <button class="btn btn-primary-orange ft-18 btn-ljtz" ng-if="item.status == 1">立即认购&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
-          <button class="btn ft-18 btn-ljtz btn-grey-spirit2" ng-if="item.status ==2">撤销中&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
-          <button class="btn ft-18 btn-ljtz btn-grey-spirit2" ng-if="item.status ==4 || (item.status ==3 &&item.soldStock != 0)">已转让&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
-          <button class="btn ft-18 btn-ljtz btn-grey-spirit2" ng-if="item.status ==5">冻结中&nbsp;<i class="fa fa-chevron-circle-right"></i></button>   
+          <button class="btn btn-primary-orange ft-18 btn-ljtz" ng-if="item.status == 1" ui-sref="root.assignments-detail({number: item.number})">立即认购&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+          <button class="btn ft-18 btn-ljtz btn-grey-spirit2" ng-if="item.status ==2" ui-sref="root.assignments-detail({number: item.number})>撤销中&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+          <button class="btn ft-18 btn-ljtz btn-grey-spirit2" ng-if="item.status ==4 || (item.status ==3 &&item.soldStock != 0)" ui-sref="root.assignments-detail({number: item.number})>已转让&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+          <button class="btn ft-18 btn-ljtz btn-grey-spirit2" ng-if="item.status ==5" ui-sref="root.assignments-detail({number: item.number})>冻结中&nbsp;<i class="fa fa-chevron-circle-right"></i></button>   
         </div>
       </div>
     </div>

@@ -153,6 +153,11 @@ angular.module('hongcaiApp')
         */ 
       originProjectBills: $resource(RESTFUL_DOMAIN + '/projects/:number/projectBills', {
         number: '@number'
+      }, {
+        'get': {
+          method: 'GET',
+          isArray: true
+        }
       })
 
     };

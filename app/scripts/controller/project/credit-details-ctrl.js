@@ -2,6 +2,8 @@
 angular.module('hongcaiApp')
   .controller('CreditDetailsCtrl', function($scope, $state, $rootScope, $location, $stateParams, $window, CreditService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, ProjectService, RESTFUL_DOMAIN) {
     var number = $stateParams.number;
+
+   
     // if (!number) {
       // $state.go('root.credit-list-query-no');
     // }
@@ -57,7 +59,57 @@ angular.module('hongcaiApp')
     },function(response){
       if(response && response.ret !== -1) {
         $scope.creditProject = response;
+        $scope.annual = response.annualEarnings;
         $scope.creditNum = $scope.creditProject.number;
+        $scope.projectNum = response.projectNumber;
+        $scope.originalAnnual = response.originalAnnualEarnings;
+        // $scope.annual = $scope.creditProject.annualEarnings;
+        $scope.remainDay = response.remainDay;
+        $scope.watchInvestAmount = function(newVal){
+          if( newVal == undefined) {
+                  $scope.errMsg = '';
+                } 
+          if(newVal) {
+            if(newVal < 100) {
+              $scope.errMsg = '投资金额必须大于等于100';
+            }
+            if(newVal % 100 !== 0) {
+              $scope.errMsg = '投资金额必须为100的整数倍';
+            }
+            if(newVal > $scope.creditProject.currentStock && $scope.creditProject.currentStock > $rootScope.account.balance) {
+              $scope.errMsg = '账户余额不足，请先充值';
+            }
+            if(newVal < $scope.creditProject.currentStock && $scope.creditProject.currentStock < $rootScope.account.balance ) {
+              $scope.errMsg = '投资金额必须小于' + $scope.creditProject.currentStock;
+            }
+            //上次还款到认购当日的天数
+            var lastPayDays = Math.floor((new Date().getTime()  - $scope.lastRepayDay)/1000/60/60/24); 
+            //当前日期到下次还款日的天数
+            var payDays =  Math.ceil(($scope.repayDay - new Date().getTime())/1000/60/60/24);
+            //实际支付金额
+            $scope.realPayAmount = newVal + newVal*$scope.originalAnnual*lastPayDays/365000 - ($scope.annual - $scope.originalAnnual)*newVal*payDays/36500;
+            
+            //待收利息
+            $scope.profit = newVal * $scope.remainDay * $scope.originalAnnual / 36500;
+            console.log($scope.profit);
+            console.log($scope.realPayAmount);
+          }
+        }
+        ProjectService.originProjectBills.get({
+          number: $scope.projectNum
+        },function(response) {
+          if(response && response.ret !==-1) {
+            $scope.projectBills = response;
+            $scope.bills = [];
+            for(var i= 0; i< response.length; i++) {
+              if(response[i].status === 0) {
+                $scope.bills.push(response[i]);
+              }
+            }
+            $scope.lastRepayDay = $scope.bills[0].lastRepaymentTime;
+            $scope.repayDay = $scope.bills[0].repaymentTime;
+          }
+        })
       }
     })
     /**
@@ -74,47 +126,44 @@ angular.module('hongcaiApp')
       });
      };
      $scope.getCreditAssignmentList(1,6);
-     /**
-     * 原项目还款计划
-     */
-    $scope.getProjectBills = function (number) {
-      ProjectService.originProjectBills.get({
-        number: number,
-      })
-    }
-    // $scope.getProjectBills($stateParams.number);
+    
+    // $scope.watchInvestAmount = function(newVal){
+    //   if( newVal == undefined) {
+    //           $scope.errMsg = '';
+    //         } 
+    //   if(newVal) {
+    //     if(newVal < 100) {
+    //       $scope.errMsg = '投资金额必须大于等于100';
+    //     }
+    //     if(newVal % 100 !== 0) {
+    //       $scope.errMsg = '投资金额必须为100的整数倍';
+    //     }
+    //     if(newVal > $scope.creditProject.currentStock && $scope.creditProject.currentStock > $rootScope.account.balance) {
+    //       $scope.errMsg = '账户余额不足，请先充值';
+    //     }
+    //     if(newVal < $scope.creditProject.currentStock && $scope.creditProject.currentStock < $rootScope.account.balance ) {
+    //       $scope.errMsg = '投资金额必须小于' + $scope.creditProject.currentStock;
+    //     }
+    //     //上次还款到认购当日的天数
+    //     var lastPayDays = Math.floor(($scope.lastRepayDay- new Date().getTime())/1000/60/60/24); //-1
+    //     //当前日期到下次还款日的天数
+    //     var payDays = Math.ceil(((new Date().getTime() - $scope.repayDay-))/1000/60/60/24);
+    //     //实际支付金额
+    //     $scope.realPayAmount = newVal + newVal*$scope.originalAnnual*lastPayDays/365 - ($scope.annual - $scope.originalAnnual)*newVal*payDays/365;
+        
+    //     //待收利息
+    //     $scope.profit = newVal * $scope.remainDay * $scope.originalAnnual / 365;
+    //     console.log($scope.profit);
+    //   }
+    // }
+
+  
 
     /**
     * 立即认购
     */
-    // $scope.amount = 100; 
-    $scope.$watch('test111', function(newVal, oldVal) {
-      console.log(newVal);
-      if( newVal == undefined) {
-        $scope.errMsg = '';
-      } 
-      if(newVal) {
-        if(newVal < 100) {
-          $scope.errMsg = '投资金额必须大于等于100';
-        }
-        // if(newVal % 100 != 0) {
-        //   $scope.errMsg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍';
-        // }
-        // if(newVal > $scope.creditProject.currentStock && $scope.creditProject.currentStock > $rootScope.account.balance) {
-        //   $scope.errMsg = '账户余额不足，请先充值';
-        // }
-        // if(newVal < $scope.creditProject.currentStock && $scope.creditProject.currentStock < $rootScope.account.balance ) {
-        //   $scope.errMsg = '投资金额必须小于' + $scope.creditProject.currentStock;
-        // }
-      }
-      // $scope.$apply();
-    });
-
-
-
     
     $scope.toInvest = function(amount) {
-
 
       // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
       $.ajax({
@@ -140,16 +189,12 @@ angular.module('hongcaiApp')
       });
     };
 
-
-
-
-
-
-
-
-
-
-
+    $scope.toLogin = function() {
+      var thisUrl = $location.path();
+      $location.path('/login').search({
+        redirectUrl: thisUrl
+      });
+    };
 
     $scope.toRealNameAuth = function() {
       if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
@@ -169,24 +214,24 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.expectedCal = function(subscribeAmount) {
-      var creditAssignment = $scope.creditAssignment;
-      if (!subscribeAmount) {
-        return {
-          discountAmount: 0,
-          realPay: 0,
-          profit: 0
-        };
-      }
-      var profit = creditAssignment.annualEarnings * subscribeAmount * creditAssignment.remainDay / 365;
-      var discountAmount = creditAssignment.discountAmount * subscribeAmount / creditAssignment.amount;
-      var realPay = Number(subscribeAmount) + Number(discountAmount);
-      return {
-        discountAmount: discountAmount,
-        realPay: realPay,
-        profit: profit
-      }
-    }
+    // $scope.expectedCal = function(subscribeAmount) {
+    //   var creditAssignment = $scope.creditAssignment;
+    //   if (!subscribeAmount) {
+    //     return {
+    //       discountAmount: 0,
+    //       realPay: 0,
+    //       profit: 0
+    //     };
+    //   }
+    //   var profit = creditAssignment.annualEarnings * subscribeAmount * creditAssignment.remainDay / 365;
+    //   var discountAmount = creditAssignment.discountAmount * subscribeAmount / creditAssignment.amount;
+    //   var realPay = Number(subscribeAmount) + Number(discountAmount);
+    //   return {
+    //     discountAmount: discountAmount,
+    //     realPay: realPay,
+    //     profit: profit
+    //   }
+    // }
 
     $scope.toAllCreditInvest = function() {
       $scope.subscribeAmount = $scope.userCanCreditInvestNum;
@@ -195,56 +240,56 @@ angular.module('hongcaiApp')
     /*
      * 认购债权
      */
-    $scope.subscribeCreditRight = function(subscribeAmount) {
-      $scope.creAmount = subscribeAmount;
-      if ($scope.creFlag === 0) {
-        $rootScope.tologin();
-      } else if ($scope.creFlag === 1) {
-        $scope.toRealNameAuth();
-      } else if ($scope.creFlag === 2) {
-        CreditService.subscribeCreditRight.get({
-          assignmentNumber: $scope.creditAssignment.number,
-          subscribeAmount: subscribeAmount,
-        }, function(response) {
-          if (response.ret === 1) {
+    // $scope.subscribeCreditRight = function(subscribeAmount) {
+    //   $scope.creAmount = subscribeAmount;
+    //   if ($scope.creFlag === 0) {
+    //     $rootScope.tologin();
+    //   } else if ($scope.creFlag === 1) {
+    //     $scope.toRealNameAuth();
+    //   } else if ($scope.creFlag === 2) {
+    //     CreditService.subscribeCreditRight.get({
+    //       assignmentNumber: $scope.creditAssignment.number,
+    //       subscribeAmount: subscribeAmount,
+    //     }, function(response) {
+    //       if (response.ret === 1) {
 
-          } else {
-            toaster.pop('warning', response.msg);
-          }
-        });
-      }
-    }
+    //       } else {
+    //         toaster.pop('warning', response.msg);
+    //       }
+    //     });
+    //   }
+    // }
 
-    $scope.checkStepAmount = function(subscribeAmount) {
-      if (subscribeAmount >= 100) {
-        if (subscribeAmount % 100 === 0) {
-          return false;
-        } else {
-          return true;
-        }
-      }
-    };
-    $scope.checkLargeUserCanAmount = function(subscribeAmount) {
-      if ($rootScope.account.balance < subscribeAmount) {
-        return true;
-      } else {
-        return false;
-      }
-    };
+    // $scope.checkStepAmount = function(subscribeAmount) {
+    //   if (subscribeAmount >= 100) {
+    //     if (subscribeAmount % 100 === 0) {
+    //       return false;
+    //     } else {
+    //       return true;
+    //     }
+    //   }
+    // };
+    // $scope.checkLargeUserCanAmount = function(subscribeAmount) {
+    //   if ($rootScope.account.balance < subscribeAmount) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // };
 
 
 
-    $scope.project = {
-      'progress': 10,
-      'increaseAmount': 100
-    }
-    $scope.securityStatus = {
-      'mobileStatus': 1,
-      'realNameAuthStatus': 1,
-      'emailStatus': 1
-    }
+    // $scope.project = {
+    //   'progress': 10,
+    //   'increaseAmount': 100
+    // }
+    // $scope.securityStatus = {
+    //   'mobileStatus': 1,
+    //   'realNameAuthStatus': 1,
+    //   'emailStatus': 1
+    // }
 
-    $rootScope.selectPage = $location.path().split('/')[1];
+    // $rootScope.selectPage = $location.path().split('/')[1];
 
     $scope.tabs = [{
       title: '投资记录',
@@ -253,31 +298,26 @@ angular.module('hongcaiApp')
     }];
 
     
-    $scope.tabsRightReserve = [{
-      title: '当前预约',
-    }, {
-      title: '我的预约记录',
-    }];
+    // $scope.tabsRightReserve = [{
+    //   title: '当前预约',
+    // }, {
+    //   title: '我的预约记录',
+    // }];
     $scope.toggle = {};
     $scope.toggle.switchTab = function(tabIndex) {
       $scope.toggle.activeTab = tabIndex;
     };
 
-    $scope.toggle.switchTabRight = function(tabIndexRight) {
-      $scope.toggle.activeTabRight = tabIndexRight;
-    };
+    // $scope.toggle.switchTabRight = function(tabIndexRight) {
+    //   $scope.toggle.activeTabRight = tabIndexRight;
+    // };
 
-    $scope.toggle.switchTabRightReserve = function(tabIndexRightReserve) {
-      $scope.toggle.activeTabRightReserve = tabIndexRightReserve;
-    };
+    // $scope.toggle.switchTabRightReserve = function(tabIndexRightReserve) {
+    //   $scope.toggle.activeTabRightReserve = tabIndexRightReserve;
+    // };
 
 
-    $scope.toLogin = function() {
-      var thisUrl = $location.path();
-      $location.path('/login').search({
-        redirectUrl: thisUrl
-      });
-    };
+    
 
     $scope.datas = [{
       time: '2016-01-10',
