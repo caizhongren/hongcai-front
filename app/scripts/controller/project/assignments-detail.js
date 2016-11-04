@@ -118,11 +118,11 @@ angular.module('hongcaiApp')
           } else {
             toaster.pop('error', response.msg);
               
-              $modal({
-                 scope: $scope,
-                 template: 'views/modal/alert-unfinishedOrder.html',
-                 show: true
-               });
+              // $modal({
+              //    scope: $scope,
+              //    template: 'views/modal/alert-unfinishedOrder.html',
+              //    show: true
+              //  });
             
           }
         }
