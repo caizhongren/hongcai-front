@@ -14,7 +14,7 @@
         <th class="border-b-none">投资期限</th>
         <!-- <th class="border-b-none">项目预计收益(元)</th> -->
         <th class="border-b-none">持有债权(元)</th>
-        <th class="border-b-none" ng-show="creditIsShowedFLAG">已转出债权(元)</th>
+        <!-- <th class="border-b-none" ng-show="creditIsShowedFLAG">已转出债权(元)</th> -->
         <th class="border-b-none">已收收益(元)</th>
         <th class="border-b-none">待收收益(元)</th>
       </tr>
@@ -26,7 +26,7 @@
         <td>{{ project.projectDays }}天</td>
         <!-- <td>{{ creditRight.profit | number:2 }}</td> -->
         <td>{{ creditRight.transferableAmount | number:2 }}</td>
-        <td ng-show="creditIsShowedFLAG">{{ creditRight.transferingAmount | number:2 }}</td>
+        <!-- <td ng-show="creditIsShowedFLAG">{{ creditRight.transferingAmount | number:2 }}</td> -->
         <td>{{ creditRight.returnProfit | number:2 }}<span ng-show="increaseRateCoupon.value" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * creditRight.returnProfit / oriRate - creditRight.returnProfit || 0 | number:2 }}</span></td>
         <td>{{ waitProfit | number:2 }}<span ng-show="increaseRateCoupon.value" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * waitProfit / oriRate - waitProfit | number:2}}</span></td>
       </tr>
