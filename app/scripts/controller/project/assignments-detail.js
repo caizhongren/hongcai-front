@@ -50,11 +50,14 @@ angular.module('hongcaiApp')
             (new Date().getTime() > $scope.lastRepayDay ? 1 : -1); 
 
             var reward = ($scope.annual - $scope.originalAnnual)*newVal*$scope.remainDay/36500;
+            //  代收未收利息
+            $scope.exProfit = newVal*$scope.originalAnnual*lastPayDays/365000;
             //实际支付金额
-            $scope.realPayAmount = newVal + newVal*$scope.originalAnnual*lastPayDays/365000 - reward;
+            $scope.realPayAmount = newVal + $scope.exProfit - reward;
             // console.log($scope.lastRepayDay);
             //待收利息
             $scope.profit = newVal * $scope.remainDay * $scope.originalAnnual / 36500 + reward;
+
           }
         }
         ProjectService.originProjectBills.get({

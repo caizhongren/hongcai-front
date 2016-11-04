@@ -175,7 +175,7 @@
                 </p>
                 <span class="ft-grey666">认购金额：</span>
                 <!-- 未认证，撤销中，冻结中不可输入 --> 
-                <input type="number" placeholder="请输入投资份额（元）" class="form-control margin-b-15 btn-76" name="investForm" ng-model="amount" ng-change="watchInvestAmount(amount)" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" >
+                <input type="number" placeholder="请输入投资份额（元）" class="form-control margin-b-15 btn-76" name="investForm" ng-model="amount" ng-change="watchInvestAmount(amount)" ng-disabled="creditProject.status === 2 || creditProject.status === 3 ||creditProject.status === 4 || creditProject.status === 5" >
               </div>
               <!-- 未认证，冻结中，撤销中显示0 -->
               <div class="margin-t-10">
@@ -183,16 +183,16 @@
                 <span class="ft-orange ft-16">{{realPayAmount || 0 | number:2}}</span> 元
                 <i class="fa fa-question-circle ft-orange ft-16 margin-l-10" aria-hidden="true" ng-mouseenter = "showTip = true" ng-mouseout ="showTip = false"></i>
                 <div class="ft-grey666" id="explain" ng-show="showTip">
-                您需先行垫付投资人该笔债权当期已产生利息50.62元，该部分资金会在下个还款日归还给您。
+                您需先行垫付投资人该笔债权当期已产生利息{{exProfit || 0 | number:2}}元，该部分资金会在下个还款日归还给您。
               </div>
               </div>
-              <div class="margin-t-20" ng-class="{'margin-t-20': showTip== false, 'margin-t-5': showTip == false}">
+              <div class="margin-t-20" ng-class="{'margin-t-20': showTip == false, 'margin-t-5': showTip == false}">
                 <span class="ft-grey666">预期收益：</span>
                 <span class="ft-orange ft-16">{{profit || 0 | number:2}}</span> 元
               </div>
               <div class="margin-t-20">
               <!-- 可转让，认证过|| 可转让，未认证点击torealnameauth || 转让中，已认证，余额充值，有未支付订单点击提示有未支付订单-->
-                <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="toInvest(amount);" ng-if="(creditProject.status === 1 && securityStatus.realNameAuthStatus === 1)" disabled ng-disabled="!amount || errMsg || anount<= 0 "></i>立即认购</button>
+                <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="toInvest(amount);" ng-if="(creditProject.status === 1 && securityStatus.realNameAuthStatus === 1 && account.balance >= 100)" disabled ng-disabled="!amount || errMsg || anount<= 0 "></i>立即认购</button>
                 <!-- 有未完成的订单时展示 -->
                 
                 <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" disabled ng-if="creditProject.status === 5"><i class="fa fa-lg project-leftmargin"></i>冻结中</button>
