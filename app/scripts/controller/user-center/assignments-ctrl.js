@@ -100,7 +100,7 @@ angular.module('hongcaiApp')
      */
     $scope.cancelCreditAssignment = function(creditAssignment) {
       UserCenterService.cancelAssignment.update({
-        assignmentNumber: creditAssignment.number,
+        number: creditAssignment.number,
         status: 2
       },function(response){
         if (response && !response.msg) {
@@ -117,7 +117,7 @@ angular.module('hongcaiApp')
     };
     //取消撤销
     $scope.cancelDeleteAssignment = function(assignmentNumber){
-      UserCenterService.deleteAssignment.update({
+      UserCenterService.cancelAssignment.update({
         number: assignmentNumber,
         status: 1
       },function(response){
@@ -146,7 +146,7 @@ angular.module('hongcaiApp')
       $scope.annual = item.annualEarnings;
       $scope.soldStock = item.soldStock;
       $scope.transIncome = item.ransferedIncome;
-        ProjectService.getCreditAssignments.get({
+        ProjectService.getAssignmentOrders.get({
           number: item.number,
           page: page,
           pageSize: pageSize

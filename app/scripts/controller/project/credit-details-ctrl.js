@@ -124,7 +124,7 @@ angular.module('hongcaiApp')
      * 转让记录
      */
      $scope.getCreditAssignmentList = function(page, pageSize) {
-      ProjectService.getCreditAssignments.get({
+      ProjectService.getAssignmentOrders.get({
        number: $stateParams.number,
        page: page, 
        pageSize: pageSize

@@ -50,8 +50,8 @@
     </div>
   </div>
 </div> -->
-<div ng-repeat="item in data | limitTo:pageSize">
-  <div class="institution-list" ng-hide="item.status === 3 && item.soldStock === 0">
+<div ng-repeat="item in data">
+  <div class="institution-list">
     <div class="logo-border text-center">
       <img ng-src="{{baseFileUrl+item.image}}" width="152" height="168" alt="{{item.name}}" class="cursor-pointer" ui-sref="root.assignments-detail({number: item.number})">
     </div>
