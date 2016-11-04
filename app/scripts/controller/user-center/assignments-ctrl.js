@@ -100,7 +100,7 @@ angular.module('hongcaiApp')
      */
     $scope.cancelCreditAssignment = function(creditAssignment) {
       UserCenterService.cancelAssignment.update({
-        assignmentNumber: creditAssignment.number,
+        number: creditAssignment.number,
         status: 2
       },function(response){
         if (response && !response.msg) {
