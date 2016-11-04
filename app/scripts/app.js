@@ -1621,9 +1621,9 @@ hongcaiApp
         url: '/assignments?page&pageSize&sortType&remainDays&annualEarnings&sortOrder&currentStocks',
         views: {
           '': {
-            templateUrl: 'views/project/credit-list.html',
-            controller: 'CreditListCtrl',
-            controllerUrl: 'scripts/controller/project/credit-list-ctrl'
+            templateUrl: 'views/assignment/assignment-list.html',
+            controller: 'AssignmentListCtrl',
+            controllerUrl: 'scripts/controller/assignment/assignment-list-ctrl'
           }
         }
       })
