@@ -1634,9 +1634,9 @@ hongcaiApp
         url: '/assignments/:number',
         views: {
           '': {
-            templateUrl: 'views/project/credit-details.html',
-            controller: 'CreditDetailsCtrl',
-            controllerUrl: 'scripts/controller/project/credit-details-ctrl'
+            templateUrl: 'views/project/assignments-detail.html',
+            controller: 'AssignmentDetailCtrl',
+            controllerUrl: 'scripts/controller/project/assignments-detail-ctrl'
           }
         }
       })

@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('CreditDetailsCtrl', function($scope, $state, $rootScope, $location, $stateParams, $window, CreditService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, ProjectService, RESTFUL_DOMAIN) {
+  .controller('AssignmentDetailCtrl', function($scope, $state, $rootScope, $location, $stateParams, $window, CreditService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, ProjectService, RESTFUL_DOMAIN) {
     var number = $stateParams.number;
 
    
@@ -21,9 +21,9 @@ angular.module('hongcaiApp')
         $scope.remainDay = response.remainDay;
 
         $scope.projectTexts(response.projectId);
-        $scope.watchInvestAmount = function(newVal){
+        $scope.watchInvestAmount = function(newVal, oldVal){
           $scope.error = '';
-          if( newVal ==null || newVal == undefined) {
+          if( newVal ==null || newVal == undefined || newVal != oldVal) {
               $scope.errMsg = '';
             }
           if( newVal < 0) {
