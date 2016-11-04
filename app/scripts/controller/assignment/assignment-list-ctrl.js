@@ -8,9 +8,10 @@ angular.module('hongcaiApp')
     $scope.annualEarnings = $stateParams.annualEarnings;
     $scope.currentStocks = $stateParams.currentStocks;
 
+    $scope.sortOrder = $scope.sortOrder === 'true';
+
 
     $scope.getAssignmentList = function(page, pageSize) {
-      $scope.currentPage = page;
       ProjectService.assignmentList.get({
         page: page, 
         pageSize: pageSize,
@@ -21,6 +22,8 @@ angular.module('hongcaiApp')
         currentStocks: $scope.currentStocks
       }, function(response) {
         if(response && response.ret !== -1){
+
+          $scope.currentPage = response.page;
           $scope.data = response.assignments;
           $scope.pageCount = response.pageCount;
           $scope.numberOfPages = function() {
@@ -34,6 +37,7 @@ angular.module('hongcaiApp')
     }
     $scope.getAssignmentList(1, $scope.pageSize);
 
+
     /**
      * 请求下一页，上一页
      */
@@ -46,11 +50,7 @@ angular.module('hongcaiApp')
     };
     
     
-    if ($scope.sortOrder === 'true') {
-      $scope.sortOrder = true;
-    } else {
-      $scope.sortOrder = false;
-    }
+
 
     $scope.sortType = parseInt($scope.sortType || 0);
     $scope.toggleSort = function(){
