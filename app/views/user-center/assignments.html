@@ -54,12 +54,11 @@
                 <td colspan="5">
                   <div>
                     <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
-                    <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
                   </div>
                 </td>
               </tr>
               <tr ng-repeat="item in transferablesList track by $index" ng-if="item.transferableAmount > 0">
-                <td class="ft-blue0 cursor-pointer"><span class="assignmentsZhuan" ng-if="item.type === 6">转</span>{{item.projectName}}</td>
+                <td><a class="invment-blue cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)"><span class="assignmentsZhuan" ng-if="item.type === 6">转</span>{{item.projectName}}</a></td>
                 <td>{{item.transferableAmount | number:2 || 0}}</td>
                 <td>{{item.profit - item.returnProfit | number:2 || 0}}</td>
                 <td>{{item.repaymentDate | date:'yyyy-MM-dd'}}</td>
@@ -96,12 +95,11 @@
                 <td colspan="7">
                   <div>
                     <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
-                    <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
                   </div>
                 </td>
               </tr>
               <tr ng-repeat="item in assignmentsList">
-                <td class="ft-blue0 cursor-pointer">{{item.name}}</td>
+                <td><a class="invment-blue cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)">{{item.name}}</a></td>
                 <td>{{item.createTime | date:'yyyy-MM-dd'}}</td>
                 <td>{{item.amount || 0 | number: 2}}</td>
                 <td>{{item.annualEarnings || 0 | number: 2}}</td>
@@ -138,12 +136,11 @@
                 <td colspan="6">
                   <div>
                     <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
-                    <p><a class="btn btn-primary-orange ft-18 margin-t-10 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
                   </div>
                 </td>
               </tr>
               <tr ng-repeat="item in assignmentsList">
-                <td class="ft-blue0 cursor-pointer">{{item.name}}</td>
+                <td><a class="invment-blue cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)">{{item.name}}</a></td>
                 <td>{{item.amount || 0 | number: 2}}</td>
                 <td>{{item.annualEarnings || 0 | number: 2}}</td>
                 <td>{{item.soldStock || 0 | number: 2}}</td>
@@ -160,16 +157,6 @@
           </ul> 
         </div>
       </div>
-      <!-- 未购买项目 展示内容 -->
-      <div class="main text-center margin-t-30" ng-hide="true">
-        <p>亲，您尚未购买任何债权，建议您浏览项目列表，购买感兴趣的债权吧~</p>
-        <p><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
-      </div>
-    </div>
-    <!-- 未开通第三方资金存管账户 -->
-    <div class="main text-center" ng-show="securityStatus.realNameAuthStatus !== 1">
-      <p class="padding-t-50">亲，您尚未开通第三方资金存管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
-      <p class="padding-b-30"><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.userCenter.security-settings">开通第三方资金存管账户</a></p>
     </div>
   </div>
 </div>

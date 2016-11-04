@@ -181,9 +181,12 @@
               <div class="margin-t-10">
                 <span class="ft-grey666">实际支付：</span>
                 <span class="ft-orange ft-16">{{realPayAmount || 0 | number:2}}</span> 元
-                <i class="fa fa-question-circle ft-orange ft-16 margin-l-10" aria-hidden="true"></i>
+                <i class="fa fa-question-circle ft-orange ft-16 margin-l-10" aria-hidden="true" ng-mouseenter = "showTip = true" ng-mouseout ="showTip = false"></i>
+                <div class="ft-grey666" id="explain" ng-show="showTip">
+                您需先行垫付投资人该笔债权当期已产生利息50.62元，该部分资金会在下个还款日归还给您。
               </div>
-              <div class="margin-t-20" >
+              </div>
+              <div class="margin-t-20" ng-class="{'margin-t-20': showTip== false, 'margin-t-5': showTip == false}">
                 <span class="ft-grey666">预期收益：</span>
                 <span class="ft-orange ft-16">{{profit || 0 | number:2}}</span> 元
               </div>
