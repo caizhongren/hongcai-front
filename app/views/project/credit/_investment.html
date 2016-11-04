@@ -169,27 +169,29 @@
         <div ng-if="isLogged"> 
             <div class="col-xs-12 padding-0" ng-class="{'margin-t-0':project.status ===6 && countdown >= 0}">
               <div class="margin-t-0">
-                 <p class="text-center text text-danger invest_tip error-msg" ng-show="errMsg">
+                 <p class="text-center text text-danger invest_tip error-msg error-msg1" ng-show="errMsg">
                   <span class="ft-14">{{errMsg}}</span>
                 </p>
                 <span class="ft-grey666">认购金额：</span>
-                <!-- 未认证，撤销中，冻结中不可输入 -->
-                <input type="number" placeholder="请输入投资份额（元）" class="form-control margin-b-15 btn-76" name="amount" ng-model="test111">
+                <!-- 未认证，撤销中，冻结中不可输入 --> 
+                <input type="number" placeholder="请输入投资份额（元）" class="form-control margin-b-15 btn-76" name="amount" ng-model="amount" ng-change="watchInvestAmount(amount)">
               </div>
               <!-- 未认证，冻结中，撤销中显示0 -->
               <div class="margin-t-10">
-                <span class="ft-grey666">实际收益：</span>
-                <span class="ft-orange ft-16">0</span> 元
+                <span class="ft-grey666">实际支付：</span>
+                <span class="ft-orange ft-16">{{realPayAmount || 0 | number:2}}</span> 元
                 <i class="fa fa-question-circle ft-orange ft-16 margin-l-10" aria-hidden="true"></i>
               </div>
               <div class="margin-t-20" >
                 <span class="ft-grey666">预期收益：</span>
-                <span class="ft-orange ft-16">0</span> 元
+                <span class="ft-orange ft-16">{{profit || 0 | number:2}}</span> 元
               </div>
               <div class="margin-t-20">
               <!-- 可转让，认证过|| 可转让，未认证点击torealnameauth || 转让中，已认证，余额充值，有未支付订单点击提示有未支付订单-->
-                <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="toInvest(test111);"></i>立即认购</button>
-                <!--  -->
+                <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="toInvest(amount);" ng-if="(creditProject.status === 1 && securityStatus.realNameAuthStatus === 1)"></i>立即认购</button>
+                <!-- 有未完成的订单时展示 -->
+                <button class="btn btn-lg btn-total-orange btn-block positive-margin1 margin-b-30" data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即认购</button>
+                <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="torealNameAuth();" ng-if="(creditProject.status === 1 && securityStatus.realNameAuthStatus !== 1)"></i>立即认购</button>
                 <!-- <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" disabled ng-if="creditProject.status === 5"><i class="fa fa-lg project-leftmargin"></i>冻结中</button> -->
                 <!-- <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" disabled><i class="fa fa-lg project-leftmargin"></i>转让中</button> -->
                 <!-- <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" disabled ng-if="creditProject.status === 4 || (creditProject.status === 4 && creditProject.soldStock === 0)"><i class="fa fa-lg project-leftmargin"></i>已转让</button> -->
