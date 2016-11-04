@@ -100,8 +100,7 @@ angular.module('hongcaiApp')
      */
     $scope.cancelCreditAssignment = function(creditAssignment) {
       UserCenterService.cancelAssignment.update({
-        number: creditAssignment.number,
-        status: 2
+        number: creditAssignment.number
       },function(response){
         if (response && !response.msg) {
           $scope.data = response;
@@ -115,17 +114,7 @@ angular.module('hongcaiApp')
         show: true
       });  
     };
-    //取消撤销
-    $scope.cancelDeleteAssignment = function(assignmentNumber){
-      UserCenterService.cancelAssignment.update({
-        number: assignmentNumber,
-        status: 1
-      },function(response){
-        if (response.status ===3) {
-          
-        }
-      });
-    };
+    
     //确认撤销
     $scope.deleteCreditAssignment = function(assignmentNumber){
       UserCenterService.deleteAssignment.update({
