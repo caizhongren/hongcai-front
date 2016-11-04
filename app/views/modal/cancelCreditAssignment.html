@@ -5,7 +5,7 @@
   </div>
   
   <div class="content">
-    <p ng-if="data">已转让债权份额{{data.soldStock || 0}}元，未转让债权份额{{data.currentStock || 0}}元，是否确认撤销？</p>
+    <p ng-if="data">已转让债权份额{{data.soldStock * 100 || 0}}元，未转让债权份额{{data.currentStock * 100 || 0}}元，是否确认撤销？</p>
     <p ng-if="msg">{{msg}}</p>
   </div>
 

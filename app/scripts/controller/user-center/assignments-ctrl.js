@@ -117,7 +117,7 @@ angular.module('hongcaiApp')
     };
     //取消撤销
     $scope.cancelDeleteAssignment = function(assignmentNumber){
-      UserCenterService.deleteAssignment.update({
+      UserCenterService.cancelAssignment.update({
         number: assignmentNumber,
         status: 1
       },function(response){
