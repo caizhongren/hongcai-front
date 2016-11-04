@@ -217,12 +217,11 @@ angular.module('hongcaiApp')
         status: '@status'
       }),
       //撤销中
-      cancelAssignment: $resource(RESTFUL_DOMAIN + '/users/0/assignments/:number', {}, {
+      cancelAssignment: $resource(RESTFUL_DOMAIN + '/users/0/assignments/:number/revokeValidate', {}, {
         update: {
-          method: 'PUT',
+          method: 'GET',
           params: {
-            number: '@number', 
-            status: '@status'
+            number: '@number'
           }
         } 
       }),

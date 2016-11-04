@@ -3,6 +3,10 @@ angular.module('hongcaiApp')
   .controller('assignmentsTransferCtrl',function ($location, $rootScope, $scope, $stateParams, UserCenterService, toaster, $state) {
     $rootScope.selectPage_two = $location.path().split('/')[2].split('-')[0];
     var creditRightNumber = $stateParams.number;
+    
+    /**
+     * 债权转让相关规则
+     */
     UserCenterService.assignmentRule.get({},function(response){
       if (response && response.ret !== -1) {
         $scope.discountFeeRate = response.discountFeeRate;
@@ -14,6 +18,9 @@ angular.module('hongcaiApp')
         $scope.maxReceivedPaymentsRate = response.maxReceivedPaymentsRate;
       }
     });
+    /*
+     * 债权信息
+     */
     UserCenterService.assignmentCreditDetail.get({
       number: creditRightNumber
     }, function(response) {
@@ -35,7 +42,7 @@ angular.module('hongcaiApp')
         $scope.currentDate = new Date().getTime();
 
         //剩余期限
-        $scope.remainDay = Math.ceil((response.project.repaymentDate - $scope.currentDate) / (1000*60*60*24));
+        $scope.remainDay = Math.ceil(Math.abs((response.project.repaymentDate - $scope.currentDate)) / (1000*60*60*24));
 
         //利率最大值
         $scope.profitMax = 36500 * (1 - $scope.maxReceivedPaymentsRate) / $scope.remainDay + $scope.creditBaseRate;
