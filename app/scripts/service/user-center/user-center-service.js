@@ -257,6 +257,11 @@ angular.module('hongcaiApp')
           method:'GET',
           isArray: true  
         }
+      }),
+
+      //债权管理-(可、中、已)转让列表获取原项目number
+      getPreprPojectNumber: $resource(RESTFUL_DOMAIN + '/projects/:projectId/detail',{
+        projectId: '@projectId'
       })
     };
   });

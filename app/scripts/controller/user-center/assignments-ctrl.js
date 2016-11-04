@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('assignmentsCtrl', function($scope, $rootScope, $stateParams, UserCenterService, $window, toaster, $alert, config, ProjectService) {
+  .controller('assignmentsCtrl', function($state, $scope, $rootScope, $stateParams, UserCenterService, $window, toaster, $alert, config, ProjectService) {
 
     /**
      * 第一步
@@ -90,6 +90,7 @@ angular.module('hongcaiApp')
           $scope.total = response.total;
 
           $scope.assignmentsList = response.data; 
+
         }
       });
     }
@@ -156,6 +157,16 @@ angular.module('hongcaiApp')
 
       };
 
+    $scope.getPreprPojectDetails = function(projectId){
+      UserCenterService.getPreprPojectNumber.get({
+        projectId: projectId
+      }, function(response){
+        if (response && response.ret !== -1) {
+          var PreprojectId = response.number;
+          $state.go('root.project-details', {'number': PreprojectId});
+        }
+      })
+    }
     
 
   });
