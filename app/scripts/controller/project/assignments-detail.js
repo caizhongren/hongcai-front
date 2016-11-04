@@ -46,14 +46,15 @@ angular.module('hongcaiApp')
               $scope.errMsg = '投资金额必须小于' + $scope.creditProject.currentStock *100;
             }
             //上次还款到认购当日的天数
-            var lastPayDays = Math.ceil(Math.abs((new Date().getTime()  - $scope.lastRepayDay)/1000/60/60/24)); 
-            //当前日期到下次还款日的天数
-            var payDays =  Math.ceil(($scope.repayDay - new Date().getTime())/1000/60/60/24);
+            var lastPayDays = Math.floor(Math.abs((new Date().getTime()  - $scope.lastRepayDay)/1000/60/60/24)) * 
+            (new Date().getTime() > $scope.lastRepayDay ? 1 : -1); 
+
+            var reward = ($scope.annual - $scope.originalAnnual)*newVal*$scope.remainDay/36500;
             //实际支付金额
-            $scope.realPayAmount = newVal + newVal*$scope.originalAnnual*lastPayDays/365000 - ($scope.annual - $scope.originalAnnual)*newVal*payDays/36500;
+            $scope.realPayAmount = newVal + newVal*$scope.originalAnnual*lastPayDays/365000 - reward;
             // console.log($scope.lastRepayDay);
             //待收利息
-            $scope.profit = newVal * $scope.remainDay * $scope.originalAnnual / 36500;
+            $scope.profit = newVal * $scope.remainDay * $scope.originalAnnual / 36500 + reward;
           }
         }
         ProjectService.originProjectBills.get({
@@ -61,14 +62,15 @@ angular.module('hongcaiApp')
         },function(response) {
           if(response && response.ret !==-1) {
             $scope.projectBills = response;
-            $scope.bills = [];
+            $scope.latestProjectBill;
             for(var i= 0; i< response.length; i++) {
               if(response[i].status === 0) {
-                $scope.bills.push(response[i]);
+                $scope.latestProjectBill = response[i];
+                break;
               }
             }
-            $scope.lastRepayDay = $scope.bills[0].lastRepaymentTime;
-            $scope.repayDay = $scope.bills[0].repaymentTime;
+            $scope.lastRepayDay = $scope.latestProjectBill.lastRepaymentTime;
+            $scope.repayDay = $scope.latestProjectBill.repaymentTime;
           }
         })
       }
