@@ -36,11 +36,11 @@
                             宏金盈
                           </a>
                         </div> -->
-                        <!-- <div class="col-xs-2" ng-show="creditIsShowedFLAG">
-                          <a ng-click="type=2;loadOrders();"  class="project-noncheck" ng-class="{'project-check': type === '2', 'project-noncheck': type !== '2'}">
+                        <div class="col-xs-2" ng-show="creditIsShowedFLAG">
+                          <a ng-click="type=2;loadOrders(1);"  class="project-noncheck" ng-class="{'project-check': type === '2', 'project-noncheck': type !== '2'}">
                             债权转让
                           </a>
-                        </div> -->
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -131,9 +131,9 @@
               <td>{{ item.orderAmount | number: 2 }}</td>
               <td>
                 <!-- <button ng-click="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button> -->
-                <a ui-sref="root.project-details({number: item.projectNumber})" title="{{item.projectName}}" class="invment-blue" ng-if="item.type !== 4">{{ item.projectName | limitTo: 15}}</a>
+                <a ui-sref="root.project-details({number: item.projectNumber})" title="{{item.projectName}}" class="invment-blue" ng-if="item.type !== 4"><span class="assignmentsZhuan" ng-if="item.type === 2">转</span>{{ item.projectName | limitTo: 15}}</a>
 
-                <a ui-sref="root.investmentplan-details({number: item.projectNumber})" class="invment-blue" ng-if="item.type === 4">{{ item.projectName}}
+                <a ui-sref="root.investmentplan-details({number: item.projectNumber})" class="invment-blue" ng-if="item.type === 4"><span class="assignmentsZhuan" ng-if="item.type === 2">转</span>{{ item.projectName}}
                 </a>
                 <br>
               </td>

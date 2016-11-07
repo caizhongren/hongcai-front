@@ -41,6 +41,10 @@ angular.module('hongcaiApp')
         'link': 'root.help-center.investors',
         'text': '投资介绍'
       }, {
+        'href': '/assignment_qr',
+        'link': 'root.help-center.assignment_qr',
+        'text': '债权转让'
+      }, {
         'href': '/account-management',
         'link': 'root.help-center.account-management',
         'text': '账户管理'
@@ -82,6 +86,22 @@ angular.module('hongcaiApp')
     $scope.changeInvestorsQ17 = false;
     $scope.changeInvestorsQ18 = false;
 
+    $scope.changeAssignment_qrQ1 = false;
+    $scope.changeAssignment_qrQ2 = false;
+    $scope.changeAssignment_qrQ3 = false;
+    $scope.changeAssignment_qrQ4 = false;
+    $scope.changeAssignment_qrQ5 = false;
+    $scope.changeAssignment_qrQ6 = false;
+    $scope.changeAssignment_qrQ7 = false;
+    $scope.changeAssignment_qrQ8 = false;
+    $scope.changeAssignment_qrQ9 = false;
+    $scope.changeAssignment_qrQ10 = false;
+    $scope.changeAssignment_qrQ11 = false;
+    $scope.changeAssignment_qrQ12 = false;
+    $scope.changeAssignment_qrQ13 = false;
+    $scope.changeAssignment_qrQ14 = false;
+    $scope.changeAssignment_qrQ15 = false;
+    $scope.changeAssignment_qrQ16 = false;
 
     $scope.changeAccountQ1 = false;
     $scope.changeAccountQ2 = false;

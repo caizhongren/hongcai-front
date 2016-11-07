@@ -1552,6 +1552,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.help-center.assignment_qr', {
+        url: '/assignment_qr',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/assignment_qr.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
       .state('root.help-center.account-management', {
         url: '/account-management',
         views: {
