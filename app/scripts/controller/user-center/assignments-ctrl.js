@@ -141,7 +141,8 @@ angular.module('hongcaiApp')
           page: page,
           pageSize: pageSize
         }, function(response){
-          if(response) {
+          if(response && response.ret !== -1) {
+            $scope.assignmenrOrders = response.data;
             $scope.page0 = response.index;
             $scope.pageSize0 = response.pageSize;
             $scope.totalPage0 = response.totalPage;
