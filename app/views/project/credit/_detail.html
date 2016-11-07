@@ -16,19 +16,19 @@
         </ul>
       </div>
       <ul ng-if="toggle.activeTab === 0">
-        <li ng-repeat="item in datas">
-          <p>成交时间</p><p>受让人</p><p>成交金额（元）</p>
+        <li ng-repeat="item in assignmentOrders.data">
+          <p>{{item.createTime | date:'yyyy-MM-dd'}}</p><p>{{item.userName || '某用户'}}</p><p>{{item.payAmount || 0 | number:2}}</p>
         </li>
       </ul>
       <ul class="pager margin-r-20"  ng-if="toggle.activeTab === 0">
-        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm " ng-disabled="currentPage0 === 1" ng-click="load(currentPage0 - 1)">上一页</button></li>
-        <div class="display-inb margin-l-0 height-30">&nbsp;&nbsp;{{currentPage0}} / {{pageCount0}} &nbsp;共 {{datas.length}} 条&nbsp;&nbsp;</div>
-        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm " ng-disabled="currentPage0 === pageCount0" ng-click="load(currentPage0 + 1)">下一页</button></li>
+        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" ng-disabled="assignmentOrders.index === 1" ng-click="load(assignmentOrders.index - 1)">上一页</button></li>
+        <div class="display-inb margin-l-0 height-30">&nbsp;&nbsp;{{assignmentOrders.index}} / {{assignmentOrders.totalPage}} &nbsp;共 {{assignmentOrders.total}} 条&nbsp;&nbsp;</div>
+        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" ng-disabled="assignmentOrders.index === assignmentOrders.totalPage" ng-click="load(assignmentOrders.index + 1)">下一页</button></li>
       </ul>
       <ul class="pager margin-r-20" ng-if="toggle.activeTab === 1">
-        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm " disabled="" ">上一页</button></li>
+        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" disabled="" ">上一页</button></li>
         <div class="display-inb margin-l-0 height-30">&nbsp;&nbsp;1/ 1 &nbsp;共 {{projectBills.length}} 条&nbsp;&nbsp;</div>
-        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm" disabled="disabled" ">下一页</button></li>
+        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" disabled="disabled" ">下一页</button></li>
       </ul>
     </div>
     <div class=" text-center">

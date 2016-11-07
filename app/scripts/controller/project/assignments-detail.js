@@ -60,6 +60,7 @@ angular.module('hongcaiApp')
 
           }
         }
+        //原项目还款记录
         ProjectService.originProjectBills.get({
           number: $scope.projectNum
         },function(response) {
@@ -84,18 +85,7 @@ angular.module('hongcaiApp')
             $scope.project = response.data.project;
             $scope.baseFileUrl = response.data.baseFileUrl;
           }
-        })
-
-
-
-
-
-
-
-
-
-
-
+        });
 
       }
     })
@@ -109,10 +99,13 @@ angular.module('hongcaiApp')
        pageSize: pageSize
       }, function(response) {
         if(response && response.ret != -1) {
+          $scope.assignmentOrders = response;
+          $scope.pageSize0 = response.pageSize;
+          // console.log($scope.assignmentOrders);
         }
       });
      };
-     $scope.getCreditAssignmentList(1,6);
+     $scope.getCreditAssignmentList(1,12);
 
   
 
@@ -207,63 +200,11 @@ angular.module('hongcaiApp')
       $scope.toggle.activeTab = tabIndex;
     };
 
+   
     
-
-    $scope.datas = [{
-      time: '2016-01-10',
-      anuual: '10',
-      amount: '10000'
-    }, {
-      time: '2016-01-11',
-      anuual: '11',
-      amount: '10000'
-    },  {
-      time: '2016-01-12',
-      anuual: '13',
-      amount: '10000'
-    }, {
-      time: '2016-01-13',
-      anuual: '14',
-      amount: '10000'
-    },  {
-      time: '2016-01-14',
-      anuual: '15',
-      amount: '10000'
-    },  {
-      time: '2016-01-15',
-      anuual: '16',
-      amount: '10000'
-    },  {
-      time: '2016-01-16',
-      anuual: '17',
-      amount: '10000'
-    }, {
-      time: '2016-01-17',
-      anuual: '10',
-      amount: '10000'
-    }, {
-      time: '2016-01-18',
-      anuual: '10',
-      amount: '10000'
-    },  {
-      time: '2016-01-19',
-      anuual: '10',
-      amount: '10000'
-    },  {
-      time: '2016-01-12',
-      anuual: '10',
-      amount: '10000'
-    }, {
-      time: '2016-01-12',
-      anuual: '10',
-      amount: '10000'
-    }];
-    $scope.currentPage0 = 1;
-    $scope.pageSize0 = 7; 
-    $scope.pageCount0 = Math.ceil($scope.datas.length/$scope.pageSize0);
     $scope.load = function(page) {
-      if(page != $scope.currentPage0) {
-        $scope.currentPage0 = page;
+      if(page !== $scope.assignmentOrders.index) {
+        $scope.assignmentOrders.index = page;
       }
 
       $scope.getCreditAssignmentList(page, $scope.pageSize0);
