@@ -1507,6 +1507,14 @@ hongcaiApp
           }
         }
       })
+      .state('root.assignment-agreement', {
+        url: '/assignment-agreement',
+        views: {
+          '': {
+            templateUrl: 'views/agreement/assignment-agreement.html'
+          }
+        }
+      })
       /*----------  help-center  -------------------*/
       .state('root.about-us.link-us', {
         url: '/link-us',
