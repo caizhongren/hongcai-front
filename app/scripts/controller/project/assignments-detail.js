@@ -75,7 +75,28 @@ angular.module('hongcaiApp')
             $scope.lastRepayDay = $scope.latestProjectBill.lastRepaymentTime;
             $scope.repayDay = $scope.latestProjectBill.repaymentTime;
           }
+        });
+        //查询原项目信息
+        ProjectService.projectDetails.get({
+          number: $scope.projectNum
+        }, function(response) {
+          if(response && response.ret !== -1) {
+            $scope.project = response.data.project;
+            $scope.baseFileUrl = response.data.baseFileUrl;
+          }
         })
+
+
+
+
+
+
+
+
+
+
+
+
       }
     })
     /**
