@@ -15,15 +15,15 @@
               <hr>
             </div>
             <div class="table-list padding-l-45 padding-r-45">
-              <ul ng-if="datas.length >0">
+              <ul ng-if="assignmenrOrders.length > 0">
                 <li class="margin-t-15 margin-b-15">
                   <p class="ft-13 display-inb">受让人</p><p class="ft-13 display-inb">转让本金（元）</p><p class="ft-13 display-inb">转让价格（元）</p><p class="ft-13 display-inb">转让时间</p>
                 </li>
-                <li ng-repeat="item in datas">
-                  <p class="ft-13 display-inb">用户</p><p class="ft-13 display-inb">{{item.amount || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.transferedIncome || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.createTime || newDate() | date : 'yyyy-MM-dd hh:mm:ss'}}</p>
+                <li ng-repeat="item in assignmenrOrders">
+                  <p class="ft-13 display-inb">{{item.userName || '某用户'}}</p><p class="ft-13 display-inb">{{item.orderAmount || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.payAmount || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.createTime || newDate() | date : 'yyyy-MM-dd hh:mm:ss'}}</p>
                 </li>
               </ul>
-              <div ng-if="datas.length <= 0">
+              <div ng-if="assignmenrOrders.length <= 0">
                 <img src="/images/user-center/no-cash.png" class="margin-auto display-bl margin-t-100" width="10%">
                 <p class="margin-t-20 text-center">暂时还未有人认购呢~</p>
               </div>
