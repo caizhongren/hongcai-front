@@ -1654,7 +1654,7 @@ hongcaiApp
           '': {
             templateUrl: 'views/project/assignments-detail.html',
             controller: 'AssignmentDetailCtrl',
-            controllerUrl: 'scripts/controller/project/assignments-detail-ctrl'
+            controllerUrl: 'scripts/controller/assignment/assignment-detail-ctrl'
           }
         }
       })

@@ -65,6 +65,14 @@ angular.module('hongcaiApp')
           number: $scope.projectNum
         },function(response) {
           if(response && response.ret !==-1) {
+            // $scope.projectBills = response;
+            // for(var i = 0; i<response.length; i++) {
+            //   if(response[i].status === 0) {
+            //     $scope.projectBills = [];
+            //     $scope.projectBills.push(response[i]);
+            //   }
+            // }
+            // console.log($scope.projectBills);
             $scope.projectBills = response;
             $scope.latestProjectBill;
             for(var i= 0; i< response.length; i++) {
@@ -134,14 +142,14 @@ angular.module('hongcaiApp')
             $window.open('/#!/user-order-transfer/' + response.projectId + '/' + response.id + '/' + response.type + '?orderNumber=' + response.number, '_blank');
           } else {
             toaster.pop('error', response.msg);
-              
-              // $modal({
-              //    scope: $scope,
-              //    template: 'views/modal/alert-unfinishedOrder.html',
-              //    show: true
-              //  });
-            
           }
+          // if(response.code == -1037) {
+          //      $modal({
+          //      scope: $scope,
+          //      template: 'views/modal/alert-unfinishedOrder.html',
+          //      show: true
+          //    });
+          // } 
         }
       });
     };
