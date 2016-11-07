@@ -103,7 +103,7 @@
                 <td>{{item.createTime | date:'yyyy-MM-dd'}}</td>
                 <td>{{item.amount || 0 | number: 2}}</td>
                 <td>{{item.annualEarnings || 0 | number: 2}}</td>
-                <td>{{item.soldStock || 0 | number: 2}}</td>
+                <td>{{item.soldStock * 100 || 0 | number: 2}}</td>
                 <td>{{item.transferedIncome || 0 | number: 2}}</td>
                 <td>
                   <a type="button" class="ft-blue0 margin-r-5 cursor-pointer" ng-click="cancelCreditAssignment(item)">撤销</a>
@@ -143,7 +143,7 @@
                 <td><a class="invment-blue cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)">{{item.name}}</a></td>
                 <td>{{item.amount || 0 | number: 2}}</td>
                 <td>{{item.annualEarnings || 0 | number: 2}}</td>
-                <td>{{item.soldStock || 0 | number: 2}}</td>
+                <td>{{item.soldStock * 100 || 0 | number: 2}}</td>
                 <td>{{item.transferedIncome || 0 | number: 2}}</td>
                 <td class="ft-blue0 cursor-pointer" ng-click="getAssignmentDetail(item, 1, 7)">详情</td>
               </tr>
