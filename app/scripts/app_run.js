@@ -88,7 +88,8 @@ angular.module('hongcaiApp')
     var notShowHeaderRoute = [
       'novice-guide',
       'login',
-      'register'
+      'register',
+      'dual-eleven-activities'
     ];
 
 
@@ -253,7 +254,7 @@ angular.module('hongcaiApp')
 
 
       $rootScope.showHeader = true;
-      if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1) {
+      if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1 || notShowHeaderRoute.indexOf($location.path().split('/')[2]) !== -1) {
         $rootScope.showHeader = false;
       }
     });
