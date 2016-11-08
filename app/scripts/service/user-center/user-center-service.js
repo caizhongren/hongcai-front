@@ -262,6 +262,10 @@ angular.module('hongcaiApp')
       //债权管理-(可、中、已)转让列表获取原项目number
       getPreprPojectNumber: $resource(RESTFUL_DOMAIN + '/projects/:projectId/detail',{
         projectId: '@projectId'
+      }),
+      //个人中心我的投资-债权详情
+      getProjectBills: $resource(RESTFUL_DOMAIN + '/creditRights/:number/projectBills', {
+        number: '@number'
       })
     };
   });
