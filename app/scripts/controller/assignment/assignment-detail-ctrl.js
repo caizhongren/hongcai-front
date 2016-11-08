@@ -161,15 +161,6 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.toRealNameAuth = function() {
-      if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
-        $modal({
-          scope: $scope,
-          template: 'views/modal/modal-toRealNameAuth.html',
-          show: true
-        });
-      }
-    };
 
     $scope.toRecharge = function() {
       $modal({
@@ -182,9 +173,9 @@ angular.module('hongcaiApp')
 
 
     $scope.tabs = [{
-      title: '投资记录',
-    }, {
       title: '还款计划',
+    }, {
+      title: '投资记录',
     }];
 
 
