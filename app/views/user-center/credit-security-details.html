@@ -47,7 +47,7 @@
               </div>
             </div>
           </li>
-          <li>
+          <li ng-if="creditRight.type !== 6">
             <div class="timeline-badge success"><i class="fa fa-rocket ft-orange buchong1"></i>
             </div>
             <div class="timeline-panel">
@@ -74,39 +74,17 @@
               </div>
             </div>
           </li>
-          <li class="timeline-inverted" ng-repeat="item in projectBills">
+          <li class="timeline-inverted" ng-repeat="item in creditRightBill">
             <div class="timeline-badge success"><i class="fa fa-tree ft-orange buchong1"></i>
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
-                <h4 class="timeline-title border-b padding-b-15">项目回款<small class="pull-right">{{ item.repaymentTime | date:'yyyy-MM-dd'}}</small></h4>
+                <h4 class="timeline-title border-b padding-b-15" ng-if="item.creditAssignmentId <= 0 && item.status == 1">项目回款<small class="pull-right">{{ item.createTime | date:'yyyy-MM-dd'}}</small></h4>
+                <h4 class="timeline-title border-b padding-b-15" ng-if="item.creditAssignmentId <= 0 && item.status == 0">回款计划<small class="pull-right">{{ item.createTime | date:'yyyy-MM-dd'}}</small></h4>
+                <h4 class="timeline-title border-b padding-b-15" ng-if="item.creditAssignmentId > 0">债权转让<small class="pull-right">{{ item.createTime | date:'yyyy-MM-dd'}}</small></h4>
               </div>
               <div class="timeline-body">
-                <p><span ng-show="item.principal > 0">本金<strong>{{ item.remainPrincipal | number: 2 }}</strong>元&nbsp; + &nbsp;</span>利息 <span ng-show="increaseRateCoupon.value">(</span> <strong>{{ item.profit | number: 2 }}</strong>元 <span class="ft-red7" ng-show="increaseRateCoupon.value">+ <strong>{{(oriRate + increaseRateCoupon.value) * item.profit/oriRate - item.profit | number:2 }}</strong>元<span class="ft-black"> )</span></span></p>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-inverted" ng-repeat="card in listInvPond">
-            <div class="timeline-badge"><i class="fa fa-list-ol ft-orange buchong2"></i>
-            </div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4 class="timeline-title">回款计划<small class="pull-right">{{ card.payDate }}</small></h4>
-              </div>
-              <div class="timeline-body">
-                <p>待回款：<span ng-show="card.principal > 0">本金 <strong>{{ card.principal }}</strong>&nbsp; + &nbsp;</span>利息 <span ng-show="increaseRateCoupon.value">( </span><strong>{{ card.invEarnings | number: 2 }}</strong>元<span ng-show="increaseRateCoupon.value" class="ft-red7"> + <strong>{{(oriRate + increaseRateCoupon.value ) * card.profit / oriRate - card.profit| number:2 }}</strong>元<span class="ft-black"> )</span></span></p>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-inverted">
-            <div class="timeline-badge"><i class="fa fa-list-ol ft-orange buchong2"></i>
-            </div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4 class="timeline-title">债权转让<small class="pull-right">2016-11-03</small></h4>
-              </div>
-              <div class="timeline-body">
-                <p><span >本金 <strong>10000.00</strong>&nbsp; + &nbsp;</span>利息<strong>321.00</strong>元</p>
+                <p><span ng-show="item.principal > 0">本金<strong>{{ item.principal || 0 | number: 2 }}</strong>元&nbsp; + &nbsp;</span>利息 <span ng-show="increaseRateCoupon.value">(</span> <strong>{{ item.profit || 0 | number: 2 }}</strong>元 <span class="ft-red7" ng-show="increaseRateCoupon.value">+ <strong>{{(oriRate + increaseRateCoupon.value) * item.profit/oriRate - item.profit | number:2 || 0}}</strong>元<span class="ft-black"> )</span></span></p>
               </div>
             </div>
           </li>
