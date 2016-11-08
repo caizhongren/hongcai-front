@@ -6,7 +6,7 @@
     </ul>
     <div class="detail-list">
       <div class="tab-pane" ng-class="{active: toggle.activeTab===$index}"> 
-        <ul ng-if="toggle.activeTab === 1"> 
+        <ul ng-if="toggle.activeTab === 0"> 
           <li>
             <p>预期还款日期</p><p>类型</p><p>金额</p>
           </li>
@@ -15,7 +15,7 @@
           </li>
         </ul>
       </div>
-      <ul ng-if="toggle.activeTab === 0">
+      <ul ng-if="toggle.activeTab === 1 && assignmentOrders.data.length > 0">
         <li>
           <p>成交时间</p><p>受让人</p><p>受让金额（元）</p>
         </li>
@@ -23,12 +23,18 @@
           <p>{{item.createTime | date:'yyyy-MM-dd'}}</p><p>{{item.userName || '某用户'}}</p><p>{{item.payAmount || 0 | number:2}}</p>
         </li>
       </ul>
-      <ul class="pager margin-r-20"  ng-if="toggle.activeTab === 0">
+      <ul ng-if="toggle.activeTab === 1 && assignmentOrders.data.length === 0">
+        <li>
+          <p>成交时间</p><p>受让人</p><p>受让金额（元）</p>
+        </li>
+        <p class="margin-t-70 margin-b-80 spangray margin-t-30 text-center">优质债权，抓紧时间投资吧~</p>
+      </ul>
+      <ul class="pager margin-r-20"  ng-if="toggle.activeTab === 1">
         <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" ng-disabled="assignmentOrders.index === 1" ng-click="load(assignmentOrders.index - 1)">上一页</button></li>
         <div class="display-inb margin-l-0 height-30">&nbsp;&nbsp;{{assignmentOrders.index}} / {{assignmentOrders.totalPage}} &nbsp;共 {{assignmentOrders.total}} 条&nbsp;&nbsp;</div>
         <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" ng-disabled="assignmentOrders.index === assignmentOrders.totalPage" ng-click="load(assignmentOrders.index + 1)">下一页</button></li>
       </ul>
-      <ul class="pager margin-r-20" ng-if="toggle.activeTab === 1">
+      <ul class="pager margin-r-20" ng-if="toggle.activeTab === 0">
         <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" disabled="" ">上一页</button></li>
         <div class="display-inb margin-l-0 height-30">&nbsp;&nbsp;1/ 1 &nbsp;共 {{projectBills.length}} 条&nbsp;&nbsp;</div>
         <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" disabled="disabled" ">下一页</button></li>

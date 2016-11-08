@@ -194,6 +194,7 @@
               <div class="margin-t-20">
               <!-- 可转让，认证过|| 可转让，未认证点击torealnameauth || 转让中，已认证，余额充值，有未支付订单点击提示有未支付订单-->
                 <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="toInvest(amount);" ng-if="(creditProject.status === 1 && securityStatus.realNameAuthStatus === 1 && account.balance >= 100)" disabled ng-disabled="!amount || errMsg || anount<= 0 "></i>立即认购</button>
+                <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="toRealNameAuth();" ng-if="(creditProject.status === 1 && securityStatus.realNameAuthStatus !== 1)" ></i>立即认购</button>
                 <!-- 有未完成的订单时展示 -->
                 
                 <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" disabled ng-if="creditProject.status === 5"><i class="fa fa-lg project-leftmargin"></i>冻结中</button>

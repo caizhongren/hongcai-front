@@ -264,8 +264,12 @@ angular.module('hongcaiApp')
         projectId: '@projectId'
       }),
       //个人中心我的投资-债权详情
-      getProjectBills: $resource(RESTFUL_DOMAIN + '/creditRights/:number/projectBills', {
-        number: '@number'
+      getCreditRightBills: $resource(RESTFUL_DOMAIN + '/creditRights/:number/creditRightBills', {number: '@number'},
+       {
+        'get': {
+          method: 'GET',
+          isArray: true  
+        }
       })
     };
   });

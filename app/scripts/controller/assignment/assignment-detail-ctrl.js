@@ -54,7 +54,6 @@ angular.module('hongcaiApp')
             $scope.exProfit = newVal*$scope.originalAnnual*lastPayDays/365000;
             //实际支付金额
             $scope.realPayAmount = newVal + $scope.exProfit - reward;
-            // console.log($scope.lastRepayDay);
             //待收利息
             $scope.profit = newVal * $scope.remainDay * $scope.originalAnnual / 36500 + reward;
 
@@ -65,14 +64,6 @@ angular.module('hongcaiApp')
           number: $scope.projectNum
         },function(response) {
           if(response && response.ret !==-1) {
-            // $scope.projectBills = response;
-            // for(var i = 0; i<response.length; i++) {
-            //   if(response[i].status === 0) {
-            //     $scope.projectBills = [];
-            //     $scope.projectBills.push(response[i]);
-            //   }
-            // }
-            // console.log($scope.projectBills);
             $scope.projectBills = response;
             $scope.latestProjectBill;
             for(var i= 0; i< response.length; i++) {
@@ -140,16 +131,15 @@ angular.module('hongcaiApp')
             });
 
             $window.open('/#!/user-order-transfer/' + response.projectId + '/' + response.id + '/' + response.type + '?orderNumber=' + response.number, '_blank');
+          }else if(response.code == -1037) {
+               $modal({
+               scope: $scope,
+               template: 'views/modal/alert-unfinishedOrder.html',
+               show: true
+             });
           } else {
             toaster.pop('error', response.msg);
           }
-          // if(response.code == -1037) {
-          //      $modal({
-          //      scope: $scope,
-          //      template: 'views/modal/alert-unfinishedOrder.html',
-          //      show: true
-          //    });
-          // } 
         }
       });
     };
@@ -171,15 +161,6 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.toRealNameAuth = function() {
-      if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
-        $modal({
-          scope: $scope,
-          template: 'views/modal/modal-toRealNameAuth.html',
-          show: true
-        });
-      }
-    };
 
     $scope.toRecharge = function() {
       $modal({
@@ -190,16 +171,11 @@ angular.module('hongcaiApp')
     };
 
 
-    $scope.toAllCreditInvest = function() {
-      $scope.subscribeAmount = $scope.userCanCreditInvestNum;
-    }
-
-
 
     $scope.tabs = [{
-      title: '投资记录',
-    }, {
       title: '还款计划',
+    }, {
+      title: '投资记录',
     }];
 
 
