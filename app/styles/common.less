@@ -3235,19 +3235,24 @@ a.cancel-red:focus {
 }
 //认购页投资模块弹窗
 #explain{
-   width:332px;
+   width:324px;
    height:43px;
    font-size: 12px;
    padding: 5px;
-   border:1px solid #E8A79A;   
+   border:1px solid #E8A79A; 
+   position: absolute;
+   background-color: #fff;
+   left: 0;
+   bottom: 92px;  
+   display: none;
 }
 #explain:before{
   content: "";
   display: block;
   border-width: 6px;
   position: absolute;
-  top: 70px;
-  right: 174px;
+  top: -13px;
+  right: 168px;
   border-style: solid dashed dashed;
   border-color: transparent transparent #E8A79A;
   font-size: 0;
@@ -3258,10 +3263,10 @@ a.cancel-red:focus {
   display: block;
   border-width: 5px;
   position: absolute;
-  top: 72px;
-  right: 175px;
+  top: -10px;
+  right: 169px;
   border-style: solid dashed dashed;
-  border-color: transparent transparent #FDE4DF;
+  border-color: transparent transparent #fff;
   font-size: 0;
   line-height: 0;
 }

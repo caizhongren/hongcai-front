@@ -46,9 +46,8 @@ angular.module('hongcaiApp')
               $scope.errMsg = '投资金额必须小于' + $scope.creditProject.currentStock *100;
             }
             //上次还款到认购当日的天数
-            var lastPayDays = Math.floor(Math.abs((new Date().getTime()  - $scope.lastRepayDay)/1000/60/60/24)) * 
+            var lastPayDays = Math.ceil(Math.abs((new Date().getTime()  - $scope.lastRepayDay)/1000/60/60/24)) * 
             (new Date().getTime() > $scope.lastRepayDay ? 1 : -1); 
-
             var reward = ($scope.annual - $scope.originalAnnual)*newVal*$scope.remainDay/36500;
             //  代收未收利息
             $scope.exProfit = newVal*$scope.originalAnnual*lastPayDays/365000;
@@ -163,6 +162,10 @@ angular.module('hongcaiApp')
 
 
     $scope.toRecharge = function() {
+      if($rootScope.securityStatus.realNameAuthStatus !== 1) {
+        $rootScope.toRealNameAuth();
+        return;
+      }
       $modal({
         scope: $scope,
         template: 'views/modal/modal-toRecharge.html',

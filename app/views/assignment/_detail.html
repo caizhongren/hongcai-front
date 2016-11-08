@@ -15,7 +15,7 @@
           </li>
         </ul>
       </div>
-      <ul ng-if="toggle.activeTab === 1 && assignmentOrders.data.length > 0">
+      <ul ng-if="toggle.activeTab === 1 && isLogged && assignmentOrders.data.length > 0">
         <li>
           <p>成交时间</p><p>受让人</p><p>受让金额（元）</p>
         </li>
@@ -23,25 +23,32 @@
           <p>{{item.createTime | date:'yyyy-MM-dd'}}</p><p>{{item.userName || '某用户'}}</p><p>{{item.payAmount || 0 | number:2}}</p>
         </li>
       </ul>
-      <ul ng-if="toggle.activeTab === 1 && assignmentOrders.data.length === 0">
+      <ul ng-if="toggle.activeTab === 1 && isLogged && assignmentOrders.data.length === 0">
         <li>
           <p>成交时间</p><p>受让人</p><p>受让金额（元）</p>
         </li>
         <p class="margin-t-70 margin-b-80 spangray margin-t-30 text-center">优质债权，抓紧时间投资吧~</p>
       </ul>
+      <ul ng-if="toggle.activeTab === 1 && !isLogged">
+        <li>
+          <p>成交时间</p><p>受让人</p><p>受让金额（元）</p>
+        </li>
+        <p class="margin-t-70 margin-b-80 spangray margin-t-30 text-center">请<a ng-click="tologin()" class="ft-red">登录</a>后查看信息~</p>
+      </ul>
       <ul class="pager margin-r-20"  ng-if="toggle.activeTab === 1">
         <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" ng-disabled="assignmentOrders.index === 1" ng-click="load(assignmentOrders.index - 1)">上一页</button></li>
-        <div class="display-inb margin-l-0 height-30">&nbsp;&nbsp;{{assignmentOrders.index}} / {{assignmentOrders.totalPage}} &nbsp;共 {{assignmentOrders.total}} 条&nbsp;&nbsp;</div>
-        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" ng-disabled="assignmentOrders.index === assignmentOrders.totalPage" ng-click="load(assignmentOrders.index + 1)">下一页</button></li>
+        <div class="display-inb margin-l-0 height-30 spangray" ng-if="isLogged">&nbsp;&nbsp;{{assignmentOrders.index}} / {{assignmentOrders.totalPage}} &nbsp;共 {{assignmentOrders.total}} 条&nbsp;&nbsp;</div>
+        <div class="display-inb margin-l-0 height-30 spangray" ng-if="!isLogged">&nbsp;&nbsp;1 / 0 &nbsp;共 0 条&nbsp;&nbsp;</div>
+        <li class="display-inb margin-l-0 border-b-none"><button class="btn btn-default btn-sm ft-black2" ng-disabled="assignmentOrders.index === assignmentOrders.totalPage || assignmentOrders.totalPage === 0" ng-click="load(assignmentOrders.index + 1)">下一页</button></li>
       </ul>
       <ul class="pager margin-r-20" ng-if="toggle.activeTab === 0">
         <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" disabled="" ">上一页</button></li>
-        <div class="display-inb margin-l-0 height-30">&nbsp;&nbsp;1/ 1 &nbsp;共 {{projectBills.length}} 条&nbsp;&nbsp;</div>
-        <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" disabled="disabled" ">下一页</button></li>
+        <div class="display-inb margin-l-0 height-30 spangray">&nbsp;&nbsp;1 / 1 &nbsp;共 {{projectBills.length}} 条&nbsp;&nbsp;</div>
+        <li class="display-inb margin-l-0 border-b-none"><button class="btn btn-default btn-sm ft-black2" disabled="disabled" ">下一页</button></li>
       </ul>
     </div>
     <div class=" text-center">
-      <p class="ft-12" >认购即表示您已阅读并同意 <a ui-sref="root.assignment-agreement" href="/assignment-agreement" target="_blank" class="ft-blue0">《债权认购协议》</a> </p>
+      <p class="ft-12 spangray" >认购即表示您已阅读并同意 <a ui-sref="root.assignment-agreement" href="/assignment-agreement" target="_blank" class="ft-blue0">《债权认购协议》</a> </p>
     </div>
   </div>
 </div>
