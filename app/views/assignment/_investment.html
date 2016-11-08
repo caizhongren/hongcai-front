@@ -136,11 +136,6 @@
         <div class="row">
           <div class="col-xs-12 negative-margin">
           </div>
-          <div class="col-xs-12 positive-margin" ng-show="project.status === 11">
-            <span class="ft-14 ft-grey666">预约截止日：</span><span class="ft-orange ft-16">{{ project.reserveEndTime | amDateFormat: 'YYYY/MM/DD HH:mm'}}</span>
-          </div>
-        </div>
-        <div class="col-xs-12 padding-0 positive-margin" >
         </div>
 
         <!-- 未登录状态下 -->
@@ -182,12 +177,12 @@
               <div class="margin-t-10" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock === 0)">
                 <span class="ft-grey666">实际支付：</span>
                 <span class="ft-orange ft-16">{{realPayAmount || 0 | number:2}}</span> 元
-                <i class="fa fa-question-circle ft-orange ft-16 margin-l-10" aria-hidden="true" ng-mouseenter = "showTip = true" ng-mouseout ="showTip = false"></i>
-                <div class="ft-grey666" id="explain" ng-show="showTip">
+                <i class="fa fa-question-circle ft-orange ft-16 margin-l-10" aria-hidden="true" toggle-fade></i>
+                <div class="ft-grey666" id="explain">
                 您需先行垫付投资人该笔债权当期已产生利息{{exProfit || 0 | number:2}}元，该部分资金会在下个还款日归还给您。
               </div>
               </div>
-              <div class="margin-t-20" ng-class="{'margin-t-20': showTip == false, 'margin-t-5': showTip == false}" ng-hide="creditProject.status === 4 || (creditProject.status === 4 && creditProject.soldStock === 0)">
+              <div class="margin-t-20">
                 <span class="ft-grey666">预期收益：</span>
                 <span class="ft-orange ft-16">{{profit || 0 | number:2}}</span> 元
               </div>
