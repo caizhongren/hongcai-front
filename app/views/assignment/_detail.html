@@ -30,6 +30,9 @@
         <p class="margin-t-70 margin-b-80 spangray margin-t-30 text-center">优质债权，抓紧时间投资吧~</p>
       </ul>
       <ul ng-if="toggle.activeTab === 1 && !isLogged">
+        <li>
+          <p>成交时间</p><p>受让人</p><p>受让金额（元）</p>
+        </li>
         <p class="margin-t-70 margin-b-80 spangray margin-t-30 text-center">请<a ng-click="tologin()" class="ft-red">登录</a>后查看信息~</p>
       </ul>
       <ul class="pager margin-r-20"  ng-if="toggle.activeTab === 1">
@@ -40,7 +43,7 @@
       </ul>
       <ul class="pager margin-r-20" ng-if="toggle.activeTab === 0">
         <li class="display-inb margin-l-0"><button class="btn btn-default btn-sm ft-black2" disabled="" ">上一页</button></li>
-        <div class="display-inb margin-l-0 height-30 spangray">&nbsp;&nbsp;1/ 1 &nbsp;共 {{projectBills.length}} 条&nbsp;&nbsp;</div>
+        <div class="display-inb margin-l-0 height-30 spangray">&nbsp;&nbsp;1 / 1 &nbsp;共 {{projectBills.length}} 条&nbsp;&nbsp;</div>
         <li class="display-inb margin-l-0 border-b-none"><button class="btn btn-default btn-sm ft-black2" disabled="disabled" ">下一页</button></li>
       </ul>
     </div>
