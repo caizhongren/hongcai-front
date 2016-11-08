@@ -163,7 +163,7 @@ angular.module('hongcaiApp')
 
 
     $scope.toRecharge = function() {
-      if(!$rootScope.securityStatus.realNameAuthStatus !== 1) {
+      if($rootScope.securityStatus.realNameAuthStatus !== 1) {
         $rootScope.toRealNameAuth();
         return;
       }
