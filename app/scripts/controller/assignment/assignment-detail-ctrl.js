@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('AssignmentDetailCtrl', function($scope, $state, $rootScope, $location, $stateParams, $window, CreditService, OrderService, $modal, $alert, toaster, $timeout, ipCookie, MainService, ProjectService, RESTFUL_DOMAIN) {
+  .controller('AssignmentDetailCtrl', function($scope, $state, $rootScope, $location, $stateParams, $window, CreditService, OrderService, $modal, $alert, toaster, $timeout, DateUtils, MainService, ProjectService, RESTFUL_DOMAIN) {
     var number = $stateParams.number;
 
    
@@ -45,16 +45,20 @@ angular.module('hongcaiApp')
             if(newVal > $scope.creditProject.currentStock *100) {
               $scope.errMsg = '投资金额必须小于' + $scope.creditProject.currentStock *100;
             }
+
+
+            var realRemainDays = DateUtils.intervalDays($scope.project.repaymentDate, $scope.lastRepayDay);
+
             //上次还款到认购当日的天数
-            var lastPayDays = Math.floor(Math.abs((new Date().getTime()  - $scope.lastRepayDay)/1000/60/60/24)) * 
-            (new Date().getTime() > $scope.lastRepayDay ? 1 : -1); 
-            var reward = ($scope.annual - $scope.originalAnnual)*newVal*$scope.remainDay/36500;
+            var lastPayDays = DateUtils.intervalDays(new Date().getTime(), $scope.lastRepayDay) * (new Date().getTime() > $scope.lastRepayDay ? 1 : -1); 
+              
+            var reward = ($scope.annual - $scope.originalAnnual)*newVal*realRemainDays/36500;
             //  代收未收利息
-            $scope.exProfit = newVal*$scope.originalAnnual*lastPayDays/365000;
+            $scope.exProfit = newVal*$scope.originalAnnual*lastPayDays/36500;
             //实际支付金额
             $scope.realPayAmount = newVal + $scope.exProfit - reward;
             //待收利息
-            $scope.profit = newVal * $scope.remainDay * $scope.originalAnnual / 36500 + reward;
+            $scope.profit = newVal * realRemainDays * $scope.originalAnnual / 36500 + reward;
 
           }
         }
