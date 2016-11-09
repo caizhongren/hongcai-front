@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('assignmentsTransferCtrl',function ($location, $rootScope, $scope, $stateParams, UserCenterService, toaster, $state) {
+  .controller('assignmentsTransferCtrl',function (DateUtils, $location, $rootScope, $scope, $stateParams, UserCenterService, toaster, $state) {
     $rootScope.selectPage_two = $location.path().split('/')[2].split('-')[0];
     var creditRightNumber = $stateParams.number;
     
@@ -36,19 +36,19 @@ angular.module('hongcaiApp')
         //原标利率
         $scope.creditBaseRate = response.creditRight.baseRate;
         $scope.transferPercent = $scope.creditBaseRate;
-        //creatTime(ms)
-        $scope.createTime = response.creditRight.createTime;
         //当前时间
         $scope.currentDate = new Date().getTime();
+        //上一次回款时间
+        var lastRepaymentTime = response.projectBill.lastRepaymentTime;
 
         //剩余期限
-        $scope.remainDay = Math.ceil(Math.abs((response.project.repaymentDate - $scope.currentDate)) / (1000*60*60*24));
+        $scope.remainDay = DateUtils.intervalDays(response.project.repaymentDate, lastRepaymentTime);
 
         //利率最大值
         $scope.profitMax = 36500 * (1 - $scope.maxReceivedPaymentsRate) / $scope.remainDay + $scope.creditBaseRate;
 
         //应收利息天数
-        $scope.profitDate = ($scope.currentDate - response.projectBill.lastRepaymentTime) / (1000*60*60*24);
+        $scope.profitDate = DateUtils.intervalDays($scope.currentDate, lastRepaymentTime) * ($scope.currentDate > lastRepaymentTime ? 1 : -1);
         
 
         //利差年化收益 = 认购金额 * 剩余期限 * 利率差/36500
@@ -111,6 +111,7 @@ angular.module('hongcaiApp')
       }
       //待收未收利息
       $scope.profit = $scope.creditBaseRate * newVal * $scope.profitDate /36500;
+
     });
 
     //监测转让利率
