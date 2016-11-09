@@ -135,7 +135,7 @@ angular.module('hongcaiApp')
       $scope.amount = item.amount;
       $scope.annual = item.annualEarnings;
       $scope.soldStock = item.soldStock;
-      $scope.transIncome = item.ransferedIncome;
+      $scope.transIncome = item.transferedIncome;
         ProjectService.getAssignmentOrders.get({
           number: item.number,
           page: page,
