@@ -1790,6 +1790,16 @@ hongcaiApp
         }
       }
     })
+
+    /*-------------- 双十一活动脱单party落地页 -----------------------*/
+    .state('root.activity.dual-eleven-activities', {
+      url: '/dual-eleven-activities',
+      views: {
+        '': {
+          templateUrl: 'views/activity/dual-eleven-activities.html'
+        }
+      }
+    })
     /**
      * 父亲节活动页
      */

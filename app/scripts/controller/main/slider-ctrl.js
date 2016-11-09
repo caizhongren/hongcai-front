@@ -7,6 +7,11 @@ angular.module('hongcaiApp')
 
     $scope.media = [{
       mimeType: 'image/png',
+      src: 'images/banner-new/banner02.jpg',
+      href: '/#!/activity/dual-eleven-activities',
+      name: '双11活动 脱单party'
+    },{
+      mimeType: 'image/png',
       src: 'images/banner-new/cgt-banner.jpg',
       href: '/#!/activate',
       name: '宣传存管通落地页'
