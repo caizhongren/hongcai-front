@@ -26,7 +26,7 @@ angular.module('hongcaiApp')
     }, function(response) {
       if (response && response.ret !== -1) {
         //现金券判断
-        $scope.cashCoupon = $scope.recycleReward && response.creditRight.coupon && response.creditRight.coupon.type ===2 ? response.creditRight.coupon.value : 0;
+        $scope.cashCoupon = $scope.recycleReward && response.increaseRateCoupon && response.increaseRateCoupon.type ===2 ? response.increaseRateCoupon.value : 0;
         $scope.creditRight = response.creditRight;
         //原有债权金额
         $scope.creditRightAmount = response.creditRight.transferableAmount;
