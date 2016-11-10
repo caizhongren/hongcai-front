@@ -178,9 +178,12 @@
                 <span class="ft-grey666">实际支付：</span>
                 <span class="ft-orange ft-16">{{amount ? realPayAmount : 0 | number:2}}</span> 元
                 <i class="fa fa-question-circle ft-orange ft-16 margin-l-10" aria-hidden="true" toggle-fade></i>
-                <div class="ft-grey666" id="explain">
+                <div class="ft-grey666 explain1" ng-if="exProfit > 0">
                 您需先行垫付投资人该笔债权当期已产生利息{{amount ? exProfit : 0 | number:2}}元，该部分资金会在下个还款日归还给您。
-              </div>
+                </div>
+                <div class="ft-grey666 text-center explain2 explain1"  ng-if="exProfit < 0">
+                该笔债权当期已产生利息{{amount ? -exProfit : 0 | number:2}}元。
+                </div>
               </div>
               <div class="margin-t-20" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
                 <span class="ft-grey666">预期收益：</span>
