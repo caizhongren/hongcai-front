@@ -43,7 +43,7 @@
                 <h4 class="timeline-title border-b padding-b-15">债权认购<small class="pull-right">{{ creditRight.createTime | date:'yyyy-MM-dd'}}</small></h4>
               </div>
               <div class="timeline-body">
-                <p><strong>{{ creditRight.amount - creditRight.transferedAmount | number: 2 || 0}}</strong>元</p>
+                <p><strong>{{ creditRight.amount | number: 2 || 0}}</strong>元</p>
               </div>
             </div>
           </li>
@@ -55,7 +55,7 @@
                 <h4 class="timeline-title border-b padding-b-15">项目投标<small class="pull-right">{{ creditRight.createTime | date:'yyyy-MM-dd'}}</small></h4>
               </div>
               <div class="timeline-body">
-                <p><strong>{{ creditRight.amount - creditRight.transferedAmount || 0 | number: 2 }}</strong>元</p>
+                <p><strong>{{ creditRight.amount || 0 | number: 2 }}</strong>元</p>
               </div>
             </div>
           </li>
@@ -70,7 +70,7 @@
                 </h4>
               </div>
               <div class="timeline-body">
-                <p><strong>{{ creditRight.amount - creditRight.transferedAmount | number: 2 }}</strong>元</p>
+                <p><strong>{{ creditRight.amount | number: 2 }}</strong>元</p>
               </div>
             </div>
           </li>
