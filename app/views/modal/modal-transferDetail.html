@@ -20,7 +20,7 @@
                   <p class="ft-13 display-inb">受让人</p><p class="ft-13 display-inb">转让本金（元）</p><p class="ft-13 display-inb">转让价格（元）</p><p class="ft-13 display-inb">转让时间</p>
                 </li>
                 <li ng-repeat="item in assignmenrOrders">
-                  <p class="ft-13 display-inb">{{item.userName || '某用户'}}</p><p class="ft-13 display-inb">{{item.orderAmount || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.payAmount || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.createTime || newDate() | date : 'yyyy-MM-dd hh:mm:ss'}}</p>
+                  <p class="ft-13 display-inb">{{item.userName || '某用户'}}</p><p class="ft-13 display-inb">{{item.orderAmount || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.payAmount || 0 | number:2}}</p><p class="ft-13 display-inb">{{item.createTime || newDate() | date : 'yyyy-MM-dd HH:mm:ss'}}</p>
                 </li>
               </ul>
               <div ng-if="assignmenrOrders.length <= 0">
