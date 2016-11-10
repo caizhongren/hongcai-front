@@ -26,7 +26,7 @@ angular.module('hongcaiApp')
     }, function(response) {
       if (response && response.ret !== -1) {
         //现金券判断
-        $scope.cashCoupon = $scope.recycleReward && response.creditRight.coupon && response.creditRight.coupon.type ===2 ? response.creditRight.coupon.value : 0;
+        $scope.cashCoupon = $scope.recycleReward && response.increaseRateCoupon && response.increaseRateCoupon.type ===2 ? response.increaseRateCoupon.value : 0;
         $scope.creditRight = response.creditRight;
         //原有债权金额
         $scope.creditRightAmount = response.creditRight.transferableAmount;
@@ -67,7 +67,7 @@ angular.module('hongcaiApp')
 
     //确认转让
     $scope.assignmentsTransfer = function(){
-      if ($scope.msg || $scope.errMsg || $scope.transferAmount ==undefined || $scope.showErrMsg) {
+      if ($scope.msg || $scope.errMsg || $scope.transferAmount ==undefined || $scope.showErrMsg || $scope.transferAmount <=0) {
         return;
       }
       UserCenterService.assignmentsTransfer.post({
@@ -95,7 +95,9 @@ angular.module('hongcaiApp')
       }
 
       if(newVal){
-        if(newVal < $scope.increaseAmount ){
+        if(newVal == 0 ){
+          $scope.msg = '请输入大于0的数字(最多精确到小数点后两位)';
+        }else if(newVal < $scope.increaseAmount ){
           $scope.msg = '转让金额必须大于' + $scope.increaseAmount;
         }else if(newVal % $scope.increaseAmount !==0 ){
           $scope.msg = '转让金额必须为'+ $scope.increaseAmount +'的整数倍';
