@@ -171,7 +171,7 @@
                 </p>
                 <span class="ft-grey666">认购金额：</span>
                 <!-- 未认证，撤销中，冻结中不可输入 --> 
-                <input type="number" placeholder="请输入投资份额（元）" step="100" class="form-control margin-b-15 btn-76" name="investForm" ng-model="amount" ng-change="watchInvestAmount(amount)" ng-disabled="securityStatus.realNameAuthStatus !== 1 || account.balance <= 0 || creditProject.status === 2 || creditProject.status === 3 || creditProject.status === 5" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock === 0)">
+                <input type="number" placeholder="请输入投资份额（元）" step="100" min="0" class="form-control margin-b-15 btn-76" name="investForm" ng-model="amount" ng-change="watchInvestAmount(amount)" ng-disabled="securityStatus.realNameAuthStatus !== 1 || account.balance <= 0 || creditProject.status === 2 || creditProject.status === 3 || creditProject.status === 5" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock === 0)">
               </div>
               <!-- 未认证，冻结中，撤销中显示0 -->
               <div class="margin-t-10" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock === 0)">
