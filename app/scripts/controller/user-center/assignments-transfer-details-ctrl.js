@@ -36,6 +36,8 @@ angular.module('hongcaiApp')
         //原标利率
         $scope.creditBaseRate = response.creditRight.baseRate;
         $scope.transferPercent = $scope.creditBaseRate;
+        //creatTime(ms)
+        $scope.creatTime = response.creditRight.createTime;
         //当前时间
         $scope.currentDate = new Date().getTime();
         //上一次回款时间
@@ -107,9 +109,9 @@ angular.module('hongcaiApp')
       }
       //手续费计算   
       if ($scope.currentDate - $scope.creatTime <= $scope.borderDay*24*60*60*1000) {
-        $scope.counterFee = $scope.transferAmount * $scope.lessThanOrEqualBorderDayFee / 100 * $scope.discountFeeRate > $scope.minFee ? $scope.transferAmount * $scope.lessThanOrEqualBorderDayFee / 100 : $scope.minFee;
+        $scope.counterFee = $scope.transferAmount * $scope.lessThanOrEqualBorderDayFee / 100 * $scope.discountFeeRate > $scope.minFee ? $scope.transferAmount * $scope.lessThanOrEqualBorderDayFee / 100 * $scope.discountFeeRate : $scope.minFee;
       }else {
-        $scope.counterFee = $scope.transferAmount * $scope.greaterThanBorderDayFee /100 * $scope.discountFeeRate > $scope.minFee ? $scope.transferAmount * $scope.greaterThanBorderDayFee /100 : $scope.minFee;
+        $scope.counterFee = $scope.transferAmount * $scope.greaterThanBorderDayFee /100 * $scope.discountFeeRate > $scope.minFee ? $scope.transferAmount * $scope.greaterThanBorderDayFee /100 * $scope.discountFeeRate : $scope.minFee;
       }
       //待收未收利息
       $scope.profit = $scope.creditBaseRate * newVal * $scope.profitDate /36500;
