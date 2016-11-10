@@ -18,12 +18,12 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="assignmentsZhuan" ng-if="creditRight.type === 6">转</span>{{ project.name }}<img ng-show="increaseRateCoupon.value" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></td>
-        <td>{{ project.annualEarnings || 0}}%<span ng-show="increaseRateCoupon.value" class="ft-red7"> + {{increaseRateCoupon.value}}%</span></td>
+        <td><span class="assignmentsZhuan" ng-if="creditRight.type === 6">转</span>{{ project.name }}<img ng-show="increaseRateCoupon.type ==1" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></td>
+        <td>{{ project.annualEarnings || 0}}%<span ng-show="increaseRateCoupon.type ==1" class="ft-red7"> + {{increaseRateCoupon.value}}%</span></td>
         <td>{{ project.projectDays || 0 }}天</td>
         <td>{{ creditRight.amount - creditRight.transferedAmount || 0 | number:2 }}</td>
-        <td>{{ creditRight.returnProfit || 0 | number:2 }}<span ng-show="increaseRateCoupon.value" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * creditRight.returnProfit / oriRate - creditRight.returnProfit || 0 | number:2 }}</span></td>
-        <td>{{ waitProfit | number:2 }}<span ng-show="increaseRateCoupon.value" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * waitProfit / oriRate - waitProfit | number:2}}</span></td>
+        <td>{{ creditRight.returnProfit || 0 | number:2 }}<span ng-show="increaseRateCoupon.type ==1" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * creditRight.returnProfit / oriRate - creditRight.returnProfit || 0 | number:2 }}</span></td>
+        <td>{{ waitProfit | number:2 }}<span ng-show="increaseRateCoupon.type ==1" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * waitProfit / oriRate - waitProfit | number:2}}</span></td>
       </tr>
     </tbody>
   </table>
@@ -84,7 +84,7 @@
                 <h4 class="timeline-title border-b padding-b-15" ng-if="item.creditAssignmentId > 0">债权转让<small class="pull-right">{{ item.createTime | date:'yyyy-MM-dd'}}</small></h4>
               </div>
               <div class="timeline-body">
-                <p><span ng-show="item.principal > 0">本金<strong>{{ item.principal || 0 | number: 2 }}</strong>元&nbsp; + &nbsp;</span>利息 <span ng-show="increaseRateCoupon.value">(</span> <strong>{{ item.profit || 0 | number: 2 }}</strong>元 <span class="ft-red7" ng-show="increaseRateCoupon.value">+ <strong>{{(oriRate + increaseRateCoupon.value) * item.profit/oriRate - item.profit | number:2 || 0}}</strong>元<span class="ft-black"> )</span></span></p>
+                <p><span ng-show="item.principal > 0">本金<strong>{{ item.principal || 0 | number: 2 }}</strong>元&nbsp; + &nbsp;</span>利息 <span ng-show="item.creditAssignmentId <= 0 && increaseRateCoupon.type ==1">(</span> <strong>{{ item.profit || 0 | number: 2 }}</strong>元 <span class="ft-red7" ng-show="item.creditAssignmentId <= 0 && increaseRateCoupon.type ==1">+ <strong>{{(oriRate + increaseRateCoupon.value) * item.profit/oriRate - item.profit | number:2 || 0}}</strong>元<span class="ft-black"> )</span></span></p>
               </div>
             </div>
           </li>
