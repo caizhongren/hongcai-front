@@ -185,6 +185,10 @@ angular.module('hongcaiApp')
       }
 
       $rootScope.firstPath = $location.path().split('/')[1];
+      if($location.path().split('/')[1].slice(0,$location.path().split('/')[1].indexOf('?')) == 'assignments'){
+        $rootScope.firstPath = 'assignments';
+      }
+
       $rootScope.selectSide = $location.path().split('/')[2];
 
       $rootScope.act = $location.search().act;
@@ -218,7 +222,10 @@ angular.module('hongcaiApp')
       var showFlag3 = [
         'credit',
         'investment',
-        'reservation'
+        'reservation',
+        'assignments',
+        'credit-security-details',
+        'assignments-transfer-details',
       ];
       var showFlag4 = [
         'cash-coupon',
@@ -257,6 +264,8 @@ angular.module('hongcaiApp')
       if (notShowHeaderRoute.indexOf($location.path().split('/')[1]) !== -1 || notShowHeaderRoute.indexOf($location.path().split('/')[2]) !== -1) {
         $rootScope.showHeader = false;
       }
+      
+      $rootScope.selectPage_two = '';
     });
     
     $rootScope.uuid = function(len, radix){

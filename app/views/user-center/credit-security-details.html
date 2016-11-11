@@ -1,6 +1,5 @@
 <div class="userCenter-credit right-area record col-md-8 col-lg-9 bg-White " >
   <div class=" currency-style">
-   <!-- <div class="right-title">债权详情</div> -->
      <div class="title">
        <span class="tip">债权详情</span>
      </div>
@@ -12,23 +11,19 @@
         <th class="border-b-none">项目名称</th>
         <th class="border-b-none">预期年化收益率</th>
         <th class="border-b-none">投资期限</th>
-        <!-- <th class="border-b-none">项目预计收益(元)</th> -->
         <th class="border-b-none">持有债权(元)</th>
-        <th class="border-b-none" ng-show="creditIsShowedFLAG">已转出债权(元)</th>
         <th class="border-b-none">已收收益(元)</th>
         <th class="border-b-none">待收收益(元)</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>{{ order.projectName }}<img ng-show="increaseRateCoupon.value" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></td>
-        <td>{{ project.annualEarnings }}%<span ng-show="increaseRateCoupon.value" class="ft-red7"> + {{increaseRateCoupon.value}}%</span></td>
-        <td>{{ project.projectDays }}天</td>
-        <!-- <td>{{ creditRight.profit | number:2 }}</td> -->
-        <td>{{ creditRight.transferableAmount | number:2 }}</td>
-        <td ng-show="creditIsShowedFLAG">{{ creditRight.transferingAmount | number:2 }}</td>
-        <td>{{ creditRight.returnProfit | number:2 }}<span ng-show="increaseRateCoupon.value" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * creditRight.returnProfit / oriRate - creditRight.returnProfit || 0 | number:2 }}</span></td>
-        <td>{{ waitProfit | number:2 }}<span ng-show="increaseRateCoupon.value" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * waitProfit / oriRate - waitProfit | number:2}}</span></td>
+        <td><span class="assignmentsZhuan" ng-if="creditRight.type === 6">转</span>{{ project.name }}<img ng-show="increaseRateCoupon.type ==1" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></td>
+        <td>{{ project.annualEarnings || 0}}%<span ng-show="increaseRateCoupon.type ==1" class="ft-red7"> + {{increaseRateCoupon.value}}%</span></td>
+        <td>{{ project.projectDays || 0 }}天</td>
+        <td>{{ creditRight.amount - creditRight.transferedAmount || 0 | number:2 }}</td>
+        <td>{{ creditRight.returnProfit || 0 | number:2 }}<span ng-show="increaseRateCoupon.type ==1" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * creditRight.returnProfit / oriRate - creditRight.returnProfit || 0 | number:2 }}</span></td>
+        <td>{{ waitProfit | number:2 }}<span ng-show="increaseRateCoupon.type ==1" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * waitProfit / oriRate - waitProfit | number:2}}</span></td>
       </tr>
     </tbody>
   </table>
@@ -40,19 +35,31 @@
       </div>
       <div class="col-xs-12" ng-show="detailStatus === 1">
         <ul class="timeline margin-t-30 margin-b-100">
-          <li>
+          <li ng-if="creditRight.type === 6">
             <div class="timeline-badge success"><i class="fa fa-rocket ft-orange buchong1"></i>
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
-                <h4 class="timeline-title border-b padding-b-15">项目投标<small class="pull-right">{{ order.createTime | date:'yyyy-MM-dd'}}</small></h4>
+                <h4 class="timeline-title border-b padding-b-15">债权认购<small class="pull-right">{{ creditRight.createTime | date:'yyyy-MM-dd'}}</small></h4>
               </div>
               <div class="timeline-body">
-                <p><strong>{{ order.orderAmount | number: 2 }}</strong>元</p>
+                <p><strong>{{ creditRight.amount | number: 2 || 0}}</strong>元</p>
               </div>
             </div>
           </li>
-          <li>
+          <li ng-if="creditRight.type !== 6">
+            <div class="timeline-badge success"><i class="fa fa-rocket ft-orange buchong1"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title border-b padding-b-15">项目投标<small class="pull-right">{{ creditRight.createTime | date:'yyyy-MM-dd'}}</small></h4>
+              </div>
+              <div class="timeline-body">
+                <p><strong>{{ creditRight.amount || 0 | number: 2 }}</strong>元</p>
+              </div>
+            </div>
+          </li>
+          <li ng-if="creditRight.type !== 6">
             <div class="timeline-badge" ng-class="{'success':project.status === 9 || project.status === 10}"><i class="fa fa-users ft-orange buchong1"></i>
             </div>
             <div class="timeline-panel">
@@ -63,32 +70,21 @@
                 </h4>
               </div>
               <div class="timeline-body">
-                <p><strong>{{ order.orderAmount | number: 2 }}</strong>元</p>
+                <p><strong>{{ creditRight.amount | number: 2 }}</strong>元</p>
               </div>
             </div>
           </li>
-          <li class="timeline-inverted" ng-repeat="item in creditRightBillList">
+          <li class="timeline-inverted" ng-repeat="item in creditRightBill">
             <div class="timeline-badge success"><i class="fa fa-tree ft-orange buchong1"></i>
             </div>
             <div class="timeline-panel">
               <div class="timeline-heading">
-                <h4 class="timeline-title border-b padding-b-15">项目回款<small class="pull-right">{{ item.successTime | date:'yyyy-MM-dd'}}</small></h4>
+                <h4 class="timeline-title border-b padding-b-15" ng-if="item.creditAssignmentId <= 0 && item.status == 1">项目回款<small class="pull-right">{{ item.createTime | date:'yyyy-MM-dd'}}</small></h4>
+                <h4 class="timeline-title border-b padding-b-15" ng-if="item.creditAssignmentId <= 0 && item.status == 0">回款计划<small class="pull-right">{{ item.createTime | date:'yyyy-MM-dd'}}</small></h4>
+                <h4 class="timeline-title border-b padding-b-15" ng-if="item.creditAssignmentId > 0">债权转让<small class="pull-right">{{ item.createTime | date:'yyyy-MM-dd'}}</small></h4>
               </div>
               <div class="timeline-body">
-                <!-- <p><strong>{{item.amount | number: 2 }}&nbsp;元</strong></p> -->
-                <p><span ng-show="item.principal > 0">本金<strong>{{ item.principal | number: 2 }}</strong>元&nbsp; + &nbsp;</span>利息 <span ng-show="increaseRateCoupon.value">(</span> <strong>{{ item.profit | number: 2 }}</strong>元 <span class="ft-red7" ng-show="increaseRateCoupon.value">+ <strong>{{(oriRate + increaseRateCoupon.value) * item.profit/oriRate - item.profit | number:2 }}</strong>元<span class="ft-black"> )</span></span></p>
-              </div>
-            </div>
-          </li>
-          <li class="timeline-inverted" ng-repeat="card in listInvPond">
-            <div class="timeline-badge"><i class="fa fa-list-ol ft-orange buchong2"></i>
-            </div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4 class="timeline-title">回款计划<small class="pull-right">{{ card.payDate }}</small></h4>
-              </div>
-              <div class="timeline-body">
-                <p>待回款：<span ng-show="card.principal > 0">本金 <strong>{{ card.principal }}</strong>&nbsp; + &nbsp;</span>利息 <span ng-show="increaseRateCoupon.value">( </span><strong>{{ card.invEarnings | number: 2 }}</strong>元<span ng-show="increaseRateCoupon.value" class="ft-red7"> + <strong>{{(oriRate + increaseRateCoupon.value ) * card.profit / oriRate - card.profit| number:2 }}</strong>元<span class="ft-black"> )</span></span></p>
+                <p><span ng-show="item.principal > 0">本金<strong>{{ item.principal || 0 | number: 2 }}</strong>元&nbsp; + &nbsp;</span>利息 <span ng-show="item.creditAssignmentId <= 0 && increaseRateCoupon.type ==1">(</span> <strong>{{ item.profit || 0 | number: 2 }}</strong>元 <span class="ft-red7" ng-show="item.creditAssignmentId <= 0 && increaseRateCoupon.type ==1">+ <strong>{{(oriRate + increaseRateCoupon.value) * item.profit/oriRate - item.profit | number:2 || 0}}</strong>元<span class="ft-black"> )</span></span></p>
               </div>
             </div>
           </li>

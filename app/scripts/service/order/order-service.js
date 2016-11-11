@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .factory('OrderService', function ($resource, DEFAULT_DOMAIN) {
+  .factory('OrderService', function ($resource, DEFAULT_DOMAIN, RESTFUL_DOMAIN) {
     return {
       investVerify: $resource(DEFAULT_DOMAIN + '/siteOrder/investVerify', {projectId: '@projectId',amount: '@amount'}),
       investVerifyFunds: $resource(DEFAULT_DOMAIN + '/siteOrder/investVerifyFunds', {projectId: '@projectId',amount: '@amount', isRepeat: '@isRepeat'}),
@@ -22,7 +22,27 @@ angular.module('hongcaiApp')
       downloadContract: $resource(DEFAULT_DOMAIN + '/siteOrder/downloadContract', {
         projectId: '@projectId', amount: '@amount', isRepeat: '@isRepeat', payAmount: '@payAmount'
       }),
+      downloadAssignmentContract: $resource(DEFAULT_DOMAIN + '/siteOrder/downloadAssignmentContract', {
+        projectId: '@projectId', amount: '@amount', isRepeat: '@isRepeat', payAmount: '@payAmount'
+      }),
       getUnUsedIncreaseRateCoupons: $resource(DEFAULT_DOMAIN + '/siteOrder/getUnUsedIncreaseRateCoupons',{projectId : '@projectId', amount : '@amount'}),
-
+      //认购下单
+      investAssignment: $resource(RESTFUL_DOMAIN + '/assignments/:number/orders', {
+        number: '@number',
+        amount: '@amount',
+        device: '@device'
+      },{
+        'POST': {
+          method:'POST'
+        }
+      }),
+      //下单成功
+      transferAssignment: $resource(RESTFUL_DOMAIN + '/orders/:number/users/0/payment', {
+        number: '@number'
+      }, {
+        'POST': {
+          method: 'POST'
+        }
+      })
     };
   });

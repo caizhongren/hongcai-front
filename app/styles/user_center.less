@@ -712,7 +712,7 @@
     width: 88%;
   }
 }
-.right-area{
+.right-area, .trans-detail{
   padding: 0;
   border:none !important;
   overflow-y:hidden;
@@ -821,7 +821,7 @@
       color:#ffc194;
     }
   }
-  .currency-style{
+  .currency-style, .modal-bg0{
     //margin-top:20px;
     overflow: hidden;
     border:1px solid #dddddd;
@@ -1422,11 +1422,11 @@
 
   p.position{
     position:absolute;
-    top:18px;
+    top:14px;
     left: 78px;
   }
 }
-.userCenter-credit{
+.userCenter-credit, .userCenter-assignments, .investment{
   .line-22{
     height:24px !important;
     line-height:22px;
@@ -1434,6 +1434,18 @@
   .used-rate{
     vertical-align: top;
     margin-top: -5px;
+  }
+  .assignmentsZhuan {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 19.8px;
+    color: #fff;
+    background-color: #FA683E;
+    margin-rigtht: 3px !important;
+    border-radius: 50%;
+    font-size: 12px;
+    margin-right: 2px;
   }
 }
 .no-boxshadow{
@@ -1626,4 +1638,86 @@
     height: 30px;
     padding-right: 10px;
   }
+}
+
+
+//债权转让
+//债券管理页转让详情弹窗
+#trans-detail .modal-dialog1 .modal-bg0 {
+  overflow: hidden;
+  border: 1px solid #dddddd;
+  position: relative;
+  background-color: #fff;
+  width: 685px;
+  height: 484px;
+  margin: 0 auto;
+  background-clip: padding-box;
+  .title {
+    .fa {
+      float: right;
+      margin-top: -35px;
+      font-size: 20px;
+      margin-right: 15px;
+    }
+    .tip {
+      border-bottom: 0;
+      margin-left: 0;
+    }
+  }
+  .main {
+    .top {
+      p:nth-child(odd) {
+        width: 54%;
+        padding-left: 14%;
+      }
+      p:nth-child(even) {
+        width: 40%;
+      }
+    }
+    .table-list {
+      ul {
+        height: 222px;
+        overflow-y: scroll;
+        li {
+          p {
+            width: 23%;
+            margin-left: 0;
+            text-align: center;
+          }
+          p:nth-child(4) {
+            width: 26%;
+          }
+        }
+        li:first-child {
+          background-color: #f7f5f5;
+        }
+      }
+    }
+    .pager {
+      position: absolute;
+      bottom: 0;
+      left: 35%;
+    }
+  }
+}
+#trans-detail .modal-bg0 .title .tip {
+  width: 20%;
+}
+#trans-detail .modal-dialog1 {
+  padding-top: 100px;
+  padding-left: 100px;
+  .margin-t-100 {
+    margin-top: 100px;
+  }
+}
+//债权转让确认页面
+.assignment_transfer {
+  .transferBtn {
+    width: 200px;
+    height: 40px;
+  }
+  .transferBtn:focus{
+    border: none !important;
+  }
+  
 }

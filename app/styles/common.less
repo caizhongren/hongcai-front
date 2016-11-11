@@ -66,6 +66,10 @@ button {
   margin-top: 1rem;
   margin-left: 2rem;
 }
+
+.display-bl{
+  display: block;
+}
 .display-inbl{
   display: inline-block;
 }
@@ -142,6 +146,10 @@ button {
 .ft-90 {
   font-size: 90px;
 }
+//transparent
+.ft-trans {
+  color: transparent !important;
+}
 // color red
 .ft-red {
   color: #ea5430;
@@ -185,7 +193,7 @@ button {
   color: #000;
 }
 .ft-black2{
-  color:#333;
+  color:#333 !important;
 }
 .ft-black3{
   color:#e6e4e4;
@@ -221,7 +229,9 @@ button {
 .bg-offWhite {
   background-color: #f0f0f0 !important;
 }
-
+.ft-777 {
+  color: #777;
+}
 .ft-grey {
   color: #807979;
 }
@@ -338,6 +348,13 @@ button {
 .fr{
   float: right;
 }
+//width
+.wid-97 {
+  width: 97% !important;
+}
+.wid-50 {
+  width: 46%;
+}
 .mgn-top {
   margin-top: 20px;
 }
@@ -345,11 +362,14 @@ button {
 .margin-l-0 {
   margin-left: 0 !important;
 }
+.margin-l-3 {
+  margin-left: 3px;
+}
 .margin-l-5{
   margin-left: 5px !important;
 }
-.margin-l-6 {
-  margin-left: 6px;
+.margin-l-8 {
+  margin-left: 8px;
 }
 .margin-l-10 {
   margin-left: 10px !important;
@@ -515,7 +535,7 @@ button {
   margin-bottom: 150px !important;
 }
 .margin-r-0 {
-  margin-right: 0;
+  margin-right: 0 !important;
 }
 .margin-r-5 {
   margin-right: 5px;
@@ -538,6 +558,10 @@ button {
 .margin-r-60{
   margin-right: 60px;
 }
+.margin-r-125{
+  margin-right: 125px !important;
+}
+
 .margin-r-80{
   margin-right: 80px !important;
 }
@@ -2792,7 +2816,7 @@ button {
 #dropdown {
   display: none;
   position: absolute;
-  left: 0;
+  left: -1px;
   background-color: #fff;
   border-color: #eee;
   margin-top: 0;
@@ -2802,13 +2826,13 @@ button {
   border-top: 0;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  width:115.22px;
+  width:115.2px;
   div {
     position: relative;
     top: 0px;
   }
   a {
-    padding: 5px;
+    padding: 10px;
     display: inline-block;
     width: 100%;
     text-align: center;
@@ -3208,4 +3232,48 @@ a.cancel-red:focus {
     margin-left:38%;
     height:25px;
   }
+}
+//认购页投资模块弹窗
+.explain1{
+   width:324px;
+   height:43px;
+   font-size: 12px;
+   padding: 5px;
+   border:1px solid #E8A79A; 
+   position: absolute;
+   background-color: #fff;
+   left: 0;
+   bottom: 92px;  
+   display: none;
+}
+.explain1:before{
+  content: "";
+  display: block;
+  border-width: 6px;
+  position: absolute;
+  top: -13px;
+  right: 168px;
+  border-style: solid dashed dashed;
+  border-color: transparent transparent #E8A79A;
+  font-size: 0;
+  line-height: 0;
+  }
+.explain1:after{
+  content: "";
+  display: block;
+  border-width: 5px;
+  position: absolute;
+  top: -10px;
+  right: 169px;
+  border-style: solid dashed dashed;
+  border-color: transparent transparent #fff;
+  font-size: 0;
+  line-height: 0;
+}
+.min-height {
+  min-height: 315px;
+}
+.explain2 {
+  height: 31px;
+  bottom: 105px;
 }

@@ -36,10 +36,22 @@
 .linear-gradient2{
   background-image:linear-gradient(to bottom,#fe624e 0%,#fd6d5a 100%);
   color:#fff;
-
 }
 
 .linear-gradient2   button{
-    background-color:#fd8979;
-    color:#ffe8e5;
+  background-color:#fd8979;
+  color:#ffe8e5;
+}
+.linear-gradientRed {
+  background-image:linear-gradient(to bottom,#fe624e 0%,#fd6d5a 100%);
+  background-image: -o-linear-gradient(to bottom,#fe624e 0%, #fd6d5a 100%);
+  background-image:-ms-linear-gradient(to bottom,#fe624e 0%,#fd6d5a 100%);
+  background-image:-moz-linear-gradient(to bottom,#fe624e 0%,#fd6d5a 100%);
+  background:-webkit-gradient(linear, 0 0, 0 bottom, from(#fe624e), to(#fd6d5a));
+  filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#fe624e,endcolorstr=#fd6d5a,gradientType=1);
+  color:#ffe8e5 ;
+}
+.linear-gradientRed button{
+  background-color:#fd8979;
+  color:#ffe8e5;
 }

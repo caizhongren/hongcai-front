@@ -204,5 +204,72 @@ angular.module('hongcaiApp')
         userId:'@userId',
         payCompany:'@payCompany'
       }),
+      //个人中心-债权管理
+      //可转让债权列表
+      assignmentsTransferablesList: $resource(RESTFUL_DOMAIN + '/users/transferables', {
+        page: '@page', 
+        pageSize: '@pageSize'
+      }),
+      //已转让债权列表
+      assignmentsList: $resource(RESTFUL_DOMAIN + '/users/0/assignments', {
+        page: '@page', 
+        pageSize: '@pageSize',
+        status: '@status'
+      }),
+      //撤销中
+      cancelAssignment: $resource(RESTFUL_DOMAIN + '/users/0/assignments/:number/revokeValidate', {}, {
+        update: {
+          method: 'GET',
+          params: {
+            number: '@number'
+          }
+        } 
+      }),
+      //确认撤销
+      deleteAssignment: $resource(RESTFUL_DOMAIN + '/users/0/assignments/:number', {}, {
+        update: {
+          method: 'DELETE',
+          params: {
+            number: '@assignmentNumber'
+          }
+        } 
+      }),
+      
+      //转让页面
+      assignmentsTransfer: $resource(RESTFUL_DOMAIN + '/creditRights/:number/assign', {
+        number: '@number',
+        creditRightId:'@creditRightId',
+        amount:'@amount',
+        annualEarnings:'@annualEarnings'
+      }, {
+        'post': {method:'POST'}
+      }),
+      assignmentCreditDetail: $resource(RESTFUL_DOMAIN + '/creditRights/:number/creditDetail',{
+        number: '@number'
+      }),
+      assignmentRule: $resource(RESTFUL_DOMAIN + '/assignments/assignmentRule',{}),
+      //债权转让统计
+      assignmentsCount: $resource(RESTFUL_DOMAIN + '/users/0/assignments/stat',{}),
+
+      getAssignmentsDetail: $resource(RESTFUL_DOMAIN + '/creditRights/0/assignments', {number: '@number'},
+        {
+        'get': {
+          method:'GET',
+          isArray: true  
+        }
+      }),
+
+      //债权管理-(可、中、已)转让列表获取原项目number
+      getPreprPojectNumber: $resource(RESTFUL_DOMAIN + '/projects/:projectId/detail',{
+        projectId: '@projectId'
+      }),
+      //个人中心我的投资-债权详情
+      getCreditRightBills: $resource(RESTFUL_DOMAIN + '/creditRights/:number/creditRightBills', {number: '@number'},
+       {
+        'get': {
+          method: 'GET',
+          isArray: true  
+        }
+      })
     };
   });
