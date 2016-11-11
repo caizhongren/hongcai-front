@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .controller('assignmentsTransferCtrl',function (DateUtils, $location, $rootScope, $scope, $stateParams, UserCenterService, toaster, $state) {
     $rootScope.selectPage_two = $location.path().split('/')[2].split('-')[0];
     var creditRightNumber = $stateParams.number;
-    
+
     /**
      * 债权转让相关规则
      */
@@ -68,21 +68,26 @@ angular.module('hongcaiApp')
     });
 
     //确认转让
+    $scope.clicked = false;
     $scope.assignmentsTransfer = function(){
+      $scope.clicked = true;
       if ($scope.msg || $scope.errMsg || $scope.transferAmount ==undefined || $scope.showErrMsg || $scope.transferAmount <=0) {
         return;
       }
+
       UserCenterService.assignmentsTransfer.post({
         number: $scope.assignmentsNumber,
         creditRightId: $scope.creditRight.id,
         amount: $scope.transferAmount,
         annualEarnings: $scope.transferPercent
       }, function(response){
+        $scope.clicked = true;
         if(response && response.ret !== -1){
           toaster.pop('success', '转让成功');
           $state.go('root.userCenter.assignments');
         }else {
           $scope.showErrMsg = response.msg;
+          $scope.clicked = false;
         }
 
       });
@@ -115,7 +120,7 @@ angular.module('hongcaiApp')
       }
       //待收未收利息
       $scope.profit = $scope.creditBaseRate * newVal * $scope.profitDate /36500;
-
+      console.log($scope.profit);
     });
 
     //监测转让利率
