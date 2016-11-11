@@ -210,7 +210,7 @@
                 </div> -->
                 <!-- 可转让，未认证 -->
                 <span class="spangray" ng-if="creditProject.status === 1 && securityStatus.realNameAuthStatus !== 1">请先<a class="ft-red" ng-click="toRealNameAuth()">完善资料</a>，再进行认购~</span>
-                <span class="spangray" ng-if="creditProject.status === 1 && creditProject.currentStock === 0">当前其他人有{{creditProject.occupancyStock * 100 || 0 | number:0}}元订单尚未支付，您仍有机会投资~</span>
+                <span class="spangray" ng-if="creditProject.status === 1 && creditProject.currentStock === 0">当前其他人有订单尚未支付，您仍有机会投资~</span>
                 <span class="spangray" ng-if="creditProject.status === 2 ">债券正在撤销中~~</span> 
                 <span class="spangray" ng-if="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">债权已转让，请浏览其他项目~</span>
               </div>
