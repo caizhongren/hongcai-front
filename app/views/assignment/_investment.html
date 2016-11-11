@@ -172,7 +172,7 @@
                 </p>
                 <span class="ft-grey666">认购金额：</span>
                 <!-- 未认证，撤销中，冻结中不可输入 --> 
-                <input type="number" placeholder="请输入投资份额（元）" step="100" min="0" class="form-control margin-b-15 btn-76" name="assignmentForm" ng-model="amount" ng-change="watchInvestAmount(amount)" ng-disabled="securityStatus.realNameAuthStatus !== 1 || account.balance <= 0 || creditProject.status === 2 || creditProject.status === 3 || creditProject.status === 5" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0) || (creditProject.status === 1 && creditProject.currentStock === 0)">
+                <input type="number" placeholder="请输入投资份额（元）" step="100" min="0" class="form-control margin-b-15 btn-76" name="assignmentForm" ng-model="amount" ng-change="watchInvestAmount(amount)" ng-disabled="securityStatus.realNameAuthStatus !== 1 || account.balance <= 0 || creditProject.status === 2 || creditProject.status === 3 || creditProject.status === 5 || (creditProject.status === 1 && creditProject.currentStock === 0)" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
               </div>
                 <!-- 未认证，冻结中，撤销中显示0 -->
               <div class="margin-t-10" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
@@ -204,7 +204,7 @@
               <div class="margin-t-20 text-center">
                 <i class="fa fa-info-circle fa-lg fa-gray i-rightmargin" ng-hide="(creditProject.status === 1 && securityStatus.realNameAuthStatus === 1) || creditProject.status === 5"></i>
                 <!-- 可转让，认证过，或者冻结中 -->
-                <span class="spangray ft-13" ng-if="(creditProject.status === 1 && securityStatus.realNameAuthStatus === 1) || creditProject.status === 5">认购即表示您已阅读并同意 <a ui-sref="root.assignment-agreement" href="/assignment-agreement" target="_blank" class="ft-blue0">《债权认购协议》</a></span>
+                <span class="spangray ft-13" ng-if="(creditProject.status === 1 && securityStatus.realNameAuthStatus === 1 && creditProject.currentStock > 0) || creditProject.status === 5">认购即表示您已阅读并同意 <a ui-sref="root.assignment-agreement" href="/assignment-agreement" target="_blank" class="ft-blue0">《债权认购协议》</a></span>
                 <!-- <div class=" text-center">
                   <p class="ft-12 spangray" >认购即表示您已阅读并同意 <a ui-sref="root.assignment-agreement" href="/assignment-agreement" target="_blank" class="ft-blue0">《债权认购协议》</a> </p>
                 </div> -->
