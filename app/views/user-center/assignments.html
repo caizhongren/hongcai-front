@@ -57,8 +57,8 @@
                   </div>
                 </td>
               </tr>
-              <tr ng-repeat="item in transferablesList track by $index" ng-if="item.transferableAmount > 0">
-                <td><a class="invment-blue cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)"><span class="assignmentsZhuan" ng-if="item.type === 6">转</span>{{item.projectName}}<img ng-show="item.coupon.type ==1" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></a></td>
+              <tr ng-repeat="item in transferablesList track by $index" ng-if="item.transferableAmount > 0" class="assignment-left">
+                <td class="padding-l-45"><a class="invment-blue cursor-pointer special-recommend" ng-click="getPreprPojectDetails(item.projectId)"><span class="assignmentsZhuan text-center" ng-if="item.type === 6">转</span>{{item.projectName | limitTo: 15 }}{{item.projectName.length > 15 ? '...':''}}<img ng-show="item.coupon.type ==1" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></a></td>
                 <td>{{item.transferableAmount | number:2 || 0}}</td>
                 <td>{{item.profit - item.returnProfit | number:2 || 0}}<span ng-show="item.coupon.type ==1" class="ft-red7">+{{(item.baseRate + item.riseRate + item.coupon.value) * (item.profit - item.returnProfit) / (item.baseRate + item.riseRate) - (item.profit - item.returnProfit) | number:2 || 0 }}</span></td>
                 <td>{{item.repaymentDate | date:'yyyy-MM-dd'}}</td>
@@ -99,7 +99,7 @@
                 </td>
               </tr>
               <tr ng-repeat="item in assignmentsList">
-                <td><a class="invment-blue cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)">{{item.name}}</a></td>
+                <td><a class="invment-blue cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)">{{item.name | limitTo: 15 }}{{item.name.length > 15 ? '...':''}}</a></td>
                 <td>{{item.createTime | date:'yyyy-MM-dd'}}</td>
                 <td>{{item.amount || 0 | number: 2}}</td>
                 <td>{{item.annualEarnings || 0 | number: 2}}</td>
@@ -140,7 +140,7 @@
                 </td>
               </tr>
               <tr ng-repeat="item in assignmentsList">
-                <td><a class="invment-blue cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)">{{item.name}}</a></td>
+                <td><a class="invment-blue cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)">{{item.name | limitTo: 15 }}{{item.name.length > 15 ? '...':''}}</a></td>
                 <td>{{item.amount || 0 | number: 2}}</td>
                 <td>{{item.annualEarnings || 0 | number: 2}}</td>
                 <td>{{item.soldStock * 100 || 0 | number: 2}}</td>

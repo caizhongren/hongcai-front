@@ -126,14 +126,14 @@
                 </div>
               </td>
             </tr>
-            <tr ng-show="data.length > 0" ng-repeat="item in data">
+            <tr ng-show="data.length > 0" ng-repeat="item in data" class="">
               <td>{{ item.number}}</td>
               <td>{{ item.orderAmount | number: 2 }}</td>
-              <td>
+              <td class="padding-l-45 assignment3-left">
                 <!-- <button ng-click="showListNameInfo();" style="padding:0px;outline:none;"type="button" class="btn btn-link" data-placement="bottom" data-template="views/modal/popover-investment-list-name.html" data-trigger="focus" bs-popover><i style="color: #e94828;" class="fa fa-caret-square-o-down"></i></button> -->
-                <a ui-sref="root.project-details({number: item.projectNumber})" title="{{item.projectName}}" class="invment-blue" ng-if="item.type !== 4"><span class="assignmentsZhuan" ng-if="item.type === 2">转</span>{{ item.projectName | limitTo: 15}}</a>
+                <a ui-sref="root.project-details({number: item.projectNumber})" title="{{item.projectName}}" class="invment-blue special-recommend" ng-if="item.type !== 4"><span class="assignmentsZhuan text-center" ng-if="item.type === 2">转</span>{{ item.projectName | limitTo: 15 }}{{item.projectName.length > 15 ? '...':''}}</a>
 
-                <a ui-sref="root.investmentplan-details({number: item.projectNumber})" class="invment-blue" ng-if="item.type === 4"><span class="assignmentsZhuan" ng-if="item.type === 2">转</span>{{ item.projectName}}
+                <a ui-sref="root.investmentplan-details({number: item.projectNumber})" class="invment-blue special-recommend" ng-if="item.type === 4"><span class="assignmentsZhuan text-center" ng-if="item.type === 2">转</span>{{ item.projectName | limitTo: 15 }}{{item.projectName.length > 15 ? '...':''}}
                 </a>
                 <br>
               </td>
