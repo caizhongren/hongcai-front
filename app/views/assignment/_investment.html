@@ -161,7 +161,8 @@
           </div>
         </div>
         <!-- 已登录 -->
-        <div ng-if="isLogged"> 
+        <form name="assignmentForm">
+          <div ng-if="isLogged"> 
             <div class="col-xs-12 padding-0" ng-class="{'margin-t-0':project.status ===6 && countdown >= 0}">
               <img src="/images/sold.png" class="display-bl margin-auto" ng-show="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
               <div class="margin-t-5" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
@@ -171,9 +172,9 @@
                 </p>
                 <span class="ft-grey666">认购金额：</span>
                 <!-- 未认证，撤销中，冻结中不可输入 --> 
-                <input type="number" placeholder="请输入投资份额（元）" step="100" min="0" class="form-control margin-b-15 btn-76" name="investForm" ng-model="amount" ng-change="watchInvestAmount(amount)" ng-disabled="securityStatus.realNameAuthStatus !== 1 || account.balance <= 0 || creditProject.status === 2 || creditProject.status === 3 || creditProject.status === 5" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
+                <input type="number" placeholder="请输入投资份额（元）" step="100" min="0" class="form-control margin-b-15 btn-76" name="assignmentForm" ng-model="amount" ng-change="watchInvestAmount(amount)" ng-disabled="securityStatus.realNameAuthStatus !== 1 || account.balance <= 0 || creditProject.status === 2 || creditProject.status === 3 || creditProject.status === 5" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
               </div>
-              <!-- 未认证，冻结中，撤销中显示0 -->
+                <!-- 未认证，冻结中，撤销中显示0 -->
               <div class="margin-t-10" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
                 <span class="ft-grey666">实际支付：</span>
                 <span class="ft-orange ft-16">{{amount ? realPayAmount : 0 | number:2}}</span> 元
@@ -191,7 +192,7 @@
               </div>
               <div class="margin-t-20">
               <!-- 可转让，认证过|| 可转让，未认证点击torealnameauth || 转让中，已认证，余额充值，有未支付订单点击提示有未支付订单-->
-                <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="toInvest(amount);" ng-if="(creditProject.status === 1 && securityStatus.realNameAuthStatus === 1 && account.balance > 0)" disabled ng-disabled="!amount || errMsg || anount<= 0 "></i>立即认购</button>
+                <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="toInvest(amount);" ng-if="(creditProject.status === 1 && securityStatus.realNameAuthStatus === 1 && account.balance > 0)" disabled ng-disabled="!amount || errMsg || anount<= 0 || assignmentForm.$invalid|| assignmentForm.$pending"></i>立即认购</button>
                 <button class="btn btn-total-orange btn-lg btn-block positive-bottommargin" ng-click="toRealNameAuth();" ng-if="(creditProject.status === 1 && securityStatus.realNameAuthStatus !== 1)" ></i>立即认购</button>
                 <!-- 有未完成的订单时展示 -->
                 
@@ -212,9 +213,10 @@
                 <span class="spangray" ng-if="creditProject.status === 2 ">债券正在撤销中~~</span> 
                 <span class="spangray" ng-if="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">债权已转让，请浏览其他项目~</span>
               </div>
+              </div>
             </div>
-          </div>
-        </div> 
+          </div> 
+        </form>
 
       </div>
     </div>
