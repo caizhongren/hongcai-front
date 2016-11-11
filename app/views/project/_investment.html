@@ -93,7 +93,7 @@
                 企业按照计划，正常还款中
               </span>
               <span ng-switch-when="7" ng-if="project.currentStock == 0">
-                当前其他人有52300元订单尚未支付，您仍有机会投资
+                当前其他人有{{project.occupancyStock * project.minInvest || 0 | number:2}}元订单尚未支付，您仍有机会投资
               </span>
               </span>
             </div>
