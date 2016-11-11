@@ -114,9 +114,9 @@ angular.module('hongcaiApp')
     /**
     * 立即认购
     */
-    
+    $scope.clicked = true;
     $scope.toInvest = function(amount) {
-      
+      $scope.clicked = false;
       // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
       $.ajax({
         url: RESTFUL_DOMAIN + '/assignments/' + $scope.creditNum + '/orders' + '?amount=' + amount,
@@ -124,6 +124,7 @@ angular.module('hongcaiApp')
         async: false,
         dataType: 'json',
         success: function(response) {
+          $scope.clicked = true;
           $scope.msg = '12';
           $scope.investAmount = amount;
           if (response && response.ret !== -1) {
