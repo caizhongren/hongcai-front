@@ -121,7 +121,7 @@ angular.module('hongcaiApp')
       UserCenterService.deleteAssignment.update({
         number: assignmentNumber
       },function(response){
-        if (response.status ===3) {
+        if (response.status ===3 || response.status ===6) {
           toaster.pop('success', '撤销成功');
           $scope.getTranferingAssignmentsList(1,6,'1,2,5');
         }
