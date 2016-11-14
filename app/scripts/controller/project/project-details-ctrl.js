@@ -189,7 +189,7 @@ angular.module('hongcaiApp')
           $scope.investCoupons($scope.project);
 
         } else if (projectDetails.code === -1054) {
-          $state.go('root.project-list-query-no');
+          // $state.go('root.project-list-query-no');
         } else {
           toaster.pop('warning', projectDetails.msg);
         }

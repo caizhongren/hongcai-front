@@ -120,6 +120,38 @@ angular.module('hongcaiApp')
        */
       investSuccessCoupons: $resource(RESTFUL_DOMAIN + '/orders/0/orderCoupon', {
         orderNumber: '@orderNumber'
+      }),
+
+      /**
+       * 债权转让列表
+       */
+       assignmentList: $resource(RESTFUL_DOMAIN + '/assignments', {
+          page:'@page', 
+          pageSize: '@pageSize',
+          sortType: '@sortType',
+          remainDays: '@remainDays',
+          annualEarnings: '@annualEarnings',
+          currentStocks:'@currentStocks'
+       }),
+       /**
+        *债权转让记录（详情页和个人中心）
+        */
+   
+        getAssignmentOrders: $resource(RESTFUL_DOMAIN + '/assignments/:number/orders', {
+          number: '@number',
+          page:'@page', 
+          pageSize: '@pageSize'
+       }),
+       /**
+        *原项目还款计划（认购详情页）
+        */ 
+      originProjectBills: $resource(RESTFUL_DOMAIN + '/projects/:number/projectBills', {
+        number: '@number'
+      }, {
+        'get': {
+          method: 'GET',
+          isArray: true
+        }
       })
 
     };

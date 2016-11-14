@@ -582,32 +582,62 @@ hongcaiApp
      * @type {String}
      */
     .state('root.userCenter.record', {
-        url: '/record',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/record.html',
-            controller: 'UserDealCtrl',
-            controllerUrl: 'scripts/controller/user-center/user-deal-ctrl'
-          }
-        },
-        data: {
-          title: '资金流水'
+      url: '/record',
+      views: {
+        'user-center-right': {
+          templateUrl: 'views/user-center/record.html',
+          controller: 'UserDealCtrl',
+          controllerUrl: 'scripts/controller/user-center/user-deal-ctrl'
         }
-      })
-      .state('root.userCenter.investment', {
-        url: '/investment',
-        views: {
-          'user-center-right': {
-            templateUrl: 'views/user-center/investment.html',
-            controller: 'UserOrderCtrl',
-            controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
-          }
-        },
-        data: {
-          title: '我的订单'
+      },
+      data: {
+        title: '资金流水'
+      }
+    })
+    .state('root.userCenter.investment', {
+      url: '/investment',
+      views: {
+        'user-center-right': {
+          templateUrl: 'views/user-center/investment.html',
+          controller: 'UserOrderCtrl',
+          controllerUrl: 'scripts/controller/user-center/user-order-ctrl'
         }
-      })
+      },
+      data: {
+        title: '我的订单'
+      }
+    })
 
+    //债权管理
+    .state('root.userCenter.assignments', {
+      url: '/assignments?tab',
+      views: {
+        'user-center-right': {
+          templateUrl: 'views/user-center/assignments.html',
+          controller: 'assignmentsCtrl',
+          controllerUrl: 'scripts/controller/user-center/assignments-ctrl'
+        }
+      },
+      data: {
+        title: '债权管理'
+      }
+    })
+    /**
+     * 债权管理-债权转让页面
+     */
+    .state('root.userCenter.assignments-transfer-details', {
+      url: '/assignments-transfer-details/:number',
+      views: {
+        'user-center-right': {
+          templateUrl: 'views/user-center/assignments-transfer-details.html',
+          controller: 'assignmentsTransferCtrl',
+          controllerUrl: 'scripts/controller/user-center/assignments-transfer-details-ctrl'
+        }
+      },
+      data: {
+        title: '债权详情'
+      }
+    })
     .state('root.userCenter.gift-rebate', {
         url: '/gift-rebate/:type',
         views: {
@@ -1477,6 +1507,14 @@ hongcaiApp
           }
         }
       })
+      .state('root.assignment-agreement', {
+        url: '/assignment-agreement',
+        views: {
+          '': {
+            templateUrl: 'views/agreement/assignment-agreement.html'
+          }
+        }
+      })
       /*----------  help-center  -------------------*/
       .state('root.about-us.link-us', {
         url: '/link-us',
@@ -1517,6 +1555,16 @@ hongcaiApp
         views: {
           'help-center-right-show': {
             templateUrl: 'views/help-center/investors.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+      .state('root.help-center.assignment_qr', {
+        url: '/assignment_qr',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/assignment_qr.html',
             controller: 'HelpCenterCtrl',
             controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }
@@ -1577,36 +1625,36 @@ hongcaiApp
     /**
      * 债权转让列表页 FIX,暂时和列表页公用
      */
-    .state('root.credit-list-query', {
-        url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+    // .state('root.assignments', {
+    //     url: '/credit-list/:minTransferAmout/:maxTransferAmount/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+    //     views: {
+    //       '': {
+    //         templateUrl: 'views/project/credit-list.html',
+    //         controller: 'CreditListCtrl',
+    //         controllerUrl: 'scripts/controller/project/credit-list-ctrl'
+    //       }
+    //     }
+    //   })
+      .state('root.assignments', {
+        url: '/assignments?page&pageSize&sortType&remainDays&annualEarnings&sortOrder&currentStocks',
         views: {
           '': {
-            templateUrl: 'views/project/credit-list.html',
-            controller: 'CreditListCtrl',
-            controllerUrl: 'scripts/controller/project/credit-list-ctrl'
-          }
-        }
-      })
-      .state('root.credit-list-query-no', {
-        url: '/credit-list',
-        views: {
-          '': {
-            templateUrl: 'views/project/credit-list.html',
-            controller: 'CreditListCtrl',
-            controllerUrl: 'scripts/controller/project/credit-list-ctrl'
+            templateUrl: 'views/assignment/assignment-list.html',
+            controller: 'AssignmentListCtrl',
+            controllerUrl: 'scripts/controller/assignment/assignment-list-ctrl'
           }
         }
       })
       /**
        * 债权转让详情页
        */
-      .state('root.credit-details', {
-        url: '/credit-details/:assignmentNumber',
+      .state('root.assignments-detail', {
+        url: '/assignments/:number',
         views: {
           '': {
-            templateUrl: 'views/project/credit-details.html',
-            controller: 'CreditDetailsCtrl',
-            controllerUrl: 'scripts/controller/project/credit-details-ctrl'
+            templateUrl: 'views/project/assignments-detail.html',
+            controller: 'AssignmentDetailCtrl',
+            controllerUrl: 'scripts/controller/assignment/assignment-detail-ctrl'
           }
         }
       })

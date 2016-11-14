@@ -39,7 +39,7 @@ angular.module('hongcaiApp')
        * 下载模板
        */
       if (status === 2) {
-        if (type !== 4) {
+        if (type !== 4 && type !== 2 && type !== 3 ) {
           ProjectService.contractPDFModel.get({
             projectId: projectId
           }, function(response){
@@ -51,6 +51,15 @@ angular.module('hongcaiApp')
           // $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel?orderId=' + orderId + '&projectId=' + projectId);
         } else if (type === 4) {
           $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContractModel');
+        } else if (type === 2 || type === 3) {
+          OrderService.downloadAssignmentContract.get({
+            orderId: orderId,
+            projectId: projectId
+          }, function(response){
+            if(response.ret !== -1){
+              $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
+            }
+          });
         }
 
       } else if (status >= 3 && status <= 6) {
@@ -58,7 +67,7 @@ angular.module('hongcaiApp')
           return;
         }
 
-        if (type !== 4) {
+        if (type !== 4 && type !== 2 && type !== 3 ) {
           OrderService.downloadContract.get({
             orderId: orderId,
             projectId: projectId
@@ -71,14 +80,20 @@ angular.module('hongcaiApp')
           // $scope.downloadPDF('hongcai/api/v1/siteOrder/downloadContract?orderId=' + orderId + '&projectId=' + projectId);
         } else if (type === 4) {
           $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContract?orderId=' + orderId);
+        }  else if (type === 2 || type === 3) {
+          OrderService.downloadAssignmentContract.get({
+            orderId: orderId,
+            projectId: projectId
+          }, function(response){
+            if(response.ret !== -1){
+              $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
+            }
+          });
         }
 
       }
 
     };
-
-
-
 
 
     $scope.loadOrders = function(page){
@@ -124,8 +139,16 @@ angular.module('hongcaiApp')
     /**
      * 继续支付订单
      */
-    $scope.toPay = function(projectId, orderId, orderType) {
-      $scope.msg = '4';
+    $scope.toPay = function(order) {
+
+      var projectId = order.projectId;
+      var orderId = order.id;
+      var orderType = order.type;
+      var orderAmount = order.orderAmount;
+      var orderNumber = order.number;
+
+      $scope.msg = '12';
+      $scope.investAmount = orderAmount;
       $scope.page = 'investment';
       $alert({
         scope: $scope,
@@ -133,7 +156,7 @@ angular.module('hongcaiApp')
         show: true
       });
 
-      window.open('/user-order-transfer/' + projectId + '/' + orderId + '/' + orderType);
+      window.open('/user-order-transfer/' + projectId + '/' + orderId + '/' + orderType + '?orderNumber=' + orderNumber);
     };
 
     /**

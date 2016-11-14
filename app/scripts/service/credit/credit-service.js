@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .factory('CreditService', function($resource, $location, DEFAULT_DOMAIN) {
+  .factory('CreditService', function($resource, $location, DEFAULT_DOMAIN,RESTFUL_DOMAIN) {
     return {
       getCreditAssignmentList: $resource(DEFAULT_DOMAIN + '/siteCredit/getCreditAssignmentList', {
         minTransferAmount:'@minTransferAmount' ,
@@ -21,7 +21,9 @@ angular.module('hongcaiApp')
         assignmentNumber:'@assignmentNumber',
         subscribeAmount: '@subscribeAmount'
       }),
-
+      getCreditAssignment: $resource(RESTFUL_DOMAIN + '/assignments/:number',{
+        number:'@number'
+      })
      
     };
   });
