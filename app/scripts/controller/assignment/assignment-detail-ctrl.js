@@ -52,9 +52,9 @@ angular.module('hongcaiApp')
             //上次还款到认购当日的天数
             var lastPayDays = DateUtils.intervalDays(new Date().getTime(), $scope.lastRepayDay) * (new Date().getTime() > $scope.lastRepayDay ? 1 : -1); 
               
-            var reward = ($scope.annual - $scope.originalAnnual)*newVal*realRemainDays/36500;
+            var reward = ($scope.annual - $scope.originalAnnual) * newVal * $scope.remainDay / 36500;
             //  代收未收利息
-            $scope.exProfit = newVal*$scope.originalAnnual*lastPayDays/36500;
+            $scope.exProfit = newVal * $scope.originalAnnual * lastPayDays / 36500;
             //实际支付金额
             $scope.realPayAmount = newVal + $scope.exProfit - reward;
             //待收利息

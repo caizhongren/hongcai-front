@@ -44,7 +44,7 @@ angular.module('hongcaiApp')
         var lastRepaymentTime = response.projectBill.lastRepaymentTime;
 
         //剩余期限
-        $scope.remainDay = DateUtils.intervalDays(response.project.repaymentDate, lastRepaymentTime);
+        $scope.remainDay = DateUtils.intervalDays(response.project.repaymentDate, $scope.currentDate);
 
         //利率最大值
         $scope.profitMax = 36500 * (1 - $scope.maxReceivedPaymentsRate) / $scope.remainDay + $scope.creditBaseRate;
