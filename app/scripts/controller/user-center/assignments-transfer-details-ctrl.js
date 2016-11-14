@@ -120,7 +120,7 @@ angular.module('hongcaiApp')
       }
       //待收未收利息
       $scope.profit = $scope.creditBaseRate * newVal * $scope.profitDate /36500;
-      console.log($scope.profit);
+
     });
 
     //监测转让利率
