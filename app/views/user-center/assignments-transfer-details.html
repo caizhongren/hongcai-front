@@ -15,14 +15,14 @@
           </div>
           <div class="row text-recharge-tip">
             <div class="col-md-3 text-left"><b>转让金额：</b></div>
-            <input name="amount" type="number" class="verify-input fl mgn-top7" value="请输入转让金额" placeholder="请输入转让金额" id="amount" ng-model="transferAmount"/>
+            <input name="amount" type="number" class="input-assignment fl mgn-top7" value="请输入转让金额" placeholder="请输入转让金额" id="amount" ng-model="transferAmount"/>
             <span class="span-money fl">元</span>
           </div>
           <div class="row ft-12 ft-red4 margin-l-90" ng-if="msg">{{msg}}</div>
           <div class="row ft-12 ft-red4 margin-l-90" ng-if="transferAmount == 0">请输入大于0的数字(最多精确到小数点后两位)</div>
           <div class="row text-recharge-tip">
             <div class="col-md-3 text-left"><b>转让利率：</b></div>
-            <input name="percent" type="number" min="0" class="verify-input fl mgn-top7" id="percent" ng-model="transferPercent"/>
+            <input name="percent" type="number" min="0" class="input-assignment fl mgn-top7" id="percent" ng-model="transferPercent"/>
             <span class="span-money fl">%</span>
           </div>
           <div class="row ft-12 ft-red4 margin-l-90 margin-b-5" ng-if="errMsg">{{errMsg}}</div>
