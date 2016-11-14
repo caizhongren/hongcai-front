@@ -146,7 +146,9 @@ angular.module('hongcaiApp')
             $scope.page0 = response.index;
             $scope.pageSize0 = response.pageSize;
             $scope.totalPage0 = response.totalPage;
-            $scope.total0 = $scope.total;
+            $scope.total0 = response.total;
+            console.log($scope.total0);
+            
             $alert({
               scope: $scope,
               template: 'views/modal/modal-transferDetail.html',
