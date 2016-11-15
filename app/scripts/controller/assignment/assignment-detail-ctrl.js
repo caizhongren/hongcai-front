@@ -39,7 +39,7 @@ angular.module('hongcaiApp')
             if(newVal % 100 !== 0) {
               $scope.errMsg = '投资金额必须为100的整数倍';
             }
-            if(newVal >  $rootScope.account.balance) {
+            if(newVal >  $rootScope.account.balance || (newVal <= $rootScope.account.balancenewVal && $rootScope.account.balancenewVal < $scope.realPayAmount)) {
               $scope.errMsg = '账户余额不足，请先充值';
             }
             if(newVal > $scope.creditProject.currentStock *100) {
