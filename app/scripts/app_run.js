@@ -8,6 +8,8 @@
 'use strict';
 angular.module('hongcaiApp')
   .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
+    $rootScope.baseFileUrl = config.baseFileUrl;
+
     /**
      * Array 在IE8下没有indexOf 方法。
      */
