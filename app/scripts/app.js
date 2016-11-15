@@ -854,16 +854,16 @@ hongcaiApp
     })
 
     /*--------------------  project  ------------------------*/
-    .state('root.project-category', {
-        url: '/project-category',
-        views: {
-          '': {
-            templateUrl: 'views/project/project-category.html',
-            controller: 'ProjectCategoryCtrl',
-            controllerUrl: 'scripts/controller/project/project-category-ctrl'
-          }
-        }
-      })
+    // .state('root.project-category', {
+    //     url: '/project-category',
+    //     views: {
+    //       '': {
+    //         templateUrl: 'views/project/project-category.html',
+    //         controller: 'ProjectCategoryCtrl',
+    //         controllerUrl: 'scripts/controller/project/project-category-ctrl'
+    //       }
+    //     }
+    //   })
       .state('root.project-activity-group', {
         url: '/project-activity-group',
         views: {
