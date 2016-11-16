@@ -46,9 +46,6 @@ angular.module('hongcaiApp')
               $scope.errMsg = '投资金额必须小于' + $scope.creditProject.currentStock *100;
             }
 
-
-            var realRemainDays = DateUtils.intervalDays($scope.project.repaymentDate, $scope.lastRepayDay);
-
             //上次还款到认购当日的天数
             var lastPayDays = DateUtils.intervalDays(new Date().getTime(), $scope.lastRepayDay) * (new Date().getTime() > $scope.lastRepayDay ? 1 : -1); 
               
@@ -58,7 +55,7 @@ angular.module('hongcaiApp')
             //实际支付金额
             $scope.realPayAmount = newVal + $scope.exProfit - reward;
             //待收利息
-            $scope.profit = newVal * realRemainDays * $scope.originalAnnual / 36500 + reward;
+            $scope.profit = newVal * $scope.remainDay * $scope.annual / 36500;
 
           }
         }
