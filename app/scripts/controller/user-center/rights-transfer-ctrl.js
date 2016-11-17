@@ -34,7 +34,7 @@ angular.module('hongcaiApp')
           PayUtils.redToTrusteeship('toAuthorizeAutoTransfer', response);
           $scope.openTrustReservation = true;
         } else {
-          //console.log('ask security-settings, why authorizeAutoTransfer did not load data...');
+          toaster.pop('warning', '提示', response.msg);
         }
       });
     }
