@@ -31,11 +31,12 @@ angular.module('hongcaiApp')
         //原有债权金额
         $scope.creditRightAmount = response.creditRight.transferableAmount;
         $scope.assignmentsNumber = response.creditRight.number;
+        $scope.annualEarnings = response.project.annualEarnings;
         //步进值
         $scope.increaseAmount = response.project.increaseAmount;
         //原标利率
         $scope.creditBaseRate = response.creditRight.baseRate;
-        $scope.transferPercent = $scope.creditBaseRate;
+        $scope.transferPercent = $scope.annualEarnings;
         //creatTime(ms)
         $scope.creatTime = response.creditRight.createTime;
         //当前时间
