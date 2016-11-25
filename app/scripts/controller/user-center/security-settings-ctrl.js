@@ -160,7 +160,11 @@ angular.module('hongcaiApp')
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
-
+    $alert({
+      scope: $scope,
+      template: 'views/modal/alert-autoReservation.html',
+      show: true
+    });
     $scope.openReservation = function() {
 
       if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
@@ -170,19 +174,24 @@ angular.module('hongcaiApp')
           show: true
         });
       }else {
-        $scope.msg = '6';
         $alert({
           scope: $scope,
-          template: 'views/modal/alertYEEPAY.html',
+          template: 'views/modal/alert-autoReservation.html',
           show: true
         });
+        // $scope.msg = '6';
+        // $alert({
+        //   scope: $scope,
+        //   template: 'views/modal/alertYEEPAY.html',
+        //   show: true
+        // });
 
-        var user = {
-          'realName': 'default',
-          'idCardNo': 'default'
-        };
+        // var user = {
+        //   'realName': 'default',
+        //   'idCardNo': 'default'
+        // };
 
-        window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
+        // window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
 
       }
 
