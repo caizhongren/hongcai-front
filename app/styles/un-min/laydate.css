@@ -6,9 +6,8 @@
  
 **/
 
-// html{_background-image:url(about:blank); _background-attachment:fixed;}
-<style type="text/css" media="screen">
-  .laydate_body .laydate_box, .laydate_body .laydate_box *{margin:0; padding:0;}
+
+.laydate_body .laydate_box, .laydate_body .laydate_box *{margin:0; padding:0;}
 .laydate-icon, .laydate-icon-default,.laydate-icon-danlan,.laydate-icon-dahong,.laydate-icon-molv{height:22px; line-height:22px; padding-right:20px; border:1px solid #C6C6C6; background-repeat:no-repeat; background-position: center;  background-color:#fff; outline:0;}
 .laydate-icon-default{ background-image:url(../skins/default/icon.png)}
 .laydate-icon-danlan{border:1px solid #B1D2EC; background-image:url(../skins/danlan/icon.png)}
@@ -70,6 +69,3 @@
 .laydate_body .laydate_bottom .laydate_v{position:absolute; left:10px; top:6px; font-family:Courier; z-index:0;}
 .laydate_tab.laydate_chdown cite{left: 60px !important;}
 // .laydate_show #laydate_ys .laydate_void {display: none;}
-</style>
-
-/* 代码整理：懒人之家 www.lanrenzhijia.com */
