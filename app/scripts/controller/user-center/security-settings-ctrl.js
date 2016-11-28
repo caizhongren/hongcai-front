@@ -165,6 +165,7 @@ angular.module('hongcaiApp')
       template: 'views/modal/alert-autoReservation.html',
       show: true
     });
+    document.getElementsByTagName("html")[0].style.overflow="hidden";
     $scope.openReservation = function() {
 
       if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
