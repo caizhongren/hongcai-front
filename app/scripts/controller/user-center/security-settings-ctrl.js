@@ -11,7 +11,7 @@ angular.module('hongcaiApp')
         $scope.userId = user.id;
         if (userAuth && userAuth.yeepayAccountStatus === 1) {
           $scope.haveTrusteeshipAccount = true;
-          $scope.openTrustReservation = userAuth.autoTransfer;
+          // $scope.openTrustReservation = userAuth.autoTransfer;
         } else {
           $scope.haveTrusteeshipAccount = false;
         }
@@ -160,12 +160,16 @@ angular.module('hongcaiApp')
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
-    $alert({
-      scope: $scope,
-      template: 'views/modal/alert-autoReservation.html',
-      show: true
-    });
-    document.getElementsByTagName("html")[0].style.overflow="hidden";
+
+    // document.getElementsByTagName("html")[0].style.overflow="hidden";
+    $scope.goToTender = function(){
+      $scope.msg = '6';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alert-autoReservation.html',
+        show: true
+      });
+    }
     $scope.openReservation = function() {
 
       if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
@@ -174,27 +178,191 @@ angular.module('hongcaiApp')
           template: 'views/modal/modal-realNameAuth.html',
           show: true
         });
+      }else if($rootScope.securityStatus.autoTransfer === 0){
+        var user = {
+          'realName': 'default',
+          'idCardNo': 'default'
+        };
+
+        window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
+        $scope.goToTender();
+        
       }else {
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-autoReservation.html',
-          show: true
+        $scope.goToTender();
+        UserCenterService.autoTender.get({
+          userId: $rootScope.loginUser.id
+        }, function(response){
+          if(response.status != 1){
+            $scope.setAutoTender = false;
+          }else {
+            $scope.setAutoTender = true;
+          }
         });
-        // $scope.msg = '6';
-        // $alert({
-        //   scope: $scope,
-        //   template: 'views/modal/alertYEEPAY.html',
-        //   show: true
-        // });
-
-        // var user = {
-        //   'realName': 'default',
-        //   'idCardNo': 'default'
-        // };
-
-        // window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
-
       }
 
     };
+
+    $scope.currentTime = new Date();
+    $scope.endTime = new Date().setFullYear(new Date().getFullYear()+1);
+    //自动投标
+    $scope.dateLine = [ 30,90,120,180,360,'不限'];
+    $scope.interestRate = [7,8,9,10,11,12,'不限',];
+    $scope.projectType = ['宏金保','债权转让','全部',];
+
+    $scope.showDateLine = false;
+    $scope.showInterestRate = false;
+    $scope.showProjectType = false;
+
+    $scope.dateLineFn = function(){
+      $scope.showDateLine =!$scope.showDateLine;
+      if($scope.showDateLine){
+        $scope.showInterestRate = false;
+        $scope.showProjectType =false;
+      } 
+    };
+    $scope.interestRateFn = function(){
+      $scope.showInterestRate =!$scope.showInterestRate;
+      if($scope.showInterestRate){
+        $scope.showDateLine = false;
+        $scope.showProjectType =false;
+      } 
+    };
+    $scope.projectTypeFn = function(){
+      $scope.showProjectType =!$scope.showProjectType;
+       if($scope.showProjectType){
+        $scope.showInterestRate = false;
+        $scope.showDateLine =false;
+      } 
+    };
+    $scope.autoTender = [];
+    $scope.autoTender.selectedDateLine = '360';
+    $scope.autoTender.selectedInterestRate = '7';
+    $scope.autoTender.selectedProjectType = '全部';
+    $scope.selectDateLine = function(date){
+      $scope.autoTender.selectedDateLine = date;
+    };
+    $scope.selectInterestRate = function(interestRate){
+      $scope.autoTender.selectedInterestRate = interestRate;
+    };
+    $scope.selectProjectType = function(projectType){
+      $scope.autoTender.selectedProjectType = projectType;
+    };
+
+    //最小投标金额
+    
+    $scope.autoTender.minInvestAmount = 100;
+    $scope.error1 = false;
+    $scope.watchInvestAmount= function(newVal) {
+      $scope.errorMsg1 = '';
+      if (!$rootScope.isLogged) {
+        return;
+      }
+      if (newVal == null) {
+        $scope.errorMsg1 = '请输入最小投标金额';
+      }
+      if (newVal) {
+        if(newVal % 100 !== 0){
+          $scope.errorMsg1 = '请输入100元的整数倍';
+        }else if (newVal > 1000000) {
+          $scope.errorMsg1 = '最大投标金额为1000000元';
+        }
+      } 
+      $scope.error1 = $scope.errorMsg1 === '' ? false : true;      
+    };
+    //账户保留金额
+    $scope.autoTender.retentionAmount = 0;
+    $scope.error2 = false;
+    $scope.watchRetentionAmount= function(newVal) {
+      $scope.errorMsg2 = '';
+      if (!$rootScope.isLogged) {
+        return;
+      }
+      if (newVal == null) {
+        $scope.errorMsg2 = '请输入账户保留金额';
+      }
+      if (newVal) {
+        if(newVal % 100 !== 0){
+          $scope.errorMsg2 = '请输入100元的整数倍';
+        }else if (newVal > 1000000) {
+          $scope.errorMsg2 = '最大保留金额为1000000元';
+        }
+      } 
+      $scope.error2 = $scope.errorMsg2 === '' ? false : true;   
+    };
+    
+    //自动投标详情
+    UserCenterService.autoTender.get({
+      userId: $rootScope.loginUser.id
+    }, function(response){
+      $scope.openTrustReservation = response.status;
+      if (response.userId !== null) {
+        $scope.setAutoTender = true;
+        $scope.autoTenderDetail = response;
+        var investType = $scope.autoTenderDetail.investType;
+        if (investType ===0) {
+          $scope.autoTenderDetail.investType = '全部';
+        }else if (investType ===1) {
+          $scope.autoTenderDetail.investType = '宏金保';
+        }else {
+          $scope.autoTenderDetail.investType = '债权转让';
+        }
+      }else {
+        $scope.setAutoTender = false;
+      }
+    });
+    $scope.openReservation2 = function(autoTender){
+      var startTime = new Date($('#start').val()).getTime();
+      var endTime = new Date($('#end').val()).getTime();
+      if (autoTender.minInvestAmount == null) {
+        return;
+      }
+      if (autoTender.retentionAmount == null) {
+        return;
+      }
+      if(endTime <= startTime){
+        $scope.errorMsg3 = '截止日期不能超过开始日期';
+        return;
+      }
+      
+      if (autoTender.selectedProjectType ==='宏金保') {
+        var projectType = 1;
+      }else if (autoTender.selectedProjectType ==='债权转让') {
+        var projectType = 2;
+      }else {
+        var projectType = 0;
+      }
+
+      //开启
+      UserCenterService.autoTenders.post({
+        userId: $rootScope.loginUser.id,
+        minInvestAmount: autoTender.minInvestAmount,
+        minRemainDay: 0,
+        maxRemainDay: autoTender.selectedDateLine ==='不限' ? 365*5 : autoTender.selectedDateLine,
+        annualEarnings: autoTender.selectedInterestRate ==='不限' ? 0 : autoTender.selectedInterestRate,
+        investType: projectType,
+        remainAmount: autoTender.retentionAmount,
+        startTime: startTime,
+        endTime: endTime
+      }, function(response) {
+        if (response.ret !== -1) {
+          toaster.pop('success', '已开启自动投标');
+          $rootScope.reload();
+        }
+      })
+    }
+    $scope.modify = function(){
+      $scope.setAutoTender = false;
+    }
+    $scope.disabledAutoTender = function(){
+      UserCenterService.disabledAutoTender.update({
+        userId: $rootScope.loginUser.id,
+        status: 3
+      }, function(response){
+        if (response.ret !== -1) {
+          toaster.pop('success', '已禁用自动投标');
+          $rootScope.reload();
+        }
+      })
+    }
+  
   });

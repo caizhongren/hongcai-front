@@ -270,6 +270,38 @@ angular.module('hongcaiApp')
           method: 'GET',
           isArray: true  
         }
+      }),
+      //自动投标开启、编辑
+      autoTenders: $resource(RESTFUL_DOMAIN + '/autoTenders', 
+        {
+          userId: '@userId',
+          minInvestAmount: '@minInvestAmount',
+          minRemainDay: '@minRemainDay',
+          maxRemainDay: '@maxRemainDay',
+          annualEarnings: '@annualEarnings',
+          investType: '@investType',
+          remainAmount: '@remainAmount',
+          startTime: '@startTime',
+          endTime: '@endTime'
+        },
+        {
+        'post': {
+          method: 'POST',
+        }
+      }),
+      //自动投标详情:
+      autoTender : $resource(RESTFUL_DOMAIN + '/users/:userId/autoTender',{
+        userId: '@userId'
+      }),
+      //禁用自动投标:
+      disabledAutoTender : $resource(RESTFUL_DOMAIN + '/users/:userId/disabledAutoTender',{}, {
+        update: {
+          method: 'PUT',
+          params: {
+            userId: '@userId',
+            status: '@status'
+          }
+        } 
       })
     };
   });
