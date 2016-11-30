@@ -48,12 +48,13 @@ angular.module('hongcaiApp')
       page = 11;
     } else if(business === 'AUTHORIZATION_AUTO_TRANSFER'){
       $state.go('root.userCenter.security-settings');
-      $rootScope.reload();
+      
       $alert({
         scope: $scope,
         template: 'views/modal/alert-autoReservation.html',
         show: true
       });
+      // $rootScope.reload();
     }
 
 
