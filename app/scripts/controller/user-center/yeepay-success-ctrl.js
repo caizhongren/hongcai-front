@@ -47,7 +47,7 @@ angular.module('hongcaiApp')
     } else if(business === 'USER_ACTIVE'){
       page = 11;
     } else if(business === 'AUTHORIZATION_AUTO_TRANSFER'){
-      $state.go('root.userCenter.security-settings');
+      $state.location('root.userCenter.security-settings',{},{reload:true});
       
       $alert({
         scope: $scope,

@@ -255,7 +255,6 @@ angular.module('hongcaiApp')
     $scope.error1 = false;
     $scope.watchInvestAmount= function(newVal) {
       $scope.errorMsg1 = '';
-      console.log(!pattern.test(newVal));
       if (!$rootScope.isLogged) {
         return;
       }
