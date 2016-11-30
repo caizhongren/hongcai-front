@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SecuritySettingsCtrl', function($scope, $state, $http, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
+  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
     $scope.userbusiness = 2;
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
@@ -379,5 +379,9 @@ angular.module('hongcaiApp')
           $rootScope.reload();
         }
       })
+    }
+    if (ipCookie('modal')) {
+      $scope.goToTender();
+      ipCookie.remove('modal');
     }
   });

@@ -47,14 +47,8 @@ angular.module('hongcaiApp')
     } else if(business === 'USER_ACTIVE'){
       page = 11;
     } else if(business === 'AUTHORIZATION_AUTO_TRANSFER'){
-      $state.go('root.userCenter.security-settings',{},{reload:true});
-      
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alert-autoReservation.html',
-        show: true
-      });
-      // $rootScope.reload();
+      $state.go('root.userCenter.security-settings');
+      ipCookie('modal', 1);
     }
 
 
