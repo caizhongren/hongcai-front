@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('assignmentsTransferCtrl',function (DateUtils, $location, $rootScope, $scope, $stateParams, UserCenterService, toaster, $state) {
+  .controller('assignmentsTransferCtrl',function (DateUtils, $location, $rootScope, $scope, $stateParams, UserCenterService, toaster, $state, $alert) {
     $rootScope.selectPage_two = $location.path().split('/')[2].split('-')[0];
     var creditRightNumber = $stateParams.number;
 
@@ -68,13 +68,70 @@ angular.module('hongcaiApp')
 
     });
 
+    //查询是否开通自动投标
+    UserCenterService.autoTender.get({
+      userId: $rootScope.loginUser.id
+    }, function(response){
+      if (response.status === 0 || response.status === 1) {
+        $scope.showModal = true;
+      }else {
+        $scope.showModal = false;
+      }
+    });
+    /**
+     * 禁用自动投标
+     */
+    $scope.cancelAutoTender = function() {
+      $alert({
+        scope: $scope,
+        template: 'views/modal/cancelAutoTender.html',
+        show: true
+      });
+    };
+    //禁用自动投标
+    $scope.disabledAutoTender = function(){
+      UserCenterService.disabledAutoTender.update({
+        userId: $rootScope.loginUser.id,
+        status: 3
+      }, function(response){
+        if (response.ret !== -1) {
+          toaster.pop('success', '已禁用自动投标');
+          $rootScope.reload();
+        }
+      })
+    }
+    $scope.goToAssignmentsTransfer = function(){
+      UserCenterService.assignmentsTransfer.post({
+        number: $scope.assignmentsNumber,
+        creditRightId: $scope.creditRight.id,
+        amount: $scope.transferAmount,
+        annualEarnings: $scope.transferPercent
+      }, function(response){
+        if(response && response.ret !== -1){
+          toaster.pop('success', '转让成功');
+          $state.go('root.userCenter.assignments');
+        }else {
+          toaster.pop('error', response.msg);
+        }
+
+      });
+    }
+
+
     //确认转让
     $scope.clicked = false;
     $scope.assignmentsTransfer = function(){
+      console.log($scope.showModal);
       $scope.clicked = true;
       if ($scope.msg || $scope.errMsg || $scope.transferAmount ==undefined || $scope.showErrMsg || $scope.transferAmount <=0) {
         return;
       }
+
+      if ($scope.showModal) {
+        $scope.cancelAutoTender();
+        return;
+      }
+      
 
       UserCenterService.assignmentsTransfer.post({
         number: $scope.assignmentsNumber,
