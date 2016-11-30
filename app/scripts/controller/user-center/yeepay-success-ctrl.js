@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('YeepaySuccessCtrl', function($scope, $stateParams, ProjectService, $state, $alert) {
+  .controller('YeepaySuccessCtrl', function($scope, $stateParams, ProjectService, $state, $alert, $rootScope) {
 
   	var business = $stateParams.business;
   	$scope.amount = $stateParams.amount;
@@ -48,6 +48,7 @@ angular.module('hongcaiApp')
       page = 11;
     } else if(business === 'AUTHORIZATION_AUTO_TRANSFER'){
       $state.go('root.userCenter.security-settings');
+      $rootScope.reload();
       $alert({
         scope: $scope,
         template: 'views/modal/alert-autoReservation.html',
