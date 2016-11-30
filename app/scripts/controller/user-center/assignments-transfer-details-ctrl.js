@@ -187,7 +187,7 @@ angular.module('hongcaiApp')
         $scope.errMsg = undefined;
       }
       if(newVal){
-        if(newVal < $scope.creditBaseRate ){
+        if(newVal < $scope.annualEarnings ){
           $scope.errMsg = '最小转让利率为' + $scope.creditBaseRate + '%';
         }else if(newVal > $scope.profitMax ){
           $scope.errMsg = '最大转让利率为'+ $scope.profitMax.toFixed(2) +'%';
