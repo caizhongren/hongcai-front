@@ -18,12 +18,12 @@
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.minInvestAmount}}元</span>
       </div>
       <form ng-if="!setAutoTender" name="investForm">
-        <input class="col-4 padding-t-9 input-invest ft-grey666 box-shadow" type="number" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-model="autoTender.minInvestAmount" name="minInvestAmount" ng-change="watchInvestAmount(autoTender.minInvestAmount)"/><span class="input-money ft-black4 ft-14 fl">元</span>
-        <div class="col-md-4 padding-0 ft-12 margin-t-15 ft-grey6 margin-l-5">自动投标时，每笔投资金额都将大于此数值</div>
+        <input class="col-4 padding-t-9 input-invest ft-grey666 box-shadow" type="number" ng-model="autoTender.minInvestAmount" name="minInvestAmount" ng-change="watchInvestAmount(autoTender.minInvestAmount)"/><span class="input-money ft-black4 ft-14 fl">元</span>
+        <div class="col-md-4 padding-0 ft-12 margin-t-15 ft-grey6 margin-l-5">自动投标时，每笔投资金额都将大于此数值{{retentionForm.retentionAmount.$error.pattern }}</div>
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
             <div class="margin-b-0 margin-l-30 text-left" ng-if="error1">{{errorMsg1}}</div>
-            <div class="margin-b-0 margin-l-30 text-left" ng-show="investForm.minInvestAmount.$error.pattern || autoTender.minInvestAmount == 0">请输入大于0的数字(最多精确到小数点后两位)</div>
+            <!-- <div class="margin-b-0 margin-l-30 text-left" ng-show="investForm.minInvestAmount.$error.pattern">最多精确到小数点后两位</div> -->
           </div>
         </div>
       </form>   
@@ -34,7 +34,7 @@
       <div ng-if="setAutoTender">
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.maxRemainDay == 365*5 ? '不限' : autoTenderDetail.maxRemainDay}}{{autoTenderDetail.maxRemainDay == 365*5 ? '' : '元'}}</span>
       </div>
-      <div ng-if="!setAutoTender" class="col-9" ng-click="dateLineFn();">
+      <div ng-if="!setAutoTender" class="col-9 cursor-pt" ng-click="dateLineFn();">
         <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedDateLine}}{{autoTender.selectedDateLine !=='不限' ? '天' : ''}}" disabled/><span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
         <ul class="select" ng-if="showDateLine">
           <li ng-click="selectDateLine(date)" ng-repeat="date in dateLine">{{date}}<span ng-if="date !== '不限'">天</span></li>
@@ -47,7 +47,7 @@
       <div ng-if="setAutoTender">
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.annualEarnings == 0 ? '不限' : autoTenderDetail.annualEarnings}}{{autoTenderDetail.annualEarnings == 0 ? '' : '%'}}</span>
       </div>
-      <div ng-if="!setAutoTender" class="col-9" ng-click="interestRateFn()">
+      <div ng-if="!setAutoTender" class="col-9 cursor-pt" ng-click="interestRateFn()">
         <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedInterestRate}}{{autoTender.selectedInterestRate !=='不限' ? '%' : ''}}" disabled/><span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
         <ul class="select" ng-if="showInterestRate">
           <li ng-click="selectInterestRate(rate)" ng-repeat="rate in interestRate">{{rate}}<span ng-if="rate !== '不限'">%</span></li>        
@@ -58,9 +58,9 @@
     <div class="row margin-b-20">
       <div class="col-22 col-md-offset-1 padding-0"><i class="icon5"></i>标的类型</div>
       <div ng-if="setAutoTender">
-        <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.investType}}</span>
+        <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.investType != 0 ? autoTenderDetail.investType == 1 ? '宏金保' : '债权转让' : '全部' }}</span>
       </div>
-      <div ng-if="!setAutoTender" class="col-9" ng-click="projectTypeFn()">
+      <div ng-if="!setAutoTender" class="col-9 cursor-pt" ng-click="projectTypeFn()">
         <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedProjectType}}" disabled/><span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
         <ul class="select" ng-if="showProjectType">
           <li ng-click="selectProjectType(type)" ng-repeat="type in projectType">{{type}}</li>
@@ -74,12 +74,12 @@
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.remainAmount}}元</span>
       </div>
       <form ng-if="!setAutoTender" name="retentionForm">
-        <input class="col-4 padding-t-5 input-invest ft-grey666 box-shadow" type="number"  name="retentionAmount" ng-model="autoTender.retentionAmount" ng-change="watchRetentionAmount(autoTender.retentionAmount)" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/"/><span class="input-money ft-black4 ft-14 fl">元</span>
+        <input class="col-4 padding-t-5 input-invest ft-grey666 box-shadow" type="number"  name="retentionAmount" ng-model="autoTender.retentionAmount" ng-change="watchRetentionAmount(autoTender.retentionAmount)" /><span class="input-money ft-black4 ft-14 fl">元</span>
         <div class="col-md-4 padding-0 ft-12 margin-t-15 ft-grey6 margin-l-5">这部分资金将不会加入自动投标</div>
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
             <div class="margin-b-0 margin-l-30 text-left">{{errorMsg2}}</div>
-             <div class="margin-b-0 margin-l-30 text-left" ng-show="retentionForm.retentionAmount.$error.pattern">最多精确到小数点后两位</div>
+             <!-- <div class="margin-b-0 margin-l-30 text-left" ng-show="retentionForm.retentionAmount.$error.pattern">最多精确到小数点后两位</div> -->
           </div>
         </div>
       </form>
@@ -92,11 +92,11 @@
       </div>
       <div ng-if="!setAutoTender">
         <div class="position-re">
-          <input id="start" class="col-1 padding-t-5 input-invest" value="{{currentTime | date: 'yyyy-MM-dd'}}" onClick="laydate({istime: false, format: 'YYYY-MM-DD'})"/>
+          <input id="start" class="ft-grey666 col-1 padding-t-5 input-invest" value="{{currentTime | date: 'yyyy-MM-dd'}}" disabled/><i class="icon8 cursor-pt" onClick="laydate({elem: '#start', istime: false, format: 'YYYY-MM-DD'})"></i>
         </div>
         <div class="fl ft-grey3 margin-t-5"> &nbsp;—&nbsp; </div>
         <div class="position-re">
-          <input id="end" class="col-1 padding-t-5 input-invest" value="{{endTime | date: 'yyyy-MM-dd'}}" onClick="laydate({istime: false, format: 'YYYY-MM-DD'})"/>
+          <input id="end" class="ft-grey666 col-1 padding-t-5 input-invest" value="{{endTime | date: 'yyyy-MM-dd'}}" disabled /><i class="icon9 cursor-pt" onClick="laydate({elem: '#end', istime: false, format: 'YYYY-MM-DD'})"></i>
         </div>  
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
@@ -107,8 +107,8 @@
     </div>
   </div>
   <div class="margin-b-30 col-xs-10 col-xs-offset-1">
-    <button class="btn-open orange-button col-1 pull-left margin-l-prcent35" ng-click="openReservation2(autoTender);$hide();" ng-if="!setAutoTender && !error1 && !error2 && !investForm.minInvestAmount.$error.pattern && autoTender.minInvestAmount != 0 && !retentionForm.retentionAmount.$error.pattern">开启</button>
-    <button class="btn-disabled btn-open orange-button col-1 pull-left margin-l-prcent35" ng-if="!setAutoTender && (error1 || error2 || investForm.minInvestAmount.$error.pattern || retentionForm.retentionAmount.$error.pattern)">开启</button>
+    <button class="btn-open orange-button col-1 pull-left margin-l-prcent35" ng-click="openReservation2(autoTender);$hide();" ng-if="!setAutoTender && !error1 && !error2">开启</button>
+    <button class="btn-disabled btn-open orange-button col-1 pull-left margin-l-prcent35" ng-if="!setAutoTender && (error1 || error2)" disabled>开启</button>
     <a class="btn-open orange-button col-1 pull-left margin-l-prcent22" ng-click="modify()"  ng-if="setAutoTender">修改</a>
     <a class="btn-open orange-button col-1 pull-left margin-l-60" ng-click="disabledAutoTender();$hide()"  ng-if="setAutoTender">禁用</a>  
   </div>

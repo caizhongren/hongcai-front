@@ -231,12 +231,12 @@
       	<div class="col-xs-10 col-xs-offset-1">
       		<div class="setting-new border-bd-grey padding-b-40">
       			<span class="text-label fl ft-16">开通自动投标权限 <i class="fa fa-exclamation-circle" ng-show="!openTrustReservation" title="开通自动投标权限，享受自动投标服务，避免余额资金闲置。"></i></span>
-      			<span class="text-user fl ft-14">{{openTrustReservation == 1 ? '已开启' : '未开启'}}</span>
-      			<span class="text-tip fl ft-14" ng-show="openTrustReservation != 1">
+      			<span class="text-user fl ft-14">{{openTrustReservation === 1 || openTrustReservation === 0 ? '已开启' : '未开启'}}</span>
+      			<span class="text-tip fl ft-14" ng-if="openTrustReservation === null">
         			<a class="orange-button padding-l-15 padding-r-15 border-half" ng-click="openReservation()">立即开启</a>
       			</span>
-      			<span class="text-tip fl ft-14"> 
-              <a class="white-button-orange padding-l-15 padding-r-15 border-half" ng-show="openTrustReservation == 1" ng-click="openReservation()">{{"查看"}}</a>
+      			<span class="text-tip fl ft-14" ng-if="openTrustReservation !== null"> 
+              <a class="white-button-orange padding-l-15 padding-r-15 border-half" ng-click="openReservation()">{{"查看"}}</a>
             </span>
       		</div>
       	</div>

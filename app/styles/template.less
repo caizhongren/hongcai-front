@@ -289,10 +289,22 @@
     background: url('/images/user-center/autoReservation.png') no-repeat -32px -55px;
     top: 4px;
   }
-  #start, #end {
-    background: url(/images/user-center/line-date.png) no-repeat 90px center;
-    padding-right: 20px !important;
+  .icon8, .icon9 {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    background: url('/images/user-center/autoReservation.png') no-repeat -32px -55px;
+    top: 1px;
+    left: 312px;
   }
+  .icon9 {
+    left: 450px;
+  }
+  // #start, #end {
+  //   background: url(/images/user-center/line-date.png) no-repeat 90px center;
+  //   padding-right: 20px !important;
+  // }
   .btn-open {
     border-radius: 4px;
     padding: 0px 50px;
@@ -324,6 +336,11 @@
       text-align: center;
       color: #a4a4a4;
       padding: 8px;
+    }
+    li:hover {
+      background-color: #fd8f3f;
+      color: #fff;
+      cursor: pointer;
     }
   }
 }
