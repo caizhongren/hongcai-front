@@ -18,7 +18,7 @@
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.minInvestAmount}}元</span>
       </div>
       <form ng-if="!setAutoTender" name="investForm">
-        <input class="col-4 padding-t-9 input-invest ft-grey666 box-shadow" type="number" ng-model="autoTender.minInvestAmount" name="minInvestAmount" ng-change="watchInvestAmount(autoTender.minInvestAmount)"/><span class="input-money ft-black4 ft-14 fl">元</span>
+        <input class="minInvestAmount col-4 padding-t-9 input-invest ft-grey666 box-shadow" type="number" ng-model="autoTender.minInvestAmount" name="minInvestAmount" ng-change="watchInvestAmount(autoTender.minInvestAmount)"/><span class="input-money ft-black4 ft-14 fl">元</span>
         <div class="col-md-4 padding-0 ft-12 margin-t-15 ft-grey6 margin-l-5">自动投标时，每笔投资金额都将大于此数值{{retentionForm.retentionAmount.$error.pattern }}</div>
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
@@ -34,12 +34,13 @@
       <div ng-if="setAutoTender">
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.maxRemainDay}}天</span>
       </div>
-      <div ng-if="!setAutoTender" class="col-9 cursor-pt" ng-click="dateLineFn();">
-        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedDateLine}}天" disabled/><span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-        <ul class="select" ng-if="showDateLine">
-          <li ng-click="selectDateLine(date)" ng-repeat="date in dateLine">{{date}}天</li>
-        </ul>
-      </div>
+      <a ng-if="!setAutoTender" class="col-9 cursor-pt display-bl" ng-click="dateLineFn();" href="javascript:;" focus-blur>
+        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedDateLine}}天" disabled/>
+        <span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+      </a>
+      <ul class="select" ng-if="showDateLine">
+        <li ng-click="selectDateLine(date)" ng-repeat="date in dateLine">{{date}}天</li>
+      </ul>
     </div>
     <!-- 最低预期收益 -->
     <div class="row margin-b-20">
@@ -47,12 +48,13 @@
       <div ng-if="setAutoTender">
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.annualEarnings}}%</span>
       </div>
-      <div ng-if="!setAutoTender" class="col-9 cursor-pt" ng-click="interestRateFn()">
-        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedInterestRate}}%" disabled/><span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-        <ul class="select" ng-if="showInterestRate">
-          <li ng-click="selectInterestRate(rate)" ng-repeat="rate in interestRate">{{rate}}%</li>        
-        </ul>
-      </div>
+      <a ng-if="!setAutoTender" class="col-9 cursor-pt display-bl" ng-click="interestRateFn()" href="javascript:;" focus-blur>
+        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedInterestRate}}%" disabled/>
+        <span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span> 
+      </a>
+      <ul class="select" ng-if="showInterestRate">
+        <li ng-click="selectInterestRate(rate)" ng-repeat="rate in interestRate">{{rate}}%</li>        
+      </ul>
     </div>
     <!-- 标的类型 -->
     <div class="row margin-b-20">
@@ -60,12 +62,13 @@
       <div ng-if="setAutoTender">
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.investType != 0 ? autoTenderDetail.investType == 1 ? '宏金保' : '债权转让' : '全部' }}</span>
       </div>
-      <div ng-if="!setAutoTender" class="col-9 cursor-pt" ng-click="projectTypeFn()">
-        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedProjectType}}" disabled/><span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-        <ul class="select" ng-if="showProjectType">
-          <li ng-click="selectProjectType(type)" ng-repeat="type in projectType">{{type}}</li>
-        </ul>
-      </div>
+      <a ng-if="!setAutoTender" class="col-9 cursor-pt display-bl" ng-click="projectTypeFn()" href="javascript:;" focus-blur>
+        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedProjectType}}" disabled/>
+        <span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>       
+      </a>
+      <ul class="select" ng-if="showProjectType">
+        <li ng-click="selectProjectType(type)" ng-repeat="type in projectType">{{type}}</li>
+      </ul>
     </div>
     <!-- 账户保留金额 -->
     <div class="row margin-b-20">
@@ -91,13 +94,13 @@
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.startTime | date: 'yyyy.MM.dd'}} — {{autoTenderDetail.endTime | date: 'yyyy.MM.dd'}}</span>
       </div>
       <div ng-if="!setAutoTender">
-        <!-- <div class="position-re"> -->
-          <input id="start" class="ft-grey666 col-1 padding-t-5 input-invest" value="{{currentTime | date: 'yyyy-MM-dd'}}" disabled/><i class="icon8 cursor-pt" onClick="laydate({elem: '#start', istime: false, format: 'YYYY-MM-DD', min: laydate.now()})"></i>
-        <!-- </div> -->
+        <div class="col-1 input-invest" onClick="laydate({elem: '#start', istime: false, format: 'YYYY-MM-DD', min: laydate.now()})">
+          <input id="start" class="ft-grey666 col-100 padding-t-5 input-invest border-none" value="{{currentTime | date: 'yyyy-MM-dd'}}" disabled/>
+        </div><!-- <i class="icon8 cursor-pt" "></i> -->
         <div class="fl ft-grey3 margin-t-5"> &nbsp;—&nbsp; </div>
-        <!-- <div class="position-re"> -->
-          <input id="end" class="ft-grey666 col-1 padding-t-5 input-invest" value="{{endTime | date: 'yyyy-MM-dd'}}" disabled /><i class="icon9 cursor-pt" onClick="laydate({elem: '#end', istime: false, format: 'YYYY-MM-DD', min: laydate.now(+1)})"></i>
-        <!-- </div>   -->
+          <div class="col-1 input-invest" onClick="laydate({elem: '#end', istime: false, format: 'YYYY-MM-DD', min: laydate.now(+1)})">
+            <input id="end" class="ft-grey666 col-100 padding-t-5 input-invest border-none" value="{{endTime | date: 'yyyy-MM-dd'}}" disabled /><!-- <i class="icon9 cursor-pt""></i> -->
+        </div>  
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
             <div class="margin-b-0 margin-l-30 text-left">{{errorMsg3}}</div>
