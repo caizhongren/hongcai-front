@@ -107,10 +107,10 @@
     </div>
   </div>
   <div class="margin-b-30 col-xs-10 col-xs-offset-1">
-    <button class="btn-open orange-button col-1 pull-left margin-l-prcent35" ng-click="openReservation2(autoTender);$hide();" ng-if="!setAutoTender && !error1 && !error2">开启</button>
+    <button class="btn-open orange-button col-1 pull-left margin-l-prcent35" ng-click="openReservation2(autoTender);$hide();" ng-if="!setAutoTender && !error1 && !error2 && disableDubble">开启</button>
     <button class="btn-disabled btn-open orange-button col-1 pull-left margin-l-prcent35" ng-if="!setAutoTender && (error1 || error2)" disabled>开启</button>
     <a class="btn-open orange-button col-1 pull-left margin-l-prcent22" ng-click="modify()"  ng-if="setAutoTender">修改</a>
-    <a class="btn-open orange-button col-1 pull-left margin-l-60" ng-click="disabledAutoTender();$hide()"  ng-if="setAutoTender">禁用</a>  
+    <a class="btn-open orange-button col-1 pull-left margin-l-60" ng-click="disabledAutoTender();$hide()"  ng-if="setAutoTender && disableDubble">禁用</a>  
   </div>
 </div>
 <div class="mask_layer"></div>

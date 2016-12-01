@@ -325,7 +325,9 @@ angular.module('hongcaiApp')
         $scope.setAutoTender = false;
       }
     });
+    $scope.disableDubble = true;
     $scope.openReservation2 = function(autoTender){
+      $scope.disableDubble = false;
       var startTime = new Date($('#start').val()).getTime();
       var endTime = new Date($('#end').val()).getTime();
       if(endTime <= startTime){
@@ -358,6 +360,7 @@ angular.module('hongcaiApp')
         startTime: startTime,
         endTime: endTime
       }, function(response) {
+        $scope.disableDubble = true;
         if (response.ret !== -1) {
           toaster.pop('success', '已开启自动投标');
           $rootScope.reload();
@@ -370,10 +373,12 @@ angular.module('hongcaiApp')
       $scope.endTime = $scope.autoTenderDetail.endTime;
     }
     $scope.disabledAutoTender = function(){
+      $scope.disableDubble = false;
       UserCenterService.disabledAutoTender.update({
         userId: $rootScope.loginUser.id,
         status: 3
       }, function(response){
+        $scope.disableDubble = true;
         if (response.ret !== -1) {
           toaster.pop('success', '已禁用自动投标');
           $rootScope.reload();
