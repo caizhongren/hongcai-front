@@ -205,8 +205,8 @@ angular.module('hongcaiApp')
     $scope.currentTime = new Date();
     $scope.endTime = new Date().setFullYear(new Date().getFullYear()+1);
     //自动投标
-    $scope.dateLine = [ 30,90,120,180,360,'不限'];
-    $scope.interestRate = [7,8,9,10,11,12,'不限',];
+    $scope.dateLine = [ 30,90,120,180,360];
+    $scope.interestRate = [7,8,9,10,11,12];
     $scope.projectType = ['宏金保','债权转让','全部',];
 
     $scope.showDateLine = false;
@@ -289,7 +289,7 @@ angular.module('hongcaiApp')
       if (newVal) {
         if (newVal >=0 && !pattern.test(newVal)) {
           $scope.errorMsg2 = '最多精确到小数点后两位';
-        }else if(!pattern2.test(newVal)){
+        }else if(newVal<= 0){
           $scope.errorMsg2 = '请输入大于0的数字';
         }else if (newVal > 1000000) {
           $scope.errorMsg2 = '最大保留金额为1000000元';
@@ -317,8 +317,8 @@ angular.module('hongcaiApp')
         }
         $scope.autoTender.minInvestAmount = $scope.autoTenderDetail.minInvestAmount;
         $scope.autoTender.retentionAmount = $scope.autoTenderDetail.remainAmount;
-        $scope.autoTender.selectedDateLine = $scope.autoTenderDetail.maxRemainDay == 365*5 ? '不限' : $scope.autoTenderDetail.maxRemainDay;
-        $scope.autoTender.selectedInterestRate = $scope.autoTenderDetail.annualEarnings == 0 ? '不限' : $scope.autoTenderDetail.annualEarnings;
+        $scope.autoTender.selectedDateLine = $scope.autoTenderDetail.maxRemainDay;
+        $scope.autoTender.selectedInterestRate = $scope.autoTenderDetail.annualEarnings;
         $scope.autoTenderDetail.startTime = $scope.autoTenderDetail.startTime;
         $scope.autoTenderDetail.endTime = $scope.autoTenderDetail.endTime;
       }else {
@@ -351,8 +351,8 @@ angular.module('hongcaiApp')
         userId: $rootScope.loginUser.id,
         minInvestAmount: autoTender.minInvestAmount,
         minRemainDay: 0,
-        maxRemainDay: autoTender.selectedDateLine ==='不限' ? 365*5 : autoTender.selectedDateLine,
-        annualEarnings: autoTender.selectedInterestRate ==='不限' ? 0 : autoTender.selectedInterestRate,
+        maxRemainDay: autoTender.selectedDateLine,
+        annualEarnings: autoTender.selectedInterestRate,
         investType: projectType,
         remainAmount: autoTender.retentionAmount,
         startTime: startTime,

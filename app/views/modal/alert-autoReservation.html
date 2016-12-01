@@ -32,12 +32,12 @@
     <div class="row margin-b-20">
       <div class="col-22 col-md-offset-1 padding-0"><i class="icon3"></i>最高标的期限</div>
       <div ng-if="setAutoTender">
-        <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.maxRemainDay == 365*5 ? '不限' : autoTenderDetail.maxRemainDay}}{{autoTenderDetail.maxRemainDay == 365*5 ? '' : '元'}}</span>
+        <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.maxRemainDay}}元</span>
       </div>
       <div ng-if="!setAutoTender" class="col-9 cursor-pt" ng-click="dateLineFn();">
-        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedDateLine}}{{autoTender.selectedDateLine !=='不限' ? '天' : ''}}" disabled/><span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedDateLine}}天" disabled/><span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
         <ul class="select" ng-if="showDateLine">
-          <li ng-click="selectDateLine(date)" ng-repeat="date in dateLine">{{date}}<span ng-if="date !== '不限'">天</span></li>
+          <li ng-click="selectDateLine(date)" ng-repeat="date in dateLine">{{date}}天</li>
         </ul>
       </div>
     </div>
@@ -45,12 +45,12 @@
     <div class="row margin-b-20">
       <div class="col-22 col-md-offset-1 padding-0"><i class="icon4"></i>最低预期收益</div>
       <div ng-if="setAutoTender">
-        <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.annualEarnings == 0 ? '不限' : autoTenderDetail.annualEarnings}}{{autoTenderDetail.annualEarnings == 0 ? '' : '%'}}</span>
+        <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.annualEarnings}}%</span>
       </div>
       <div ng-if="!setAutoTender" class="col-9 cursor-pt" ng-click="interestRateFn()">
-        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedInterestRate}}{{autoTender.selectedInterestRate !=='不限' ? '%' : ''}}" disabled/><span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedInterestRate}}%" disabled/><span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
         <ul class="select" ng-if="showInterestRate">
-          <li ng-click="selectInterestRate(rate)" ng-repeat="rate in interestRate">{{rate}}<span ng-if="rate !== '不限'">%</span></li>        
+          <li ng-click="selectInterestRate(rate)" ng-repeat="rate in interestRate">{{rate}}%</li>        
         </ul>
       </div>
     </div>
