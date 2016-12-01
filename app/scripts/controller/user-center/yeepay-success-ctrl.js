@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('YeepaySuccessCtrl', function($scope, $stateParams, ProjectService, $state, $alert, $rootScope) {
+  .controller('YeepaySuccessCtrl', function(ipCookie, $scope, $stateParams, ProjectService, $state, $alert, $rootScope) {
 
   	var business = $stateParams.business;
   	$scope.amount = $stateParams.amount;
