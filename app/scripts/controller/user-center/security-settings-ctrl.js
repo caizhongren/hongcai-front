@@ -330,12 +330,7 @@ angular.module('hongcaiApp')
       $scope.disableDubble = false;
       var startTime = new Date($('#start').val()).getTime();
       var endTime = new Date($('#end').val()).getTime();
-      if(endTime <= startTime){
-        // $scope.errorMsg3 = '截止日期不能超过开始日期';
-        var msg = $scope.openTrustReservation != null ? '修改自动投标失败' : '开启自动投标失败'
-        toaster.pop('error', msg);
-        return;
-      }
+     
       if (!$rootScope.isLogged) {
         return;
       }
