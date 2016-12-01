@@ -289,8 +289,8 @@ angular.module('hongcaiApp')
       if (newVal) {
         if (newVal >=0 && !pattern.test(newVal)) {
           $scope.errorMsg2 = '最多精确到小数点后两位';
-        }else if(newVal % 100 !== 0 || !pattern2.test(newVal)){
-          $scope.errorMsg2 = '请输入100元的正整数倍';
+        }else if(!pattern2.test(newVal)){
+          $scope.errorMsg2 = '请输入大于0的数字';
         }else if (newVal > 1000000) {
           $scope.errorMsg2 = '最大保留金额为1000000元';
         }
