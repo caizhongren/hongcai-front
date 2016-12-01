@@ -32,7 +32,7 @@
     <div class="row margin-b-20">
       <div class="col-22 col-md-offset-1 padding-0"><i class="icon3"></i>最高标的期限</div>
       <div ng-if="setAutoTender">
-        <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.maxRemainDay}}元</span>
+        <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.maxRemainDay}}天</span>
       </div>
       <div ng-if="!setAutoTender" class="col-9 cursor-pt" ng-click="dateLineFn();">
         <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.selectedDateLine}}天" disabled/><span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
