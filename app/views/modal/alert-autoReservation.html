@@ -23,7 +23,6 @@
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
             <div class="margin-b-0 margin-l-30 text-left" ng-if="error1">{{errorMsg1}}</div>
-            <!-- <div class="margin-b-0 margin-l-30 text-left" ng-show="investForm.minInvestAmount.$error.pattern">最多精确到小数点后两位</div> -->
           </div>
         </div>
       </form>   
@@ -82,7 +81,6 @@
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
             <div class="margin-b-0 margin-l-30 text-left">{{errorMsg2}}</div>
-             <!-- <div class="margin-b-0 margin-l-30 text-left" ng-show="retentionForm.retentionAmount.$error.pattern">最多精确到小数点后两位</div> -->
           </div>
         </div>
       </form>
@@ -108,12 +106,13 @@
         </div>
       </div> 
     </div>
-  </div>
-  <div class="margin-b-30 col-xs-10 col-xs-offset-1">
-    <button class="btn-open orange-button col-1 pull-left margin-l-prcent35" ng-click="openReservation2(autoTender);$hide();" ng-if="!setAutoTender && !error1 && !error2 && disableDubble">开启</button>
-    <button class="btn-disabled btn-open orange-button col-1 pull-left margin-l-prcent35" ng-if="!setAutoTender && (error1 || error2)" disabled>开启</button>
-    <a class="btn-open orange-button col-1 pull-left margin-l-prcent22" ng-click="modify()"  ng-if="setAutoTender">修改</a>
-    <a class="btn-open orange-button col-1 pull-left margin-l-60" ng-click="disabledAutoTender();$hide()"  ng-if="setAutoTender && disableDubble">禁用</a>  
+    <!-- 提交按钮 -->
+    <div class="margin-b-30 col-xs-10 col-xs-offset-1">
+      <button class="btn-open orange-button col-1 pull-left margin-l-prcent35" ng-click="openReservation2(autoTender);$hide();" ng-if="!setAutoTender && !error1 && !error2 && disableDubble">开启</button>
+      <button class="btn-disabled btn-open orange-button col-1 pull-left margin-l-prcent35" ng-if="!setAutoTender && (error1 || error2)" disabled>开启</button>
+      <a class="btn-open orange-button col-1 pull-left margin-l-prcent22" ng-click="modify()"  ng-if="setAutoTender">修改</a>
+      <a class="btn-open orange-button col-1 pull-left margin-l-60" ng-click="disabledAutoTender();$hide()"  ng-if="setAutoTender && disableDubble">禁用</a>  
+    </div>
   </div>
 </div>
 <div class="mask_layer"></div>
