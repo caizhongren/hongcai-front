@@ -12,6 +12,11 @@ angular.module('hongcaiApp')
       name: '双11活动 脱单party'
     },*/{
       mimeType: 'image/png',
+      src: 'images/banner-new/banner10.jpg',
+      href: '/user-center/security-settings',
+      name: '宣传自动投标'
+    },{
+      mimeType: 'image/png',
       src: 'images/banner-new/cgt-banner.jpg',
       href: '/#!/activate',
       name: '宣传存管通落地页'

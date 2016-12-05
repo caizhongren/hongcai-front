@@ -283,7 +283,7 @@ angular.module('hongcaiApp')
     
     //自动投标详情
     UserCenterService.autoTender.get({
-      userId: $rootScope.loginUser.id
+      userId: 0
     }, function(response){
       $scope.openTrustReservation = response.status;
       if (response.userId !== null) {
@@ -335,7 +335,7 @@ angular.module('hongcaiApp')
 
       //开启
       UserCenterService.autoTenders.post({
-        userId: $rootScope.loginUser.id,
+        userId: 0,
         minInvestAmount: autoTender.minInvestAmount,
         minRemainDay: 0,
         maxRemainDay: autoTender.selectedDateLine,
