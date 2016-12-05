@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-10 padding-r-0" ng-repeat="item in assignmentList track by $index | limitTo: 3">
       <div class="row padding-30 border-b-grey5 padding-b-25 margin-r--10">
-        <div class="col-md-4 ft-16 ft-grey1 padding-r-0 margin-t-15"><span class="zhuan ft-white4 ft-12">转</span><a class="padding-l-5"  ui-sref="root.assignments-detail({number: item.number})">{{item.name | limitTo: 14 }}{{item.name.length > 14 ? '...':''}}</a></div>
+        <div class="col-md-4 ft-16 ft-grey1 padding-r-0 margin-t-15"><span class="zhuan ft-white4 ft-12">转</span><a class="padding-l-5"  ui-sref="root.assignments-detail({number: item.number})">{{item.name | limitTo: 18 }}{{item.name.length > 18 ? '...':''}}</a></div>
         <div class="col-md-2 padding-l-0 margin-l--30 margin-t--8">
           <p class="ft-30 ft-orange margin-b-0">{{item.annualEarnings || 0 | number : 2}}<span class="ft-16">%</span></p>
           <p class="ft-14 ft-grey666">预期年化收益</p>
