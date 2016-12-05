@@ -83,7 +83,7 @@ angular.module('hongcaiApp')
       }
     }
 
-    //记录选择支付方式
+    //记录选择支付方式 'FUIOU':富友，'ALLINPAY'：通联，'UMPAY':通联优势
     $scope.selectPay = function(payment) {
       $scope.payment = payment;
       if(payment ===1){
@@ -91,7 +91,7 @@ angular.module('hongcaiApp')
         $scope.expectPayCompany = 'FUIOU';
       }else {
         $scope.rechargeWay = 'WEB';
-        $scope.expectPayCompany = 'ALLINPAY';
+        $scope.expectPayCompany = 'UMPAY';
       }
     }
     $scope.selectPay(1);
