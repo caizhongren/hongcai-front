@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('YeepaySuccessCtrl', function($scope, $stateParams, ProjectService) {
+  .controller('YeepaySuccessCtrl', function(ipCookie, $scope, $stateParams, ProjectService, $state, $alert, $rootScope) {
 
   	var business = $stateParams.business;
   	$scope.amount = $stateParams.amount;
@@ -47,7 +47,8 @@ angular.module('hongcaiApp')
     } else if(business === 'USER_ACTIVE'){
       page = 11;
     } else if(business === 'AUTHORIZATION_AUTO_TRANSFER'){
-      page = 12
+      $state.go('root.userCenter.security-settings');
+      ipCookie('modal', 1);
     }
 
 

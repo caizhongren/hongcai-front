@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SecuritySettingsCtrl', function($scope, $state, $http, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
+  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
     $scope.userbusiness = 2;
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
@@ -11,7 +11,7 @@ angular.module('hongcaiApp')
         $scope.userId = user.id;
         if (userAuth && userAuth.yeepayAccountStatus === 1) {
           $scope.haveTrusteeshipAccount = true;
-          $scope.openTrustReservation = userAuth.autoTransfer;
+          // $scope.openTrustReservation = userAuth.autoTransfer;
         } else {
           $scope.haveTrusteeshipAccount = false;
         }
@@ -160,40 +160,220 @@ angular.module('hongcaiApp')
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
-    $alert({
-      scope: $scope,
-      template: 'views/modal/alert-autoReservation.html',
-      show: true
-    });
-    $scope.openReservation = function() {
 
+    // document.getElementsByTagName("html")[0].style.overflow="hidden";
+    //设置自动投标弹窗
+    $scope.goToTender = function(){
+      $scope.msg = '6';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alert-autoReservation.html',
+        show: true
+      });
+    }
+
+    //开通自动投标
+    $scope.openReservation = function() {
       if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
         $modal({
           scope: $scope,
           template: 'views/modal/modal-realNameAuth.html',
           show: true
         });
+      }else if($rootScope.securityStatus.autoTransfer === 0){
+        var user = {
+          'realName': 'default',
+          'idCardNo': 'default'
+        };
+
+        window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
+        $scope.goToTender();
+        
       }else {
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-autoReservation.html',
-          show: true
+        $scope.goToTender();
+        UserCenterService.autoTender.get({
+          userId: $rootScope.loginUser.id
+        }, function(response){
+          if(response.status != null){
+            $scope.setAutoTender = true;
+          }else {
+            $scope.setAutoTender = false;
+          }
         });
-        // $scope.msg = '6';
-        // $alert({
-        //   scope: $scope,
-        //   template: 'views/modal/alertYEEPAY.html',
-        //   show: true
-        // });
-
-        // var user = {
-        //   'realName': 'default',
-        //   'idCardNo': 'default'
-        // };
-
-        // window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
-
       }
 
     };
+  
+    //自动投标
+    $scope.autoTender = [];
+    $scope.dateLine = [ 30,90,120,180,360];
+    $scope.interestRate = [7,8,9,10,11,12];
+    $scope.projectType = ['宏金保','债权转让','全部',];
+    $scope.showDateLine = false;
+    $scope.showInterestRate = false;
+    $scope.showProjectType = false;
+
+    $scope.dateLineFn = function(){
+      $scope.showDateLine =!$scope.showDateLine;
+    };
+    $scope.interestRateFn = function(){
+      $scope.showInterestRate =!$scope.showInterestRate;
+    };
+    $scope.projectTypeFn = function(){
+      $scope.showProjectType =!$scope.showProjectType;
+    };
+    
+    $scope.selectDateLine = function(date){
+      $scope.autoTender.selectedDateLine = date;
+    };
+    $scope.selectInterestRate = function(interestRate){
+      $scope.autoTender.selectedInterestRate = interestRate;
+    };
+    $scope.selectProjectType = function(projectType){
+      $scope.autoTender.selectedProjectType = projectType;
+    };
+
+    //最小投标金额
+    var pattern=/^[0-9]*(\.[0-9]{1,2})?$/;
+    var pattern2= /^\+?[1-9][0-9]*$/;
+    $scope.error1 = false;
+    $scope.watchInvestAmount= function(newVal) {
+      $scope.errorMsg1 = '';
+      if (!$rootScope.isLogged) {
+        return;
+      }
+      if (newVal === null) {
+        $scope.errorMsg1 = '请输入最小投标金额';
+      }
+      if (newVal == 0) {
+          $scope.errorMsg1 = '请输入大于0的数字';
+      }
+      if (newVal) {
+        if (newVal >=0 && !pattern.test(newVal)) {
+          $scope.errorMsg1 = '最多精确到小数点后两位';
+        }else if(newVal % 100 !== 0 || !pattern2.test(newVal)){
+          $scope.errorMsg1 = '请输入100元的正整数倍';
+        }else if (newVal > 1000000) {
+          $scope.errorMsg1 = '最大投标金额为1000000元';
+        }
+      } 
+      $scope.error1 = $scope.errorMsg1 === '' ? false : true;      
+    };
+    //账户保留金额
+    $scope.error2 = false;
+    $scope.watchRetentionAmount= function(newVal) {
+      $scope.errorMsg2 = '';
+      if (!$rootScope.isLogged) {
+        return;
+      }
+      if (newVal === null) {
+        $scope.errorMsg2 = '请输入账户保留金额';
+      }
+      if (newVal) {
+        if (newVal >=0 && !pattern.test(newVal)) {
+          $scope.errorMsg2 = '最多精确到小数点后两位';
+        }else if(newVal<= 0){
+          $scope.errorMsg2 = '请输入大于0的数字';
+        }else if (newVal > 1000000) {
+          $scope.errorMsg2 = '最大保留金额为1000000元';
+        }
+      } 
+      $scope.error2 = $scope.errorMsg2 === '' ? false : true;   
+    };
+    
+    //自动投标详情
+    UserCenterService.autoTender.get({
+      userId: 0
+    }, function(response){
+      $scope.openTrustReservation = response.status;
+      if (response.userId !== null) {
+        $scope.setAutoTender = true;
+        $scope.autoTenderDetail = response;
+        var investType = $scope.autoTenderDetail.investType;
+        if (investType ===1) {
+          $scope.autoTender.selectedProjectType = '宏金保';
+        }else if (investType ===2) {
+          $scope.autoTender.selectedProjectType = '债权转让';
+        }else {
+          $scope.autoTender.selectedProjectType = '全部';
+        }
+        $scope.autoTender.minInvestAmount = $scope.autoTenderDetail.minInvestAmount;
+        $scope.autoTender.retentionAmount = $scope.autoTenderDetail.remainAmount;
+        $scope.autoTender.selectedDateLine = $scope.autoTenderDetail.maxRemainDay;
+        $scope.autoTender.selectedInterestRate = $scope.autoTenderDetail.annualEarnings;
+        $scope.autoTenderDetail.startTime = $scope.autoTenderDetail.startTime;
+        $scope.autoTenderDetail.endTime = $scope.autoTenderDetail.endTime;
+      }else {
+        $scope.setAutoTender = false;
+        $scope.autoTender.selectedDateLine = '360';
+        $scope.autoTender.selectedInterestRate = '7';
+        $scope.autoTender.selectedProjectType = '全部';
+        $scope.autoTender.minInvestAmount = 100;
+        $scope.autoTender.retentionAmount = 0;
+        $scope.currentTime = new Date();
+        $scope.endTime = new Date().setFullYear(new Date().getFullYear()+1);
+      }
+    });
+    $scope.disableDubble = true;
+    //开启自动投标
+    $scope.openReservation2 = function(autoTender){
+      $scope.disableDubble = false;
+      var startTime = new Date($('#start').val()).getTime();
+      var endTime = new Date($('#end').val()).getTime();
+     
+      if (!$rootScope.isLogged) {
+        return;
+      }
+      
+      if (autoTender.selectedProjectType ==='宏金保') {
+        var projectType = 1;
+      }else if (autoTender.selectedProjectType ==='债权转让') {
+        var projectType = 2;
+      }else {
+        var projectType = 0;
+      }
+
+      //开启
+      UserCenterService.autoTenders.post({
+        userId: 0,
+        minInvestAmount: autoTender.minInvestAmount,
+        minRemainDay: 0,
+        maxRemainDay: autoTender.selectedDateLine,
+        annualEarnings: autoTender.selectedInterestRate,
+        investType: projectType,
+        remainAmount: autoTender.retentionAmount,
+        startTime: startTime,
+        endTime: endTime
+      }, function(response) {
+        $scope.disableDubble = true;
+        if (response.ret !== -1) {
+          toaster.pop('success', '已开启自动投标');
+          $rootScope.reload();
+        }
+      })
+    }
+    //修改到编辑状态
+    $scope.modify = function(){
+      $scope.setAutoTender = false;
+      $scope.currentTime = $scope.autoTenderDetail.startTime;
+      $scope.endTime = $scope.autoTenderDetail.endTime;
+    }
+    //禁用自动投标
+    $scope.disabledAutoTender = function(){
+      $scope.disableDubble = false;
+      UserCenterService.disabledAutoTender.update({
+        userId: $rootScope.loginUser.id,
+        status: 3
+      }, function(response){
+        $scope.disableDubble = true;
+        if (response.ret !== -1) {
+          toaster.pop('success', '已禁用自动投标');
+          $rootScope.reload();
+        }
+      })
+    }
+    if (ipCookie('modal')) {
+      $scope.goToTender();
+      ipCookie.remove('modal');
+    }
   });
