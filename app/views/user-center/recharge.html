@@ -18,7 +18,7 @@
         </div>
         <div class="row margin-t-20 " ng-click="selectPay(1)">
           <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==1}"><b>快捷支付方式</b></div>
-          <div class="col-md-2 pay-typeFU" ng-class="{'pay-active':payment ==1}">富有支付</div>
+          <div class="col-md-2 cursor-pointer pay-typeFU" ng-class="{'pay-active':payment ==1}">富有支付</div>
           <a class=" col-md-2 col-md-offset-5 cursor-pt supportBank" ng-click="lookBink = !lookBink" href="javascript:;" focus-blur>支持银行及限额</a>
           <table class="supportList border-grey1" ng-if="lookBink">
             <thead>
@@ -98,7 +98,7 @@
         </div>
         <div class="row margin-t-20" ng-click="selectPay(2)">
           <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==2}"><b>网银支付方式</b></div>
-          <div class="col-md-2 pay-typeUMP" ng-class="{'pay-active':payment ==2}">联动支付</div>
+          <div class="col-md-2 cursor-pointer pay-typeUMP" ng-class="{'pay-active':payment ==2}">联动支付</div>
         </div>
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-25">
