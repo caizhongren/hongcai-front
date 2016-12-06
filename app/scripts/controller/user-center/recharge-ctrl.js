@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('RechargeCtrl',  function($location, $scope, $state, $rootScope, UserCenterService, DEFAULT_DOMAIN, $alert, toaster, $window) {
+  .controller('RechargeCtrl',  function($location, $scope, $state, $rootScope, UserCenterService, DEFAULT_DOMAIN, $alert, $timeout, toaster, $window) {
     $scope.balance = 0;
     UserCenterService.getUserBalance.get({}, function(response) {
       if (response.ret === 1) {
@@ -20,64 +20,79 @@ angular.module('hongcaiApp')
     }
     $scope.bankCodeList = {
       'ICBK':{
-      'imgUrl': '/images/user-center/ICBK.png',
-      'limit': '5w/5w/20w'
+        'name': '工商银行',
+        'imgUrl': '/images/user-center/ICBK.png',
+        'limit': '5w/5w/20w'
       },
       'BKCH':{
-      'imgUrl': '/images/user-center/BKCH.png',
-      'limit': '5w/10w/20w'
+        'name': '中国银行',
+        'imgUrl': '/images/user-center/BKCH.png',
+        'limit': '5w/10w/20w'
       },
       'PCBC':{
-      'imgUrl': '/images/user-center/PCBC.png',
-      'limit': '5w/10w/20w'
+        'name': '建设银行',
+        'imgUrl': '/images/user-center/PCBC.png',
+        'limit': '5w/10w/20w'
       },
       'ABOC':{
-      'imgUrl': '/images/user-center/ABOC.png',
-      'limit': '5w/10w/20w'
+        'name': '农业银行',
+        'imgUrl': '/images/user-center/ABOC.png',
+        'limit': '5w/10w/20w'
       },
       'COMM':{
-      'imgUrl': '/images/user-center/COMM.png',
-      'limit': '5w/10w/20w'
+        'name': '交通银行',
+        'imgUrl': '/images/user-center/COMM.png',
+        'limit': '5w/10w/20w'
       },
       'CMBC':{
-      'imgUrl': '/images/user-center/CMBC.png',
-      'limit': '5w/5w/20w'
+        'name': '招商银行',
+        'imgUrl': '/images/user-center/CMBC.png',
+        'limit': '5w/5w/20w'
       },
       'CIBK':{
-      'imgUrl': '/images/user-center/CIBK.png',
-      'limit': '5w/20w/20w'
+        'name': '中信银行',
+        'imgUrl': '/images/user-center/CIBK.png',
+        'limit': '5w/20w/20w'
       },
       'SZDB':{
-      'imgUrl': '/images/user-center/SZDB.png',
-      'limit': '5w/20w/20w'
+        'name': '平安银行',
+        'imgUrl': '/images/user-center/SZDB.png',
+        'limit': '5w/20w/20w'
       },
       'MSBC':{
-      'imgUrl': '/images/user-center/MSBC.png',
-      'limit': '5w/20w/20w'
+        'name': '民生银行',
+        'imgUrl': '/images/user-center/MSBC.png',
+        'limit': '5w/20w/20w'
       },
       'EVER':{
-      'imgUrl': '/images/user-center/EVER.png',
-      'limit': '5w/20w/20w'
+        'name': '光大银行',
+        'imgUrl': '/images/user-center/EVER.png',
+        'limit': '5w/20w/20w'
       },
       'HXBK':{
-      'imgUrl': '/images/user-center/HXBK.png',
-      'limit': '5w/20w/20w'
+        'name': '华夏银行',
+        'imgUrl': '/images/user-center/HXBK.png',
+        'limit': '5w/20w/20w'
       },
       'GDBK':{
-      'imgUrl': '/images/user-center/GDBK.png',
-      'limit': '5w/20w/20w'
+        'name': '广发银行',
+        'imgUrl': '/images/user-center/GDBK.png',
+        'limit': '5w/20w/20w'
       },
       'PSBC':{
-      'imgUrl': '/images/user-center/PSBC.png',
-      'limit': '5w/20w/20w'
+        'name': '邮政银行',
+        'imgUrl': '/images/user-center/PSBC.png',
+        'limit': '5w/20w/20w'
       },
       'FJIB':{
-      'imgUrl': '/images/user-center/FJIB.png',
-      'limit': '5w/5w/20w'
+        'name': '兴业银行',
+        'imgUrl': '/images/user-center/FJIB.png',
+        'limit': '5w/5w/20w'
       },
       'SPDB':{
-      'imgUrl': '/images/user-center/SPDB.png',
-      'limit': '5w/5w/20w'
+        'name': '浦发银行',
+        'imgUrl': '/images/user-center/SPDB.png',
+        'limit': '5w/5w/20w'
       },
     }
     /*
@@ -108,6 +123,13 @@ angular.module('hongcaiApp')
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
     $scope.showBankCardTip = false;
+
+    /*
+    * 解绑银行卡
+    */
+    var goBindCard = function() {
+      $window.open('/#!/bankcard-transfer/0');
+    }
     $scope.unbindBankCard = function() {
       $scope.showBankCardTip = false;
       // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
@@ -124,7 +146,10 @@ angular.module('hongcaiApp')
               template: 'views/modal/alertYEEPAY.html',
               show: true
             });
-            $window.open('/#!/bankcard-transfer/0');
+            $timeout(function() {
+              goBindCard();
+            }, 100);
+            // $window.open('/#!/bankcard-transfer/0');
           } else {
             toaster.pop('error', response.msg);
           }

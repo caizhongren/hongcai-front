@@ -93,7 +93,7 @@
         </div>
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-40 margin-b-50 margin-l-30">
-          <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5"><img ng-src="{{bankCodeList[userCard.bankCode].imgUrl}}">{{userCard.openBank}}</div><div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div><div class="col-md-2 text-right"><span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span></div><div class="col-md-4 padding-0 text-center">单笔/单日/单月限额：{{bankCodeList[userCard.bankCode].limit}}</div>
+          <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5"><img ng-src="{{bankCodeList[userCard.bankCode].imgUrl}}">{{bankCodeList[userCard.bankCode].name}}</div><div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div><div class="col-md-2 text-right"><span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span></div><div class="col-md-4 padding-0 text-center">单笔/单日/单月限额：{{bankCodeList[userCard.bankCode].limit}}</div>
           <a class=" col-md-2 cursor-pt supportBank padding-l-5" ng-click="changeCard();" href="javascript:;">更换其他银行卡</a>
         </div>
         <div class="row margin-t-20" ng-click="selectPay(2)">
