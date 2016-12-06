@@ -326,8 +326,12 @@
   height: 50px;
 }
 // recharge
+#recharge-input {
+ height: 36px;
+ width: 225px;
+ border-radius: 3px;
+}
 .verify-input {
-  background-color: #f7f5f5;
   padding: 8px 10px;
   height: 30px;
   border: 1px solid #dbdbdb;
@@ -337,7 +341,17 @@
   }
 }
 .pay-active {
-    color: #54bbfb;
+    color: #ff6600;
+}
+.pay-typeFU {
+  background: url(/images/user-center/pay-logo.png) no-repeat 3px -31px;
+  background-size: 29%;
+  padding-left: 44px;
+}
+.pay-typeUMP {
+  background: url(/images/user-center/pay-logo.png) no-repeat -2px -3px;
+  background-size: 31%;
+  padding-left: 44px;
 }
 // recharge && withdraw && security-settings
 .user-tips-area {
@@ -395,6 +409,10 @@
 }
 
 // ------- recharge --------
+.changeBankCardTip {
+  width: 33% !important;
+  left: 34% !important;
+}
 .recharge {
   .tip {
     padding-left: 201px;
@@ -408,10 +426,13 @@
     color: #807979;
     width: 350px !important;
     position: absolute;
-    top: 60px;
-    right: 30px;
+    top: 120px;
+    right: -7px;
     background: #fff;
     z-index: 99999;
+    thead td {
+      line-height: 34px;
+    }
     thead tr, tbody tr{
       td:first-child {
         text-align:left !important;
@@ -964,20 +985,23 @@
 }
 .span-money{
   width: 30px;
-  height: 30px;
-  line-height: 30px;
+  height: 36px;
+  line-height: 36px;
   display: block;
   color: black;
   text-align: center;
-  background-color: #d6d6d6;
   margin-top: 7px;
 }
 .text-recharge-tip{
   height: 44px;
   line-height: 44px;
+  padding-left: 0;
 }
 .mgn-top7{
   margin-top: 7px;
+}
+#recharge-virify-btn {
+  margin-left: 24%;
 }
 .btn-recharge-red {
   background-color: #f83f1a;

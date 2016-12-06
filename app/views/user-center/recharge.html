@@ -7,115 +7,127 @@
 
     <!--end 安全认证提示 -->
     <div class="main user-right-h" ng-if="userType !== 4 && securityStatus.realNameAuthStatus === 1">
-      <form ng-if="bankCardStatus === 'VERIFIED'" class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40" name="rechargeForm">
-        <div class="row  margin-t-30 ">
-          <div class="text-recharge-tip">
+      <form ng-if="bankCardStatus === 'VERIFIED'" class="col-md-10 col-md-offset-1 record-w margin-l-40" name="rechargeForm">
+        <div class="row">
+          <div class="text-recharge-tip margin-t-20 margin-b-30">
             <div class="col-md-2 text-right"><b>可用余额：</b></div>
             <div class="col-md-2"><span class="ft-red4 ft-24">{{ balance || "0" | number:2}}</span>&nbsp;&nbsp;元</div>
-            <a class="col-md-2 col-md-offset-6 cursor-pt supportBank" ng-click="lookBink = !lookBink" href="javascript:;" focus-blur>支持银行及限额</a>
-            <table class="supportList border-grey1" ng-if="lookBink">
-              <thead>
-                <tr class="ftw-b border-grey1">
-                  <td>支持银行</td>
-                  <td>单笔/单日/单月</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><i class="ICBK"></i>工商银行</td>
-                  <td>5w/5w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="BKCH"></i>中国银行</td>
-                  <td>5w/10w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="PCBC"></i>建设银行</td>
-                  <td>5w/10w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="ABOC"></i>农业银行</td>
-                  <td>5w/10w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="COMM"></i>交通银行</td>
-                  <td>5w/10w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="CMBC"></i>招商银行</td>
-                  <td>5w/5w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="CIBK"></i>中信银行</td>
-                  <td>5w/20w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="SZDB"></i>平安银行</td>
-                  <td>5w/20w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="MSBC"></i>民生银行</td>
-                  <td>5w/20w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="EVER"></i>光大银行</td>
-                  <td>5w/20w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="HXBK"></i>华夏银行</td>
-                  <td>5w/20w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="GDBK"></i>广发银行</td>
-                  <td>5w/20w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="PSBC"></i>邮政银行</td>
-                  <td>5w/20w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="FJIB"></i>兴业银行</td>
-                  <td>5w/5w/20w</td>
-                </tr>
-                <tr>
-                  <td><i class="SPDB"></i>浦发银行</td>
-                  <td>5w/5w/20w</td>
-                </tr>
-              </tbody>
-            </table>
+            <!-- <a class="col-md-2 col-md-offset-6 cursor-pt supportBank" ng-click="lookBink = !lookBink" href="javascript:;" focus-blur>支持银行及限额</a> -->
+            
           </div>
         </div>
-        <!-- <div class="row margin-t-20">
-          <div class="payment col-md-2 padding-t-3 cursor-pt margin-l-45" ng-class="{'pay-active':payment ==1}" ng-click="selectPay(1)">快捷支付方式</div>
-          <div class="payment col-md-2 padding-t-3 cursor-pt" ng-class="{'pay-active':payment ==2}" ng-click="selectPay(2)">网银支付方式</div>
-        </div> -->
-        <!-- <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto"> -->
-        <div class="row">
-          <div class="margin-b-15">
-            <div class="col-md-2 text-right text-recharge-tip"><b>充值金额：</b></div>
-            <input name="amount" type="number" min="0" class="verify-input fl mgn-top7" value="该卡可充值{{bankRemain || 0}}元" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required placeholder="该卡可充值{{bankRemain || 0}}元" id="amount"/>
-            <span class="span-money fl">元</span>
-            <div class="col-md-5 text-recharge-tip">充值后账户余额<span class="ft-red5">&nbsp;{{ balance + rechargeAmount || "0" | number:2}}&nbsp;</span>元</div>
+        <div class="row margin-t-20 " ng-click="selectPay(1)">
+          <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==1}"><b>快捷支付方式</b></div>
+          <div class="col-md-2 cursor-pointer pay-typeFU" ng-class="{'pay-active':payment ==1}">富有支付</div>
+          <a class=" col-md-2 col-md-offset-5 cursor-pt supportBank" ng-click="lookBink = !lookBink" href="javascript:;" focus-blur>支持银行及限额</a>
+          <table class="supportList border-grey1" ng-if="lookBink">
+            <thead>
+              <tr class="ftw-b border-grey1">
+                <td>支持银行</td>
+                <td>单笔/单日/单月</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><i class="ICBK"></i>工商银行</td>
+                <td>5w/5w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="BKCH"></i>中国银行</td>
+                <td>5w/10w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="PCBC"></i>建设银行</td>
+                <td>5w/10w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="ABOC"></i>农业银行</td>
+                <td>5w/10w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="COMM"></i>交通银行</td>
+                <td>5w/10w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="CMBC"></i>招商银行</td>
+                <td>5w/5w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="CIBK"></i>中信银行</td>
+                <td>5w/20w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="SZDB"></i>平安银行</td>
+                <td>5w/20w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="MSBC"></i>民生银行</td>
+                <td>5w/20w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="EVER"></i>光大银行</td>
+                <td>5w/20w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="HXBK"></i>华夏银行</td>
+                <td>5w/20w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="GDBK"></i>广发银行</td>
+                <td>5w/20w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="PSBC"></i>邮政银行</td>
+                <td>5w/20w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="FJIB"></i>兴业银行</td>
+                <td>5w/5w/20w</td>
+              </tr>
+              <tr>
+                <td><i class="SPDB"></i>浦发银行</td>
+                <td>5w/5w/20w</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
+        <div class="row margin-t-40 margin-b-50 margin-l-30">
+          <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5"><img ng-src="{{bankCodeList[userCard.bankCode].imgUrl}}">{{bankCodeList[userCard.bankCode].name}}</div><div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div><div class="col-md-2 text-right"><span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span></div><div class="col-md-4 padding-0 text-center">单笔/单日/单月限额：{{bankCodeList[userCard.bankCode].limit}}</div>
+          <a class=" col-md-2 cursor-pt supportBank padding-l-5" ng-click="changeCard();" href="javascript:;">更换其他银行卡</a>
+        </div>
+        <div class="row margin-t-20" ng-click="selectPay(2)">
+          <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==2}"><b>网银支付方式</b></div>
+          <div class="col-md-2 cursor-pointer pay-typeUMP" ng-class="{'pay-active':payment ==2}">联动支付</div>
+        </div>
+        <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
+        <div class="row margin-t-25">
+          <div class="margin-b-15 margin-t-10">
+            <div class="col-md-4 text-right text-recharge-tip ft-16 margin-t-5 margin-r-30"><b>充值金额</b></div>
+            <input id="recharge-input" name="amount" type="number" min="0" class="verify-input fl mgn-top7" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required placeholder="{{bankRemainHolder}}" id="amount"/>
           </div>
+          <div class="row col-md-10 col-md-offset-4 text-left ft-12 ft-red4" ng-show="rechargeForm.amount.$dirty">
+            <p class="padding-l-15" ng-show="rechargeForm.amount.$error.pattern || rechargeAmount == 0">请输入大于0的数字(最多精确到小数点后两位)</p>
+            <p class="padding-l-15" ng-show="rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">充值金额不能为空</p>
+            <p class="padding-l-15 " ng-show="rechargeAmount > bankRemain && payment == 1">该卡本次最多充值{{bankRemain | number:2}}元</p>
+          </div>
+          <div class="col-md-5 col-md-offset-4 padding-l-30 margin-t-10 text-left ft-13">充值后账户余额<span class="ft-red5">&nbsp;{{ balance + rechargeAmount || "0" | number:2}}&nbsp;</span>元</div>
         </div>
-        <div class="row col-md-10 col-md-offset-1 text-left ft-12 ft-red4" ng-show="rechargeForm.amount.$dirty">
-          <p class="padding-l-45" ng-show="rechargeForm.amount.$error.pattern || rechargeAmount == 0">请输入大于0的数字(最多精确到小数点后两位)</p>
-          <p class="padding-l-45" ng-show="rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">充值金额不能为空</p>
-          <p class="padding-l-45" ng-show="rechargeAmount > bankRemain">该卡本次最多充值{{bankRemain | number:2}}元</p>
-        </div>
-        <div class="row col-md-10 col-md-offset-1 text-left ft-red5 padding-t-10">
-          <p class="padding-l-45">手续费：免费（由平台支付）</p>
-        </div>
-        <div class="col-md-5 margin-t-15 margin-b-30">
-          <div class="form-group col-xs-12 margin-l-15">
-            <input type="button" value="确认充值" class="border-half cursor-pointer ft-16" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid || rechargeAmount > bankRemain || rechargeAmount == 0, 'btn-recharge-orange':!rechargeForm.$invalid && rechargeAmount <= bankRemain && rechargeAmount != 0}" />
+        
+        <div class="col-md-4 col-md-offset-3 margin-t-15">
+          <div class="form-group col-xs-12 margin-l-15" ng-if="payment == 1">
+
+            <input type="button" value="确认充值" id="recharge-virify-btn" class="border-half cursor-pointer ft-16" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid || rechargeAmount > bankRemain || rechargeAmount == 0, 'btn-recharge-orange':!rechargeForm.$invalid && rechargeAmount <= bankRemain && rechargeAmount != 0}" />
+          </div>
+          <div class="form-group col-xs-12 margin-l-15" ng-if="payment == 2">
+            <input type="button" value="确认充值" id="recharge-virify-btn" class="border-half cursor-pointer ft-16" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid || rechargeAmount == 0, 'btn-recharge-orange':!rechargeForm.$invalid && rechargeAmount != 0}" />
           </div>
         </div>
       </form>
       <div ng-if="bankCardStatus !== 'VERIFIED'" class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40">
         <p class="verify-tip col-md-9 col-md-offset-2 margin-t-20">充值需要绑定银行卡，请您前往<a ng-click="toBindBank()">【存管通资金系统】</a>完成绑卡操作</p>
       </div>
-      <div  ng-hide="securityStatus.realNameAuthStatus !== 1" class="col-md-10 col-md-offset-1 border-bd-grey margin-t-40 margin-b-20 record-w margin-l-40"></div>
+      <div  ng-hide="securityStatus.realNameAuthStatus !== 1" class="col-md-10 col-md-offset-1 border-bd-grey margin-t-15 margin-b-20 record-w margin-l-40"></div>
       <div class="col-md-10 col-md-offset-1 bg-yellow margin-t-20 record-w margin-l-40" ng-hide="securityStatus.realNameAuthStatus !== 1">
         <div class="ft-14 padding-20 padding-b-50">
           <p class="ft-red4"><i class="fa fa-tint ft-red4" style="margin-right:15px;"></i><b>温馨提示:</b></p>
