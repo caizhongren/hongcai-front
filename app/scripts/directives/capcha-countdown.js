@@ -14,7 +14,7 @@ angular.module('hongcaiApp')
       link: function(scope, elem, attrs) {
 
         function capchaCountdown() {
-          var mobilePattern = /^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/;
+          var mobilePattern = /^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[03678])|(14[0-9]))\d{8}$/;
           if (!scope.user.mobile || !mobilePattern.test(scope.user.mobile) || !scope.user.picCaptcha) {
             return;
           }
