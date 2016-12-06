@@ -96,6 +96,8 @@ angular.module('hongcaiApp')
             payCompany: 'FUIOU'
           },function(response){
             $scope.bankRemain = response.data.bankRemain;
+            $scope.bankRemainHolder = $scope.payment == 1? '该卡可充值' + $scope.bankRemain + '元' : '';
+
           });
         }
       }
@@ -181,6 +183,8 @@ angular.module('hongcaiApp')
     //记录选择支付方式 'FUIOU':富友，'ALLINPAY'：通联，'UMPAY':通联优势
     $scope.selectPay = function(payment) {
       $scope.payment = payment;
+      console.log($scope.payment);
+      $scope.bankRemainHolder = $scope.payment == 1? '该卡可充值' + $scope.bankRemain + '元' : '';
       if(payment ===1){
         $scope.rechargeWay = 'SWIFT';
         $scope.expectPayCompany = 'FUIOU';

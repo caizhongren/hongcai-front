@@ -94,7 +94,7 @@
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-40 margin-b-50 margin-l-30">
           <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5"><img ng-src="{{bankCodeList[userCard.bankCode].imgUrl}}">{{userCard.openBank}}</div><div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div><div class="col-md-2 text-right"><span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span></div><div class="col-md-4 padding-0 text-center">单笔/单日/单月限额：{{bankCodeList[userCard.bankCode].limit}}</div>
-          <a class=" col-md-2 cursor-pt supportBank padding-l-10" ng-click="changeCard();" href="javascript:;">更换其他银行卡</a>
+          <a class=" col-md-2 cursor-pt supportBank padding-l-5" ng-click="changeCard();" href="javascript:;">更换其他银行卡</a>
         </div>
         <div class="row margin-t-20" ng-click="selectPay(2)">
           <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==2}"><b>网银支付方式</b></div>
@@ -104,20 +104,23 @@
         <div class="row margin-t-25">
           <div class="margin-b-15 margin-t-10">
             <div class="col-md-4 text-right text-recharge-tip ft-16 margin-t-5 margin-r-30"><b>充值金额</b></div>
-            <input id="recharge-input" name="amount" type="number" min="0" class="verify-input fl mgn-top7" value="该卡可充值{{bankRemain || 0}}元" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required placeholder="该卡可充值{{bankRemain || 0}}元" id="amount" ng-if="payment === 1"/>
-            <input id="recharge-input" name="amount" type="number" min="0" class="verify-input fl mgn-top7" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required id="amount"/ ng-if="payment === 2">
-            <span class="span-money fl">元</span>
+            <input id="recharge-input" name="amount" type="number" min="0" class="verify-input fl mgn-top7" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required placeholder="{{bankRemainHolder}}" id="amount"/>
           </div>
-          <div class="col-md-5 text-recharge-tip ft-13">充值后账户余额<span class="ft-red5">&nbsp;{{ balance + rechargeAmount || "0" | number:2}}&nbsp;</span>元</div>
+          <div class="row col-md-10 col-md-offset-4 text-left ft-12 ft-red4" ng-show="rechargeForm.amount.$dirty">
+            <p class="padding-l-15" ng-show="rechargeForm.amount.$error.pattern || rechargeAmount == 0">请输入大于0的数字(最多精确到小数点后两位)</p>
+            <p class="padding-l-15" ng-show="rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">充值金额不能为空</p>
+            <p class="padding-l-15 " ng-show="rechargeAmount > bankRemain && payment == 1">该卡本次最多充值{{bankRemain | number:2}}元</p>
+          </div>
+          <div class="col-md-5 col-md-offset-4 padding-l-30 margin-t-10 text-left ft-13">充值后账户余额<span class="ft-red5">&nbsp;{{ balance + rechargeAmount || "0" | number:2}}&nbsp;</span>元</div>
         </div>
-        <div class="row col-md-10 col-md-offset-1 text-left ft-12 ft-red4" ng-show="rechargeForm.amount.$dirty">
-          <p class="padding-l-45" ng-show="rechargeForm.amount.$error.pattern || rechargeAmount == 0">请输入大于0的数字(最多精确到小数点后两位)</p>
-          <p class="padding-l-45" ng-show="rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">充值金额不能为空</p>
-          <p class="padding-l-45 " ng-show="rechargeAmount > bankRemain">该卡本次最多充值{{bankRemain | number:2}}元</p>
-        </div>
+        
         <div class="col-md-4 col-md-offset-3 margin-t-15">
-          <div class="form-group col-xs-12 margin-l-15">
+          <div class="form-group col-xs-12 margin-l-15" ng-if="payment == 1">
+
             <input type="button" value="确认充值" id="recharge-virify-btn" class="border-half cursor-pointer ft-16" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid || rechargeAmount > bankRemain || rechargeAmount == 0, 'btn-recharge-orange':!rechargeForm.$invalid && rechargeAmount <= bankRemain && rechargeAmount != 0}" />
+          </div>
+          <div class="form-group col-xs-12 margin-l-15" ng-if="payment == 2">
+            <input type="button" value="确认充值" id="recharge-virify-btn" class="border-half cursor-pointer ft-16" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid || rechargeAmount == 0, 'btn-recharge-orange':!rechargeForm.$invalid && rechargeAmount != 0}" />
           </div>
         </div>
       </form>
