@@ -93,34 +93,19 @@
         </div>
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-40 margin-b-50 margin-l-30">
-          <div class="col-md-2 margin-t--5"><img ng-src="{{bankCodeList[userCard.bankCode].imgUrl}}">{{userCard.openBank}}</div><div class="col-md-1 margin-r-40 padding-0">{{userCard.cardNo}}</div><div class="col-md-2"><span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span></div><div class="col-md-4 padding-0">单笔/单日/单月限额：{{bankCodeList[userCard.bankCode].limit}}</div>
-          <a class=" col-md-2 cursor-pt supportBank" ng-click="showBankCardTip = !showBankCardTip" href="javascript:;">更换其他银行卡</a>
-          <div class="alert changeBankCardTip" ng-class="[type ? 'alert-' + type : null]" ng-show="showBankCardTip">
-            <div class="title">
-              <strong >温馨提示：</strong>
-            </div>
-            
-            <div class="content">
-              <p>您的提现银行卡也将随之更换，是否继续？</p>
-            </div>
-
-            <div class="bottom col-xs-10 col-xs-offset-1 margin-b-30">
-              <a class="btn btn-primary-orange btn-block pull-left margin-r-60 margin-l-30 w-25" href="javascript:;" ng-click="showBankCardTip = false">稍后再说</a>
-              <a class="btn btn-primary-orange btn-block pull-left w-25" href="javascript:;" ng-click="$hide();unbindBankCard()">继续更换</a>
-            </div>
-            
-          </div>
-          <div class="mask_layer" ng-show="showBankCardTip"></div>
+          <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5"><img ng-src="{{bankCodeList[userCard.bankCode].imgUrl}}">{{userCard.openBank}}</div><div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div><div class="col-md-2 text-right"><span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span></div><div class="col-md-4 padding-0 text-center">单笔/单日/单月限额：{{bankCodeList[userCard.bankCode].limit}}</div>
+          <a class=" col-md-2 cursor-pt supportBank padding-l-10" ng-click="changeCard();" href="javascript:;">更换其他银行卡</a>
         </div>
         <div class="row margin-t-20" ng-click="selectPay(2)">
-          <div class="payment col-md-2 padding-t-3 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==2}"><b>网银支付方式</b></div>
+          <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==2}"><b>网银支付方式</b></div>
           <div class="col-md-2 pay-typeUMP" ng-class="{'pay-active':payment ==2}">联动支付</div>
         </div>
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-25">
-          <div class="margin-b-15 margin-t-30">
+          <div class="margin-b-15 margin-t-10">
             <div class="col-md-4 text-right text-recharge-tip ft-16 margin-t-5 margin-r-30"><b>充值金额</b></div>
-            <input id="recharge-input" name="amount" type="number" min="0" class="verify-input fl mgn-top7" value="该卡可充值{{bankRemain || 0}}元" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required placeholder="该卡可充值{{bankRemain || 0}}元" id="amount"/>
+            <input id="recharge-input" name="amount" type="number" min="0" class="verify-input fl mgn-top7" value="该卡可充值{{bankRemain || 0}}元" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required placeholder="该卡可充值{{bankRemain || 0}}元" id="amount" ng-if="payment === 1"/>
+            <input id="recharge-input" name="amount" type="number" min="0" class="verify-input fl mgn-top7" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required id="amount"/ ng-if="payment === 2">
             <span class="span-money fl">元</span>
           </div>
           <div class="col-md-5 text-recharge-tip ft-13">充值后账户余额<span class="ft-red5">&nbsp;{{ balance + rechargeAmount || "0" | number:2}}&nbsp;</span>元</div>
@@ -139,7 +124,7 @@
       <div ng-if="bankCardStatus !== 'VERIFIED'" class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40">
         <p class="verify-tip col-md-9 col-md-offset-2 margin-t-20">充值需要绑定银行卡，请您前往<a ng-click="toBindBank()">【存管通资金系统】</a>完成绑卡操作</p>
       </div>
-      <div  ng-hide="securityStatus.realNameAuthStatus !== 1" class="col-md-10 col-md-offset-1 border-bd-grey margin-t-40 margin-b-20 record-w margin-l-40"></div>
+      <div  ng-hide="securityStatus.realNameAuthStatus !== 1" class="col-md-10 col-md-offset-1 border-bd-grey margin-t-15 margin-b-20 record-w margin-l-40"></div>
       <div class="col-md-10 col-md-offset-1 bg-yellow margin-t-20 record-w margin-l-40" ng-hide="securityStatus.realNameAuthStatus !== 1">
         <div class="ft-14 padding-20 padding-b-50">
           <p class="ft-red4"><i class="fa fa-tint ft-red4" style="margin-right:15px;"></i><b>温馨提示:</b></p>

@@ -1,0 +1,16 @@
+<div class="alert changeBankCardTip" ng-class="[type ? 'alert-' + type : null]">
+  <div class="title">
+    <strong >温馨提示：</strong>
+  </div>
+  
+  <div class="content">
+    <p>您的提现银行卡也将随之更换，是否继续？</p>
+  </div>
+
+  <div class="bottom col-xs-10 col-xs-offset-1 margin-b-30">
+    <a class="btn btn-primary-orange btn-block pull-left margin-r-60 margin-l-30 w-25" href="javascript:;" ng-click="$hide();">稍后再说</a>
+    <a class="btn btn-primary-orange btn-block pull-left w-25" href="javascript:;" ng-click="unbindBankCard();$hide();">继续更换</a>
+  </div>
+  
+</div>
+<div class="mask_layer"></div>

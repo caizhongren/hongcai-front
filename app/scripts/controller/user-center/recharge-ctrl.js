@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('RechargeCtrl',  function($location, $scope, $state, $rootScope, UserCenterService, DEFAULT_DOMAIN, $alert) {
+  .controller('RechargeCtrl',  function($location, $scope, $state, $rootScope, UserCenterService, DEFAULT_DOMAIN, $alert, toaster, $window) {
     $scope.balance = 0;
     UserCenterService.getUserBalance.get({}, function(response) {
       if (response.ret === 1) {
@@ -10,6 +10,14 @@ angular.module('hongcaiApp')
       }
     });
 
+    //提示更换银行卡弹窗
+    $scope.changeCard =  function(){
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alert-changeBankCard.html',
+        show: true
+      });
+    }
     $scope.bankCodeList = {
       'ICBK':{
       'imgUrl': '/images/user-center/ICBK.png',
@@ -97,21 +105,31 @@ angular.module('hongcaiApp')
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
-
+    $scope.showBankCardTip = false;
     $scope.unbindBankCard = function() {
-      $acope.showBankCardTip = false;
-      UserCenterService.unbindBankCard.get({}, function(response) {
-        if (response.ret === 1) {
-          $state.go('root.yeepay-callback', {
-            business: 'UNBIND_CARD',
-            status: 'SUCCESS'
-          });
-        } else {
-          toaster.pop('error', response.msg);
+      $scope.showBankCardTip = false;
+      // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
+      $.ajax({
+        url: DEFAULT_DOMAIN + '/yeepay/unbindBankCard',
+        'type': 'get',
+        async: false,
+        dataType: 'json',
+        success: function(response) {
+          if (response.ret === 1) {
+            $scope.msg = '5';
+            $alert({
+              scope: $scope,
+              template: 'views/modal/alertYEEPAY.html',
+              show: true
+            });
+            $window.open('/#!/bankcard-transfer/0');
+          } else {
+            toaster.pop('error', response.msg);
+          }
         }
       });
+      
     };
-    $scope.showBankCardTip = false;
 
     $scope.transferToPlaform = function(amount) {
       $scope.msg = '8';
