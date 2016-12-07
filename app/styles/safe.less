@@ -262,11 +262,84 @@
       transform: translate(0, 0)
     }
   }
+  .banner>ul {
+    width: 1190px;
+    padding: 128px 0;
+    margin: 0 auto;
+    font-size: 18px;
+    li {
+      float: left;
+      width: 25%;
+      .banner-tit {
+        width: 155px;
+        height: 155px;
+        margin: 0 auto;
+        margin-bottom: 45px;
+        cursor: pointer;
+      }
+      .banner-tit1 {
+        background: url('/images/safe/icon_gz1.png') no-repeat 0 0;
+      }
+      .banner-tit1:hover, .banner-click1 {
+        background: url('/images/safe/icon_gz.png') no-repeat 0 0
+      }
+      .banner-tit2 {
+        background: url('/images/safe/icon_zj1.png') no-repeat 0 0;
+      }
+      .banner-tit2:hover, .banner-click2 {
+        background: url('/images/safe/icon_zj.png') no-repeat 0 0;
+      }
+      .banner-tit3 {
+        background: url('/images/safe/icon_hy.png') no-repeat 0 0;
+      }
+      .banner-tit3:hover, .banner-click3 {
+        background: url('/images/safe/icon_hy1.png') no-repeat 0 0;
+      }
+      .banner-tit4 {
+        background: url('/images/safe/icon_ld.png') no-repeat 0 0;
+      }
+      .banner-tit4:hover, .banner-click4 {
+        background: url('/images/safe/icon_ld1.png') no-repeat 0 0;
+      }
+    }
+    .banner-li01 {
+      -o-animation: top_bottom_Animation 1s ease-in-out 1s 1 normal;
+      -moz-animation: top_bottom_Animation 1s ease-in-out 1s 1 normal;
+      -webkit-animation: top_bottom_Animation 1s ease-in-out 1s 1 normal;
+      animation: top_bottom_Animation 1s ease-in-out 1s 1 normal;
+      animation-fill-mode: backwards;
+      -webkit-animation-fill-mode: backwards;
+    }
+    .banner-li02 {
+      -o-animation: top_bottom_Animation 1s ease-in-out 1.5s 1 normal;
+      -moz-animation: top_bottom_Animation 1s ease-in-out 1.5s 1 normal;
+      -webkit-animation: top_bottom_Animation 1s ease-in-out 1.5s 1 normal;
+      animation: top_bottom_Animation 1s ease-in-out 1.5s 1 normal;
+      animation-fill-mode: backwards;
+      -webkit-animation-fill-mode: backwards;
+    }
+    .banner-li03 {
+      -o-animation: top_bottom_Animation 1s ease-in-out 2s 1 normal;
+      -moz-animation: top_bottom_Animation 1s ease-in-out 2s 1 normal;
+      -webkit-animation: top_bottom_Animation 1s ease-in-out 2s 1 normal;
+      animation: top_bottom_Animation 1s ease-in-out 2s 1 normal;
+      animation-fill-mode: backwards;
+      -webkit-animation-fill-mode: backwards;
+    }
+    .banner-li04 {
+      -o-animation: top_bottom_Animation 1s ease-in-out 2.5s 1 normal;
+      -moz-animation: top_bottom_Animation 1s ease-in-out 2.5s 1 normal;
+      -webkit-animation: top_bottom_Animation 1s ease-in-out 2.5s 1 normal;
+      animation: top_bottom_Animation 1s ease-in-out 2.5s 1 normal;
+      animation-fill-mode: backwards;
+      -webkit-animation-fill-mode: backwards
+    }
+  }
   .banner {
     position: relative;
     width: 100%;
     height: 772px;
-    background: url('/images/safe/banner.jpg') no-repeat 0 0 #04304D;
+    background: url('/images/safe/banner.jpg') no-repeat center center;
     background-color: #011222;
     font-size: 16px;
     color: #fff;
@@ -276,80 +349,7 @@
       margin-top: 300px;
       font-family: 'MicrosoftYaHei';
       font-weight: normal;
-    }
-    ul {
-      width: 1190px;
-      padding: 128px 0;
-      margin: 0 auto;
-      font-size: 18px;
-      li {
-        float: left;
-        width: 25%;
-        .banner-tit {
-          width: 155px;
-          height: 155px;
-          margin: 0 auto;
-          margin-bottom: 45px;
-          cursor: pointer;
-        }
-        .banner-tit1 {
-          background: url('/images/safe/icon_gz1.png') no-repeat 0 0;
-        }
-        .banner-tit1:hover, .banner-click1 {
-          background: url('/images/safe/icon_gz.png') no-repeat 0 0
-        }
-        .banner-tit2 {
-          background: url('/images/safe/icon_zj1.png') no-repeat 0 0;
-        }
-        .banner-tit2:hover, .banner-click2 {
-          background: url('/images/safe/icon_zj.png') no-repeat 0 0;
-        }
-        .banner-tit3 {
-          background: url('/images/safe/icon_hy.png') no-repeat 0 0;
-        }
-        .banner-tit3:hover, .banner-click3 {
-          background: url('/images/safe/icon_hy1.png') no-repeat 0 0;
-        }
-        .banner-tit4 {
-          background: url('/images/safe/icon_ld.png') no-repeat 0 0;
-        }
-        .banner-tit4:hover, .banner-click4 {
-          background: url('/images/safe/icon_ld1.png') no-repeat 0 0;
-        }
-      }
-      .banner-li01 {
-        -o-animation: top_bottom_Animation 1s ease-in-out 1s 1 normal;
-        -moz-animation: top_bottom_Animation 1s ease-in-out 1s 1 normal;
-        -webkit-animation: top_bottom_Animation 1s ease-in-out 1s 1 normal;
-        animation: top_bottom_Animation 1s ease-in-out 1s 1 normal;
-        animation-fill-mode: backwards;
-        -webkit-animation-fill-mode: backwards;
-      }
-      .banner-li02 {
-        -o-animation: top_bottom_Animation 1s ease-in-out 1.5s 1 normal;
-        -moz-animation: top_bottom_Animation 1s ease-in-out 1.5s 1 normal;
-        -webkit-animation: top_bottom_Animation 1s ease-in-out 1.5s 1 normal;
-        animation: top_bottom_Animation 1s ease-in-out 1.5s 1 normal;
-        animation-fill-mode: backwards;
-        -webkit-animation-fill-mode: backwards;
-      }
-      .banner-li03 {
-        -o-animation: top_bottom_Animation 1s ease-in-out 2s 1 normal;
-        -moz-animation: top_bottom_Animation 1s ease-in-out 2s 1 normal;
-        -webkit-animation: top_bottom_Animation 1s ease-in-out 2s 1 normal;
-        animation: top_bottom_Animation 1s ease-in-out 2s 1 normal;
-        animation-fill-mode: backwards;
-        -webkit-animation-fill-mode: backwards;
-      }
-      .banner-li04 {
-        -o-animation: top_bottom_Animation 1s ease-in-out 2.5s 1 normal;
-        -moz-animation: top_bottom_Animation 1s ease-in-out 2.5s 1 normal;
-        -webkit-animation: top_bottom_Animation 1s ease-in-out 2.5s 1 normal;
-        animation: top_bottom_Animation 1s ease-in-out 2.5s 1 normal;
-        animation-fill-mode: backwards;
-        -webkit-animation-fill-mode: backwards
-      }
-    }
+    } 
     .banner-info {
       display: none;
       position: absolute;
@@ -370,7 +370,7 @@
           display: block;
           width: 36px;
           height: 36px;
-          background: url(../img/icon2.png) no-repeat -39px -307px;
+          background: url('/images/safe/close.png') no-repeat center center;
           margin: 0 auto;
           cursor: pointer;
           z-index: 20;
@@ -380,18 +380,21 @@
         width: 100%;
         height: 208px;
         background: #1877AD;
-        background: rgba(25,122,178,0.95);
-        filter: alpha(opacity=95);
+        background: rgba(25,122,178,0.9);
+        filter: alpha(opacity=90);
         overflow: hidden;
         ul {
-          width: 1010px;
-          padding: 0 0px;
-          margin: 40px auto;
+          width: 700px;
+          margin: 0px auto;
           height: 2088px;
           li {
-            float: left;
-            width: 280px;
-            margin: 0 25px
+            width: 100%;
+            margin: 15px 25px;
+            .fa-circle {
+              position: relative;
+              top: -2px;
+              margin-right: 10px;
+            }
           }
         }
         .w660 {
@@ -404,95 +407,7 @@
         }
       }
     }
-
   }
-
-
-
-
-
-
-
-// .banner .banner-info 
-
-// .banner .banner-info .wrapB 
-// .banner .banner-info 
-
-// .banner .banner-info .wrapC 
-
-// .banner .banner-info .wrapC ul 
-
-// .banner .banner-info .wrapC 
-
-// .banner .banner-info .wrapC
-
-// .banner .banner-info3 ul {
-//     width: 430px;
-//     margin: 50px auto
-// }
-
-// .banner .banner-info3 ul li {
-//     width: 100%
-// }
-
-// .banner .banner-info4 {
-//     width: 100%;
-//     height: 382px;
-//     padding: 0;
-//     overflow: hidden
-// }
-
-// .banner .banner-info4 .wrapC {
-//     height: 382px
-// }
-
-// .banner .banner-info4 .wrapC ul {
-//     padding: 0
-// }
-
-// .banner .banner-info4 .wrapC .ul-list {
-//     width: 1190px;
-//     margin: 0 auto;
-//     line-height: 25px
-// }
-
-// .banner .banner-info4 .wrapC .ul-list .ul-list1 {
-//     width: 190px;
-//     margin: 136px 0 0 10px
-// }
-
-// .banner .banner-info4 .wrapC .ul-list .ul-list2 {
-//     width: 790px;
-//     margin: 45px 0 0 0
-// }
-
-// .banner .banner-info4 .wrapC .ul-list .ul-list2 li {
-//     margin: 0
-// }
-
-// .banner .banner-info4 .wrapC .ul-list .ul-list2 .operate1 {
-//     width: 225px;
-//     margin: 70px 0 0 0
-// }
-
-// .banner .banner-info4 .wrapC .ul-list .ul-list2 .operate2 {
-//     width: 344px
-// }
-
-// .banner .banner-info4 .wrapC .ul-list .ul-list2 .operate3 {
-//     width: 200px;
-//     margin: 70px 0 0 10px
-// }
-
-// .banner .banner-info4 .wrapC .ul-list .ul-list3 {
-//     width: 130px;
-//     margin: 136px 0 0 0
-// }
-
-// .banner .banner-info4 .wrapC ul {
-//     float: left;
-//     margin: 50px auto
-// }
 
 //资金安全
 .fund-safty {
