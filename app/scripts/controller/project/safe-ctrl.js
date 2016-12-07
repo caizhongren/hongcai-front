@@ -25,9 +25,54 @@ angular.module('hongcaiApp')
 		$('.banner-tit').removeClass('banner-click1 banner-click2 banner-click3 banner-click4');
 	});
 
-	$scope.demo = function () {
-	    $location.hash('test');
+	$scope.demo = function (id) {
+	    $location.hash(id);
 	    $anchorScroll();
 	};
+	
+	//全屏滚动
+		function handle(delta){
+    	var s = delta + ": ";
+    	var fullHeight=$(window).height()>830?$(window).height():1048;
+    	var top = document.body.scrollTop || document.documentElement.scrollTop;
+		var index=Math.floor(top/fullHeight);
+    	if (delta<0){	
+			for(var i=0;i<6;i++){
+				if(top>i*fullHeight&&top<fullHeight*(i+1)){
+					$('html,body').stop(true).animate({
+						scrollTop:$('.slide').eq(i+1).offset().top + 'px'
+					},500);
+				}
+			}
+    	}else{
+			for(var i=0;i<6;i++){
+				if(top>i*fullHeight&&top<fullHeight*(i+1)){
+					$('html,body').stop(true).animate({
+						scrollTop:$('.slide').eq(i).offset().top + 'px'
+					},500);	
+				}
+			}
+		}
+    	
+ 	}
+	function wheel(event){
+    	var delta = 0;
+   	 	if (!event) event = window.event;
+    	if (event.wheelDelta) {
+        	delta = event.wheelDelta/120; 
+        if (window.opera) delta = -delta;
+    	} else if (event.detail) {
+        	delta = -event.detail/3;
+    	}
+    	if (delta){
+    	if($(window).height()>830){
+    		handle(delta);
+    	}
+    	}    
+	}
+	if (window.addEventListener){
+		window.addEventListener('DOMMouseScroll', wheel, false);
+		window.onmousewheel = document.onmousewheel = wheel;
+	}
 
   });
