@@ -162,6 +162,7 @@ angular.module('hongcaiApp')
     };
 
     // document.getElementsByTagName("html")[0].style.overflow="hidden";
+    //设置自动投标弹窗
     $scope.goToTender = function(){
       $scope.msg = '6';
       $alert({
@@ -170,8 +171,9 @@ angular.module('hongcaiApp')
         show: true
       });
     }
-    $scope.openReservation = function() {
 
+    //开通自动投标
+    $scope.openReservation = function() {
       if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
         $modal({
           scope: $scope,
@@ -201,43 +203,26 @@ angular.module('hongcaiApp')
       }
 
     };
-
-    $scope.currentTime = new Date();
-    $scope.endTime = new Date().setFullYear(new Date().getFullYear()+1);
+  
     //自动投标
+    $scope.autoTender = [];
     $scope.dateLine = [ 30,90,120,180,360];
     $scope.interestRate = [7,8,9,10,11,12];
     $scope.projectType = ['宏金保','债权转让','全部',];
-
     $scope.showDateLine = false;
     $scope.showInterestRate = false;
     $scope.showProjectType = false;
 
     $scope.dateLineFn = function(){
       $scope.showDateLine =!$scope.showDateLine;
-      if($scope.showDateLine){
-        $scope.showInterestRate = false;
-        $scope.showProjectType =false;
-      } 
     };
     $scope.interestRateFn = function(){
       $scope.showInterestRate =!$scope.showInterestRate;
-      if($scope.showInterestRate){
-        $scope.showDateLine = false;
-        $scope.showProjectType =false;
-      } 
     };
     $scope.projectTypeFn = function(){
       $scope.showProjectType =!$scope.showProjectType;
-       if($scope.showProjectType){
-        $scope.showInterestRate = false;
-        $scope.showDateLine =false;
-      } 
     };
-    $scope.autoTender = [];
-    $scope.autoTender.selectedDateLine = '360';
-    $scope.autoTender.selectedInterestRate = '7';
-    $scope.autoTender.selectedProjectType = '全部';
+    
     $scope.selectDateLine = function(date){
       $scope.autoTender.selectedDateLine = date;
     };
@@ -251,7 +236,6 @@ angular.module('hongcaiApp')
     //最小投标金额
     var pattern=/^[0-9]*(\.[0-9]{1,2})?$/;
     var pattern2= /^\+?[1-9][0-9]*$/;
-    $scope.autoTender.minInvestAmount = 100;
     $scope.error1 = false;
     $scope.watchInvestAmount= function(newVal) {
       $scope.errorMsg1 = '';
@@ -276,7 +260,6 @@ angular.module('hongcaiApp')
       $scope.error1 = $scope.errorMsg1 === '' ? false : true;      
     };
     //账户保留金额
-    $scope.autoTender.retentionAmount = 0;
     $scope.error2 = false;
     $scope.watchRetentionAmount= function(newVal) {
       $scope.errorMsg2 = '';
@@ -300,12 +283,11 @@ angular.module('hongcaiApp')
     
     //自动投标详情
     UserCenterService.autoTender.get({
-      userId: $rootScope.loginUser.id
+      userId: 0
     }, function(response){
       $scope.openTrustReservation = response.status;
       if (response.userId !== null) {
         $scope.setAutoTender = true;
-        // $scope.openTrustReservation = response.status;
         $scope.autoTenderDetail = response;
         var investType = $scope.autoTenderDetail.investType;
         if (investType ===1) {
@@ -323,9 +305,17 @@ angular.module('hongcaiApp')
         $scope.autoTenderDetail.endTime = $scope.autoTenderDetail.endTime;
       }else {
         $scope.setAutoTender = false;
+        $scope.autoTender.selectedDateLine = '360';
+        $scope.autoTender.selectedInterestRate = '7';
+        $scope.autoTender.selectedProjectType = '全部';
+        $scope.autoTender.minInvestAmount = 100;
+        $scope.autoTender.retentionAmount = 0;
+        $scope.currentTime = new Date();
+        $scope.endTime = new Date().setFullYear(new Date().getFullYear()+1);
       }
     });
     $scope.disableDubble = true;
+    //开启自动投标
     $scope.openReservation2 = function(autoTender){
       $scope.disableDubble = false;
       var startTime = new Date($('#start').val()).getTime();
@@ -345,7 +335,7 @@ angular.module('hongcaiApp')
 
       //开启
       UserCenterService.autoTenders.post({
-        userId: $rootScope.loginUser.id,
+        userId: 0,
         minInvestAmount: autoTender.minInvestAmount,
         minRemainDay: 0,
         maxRemainDay: autoTender.selectedDateLine,
@@ -362,11 +352,13 @@ angular.module('hongcaiApp')
         }
       })
     }
+    //修改到编辑状态
     $scope.modify = function(){
       $scope.setAutoTender = false;
       $scope.currentTime = $scope.autoTenderDetail.startTime;
       $scope.endTime = $scope.autoTenderDetail.endTime;
     }
+    //禁用自动投标
     $scope.disabledAutoTender = function(){
       $scope.disableDubble = false;
       UserCenterService.disabledAutoTender.update({
