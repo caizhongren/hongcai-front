@@ -519,18 +519,18 @@
   }
 
   //资金安全
+  .fund-safty h, .running-rules h {
+    font-size: 68px;
+    font-family: PingFang SC;
+    color: #666;
+    font-weight: 100;
+  }
   .fund-safty {
     width: 100%;
     height: 758px;
     background: url("/images/safe/fund-safty-bg.jpg") no-repeat;
     text-align: center;
     padding: 42px 172px 0 172px;
-    h {
-      font-size: 68px;
-      font-family: PingFang SC;
-      color: #666;
-      font-weight: 100;
-    }
     .fund-slide {
       width: 900px;
       margin: 74px auto 0px;
@@ -922,6 +922,59 @@
       animation-timing-function: ease;
       animation-fill-mode: backwards
     }
+  }
+
+  //运营规范
+  .running-rules {
+    width: 100%;
+    height: 758px;
+    background: url("/images/safe/running-rules-bg.jpg") no-repeat;
+    text-align: center;
+    padding: 42px 172px 0 172px;
+    .running-rule-list {
+      width: 1197px;
+      margin: 0 auto;
+      padding-top: 25px;
+      ul {
+        li {
+          width: 339px;
+          height: 480px;
+          float: left;
+          margin-right: 90px;
+          .front {
+            width: 339px;
+            height: 480px;
+            background: url("/images/safe/running-rules-front.png") no-repeat;
+            img {
+              margin: 0 auto;
+              padding-top: 90px;
+            }
+            p {
+              margin: 110px 0 108px 0;
+              text-align: center;
+              font-size: 34px;
+            }
+          }
+          .back {
+            width: 339px;
+            height: 480px;
+            left: 0;
+            top: 0;
+            background: url("/images/safe/running-rules-back.png") no-repeat;
+            padding: 20px 15px;
+            p {
+              font-size: 20px;
+              color: #fff;
+              text-align: left;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+
+
+
   }
 
   //技术保障
