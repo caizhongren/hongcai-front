@@ -298,6 +298,79 @@
       transform: translate(0, -70px)
     }
   }
+  //密码锁旋转动画向下转
+  @-o-keyframes num_rotate_bottom {
+    from {
+      transform: rotateX(313deg)
+    }
+    to {
+      transform: rotateX(246deg)
+    }
+  }
+
+  @-moz-keyframes num_rotate_bottom {
+    from {
+      transform: rotateX(313deg)
+    }
+    to {
+      transform: rotateX(246deg)
+    }
+  }
+
+  @-webkit-keyframes num_rotate_bottom {
+    from {
+      transform: rotateX(313deg)
+    }
+    to {
+      transform: rotateX(246deg)
+    }
+  }
+
+  @keyframes num_rotate_bottom {
+    from {
+      transform: rotateX(313deg)
+    }
+    to {
+      transform: rotateX(246deg)
+    }
+  }
+
+  //密码锁旋转动画向上转
+  @-o-keyframes num_rotate_top {
+    from {
+      transform: rotateX(246deg)
+    }
+    to {
+      transform: rotateX(313deg)
+    }
+  }
+
+  @-moz-keyframes num_rotate_top {
+    from {
+      transform: rotateX(246deg)
+    }
+    to {
+      transform: rotateX(313deg)
+    }
+  }
+
+  @-webkit-keyframes num_rotate_top {
+    from {
+      transform: rotateX(246deg)
+    }
+    to {
+      transform: rotateX(313deg)
+    }
+  }
+
+  @keyframes num_rotate_top {
+    from {
+      transform: rotateX(246deg)
+    }
+    to {
+      transform: rotateX(313deg)
+    }
+  }
   .banner>ul {
     width: 1190px;
     padding: 128px 0;
@@ -495,6 +568,33 @@
         background: url("/images/safe/fund-slide-nxt.png") no-repeat;
         right: 0;
       }
+      #unit2 .icon ul {
+        transform: translateZ(-190px) rotateX(313deg);transform-style: preserve-3d;
+      }
+      #unit2 .icon .ratateNum1 {
+        -o-animation: num_rotate_bottom 1s ease 1s 1 normal;
+        -moz-animation: num_rotate_bottom 1s ease 1s 1 normal;
+        -webkit-animation: num_rotate_bottom 1s ease 1s 1 normal;
+        animation: num_rotate_bottom 1s ease 1s 1 normal;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+      }
+      #unit2 .icon .ratateNum2 {
+        -o-animation: num_rotate_top 1s ease-in 1s 1 normal;
+        -moz-animation: num_rotate_top 1s ease-in 1s 1 normal;
+        -webkit-animation: num_rotate_top 1s ease-in 1s 1 normal;
+        animation: num_rotate_top 1s ease-in 1s 1 normal;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+      }
+      #unit2 .icon .ratateNum3 {
+        -o-animation: num_rotate_bottom .8s ease-in-out 1s 1 normal;
+        -moz-animation: num_rotate_bottom .8s ease-in-out 1s 1 normal;
+        -webkit-animation: num_rotate_bottom .8s ease-in-out 1s 1 normal;
+        animation: num_rotate_bottom .8s ease-in-out 1s 1 normal;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+      }
       #unit1 .descrip {
         width: 33%;
         margin-left: 106px;
@@ -506,8 +606,8 @@
         padding-top: 65px;
       }
       #unit2 .descrip, #unit3 .descrip{
-        width: 0;
-        opacity: 0;
+        width: 31%;
+        height: 100%;
         margin-left: 106px;
         font-size: 28px;
         color: #666;
@@ -519,6 +619,7 @@
         background: url("/images/safe/slide-img4.png") no-repeat;
         width: 379px;
         height: 258px;
+        overflow: hidden;
         ul {
           height: 258px;
           width: 84px;
@@ -547,9 +648,9 @@
       #unit3 {
        img:first-child{
         margin-top: -55px;
+        margin-left: 18px;
        }
         .highlight-line {
-          margin-left: -15px;
           -o-animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
           -moz-animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
           -webkit-animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
