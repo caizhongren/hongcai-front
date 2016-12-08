@@ -103,11 +103,12 @@
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-25">
           <div class="margin-b-15 margin-t-10">
-            <div class="col-md-4 text-right text-recharge-tip ft-16 margin-t-5 margin-r-30"><b>充值金额</b></div>
+            <div class="col-md-4 text-right text-recharge-tip ft-16 margin-t-5 margin-r-30"><b>充值金额</b></div>{{(rechargeForm.amount.$error.pattern || rechargeAmount < 2)}}
             <input id="recharge-input" name="amount" type="number" min="0" class="verify-input fl mgn-top7" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required placeholder="{{bankRemainHolder}}" id="amount"/>
           </div>
           <div class="row col-md-10 col-md-offset-4 text-left ft-12 ft-red4" ng-show="rechargeForm.amount.$dirty">
-            <p class="padding-l-15" ng-show="rechargeForm.amount.$error.pattern || rechargeAmount == 0">请输入大于0的数字(最多精确到小数点后两位)</p>
+            <p class="padding-l-15" ng-show="(rechargeForm.amount.$error.pattern || rechargeAmount < 2) && payment == 1">请输入大于2的数字(最多精确到小数点后两位)</p>
+            <p class="padding-l-15" ng-show="(rechargeForm.amount.$error.pattern || rechargeAmount == 0) && payment == 2">请输入大于0的数字(最多精确到小数点后两位)</p>
             <p class="padding-l-15" ng-show="rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">充值金额不能为空</p>
             <p class="padding-l-15 " ng-show="rechargeAmount > bankRemain && payment == 1">该卡本次最多充值{{bankRemain | number:2}}元</p>
           </div>
@@ -117,7 +118,7 @@
         <div class="col-md-4 col-md-offset-3 margin-t-15">
           <div class="form-group col-xs-12 margin-l-15" ng-if="payment == 1">
 
-            <input type="button" value="确认充值" id="recharge-virify-btn" class="border-half cursor-pointer ft-16" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid || rechargeAmount > bankRemain || rechargeAmount == 0, 'btn-recharge-orange':!rechargeForm.$invalid && rechargeAmount <= bankRemain && rechargeAmount != 0}" />
+            <input type="button" value="确认充值" id="recharge-virify-btn" class="border-half cursor-pointer ft-16" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid || rechargeAmount > bankRemain || rechargeAmount < 2, 'btn-recharge-orange':!rechargeForm.$invalid && rechargeAmount <= bankRemain && rechargeAmount >= 2}" />
           </div>
           <div class="form-group col-xs-12 margin-l-15" ng-if="payment == 2">
             <input type="button" value="确认充值" id="recharge-virify-btn" class="border-half cursor-pointer ft-16" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid || rechargeAmount == 0, 'btn-recharge-orange':!rechargeForm.$invalid && rechargeAmount != 0}" />
