@@ -31,7 +31,7 @@ angular.module('hongcaiApp')
 	};
 	
 	//全屏滚动
-		function handle(delta){
+	function handle(delta){
     	var s = delta + ": ";
     	var fullHeight=$(window).height()>830?$(window).height():1048;
     	var top = document.body.scrollTop || document.documentElement.scrollTop;
@@ -40,7 +40,7 @@ angular.module('hongcaiApp')
 			for(var i=0;i<6;i++){
 				if(top>i*fullHeight&&top<fullHeight*(i+1)){
 					$('html,body').stop(true).animate({
-						scrollTop:$('.slide').eq(i+1).offset().top + 'px'
+						scrollTop:$('.slide').eq(i+1).offset().top -'80'+'px'
 					},500);
 				}
 			}
@@ -48,7 +48,7 @@ angular.module('hongcaiApp')
 			for(var i=0;i<6;i++){
 				if(top>i*fullHeight&&top<fullHeight*(i+1)){
 					$('html,body').stop(true).animate({
-						scrollTop:$('.slide').eq(i).offset().top + 'px'
+						scrollTop:$('.slide').eq(i).offset().top -'80'+'px'
 					},500);	
 				}
 			}
