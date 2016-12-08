@@ -131,6 +131,21 @@ angular.module('hongcaiApp')
 				
 		});
 
+	//运营规范悬浮效果
+
+	var turn = function(target,time,opts){
+			target.find('li').hover(function(){
+				$(this).find('.front').stop().animate(opts[0],time,function(){
+				$(this).hide().next().show().animate(opts[1],time);
+			});
+			},function(){
+				$(this).find('.back').stop().animate(opts[0],time,function(){
+				$(this).hide().prev().show().animate(opts[1],time);
+			});
+			});
+		}
+	var verticalOpts = [{'width':0,opacity:0},{'width':'339px',opacity:1}];
+	turn($('.running-rule-list ul'),200,verticalOpts);
 
 
   });

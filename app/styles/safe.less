@@ -941,9 +941,13 @@
           height: 480px;
           float: left;
           margin-right: 90px;
+          background-color: #17679F;
           .front {
+            left: 0;
+            top: 0;
             width: 339px;
             height: 480px;
+            position: absolute;
             background: url("/images/safe/running-rules-front.png") no-repeat;
             img {
               margin: 0 auto;
@@ -958,15 +962,22 @@
           .back {
             width: 339px;
             height: 480px;
-            left: 0;
-            top: 0;
             background: url("/images/safe/running-rules-back.png") no-repeat;
-            padding: 20px 15px;
-            p {
-              font-size: 20px;
-              color: #fff;
+            padding: 20px;
+            .content {
+              font-size: 14px;
+              color:#fff;
               text-align: left;
+              margin-top: 30px;
+              margin-bottom: 25px;
+              line-height: 22px;
+            }
+            p {
+              font-size: 24px;
+              color: #fff;
+              text-align: justify;
               margin-bottom: 0;
+              margin-top: 15px;
             }
           }
         }
