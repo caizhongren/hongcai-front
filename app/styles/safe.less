@@ -262,6 +262,42 @@
       transform: translate(0, 0)
     }
   }
+  //指纹扫描动画
+  @-o-keyframes top_bottom_Animation2 {
+    from {
+      -o-transform: translate(0, -460px)
+    }
+    to {
+      -o-transform: translate(0, -70px)
+    }
+  }
+
+  @-moz-keyframes top_bottom_Animation2 {
+    from {
+      -moz-transform: translate(0, -460px)
+    }
+    to {
+      -moz-transform: translate(0, -70px)
+    }
+  }
+
+  @-webkit-keyframes top_bottom_Animation2 {
+    from {
+      -webkit-transform: translate(0, -460px)
+    }
+    to {
+      -webkit-transform: translate(0, -70px)
+    }
+  }
+
+  @keyframes top_bottom_Animation2 {
+    from {
+      transform: translate(0, -460px)
+    }
+    to {
+      transform: translate(0, -70px)
+    }
+  }
   .banner>ul {
     width: 1190px;
     padding: 128px 0;
@@ -409,13 +445,13 @@
     }
   }
 
-//资金安全
-.fund-safty {
-  width: 100%;
-  height: 758px;
-  background: url("/images/safe/fund-safty-bg.jpg") no-repeat;
-  text-align: center;
-  padding: 42px 172px 0 172px;
+  //资金安全
+  .fund-safty {
+    width: 100%;
+    height: 758px;
+    background: url("/images/safe/fund-safty-bg.jpg") no-repeat;
+    text-align: center;
+    padding: 42px 172px 0 172px;
     h {
       font-size: 68px;
       font-family: PingFang SC;
@@ -436,11 +472,15 @@
         color: #fff;
         text-align: center;
       }
+      .active-tab {
+        background: url("/images/safe/clicked-bg.png") no-repeat;
+      }
     }
     .fund-slide-content {
       width: 1300px;
       margin: 0 auto;
       padding-top: 60px;  
+      
       .tab{
         width: 72px;
         height: 72px;
@@ -466,7 +506,8 @@
         padding-top: 65px;
       }
       #unit2 .descrip, #unit3 .descrip{
-        width: 30%;
+        width: 0;
+        opacity: 0;
         margin-left: 106px;
         font-size: 28px;
         color: #666;
@@ -474,17 +515,58 @@
         vertical-align: top;
         text-align: left;
       }
+      #unit2 .icon {
+        background: url("/images/safe/slide-img4.png") no-repeat;
+        width: 379px;
+        height: 258px;
+        ul {
+          height: 258px;
+          width: 84px;
+          float: left;
+          over-flow: hidden;
+          //background-color: rgba(0,0,0,.75);
+          li {
+            height: 86px;
+            width: 84px;
+            line-height: 86px;
+            float: left;
+            position: absolute;
+            img {
+              margin: 22px auto;
+            }
+          }
+        }
+        ul.margin-r-63 {
+          margin-right: 63px;
+        }
+      }
       #unit3 .descrip {
-        width: 32%;
         color: #0759af;
         padding-top: 20px;
       }
-      #unit3 img {
+      #unit3 {
+       img:first-child{
         margin-top: -55px;
+       }
+        .highlight-line {
+          margin-left: -15px;
+          -o-animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
+          -moz-animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
+          -webkit-animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
+          animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
+          animation-iteration-count: infinite;
+        }
       }
     }
 
-
   }
+
+
+
+
+
+
+
+
 
 }

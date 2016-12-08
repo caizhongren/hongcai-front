@@ -4,8 +4,8 @@
     <div class="wrap">
       <ul class="text-center display-bl clearfix">
         <li class="imgLi"><a href="/" class="logoImgs"></a></li>
-        <li><a ng-click="demo();" class="jump">关于我们</a></li>
-        <li><a href="#link01" class="jump">资金安全</a></li>
+        <li><a ng-click="demo('test');" class="jump">关于我们</a></li>
+        <li><a ng-click="demo('fund');" class="jump">资金安全</a></li>
         <li><a href="#link02" class="jump">风控严谨</a></li>
         <li><a href="#link03" class="jump">运营规范</a></li>
         <li><a href="#link04" class="jump">技术保障</a></li>
@@ -74,28 +74,66 @@
     </div> 
   </div>
   <!-- 资金安全 -->
-  <div id="" class="fund-safty">
+  <div id="fund" class="fund-safty">
     <h class="fund-title">资金安全</h>
-    <div class="fund-slide">
-      <p>信息报备</p>
+    <div class="fund-slide" id="fund-slide">
+      <p class="active-tab">信息报备</p>
       <p>银行存管</p>
       <p class="margin-r-0">账户实名</p>
     </div>
     <div class="fund-slide-content position-re">
-      <div class="tab pre position-ab"></div>
-      <div class="tab nxt position-ab"></div> 
-      <div id="unit1">
+      <!-- <div class="tab pre position-ab"></div> -->
+      <!-- <div class="tab nxt position-ab"></div> -->
+      <div id="unit1" class="info info1">
+        <div class="tab nxt position-ab"></div>
         <div class="display-inbl icon"><img src="/images/safe/slide-img1.png" class="display-bl"></div>
-        <div class="display-inbl ft-28 descrip">宏财网率先对接北京网贷风险监控与资金存管系统。投资信息、标的信息等重要数据报送北京金融局、北京网贷协会进行信息备案。</div>
+        <div class="display-inbl ft-28 descrip">宏财网率先对接北京网贷风险监控与资金存管系统。投资信息、标的信息等重要数据报送北京金融局、北京网贷协会进行信息备案;</div>
       </div>
-      <!-- <div id="unit2">
-        <div class="display-inbl icon"><img src="/images/safe/slide-img2.png" class="display-bl"></div>
+      <div id="unit2" class="info info2" style="display: none;">
+        <div class="tab pre position-ab"></div>
+        <div class="tab nxt position-ab"></div>
+        <div class="display-inbl icon position-re">
+          <ul class="margin-r-63 position-ab" style="transform: translateZ(-190px) rotateX(0deg);transform-style: preserve-3d">
+            <li style="opacity: 1; background-color: rgba(255, 0, 0, 0.8); transform: rotateX(0deg) translateZ(190px);"><img src="/images/safe/num1.png" class="display-bl"></li>
+            <li style="opacity: 1; background-color: rgba(255, 170, 0, 0.8); transform: rotateX(25deg) translateZ(190px);"><img src="/images/safe/num2.png" class="display-bl"></li>
+            <li style="opacity: 1; background-color: rgba(170, 255, 0, 0.8); transform: rotateX(50deg) translateZ(190px);"><img src="/images/safe/num3.png" class="display-bl"></li>
+            <li style="opacity: 1; background-color: rgba(0, 255, 0, 0.8); transform: rotateX(75deg) translateZ(190px);"><img src="/images/safe/num4.png" class="display-bl"></li>
+            <li style="opacity: 1; background-color: rgba(0, 255, 170, 0.8); transform: rotateX(100deg) translateZ(190px);"><img src="/images/safe/num0.png" class="display-bl"></li>
+            <li style="opacity: 1; background-color: rgba(0, 170, 255, 0.8); transform: rotateX(125deg) translateZ(190px);"><img src="/images/safe/num1.png" class="display-bl"></li>
+            <li style="opacity: 1; background-color: rgba(0, 0, 255, 0.8); transform: rotateX(150deg) translateZ(190px);"><img src="/images/safe/num2.png" class="display-bl"></li>
+          </ul>
+          <ul class="margin-r-63">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
         <div class="display-inbl margin-t-30 ft-28 descrip">宏财网平台用户的往来资金全部由中信银行资金存管专用账户进行存管，由北京懒猫银联向银行发出结算指令，宏财网无权触碰。</div>
-      </div> -->
-      <!-- <div id="unit3">
-        <div class="display-inbl icon"><img src="/images/safe/slide-img3.png" class="display-bl"></div>
-        <div class="display-inbl ft-28 descrip">投资人在充值和提现前必须进行实名认证、手机绑定等多重安全认证，任何帐户资金的提现，只能转出到本人实名绑定的银行账户，完全保障投资人的资金转出安全。</div>
-      </div> -->
+      </div>
+      <div id="unit3" class="info info3" style="display: none;">
+        <div class="tab pre position-ab"></div>
+        <div class="display-inbl icon position-re"><img src="/images/safe/slide-img3.png" class="display-bl"><img src="/images/safe/highlight-line.png" class="position-ab line"></div>
+        <div class="display-inbl ft-28 descrip" >
+          投资人在充值和提现前必须进行实名认证、手机绑定等多重安全认证，任何帐户资金的提现，只能转出到本人实名绑定的银行账户，完全保障投资人的资金转出安全。
+        </div>
+      </div>
     </div>
   </div>
 </div>
