@@ -170,7 +170,7 @@ angular.module('hongcaiApp')
     };
     $scope.recharge = function(amount) {
       // $rootScope.toNotice();
-      if(amount <= 2 && $scope.payment == 1){
+      if(amount <= 0){
         return;
       }
       if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
