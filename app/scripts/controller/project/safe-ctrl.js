@@ -98,69 +98,61 @@ angular.module('hongcaiApp')
 		window.onmousewheel = document.onmousewheel = wheel;
 	}
 
-	//资金安全点击按钮切换
-
-	$('#fund-slide p').click(function(){
-		var index = $(this).index('#fund-slide p');
-		$('#fund-slide p').removeClass('active-tab');
-		$(this).addClass('active-tab');
+	//资金安全的动画效果
+	var fundAnimation = function(index) {
 		$('.tab').hide();
 		$(".fund-slide-content .info").css({opacity:0}).hide();
 		$(".info").eq(index).show().animate({opacity:1,  width:"100%"}, 1000,function(){
-			$(".fund-slide-content .info .descrip").css({height: 0,width: '30%', opacity:0})
-			$(".fund-slide-content .info .descrip").eq(index).animate(({height: "100%",opacity:1}),500);
+			$(".fund-slide-content .info .descrip div").eq(index).animate(({height: "100%",opacity:1}),500);
 			$(".info").eq(index).find(".tab").show();
 			if(index == 0 ) {
+				$('.pre').hide();
 				$('.info,.info1 img').css({width:'90%',height:'90%'}).animate({
 				   width: "100%",
 				   height: "100%"
 				  }, 800 );
 				};
+			if(index == 1 ) {
+					$('.info2 .icon .firstUl').addClass('ratateNum1');
+					$('.info2 .icon .secondUl').addClass('ratateNum2');
+					$('.info2 .icon .thirdUl').addClass('ratateNum3');
+				};
 			if(index == 2 ) {
 					$('.info3 .line').addClass('highlight-line');
+					$('.nxt').hide();
 				};
 			});	
+	}
+	//资金安全点击按钮切换动画
+	$('#fund-slide p').click(function(){
+		var index = $(this).index('#fund-slide p');
+		$('#fund-slide p').removeClass('active-tab');
+		$(this).addClass('active-tab');
+		fundAnimation(index);
 		});
 
-	//资金安全左右切换
-
-	// $(".pre").click(function(){
-	// 		var index = $(this).index(".pre");
-	// 			$(".fund-slide-content .info").css({opacity:0, height: 0});
-	// 			$(".info").eq(index-1).show().animate({opacity:1, height:"100%"}, 500,function(){
-	// 				$(".fund-slide-content .info .descrip").eq(index-1).css({width: 0,opacity:0}).animate(({width: "30%",opacity:1}),800);
-	// 				$(".info").eq(index-1).find(".tab").show();
-	// 				if(index == 0 ) {
-	// 					$('.info,.info .descrip').css
-	// 					$('.info,.info1 img').css({width:'90%',height:'90%'}).animate({
-	// 				    width: "100%",
-	// 				    height: "100%"
-	// 				  }, 800 );
-	// 				}
-
-	// 			});
-	// 		$("#fund-slide p").removeClass("active-tab");
-	// 		$("#fund-slide p").eq(index-1).addClass("active-tab");	
-	// 	})
-	// 	$(".nxt").click(function() {
-	// 		var index = $(this).index(".nxt");
-	// 			$(".fund-slide-content .info").css({opacity:0,height: 0});
-	// 			$(".info").eq(index + 1).show().animate({opacity:1, height:"100%"}, 500,function(){
-	// 				$(".fund-slide-content .info .descrip").eq(index + 1).css({width: 0,opacity:0}).animate(({width: "30%",opacity:1}),800);
-	// 				$(".info").eq(index + 1).find(".tab").show();
-	// 				if(index == 0 ) {
-	// 					$('.info,.info .descrip').css
-	// 					$('.info,.info1 img').css({width:'90%',height:'90%'}).animate({
-	// 				    width: "100%",
-	// 				    height: "100%"
-	// 				  }, 800 );
-	// 				}
-
-	// 			});
-	// 			$("#fund-slide p").removeClass("active-tab");
-	// 			$("#fund-slide p").eq(index+1).addClass("active-tab");
+	//资金安全左右切换动画
+	var leftIndext = $('.pre').index();
+	var rightIndex = $('nxt').index();
+	if(leftIndext == 0) {
+		$('.pre').hide();
+	}
+	if(rightIndex == 1) {
+		$('nxt').hide();
+	}
+	$(".pre").click(function(){
+			var index = $(this).index(".pre");
+			fundAnimation(index - 1);
+			$("#fund-slide p").removeClass("active-tab");
+			$("#fund-slide p").eq(index-1).addClass("active-tab");	
+		})
+		$(".nxt").click(function() {
+			var index = $(this).index(".nxt");
+			fundAnimation(index + 1);
+			$("#fund-slide p").removeClass("active-tab");
+			$("#fund-slide p").eq(index+1).addClass("active-tab");
 				
-	// 	});
+		});
 
 
 
