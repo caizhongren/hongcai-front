@@ -32,8 +32,9 @@ angular.module('hongcaiApp')
 	};
 	// 风控严谨＋技术保障 初始动画效果
 	$(window).scroll(function(){
+		console.log($(window).scrollTop());
 		//风控严谨初始动画效果
-    	if($(window).scrollTop() >= 1448 && $(window).scrollTop() <1569){
+    	if($(window).scrollTop() >= 1443 && $(window).scrollTop() <1567){
        		$(".content-top").addClass("animated fadeInLeft fadedelaya");
        		$(".strict-midlle").addClass("animated fadeInRight fadedelayb");
        		$(".content-bottom").addClass("animated fadeInRight fadedelayb");
@@ -43,7 +44,7 @@ angular.module('hongcaiApp')
        		$(".content-bottom").removeClass("animated fadeInRight fadedelayb");
       	}
       	//技术保障初始动画
-      	if ($(window).scrollTop() >= 2884 && $(window).scrollTop() < 3005) {
+      	if ($(window).scrollTop() >= 2881 && $(window).scrollTop() < 3004) {
       		$(".information-security>h4, .data-security>h4").addClass("animated fadeInLeft");
       		$(".system-security>h4").addClass("animated fadeInRight");
 	       	$(".technical-content .content>p").addClass("fade-in");
@@ -63,7 +64,7 @@ angular.module('hongcaiApp')
 			for(var i=0;i<6;i++){
 				if(top>i*fullHeight&&top<fullHeight*(i+1)){
 					$('html,body').stop(true).animate({
-						scrollTop:$('.slide').eq(i+1).offset().top -'80'+'px'
+						scrollTop:$('.slide').eq(i+1).offset().top -'83'+'px'
 					},500);
 				}
 			}
@@ -71,7 +72,7 @@ angular.module('hongcaiApp')
 			for(var i=0;i<6;i++){
 				if(top>i*fullHeight&&top<fullHeight*(i+1)){
 					$('html,body').stop(true).animate({
-						scrollTop:$('.slide').eq(i).offset().top -'80'+'px'
+						scrollTop:$('.slide').eq(i).offset().top -'83'+'px'
 					},500);	
 				}
 			}
