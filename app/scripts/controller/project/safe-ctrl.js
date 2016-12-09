@@ -35,19 +35,19 @@ angular.module('hongcaiApp')
 		console.log($(window).scrollTop());
 		//风控严谨初始动画效果
 		// $(".content-top").css({opacity:0}).hide();
-    	if($(window).scrollTop() >= 1433 && $(window).scrollTop() <1587){
+    	if($(window).scrollTop() >= 1400 && $(window).scrollTop() <1800){
        		$('.content-top').show().animate({left:0, opacity: 1 }, 800,function(){
-       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1433){
+       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1400){
        				$(".content-top").css({left:-48, opacity:1}).show();
        			} 
        		})
        		$('.content-midlle').show().animate({right:0, opacity: 1 }, 800,function(){
-       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1433){
+       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1400){
        				$(".content-midlle").css({right:-48, opacity:1}).show();
        			} 
        		})
        		$('.content-bottom').show().animate({right:0, opacity: 1 }, 800,function(){
-       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1433){
+       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1400){
        				$(".content-bottom").css({right:-48, opacity:1}).show();
        			} 
        		})
@@ -60,7 +60,7 @@ angular.module('hongcaiApp')
        	// 	$(".content-bottom").removeClass("animated fadeInRight fadedelayb");
       	}
       	//技术保障初始动画
-      	if ($(window).scrollTop() >= 2661 && $(window).scrollTop() < 3004) {
+      	if ($(window).scrollTop() >= 2461 && $(window).scrollTop() < 3004) {
       		$(".information-security>h4, .data-security>h4").addClass("animated fadeInLeft");
       		$(".system-security>h4").addClass("animated fadeInRight");
 	       	$(".technical-content .content>p").addClass("fade-in");
@@ -73,7 +73,7 @@ angular.module('hongcaiApp')
 	//全屏滚动
 	function handle(delta){
     	var s = delta + ": ";
-    	var fullHeight=$(window).height()>730?$(window).height():1048;
+    	var fullHeight=$(window).height()>630?$(window).height():1048;
     	var top = document.body.scrollTop || document.documentElement.scrollTop;
 		var index=Math.floor(top/fullHeight);
     	if (delta<0){	
@@ -105,7 +105,7 @@ angular.module('hongcaiApp')
         	delta = -event.detail/3;
     	}
     	if (delta){
-    	if($(window).height()>730){
+    	if($(window).height()>630){
     		handle(delta);
     	}
     	}    
