@@ -414,7 +414,7 @@
     animation-timing-function: ease;
     animation-fill-mode: backwards
   }
-  //密码锁旋转动画向下转
+  //资金安全密码锁旋转动画向下转
   @-o-keyframes num_rotate_bottom {
     from {
       transform: rotateX(313deg)
@@ -485,6 +485,54 @@
     }
     to {
       transform: rotateX(313deg)
+    }
+  }
+  //资金安全放大 缩小动画
+  @-o-keyframes toggle_scale {
+    0% {
+      transform: scale(.8)
+    }
+    50% {
+      transform: scale(1.2)
+    }
+    100%{
+      transform: scale(1)
+    }
+  }
+
+  @-moz-keyframes toggle_scale {
+    0% {
+      transform: scale(.8)
+    }
+    50% {
+      transform: scale(1.2)
+    }
+    100%{
+      transform: scale(1)
+    }
+  }
+
+  @-webkit-keyframes toggle_scale {
+    0% {
+      transform: scale(.8)
+    }
+    50% {
+      transform: scale(1.2)
+    }
+    100%{
+      transform: scale(1)
+    }
+  }
+
+  @keyframes toggle_scale {
+    0% {
+      transform: scale(.8)
+    }
+    50% {
+      transform: scale(1.2)
+    }
+    100%{
+      transform: scale(1)
     }
   }
   .banner>ul {
@@ -684,14 +732,20 @@
         background: url("/images/safe/fund-slide-nxt.png") no-repeat;
         right: 0;
       }
-      #unit2 .icon ul {
+      #unit1 .icon img {
+        transform: scale(.8);
+      }
+      #unit2 .icon ul {transform: translateZ(-190px) rotateX(246deg);transform-style: preserve-3d;
         transform: translateZ(-190px) rotateX(313deg);transform-style: preserve-3d;
       }
+      #unit2 .icon .secondUl {
+        transform: translateZ(-190px) rotateX(246deg);
+      }
       #unit2 .icon .ratateNum1 {
-        -o-animation: num_rotate_bottom 1s ease 1s 1 normal;
-        -moz-animation: num_rotate_bottom 1s ease 1s 1 normal;
-        -webkit-animation: num_rotate_bottom 1s ease 1s 1 normal;
-        animation: num_rotate_bottom 1s ease 1s 1 normal;
+        -o-animation: num_rotate_bottom 1s ease .8s 1 normal;
+        -moz-animation: num_rotate_bottom 1s ease .8s 1 normal;
+        -webkit-animation: num_rotate_bottom 1s ease .8s 1 normal;
+        animation: num_rotate_bottom 1s ease .8s 1 normal;
         animation-fill-mode: forwards;
         -webkit-animation-fill-mode: forwards;
       }
@@ -704,10 +758,18 @@
         -webkit-animation-fill-mode: forwards;
       }
       #unit2 .icon .ratateNum3 {
-        -o-animation: num_rotate_bottom .8s ease-in-out 1s 1 normal;
-        -moz-animation: num_rotate_bottom .8s ease-in-out 1s 1 normal;
-        -webkit-animation: num_rotate_bottom .8s ease-in-out 1s 1 normal;
-        animation: num_rotate_bottom .8s ease-in-out 1s 1 normal;
+        -o-animation: num_rotate_bottom .8s ease-in-out .8s 1 normal;
+        -moz-animation: num_rotate_bottom .8s ease-in-out .8s 1 normal;
+        -webkit-animation: num_rotate_bottom .8s ease-in-out .8s 1 normal;
+        animation: num_rotate_bottom .8s ease-in-out .8s 1 normal;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
+      }
+      #unit1 .icon .toggle-scale {
+        -o-animation: toggle_scale 2s linear .8s 1 normal;
+        -moz-animation: toggle_scale 2s linear .8s 1 normal;
+        -webkit-animation: toggle_scale 2s linear .8s 1 normal;
+        animation: toggle_scale 2s linear .8s 1 normal;
         animation-fill-mode: forwards;
         -webkit-animation-fill-mode: forwards;
       }

@@ -102,15 +102,11 @@ angular.module('hongcaiApp')
 	var fundAnimation = function(index) {
 		$('.tab').hide();
 		$(".fund-slide-content .info").css({opacity:0}).hide();
-		$(".info").eq(index).show().animate({opacity:1,  width:"100%"}, 1000,function(){
-			$(".fund-slide-content .info .descrip div").eq(index).animate(({height: "100%",opacity:1}),500);
+		$(".info").eq(index).show().animate({opacity:1}, 1000,function(){
 			$(".info").eq(index).find(".tab").show();
 			if(index == 0 ) {
 				$('.pre').hide();
-				$('.info,.info1 img').css({width:'90%',height:'90%'}).animate({
-				   width: "100%",
-				   height: "100%"
-				  }, 800 );
+				$('.info,.info1 img').addClass("toggle-scale");
 				};
 			if(index == 1 ) {
 					$('.info2 .icon .firstUl').addClass('ratateNum1');
