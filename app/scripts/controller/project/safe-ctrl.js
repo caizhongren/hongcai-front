@@ -102,6 +102,10 @@ angular.module('hongcaiApp')
 	//资金安全的动画效果
 	var fundAnimation = function(index) {
 		$('.tab').hide();
+		//初始化密码锁的数字位置
+		$('.info2 .icon .firstUl').css({'top':'-338px'});
+		$('.info2 .icon .secondUl').css({'top':'3px'});
+		$('.info2 .icon .thirdUl').css({'top':'-338px'});
 		$(".fund-slide-content .info").css({opacity:0}).hide();
 		$(".info").eq(index).show().animate({opacity:1}, 1000,function(){
 			$(".info").eq(index).find(".tab").show();
@@ -110,12 +114,12 @@ angular.module('hongcaiApp')
 				$('.info,.info1 img').addClass("toggle-scale");
 				};
 			if(index == 1 ) {
-					$('.info2 .icon .firstUl').addClass('ratateNum1');
-					$('.info2 .icon .secondUl').addClass('ratateNum2');
-					$('.info2 .icon .thirdUl').addClass('ratateNum3');
+					$('.info2 .icon .firstUl').animate({'top': "0px" },1000);
+					$('.info2 .icon .secondUl').animate({'top': "-338px"},1000);
+					$('.info2 .icon .thirdUl').animate({'top': "0px"},1000);
 				};
 			if(index == 2 ) {
-					$('.info3 .line').addClass('highlight-line');
+					$('.info3 .line').animate({'top': "340px" },1000);
 					$('.nxt').hide();
 				};
 			});	

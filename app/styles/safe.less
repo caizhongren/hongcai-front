@@ -275,47 +275,6 @@
     }
   }
 
-  //指纹扫描动画
-  @-o-keyframes top_bottom_Animation2 {
-    from {
-      -o-transform: translate(0, -460px)
-    }
-    to {
-      -o-transform: translate(0, -70px)
-    }
-  }
-  @-moz-keyframes top_bottom_Animation2 {
-    from {
-      -moz-transform: translate(0, -460px)
-    }
-    to {
-      -moz-transform: translate(0, -70px)
-    }
-  }
-  @-ms-keyframes top_bottom_Animation2 {
-    from {
-      -moz-transform: translate(0, -460px)
-    }
-    to {
-      -moz-transform: translate(0, -70px)
-    }
-  }
-  @-webkit-keyframes top_bottom_Animation2 {
-    from {
-      -webkit-transform: translate(0, -460px)
-    }
-    to {
-      -webkit-transform: translate(0, -70px)
-    }
-  }
-  @keyframes top_bottom_Animation2 {
-    from {
-      transform: translate(0, -460px)
-    }
-    to {
-      transform: translate(0, -70px)
-    }
-  }
   
   //从左到右出现
   @-webkit-keyframes fadeInLeft {
@@ -512,82 +471,7 @@
     }
   }
 
-  //密码锁旋转动画向上转
-  @-o-keyframes num_rotate_top {
-    from {
-      transform: rotateX(246deg)
-    }
-    to {
-      transform: rotateX(313deg)
-    }
-  }
-  @-moz-keyframes num_rotate_top {
-    from {
-      transform: rotateX(246deg)
-    }
-    to {
-      transform: rotateX(313deg)
-    }
-  }
-  @-ms-keyframes num_rotate_top {
-    from {
-      transform: rotateX(246deg)
-    }
-    to {
-      transform: rotateX(313deg)
-    }
-  }
-  @-webkit-keyframes num_rotate_top {
-    from {
-      transform: rotateX(246deg)
-    }
-    to {
-      transform: rotateX(313deg)
-    }
-  }
-  @keyframes num_rotate_top {
-    from {
-      transform: rotateX(246deg)
-    }
-    to {
-      transform: rotateX(313deg)
-    }
-  }
-
-  //资金安全放大 缩小动画
-  @-o-keyframes toggle_scale {
-    0% {
-      transform: scale(.8)
-    }
-    50% {
-      transform: scale(1.2)
-    }
-    100%{
-      transform: scale(1)
-    }
-  }
-  @-ms-keyframes toggle_scale {
-    0% {
-      transform: scale(.8)
-    }
-    50% {
-      transform: scale(1.2)
-    }
-    100%{
-      transform: scale(1)
-    }
-  }
-  @-moz-keyframes toggle_scale {
-    0% {
-      transform: scale(.8)
-    }
-    50% {
-      transform: scale(1.2)
-    }
-    100%{
-      transform: scale(1)
-    }
-  }
+  
   @-webkit-keyframes toggle_scale {
     0% {
       transform: scale(.8)
@@ -809,7 +693,7 @@
       width: 1300px;
       margin: 0 auto;
       padding-top: 60px;  
-      
+      overflow: hidden;
       .tab{
         width: 72px;
         height: 72px;
@@ -827,61 +711,7 @@
       #unit1 .icon img {
         transform: scale(.8);
       }
-      #unit2 .icon ul {
-        -webkit-transform: translateZ(-190px) rotateX(313deg);
-        -o-transform: translateZ(-190px) rotateX(313deg);
-        -ms-transform: translateZ(-190px) rotateX(313deg);
-        -moz-transform: translateZ(-190px) rotateX(313deg);
-        transform: translateZ(-190px) rotateX(313deg);
-        -webkit-transform-style: preserve-3d;
-        -o-transform-style: preserve-3d;
-        -ms-transform-style: preserve-3d;
-        -moz-transform-style: preserve-3d;
-        transform-style: preserve-3d;
-      }
-      #unit2 .icon .secondUl {
-        transform: translateZ(-190px) rotateX(246deg);
-        -webkit-transform: translateZ(-190px) rotateX(246deg);
-        -o-transform: translateZ(-190px) rotateX(246deg);
-        -moz-transform: translateZ(-190px) rotateX(246deg);
-        -ms-transform: translateZ(-190px) rotateX(246deg);
-      }
-      #unit2 .icon .ratateNum1 {
-        -o-animation: num_rotate_bottom 1s ease .8s 1 normal;
-        -ms-animation: num_rotate_bottom 1s ease .8s 1 normal;
-        -moz-animation: num_rotate_bottom 1s ease .8s 1 normal;
-        -webkit-animation: num_rotate_bottom 1s ease .8s 1 normal;
-        animation: num_rotate_bottom 1s ease .8s 1 normal;
-        animation-fill-mode: forwards;
-        -webkit-animation-fill-mode: forwards;
-        -o-animation-fill-mode: forwards;
-        -ms-animation-fill-mode: forwards;
-        -moz-animation-fill-mode: forwards;
-      }
-      #unit2 .icon .ratateNum2 {
-        -o-animation: num_rotate_top 1s ease-in 1s 1 normal;
-        -ms-animation: num_rotate_top 1s ease-in 1s 1 normal;
-        -moz-animation: num_rotate_top 1s ease-in 1s 1 normal;
-        -webkit-animation: num_rotate_top 1s ease-in 1s 1 normal;
-        animation: num_rotate_top 1s ease-in 1s 1 normal;
-        animation-fill-mode: forwards;
-        -webkit-animation-fill-mode: forwards;
-        -o-animation-fill-mode: forwards;
-        -ms-animation-fill-mode: forwards;
-        -moz-animation-fill-mode: forwards;
-      }
-      #unit2 .icon .ratateNum3 {
-        -o-animation: num_rotate_bottom .8s ease-in-out .8s 1 normal;
-        -ms-animation: num_rotate_bottom .8s ease-in-out .8s 1 normal;
-        -moz-animation: num_rotate_bottom .8s ease-in-out .8s 1 normal;
-        -webkit-animation: num_rotate_bottom .8s ease-in-out .8s 1 normal;
-        animation: num_rotate_bottom .8s ease-in-out .8s 1 normal;
-        animation-fill-mode: forwards;
-        -webkit-animation-fill-mode: forwards;
-        -o-animation-fill-mode: forwards;
-        -ms-animation-fill-mode: forwards;
-        -moz-animation-fill-mode: forwards;
-      }
+     
       #unit1 .icon .toggle-scale {
         -o-animation: toggle_scale 2s linear .8s 1 normal;
         -ms-animation: toggle_scale 2s linear .8s 1 normal;
@@ -919,18 +749,30 @@
         width: 379px;
         height: 258px;
         overflow: hidden;
+        .firstUl {
+          top: -344px;
+          left: 0;
+        }
+        .secondUl {
+          top: -22px;
+          left: 146px;
+        }
+        .thirdUl {
+          top: -343px;
+          right: 0;
+        }
         ul {
           height: 258px;
           width: 84px;
           float: left;
           over-flow: hidden;
-          //background-color: rgba(0,0,0,.75);
+          position: absolute;
           li {
-            height: 86px;
+            height: 84px;
             width: 84px;
             line-height: 86px;
             float: left;
-            position: absolute;
+            //position: absolute;
             img {
               margin: 22px auto;
             }
@@ -945,21 +787,17 @@
         padding-top: 20px;
       }
       #unit3 {
+        .icon {
+        width: 357px;
+        height: 475px;
+        }
        img:first-child{
         margin-top: -55px;
-        margin-left: 18px;
        }
-        .highlight-line {
-          -o-animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
-          -ms-animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
-          -moz-animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
-          -webkit-animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
-          animation: top_bottom_Animation2 3s ease-in-out 1s 1 normal;
-          animation-iteration-count: infinite;
-          -webkit-animation-iteration-count: infinite;
-          -o-animation-iteration-count: infinite;
-          -ms-animation-iteration-count: infinite;
-          -moz-animation-iteration-count: infinite;
+        .line {
+          position: absolute;
+          top: -55px;
+          left: -18px;
         }
       }
     }
