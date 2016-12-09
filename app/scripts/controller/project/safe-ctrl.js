@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SafeCtrl', function($anchorScroll, $scope, $state, $rootScope, $location) {
+  .controller('SafeCtrl', function($anchorScroll, $scope, $state, $rootScope, $interval, $location) {
 	$rootScope.pageTitle = '安全保障' + ' - 要理财，上宏财!';
     $rootScope.selectPage = $location.path().split('/')[1];
 
@@ -32,7 +32,6 @@ angular.module('hongcaiApp')
 	};
 	// 风控严谨＋技术保障 初始动画效果
 	$(window).scroll(function(){
-		console.log($(window).scrollTop());
 		//风控严谨初始动画效果
     	if($(window).scrollTop() >= 1443 && $(window).scrollTop() <1567){
        		$(".content-top").addClass("animated fadeInLeft fadedelaya");
@@ -100,28 +99,45 @@ angular.module('hongcaiApp')
 	}
 
 	//资金安全的动画效果
+	var timer;
 	var fundAnimation = function(index) {
 		$('.tab').hide();
+		if(index !=2){
+			$interval.cancel(timer);
+			timer = undefined;
+		}
+		
 		//初始化密码锁的数字位置
 		$('.info2 .icon .firstUl').css({'top':'-338px'});
 		$('.info2 .icon .secondUl').css({'top':'3px'});
 		$('.info2 .icon .thirdUl').css({'top':'-338px'});
+		$('.info3 .line').css({'top':'-55px'});
 		$(".fund-slide-content .info").css({opacity:0}).hide();
-		$(".info").eq(index).show().animate({opacity:1}, 1000,function(){
+		$(".info").eq(index).show().animate({opacity:1}, 800,function(){
 			$(".info").eq(index).find(".tab").show();
 			if(index == 0 ) {
 				$('.pre').hide();
+				$interval.cancel(timer);
+				timer = undefined;
 				$('.info,.info1 img').addClass("toggle-scale");
-				};
+			};
 			if(index == 1 ) {
-					$('.info2 .icon .firstUl').animate({'top': "0px" },1000);
-					$('.info2 .icon .secondUl').animate({'top': "-338px"},1000);
-					$('.info2 .icon .thirdUl').animate({'top': "0px"},1000);
-				};
+				$interval.cancel(timer);
+				timer = undefined;
+				$('.info2 .icon .firstUl').animate({'top': "0px" },1000);
+				$('.info2 .icon .secondUl').animate({'top': "-338px"},1000);
+				$('.info2 .icon .thirdUl').animate({'top': "0px"},1000);
+			};
 			if(index == 2 ) {
-					$('.info3 .line').animate({'top': "340px" },1000);
+				$('.info3 .line').animate({'top': "340px" },2000);
+				$('.info3 .line').animate({'top': "-55px" },2000);
+
+					timer = $interval(function(){
+						$('.info3 .line').animate({'top': "340px" },2000);
+						$('.info3 .line').animate({'top': "-55px" },2000);
+					},4000);
 					$('.nxt').hide();
-				};
+				}
 			});	
 	}
 	//资金安全点击按钮切换动画
@@ -130,7 +146,7 @@ angular.module('hongcaiApp')
 		$('#fund-slide p').removeClass('active-tab');
 		$(this).addClass('active-tab');
 		fundAnimation(index);
-		});
+	});
 
 	//资金安全左右切换动画
 	var leftIndext = $('.pre').index();
@@ -146,14 +162,14 @@ angular.module('hongcaiApp')
 			fundAnimation(index - 1);
 			$("#fund-slide p").removeClass("active-tab");
 			$("#fund-slide p").eq(index-1).addClass("active-tab");	
-		})
+	})
 		$(".nxt").click(function() {
 			var index = $(this).index(".nxt");
 			fundAnimation(index + 1);
 			$("#fund-slide p").removeClass("active-tab");
 			$("#fund-slide p").eq(index+1).addClass("active-tab");
 				
-		});
+	});
 
 	//运营规范悬浮效果
 
@@ -164,8 +180,8 @@ angular.module('hongcaiApp')
 			});
 			},function(){
 				$(this).find('.back').stop().animate(opts[0],time,function(){
-				$(this).hide().prev().show().animate(opts[1],time);
-			});
+					$(this).hide().prev().show().animate(opts[1],time);
+				});
 			});
 		}
 	var verticalOpts = [{'width':0,opacity:0},{'width':'339px',opacity:1}];
