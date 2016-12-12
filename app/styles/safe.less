@@ -361,11 +361,11 @@
   @-o-keyframes fadeInRight {
     0% {
       opacity: 0;
-      -ms-transform: translateX(20px)
+      -o-transform: translateX(20px)
     }
     100% {
       opacity: 1;
-      -ms-transform: translateX(0)
+      -o-transform: translateX(0)
     }
   }
   @keyframes fadeInRight {
@@ -429,91 +429,51 @@
     animation-timing-function: ease;
     animation-fill-mode: backwards
   }
-  //资金安全密码锁旋转动画向下转
-  @-o-keyframes num_rotate_bottom {
-    from {
-      transform: rotateX(313deg)
-    }
-    to {
-      transform: rotateX(246deg)
-    }
-  }
-  @-ms-keyframes num_rotate_bottom {
-    from {
-      transform: rotateX(313deg)
-    }
-    to {
-      transform: rotateX(246deg)
-    }
-  }
-  @-moz-keyframes num_rotate_bottom {
-    from {
-      transform: rotateX(313deg)
-    }
-    to {
-      transform: rotateX(246deg)
-    }
-  }
-  @-webkit-keyframes num_rotate_bottom {
-    from {
-      transform: rotateX(313deg)
-    }
-    to {
-      transform: rotateX(246deg)
-    }
-  }
-  @keyframes num_rotate_bottom {
-    from {
-      transform: rotateX(313deg)
-    }
-    to {
-      transform: rotateX(246deg)
-    }
-  }
+
 
   //资金安全视图放大缩小动画
   @-webkit-keyframes toggle_scale {
     0% {
-      transform: scale(.8)
+      -webkit-transform: scale(.8)
     }
     50% {
-      transform: scale(1.2)
+      -webkit-transform: scale(1.2)
     }
     100%{
-      transform: scale(1)
+      -webkit-transform: scale(1)
     }
   }
   @-moz-keyframes toggle_scale {
     0% {
-      transform: scale(.8)
+      -moz-transform: scale(.8)
     }
     50% {
-      transform: scale(1.2)
+      -moz-transform: scale(1.2)
     }
     100%{
-      transform: scale(1)
+      -moz-transform: scale(1)
     }
   }
   @-o-keyframes toggle_scale {
     0% {
-      transform: scale(.8)
+      -o-transform: scale(.8)
     }
     50% {
-      transform: scale(1.2)
+      -o-transform: scale(1.2)
     }
     100%{
-      transform: scale(1)
+      -o-transform: scale(1)
     }
   }
   @-ms-keyframes toggle_scale {
     0% {
-      transform: scale(.8)
+      -ms-transform: scale(.8)
     }
     50% {
-      transform: scale(1.2)
+      -ms-transform: scale(1.2)
     }
     100%{
-      transform: scale(1)
+      -ms-transform: scale(1)
     }
   }
   @keyframes toggle_scale {
@@ -789,6 +749,9 @@
         height: 255px;
         vertical-align: top;
         text-align: left;
+      }
+      #unit2 .descrip {
+        width: 30%;
       }
       #unit2 .icon {
         background: url("/images/safe/slide-img4.png") no-repeat;
