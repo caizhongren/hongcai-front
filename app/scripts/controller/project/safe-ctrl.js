@@ -32,21 +32,22 @@ angular.module('hongcaiApp')
 	};
 	// 风控严谨＋技术保障 初始动画效果
 	$(window).scroll(function(){
+		console.log($(window).scrollTop());
 		//风控严谨初始动画效果
 		// $(".content-top").css({opacity:0}).hide();
-    	if($(window).scrollTop() >= 1400 && $(window).scrollTop() <1800){
+    	if($(window).scrollTop() >= 1500 && $(window).scrollTop() <1800){
        		$('.content-top').show().animate({left:0, opacity: 1 }, 800,function(){
-       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1400){
+       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
        				$(".content-top").css({left:-48, opacity:1}).show();
        			} 
        		})
        		$('.content-midlle').show().animate({right:0, opacity: 1 }, 800,function(){
-       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1400){
+       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
        				$(".content-midlle").css({right:-48, opacity:1}).show();
        			} 
        		})
        		$('.content-bottom').show().animate({right:0, opacity: 1 }, 800,function(){
-       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1400){
+       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
        				$(".content-bottom").css({right:-48, opacity:1}).show();
        			} 
        		})
@@ -59,7 +60,7 @@ angular.module('hongcaiApp')
        	// 	$(".content-bottom").removeClass("animated fadeInRight fadedelayb");
       	}
       	//技术保障初始动画
-      	if ($(window).scrollTop() >= 2461 && $(window).scrollTop() < 3004) {
+      	if ($(window).scrollTop() >= 2361 && $(window).scrollTop() < 5004) {
       		$(".information-security>h4, .data-security>h4").addClass("animated fadeInLeft");
       		$(".system-security>h4").addClass("animated fadeInRight");
 	       	$(".technical-content .content>p").addClass("fade-in");
