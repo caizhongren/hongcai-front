@@ -63,14 +63,18 @@ angular.module('hongcaiApp')
        		// 	$(".content-bottom").removeClass("animated fadeInRight fadedelayb");
       	}
       	//技术保障初始动画
+      	$(".technical-content .content>p").css({opacity:0}).hide();
+		
       	if ($(window).scrollTop() >= 2361 && $(window).scrollTop() < 5004) {
       		$(".information-security>h4, .data-security>h4").addClass("animated fadeInLeft");
       		$(".system-security>h4").addClass("animated fadeInRight");
-	       	$(".technical-content .content>p").addClass("fade-in");
+	       	// $(".technical-content .content>p").addClass("fade-in");
+	       	$(".technical-content .content>p").show().animate({opacity:1}, 1500,function(){})
       	}else {
       		$(".information-security>h4, .data-security>h4").removeClass("animated fadeInLeft");
       		$(".system-security>h4").removeClass("animated fadeInRight");
-	       	$(".technical-content .content>p").removeClass("fade-in");
+	       	// $(".technical-content .content>p").removeClass("fade-in");
+	       	$(".technical-content .content>p").css({opacity:0}).hide();
       	}
    	});
 	//全屏滚动
