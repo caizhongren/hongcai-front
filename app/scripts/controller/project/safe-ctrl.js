@@ -35,29 +35,32 @@ angular.module('hongcaiApp')
 		console.log($(window).scrollTop());
 		//风控严谨初始动画效果
 		// $(".content-top").css({opacity:0}).hide();
-    	if($(window).scrollTop() >= 1500 && $(window).scrollTop() <1800){
-       		$('.content-top').show().animate({left:0, opacity: 1 }, 800,function(){
-       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
-       				$(".content-top").css({left:-48, opacity:1}).show();
-       			} 
+    	if($(window).scrollTop() >= 1400 && $(window).scrollTop() <1800){
+       		$('.content-top').show().animate({left:0, opacity: 1 }, 1000,function(){
+       			// if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
+       				
+       			// } 
        		})
-       		$('.content-midlle').show().animate({right:0, opacity: 1 }, 800,function(){
-       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
-       				$(".content-midlle").css({right:-48, opacity:1}).show();
-       			} 
+       		$('.content-midlle').show().animate({right:0, opacity: 1 }, 1000,function(){
+       			// if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
+       				
+       			// } 
        		})
-       		$('.content-bottom').show().animate({right:0, opacity: 1 }, 800,function(){
-       			if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
-       				$(".content-bottom").css({right:-48, opacity:1}).show();
-       			} 
+       		$('.content-bottom').show().animate({right:0, opacity: 1 }, 1000,function(){
+       			// if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
+       				
+       			// } 
        		})
        		// $(".content-top").addClass("animated fadeInLeft fadedelaya");
        		// $(".strict-midlle").addClass("animated fadeInRight fadedelayb");
        		// $(".content-bottom").addClass("animated fadeInRight fadedelayb");
       	}else {
+      		$(".content-top").css({left:-48, opacity:1}).show();
+      		$(".content-midlle").css({right:-48, opacity:1}).show();
+      		$(".content-bottom").css({right:-48, opacity:1}).show();
       		// $(".content-top").removeClass("animated fadeInLeft fadedelaya");
-       	// 	$(".strict-midlle").removeClass("animated fadeInRight fadedelayb");
-       	// 	$(".content-bottom").removeClass("animated fadeInRight fadedelayb");
+       		// 	$(".strict-midlle").removeClass("animated fadeInRight fadedelayb");
+       		// 	$(".content-bottom").removeClass("animated fadeInRight fadedelayb");
       	}
       	//技术保障初始动画
       	if ($(window).scrollTop() >= 2361 && $(window).scrollTop() < 5004) {
