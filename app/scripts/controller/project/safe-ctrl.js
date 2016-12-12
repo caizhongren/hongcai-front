@@ -32,7 +32,6 @@ angular.module('hongcaiApp')
 	};
 	// 风控严谨＋技术保障 初始动画效果
 	$(window).scroll(function(){
-		console.log($(window).scrollTop());
 		//风控严谨初始动画效果
 		// $(".content-top").css({opacity:0}).hide();
     	if($(window).scrollTop() >= 1400 && $(window).scrollTop() <1800){
@@ -79,10 +78,8 @@ angular.module('hongcaiApp')
    	});
 	//全屏滚动
 	function handle(delta){
-    	var s = delta + ": ";
     	var fullHeight=$(window).height()>630?$(window).height():1048;
     	var top = document.body.scrollTop || document.documentElement.scrollTop;
-		var index=Math.floor(top/fullHeight);
     	if (delta<0){	
 			for(var i=0;i<6;i++){
 				if(top>i*fullHeight&&top<fullHeight*(i+1)){
