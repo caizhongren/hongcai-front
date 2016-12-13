@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SafeCtrl', function($anchorScroll, $scope, $state, $rootScope, $interval, $location) {
+  .controller('SafeCtrl', function($anchorScroll, $scope, $state, $rootScope, $interval, $location, $timeout) {
 	$rootScope.pageTitle = '安全保障' + ' - 要理财，上宏财!';
     $rootScope.selectPage = $location.path().split('/')[1];
 
@@ -32,7 +32,6 @@ angular.module('hongcaiApp')
 	};
 	// 风控严谨＋技术保障 初始动画效果
 	$(window).scroll(function(){
-		console.log($(window).scrollTop());
 		//风控严谨初始动画效果
 		// $(".content-top").css({opacity:0}).hide();
     	if($(window).scrollTop() >= 1400 && $(window).scrollTop() <1800){
@@ -77,50 +76,128 @@ angular.module('hongcaiApp')
 	       	$(".technical-content .content>p").css({opacity:0}).hide();
       	}
    	});
+
+
+
+   	$scope.disableScroll = function(){
+   		// left: 37, up: 38, right: 39, down: 40,
+   		// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
+   		var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+   		function preventDefault(e) {
+   		  e = e || window.event;
+   		  if (e.preventDefault)
+   		      e.preventDefault();
+   		  e.returnValue = false;  
+   		}
+
+   		function preventDefaultForScrollKeys(e) {
+   		    if (keys[e.keyCode]) {
+   		        preventDefault(e);
+   		        return false;
+   		    }
+   		}
+
+   		if (window.addEventListener) // older FF
+   		      window.addEventListener('DOMMouseScroll', preventDefault, false);
+		window.onwheel = preventDefault; // modern standard
+		window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+		window.ontouchmove  = preventDefault; // mobile
+		document.onkeydown  = preventDefaultForScrollKeys;
+
+   	}
+
+
+   	$scope.enableScroll = function(){
+   			//Re-enabling the Wheel
+   		if(document.attachEvent){ 
+   			document.attachEvent('onmousewheel', wheel); 
+   		} else if (window.addEventListener){
+   			window.addEventListener('DOMMouseScroll', wheel, false);
+   		} 
+   		window.onmousewheel = document.onmousewheel = wheel;
+
+   	}
+
+
 	//全屏滚动
-	function handle(delta){
-    	var s = delta + ": ";
-    	var fullHeight=$(window).height()>630?$(window).height():1048;
-    	var top = document.body.scrollTop || document.documentElement.scrollTop;
-		var index=Math.floor(top/fullHeight);
-    	if (delta<0){	
-			for(var i=0;i<6;i++){
-				if(top>i*fullHeight&&top<fullHeight*(i+1)){
+	function handle(delta, top){
+		if($scope.isHandled){
+			return;
+		}
+    	var fullHeight = 758; // 每个滚动屏幕的高度
+    	
+    	if (delta<0){	// 向下滚动
+			for(var i=0;i<4;i++){
+				if(top>i*fullHeight - 83&&top<fullHeight*(i+1) - 83){
 					$('html,body').stop(true).animate({
 						scrollTop:$('.slide').eq(i+1).offset().top -'83'+'px'
 					},500);
+							$scope.isHandled = true;
+							$scope.disableScroll();
+							$timeout(function() {
+					          $scope.isHandled = false;
+					          $scope.enableScroll();
+					        }, 1500);
+					
 				}
 			}
-    	}else{
-			for(var i=0;i<6;i++){
-				if(top>i*fullHeight&&top<fullHeight*(i+1)){
+    	}else{  // 向上滚动
+			for(var i=0;i<4;i++){
+				if(top>i*fullHeight + 83 &&top<fullHeight*(i+1) + 83){
 					$('html,body').stop(true).animate({
 						scrollTop:$('.slide').eq(i).offset().top -'83'+'px'
 					},500);	
+							
+							$scope.isHandled = true;
+							$scope.disableScroll
+							$timeout(function() {
+					          $scope.isHandled = false;
+					          $scope.enableScroll();
+					        }, 1500);
 				}
 			}
 		}
     	
  	}
 	function wheel(event){
+
+		// 小屏幕不做处理
+		if($(window).height()<630){
+			return;
+		}
+
+
     	var delta = 0;
-   	 	if (!event) event = window.event;
+   	 	if (!event) 
+   	 		event = window.event;
     	if (event.wheelDelta) {
         	delta = event.wheelDelta/120; 
-        if (window.opera) delta = -delta;
-    	} else if (event.detail) {
-        	delta = -event.detail/3;
+        	if (window.opera) 
+        		delta = -delta;
+    	} else if (event.originalEvent && event.originalEvent.detail) {
+        	delta = -event.originalEvent.detail/3;
     	}
-    	if (delta){
-    	if($(window).height()>630){
-    		handle(delta);
+    	if(delta != 0 ){
+    		console.log('delta: ' + delta);
+    		var top = document.body.scrollTop || document.documentElement.scrollTop;
+    		console.log('top: ' + top);
+    		handle(delta, top);
     	}
-    	}    
+
+		
 	}
-	if (window.addEventListener){
+
+
+
+	// 注册滚动事件
+	if(document.attachEvent){ 
+		document.attachEvent('onmousewheel', wheel); 
+	} else if (window.addEventListener){
 		window.addEventListener('DOMMouseScroll', wheel, false);
-		window.onmousewheel = document.onmousewheel = wheel;
-	}
+	} 
+	window.onmousewheel = document.onmousewheel = wheel;
+	
 
 	//资金安全的动画效果
 	var timer;
