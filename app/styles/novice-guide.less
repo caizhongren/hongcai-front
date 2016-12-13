@@ -4,7 +4,7 @@
   //每个模块公用的版心和标题
 
   .content {
-    width: 63%;
+    width: 65%;
     height: 770px;
     margin: 0 auto;
     .content-title {
@@ -39,12 +39,16 @@
     }
   }
 
-//宏财简介
-  .hongcai-introduce {
+  //宏财简介 股东背景 background height
+  .hongcai-introduce, .shareholder-background {
     width: 100%;
     height: 770px;
     margin: 0 auto;
     background: url("/images/novice-guide/novice-bg.jpg") no-repeat center center;
+  }
+
+  //宏财简介
+  .hongcai-introduce {
     .content {
       .introduce-words {
         width: 536px;
@@ -54,7 +58,71 @@
       }
     }
   }
-
+  
+  //股东背景
+  .shareholder-background {
+    font-family:"微软雅黑", "Microsoft YaHei";
+    .shareholder-content {
+      .circle-left {
+        width: 450px;
+        height: 450px;
+        margin-top: 38px;
+        background: url('/images/novice-guide/shareholder-circl-bg2.png') no-repeat left top;
+        background-size: 100%;
+        position: relative;
+        p {
+          margin-bottom: 0;
+          position: absolute;
+          font-size: 20px;
+          color: #666;
+        }
+        div {
+          position: absolute;
+          font-size: 20px;
+          color: #fff;
+        }
+        .circle1 {
+          top: 11%;
+          left: 42%;
+        }
+        .circle2 {
+          top: 30%;
+          right: 9%;
+        }
+        .circle3 {
+          bottom: 20%;
+          right: 13%;
+        }
+        .circle4 {
+          bottom: 7.3%;
+          left: 34%;
+        }
+        .circle5 {
+          bottom: 30%;
+          left: 9%;
+        }
+        .circle6 {
+          top: 25%;
+          left: 15%;
+        }
+        .circle-center1 {
+          top: 47%;
+          left: 35.3%;
+        }
+        .circle-center2 {
+          top: 52.5%;
+          left: 28%;
+        }
+      }
+      .txt-right {
+        width: 400px;
+        font-size: 20px;
+        color: #666;
+        text-align: justify;
+        margin-top: 15%;
+      }
+    }
+  }
 
 
 
