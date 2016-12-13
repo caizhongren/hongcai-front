@@ -25,7 +25,6 @@ angular.module('hongcaiApp')
 		$('.banner-tit').removeClass('banner-click1 banner-click2 banner-click3 banner-click4');
 	});
 	//导航栏跳转
-	// $anchorScroll.yOffset = +130;
 	$scope.index = 0;
 	$scope.demo = function (arg) {
 	    $location.hash(arg);
@@ -35,48 +34,29 @@ angular.module('hongcaiApp')
 	// 风控严谨＋技术保障 初始动画效果
 	$(window).scroll(function(){
 		//风控严谨初始动画效果
-		// $(".content-top").css({opacity:0}).hide();
     	if($(window).scrollTop() >= 1400 && $(window).scrollTop() <1800){
-       		$('.content-top').show().animate({left:0, opacity: 1 }, 1000,function(){
-       			// if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
-       				
-       			// } 
-       		})
-       		$('.content-midlle').show().animate({right:0, opacity: 1 }, 1000,function(){
-       			// if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
-       				
-       			// } 
-       		})
-       		$('.content-bottom').show().animate({right:0, opacity: 1 }, 1000,function(){
-       			// if($(window).scrollTop() >=1803 || $(window).scrollTop() < 1500){
-       				
-       			// } 
-       		})
-       		// $(".content-top").addClass("animated fadeInLeft fadedelaya");
-       		// $(".strict-midlle").addClass("animated fadeInRight fadedelayb");
-       		// $(".content-bottom").addClass("animated fadeInRight fadedelayb");
+       		$('.content-top').show().animate({left:0, opacity: 1 }, 1000,function(){})
+       		$('.content-midlle').show().animate({right:0, opacity: 1 }, 1000,function(){})
+       		$('.content-bottom').show().animate({right:0, opacity: 1 }, 1000,function(){})
       	}else {
       		$(".content-top").css({left:-48, opacity:1}).show();
       		$(".content-midlle").css({right:-48, opacity:1}).show();
       		$(".content-bottom").css({right:-48, opacity:1}).show();
-      		// $(".content-top").removeClass("animated fadeInLeft fadedelaya");
-       		// 	$(".strict-midlle").removeClass("animated fadeInRight fadedelayb");
-       		// 	$(".content-bottom").removeClass("animated fadeInRight fadedelayb");
       	}
       	//技术保障初始动画
       	$(".technical-content .content>p").css({opacity:0}).hide();
+      	$(".technical-content h4").css({opacity:0}).hide();
       	if ($(window).scrollTop() >= 2361 && $(window).scrollTop() < 5004) {
-      		$(".information-security>h4, .data-security>h4").addClass("animated fadeInLeft");
-      		$(".system-security>h4").addClass("animated fadeInRight");
+      		$(".information-security>h4, .data-security>h4").show().animate({left:0, opacity: 1 }, 1000,function(){});
+      		$(".system-security>h4").show().animate({right:0, opacity: 1 }, 1000,function(){});
 	       	$(".technical-content .content>p").show().animate({opacity:1}, 1500,function(){})
       	}else {
-      		$(".information-security>h4, .data-security>h4").removeClass("animated fadeInLeft");
-      		$(".system-security>h4").removeClass("animated fadeInRight");
+      		$(".information-security>h4, .data-security>h4").css({left:-40, opacity:1}).hide();
+      		$(".system-security>h4").css({right:-40, opacity:1}).hide();
 	       	$(".technical-content .content>p").css({opacity:0}).hide();
+	       	$(".technical-content h4").css({opacity:1}).hide();
       	}
    	});
-
-
 
    	$scope.disableScroll = function(){
    		var keys = {37: 1, 38: 1, 39: 1, 40: 1};
@@ -106,7 +86,7 @@ angular.module('hongcaiApp')
 
 
    	$scope.enableScroll = function(){
-   			//Re-enabling the Wheel
+   		//Re-enabling the Wheel
    		if(document.attachEvent){ 
    			document.attachEvent('onmousewheel', wheel); 
    		} else if (window.addEventListener){
@@ -134,7 +114,6 @@ angular.module('hongcaiApp')
 				$scope.index = 4;
 			}
    		}
-		
    	}
    	$scope.isHref();
 
