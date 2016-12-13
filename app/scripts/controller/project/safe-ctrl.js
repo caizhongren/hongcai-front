@@ -26,9 +26,11 @@ angular.module('hongcaiApp')
 	});
 	//导航栏跳转
 	// $anchorScroll.yOffset = +130;
+	$scope.index = 0;
 	$scope.demo = function (arg) {
 	    $location.hash(arg);
 	    $anchorScroll();
+	    $scope.isHref();
 	};
 	// 风控严谨＋技术保障 初始动画效果
 	$(window).scroll(function(){
@@ -63,16 +65,13 @@ angular.module('hongcaiApp')
       	}
       	//技术保障初始动画
       	$(".technical-content .content>p").css({opacity:0}).hide();
-		
       	if ($(window).scrollTop() >= 2361 && $(window).scrollTop() < 5004) {
       		$(".information-security>h4, .data-security>h4").addClass("animated fadeInLeft");
       		$(".system-security>h4").addClass("animated fadeInRight");
-	       	// $(".technical-content .content>p").addClass("fade-in");
 	       	$(".technical-content .content>p").show().animate({opacity:1}, 1500,function(){})
       	}else {
       		$(".information-security>h4, .data-security>h4").removeClass("animated fadeInLeft");
       		$(".system-security>h4").removeClass("animated fadeInRight");
-	       	// $(".technical-content .content>p").removeClass("fade-in");
 	       	$(".technical-content .content>p").css({opacity:0}).hide();
       	}
    	});
@@ -80,15 +79,13 @@ angular.module('hongcaiApp')
 
 
    	$scope.disableScroll = function(){
-   		// left: 37, up: 38, right: 39, down: 40,
-   		// spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
    		var keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
    		function preventDefault(e) {
    		  e = e || window.event;
    		  if (e.preventDefault)
    		      e.preventDefault();
-   		  e.returnValue = false;  
+   		  	e.returnValue = false;  
    		}
 
    		function preventDefaultForScrollKeys(e) {
@@ -99,12 +96,12 @@ angular.module('hongcaiApp')
    		}
 
    		if (window.addEventListener) // older FF
-   		      window.addEventListener('DOMMouseScroll', preventDefault, false);
-		window.onwheel = preventDefault; // modern standard
-		window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
-		window.ontouchmove  = preventDefault; // mobile
-		document.onkeydown  = preventDefaultForScrollKeys;
-
+   		     window.addEventListener('DOMMouseScroll', preventDefault, false);
+			window.onwheel = preventDefault; // modern standard
+			window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+			window.ontouchmove  = preventDefault; // mobile
+			document.onkeydown  = preventDefaultForScrollKeys;
+		
    	}
 
 
@@ -119,6 +116,27 @@ angular.module('hongcaiApp')
 
    	}
 
+   	//判断页面有无锚点
+   	$scope.isHref = function(){
+   		var href = $location.url().split("#")[1];
+   		if (href == undefined ) {
+   			$scope.index = 0;
+   		}else {
+   			if (href.indexOf('banner') !== -1) {
+				$scope.index = 0;
+			}else if (href.indexOf('fund') !== -1) {
+				$scope.index = 1;
+			}else if (href.indexOf('strict-control') !== -1) {
+				$scope.index = 2;
+			}else if (href.indexOf('running-rules') !== -1) {
+				$scope.index = 3;
+			}else if (href.indexOf('technical-support') !== -1) {
+				$scope.index = 4;
+			}
+   		}
+		
+   	}
+   	$scope.isHref();
 
 	//全屏滚动
 	function handle(delta, top){
@@ -126,42 +144,27 @@ angular.module('hongcaiApp')
 			return;
 		}
     	var fullHeight = 758; // 每个滚动屏幕的高度
-    	
-    	if (delta<0){	// 向下滚动
-			for(var i=0;i<4;i++){
-				if(top>i*fullHeight - 83&&top<fullHeight*(i+1) - 83){
-					$('html,body').stop(true).animate({
-						scrollTop:$('.slide').eq(i+1).offset().top -'83'+'px'
-					},500);
-							$scope.isHandled = true;
-							$scope.disableScroll();
-							$timeout(function() {
-					          $scope.isHandled = false;
-					          $scope.enableScroll();
-					        }, 1500);
-					
-				}
-			}
-    	}else{  // 向上滚动
-			for(var i=0;i<4;i++){
-				if(top>i*fullHeight + 83 &&top<fullHeight*(i+1) + 83){
-					$('html,body').stop(true).animate({
-						scrollTop:$('.slide').eq(i).offset().top -'83'+'px'
-					},500);	
-							
-							$scope.isHandled = true;
-							$scope.disableScroll
-							$timeout(function() {
-					          $scope.isHandled = false;
-					          $scope.enableScroll();
-					        }, 1500);
-				}
-			}
+
+    	if (delta<0 && $scope.index < 4){	// 向下滚动
+
+    		$scope.index++;
+
+    	}else if(delta>0 && $scope.index > 0){  // 向上滚动
+    		$scope.index--;
 		}
+
+		$('html,body').stop(true).animate({
+			scrollTop:$('.slide').eq($scope.index).offset().top -'83'+'px'
+		},800);
+		$scope.isHandled = true;
+		$scope.disableScroll();
+		$timeout(function() {
+          $scope.isHandled = false;
+          $scope.enableScroll();
+        }, 1500);
     	
  	}
 	function wheel(event){
-
 		// 小屏幕不做处理
 		if($(window).height()<630){
 			return;
@@ -179,9 +182,8 @@ angular.module('hongcaiApp')
         	delta = -event.originalEvent.detail/3;
     	}
     	if(delta != 0 ){
-    		console.log('delta: ' + delta);
     		var top = document.body.scrollTop || document.documentElement.scrollTop;
-    		console.log('top: ' + top);
+    		
     		handle(delta, top);
     	}
 
