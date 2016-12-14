@@ -39,8 +39,8 @@
     }
   }
 
-  //宏财简介 股东背景 background height
-  .hongcai-introduce, .shareholder-background, .management-team{
+  //宏财简介 股东背景 核心优势 background height
+  .hongcai-introduce, .shareholder-background, .core-strengths, .management-team {
     width: 100%;
     height: 770px;
     margin: 0 auto;
@@ -73,19 +73,19 @@
     font-family:"微软雅黑", "Microsoft YaHei";
     .shareholder-content {
       .circle-left {
-        width: 450px;
-        height: 450px;
+        width: 493px;
+        height: 493px;
         margin-top: 38px;
         background: url('/images/novice-guide/shareholder-circl-bg.png') no-repeat left top;
         background-size: 100%;
         position: relative;
-        p {
+        .circle {
           margin-bottom: 0;
           position: absolute;
           font-size: 20px;
           color: #666;
         }
-        div {
+        .center {
           position: absolute;
           font-size: 20px;
           color: #fff;
@@ -128,7 +128,7 @@
         font-size: 20px;
         color: #666;
         text-align: justify;
-        margin-top: 15%;
+        margin-top: 165px;
       }
     }
   }
@@ -162,5 +162,98 @@
     }
   }
 
+  //核心优势
+  .core-strengths {
+    font-family:"微软雅黑", "Microsoft YaHei";
+    .strengths {
+      width: 231px;
+      height: 221px;
+      background: url('/images/novice-guide/core-san.png') no-repeat center center;
+      background-size: 100%;
+      margin: 190px auto;
+      position: relative;
+      color: #999;
+      .core {
+        width: 110px;
+        height: 110px;
+        border: 3.3px solid #999;
+        border-radius: 50%;
+        padding-left: 4px;
+        line-height: 110px;
+        font-size: 20px;
+        text-align: center;
+        position: absolute;
+        cursor: pointer;
+      }
+      .core:hover {
+        color: #ff7b00;
+        border: 3.3px solid #ff7b00;
+      }
+      .core1 {
+        top: -72%;
+        left: 26%;
+      }
+      .core2 {
+        top: -26%;
+        right: -56%;
+      }
+      .core3 {
+        bottom: -7%;
+        right: -73%;
+      }
+      .core4 {
+        bottom: -70%;
+        right: -20%;
+      }
+      .core5 {
+        bottom: -70%;
+        left: -24%;
+      }
+      .core6 {
+        bottom: -7%;
+        left: -73%;
+      }
+      .core7 {
+        top: -26%;
+        left: -56%;
+      }
+      .txt {
+        font-size: 18px;
+        color: #999;
+        text-align: justify;
+        position: absolute;
+        width: 300px;
+        display: none;
+      }
+      .core1-txt {
+        top: -60%;
+        left: 87%;
+      }
+      .core2-txt {
+        top: -17%;
+        left: 169%;
+      }
+      .core3-txt {
+        bottom: 11%;
+        left: 185%;
+      }
+      .core4-txt {
+        bottom: -55%;
+        left: 135%;
+      }
+      .core5-txt {
+        bottom: -61%;
+        left: -169%;
+      }
+      .core6-txt {
+        bottom: 5%;
+        left: -216%;
+      }
+      .core7-txt {
+        top: -17%;
+        left: -199%;
+      }
+    }
+  }
 
 }
