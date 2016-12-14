@@ -20,9 +20,16 @@ angular.module('hongcaiApp')
       }
     });
     
- 
+    //高管团队悬浮效果
+    $('.poster-item').hover(
+      function(){
+        $(this).children('.hoverShow').stop().animate({backgroundColor: 'rgba(0,0,0,0.8)',top: 0},300);
+      },
+      function() {
+        $(this).children('.hoverShow').stop().animate({backgroundColor: 'rgba(0,0,0,0.2)',top: '326px'},300);
+      }
 
-
+    );
 
 
 
