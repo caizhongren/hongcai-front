@@ -43,5 +43,43 @@
 				</div>
 			</div>
 		</div>
-	</section>				
+	</section>	
+
+	<!-- 高管团队 -->
+	<section class="management-team">
+		<div class="content">
+			<div class="content-title clearfix">
+				<i class="fl"></i><p class="fl">高管团队</p><p class="fr ft-36 ft-grey7 ft-Arial">TOP MANAGEMENT TEAM</p>
+			</div>
+			<div class="team-carousel position-re margin-auto" id="carousel" data-setting='{
+							"width": 850,
+							"height":400,
+							"posterWidth":505,
+							"posterHeight":400,
+							"scale":0.8,
+							"speed":1000,
+							"autoPlay":false,
+							"delay":3000,
+							"verticalAlign":"middle"
+							}'>
+				<div class="poster-btn poster-prev-btn"></div>
+				<ul class="poster-list"> 
+			    <li class="poster-item"><a><img src="images/novice-guide/team2.png" alt="" width="100%" /></a></li> 
+			    <li class="poster-item"><a><img src="images/novice-guide/team4.png" alt="" width="100%" /></a></li> 
+			    <li class="poster-item"><a><img src="images/novice-guide/team3.png" alt="" width="100%" /></a></li> 
+			    <li class="poster-item"><a><img src="images/novice-guide/team4.png" alt="" width="100%" /></a></li> 
+			    <li class="poster-item"><a><img src="images/novice-guide/team1.png" alt="" width="100%" /></a></li> 
+			  </ul>
+			  <div class="poster-btn poster-next-btn"></div>
+			</div>
+		</div>
+	</section>	
+
+
 </div>
+<script type="text/javascript">
+	$(function(){
+		Carousel.init($("#carousel"));
+		$("#carousel").init();
+	});
+</script>
