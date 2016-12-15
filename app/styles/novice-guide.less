@@ -39,8 +39,8 @@
     }
   }
 
-  //宏财简介 股东背景 核心优势 发展历程 background height
-  .hongcai-introduce, .shareholder-background, .core-strengths, .management-team, .development-course, .invest-process {
+  //宏财简介 股东背景 核心优势 发展历程 产品特点 新手福利 background height
+  .hongcai-introduce, .shareholder-background, .core-strengths, .management-team, .development-course, .invest-process, .product-features, .novice-welfare {
     width: 100%;
     height: 770px;
     margin: 0 auto;
@@ -187,7 +187,7 @@
     font-family:"微软雅黑", "Microsoft YaHei";
     .strengths {
       width: 231px;
-      height: 221px;
+      height: 311px;
       background: url('/images/novice-guide/core-san.png') no-repeat center center;
       background-size: 100%;
       margin: 190px auto;
@@ -210,31 +210,31 @@
         border: 3.3px solid #ff7b00;
       }
       .core1 {
-        top: -72%;
+        top: -45%;
         left: 26%;
       }
       .core2 {
-        top: -26%;
+        top: -15%;
         right: -56%;
       }
       .core3 {
-        bottom: -7%;
+        bottom: 20%;
         right: -73%;
       }
       .core4 {
-        bottom: -70%;
+        bottom: -38%;
         right: -20%;
       }
       .core5 {
-        bottom: -70%;
+        bottom: -38%;
         left: -24%;
       }
       .core6 {
-        bottom: -7%;
+        bottom: 20%;
         left: -73%;
       }
       .core7 {
-        top: -26%;
+        top: -15%;
         left: -56%;
       }
       .txt {
@@ -246,31 +246,31 @@
         display: none;
       }
       .core1-txt {
-        top: -60%;
+        top: -37%;
         left: 87%;
       }
       .core2-txt {
-        top: -17%;
+        top: -9%;
         left: 169%;
       }
       .core3-txt {
-        bottom: 11%;
+        bottom: 32%;
         left: 185%;
       }
       .core4-txt {
-        bottom: -55%;
+        bottom: -27%;
         left: 135%;
       }
       .core5-txt {
-        bottom: -61%;
+        bottom: -32%;
         left: -169%;
       }
       .core6-txt {
-        bottom: 5%;
+        bottom: 28%;
         left: -216%;
       }
       .core7-txt {
-        top: -17%;
+        top: -8%;
         left: -199%;
       }
     }
@@ -343,9 +343,7 @@
       }
     }
   }
-
-
-  
+ 
   //发展历程
   .development-course {
     font-family:"微软雅黑", "Microsoft YaHei";
@@ -462,7 +460,7 @@
       .part2 {
         position: absolute;
         top: 89px;
-        left: 980px;
+        left: 100%;
         .one {
           margin-top: 0;
         }
@@ -476,10 +474,129 @@
         }
         position: absolute;
         top: 89px;
-        left: 1960px;
+        left: 200%;
         .one {
           margin-top: 0;
         }
+      }
+    }
+  }
+
+  //产品特点
+  .product-features {
+    font-family:"微软雅黑", "Microsoft YaHei";
+    .product-content {
+      .hongjinbao {
+        // margin-right: 220px;
+        left: 10%;
+        float: left;
+      }
+      .assignment {
+        right: 10%;
+        float: right;
+      }
+      @media (min-width: 1700px) {
+        .hongjinbao {
+          // margin-right: 220px;
+          left: 15%;
+        }
+        .assignment {
+          right: 15%;
+        }
+      }
+      .hongjinbao, .assignment {
+        width: 298px;
+        // width: 34.81%;
+        height: 385px;
+        border: 1px solid #fe8f00;
+        padding: 40px;
+        background: #fbfbfb;
+        position: relative;
+        box-shadow: 3px 3px 3px #f2e4d0;
+        cursor: pointer;
+        margin-top: 130px;
+        .title {
+          color: #fe8f00;
+          font-size: 24px;
+          border-bottom: 1px solid #ccc;
+          font-family: 'AdobeHeitiStd';
+        }
+        .contain {
+          margin-top: 12px;
+          color: #666;
+          font-size: 14px;
+          text-align: justify;
+          font-family: 'AdobeHeitiStd-Regular';
+          p {
+            margin-bottom: 16px;
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+      // .hongjinbao:hover, .assignment:hover {
+      //   transform: scale(1.2);
+      //   -ms-transform: scale(1.2);  /* IE 9 */
+      //   -webkit-transform: scale(1.2);  /* Safari 和 Chrome */
+      //   -o-transform: scale(1.2); /* Opera */
+      //   -moz-transform: scale(1.2); /* Firefox */
+      // }
+    }
+
+  }
+  
+  //新手福利
+  .novice-welfare {
+    font-family:"微软雅黑", "Microsoft YaHei";
+    .welfare-content {
+      .novice {
+        padding-top: 155px;
+        p {
+          font-size: 26px;
+          color: #ff9900;
+        }
+        .welfare-new {
+          position: relative;
+          img {
+            position: absolute;
+            top: -87px;
+            right: -72px;
+          }
+          p {
+            position: absolute;
+            top: 162px;
+            right: 61px;
+          }
+        }
+        .welfare-cash {
+          margin-top: 31px;
+          p {
+            margin-top: 14px;
+          }
+        }
+        .welfare-experience {
+          p {
+            margin-top: 12px;
+          }
+        }
+        .welfare-rate {
+          margin-top: 36px;
+          p {
+            margin-top: 13px;
+          }
+        }
+      }
+      .novice-btn {
+        width: 244px;
+        height: 69px;
+        line-height: 69px;
+        text-align: center;
+        color: #fefeff;
+        font-size: 24px;
+        background-color: #ff8819;
+        border-radius: 10px;
+        margin: 70px auto;
+        cursor: pointer;
       }
     }
   }

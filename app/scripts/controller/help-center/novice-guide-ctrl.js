@@ -29,12 +29,12 @@ angular.module('hongcaiApp')
         $(this).parent().find('.contain').css('color','#666');
     });
     var position1 = 0;
-    var position2 = 980;
-    var position3 = 1960;
+    var position2 = 100;
+    var position3 = 200;
     function carousel(){
-      $('.development-course .part2').show().animate({left: position2}, 800,function(){})
-      $('.development-course .part1').show().animate({left: position1}, 800,function(){})
-      $('.development-course .part3').show().animate({left: position3}, 800,function(){})
+      $('.development-course .part2').show().animate({left: position2+'%'}, 800,function(){})
+      $('.development-course .part1').show().animate({left: position1+'%'}, 800,function(){})
+      $('.development-course .part3').show().animate({left: position3+'%'}, 800,function(){})
       if (position1 == 0) {
         $('.development-course .prev').hide();
       }else {
@@ -47,17 +47,42 @@ angular.module('hongcaiApp')
       }
     } 
     $('.development-course .next').on('click', function(){
-      position1-=980;
-      position2-=980;
-      position3-=980;
+      position1-=100;
+      position2-=100;
+      position3-=100;
       carousel();
     });
     $('.development-course .prev').on('click', function(){
-      position1+=980;
-      position2+=980;
-      position3+=980;
+      position1+=100;
+      position2+=100;
+      position3+=100;
       carousel();
     });
+
+    //产品特点放大效果
+    $('.product-content').children().hover(
+      function(){
+        if($(this).attr('class')=='hongjinbao'){
+          $(this).stop().animate({width: 398, height: 485, left: '6%', top: '-30px'},500);
+        }else {
+          $(this).stop().animate({width: 398, height: 485, right: '6%', top: '-30px'},500);
+        }
+        $(this).children('.title').stop().animate({'font-size': 28},500);
+        $(this).children('.contain>p').stop().animate({'margin-bottom': 26},500);
+        $(this).children('.contain').stop().animate({'font-size': 18},500);
+        
+      },function(){
+        if($(this).attr('class')=='hongjinbao'){
+          $(this).stop().animate({width: 298, height: 385, left: '10%', top: 0},500);
+        }else {
+          $(this).stop().animate({width: 298, height: 385, right: '10%', top: 0},500);
+        }
+        $(this).children('.title').stop().animate({'font-size': 24},500);
+        $(this).children('.contain').stop().animate({'font-size': 14},500);
+        $(this).children('.contain>p').stop().animate({'margin-bottom': 16},500);
+      }
+    );
+  
 
     //高管团队悬浮效果
     $('.poster-item').hover(
