@@ -2,6 +2,13 @@
 angular.module('hongcaiApp')
   .controller('NoviceGuideCtrl', ['$scope', '$state', '$rootScope', '$location', function($scope, $state, $rootScope, $location) {
     $rootScope.isNoviceGuide = true;
+    // banner文字
+
+    setTimeout(function(){
+      $('.newbie-banner-header').animate({'opacity': 1},500,function(){
+        $('.newbie-banner-header img').animate({'opacity': 1, 'width': '458px','margin-left':'143px'},1000);
+      })
+    }, 800);
 
     //宏财简介打字效果
     var txt = "宏财网（hongcai.com）2014年上线运营，2016年获得国有金融机构1亿元A轮融资，凭借股东广泛的金融资源、博士团队的专业能力和严谨的风控管理,为广大投资者筛选优质的投资项目。",
@@ -95,19 +102,20 @@ angular.module('hongcaiApp')
     );
 
     //如何投资 圆圈背景变色
-    
-    $('#carousel-example-generic, .carousel-control img').click(function(){
-      // console.log($('#carousel-example-generic').find('.active').indexOf());
-      console.log($('#carousel-example-generic').find('.active').index());
-      if($('#carousel-example-generic').find('.active').index() == 0 || $('#carousel-example-generic').find('.active').index() == 11) {
+    $scope.processId = 1;
+    $('#carousel-example-generic').on('slid.bs.carousel', function (ev) {
+      var processId = ev.relatedTarget.id;
+      $scope.processId = processId;
+      $scope.$apply();
+
+      if(processId== 1 || processId ==2 ){
         $('.process-circle').find('.li1').addClass('li_activ').siblings().removeClass('li_activ');
-      } else if($('#carousel-example-generic').find('.active').index() >= 1 && $('#carousel-example-generic').find('.active').index() < 5 ) {
+      }else if (processId >2 && processId < 7) {
         $('.process-circle').find('.li2').addClass('li_activ').siblings().removeClass('li_activ');
-      } else if($('#carousel-example-generic').find('.active').index() >= 5 && $('#carousel-example-generic').find('.active').index() < 8 ) {
+      }else if( processId > 6 && processId < 10) {
         $('.process-circle').find('.li3').addClass('li_activ').siblings().removeClass('li_activ');
-      } else {
+      }else {
         $('.process-circle').find('.li4').addClass('li_activ').siblings().removeClass('li_activ');
       }
-    })
-
+    });
   }]);
