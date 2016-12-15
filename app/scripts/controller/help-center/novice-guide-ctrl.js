@@ -2,6 +2,13 @@
 angular.module('hongcaiApp')
   .controller('NoviceGuideCtrl', ['$scope', '$state', '$rootScope', '$location', function($scope, $state, $rootScope, $location) {
     $rootScope.isNoviceGuide = true;
+    // banner文字
+
+    setTimeout(function(){
+      $('.newbie-banner-header').animate({'opacity': 1},500,function(){
+        $('.newbie-banner-header img').animate({'opacity': 1, 'width': '458px','margin-left':'143px'},1000);
+      })
+    }, 800);
 
     //宏财简介打字效果
     var txt = "宏财网（hongcai.com）2014年上线运营，2016年获得国有金融机构1亿元A轮融资，凭借股东广泛的金融资源、博士团队的专业能力和严谨的风控管理,为广大投资者筛选优质的投资项目。",
