@@ -31,6 +31,20 @@ angular.module('hongcaiApp')
 
     );
 
-
+    //如何投资 圆圈背景变色
+    
+    $('#carousel-example-generic, .carousel-control img').click(function(){
+      // console.log($('#carousel-example-generic').find('.active').indexOf());
+      console.log($('#carousel-example-generic').find('.active').index());
+      if($('#carousel-example-generic').find('.active').index() == 0 || $('#carousel-example-generic').find('.active').index() == 11) {
+        $('.process-circle').find('.li1').addClass('li_activ').siblings().removeClass('li_activ');
+      } else if($('#carousel-example-generic').find('.active').index() >= 1 && $('#carousel-example-generic').find('.active').index() < 5 ) {
+        $('.process-circle').find('.li2').addClass('li_activ').siblings().removeClass('li_activ');
+      } else if($('#carousel-example-generic').find('.active').index() >= 5 && $('#carousel-example-generic').find('.active').index() < 8 ) {
+        $('.process-circle').find('.li3').addClass('li_activ').siblings().removeClass('li_activ');
+      } else {
+        $('.process-circle').find('.li4').addClass('li_activ').siblings().removeClass('li_activ');
+      }
+    })
 
   }]);
