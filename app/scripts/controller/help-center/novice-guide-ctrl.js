@@ -64,32 +64,7 @@ angular.module('hongcaiApp')
       position2+=100;
       position3+=100;
       carousel();
-    });
-
-    //产品特点放大效果
-    $('.product-content').children().hover(
-      function(){
-        if($(this).attr('class')=='hongjinbao'){
-          $(this).stop().animate({width: 398, height: 485, left: '6%', top: '-30px'},500);
-        }else {
-          $(this).stop().animate({width: 398, height: 485, right: '6%', top: '-30px'},500);
-        }
-        $(this).children('.title').stop().animate({'font-size': 28},500);
-        $(this).children('.contain>p').stop().animate({'margin-bottom': 26},500);
-        $(this).children('.contain').stop().animate({'font-size': 18},500);
-        
-      },function(){
-        if($(this).attr('class')=='hongjinbao'){
-          $(this).stop().animate({width: 298, height: 385, left: '10%', top: 0},500);
-        }else {
-          $(this).stop().animate({width: 298, height: 385, right: '10%', top: 0},500);
-        }
-        $(this).children('.title').stop().animate({'font-size': 24},500);
-        $(this).children('.contain').stop().animate({'font-size': 14},500);
-        $(this).children('.contain>p').stop().animate({'margin-bottom': 16},500);
-      }
-    );
-  
+    });  
 
     //高管团队悬浮效果
     $('.poster-item').hover(
