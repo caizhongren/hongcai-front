@@ -39,8 +39,8 @@
     }
   }
 
-  //宏财简介 股东背景 核心优势 background height
-  .hongcai-introduce, .shareholder-background, .core-strengths, .management-team, .invest-process {
+  //宏财简介 股东背景 核心优势 发展历程 background height
+  .hongcai-introduce, .shareholder-background, .core-strengths, .management-team, .development-course, .invest-process {
     width: 100%;
     height: 770px;
     margin: 0 auto;
@@ -345,4 +345,142 @@
   }
 
 
+  
+  //发展历程
+  .development-course {
+    font-family:"微软雅黑", "Microsoft YaHei";
+    .development-content {
+      position: relative;
+      width: 100%;
+      height: 580px;
+      overflow: hidden;
+      .fp-tableCell {
+        height: 579px;
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        padding-left: 2%;
+      }
+      .margin-pos5 {
+        margin-left: -65px;
+      }
+      .part {
+        .con {
+          width: 49px;
+          height: 2px;
+          background: #d9d9d7;
+          float: left;
+          margin-top: 196px;
+          margin-left: -65px;
+        }
+        .event {
+          text-align: center;
+          float: left;
+          color: #666;
+          dt {
+            font-size: 20px;
+            text-align: justify;
+            font-weight: normal;
+          }
+          .line {
+            width: 2px;
+            height: 62px;
+            background: #d9d9d7;
+            margin: 10px 0;
+            margin-left: 50%;
+          }
+          .time {
+            font-size: 34px;
+            font-family: Arial;
+            cursor: pointer;
+          }
+          .contain {
+            width: 260px;
+          }
+        }
+        .one {
+          margin-top: 57px;
+          .contain {
+            text-align: center !important;
+          }
+        }
+        .one, .three {
+          margin-left: -65px;
+        }
+        .two, .four {
+          margin-top: 167px;
+          margin-left: -65px;
+        }
+      }
+      @media (min-width: 1700px) {
+        .margin-pos5 {
+          margin-left: -1.4%;
+        }
+        .part1 {
+          .con {
+            margin-left: -1.4%;
+          }
+          .one, .three {
+            margin-left: -1.4%;
+          }
+          .two, .four {
+            margin-top: 167px;
+            margin-left: -1.4%;
+          }
+        }
+      }
+      @media (min-width: 1700px) {
+        .margin-l-40 {
+          margin-left: 60px !important;
+        }
+      }
+      .controlArrow {
+        position: absolute;
+        z-index: 4;
+        cursor: pointer;
+      }
+      .prev {
+        width: 21px;
+        height: 40px;
+        background: url('/images/novice-guide/prev.png') no-repeat center center;
+        top: 263px;
+        left: 0;
+        display: none;
+      }
+      .next {
+        width: 21px;
+        height: 40px;
+        background: url('/images/novice-guide/next.png') no-repeat center center;
+        top: 263px;
+        right: 0;
+      }
+      .part1 {
+        position: absolute;
+        top: 89px;
+        left: 0;
+      }
+      .part2 {
+        position: absolute;
+        top: 89px;
+        left: 980px;
+        .one {
+          margin-top: 0;
+        }
+      }
+      .part3 {
+        .con {
+          margin-top: 194px;
+        }
+        .one {
+          margin-top: -170px;
+        }
+        position: absolute;
+        top: 89px;
+        left: 1960px;
+        .one {
+          margin-top: 0;
+        }
+      }
+    }
+  }
 }
