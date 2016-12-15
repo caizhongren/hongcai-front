@@ -135,6 +135,15 @@
         color: #666;
         text-align: justify;
         margin-top: 165px;
+
+      }
+      @media (min-width: 1500px) {
+        .txt-right {
+          margin-right: 60px;
+        }
+        .circle-left {
+          margin-left: 40px;
+        }
       }
     }
   }
@@ -404,7 +413,7 @@
         }
         .one {
           margin-top: 57px;
-          .contain {
+          .center-1 {
             text-align: center !important;
           }
         }
@@ -420,7 +429,7 @@
         .margin-pos5 {
           margin-left: -1.4%;
         }
-        .part1 {
+        .part {
           .con {
             margin-left: -1.4%;
           }
@@ -501,7 +510,7 @@
         right: 10%;
         float: right;
       }
-      @media (min-width: 1700px) {
+      @media (min-width: 1500px) {
         .hongjinbao {
           // margin-right: 220px;
           left: 15%;
@@ -511,9 +520,9 @@
         }
       }
       .hongjinbao, .assignment {
-        width: 298px;
+        width: 310px;
         // width: 34.81%;
-        height: 385px;
+        height: 400px;
         border: 1px solid #fe8f00;
         padding: 40px;
         background: #fbfbfb;
@@ -539,14 +548,41 @@
             width: 100%;
           }
         }
+        //悬浮动画
+        -webkit-transition: -webkit-transform 1s;
+        -o-transition: -o-transform 1s;
+        -moz-transition: -moz-transform 1s;
+        -ms-transition: -ms-transform 1s;
+        transition: transform 1s;
+
+        -o-transition-property: -o-transform;
+        -webkit-transition-property: -webkit-transform;
+        -moz-transition-property: -moz-transform;
+        -ms-transition-property: -ms-transform;
+        transition-property: transform;
+
+        -o-transition-duration: 800ms; 
+        -ms-transition-duration: 800ms; 
+        -webkit-transition-duration: 800ms; 
+        -moz-transition-duration: 800ms;
+        transition-duration: 800ms;
+
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-perspective: 1000;
+        -moz-perspective: 1000;
+        -ms-perspective: 1000;
+        perspective: 1000;
       }
-      // .hongjinbao:hover, .assignment:hover {
-      //   transform: scale(1.2);
-      //   -ms-transform: scale(1.2);  /* IE 9 */
-      //   -webkit-transform: scale(1.2);  /* Safari 和 Chrome */
-      //   -o-transform: scale(1.2); /* Opera */
-      //   -moz-transform: scale(1.2); /* Firefox */
-      // }
+      .hongjinbao:hover, .assignment:hover {
+        transform: scale(1.2,1.2);
+        -ms-transform: scale(1.2,1.2);  /* IE 9 */
+        -webkit-transform: scale(1.2,1.2);  /* Safari 和 Chrome */
+        -o-transform: scale(1.2,1.2); /* Opera */
+        -moz-transform: scale(1.2,1.2); /* Firefox */
+      }
     }
 
   }
@@ -570,7 +606,7 @@
           }
           p {
             position: absolute;
-            top: 162px;
+            top: 164px;
             right: 61px;
           }
         }
