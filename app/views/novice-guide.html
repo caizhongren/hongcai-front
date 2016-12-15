@@ -219,7 +219,7 @@
 	<section class="invest-process">
 		<div class="content">
 			<div class="content-title clearfix">
-				<i class="fl"></i><p class="fl">如何投资 <a href="#hhh"></a> </p><p class="fr ft-36 ft-grey7 ft-Arial">HOW TO INVEST</p>
+				<i class="fl"></i><p class="fl">如何投资<a href="#hhh"></a> </p><p class="fr ft-36 ft-grey7 ft-Arial">HOW TO INVEST</p>
 			</div>
 			<div class="process-all">
 				<div class="process-circle">
@@ -246,80 +246,43 @@
 
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner" role="listbox">
-				    <div class="item active">
-				      <img src="/images/novice-guide/process1.jpg" alt="...">
-				      <div class="carousel-caption">
-				        
-				      </div>
+				    <div class="item active" id="1">
+				      <img src="/images/novice-guide/process1.jpg" alt="..." >
 				    </div>
-				    <div class="item">
+				    <div class="item"  id="2">
 				      <img src="/images/novice-guide/process2.jpg" alt="...">
-				      <div class="carousel-caption">
-				        
-				      </div>
 				    </div>
-				   	<div class="item">
+				   	<div class="item" id="3">
 				   	  <img src="/images/novice-guide/process3.jpg" alt="...">
-				   	  <div class="carousel-caption">
-				   	    
-				   	  </div>
 				   	</div>
-				   	<div class="item">
+				   	<div class="item" id="4">
 				   	  <img src="/images/novice-guide/process4.jpg" alt="...">
-				   	  <div class="carousel-caption">
-				   	    
-				   	  </div>
 				   	</div>
-				   	<div class="item">
+				   	<div class="item" id="5">
 				   	  <img src="/images/novice-guide/process5.jpg" alt="...">
-				   	  <div class="carousel-caption">
-				   	    
-				   	  </div>
 				   	</div>
-				   	<div class="item">
+				   	<div class="item" id="6">
 				   	  <img src="/images/novice-guide/process6.jpg" alt="...">
-				   	  <div class="carousel-caption">
-				   	    
-				   	  </div>
 				   	</div>
-				   	<div class="item">
+				   	<div class="item" id="7">
 				   	  <img src="/images/novice-guide/process7.jpg" alt="...">
-				   	  <div class="carousel-caption">
-				   	    
-				   	  </div>
 				   	</div>
-				   	<div class="item">
+				   	<div class="item" id="8">
 				   	  <img src="/images/novice-guide/process8.jpg" alt="...">
-				   	  <div class="carousel-caption">
-				   	    
-				   	  </div>
 				   	</div>
-				   	<div class="item">
+				   	<div class="item" id="9">
 				   	  <img src="/images/novice-guide/process9.jpg" alt="...">
-				   	  <div class="carousel-caption">
-				   	    
-				   	  </div>
 				   	</div>
-				   	<div class="item">
+				   	<div class="item" id="10">
 				   	  <img src="/images/novice-guide/process10.jpg" alt="...">
-				   	  <div class="carousel-caption">
-				   	    
-				   	  </div>
 				   	</div>
-				   	<div class="item">
+				   	<div class="item" id="11">
 				   	  <img src="/images/novice-guide/process11.jpg" alt="...">
-				   	  <div class="carousel-caption">
-				   	    
-				   	  </div>
 				   	</div>
-				   	<div class="item">
+				   	<div class="item" id="12">
 				   	  <img src="/images/novice-guide/process12.jpg" alt="...">
-				   	  <div class="carousel-caption">
-				   	    
-				   	  </div>
 				   	</div>
 				  </div>
-
 				  <!-- Controls -->
 				  <a class="left carousel-control" >
 				    <span class="glyphicon glyphicon-chevron-left"><img src="/images/novice-guide/btn_l.png" href="#carousel-example-generic" role="button" data-slide="prev"></span>
@@ -330,12 +293,36 @@
 				    <span class="sr-only">Next</span>
 				  </a>
 				</div>
-				<div class="process-imgs"></div>
-				<p></p>
+				<div ng-switch = 'processId'>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="1">填写相关信息后点击注册</p>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="2">注册成功后建议您立即开通第三方支付</p>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="3">还可以在“我的账户”-“安全设置”中开通第三方资金存管账户</p>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="4">请正确填写您本人名下的银行卡帐号和预留手机号</p>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="5">请设置并牢记您的交易密码，交易密码用于充值、投资、提现、开通自动投资等操作。</p>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="6">认证成功，可以去充值啦~</p>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="7">请输入充值金额后点击确认充值</p>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="8">请输入交易密码后点击支付</p>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="9">充值成功后可以去投资啦~</p>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="10">请输入投资金额后点击确认投资</p>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="11">请输入交易密码后点击确定</p>
+					<p class="text-center ft-20 ft-grey666 margin-t-20" ng-switch-when="12">投资成功！</p>
+				</div>
 			</div>
 		</div>
 	</section>
-			
+	<!-- 宏财简介 -->
+	<section class="hongcai-introduce">
+		<div class="content">
+			<div class="content-title clearfix">
+				<i class="fl"></i><p class="fl">宏财简介</p><p class="fr ft-36 ft-grey7 ft-Arial">SYNOPSIS</p>
+			</div>
+			<div class="introduce-words">
+				<img src="/images/novice-guide/hongcai-logo.png" class="margin-t-35 margin-l-60" id="Darea">
+				<div id = "intr-text">
+				</div>
+			</div>
+		</div>
+	</section>			
 </div>
 <script type="text/javascript">
 	$(function(){
