@@ -214,7 +214,39 @@
 				<div class="controlArrow next"></div>
 			</div>
 		</div>
-	</section>	
+	</section>
+
+	<!-- 产品特点 -->
+	<section class="product-features">
+		<div class="content">
+			<div class="content-title clearfix">
+				<i class="fl"></i><p class="fl">产品特点</p><p class="fr ft-36 ft-grey7 ft-Arial">PRODUCT FEATURES</p>
+			</div>
+			<div class="product-content clearfix">
+				<div class="hongjinbao">
+					<p class="title margin-b-0">宏金保</p>
+					<div class="contain">
+						<p>期限：30天-180天</p>
+						<p>利率：8%-15%</p>
+						<p>还款方式：按月返息，到期还本</p>
+						<p>保障方式：足值抵押、AA级担保公司担保</p>
+						<p>宏金保项目是由鑫融基金控推荐，并经宏财网严格风控程序层层筛选的优质金融资产。项目均有足额抵押物，并由鑫融基担保有限公司进行全额担保，项目安全可靠</p>
+					</div>
+				</div>
+				<div class="assignment">
+					<p class="title margin-b-0">债权转让</p>
+					<div class="contain">
+						<p>期限：4天-180天</p>
+						<p>利率：8%以上</p>
+						<p>还款方式：按月返息，到期还本</p>
+						<p>保障方式：足值抵押、AA级担保公司担保</p>
+						<p>债权转让是宏财网平台用户由于急需资金，将手中未到期债权转让给其他投资者的一款产品。该款产品往往收益更高、期限更短，享有与宏金保同样的安全保障</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- 如何投资 -->
 	<section class="invest-process">
 		<div class="content">
@@ -310,16 +342,35 @@
 			</div>
 		</div>
 	</section>
-	<!-- 宏财简介 -->
-	<section class="hongcai-introduce">
+
+	<!-- 新手福利 -->
+	<section class="novice-welfare">
 		<div class="content">
 			<div class="content-title clearfix">
-				<i class="fl"></i><p class="fl">宏财简介</p><p class="fr ft-36 ft-grey7 ft-Arial">SYNOPSIS</p>
+				<i class="fl"></i><p class="fl">新手福利</p><p class="fr ft-36 ft-grey7 ft-Arial">NOVICE WELFARE</p>
 			</div>
-			<div class="introduce-words">
-				<img src="/images/novice-guide/hongcai-logo.png" class="margin-t-35 margin-l-60" id="Darea">
-				<div id = "intr-text">
+			<div class="welfare-content clearfix text-center">
+				<div class="row novice">
+					<div class="col-md-3 welfare-experience">
+						<img src="/images/novice-guide/welfare-experience.png" alt="">
+						<p>8888元体验金</p>
+					</div>
+					<div class="col-md-3 welfare-cash">
+						<img src="/images/novice-guide/welfare-cash.png" alt="">
+						<p>688元现金红包</p>
+					</div>
+					<div class="col-md-3 welfare-new">
+						<img src="/images/novice-guide/welfare-new.png" alt="">
+						<p>新手专享标</p>
+					</div>
+					<div class="col-md-3 welfare-rate">
+						<img src="/images/novice-guide/welfare-rate.png" alt="">
+						<p>3%加息券</p>
+					</div>
 				</div>
+				<div class="row margin-auto" ng-if="!isLogged">
+					<div class="novice-btn" ui-sref="root.register">注册领取</div>
+				</div>	
 			</div>
 		</div>
 	</section>			
