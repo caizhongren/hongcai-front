@@ -81,7 +81,8 @@ angular.module('hongcaiApp')
       'register',
       'activity',
       'novice-guide',
-      'register'
+      'register',
+      'safe'
     ];
 
     /**
@@ -91,7 +92,8 @@ angular.module('hongcaiApp')
       'novice-guide',
       'login',
       'register',
-      'dual-eleven-activities'
+      'dual-eleven-activities',
+      'safe'
     ];
 
 
