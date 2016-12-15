@@ -15,7 +15,7 @@ angular.module('hongcaiApp')
     	  count = 0,
         timerID;
     $(window).scroll(function(){
-      if($(window).scrollTop() >= 100 && $(window).scrollTop() <1400) {
+      if($(window).scrollTop() >= 100) {
         clearInterval(timerID);
         timerID = setInterval(function(){
           $("#intr-text").text(txt.substr(0,count++));
@@ -69,12 +69,20 @@ angular.module('hongcaiApp')
     //高管团队悬浮效果
     $('.poster-item').hover(
       function(){
-        $(this).children('.hoverShow').stop().animate({backgroundColor: 'rgba(0,0,0,0.8)',top: 0},300);
+        if($(this).width() == 505){
+          $(this).children('.hoverShow').stop().animate({backgroundColor: 'rgba(0,0,0,0.8)',top: 0},300);
+          $(this).addClass('cursor-pointer');
+        }
       },
       function() {
-        $(this).children('.hoverShow').stop().animate({backgroundColor: 'rgba(0,0,0,0.2)',top: '326px'},300);
+        if($(this).width() == 505){
+          $(this).children('.hoverShow').stop().animate({backgroundColor: 'rgba(0,0,0,0.2)',top: '326px'},300);
+        }
       }
     );
+
+
+
 
     //如何投资 圆圈背景变色
     $scope.processId = 1;

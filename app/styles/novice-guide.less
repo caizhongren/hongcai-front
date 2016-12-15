@@ -164,12 +164,18 @@
           cursor: pointer;
         }
         .poster-prev-btn {
-          left: -170px;
+          left: -155px;
           background: url("/images/novice-guide/btn_l.png") no-repeat center center;
+          @media screen and(min-width: 1920px) {
+            left: -250px;
+          }
         }
         .poster-next-btn {
-          right: -170px;
+          right: -155px;
           background: url("/images/novice-guide/btn_r.png") no-repeat center center;
+          @media screen and(min-width: 1920px) {
+            right: -250px;
+          }
         }
         .poster-list .poster-item {
           position: absolute;
@@ -300,11 +306,12 @@
       .process-all {
         #carousel-example-generic {
           .carousel-indicators {
+            bottom: 8px;
             li {
               background-color: #ffebcc;
-              width: 18px;
-              height: 18px;
-              margin-right: 3px;
+              width: 14px;
+              height: 14px;
+              margin-right: 8px;
             }
             .active {
               background-color: #ff9900;
@@ -323,7 +330,7 @@
             }
           }
           .carousel-control {
-            width: 125px;
+            width: 55px;
             span {
               top: 35%;
             }
@@ -356,6 +363,10 @@
             font-size: 30px;
             color: #3a3838;
             margin: 0 6px;
+            @media screen and(max-width: 1640px) {
+              width: 20%;
+              overflow: hidden;
+            }
           }
         }
       }
