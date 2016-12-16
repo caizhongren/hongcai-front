@@ -24,12 +24,6 @@ angular.module('hongcaiApp')
      */
     $scope.canTransferCreditRight = function(){
 
-      UserCenterService.canTransferCreditRight.get({number: number}, function(response){
-        $scope.creditRightHolding = response.data.creditRightHolding;
-        $scope.maxDiscountAmount = response.data.maxDiscountAmount;
-        $scope.minDiscountAmount = response.data.minDiscountAmount;
-      });
-
     };
 
     /**
@@ -51,7 +45,7 @@ angular.module('hongcaiApp')
       });
     };
 
-    $scope.canTransferCreditRight();
+    // $scope.canTransferCreditRight();
 
 
   }]);

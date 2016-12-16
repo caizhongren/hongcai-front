@@ -144,17 +144,6 @@ angular.module('hongcaiApp')
       getTranferCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getTranferCreditRightList', {
         status: '@status'
       }),
-      canTransferCreditRight: $resource(DEFAULT_DOMAIN + '/siteCredit/canTransferCreditRight', {
-        number: '@number'
-      }),
-      hangTransferCreditRight: $resource(DEFAULT_DOMAIN + '/siteCredit/hangTransferCreditRight', {
-        transferAmount: '@transferAmount',
-        discountAmount: '@discountAmount',
-        creditRightId: '@creditRightId'
-      }),
-      cancelCreditAssignment: $resource(DEFAULT_DOMAIN + '/siteCredit/cancelCreditAssignment', {
-        assignmentNumber: '@assignmentNumber'
-      }),
       transferToPlatform: $resource(DEFAULT_DOMAIN + '/yeepay/transferToPlatform', {
         transferAmount: '@transferAmount'
       }),
