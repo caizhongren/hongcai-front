@@ -10,5 +10,4 @@ angular.module('hongcaiApp')
       angular.element($event.target).closest('.col-xs-12').find('.active').removeClass('active');
       angular.element($event.target).closest('li').find('a').addClass('active');
     };
-
   });
