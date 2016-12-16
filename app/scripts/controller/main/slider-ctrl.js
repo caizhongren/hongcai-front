@@ -37,8 +37,8 @@ angular.module('hongcaiApp')
       name: '投资送加息券'
     }*/,{
       mimeType: 'image/png',
-      src: 'images/banner/banner-11.png',
-      href: '/#!/register',
+      src: 'images/banner-new/banner11.jpg',
+      href: $rootScope.isLogged ? '/#!/user-center/experience-money' : '/#!/register',
       name: '注册拿8888元'
     },{
       mimeType: 'image/png',
