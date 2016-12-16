@@ -274,5 +274,20 @@ angular.module('hongcaiApp')
 	$('.banner-li02').show().animate({top:460}, 1000,function(){})
 	$('.banner-li03').show().animate({top:460}, 1300,function(){})
 	$('.banner-li04').show().animate({top:460}, 1500,function(){})
-	
+
+	//解决跳转其他页面滚轮不能滑动
+	$rootScope.$on('$stateChangeStart', function(event, toState) {
+		if (toState.name !== 'root.safe') {
+			window.onwheel = null; // modern standard
+			window.onmousewheel = null; // older browsers, IE
+			window.ontouchmove  = null; // mobile
+			document.onkeydown = null;
+			if(document.attachEvent){ 
+	   			document.attachEvent('onmousewheel', null); 
+	   		} else if (window.addEventListener){
+	   			window.addEventListener('DOMMouseScroll', null, false);
+	   		} 
+	   		window.onmousewheel = document.onmousewheel = null;
+	   	}
+	})
   });
