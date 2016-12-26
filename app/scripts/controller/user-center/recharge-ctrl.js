@@ -18,6 +18,23 @@ angular.module('hongcaiApp')
         show: true
       });
     }
+    $scope.bankCardList = [
+      {'card': 'ICBK', 'cardName': '工商银行', 'limit': '5w/5w/20w'},
+      {'card': 'BKCH', 'cardName': '中国银行', 'limit': '5w/10w/20w'},
+      {'card': 'PCBC', 'cardName': '建设银行', 'limit': '5w/10w/20w'},
+      {'card': 'ABOC', 'cardName': '农业银行', 'limit': '5w/10w/20w'},
+      {'card': 'COMM', 'cardName': '交通银行', 'limit': '5w/10w/20w'},
+      {'card': 'CMBC', 'cardName': '招商银行', 'limit': '5w/5w/20w'},
+      {'card': 'CIBK', 'cardName': '中信银行', 'limit': '1w/1w/2w'},
+      {'card': 'SZDB', 'cardName': '平安银行', 'limit': '5w/20w/20w'},
+      {'card': 'MSBC', 'cardName': '民生银行', 'limit': '5w/20w/20w'},
+      {'card': 'EVER', 'cardName': '光大银行', 'limit': '5w/20w/20w'},
+      {'card': 'HXBK', 'cardName': '华夏银行', 'limit': '5w/20w/20w'},
+      {'card': 'GDBK', 'cardName': '广发银行', 'limit': '5w/20w/20w'},
+      {'card': 'PSBC', 'cardName': '邮政银行', 'limit': '5w/20w/20w'},
+      {'card': 'FJIB', 'cardName': '兴业银行', 'limit': '5w/5w/20w'},
+      {'card': 'SPDB', 'cardName': '浦发银行', 'limit': '5w/5w/20w'},
+    ]
     $scope.bankCodeList = {
       'ICBK':{
         'name': '工商银行',
@@ -52,7 +69,7 @@ angular.module('hongcaiApp')
       'CIBK':{
         'name': '中信银行',
         'imgUrl': '/images/user-center/CIBK.png',
-        'limit': '5w/20w/20w'
+        'limit': '1w/1w/2w'
       },
       'SZDB':{
         'name': '平安银行',
