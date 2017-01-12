@@ -1832,7 +1832,8 @@ hongcaiApp
       url: '/novice-activity',
       views: {
         '': {
-          templateUrl: 'views/activity/novice-landing.html',
+          // templateUrl: 'views/activity/novice-landing.html',
+          templateUrl: 'views/activity/novice-landing2.html',
           controller: 'NoviceActivityCtrl',
           controllerUrl: 'scripts/controller/activity/novice-activity-ctrl'
         }

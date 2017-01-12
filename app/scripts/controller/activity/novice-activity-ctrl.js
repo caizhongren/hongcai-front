@@ -20,4 +20,15 @@ angular.module('hongcaiApp')
 	  $scope.newbieBiaoProject.countInvest = response.countInvest;
 	  $scope.progress = ($scope.newbieBiaoProject.soldStock + $scope.newbieBiaoProject.occupancyStock) * 100 / $scope.newbieBiaoProject.countInvest;
 	})
+
+	
+	//跳转注册页 || 宏金保列表页
+    $scope.goTake = function(){
+		if($rootScope.isLogged){
+			$state.go('root.guaranteepro-list-query-no');
+		}else {
+			$state.go('root.register');
+		}
+    }
+    
   });
