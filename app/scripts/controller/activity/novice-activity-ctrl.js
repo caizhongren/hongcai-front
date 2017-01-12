@@ -7,7 +7,7 @@
 
 'use strict';
 angular.module('hongcaiApp')
-  .controller('NoviceActivityCtrl', function($scope, ProjectService) {
+  .controller('NoviceActivityCtrl', function($rootScope, $state, $scope, ProjectService) {
 	
 	/* 新手标*/
     ProjectService.newbieBiaoProject.get({}, function(response) {
@@ -30,5 +30,5 @@ angular.module('hongcaiApp')
 			$state.go('root.register');
 		}
     }
-    
+
   });
