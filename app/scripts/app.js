@@ -1814,6 +1814,8 @@ hongcaiApp
       views: {
         '': {
           templateUrl: 'views/activity/newYearInvite-landing.html',
+          controller: 'newInviteCtrl',
+          controllerUrl: 'scripts/controller/activity/newNnvite-landing-ctrl'
         }
       }
     })
