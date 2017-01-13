@@ -1785,28 +1785,38 @@ hongcaiApp
     })
 
     /*-------------  邀请活动落地页   ----------------------*/
-      .state('root.activity.invite-landing', {
-        url: '/invite?act&f',
-        views: {
-          '': {
-            templateUrl: 'views/activity/invite-landing.html',
-            controller: 'InviteLandingCtrl',
-            controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
-          }
-        }
-      })
+      // .state('root.activity.invite-landing', {
+      //   url: '/invite?act&f',
+      //   views: {
+      //     '': {
+      //       templateUrl: 'views/activity/invite-landing.html',
+      //       controller: 'InviteLandingCtrl',
+      //       controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
+      //     }
+      //   }
+      // })
 
     /*-------------  10月新邀请活动落地页   ----------------------*/
-      .state('root.activity.newInvite-landing', {
-        url: '/invite-activity',
-        views: {
-          '': {
-            templateUrl: 'views/activity/newInvite-landing.html',
-            controller: 'newInviteCtrl',
-            controllerUrl: 'scripts/controller/activity/newNnvite-landing-ctrl'
-          }
+    // .state('root.activity.newInvite-landing', {
+    //   url: '/invite-activity',
+    //   views: {
+    //     '': {
+    //       templateUrl: 'views/activity/newInvite-landing.html',
+    //       controller: 'newInviteCtrl',
+    //       controllerUrl: 'scripts/controller/activity/newNnvite-landing-ctrl'
+    //     }
+    //   }
+    // })
+
+    /*-------------  2017.1月 市场 邀请活动落地页   ----------------------*/
+    .state('root.activity.invite-landing', {
+      url: '/invite-activity',
+      views: {
+        '': {
+          templateUrl: 'views/activity/newYearInvite-landing.html',
         }
-      })
+      }
+    })
     /*-------------  送现金活动落地页   ----------------------*/
     .state('root.activity.send-money', {
       url: '/send-money?act&f',
