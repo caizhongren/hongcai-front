@@ -704,5 +704,10 @@ angular.module('hongcaiApp')
     $scope.getProjectDetails();
     $scope.getReserveRecords();
 
+    //查看更多
+    $scope.initLimit = 8;
+    $scope.loadMore = function(){
+      $scope.initLimit = $scope.initLimit + 3 < $scope.list.length ? $scope.initLimit + 3 : $scope.list.length;;
+    }
 
   });
