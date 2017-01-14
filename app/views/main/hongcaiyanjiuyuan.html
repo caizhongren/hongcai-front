@@ -6,7 +6,8 @@
         <div class="news__img news__img1"></div>
         <div class="news__list">
           <p ng-repeat="item in searchList">
-            <a ui-sref="root.us.hongcai-trends-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+            <a ng-if="item.title.length < 30" ui-sref="root.us.hongcai-trends-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+            <a ng-if="item.title.length >= 30" ui-sref="root.us.hongcai-trends-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title | limitTo:30 }}...</a>
             <span>{{item.createTime | date: 'yyyy-MM-dd'}}</span>
           </p>
         </div>
@@ -18,7 +19,8 @@
         <div class="news__img news__img2"></div>
         <div class="news__list">
           <p ng-repeat="item in mediaList">
-            <a ui-sref="root.us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+            <a ng-if="item.title.length < 30" ui-sref="root.us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title}}</a>
+            <a ng-if="item.title.length >= 30" ui-sref="root.us.media-reports-detail({textId: item.id})" target="_blank" title="{{item.title}}">{{item.title | limitTo:30 }}...</a>
            <span>{{item.createTime | date: 'yyyy-MM-dd'}}</span>
           </p>
         </div>
