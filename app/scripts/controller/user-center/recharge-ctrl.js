@@ -285,9 +285,9 @@ angular.module('hongcaiApp')
       if(amount <= 0 && $scope.payment == 2){
         return;
       }
-      // if(amount < 3 && ($scope.payment == 1 || $scope.payment == 3)){
-      //   return;
-      // }
+      if(amount < 3 && ($scope.payment == 1 || $scope.payment == 3)){
+        return;
+      }
       if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
         $rootScope.toActivate();
         return;
