@@ -141,7 +141,7 @@
           </thead>
           <tbody>
             <tr class="border-b-dash" ng-repeat="item in jigoubao | limitTo: 5">
-              <td class="cursor-pointer" ui-sref="root.project-details({number: item.number})">{{item.name}}</td>
+              <td class="cursor-pointer" ui-sref="root.project-details({number: item.number})">{{item.name | limitTo: 18}}{{item.name.length > 18? '...' : '' }}</td>
               <!-- <td class="cursor-pointer" ui-sref="root.project-details({number: item.number})">{{item.name}}</td> -->
               <td>{{item.annualEarnings | number : 2 }}%</td>
               <td>{{item.projectDays}}天</td>
