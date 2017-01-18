@@ -387,7 +387,7 @@ angular.module('hongcaiApp')
         if(response.score < 35) {
           $scope.questionnareStatus = '保守型';
         }
-        if(response.score > 35 && response.score < 59) {
+        if(response.score > 34 && response.score < 60) {
           $scope.questionnareStatus = '稳健型';
         }
         if(response.score > 59) {

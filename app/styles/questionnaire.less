@@ -6,6 +6,8 @@
     line-height: 34px;
 		.index {
 			height: 184px;
+			color: #0e0e0e;
+			font-family: microsoft Yahei;
 			p {
 				width: 34px;
 				height: 34px;
@@ -54,8 +56,11 @@
 			li.active {
 				background-color: #fd8f3f !important;
 				.circle {
-					border-color: #fdbf3f;
-					background-color: #fff !important;
+					width: 18px;
+					height: 18px;
+					border: 0;
+					background-color: #fd8f3f!important;
+					background: url('/images/questionnaire/active.png') no-repeat 0 0;
 				}
 				.words {
 					color: #fff !important;
@@ -65,7 +70,8 @@
 		
 	}
 	
-	.submit-btn {
+	button.submit-btn {
+		border: none;
 		width: 325px;
 		height: 56px;
 		line-height: 56px;
@@ -77,8 +83,16 @@
 		border-radius: 5px;
 		font-weight: 200;
 	}
+	button[disabled], button.disabled {
+		cursor: not-allowed;
+		opacity: 0.65;
+		filter: alpha(opacity=65);
+		-webkit-box-shadow: none;
+		box-shadow: none;
+	}
 	.warning {
-		top: 135px;
+		left: 38%;
+    top: 58px;
 		font-size: 18px;
 		color: #f9694e;
 		width: 291px;
