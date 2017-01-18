@@ -376,4 +376,29 @@ angular.module('hongcaiApp')
       $scope.goToTender();
       ipCookie.remove('modal');
     }
+
+    //风险测评显示
+   
+    UserCenterService.recentlyQuestionnaire.get({userId: 0}, function(response){
+      if(response.score == -1) {
+        $scope.questionnareStatus = '未测评';
+      }
+      if(response.score !== -1){
+        if(response.score < 35) {
+          $scope.questionnareStatus = '保守型';
+        }
+        if(response.score > 35 && response.score < 59) {
+          $scope.questionnareStatus = '稳健型';
+        }
+        if(response.score > 59) {
+          $scope.questionnareStatus = '进取型';
+        }
+      }
+    })
+
+    //去风险测评
+    $scope.toQuestionnare = function() {
+      $state.go('root.userCenter.questionnaire');
+    }
+    
   });
