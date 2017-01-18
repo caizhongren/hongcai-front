@@ -380,7 +380,7 @@ angular.module('hongcaiApp')
     //风险测评显示
    
     UserCenterService.recentlyQuestionnaire.get({userId: 0}, function(response){
-      if(response.score == -1) {
+      if(response.score == -1 || !$rootScope.isLogged) {
         $scope.questionnareStatus = '未测评';
       }
       if(response.score !== -1){

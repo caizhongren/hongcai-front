@@ -7,6 +7,9 @@ angular.module('hongcaiApp')
   	$scope.tppe = '';
   	$scope.ability = '';
 
+  	if(!$rootScope.isLogged){
+			$state.go('root.login');
+  	}
    	//风险测评问题详情  
     UserCenterService.getQuestionnaire.get({
     	userId: 0,
