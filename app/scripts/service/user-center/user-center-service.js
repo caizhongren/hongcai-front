@@ -295,13 +295,16 @@ angular.module('hongcaiApp')
       /**
       *风险测评-状态
       **/
-      recentlyQuestionnaire: $resource(RESTFUL_DOMAIN + '/users/:userId/recentlyQuestionnaire',{
-        userId: '@userId'
-      }),
+      recentlyQuestionnaire: $resource(RESTFUL_DOMAIN + '/users/:userId/recentlyQuestionnaire',{userId: '@userId'}),
       //风险测评题目详情:
       getQuestionnaire: $resource(RESTFUL_DOMAIN + '/users/:userId/getQuestionnaire',{
         userId: '@userId',
         surveyType: '@surveyType'
+      },{
+        'get': {
+          method: 'GET',
+          isArray: true
+        }
       }), 
       //风险测评问卷提交:
       questionnaire: $resource(RESTFUL_DOMAIN + '/users/:userId/questionnaire',{

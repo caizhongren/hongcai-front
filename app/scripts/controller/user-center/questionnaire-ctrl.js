@@ -18,7 +18,7 @@ angular.module('hongcaiApp')
    			surveyType: 1
    		}, function(response){
    		  if(response && response.ret !== -1) {
-   		  	$scope.questionnaires = response.questionnaires;
+   		  	$scope.questionnaires = response;
    		  }
    		})
    	};
@@ -60,16 +60,17 @@ angular.module('hongcaiApp')
 	   	  	  template: 'views/modal/alert-results.html',
 	   	  	  show: true
 	   	  	});
+	   	  	var score = response[0] == '-1' ? '-1' : parseInt(response[0] + response[1] + response[2]); 
 	   	  	$scope.ability = function(){
-	   	  		if(response.score > 21 && response.score < 40){return '一般';}
-	   	  		if(response.score > 40 && response.score < 56){return '较强';}
-	   	  		if(response.score > 55 && response.score < 71){return '很强';}
-	   	  		if(response.score > 70 && response.score < 151){return '超赞';}
+	   	  		if(score > 21 && score < 41){return '一般';}
+	   	  		if(score > 40 && score < 56){return '较强';}
+	   	  		if(score > 55 && score < 71){return '很强';}
+	   	  		if(score > 70){return '超赞';}
 	   	  	}();
 	   	  	$scope.type = function(){
-	   	  		if(response.score < 35){return '保守型';}
-	   	  		if(response.score > 34 && response.score < 60){return '稳健型';}
-	   	  		if(response.score > 59){return '进取型';}
+	   	  		if(score < 35){return '保守型';}
+	   	  		if(score > 34 && score < 60){return '稳健型';}
+	   	  		if(score > 59){return '进取型';}
 	   	  	}()
 	   	  	$timeout(function() {
 	   	  		$scope.busy = false;
