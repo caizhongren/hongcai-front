@@ -69,7 +69,7 @@ angular.module('hongcaiApp')
 	   	  	$scope.type = function(){
 	   	  		if(response.score < 35){return '保守型';}
 	   	  		if(response.score > 34 && response.score < 60){return '稳健型';}
-	   	  		if(response.score > 59){return '稳健型';}
+	   	  		if(response.score > 59){return '进取型';}
 	   	  	}()
 	   	  	$timeout(function() {
 	   	  		$scope.busy = false;
