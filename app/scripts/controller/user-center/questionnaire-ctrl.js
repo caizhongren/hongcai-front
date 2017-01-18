@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('QuestionnaireCtrl', function($scope, $state, $rootScope, $stateParams, $timeout, $alert, UserCenterService) {
+  .controller('QuestionnaireCtrl', function($scope, $state, $rootScope, $timeout, $alert, UserCenterService) {
   	$scope.showWarning = false;
   	$scope.busy = false;
   	$scope.questionAndAnswer = {};
@@ -10,19 +10,21 @@ angular.module('hongcaiApp')
   	if(!$rootScope.isLogged){
 			$state.go('root.login');
   	}
+
    	//风险测评问题详情  
-    UserCenterService.getQuestionnaire.get({
-    	userId: 0,
-    	surveyType: 1
+   	$scope.getQuestionnaire = function(){
+   		UserCenterService.getQuestionnaire.get({
+   			userId: 0,
+   			surveyType: 1
+   		}, function(response){
+   		  if(response && response.ret !== -1) {
+   		  	$scope.questionnaires = response.questionnaires;
+   		  }
+   		})
+   	};
+    $scope.getQuestionnaire();
 
-    }, function(response){
-      if(response && response.ret !== -1) {
-      	$scope.questionnaires = response.questionnaires;
-      }
-    })
-
-    //选择选项
-    
+    //选择选项 
     $scope.select = function($event,question,answer) {
     	$scope.mask = true;
     	var el = (function(){
@@ -33,7 +35,6 @@ angular.module('hongcaiApp')
 	      }
   	  })();
   	  $scope.questionAndAnswer[question] = answer;
-  	  console.log($scope.questionAndAnswer);
   	  el.addClass('active').siblings('li').removeClass('active');
   	  $scope.submitQuestionnaire = function(){
   	  	if($scope.busy == true) {
@@ -42,7 +43,8 @@ angular.module('hongcaiApp')
   	  	$scope.busy = true;
   	  	$scope.submit($scope.questionAndAnswer);
   	  }
-    }
+    };
+
    //提交
     $scope.submit = function(questionAndAnswer) {
    		UserCenterService.questionnaire.post({
@@ -52,6 +54,7 @@ angular.module('hongcaiApp')
 	   	}, function(response){
 	   	  if(response && response.ret !== -1) {
 	   	  	$scope.questionnaires = response.questionnaires;
+	   	  	$scope.getQuestionnaire();
 	   	  	$alert({
 	   	  	  scope: $scope,
 	   	  	  template: 'views/modal/alert-results.html',
@@ -81,7 +84,7 @@ angular.module('hongcaiApp')
 	   	  	}, 3000);
 	   	  }
 	   	})
-	  }
+	  };
 
 
 
