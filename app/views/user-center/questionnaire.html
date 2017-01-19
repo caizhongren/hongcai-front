@@ -1,0 +1,21 @@
+<div class="questionnaire clearfix">
+<!--  -->
+	<div class="container">
+		<div class="row">
+			<div class="question col-md-12 clearfix" ng-repeat="question in questionnaires" >
+				<div class="row">
+					<span class="index fl col-md-offset-1"><p>{{question.id}}</p></span><p class="ft-20">{{question.title}}</p>
+					<ul class="options col-md-10">
+						<li class="fl col-md-5 bg-white" ng-repeat="answer in question.answers" ng-click="select($event,question.id,answer.id);">
+							<span class="circle margin-r-10 fl"></span><span class="display-inlb words">{{answer.answer}}</span>
+							<!-- <input type="radio" name="sex" value="{{answer.answer}}" /><span class="display-inlb words">{{answer.answer}}</span> -->
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="position-re text-center"><p class="position-ab margin-auto warning" ng-show="showWarning"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{warningMsg}}~</p>
+		<button type="button" class="submit-btn {{!mask? 'disabled' : ''}} " ng-click="submitQuestionnaire()" ng-disabled="!mask">提交</button>
+	</div>
+</div>

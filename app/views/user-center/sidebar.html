@@ -1,4 +1,4 @@
-<div class="col-lg-12 col-md-12 margin-t-20 padding-l-0">
+<div class="col-lg-12 col-md-12 margin-t-20 padding-l-0" ng-if="selectSide !=='questionnaire' ">
   <a ui-sref="root.main">首页</a>&gt;&nbsp;<a ui-sref="root.userCenter.account-overview">我的账户</a>&gt;&nbsp;
   <span ng-switch="selectSide">
     <span ng-switch-when="account-overview">账户总览</span>
@@ -23,7 +23,7 @@
 </div>
 
 <!--user-center-sidebar-->
-<div class="left-area col-lg-2 col-md-3 ft-14">
+<div class="left-area col-lg-2 col-md-3 ft-14" ng-if="selectSide !=='questionnaire' ">
   <div class="row">
     <div class="sidebar-personal ft-white {{userCenterPart == 1 ? 'bg-orange' : 'side-white'}}">
       <button class="ftw-b {{userCenterPart == 1 ? 'bg-orange' : 'side-whitebg'}}">账户信息</button>
