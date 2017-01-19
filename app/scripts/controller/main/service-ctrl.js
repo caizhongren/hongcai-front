@@ -126,11 +126,12 @@ angular.module('hongcaiApp')
       });
     };
     //提交反馈
+    var pattern = /^[\+\-]?\d*?\.?\d*?$/;
     $scope.submitFeedback = function(user,evt) {
       if(user.contactWay && user.contactWay.toString().length !== 11) {
         return;
       }
-      if(!user || !user.feedbackInfo) {
+      if(!user || !user.feedbackInfo || !pattern.test(user.contactWay)) {
         return;
       }
       submit(user,evt);
