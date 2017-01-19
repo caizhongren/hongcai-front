@@ -1,4 +1,4 @@
-<div class="alert" ng-class="[type ? 'alert-' + type : null]" id="Feedback">
+<div class="alert" ng-class="[type ? 'alert-' + type : null]" id="Feedback" ng-controller="ServiceCtrl">
   <button type="button" class="close" ng-if="dismissable" ng-click="$hide()">&times;</button>
   <div class="title">
     <p class=" margin-b-0">测评结果：</p>
@@ -12,12 +12,12 @@
     </div>
 
     <div class="mobile position-re">
-      <input type="mobile" name="contactWay" placeholder="手机号(选填)" ng-model="user.contactWay" ng-pattern="/^[\+\-]?\d*?\.?\d*?$/">
-      <p class="text-center position-ab ft-red4 ft-12 error" ng-show="feedbackForm.contactWay.$error.pattern || user.contactWay && user.contactWay.length !== 11">手机号格式有误</p>
+      <input type="mobile" name="contactWay" placeholder="手机号(选填)" ng-model="user.contactWay">
+      <p class="text-center position-ab ft-red4 ft-12 error" ng-show="msg">{{msg}}</p>
     </div>
 
     <div class="bottom">
-      <button type="submit" class="btn btn-primary-orange btn-block pull-left margin-l {{!user.feedbackInfo || feedbackForm.contactWay.$error.pattern || (user.contactWay && user.contactWay.length !== 11)? 'not-alow':''}}" href="javascript:;" ng-click="submitFeedback(user,$hide)">提交</button>
+      <button type="submit" class="btn btn-primary-orange btn-block pull-left margin-l {{user.feedbackInfo && !msg ? '':'not-alow'}}" href="javascript:;" ng-click="submitFeedback(user,$hide)" ng-disabled="!user.feedbackInfo || msg || busy">提交{{user.feedbackInfo || !msg}}</button>
     </div>
   </form>
   
