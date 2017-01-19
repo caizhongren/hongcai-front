@@ -482,7 +482,7 @@ hongcaiApp
         }
       }
     })
-
+    
     /*---------  user-center  ------------------------*/
     .state('root.userCenter', {
         'url':'/user-center',
@@ -548,6 +548,17 @@ hongcaiApp
         },
         data: {
           title: '安全设置'
+        }
+      })
+      // 风险测评调查问卷
+      .state('root.userCenter.questionnaire', {
+        url: '/questionnaire',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/questionnaire.html',
+            controller: 'QuestionnaireCtrl',
+            controllerUrl: 'scripts/controller/user-center/questionnaire-ctrl'
+          }
         }
       })
       .state('root.userCenter.recharge', {
