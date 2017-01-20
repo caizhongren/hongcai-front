@@ -341,6 +341,6 @@ angular.module('hongcaiApp')
       }
       
     }
-    $scope.selectPay(3);
+    $scope.selectPay(1);
 
   });
