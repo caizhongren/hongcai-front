@@ -453,6 +453,12 @@ angular.module('hongcaiApp')
             });
 
             $window.open('/#!/user-order-transfer/' + project.id + '/' + orderId + '/' + orderType, '_blank');
+          } else if(response.code == -1037) {
+               $modal({
+               scope: $scope,
+               template: 'views/modal/alert-unfinishedOrder.html',
+               show: true
+             });
           } else {
             toaster.pop('error', response.msg);
           }
@@ -707,7 +713,7 @@ angular.module('hongcaiApp')
     //查看更多
     $scope.initLimit = 8;
     $scope.loadMore = function(){
-      $scope.initLimit = $scope.initLimit + 3 < $scope.list.length ? $scope.initLimit + 3 : $scope.list.length;
+      $scope.initLimit = $scope.initLimit + 3 < $scope.list.length ? $scope.initLimit + 3 : $scope.list.length;;
     }
 
   });

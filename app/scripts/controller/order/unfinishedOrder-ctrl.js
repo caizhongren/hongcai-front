@@ -1,7 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('UnfinishedOrderCtrl', function($scope, $rootScope, $stateParams, OrderService, UserCenterService, $modal, $alert, $state, toaster) {
-
   	// 未支付订单
   	OrderService.unFinishedOrder.get({}, function(order){
   	  $scope.unFinishedOrder = order;
@@ -13,7 +12,6 @@ angular.module('hongcaiApp')
   	 * 继续支付订单
   	 */
   	$scope.toPay = function(order) {
-
   	  var projectId = order.projectId;
   	  var orderId = order.id;
   	  var orderType = order.type;

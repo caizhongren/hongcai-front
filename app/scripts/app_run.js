@@ -7,7 +7,7 @@
 
 'use strict';
 angular.module('hongcaiApp')
-  .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
+  .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie, OrderService) {
     $rootScope.baseFileUrl = config.baseFileUrl;
 
     /**
@@ -48,6 +48,10 @@ angular.module('hongcaiApp')
      * 未完成订单
      */
     $rootScope.toFinishOrder = function() {
+      var unFinishedOrder = OrderService.unFinishedOrder.get();
+      if(!unFinishedOrder) {
+        return;
+      }
       $rootScope.finishOrder = $modal({
         scope: $rootScope,
         template: 'views/modal/alert-unfinishedOrder.html',
