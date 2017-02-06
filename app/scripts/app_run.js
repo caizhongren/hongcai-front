@@ -44,7 +44,16 @@ angular.module('hongcaiApp')
         show: true
       });
     };
-
+    /**
+     * 未完成订单
+     */
+    $rootScope.toFinishOrder = function() {
+      $rootScope.finishOrder = $modal({
+        scope: $rootScope,
+        template: 'views/modal/alert-unfinishedOrder.html',
+        show: true
+      });
+    };
     /**
      * 激活存管通账户
      */
