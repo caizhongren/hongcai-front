@@ -51,6 +51,7 @@ angular.module('hongcaiApp')
       OrderService.unFinishedOrder.get({},function(order){
         // console.log(order.orderAmount);
         if(!order.orderAmount) {
+          $state.reload();
           return;
         }
         $rootScope.finishOrder = $modal({
