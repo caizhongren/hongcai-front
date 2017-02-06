@@ -380,19 +380,18 @@ angular.module('hongcaiApp')
     //风险测评显示
    
     UserCenterService.recentlyQuestionnaire.get({userId: 0}, function(response){
-      $scope.score1 = response.score1;
-      $scope.score2 = response.score2;
-      if($scope.score1 == -1 && $scope.score2 == -1 || !$rootScope.isLogged) {
+      var score = response[0] == '-1' ? '-1' : parseInt(response[0] + response[1] + response[2]); 
+      if(score == -1 || !$rootScope.isLogged) {
         $scope.questionnareStatus = '未测评';
       }
-      if($scope.score1 !== -1 && $scope.score2 !== -1){
-        if($scope.score2 < 35) {
+      if(score !== -1){
+        if(score < 35) {
           $scope.questionnareStatus = '保守型';
         }
-        if($scope.score2 > 34 && $scope.score2 < 60) {
+        if(score > 34 && score < 60) {
           $scope.questionnareStatus = '稳健型';
         }
-        if($scope.score2 > 59) {
+        if(score > 59) {
           $scope.questionnareStatus = '进取型';
         }
       }

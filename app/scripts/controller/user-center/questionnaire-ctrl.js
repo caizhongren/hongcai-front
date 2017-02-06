@@ -60,18 +60,17 @@ angular.module('hongcaiApp')
 	   	  	  template: 'views/modal/alert-results.html',
 	   	  	  show: true
 	   	  	});
-	   	  	var score1 = response.score1,
-	   	  			score2 = response.score2; 
+	   	  	var score = response[0] == '-1' ? '-1' : parseInt(response[0] + response[1] + response[2]); 
 	   	  	$scope.ability = function(){
-	   	  		if(score1 > 21 && score1 < 41){return '一般';}
-	   	  		if(score1 > 40 && score1 < 56){return '较强';}
-	   	  		if(score1 > 55 && score1 < 71){return '很强';}
-	   	  		if(score1 > 70){return '超赞';}
+	   	  		if(score > 21 && score < 41){return '一般';}
+	   	  		if(score > 40 && score < 56){return '较强';}
+	   	  		if(score > 55 && score < 71){return '很强';}
+	   	  		if(score > 70){return '超赞';}
 	   	  	}();
 	   	  	$scope.type = function(){
-	   	  		if(score2 < 35){return '保守型';}
-	   	  		if(score2 > 34 && score2 < 60){return '稳健型';}
-	   	  		if(score2 > 59){return '进取型';}
+	   	  		if(score < 35){return '保守型';}
+	   	  		if(score > 34 && score < 60){return '稳健型';}
+	   	  		if(score > 59){return '进取型';}
 	   	  	}()
 	   	  	$timeout(function() {
 	   	  		$scope.busy = false;
