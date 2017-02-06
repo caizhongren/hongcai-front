@@ -44,7 +44,14 @@ angular.module('hongcaiApp')
         show: true
       });
     };
-
+    $rootScope.toFinishOrder = function(projectDays) {
+      // $rootScope.toNotice();
+      $rootScope.finishOrder = $modal({
+        scope: $rootScope,
+        template: 'views/modal/alert-unfinishedOrder.html',
+        show: true
+      });
+    };
     /**
      * 激活存管通账户
      */

@@ -133,11 +133,7 @@ angular.module('hongcaiApp')
 
             $window.open('/#!/user-order-transfer/' + response.projectId + '/' + response.id + '/' + response.type + '?orderNumber=' + response.number, '_blank');
           }else if(response.code == -1037) {
-               $modal({
-               scope: $scope,
-               template: 'views/modal/alert-unfinishedOrder.html',
-               show: true
-             });
+            $rootScope.toFinishOrder($scope.remainDay);
           } else {
             toaster.pop('error', response.msg);
           }
