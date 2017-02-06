@@ -44,8 +44,10 @@ angular.module('hongcaiApp')
         show: true
       });
     };
-    $rootScope.toFinishOrder = function(projectDays) {
-      // $rootScope.toNotice();
+    /**
+     * 未完成订单
+     */
+    $rootScope.toFinishOrder = function() {
       $rootScope.finishOrder = $modal({
         scope: $rootScope,
         template: 'views/modal/alert-unfinishedOrder.html',
