@@ -48,15 +48,17 @@ angular.module('hongcaiApp')
      * 未完成订单
      */
     $rootScope.toFinishOrder = function() {
-      var unFinishedOrder = OrderService.unFinishedOrder.get();
-      if(!unFinishedOrder) {
-        return;
-      }
-      $rootScope.finishOrder = $modal({
-        scope: $rootScope,
-        template: 'views/modal/alert-unfinishedOrder.html',
-        show: true
+      OrderService.unFinishedOrder.get({},function(order){
+        if(!order) {
+          return;
+        }
+        $rootScope.finishOrder = $modal({
+          scope: $rootScope,
+          template: 'views/modal/alert-unfinishedOrder.html',
+          show: true
+        });
       });
+      
     };
     /**
      * 激活存管通账户
