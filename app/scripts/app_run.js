@@ -7,7 +7,7 @@
 
 'use strict';
 angular.module('hongcaiApp')
-  .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie) {
+  .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie, OrderService) {
     $rootScope.baseFileUrl = config.baseFileUrl;
 
     /**
@@ -44,7 +44,24 @@ angular.module('hongcaiApp')
         show: true
       });
     };
-
+    /**
+     * 未完成订单
+     */
+    $rootScope.toFinishOrder = function() {
+      OrderService.unFinishedOrder.get({},function(order){
+        // console.log(order.orderAmount);
+        if(!order.orderAmount) {
+          $state.reload();
+          return;
+        }
+        $rootScope.finishOrder = $modal({
+          scope: $rootScope,
+          template: 'views/modal/alert-unfinishedOrder.html',
+          show: true
+        });
+      });
+      
+    };
     /**
      * 激活存管通账户
      */

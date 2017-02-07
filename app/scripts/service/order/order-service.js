@@ -43,6 +43,8 @@ angular.module('hongcaiApp')
         'POST': {
           method: 'POST'
         }
-      })
+      }),
+      //未支付订单
+      unFinishedOrder: $resource(RESTFUL_DOMAIN + '/orders/unpay', {})
     };
   });
