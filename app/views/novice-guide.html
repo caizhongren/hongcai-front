@@ -3,7 +3,7 @@
 	<!-- banner -->
 	<section class="newbie-banner">
 		<div class="newbie-banner-header" style="opacity: 0;">
-			<img src="/images/novice-guide/head-img.png" class="display-bl" style="opacity: 0;" >
+			<img src="/images/novice-guide/head-img.png" class="display-bl cursor-pt" style="opacity: 0;" ui-sref="root.main">
 		</div>
 	</section>
 	<!-- 宏财简介 -->
@@ -258,7 +258,10 @@
 			<div class="process-all">
 				<div class="process-circle">
 					<ul class="clearfix">
-						<li class="li1 li_activ">注册</li><li>-------------</li><li class="li2">认证</li><li>-------------</li><li class="li3">充值</li><li>-------------</li><li class="li4">投资</li>
+						<li class="li1 li_activ cursor-pt" data-target="#carousel-example-generic" data-slide-to="0">注册</li><li>-------------</li>
+						<li class="li2 cursor-pt" data-target="#carousel-example-generic" data-slide-to="2">认证</li><li>-------------</li>
+						<li class="li3 cursor-pt" data-target="#carousel-example-generic" data-slide-to="6">充值</li><li>-------------</li>
+						<li class="li4 cursor-pt" data-target="#carousel-example-generic" data-slide-to="9">投资</li>
 					</ul>
 				</div>
 				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -353,22 +356,23 @@
 			</div>
 			<div class="welfare-content clearfix text-center">
 				<div class="row novice">
-					<div class="col-md-3 welfare-experience">
+					<div class="col-md-4 welfare-experience cursor-pt" ui-sref="root.activity.novice-landing">
 						<img src="/images/novice-guide/welfare-experience.png" alt="">
 						<p>8888元体验金</p>
 					</div>
-					<div class="col-md-3 welfare-cash">
+					<div class="col-md-4 welfare-cash cursor-pt" ui-sref="root.activity.novice-landing">
 						<img src="/images/novice-guide/welfare-cash.png" alt="">
-						<p>688元现金红包</p>
+						<!-- <p>688元现金红包</p> -->
+						<p>300元现金奖励</p>
 					</div>
-					<div class="col-md-3 welfare-new">
+					<div class="col-md-4 welfare-new cursor-pt" ui-sref="root.main">
 						<img src="/images/novice-guide/welfare-new.png" alt="">
 						<p>新手专享标</p>
 					</div>
-					<div class="col-md-3 welfare-rate">
+					<!-- <div class="col-md-3 welfare-rate">
 						<img src="/images/novice-guide/welfare-rate.png" alt="">
 						<p>3%加息券</p>
-					</div>
+					</div> -->
 				</div>
 				<div class="row margin-auto" ng-if="!isLogged">
 					<div class="novice-btn" ui-sref="root.register">注册领取</div>
