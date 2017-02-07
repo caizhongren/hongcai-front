@@ -84,9 +84,6 @@ angular.module('hongcaiApp')
       function(){
         $(this).stop().animate({backgroundColor: 'rgba(0,0,0,0.8)',top: 0},300);
         $(this).addClass('cursor-pointer');
-      },
-      function() {
-        $(this).stop().animate({backgroundColor: 'rgba(0,0,0,0.2)',top: '326px'},300);
       }
     );
 
