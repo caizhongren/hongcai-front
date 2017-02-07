@@ -3,7 +3,8 @@
      <div class="title">
        <span class="tip">债权详情</span>
      </div>
-   <a class="pull-right padding-r-30 padding-t-20 margin-b-20 text-unline" ui-sref="root.userCenter.credit">返回债权列表</a>
+   <!-- <a class="pull-right padding-r-30 padding-t-20 margin-b-20 text-unline" ui-sref="root.userCenter.credit">返回债权列表</a> -->
+   <a class="pull-right padding-r-30 padding-t-20 margin-b-20 text-unline" ng-click="generateContractPDF(orderDetail.projectId, orderDetail.id, orderDetail.status, orderDetail.type);">合同下载</a>
 
   <table class="table table-bordered margin-t-30 security-table">
     <thead>

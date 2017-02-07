@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ServiceCtrl', ['$scope', function($scope) {
+  .controller('ServiceCtrl', function($scope, $alert,  $http, toaster, $modal, $timeout) {
     var $bottomTools = $('.bottom_tools');
 
 
@@ -104,4 +104,56 @@ angular.module('hongcaiApp')
         $scope.params.selectedIcon = '';
       }
     };
-  }]);
+    //校验联系方式
+    var pattern = /^[\+\-]?\d*?\.?\d*?$/;
+    $scope.$watch('user.contactWay',function(newVal) {
+      $scope.msg = '';
+      if(!newVal) {
+        return
+      }
+      if(newVal) {
+        if(newVal.length > 11  || !pattern.test(newVal)) {
+          $scope.msg = '手机号格式有误';
+        }
+      }
+    })
+      //问题反馈弹窗
+    $scope.feedback = function() {
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alert-feedback.html',
+        show: true
+      });
+    };
+    //接口
+    var submit = function(user,evt){
+      $http({
+        method: 'get',
+        url: '/hongcai/api/v1/feedback/saveFeedback?feedbackInfo=' + user.feedbackInfo + '&contackWay=' + user.contactWay
+      }).success(function(response) {
+        $timeout(function() {
+          $scope.busy = false;
+        }, 3000);
+        toaster.pop('success', '反馈成功！');
+        evt();
+      }).error(function() {
+        $timeout(function() {
+          $scope.busy = false;
+        }, 3000);
+        toaster.pop('error', response.msg);
+      });
+    };
+    //提交反馈
+    $scope.busy = false;
+    $scope.submitFeedback = function(user,evt) {
+      if(user.contactWay && (user.contactWay.toString().length !== 11 || !pattern.test(user.contactWay))) {
+        $scope.msg = '手机号格式有误';
+        return;
+      }
+      if(!user || !user.feedbackInfo || $scope.busy) {
+        return;
+      }
+      $scope.busy = true;
+      submit(user,evt);
+    };
+  });

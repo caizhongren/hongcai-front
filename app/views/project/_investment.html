@@ -142,7 +142,7 @@
             <div ng-switch on="isAvailable">
               <div class="col-xs-12" ng-switch-when="1">
                 <!-- 有未完成的订单时展示 -->
-                <button class="btn btn-lg btn-total-orange btn-block positive-margin1 margin-b-30" data-animation="am-fade-and-slide-top" data-template="views/modal/alert-unfinishedOrder.html" data-placement="top" data-container="body" data-duration="1000" bs-alert="alert">立即投资</button>
+                <button class="btn btn-lg btn-total-orange btn-block positive-margin1 margin-b-30" ng-click="toFinishOrder();">立即投资</button>
               </div>
               <form class="padding-l-15 padding-r-15" name="investForm" class="padding-t-10" ng-switch-default>
                 <span class="ft-grey666">投资金额：</span>
