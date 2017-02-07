@@ -10,7 +10,7 @@
     <span ng-switch-when="record">资金流水</span>
     <span ng-switch-when="credit">我的投资</span>
     <span ng-switch-when="assignments">债权管理</span>
-    <span ng-switch-when="investment">我的订单</span>
+    <!-- <span ng-switch-when="investment">我的订单</span> -->
     <span ng-switch-when="reservation">预约记录</span>
     <span ng-switch-when="cash-coupon">奖金</span>
     <span ng-switch-when="experience-money">体验金</span>
@@ -79,10 +79,10 @@
         <span class="sidebar-pic sidebar-pic31_1 margin-l-35"></span>
         <p class="{{selectSide == 'assignments'  || selectPage_two == 'assignments'? 'now' : ''}} position margin-l--10 display-inbl">债权管理</p>
       </a>
-      <a ui-sref="root.userCenter.investment({type:99})" class="tips-left-area {{selectSide == 'investment' ? 'bg-white' : ''}}">
+      <!-- <a ui-sref="root.userCenter.investment({type:99})" class="tips-left-area {{selectSide == 'investment' ? 'bg-white' : ''}}">
         <span class="sidebar-pic sidebar-pic32 margin-l-35"></span>
         <p class="{{selectSide == 'investment' ? 'now' : ''}} position margin-l--10 display-inbl">我的订单</p>
-      </a>
+      </a> -->
       <a ui-sref="root.userCenter.reservation" class="tips-left-area {{selectSide == 'reservation' ? 'bg-white' : ''}}">
         <span class="sidebar-pic sidebar-pic33 margin-l-35"></span>
         <p class="{{selectSide == 'reservation' ? 'now' : ''}} position margin-l--10 display-inbl">预约记录</p>

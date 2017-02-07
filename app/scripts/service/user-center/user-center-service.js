@@ -314,5 +314,9 @@ angular.module('hongcaiApp')
       }, {
         'post': {method:'POST'}
       }), 
+      //订单详情
+      orderDetail: $resource(RESTFUL_DOMAIN + '/orders/:orderNumber',{
+        orderNumber: '@orderNumber'
+      }),
     };
   });
