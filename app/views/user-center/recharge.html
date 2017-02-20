@@ -18,9 +18,9 @@
         </div>
         <div class="row margin-t-20 ">
           <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==1 || payment == 3}"><b>快捷支付方式</b></div>
-          <!-- <div class="col-md-2 cursor-pointer pay-typeUCF" ng-class="{'pay-active':payment ==3}" ng-click="selectPay(3)">先锋支付</div> -->
+          <div class="col-md-2 cursor-pointer pay-typeUCF" ng-class="{'pay-active':payment ==3}" ng-click="selectPay(3)">先锋支付</div>
           <div class="col-md-2 cursor-pointer pay-typeFU" ng-class="{'pay-active':payment ==1}" ng-click="selectPay(1)">富有支付</div>
-          <a class=" col-md-2 col-md-offset-5 cursor-pt supportBank" href="javascript:;" focus-blur>支持银行及限额</a>
+          <a class=" col-md-2 col-md-offset-3 cursor-pt supportBank" href="javascript:;" focus-blur>支持银行及限额</a>
           <table class="supportList border-grey1" ng-if="payment !== 2">
             <thead>
               <tr class="ftw-b border-grey1">
@@ -44,12 +44,12 @@
         </div>
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-40 margin-b-50 margin-l-30">
-          <div>
+          <div ng-if="payment ==1">
             <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5"><img ng-src="{{ bankCodeList_FU[userCard.bankCode].imgUrl}}">{{ bankCodeList_FU[userCard.bankCode].name}}</div><div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div><div class="col-md-2 text-right"><span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span></div><div class="col-md-4 padding-0 text-center">单笔/单日/单月限额：{{ bankCodeList_FU[userCard.bankCode].limit}}</div>
           </div>
-          <!-- <div ng-if="payment !==1">
+          <div ng-if="payment !==1">
             <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5"><img ng-src="{{ bankCodeList_UCF[userCard.bankCode].imgUrl}}">{{ bankCodeList_UCF[userCard.bankCode].name}}</div><div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div><div class="col-md-2 text-right"><span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span></div><div class="col-md-4 padding-0 text-center">单笔/单日/单月限额：{{ bankCodeList_UCF[userCard.bankCode].limit}}</div>
-          </div> -->
+          </div>
           
           <a class=" col-md-2 cursor-pt supportBank padding-l-5" ng-click="changeCard();" href="javascript:;">更换其他银行卡</a>
         </div>

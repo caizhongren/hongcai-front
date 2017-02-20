@@ -3,6 +3,7 @@ angular.module('hongcaiApp')
   .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie,
 
     MainService, DateUtils, AboutUsService, projectStatusMap, config, $window, DEFAULT_DOMAIN) {
+
     $scope.chk = true;
     $scope.checkFlag = true;
     $scope.check = function(val) {
