@@ -22,6 +22,9 @@
             <div class="row margin-l-30" ng-show="rechargeAmount < 3">
               <p class="input-tips user-input-tips col-xs-8">充值金额不能小于3元 </p>
             </div>
+            <div class="row margin-l-30" ng-show="rechargeAmount > bankRemain">
+              <p class="input-tips user-input-tips col-xs-8">充值金额不能大于{{bankRemain}}元 </p>
+            </div>
             <div class="row" ng-show="rechargeForm.amount.$dirty && rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">
               <p class="input-tips user-input-tips col-xs-8">充值金额不能为空</p>
             </div>
@@ -29,7 +32,7 @@
         </div>
         <div class="row">
           <div class="form-group">
-            <input type="button" value="确认充值" class="col-xs-offset-3 col-xs-4" ng-click="recharge(rechargeAmount);$hide()" ng-disabled="rechargeForm.$invalid || rechargeAmount < 3" ng-class="{'white-button-orange':rechargeForm.$invalid || rechargeAmount < 3 , 'orange-button':!rechargeForm.$invalid}" style="box-sizing:content-box;padding: 0px 1px !important;" />
+            <input type="button" value="确认充值" class="col-xs-offset-3 col-xs-4" ng-click="recharge(rechargeAmount);$hide()" ng-disabled="rechargeForm.$invalid || rechargeAmount < 3 || rechargeAmount > bankRemain" ng-class="{'white-button-orange':rechargeForm.$invalid || rechargeAmount < 3 || rechargeAmount > bankRemain , 'orange-button':!rechargeForm.$invalid}" style="box-sizing:content-box;padding: 0px 1px !important;" />
           </div>
         </div>
       </form>
