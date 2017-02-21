@@ -620,11 +620,12 @@
               // z-index: -1;
               z-index: -1;
               z-index: 1\9;
+              z-index: 9999;
               background: url('/images/safe/srtict-orange-bg.jpg') no-repeat center center;
               -webkit-backface-visibility: hidden;
               -moz-backface-visibility: hidden;
-              -ms-backface-visibility: hidden;
-              backface-visibility: hidden;
+              // -ms-backface-visibility: hidden;
+              // backface-visibility: hidden;
               i {
                 width: 50px;
                 height: 50px;
@@ -691,18 +692,18 @@
               left: 0;
               z-index: 50;
               display: none\9;
-              // display: none;
+              display: none;
             }
           }
           .flipper .back,.flipper .front,.flipper .front strong,.strict-content a .flipper,b,i {
             -webkit-backface-visibility: hidden;
             -moz-backface-visibility: hidden;
-            -ms-backface-visibility: hidden;
-            backface-visibility: hidden;
+            // -ms-backface-visibility: hidden;
+            // backface-visibility: hidden;
             -webkit-perspective: 1000;
             -moz-perspective: 1000;
-            -ms-perspective: 1000;
-            perspective: 1000;
+            // -ms-perspective: 1000;
+            // perspective: 1000;
           }
         }
       }
@@ -730,9 +731,9 @@
         }
         position: relative;
         right: -48px;
-      }
+      } 
     }
-    .strict-content a:hover .flipper,.strict-content.hover .flipper {
+    .strict-content a:hover .flipper,.strict-content a.hover .flipper {
       -webkit-transform: rotateY(180deg);
       -moz-transform: rotateY(180deg);
       -ms-transform: rotateY(180deg);
@@ -753,12 +754,12 @@
       
       -webkit-backface-visibility: hidden;
       -moz-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-      backface-visibility: hidden;
+      // -ms-backface-visibility: hidden;
+      // backface-visibility: hidden;
       -webkit-perspective: 1000;
       -moz-perspective: 1000;
-      -ms-perspective: 1000;
-      perspective: 1000;
+      // -ms-perspective: 1000;
+      // perspective: 1000;
     }
     .strict-content .back {
       -webkit-transform: rotateY(182deg);
@@ -767,12 +768,12 @@
       -o-transform: rotateY(182deg);
       transform: rotateY(182deg);
     }
-    .strict-content .back:hover  {
+    .strict-content a:hover .back, .strict-content a.hover .back  {
       // display: block\9;
       // display: none\9;
-      display: block;
-      opacity: 1;
-      z-index: 9999;
+      display: block  !important;
+      opacity: 1 !important;
+      z-index: 9999999 !important;
     }
     
   }
