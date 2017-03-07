@@ -141,37 +141,37 @@ angular.module('hongcaiApp')
         'card': 'COMM',
         'name': '交通银行',
         'imgUrl': '/images/user-center/COMM.png',
-        'limit': '2w/2w/不限'
+        'limit': '9999/9999/不限'
       },
       'CMBC':{
         'card': 'CMBC',
         'name': '招商银行',
         'imgUrl': '/images/user-center/CMBC.png',
-        'limit': '10w/100w/不限'
+        'limit': '5000/10w/不限'
       },
       'CIBK':{
         'card': 'CIBK',
         'name': '中信银行',
         'imgUrl': '/images/user-center/CIBK.png',
-        'limit': '100w/100w/不限'
+        'limit': '1w/1w/2w'
       },
       'SZDB':{
         'card': 'SZDB',
         'name': '平安银行',
         'imgUrl': '/images/user-center/SZDB.png',
-        'limit': '50w/100w/不限'
+        'limit': '50w/500w/不限'
       },
       'MSBC':{
         'card': 'MSBC',
         'name': '民生银行',
         'imgUrl': '/images/user-center/MSBC.png',
-        'limit': '50w/200w/不限'
+        'limit': '2000w/10000w/不限'
       },
       'EVER':{
         'card': 'EVER',
         'name': '光大银行',
         'imgUrl': '/images/user-center/EVER.png',
-        'limit': '20w/50w/不限'
+        'limit': '50w/不限/不限'
       },
       'HXBK1':{
         'card': 'BOB',
@@ -183,13 +183,13 @@ angular.module('hongcaiApp')
         'card': 'GDBK',
         'name': '广发银行',
         'imgUrl': '/images/user-center/GDBK.png',
-        'limit': '100w/100w/不限'
+        'limit': '不限/不限/不限'
       },
       'PSBC':{
         'card': 'PSBC',
         'name': '邮政银行',
         'imgUrl': '/images/user-center/PSBC.png',
-        'limit': '5000/5000/不限'
+        'limit': '10w/100w/不限'
       },
       'FJIB':{
         'card': 'FJIB',
@@ -201,7 +201,13 @@ angular.module('hongcaiApp')
         'card': 'SPDB',
         'name': '浦发银行',
         'imgUrl': '/images/user-center/SPDB.png',
-        'limit': '10w/10w/不限'
+        'limit': '5w/30w/不限'
+      },
+      'HXBK':{
+        'card': 'HXBK',
+        'name': '华夏银行',
+        'imgUrl': '/images/user-center/HXBK.png',
+        'limit': '50w/150w/不限'
       }
     }
     /*
