@@ -219,4 +219,6 @@ angular.module('hongcaiApp')
 
     $scope.loadCredits($scope.currentPage, $scope.pageSize, $scope.searchStatus);
 
+    $scope.tabStatus = 1;
+    
   });

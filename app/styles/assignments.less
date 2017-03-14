@@ -1,5 +1,5 @@
 // 个人中心-债权转让 
-.userCenter-assignments {
+.userCenter-assignments, .userCenter-credit {
 	// 数据统计
   .data-statistics {
     background-color: #fff;
@@ -12,23 +12,46 @@
       border-right: 1px solid #eeeeee;
     }
   }
-  //切换tab
-  .tabs {
-    .toggle-tab {
-      height: 60px;
-      line-height: 60px;
-      text-align: center;
-      background-color: #fafafa;
+  
+  .width-title {
+    width: 25% !important;
+  }
+
+  //个人中心 新改版 table 表格公用样式
+  .table-solid {
+    color: #666;
+    font-size: 16px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 100%;
+    thead {
+      th {
+        font-weight: normal;
+        padding: 50px 0px 10px;
+        border-bottom: 1px solid #666;
+      }
+      .th-first {
+        text-align: left !important;
+        padding-left: 30px;
+      }
+    }
+    tbody {
+      td {
+        height: 90px;
+        line-height: 90px;
+        border-bottom: 1px solid #eee;
+      }
+    }
+    .th-last {
+      text-align: right !important;
+      padding-right: 30px;
+    }
+    .invment-blue5 {
+      color: #3793df !important;
     }
   }
-  .credit-toggle2 {
-    border-top: 4px solid #f9721f;
-    color: #f9721f;
-    background-color: #fff !important;
-  }
-  // 列表
 
-  //分页button
+  //个人中心 新改版  分页button 公用样式
   .btn-orange6 {
     background-color: #f9721f;
     width: 90px;
@@ -54,4 +77,132 @@
     line-height: 33px;
     margin: 0 6px;
   }
+
+  //个人中心 新改版  切换tab 公用样式
+  .tabs {
+    .toggle-tab {
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      background-color: #fafafa;
+    }
+  }
+  .credit-toggle2 {
+    border-top: 4px solid #f9721f;
+    color: #f9721f;
+    background-color: #fff !important;
+  }
 }
+
+//我的投资
+.userCenter-credit {
+  ul {
+    margin-bottom: 0;
+  }
+  .border-b-d {
+    thead {
+      th {
+       border-bottom: 1px solid #ddd !important;
+       padding-top: 25px !important;
+      }
+    }  
+  }
+  .tabs-two {
+    height: 72px;
+    border-bottom: 1px solid #666;
+    margin: 0;
+    padding-top: 35px;
+    background-color: #fff;
+  }
+  .assetDetail {
+    padding: 66px;
+    padding-right: 0;
+    height: 362px;
+    width: 100%;
+    background: #fff;
+    margin: 30px auto 0;
+    font-size: 16px;
+    overflow: hidden;
+    .assetDetailPie {
+      width: 280px;
+      height: 280px;
+    }
+    .assetDetailTable {
+      width: 620px;
+      text-align: center;
+      float: right;
+      line-height: 65px;
+      position: relative;
+      overflow: hidden;
+      .asset-type-th {
+        text-align: center;
+        width: 120px;
+      }
+      .asset-percent {
+        width: 120px;
+      }
+      dt {
+        text-align: center;
+        line-height: 30px;
+        color: #444444;
+        font-size: 14px;
+        font-weight: normal;
+      }
+      dd {
+        color: #666666;
+        height: 50px;
+        line-height: 50px;
+      }
+      .asset-info {
+        position: relative;
+        cursor: pointer;
+        width: 100%;
+      }
+      .asset-type {
+        text-align: left;
+        width: 120px;
+        span {
+          position: relative;
+          margin-left: 19px;
+        }
+      }
+      .asset-percent {
+        width: 120px;
+      }
+      .totalIncome {
+        color: #f9721f;
+        // text-align: right;
+      }
+      .dot-1, .dot-2, .dot-3, .dot-4 {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+      }
+      .dot-1 {
+        background-color: #0460cd;
+      }
+      .dot-2 {
+        background-color: #2b8bf1;
+      }
+      .dot-3 {
+        background-color: #ffc435;
+      }
+      .dot-4 {
+        background-color: #ffaa25;
+      }
+      li {
+        display: inline-block;
+        width: 180px;
+        color: #666666;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.line-h-0 {
+  line-height: 0 !important;
+}
+
+
+
