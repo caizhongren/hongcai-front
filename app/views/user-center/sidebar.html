@@ -3,30 +3,35 @@
 <div class="left-area ft-14" ng-if="selectSide !=='questionnaire' ">
   <div class="overview">
     <div class="user-portrait">
-      <div class="portrait">
-        <img src="/images/user-center/portrait.png">
+      <div class="portrait" id='cropImg'>
+        <img class="cursor-pointer" ng-src="{{loginUser.headImgUrl || headImgUrl}}" ng-click="changeHead();" title="更换头像">
       </div>
       <p class="user-name ft-grey666 ft-18 text-center">{{ loginUser.nickName || (loginUser.mobile || loginName) }}~</p>
       <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 1">安全等级：低<a href="#">(如何提升)</a></p>
       <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 2">安全等级：高</a></p>
     </div>
-    <div class="flow-icons">
-      <!-- <i class="fa fa-mobile" aria-hidden="true"></i> -->
-      <div class="icons">
-        <div class="position-re">
+    <div class="flow-icons" ng-mouseleave="showTip1=false;showTip2=false;showTip3=false;showTip4=false;">
+      <!-- ng-if="!haveTrusteeshipAccount && showTip2==true"-->
+      <div class="icons position-re">
+        <div class="sidebar-tip" ng-show="mobile !== undefined && showTip1==true" ng-mouseleave="showTip1=false">您已完成手机绑定：{{mobile}}&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ui-sref="root.userCenter.security-settings" ng-click="resetMobile();">修改</span></div>
+        <div class="position-re" ng-mouseenter="showTip1 = true;showTip2 = false;showTip3 = false;showTip4 = false;" ng-init="showTip1=false">
           <img src="/images/user-center/mobile.png">
           <i class="fa fa-check-circle ft-green position-ab" aria-hidden="true" ng-show="mobile !== undefined"></i>
-          <div class="sidebar-tip"></div>
         </div>
-        <div class="position-re">
+        <div class="sidebar-tip sidebar-tip2" ng-show="!haveTrusteeshipAccount && showTip2==true" ng-mouseleave="showTip2=false">您尚未开通资金存管系统&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ng-click="openTrusteeshipAccount();">开通</span></div>
+        <div class="sidebar-tip sidebar-tip2" ng-show="haveTrusteeshipAccount && showTip2==true" ng-mouseleave="showTip2=false">您已开通资金存管系统</div>
+        <div class="position-re" ng-mouseenter="showTip2 = true;showTip1 = false;showTip3 = false;showTip4 = false;">
           <img src="/images/user-center/cgt.png">
           <i class="fa fa-check-circle ft-green position-ab i2" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>
         </div>
-        <div class="position-re">
+        <div class="sidebar-tip sidebar-tip3" ng-show="haveTrusteeshipAccount && showTip3==true" ng-mouseleave="showTip3=false">您已设置交易密码&nbsp;&nbsp;<span class="cursor-pointer ft-blue">修改</span></div>
+        <div class="position-re" ng-mouseenter="showTip3 = true;showTip2 = false;showTip1 = false;showTip4 = false;">
           <img src="/images/user-center/password.png">
-          <i class="fa fa-check-circle ft-green position-ab i3" aria-hidden="true"></i>
+          <i class="fa fa-check-circle ft-green position-ab i3" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>
         </div>
-        <div class="position-re">
+        <div class="sidebar-tip sidebar-tip4" ng-show="haveCard && !isVerifying && !unbinding && showTip4==true" ng-mouseleave="showTip4=false">您已绑定银行卡</div>
+        <div class="sidebar-tip sidebar-tip4" ng-show="!haveCard && !isVerifying && !unbinding && showTip4==true" ng-mouseleave="showTip4=false">您尚未邦定银行卡&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ng-click="bindBankCard();">绑定</span></div>
+        <div class="position-re" ng-mouseenter="showTip4 = true;showTip2 = false;showTip3 = false;showTip1 = false;">
           <img src="/images/user-center/bankcard.png">
           <i class="fa fa-check-circle ft-green position-ab i4" aria-hidden="true" ng-show="isAuth && haveCard && !isVerifying && !unbinding"></i>
         </div>
