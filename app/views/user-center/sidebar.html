@@ -1,31 +1,64 @@
-<div class="col-lg-12 col-md-12 margin-t-20 padding-l-0" ng-if="selectSide !=='questionnaire' ">
-  <a ui-sref="root.main">首页</a>&gt;&nbsp;<a ui-sref="root.userCenter.account-overview">我的账户</a>&gt;&nbsp;
-  <span ng-switch="selectSide">
-    <span ng-switch-when="account-overview">账户总览</span>
-    <span ng-switch-when="security-settings">安全设置</span>
-    <span ng-switch-when="bankcard-management">银行卡管理</span>
-    <span ng-switch-when="assets-overview">资产总览</span>
-    <span ng-switch-when="recharge">充值</span>
-    <span ng-switch-when="withdraw">提现</span>
-    <span ng-switch-when="record">资金流水</span>
-    <span ng-switch-when="credit">我的投资</span>
-    <span ng-switch-when="assignments">债权管理</span>
-    <!-- <span ng-switch-when="investment">我的订单</span> -->
-    <span ng-switch-when="reservation">预约记录</span>
-    <span ng-switch-when="cash-coupon">奖金</span>
-    <span ng-switch-when="experience-money">体验金</span>
-    <span ng-switch-when="rate-coupon">加息券</span>
-    <span ng-switch-when="invite-rebate">邀请中心</span>
-    <span ng-switch-when="message">站内消息</span>
-    <span ng-switch-when="credit-security-details">债权详情</span>
-    <span ng-switch-when="assignments-transfer-details">债权转让</span>
-  </span>
-</div>
 
 <!--user-center-sidebar-->
-<div class="left-area col-lg-2 col-md-3 ft-14" ng-if="selectSide !=='questionnaire' ">
-  <div class="row">
-    <div class="sidebar-personal ft-white {{userCenterPart == 1 ? 'bg-orange' : 'side-white'}}">
+<div class="left-area ft-14" ng-if="selectSide !=='questionnaire' ">
+  <div class="overview">
+    <div class="user-portrait">
+      <div class="portrait">
+        <img src="/images/user-center/portrait.png">
+      </div>
+      <p class="user-name ft-grey666 ft-18 text-center">{{ loginUser.nickName || (loginUser.mobile || loginName) }}~</p>
+      <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 1">安全等级：低<a href="#">(如何提升)</a></p>
+      <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 2">安全等级：高</a></p>
+    </div>
+    <div class="flow-icons">
+      <!-- <i class="fa fa-mobile" aria-hidden="true"></i> -->
+      <div class="icons">
+        <div class="position-re">
+          <img src="/images/user-center/mobile.png">
+          <i class="fa fa-check-circle ft-green position-ab" aria-hidden="true" ng-show="mobile !== undefined"></i>
+          <div class="sidebar-tip"></div>
+        </div>
+        <div class="position-re">
+          <img src="/images/user-center/cgt.png">
+          <i class="fa fa-check-circle ft-green position-ab i2" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>
+        </div>
+        <div class="position-re">
+          <img src="/images/user-center/password.png">
+          <i class="fa fa-check-circle ft-green position-ab i3" aria-hidden="true"></i>
+        </div>
+        <div class="position-re">
+          <img src="/images/user-center/bankcard.png">
+          <i class="fa fa-check-circle ft-green position-ab i4" aria-hidden="true" ng-show="isAuth && haveCard && !isVerifying && !unbinding"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sidebar-items">
+    <div class="nav-items">
+      <ul class="padding-t-15 padding-b-15">
+        <li class="side-tab ft-16 ft-grey666"><span><img src="/images/user-center/account-info.png"></span>账户信息</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'account-overview' ? 'now' : ''}}" ui-sref="root.userCenter.account-overview">账户总览</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'security-settings' ? 'now' : ''}}" ui-sref="root.userCenter.security-settings">账户设置</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'bankcard-management' ? 'now' : ''}}" ui-sref="root.userCenter.bankcard-management">银行卡管理</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'message' ? 'now' : ''}}" ui-sref="root.userCenter.message({status:'0,1'})">站内信（{{unreadCount || 0}}）</li>
+        <li class="side-tab ft-16 ft-grey666"><span><img src="/images/user-center/funds-info.png"></span>资金信息</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'record' ? 'now' : ''}}" ui-sref="root.userCenter.record">资金流水</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'recharge' ? 'now' : ''}}" ui-sref="root.userCenter.recharge">充值</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'withdraw' ? 'now' : ''}}" ui-sref="root.userCenter.withdraw">提现</li>
+        <li class="side-tab ft-16 ft-grey666"><span><img src="/images/user-center/invest-info.png"></span>投资信息</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'credit' || selectPage_two == 'credit'? 'now' : ''}}" ui-sref="root.userCenter.credit">我的投资</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'assignments'  || selectPage_two == 'assignments'? 'now' : ''}}" ui-sref="root.userCenter.assignments">债权转让</li>
+        <li class="ft-16 ft-grey666">自动投标</li>
+        <li class="side-tab ft-16 ft-grey666"><span><img src="/images/user-center/award-info.png"></span>奖励信息</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'cash-coupon' ? 'now' : ''}}" ui-sref="root.userCenter.cash-coupon">奖金</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'rate-coupon' ? 'now' : ''}}" ui-sref="root.userCenter.rate-coupon">加息券</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'experience-money' ? 'now' : ''}}" ui-sref="root.userCenter.experienceMoney">体验金</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'invite-rebate' ? 'now' : ''}}" ui-sref="root.userCenter.invite-rebate">邀请好友</li>
+      </ul>
+    </div>
+  </div>
+  <!-- <div class="row"> -->
+   <!--  <div class="sidebar-personal ft-white {{userCenterPart == 1 ? 'bg-orange' : 'side-white'}}">
       <button class="ftw-b {{userCenterPart == 1 ? 'bg-orange' : 'side-whitebg'}}">账户信息</button>
     </div>
     <div>
@@ -41,9 +74,9 @@
         <span class="sidebar-pic sidebar-pic13 margin-l-35"></span>
         <p class="{{selectSide == 'bankcard-management' ? 'now' : ''}} position margin-l--10 display-inbl">银行卡管理</p>
       </a>
-    </div>
-  </div>
-  <div class="row">
+    </div> -->
+  <!-- </div> -->
+  <!-- <div class="row">
     <div class="sidebar-personal ft-white {{userCenterPart == 2 ? 'bg-orange' : 'side-white'}}">
       <button class="ftw-b {{userCenterPart == 2 ? 'bg-orange' : 'side-whitebg'}}">资金信息</button>
     </div>
@@ -79,10 +112,10 @@
         <span class="sidebar-pic sidebar-pic31_1 margin-l-35"></span>
         <p class="{{selectSide == 'assignments'  || selectPage_two == 'assignments'? 'now' : ''}} position margin-l--10 display-inbl">债权管理</p>
       </a>
-      <!-- <a ui-sref="root.userCenter.investment({type:99})" class="tips-left-area {{selectSide == 'investment' ? 'bg-white' : ''}}">
+      <a ui-sref="root.userCenter.investment({type:99})" class="tips-left-area {{selectSide == 'investment' ? 'bg-white' : ''}}">
         <span class="sidebar-pic sidebar-pic32 margin-l-35"></span>
         <p class="{{selectSide == 'investment' ? 'now' : ''}} position margin-l--10 display-inbl">我的订单</p>
-      </a> -->
+      </a>
       <a ui-sref="root.userCenter.reservation" class="tips-left-area {{selectSide == 'reservation' ? 'bg-white' : ''}}">
         <span class="sidebar-pic sidebar-pic33 margin-l-35"></span>
         <p class="{{selectSide == 'reservation' ? 'now' : ''}} position margin-l--10 display-inbl">预约记录</p>
@@ -122,5 +155,5 @@
         <p class="{{selectSide == 'message' ? 'now' : ''}} position margin-l--10 display-inbl">站内消息</p>
       </a>
     </div>
-  </div>
+  </div> -->
 </div>

@@ -14,10 +14,91 @@
   box-shadow:0px 5px 5px #EAEAEA inset;
 }
 .user-center .right-area, .left-area {
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 40px;
 }
 
+//user-center sidebar
+.left-area {
+  font-family: "Microsoft YaHei";
+  width: 210px;
+  .overview {
+    padding-top: 25px;
+    width: 100%;
+    height: 262px;
+    border-bottom: 1px solid #eee;
+    .user-portrait {
+      p.security-level {
+        margin-bottom: 16px;
+        color: #595656;
+        width: 100%;
+        a {
+          color: #f9721f !important;
+        }
+        a:hover,a:focus {
+          color: #f9721f !important;
+        }
+      }
+      .portrait {
+        margin: 0 auto;
+        width: 103px;
+        height: 103px;
+        border-radius: 50%;
+        img {
+          display: block;
+          margin: 0 auto 5px;
+        }
+      }
+      p.user-name {
+        margin: 0 auto 26px;
+      }
+    }
+    .flow-icons {
+      padding: 0 30px;
+      .icons {
+        display: flex;
+        justify-content: space-between;
+        .position-re {
+          i {
+            bottom: -3px;
+            left: 10px;
+            color: #3fc39f !important;
+          }
+          .i2,.i3 {
+            left: 18px;
+          }
+          .i4 {
+            top: 11px;
+            left: 24px;
+          }
+        }
+      }
+    }
+  }
+  .sidebar-items {
+    .nav-items {
+      padding-top: 13px;
+      ul {
+        li {
+          padding: 13px 0 13px 70px;
+          width: 100%;
+          cursor: pointer;
+        }
+        li.side-tab {
+          padding-left: 0;
+          cursor: default;
+          img {
+            display: inline-block;
+            margin: -1px 11px 0 11px; 
+          }
+        }
+        li.now {
+          color: #f9721f !important;
+        }
+      }
+    }
+  }
+}
 // account-overview && assets-overview
 .left-message-show {
   padding: 30px 20px;
@@ -73,7 +154,7 @@
 }
 .uncoll-money {
   padding-left: 33px;
-  background: url('/images/user-center/backgrounds_sidebar.png') no-repeat -336px -121px ;
+  background: url('/images/user-center/backgrounds_sidebar.png') no-repeat -341px -121px ;
 }
 .freeze-money {
   width: 31px;
@@ -1446,6 +1527,7 @@
 .border-bd-grey{
   border-bottom:1px dashed #e5e4e4;
 }
+
 .tips-left-area{
   width: 100%;
   height: 45px;
@@ -1773,4 +1855,45 @@
   .input-assignment:focus {
     outline: none;
   }
+}
+
+
+//个人中心悬浮提示
+.sidebar-tip{
+   width:267px;
+   height:26px;
+   line-height: 26px;
+   text-align: center;
+   font-size: 12px;
+   padding: 5px;
+   border:1px solid #ddd; 
+   position: absolute;
+   background-color: #fff;
+   left: -62px;
+   bottom: 38px; 
+   //display: none;
+}
+.sidebar-tip:before{
+  content: "";
+  display: block;
+  border-width: 15px;
+  position: absolute;
+  top: 24px;
+  right: 176px;
+  border-style: solid dashed dashed;
+  border-color: #ddd transparent transparent;
+  font-size: 0;
+  line-height: 0;
+  }
+.sidebar-tip:after{
+  content: "";
+  display: block;
+  border-width: 15px;
+  position: absolute;
+  top: 22px;
+  right: 176px;
+  border-style: solid dashed dashed;
+  border-color: #fff transparent transparent;
+  font-size: 0;
+  line-height: 0;
 }

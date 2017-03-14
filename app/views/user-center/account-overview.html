@@ -2,7 +2,7 @@
 <div class="right-area col-md-8 col-lg-9 bg-offWhite">
   <div class="top-content">
   <div class="personal-info">
-    <div class="col-md-4 padding-l-50" ng-switch="securityStatus.realNameAuthStatus + securityStatus.mobileStatus">
+    <div class="col-md-4 padding-l-50" ng-switch="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus">
       <p class="margin-b-0"><strong>{{ loginUser.nickName || (loginUser.mobile || loginName) }}</strong>
       <span id="user-no" ng-switch-default data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="实名认证后账户更加安全"></span>
       <span id="user-yes" ng-switch-when="2" data-toggle="popover" data-placement="bottom" data-trigger="hover" data-content="实名认证后账户更加安全"></span>
