@@ -83,8 +83,8 @@
             </div>
           </td>
         </tr>
-        <tr ng-repeat="item in assignmentsList">
-          <td><a class="invment-blue5 cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)">{{item.name | limitTo: 15 }}{{item.name.length > 15 ? '...':''}}</a></td>
+        <tr ng-repeat="item in assignmentsList" class="assignment-left">
+          <td class="padding-l-30 width-title"><a class="invment-blue5 cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)">{{item.name | limitTo: 12 }}{{item.name.length > 12 ? '...':''}}</a></td>
           <td>{{item.createTime | date:'yyyy-MM-dd'}}</td>
           <td>{{item.amount || 0 | number: 2}}</td>
           <td>{{item.annualEarnings || 0 | number: 2}}</td>
@@ -124,8 +124,8 @@
             </div>
           </td>
         </tr>
-        <tr ng-repeat="item in assignmentsList">
-          <td><a class="invment-blue5 cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)">{{item.name | limitTo: 15 }}{{item.name.length > 15 ? '...':''}}</a></td>
+        <tr ng-repeat="item in assignmentsList" class="assignment-left">
+          <td class="padding-l-30"><a class="invment-blue5 cursor-pointer" ng-click="getPreprPojectDetails(item.projectId)">{{item.name | limitTo: 15 }}{{item.name.length > 15 ? '...':''}}</a></td>
           <td>{{item.amount || 0 | number: 2}}</td>
           <td>{{item.annualEarnings || 0 | number: 2}}</td>
           <td>{{item.soldStock * 100 || 0 | number: 2}}</td>
