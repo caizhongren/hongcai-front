@@ -1,6 +1,15 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserCenterCtrl', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN) {
+  .controller('UserCenterCtrl', function($location, $scope, $http,$state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, ipCookie, $alert) {
+    var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
+    $checkSessionServer.error(function(response) {
+        return;
+    }).success(function(response) {
+      if(response.data.securityStatus.trusteeshipAccountStatus !==1) {
+        ipCookie('openTrusteeshipAccount', true);
+      }
+    });
+    $scope.headImgUrl = '/images/user-center/portrait.png';
     $rootScope.selectPage = $location.path().split('/')[2];
     var timestamp = new Date();
     var welcomeTime = timestamp.getHours();
@@ -58,6 +67,7 @@ angular.module('hongcaiApp')
           $scope.haveCard = (card.status === 'VERIFIED');
           $scope.isVerifying = (card.status === 'VERIFYING');
           $scope.unbinding = (card.status === 'INIT');
+          // ipCookie('resetMobile', true);
         } else {
           $scope.haveCard = false;
         }
@@ -67,7 +77,40 @@ angular.module('hongcaiApp')
       }
     });
 
+    //修改手机号
+    $scope.resetMobile = function(){
+      $state.go('root.userCenter.security-settings');
+      if($scope.haveTrusteeshipAccount== true){
+        ipCookie('resetMobile', true);
+      }else{
+        ipCookie('changeMobile',true);
+      }
+    }
+    // 点击开通存管通
+    $scope.openTrusteeshipAccount = function(){
+      $state.go('');
+      ipCookie('openTrusteeshipAccount',true);
+    };
 
+    //绑定银行卡
+    $scope.bindBankCard = function() {
+      // $rootScope.toNotice();
+      $scope.msg = '5';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+      window.open('/#!/bankcard-transfer/0');
+    };
+    
+      $scope.changeHead = function(){
+        $alert({
+          scope:$scope,
+          template:'views/modal/avater-modal.html',
+          show:true
+        });
+      }
 
 
   });

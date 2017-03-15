@@ -1,6 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
+
     $scope.userbusiness = 2;
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
@@ -21,7 +22,7 @@ angular.module('hongcaiApp')
       }
     });
 
-
+    $scope.changeMobile = ipCookie('changeMobile')?true:false;
     $scope.bindMobile = function(mobileNo, captcha) {
       UserCenterService.bindMobile.get({
         mobile: mobileNo,
@@ -101,6 +102,7 @@ angular.module('hongcaiApp')
     /**
      * 修改手机号码
      */
+    $scope.resetMobile = ipCookie('resetMobile')? true:false;
     $scope.resetMobilenum = function(user) {
       var regexp = new RegExp('^((13[0-9])|(15[^4,\\D])|(18[0-9])|(17[0678])|(14[0-9]))\\d{8}$');
       if(!regexp.test(user.mobile)) {
@@ -122,6 +124,7 @@ angular.module('hongcaiApp')
         $scope.user.picCaptcha = null;
         $scope.user.inputCaptcha = null;
         $scope.resetMobile = false;
+        ipCookie.remove('resetMobile');
         UserCenterService.userSecurityInfo.get({}, function(response) {
           if (response.ret === 1) {
             var user = response.data.user;
@@ -132,7 +135,7 @@ angular.module('hongcaiApp')
     };
 
 
-
+    $scope.openTrusteeshipAccount = ipCookie('openTrusteeshipAccount')?true:false;
     $scope.checkEmailAndMobile = function() {
       if (!$scope.mobile) {
         $scope.openTrusteeshipAccount = false;
@@ -144,7 +147,6 @@ angular.module('hongcaiApp')
         });
       }
     };
-
     $scope.realNameAuth = function(user) {
       $scope.msg = '1';
       $alert({

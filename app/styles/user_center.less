@@ -20,6 +20,7 @@
 
 //user-center sidebar
 .left-area {
+  float: left;
   font-family: "Microsoft YaHei";
   width: 210px;
   .overview {
@@ -1864,41 +1865,62 @@
 
 //个人中心悬浮提示
 .sidebar-tip{
-   width:267px;
-   height:26px;
-   line-height: 26px;
-   text-align: center;
+   width:230px;
    font-size: 12px;
-   padding: 5px;
-   border:1px solid #ddd; 
+   color: #999;
+   padding: 2px 5px;
+   border:1px solid #999; 
    position: absolute;
-   background-color: #fff;
-   left: -62px;
-   bottom: 38px; 
-   //display: none;
+   left: -24px;
+   bottom: -31px; 
 }
 .sidebar-tip:before{
   content: "";
   display: block;
-  border-width: 15px;
+  border-width: 8px;
   position: absolute;
-  top: 24px;
-  right: 176px;
+  top: -17px;
+  right: 186px;
   border-style: solid dashed dashed;
-  border-color: #ddd transparent transparent;
+  border-color: transparent transparent #999;
   font-size: 0;
   line-height: 0;
   }
 .sidebar-tip:after{
   content: "";
   display: block;
-  border-width: 15px;
+  border-width: 8px;
   position: absolute;
-  top: 22px;
-  right: 176px;
+  top: -15px;
+  right: 186px;
   border-style: solid dashed dashed;
-  border-color: #fff transparent transparent;
+  border-color: transparent transparent #fff;
   font-size: 0;
   line-height: 0;
 }
-
+.sidebar-tip2 {
+  width: 183px;
+  left: 16px;
+}
+.sidebar-tip2:before{
+  right: 141px;
+}
+.sidebar-tip2:after{
+  right: 141px;
+}
+.sidebar-tip3:before{
+  right: 97px;
+}
+.sidebar-tip3:after{
+  right: 97px;
+}
+.sidebar-tip3,.sidebar-tip4 {
+  width: 153px;
+  left: 48px;
+}
+.sidebar-tip4:before{
+  right: 50px;
+}
+.sidebar-tip4:after{
+  right: 50px;
+}
