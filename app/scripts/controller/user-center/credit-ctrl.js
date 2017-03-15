@@ -220,5 +220,64 @@ angular.module('hongcaiApp')
     $scope.loadCredits($scope.currentPage, $scope.pageSize, $scope.searchStatus);
 
     $scope.tabStatus = 1;
-    
+
+    //饼图设置
+    $scope.lineConfig = {
+      theme:'default',
+      dataLoaded:true
+    };
+
+    $scope.lineOption = {
+      tooltip : {
+          trigger: 'item'
+      },
+      legend: {
+          orient: 'vertical',
+          x: 'left',
+      },
+      title: {
+        show: !0,
+        text: "资产占比",
+        textAlign: "middle",
+        textBaseline: "middle",
+        left: "38%",
+        top: "48%",
+        textStyle: {
+            color: "#666666",
+            fontWeight: "normal",
+            fontSize: "13"
+        }
+      },
+      series : [
+        {
+          name:'投资占比',
+          type:'pie',
+          data:[
+            {value:'25', name: '月月宏'},
+            {value:'25', name: '宏财精选'},
+            {value:'25', name: '宏财尊贵'},
+            {value:'25', name: '债权转让'},
+            {value:'25', name: '其他'}
+          ],
+          radius: ["60%", "85%"],
+          clockwise: !1,
+          labelLine: {
+            normal: {
+              show: !1
+            }
+          },
+          label: {
+            normal: {
+              show: !1
+            },
+            emphasis: {
+              show: !1
+            }
+          },
+        }
+      ],
+      color : [ '#0460cd', '#2b8bf1', '#ffc435', '#ffaa25', '#ffaa25']
+    }
+
+
   });

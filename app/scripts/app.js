@@ -28,7 +28,8 @@ var hongcaiApp = angular.module('hongcaiApp', [
   // 'angular-google-analytics',
   'bgf.paginateAnything',
   'angular-svg-round-progress',
-  'seo'
+  'seo',
+  'ng-echarts'
 ]);
 
 hongcaiApp
