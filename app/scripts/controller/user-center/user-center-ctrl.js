@@ -103,14 +103,46 @@ angular.module('hongcaiApp')
       });
       window.open('/#!/bankcard-transfer/0');
     };
-    
-      $scope.changeHead = function(){
-        $alert({
-          scope:$scope,
-          template:'views/modal/avater-modal.html',
-          show:true
-        });
+      var image = angular.element(document.querySelector('#cropImg>img'));
+      var saveBtn = $('.avatar-btns>.avatar-save')
+      $scope.submit = function() {
+          var type = image.attr('src').split(';')[0].split(':')[1];
+          var canVas = image.cropper("getCroppedCanvas", {});
+          //将裁剪的图片加载到face_image
+          $('#face_image').attr('src', canVas.toDataURL());
+          canVas.toBlob(function(blob) {
+              var formData = new FormData();
+              formData.append("file", blob, fileName);
+
+              $.ajax({
+                  type: "POST",
+                  url: '/sys/file/uploadImage.do',
+                  data: formData,
+                  contentType: false, //必须
+                  processData: false, //必须
+                  dataType: "json",
+                  success: function(retJson){
+                      //清空上传文件的值
+                      $('#avatarInput').val('');
+
+                      //上传成功
+                      console.log('retJson:', retJson);
+                  },
+                  error : function() {
+                      //清空上传文件的值
+                      $(_pageId + '#btn1').val('');
+                  }
+              });
+          }, type);
+      };
+      $scope.cancle = function(){
+        //取消
+          console.log(1);
+           //清空上传文件的值
+          $(_pageId + inputFileId).val('');
+        
       }
 
+        
 
   });

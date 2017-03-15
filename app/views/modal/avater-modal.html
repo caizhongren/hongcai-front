@@ -1,7 +1,7 @@
 <div class="modal" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-      <form class="avatar-form" action="crop.php" enctype="multipart/form-data" method="post">
+      <form class="avatar-form" enctype="multipart/form-data" method="post">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" ng-click="$hide()">&times;</button>
           <h4 class="modal-title" id="avatar-modal-label">修改头像</h4>
@@ -14,24 +14,35 @@
               <input type="hidden" class="avatar-src" name="avatar_src">
               <input type="hidden" class="avatar-data" name="avatar_data">
               <label for="avatarInput">上传图片</label>
-              <input type="file" class="avatar-input" id="avatarInput" name="avatar_file">
+              <input type="file" class="avatar-input" accept="image/*,camera" id="avatarInput" name="avatar_file">
             </div>
 
             <!-- Crop and preview -->
             <div class="row">
               <div class="col-md-9">
-                <div class="avatar-wrapper"></div>
+                <div class="avatar-wrapper" id="cropImg">
+                	<img src="data:images/jpeg;base64,">
+                </div>
               </div>
               <div class="col-md-3">
-                <div class="avatar-preview preview-lg"></div>
-                <div class="avatar-preview preview-md"></div>
-                <div class="avatar-preview preview-sm"></div>
+                <div class="avatar-preview preview-lg">
+                	<img src="/images/user-center/portrait.png">
+                </div>
+                <div class="avatar-preview preview-md">
+                	<img src="/images/user-center/portrait.png">
+                </div>
+                <div class="avatar-preview preview-sm">
+                	<img src="/images/user-center/portrait.png">
+                </div>
               </div>
             </div>
 
             <div class="row avatar-btns">
               <div class="col-md-3">
-                <button type="submit" class="btn btn-primary btn-block avatar-save">确定</button>
+                <button type="button" class="btn btn-primary btn-block avatar-save" ng-click="submit();">确定</button>
+              </div>
+              <div class="col-md-offset-2 col-md-3">
+                <button type="button" class="btn btn-primary btn-block avatar-cancle">取消</button>
               </div>
             </div>
           </div>
@@ -43,6 +54,78 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+$(function(){
+	var $image = $('#cropImg>img');
+	var saveBtn = $('.avatar-btns>.avatar-save')
+	$image.cropper({
+		// viewMode: 1,
+		aspectRadio: 16/9,
+		preview:'.avatar-preview',
+		crop: function(data) {
+		    // $(this).attr('src') = '/images/user-center/cgt.png';
+		}
+	});
+	// $image.cropper("disabled"),
+	var fileName; //选择上传的文件名
+	$('#avatarInput').change(function(){
+	    var file = this.files[0];
+	    fileName = file.name;
+	    var reader = new FileReader();
+	    //reader回调，重新初始裁剪区
+	    reader.onload = function(){
+	        // 通过 reader.result 来访问生成的 DataURL
+	        var url = reader.result;
+	        //选择图片后重新初始裁剪区
+	        $image.cropper('reset', true).cropper('replace', url);
+	    };
+	    reader.readAsDataURL(file);
+	});
+	var type = $image.attr('src').split(';')[0].split(':')[1];
+	console.log($image.attr('src'));
+	/* * 上传图片 */
+	// console.log($('.avatar-btns>.avatar-save'));
+	$('.avatar-btns>.avatar-save').on('click',function() {
+		console.log('hello');
+	    var type = $image.attr('src').split(';')[0].split(':')[1];
+	    var canVas = $image.cropper("getCroppedCanvas", {});
+	    console.log(canVas);
+	    //将裁剪的图片加载到face_image
+	    $('#face_image').attr('src', canVas.toDataURL());
+	    canVas.toBlob(function(blob) {
+	        var formData = new FormData();
+	        formData.append("file", blob, fileName);
+
+	        $.ajax({
+	            type: "POST",
+	            url: '/sys/file/uploadImage.do',
+	            data: formData,
+	            contentType: false, //必须
+	            processData: false, //必须
+	            dataType: "json",
+	            success: function(retJson){
+	                //清空上传文件的值
+	                $('#avatarInput').val('');
+
+	                //上传成功
+	                console.log('retJson:', retJson);
+	            },
+	            error : function() {
+	                //清空上传文件的值
+	                $(_pageId + '#btn1').val('');
+	            }
+	        });
+	    }, type);
+	});
+	//取消
+	$(".avatar-btns>.avatar-cancel").click(function() {
+		console.log(1);
+	   //清空上传文件的值
+	    $(_pageId + inputFileId).val('');
+	});
+});
+
+</script>
 <style type="text/css">
 	.modal {
 	  background-color: rgba(0,0,0,.5);
@@ -150,11 +233,6 @@
 	  margin-top: 30px;
 	  margin-bottom: 15px;
 	}
-/*
-	.avatar-btns .btn-group {
-	  margin-right: 5px;
-	}*/
-
 	.loading {
 	  display: none;
 	  position: absolute;

@@ -2,12 +2,12 @@
 <!--user-center-sidebar-->
 <div class="left-area ft-14" ng-if="selectSide !=='questionnaire' ">
   <div class="overview">
-    <div class="user-portrait">
-      <div class="portrait" id='cropImg'>
-        <img class="cursor-pointer" ng-src="{{loginUser.headImgUrl || headImgUrl}}" ng-click="changeHead();" title="更换头像">
+    <div class="user-portrait" id="crop-avatar">
+      <div class="portrait" ng-click="showAvaterModal = true">
+        <img class="cursor-pointer" ng-src="{{loginUser.headImgUrl || headImgUrl}}" title="更换头像">
       </div>
-      <p class="user-name ft-grey666 ft-18 text-center">{{ loginUser.nickName || (loginUser.mobile || loginName) }}~</p>
-      <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 1">安全等级：低<a href="#">(如何提升)</a></p>
+      <p class="user-name ft-grey666 ft-18 text-center">{{ loginUser.nickName || (loginUser.mobile || loginName) }}~ </p>
+      <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 1">安全等级：低<a href="#" ui-sref="root.userCneter.security-settings">(如何提升)</a></p>
       <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 2">安全等级：高</a></p>
     </div>
     <div class="flow-icons" ng-mouseleave="showTip1=false;showTip2=false;showTip3=false;showTip4=false;">
@@ -29,8 +29,8 @@
           <img src="/images/user-center/password.png">
           <i class="fa fa-check-circle ft-green position-ab i3" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>
         </div>
-        <div class="sidebar-tip sidebar-tip4" ng-show="haveCard && !isVerifying && !unbinding && showTip4==true" ng-mouseleave="showTip4=false">您已绑定银行卡</div>
         <div class="sidebar-tip sidebar-tip4" ng-show="!haveCard && !isVerifying && !unbinding && showTip4==true" ng-mouseleave="showTip4=false">您尚未邦定银行卡&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ng-click="bindBankCard();">绑定</span></div>
+        <div class="sidebar-tip sidebar-tip4" ng-show="haveCard && !isVerifying && !unbinding && showTip4==true" ng-mouseleave="showTip4=false">您已绑定银行卡&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ui-sref="root.userCenter.bankcard-management">查看</span></div>
         <div class="position-re" ng-mouseenter="showTip4 = true;showTip2 = false;showTip3 = false;showTip1 = false;">
           <img src="/images/user-center/bankcard.png">
           <i class="fa fa-check-circle ft-green position-ab i4" aria-hidden="true" ng-show="isAuth && haveCard && !isVerifying && !unbinding"></i>
@@ -62,103 +62,88 @@
       </ul>
     </div>
   </div>
-  <!-- <div class="row"> -->
-   <!--  <div class="sidebar-personal ft-white {{userCenterPart == 1 ? 'bg-orange' : 'side-white'}}">
-      <button class="ftw-b {{userCenterPart == 1 ? 'bg-orange' : 'side-whitebg'}}">账户信息</button>
-    </div>
-    <div>
-      <a ui-sref="root.userCenter.account-overview" class="tips-left-area {{selectSide == 'account-overview' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic11 margin-l-35"></span>
-        <p class="{{selectSide == 'account-overview' ? 'now' : ''}} position margin-l--10 display-inbl">账户总览</p>
-      </a>
-      <a ui-sref="root.userCenter.security-settings" class="tips-left-area {{selectSide == 'security-settings' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic12 margin-l-35"></span>
-        <p class="{{selectSide == 'security-settings' ? 'now' : ''}} position margin-l--10 display-inbl">安全设置</p>
-      </a>
-      <a ui-sref="root.userCenter.bankcard-management" class="tips-left-area {{selectSide == 'bankcard-management' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic13 margin-l-35"></span>
-        <p class="{{selectSide == 'bankcard-management' ? 'now' : ''}} position margin-l--10 display-inbl">银行卡管理</p>
-      </a>
-    </div> -->
-  <!-- </div> -->
-  <!-- <div class="row">
-    <div class="sidebar-personal ft-white {{userCenterPart == 2 ? 'bg-orange' : 'side-white'}}">
-      <button class="ftw-b {{userCenterPart == 2 ? 'bg-orange' : 'side-whitebg'}}">资金信息</button>
-    </div>
-    <div>
-      <a ui-sref="root.userCenter.assets-overview" class="tips-left-area {{selectSide == 'assets-overview' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic21 margin-l-35"></span>
-        <p class="{{selectSide == 'assets-overview' ? 'now' : ''}} position margin-l--10 display-inbl">资产总览</p>
-      </a>
-      <a ui-sref="root.userCenter.recharge" class="tips-left-area {{selectSide == 'recharge' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic22 margin-l-35"></span>
-        <p class="{{selectSide == 'recharge' ? 'now' : ''}} position margin-l--10 display-inbl">充值</p>
-      </a>
-      <a ui-sref="root.userCenter.withdraw" class="tips-left-area {{selectSide == 'withdraw' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic23 margin-l-35"></span>
-        <p class="{{selectSide == 'withdraw' ? 'now' : ''}} position margin-l--10 display-inbl">提现</p>
-      </a>
-      <a ui-sref="root.userCenter.record" class="tips-left-area {{selectSide == 'record' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic24 margin-l-35"></span>
-        <p class="{{selectSide == 'record' ? 'now' : ''}} position margin-l--10 display-inbl">资金流水</p>
-      </a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="sidebar-personal  bg-orange ft-white {{userCenterPart == 3 ? 'bg-orange' : 'side-white'}}">
-      <button class="ftw-b {{userCenterPart == 3 ? 'bg-orange' : 'side-whitebg'}}">投资信息</button>
-    </div>
-    <div>
-      <a ui-sref="root.userCenter.credit" class="tips-left-area {{selectSide == 'credit' || selectPage_two == 'credit'? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic31 margin-l-35"></span>
-        <p class="{{selectSide == 'credit' || selectPage_two == 'credit'? 'now' : ''}} position margin-l--10 display-inbl">我的投资</p>
-      </a>
-      <a ui-sref="root.userCenter.assignments" class="tips-left-area {{selectSide == 'assignments'  || selectPage_two == 'assignments'? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic31_1 margin-l-35"></span>
-        <p class="{{selectSide == 'assignments'  || selectPage_two == 'assignments'? 'now' : ''}} position margin-l--10 display-inbl">债权管理</p>
-      </a>
-      <a ui-sref="root.userCenter.investment({type:99})" class="tips-left-area {{selectSide == 'investment' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic32 margin-l-35"></span>
-        <p class="{{selectSide == 'investment' ? 'now' : ''}} position margin-l--10 display-inbl">我的订单</p>
-      </a>
-      <a ui-sref="root.userCenter.reservation" class="tips-left-area {{selectSide == 'reservation' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic33 margin-l-35"></span>
-        <p class="{{selectSide == 'reservation' ? 'now' : ''}} position margin-l--10 display-inbl">预约记录</p>
-      </a>
+  <!-- 修改头像 -->
+  <div class="modal" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog" tabindex="-1" ng-show="showAvaterModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <form class="avatar-form" enctype="multipart/form-data" method="post">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" ng-click="showAvaterModal = false;">&times;</button>
+            <h4 class="modal-title" id="avatar-modal-label">修改头像</h4>
+          </div>
+          <div class="modal-body">
+            <div class="avatar-body">
+
+              <!-- Upload image and data -->
+              <div class="avatar-upload">
+                <input type="hidden" class="avatar-src" name="avatar_src">
+                <input type="hidden" class="avatar-data" name="avatar_data">
+                <label for="avatarInput">上传图片</label>
+                <input type="file" class="avatar-input" accept="image/*,camera" id="avatarInput" name="avatar_file">
+              </div>
+
+              <!-- Crop and preview -->
+              <div class="row">
+                <div class="col-md-9">
+                  <div class="avatar-wrapper" id="cropImg">
+                    <img src="data:images/jpeg;base64,">
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="avatar-preview preview-lg">
+                    <img src="/images/user-center/portrait.png">
+                  </div>
+                  <div class="avatar-preview preview-md">
+                    <img src="/images/user-center/portrait.png">
+                  </div>
+                  <div class="avatar-preview preview-sm">
+                    <img src="/images/user-center/portrait.png">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row avatar-btns">
+                <div class="col-md-3">
+                  <button type="button" class="btn btn-primary btn-block avatar-save" ng-click="submit();">确定</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div> -->
+        </form>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="sidebar-personal  bg-orange ft-white {{userCenterPart == 4 ? 'bg-orange' : 'side-white'}}">
-      <button class="ftw-b {{userCenterPart == 4 ? 'bg-orange' : 'side-whitebg'}}">奖励信息</button>
-    </div>
-    <div>
-     <a ui-sref="root.userCenter.cash-coupon" class="tips-left-area {{selectSide == 'cash-coupon' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic41 margin-l-35"></span>
-        <p class="{{selectSide == 'cash-coupon' ? 'now' : ''}} position margin-l--10 display-inbl">奖金</p>
-      </a>
-      <a ui-sref="root.userCenter.experienceMoney" class="tips-left-area {{selectSide == 'experience-money' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic42 margin-l-35"></span>
-        <p class="{{selectSide == 'experience-money' ? 'now' : ''}} position margin-l--10 display-inbl">体验金</p>
-      </a>
-      <a ui-sref="root.userCenter.rate-coupon" class="tips-left-area {{selectSide == 'rate-coupon' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic43 margin-l-35"></span>
-        <p class="{{selectSide == 'rate-coupon' ? 'now' : ''}} position margin-l--10 display-inbl">加息券</p>
-      </a>
-      <a ui-sref="root.userCenter.invite-rebate" class="tips-left-area {{selectSide == 'invite-rebate' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic44 margin-l-35"></span>
-        <p class="{{selectSide == 'invite-rebate' ? 'now' : ''}} position margin-l--10 display-inbl">邀请中心</p>
-      </a>
-    </div>
-  </div>
-  <div class="row">
-    <div class="sidebar-personal  bg-orange ft-white {{userCenterPart == 5 ? 'bg-orange' : 'side-white'}}">
-      <button class="ftw-b {{userCenterPart == 5 ? 'bg-orange' : 'side-whitebg'}}">系统信息</button>
-    </div>
-    <div>
-      <a ui-sref="root.userCenter.message({status:'0,1'})" class="tips-left-area {{selectSide == 'message' ? 'bg-white' : ''}}">
-        <span class="sidebar-pic sidebar-pic51 margin-l-35"></span>
-        <p class="{{selectSide == 'message' ? 'now' : ''}} position margin-l--10 display-inbl">站内消息</p>
-      </a>
-    </div>
-  </div> -->
 </div>
+  
+  <script type="text/javascript">
+  
+    var $image = $('#cropImg>img');
+    var saveBtn = $('.avatar-btns>.avatar-save')
+    //初始化
+    $image.cropper({
+      // viewMode: 1,
+      aspectRadio: 16/9,
+      preview:'.avatar-preview',
+      crop: function(data) {
+        console.log(data);
+      }
+    });
+    var fileName; 
+    //选择上传的文件名
+    $('#avatarInput').change(function(){
+        var file = this.files[0];
+        fileName = file.name;
+        var reader = new FileReader();
+        //reader回调，重新初始裁剪区
+        reader.onload = function(){
+            // 通过 reader.result 来访问生成的 DataURL
+            var url = reader.result;
+            //选择图片后重新初始裁剪区
+            $image.cropper('reset', true).cropper('replace', url);
+        };
+        reader.readAsDataURL(file);
+    });
+</script>
