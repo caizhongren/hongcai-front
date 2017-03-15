@@ -21,90 +21,73 @@
       <dl class="assetDetailTable">
         <dt>
           <ul>
-            <li class="asset-type-th">资产</li>
-            <li class="asset-percent">占比</li>
+            <li>产品</li>
+            <li>占比</li>
             <li >总资产</li>
             <li >累计收益</li>
           </ul>
         </dt>
         <dd>
           <ul class="asset-info">
-            <a href="/account/invest!p2pindex.action" target="_blank">
-              <li class="asset-type">
-                <span class="dot-1"></span><span>活期产品</span>
-              </li>
-              <li class="asset-percent">0%</li>
-              <li class="totalAsset">
-                <span>0.00元</span>
-              </li>
-              <li class="totalIncome">
-                <span >0.00元</span>
-              </li>
-            </a>
+            <li class="asset-type">
+              <span class="dot-1"></span><span>月月宏</span>
+            </li>
+            <li>0%</li>
+            <li>0.00元</li>
+            <li class="totalIncome">0.00元</li>
           </ul>
         </dd>
         <dd>
-          <a href="/pc/exchange/user/account" target="_blank">
-            <ul>
-              <li class="asset-type">
-                <span class="dot-2"></span><span>宏金宝</span>
-              </li>
-              <li class="asset-percent">0%</li>
-              <li class="totalAsset">
-                <span>0.00元</span>
-              </li>
-              <li class="totalIncome">
-                <span>0.00元</span>
-              </li>
-            </ul>
-          </a>
+          <ul>
+            <li class="asset-type">
+              <span class="dot-2"></span><span>宏财精选</span>
+            </li>
+            <li>0%</li>
+            <li>0.00元</li>
+            <li class="totalIncome">0.00元</li>
+          </ul>
         </dd>
         <dd>
-          <a href="/fund/userFundAction!myFundListPage.action" target="_blank">
-            <ul>
-              <li class="asset-type">
-                <span class="dot-3"></span><span>债权转让</span>
-              </li>
-              <li class="asset-percent">0%</li>
-              <li class="totalAsset">
-                <span >0.00元</span>
-              </li>
-              <li class="totalIncome">
-                <span>0.00元</span>
-              </li>
-            </ul>
-          </a>
+          <ul>
+            <li class="asset-type">
+              <span class="dot-3"></span><span>宏财尊贵</span>
+            </li>
+            <li>0%</li>
+            <li>0.00元</li>
+            <li class="totalIncome">0.00元</li>
+          </ul>
         </dd>
         <dd>
-          <a href="/pc/fof/user/holdList" target="_blank">
-            <ul>
-              <li class="asset-type">
-                <span class="dot-4"></span><span >其他</span>
-              </li>
-              <li class="asset-percent">0%</li>
-              <li class="totalAsset">
-                <span>0.00元</span>
-              </li>
-              <li class="totalIncome">
-                <span >0.00元</span>
-              </li>
-            </ul>
-          </a>
+          <ul>
+            <li class="asset-type">
+              <span class="dot-4"></span><span>债权转让</span>
+            </li>
+            <li>0%</li>
+            <li>0.00元</li>
+            <li class="totalIncome">0.00元</li>
+          </ul>
+        </dd>
+        <dd>
+          <ul>
+            <li class="asset-type">
+              <span class="dot-4"></span><span>其他</span>
+            </li>
+            <li>0%</li>
+            <li>0.00元</li>
+            <li class="totalIncome">0.00元</li>
+          </ul>
         </dd>
       </dl>
-      <div class="assetDetailPie" id="assetDetailPie" style="-webkit-tap-highlight-color: transparent; user-select: none; background: transparent;">
-        <div style="position: relative; width: 280px; height: 280px; cursor: default;">
-          <canvas width="280" height="280" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 280px; height: 280px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-          </canvas>
-        </div>
-      </div>
+      <ng-echarts style="width: 280px; height: 280px;top: -20px" ec-config="lineConfig" ec-option="lineOption" ></ng-echarts>
     </div>
 
      <!-- tab切换 -->
     <div class="tabs row margin-l-0 margin-r-0 margin-t-30">
-      <div class="toggle-tab col-md-4 ft-grey666 cursor-pointer {{tabStatus == 1 ? 'credit-toggle2' : ''}}" ng-click="loadAssignments(currentPage, pageSize, 1)">宏金宝</div>
-      <div class="toggle-tab col-md-4 ft-grey666 cursor-pointer {{tabStatus == 2 ? 'credit-toggle2' : ''}}" ng-click="getTranferingAssignmentsList(1,6,'1,2,5')">活期产品</div>
-      <div class="toggle-tab col-md-4 ft-grey666 cursor-pointer {{tabStatus == 3 ? 'credit-toggle2' : ''}}" ng-click="getTranferingAssignmentsList(1,6,'3,4')">债权转让</div>
+      <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 1 ? 'credit-toggle2' : ''}}" ng-click="loadAssignments(currentPage, pageSize, 1)">月月宏</div>
+      <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 2 ? 'credit-toggle2' : ''}}" ng-click="getTranferingAssignmentsList(1,6,'1,2,5')">宏财精选</div>
+      <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 3 ? 'credit-toggle2' : ''}}" ng-click="getTranferingAssignmentsList(1,6,'3,4')">宏财尊贵</div>
+      <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 4 ? 'credit-toggle2' : ''}}" ng-click="getTranferingAssignmentsList(1,6,'3,4')">债权转让</div>
+      <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 5 ? 'credit-toggle2' : ''}}" ng-click="getTranferingAssignmentsList(1,6,'3,4')">其他</div>
     </div>
 
     <!-- 二级tab -->
