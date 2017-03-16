@@ -94,7 +94,7 @@
         </thead>
         <tbody>
           <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-            <td>{{item.user.mobile || item.user.name}}</td>
+            <td>{{item.userAuth.realnameAuth ? item.userAuth.realName : item.user.mobile || item.user.name}}</td>
             <td>{{item.user.createTime | date:'yyyy-MM-dd'}}</td>
             <td><span ng-class="item.userAuth.realnameAuth ? 'ft-blue2' : 'ft-red2'">{{item.userAuth.realnameAuth ? '已认证' : '未认证'}}</span></td>
             <td><span ng-class="item.account.investAmount > 0 ? 'ft-blue2' : 'ft-red2'">{{item.account.investAmount > 0 ? "已投资" : "未投资"}}</span></td>

@@ -5,7 +5,7 @@ angular.module('hongcaiApp')
   	OrderService.unFinishedOrder.get({}, function(order){
   	  $scope.unFinishedOrder = order;
   	  //项目期限
-      $scope.projectDays = Math.ceil((order.repaymentDate-order.createTime)/1000/3600/24);
+      $scope.projectDays = Math.ceil((order.repaymentDate-order.valueDate)/1000/3600/24);
   	})
     
   	/**

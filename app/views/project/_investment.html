@@ -175,7 +175,7 @@
                 <div class="margin-b-20 ft-grey666" ng-hide="project.status ===7 && project.currentStock === 0 || newbieBiaoErrorMsg">
                   预期收益：
                   <span class="spangray" ng-model="profit">
-                    <span class="ft-16">{{profit || 0 | number:2}}</span>元
+                    <span class="ft-16">{{project.amount ? profit : 0 | number:2}}</span>元
                     <span class="ft-orange" ng-show="selectedCoupon.type === 1"><span class="ft-16">+{{project.amount? increaseProfit : 0 |  number:2}}</span>元</span>
                     <span class="ft-orange" ng-show="selectedCoupon.type === 2"><span class="ft-16">+{{project.amount? increaseProfit : 0}}</span>元</span>
                   </span>

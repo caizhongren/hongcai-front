@@ -10,7 +10,7 @@ angular.module('hongcaiApp')
       src: 'images/banner-new/banner02.jpg',
       href: '/#!/activity/dual-eleven-activities',
       name: '双11活动 脱单party'
-    },*/{
+    },{
       mimeType: 'image/png',
       src: 'images/banner-new/banner12.jpg',
       href: '/#!/activity/novice-activity',
@@ -20,7 +20,7 @@ angular.module('hongcaiApp')
       src: 'images/banner-new/banner13.jpg',
       href: '/#!/activity/invite-activity',
       name: '市场 新年邀请活动'
-    },{
+    },*/{
       mimeType: 'image/png',
       src: 'images/banner-new/cgt-banner.jpg',
       href: '/#!/activate',

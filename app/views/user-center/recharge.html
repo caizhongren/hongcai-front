@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="row margin-t-20 ">
-          <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==1 || payment == 3}"><b>快捷支付方式</b></div>
+          <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==1 || payment == 3}" ng-click="selectPay(3)"><b>快捷支付方式</b></div>
           <div class="col-md-2 cursor-pointer pay-typeUCF" ng-class="{'pay-active':payment ==3}" ng-click="selectPay(3)">先锋支付</div>
           <div class="col-md-2 cursor-pointer pay-typeFU" ng-class="{'pay-active':payment ==1}" ng-click="selectPay(1)">富有支付</div>
           <a class=" col-md-2 col-md-offset-3 cursor-pt supportBank" href="javascript:;" focus-blur>支持银行及限额</a>
@@ -54,7 +54,7 @@
           <a class=" col-md-2 cursor-pt supportBank padding-l-5" ng-click="changeCard();" href="javascript:;">更换其他银行卡</a>
         </div>
         <div class="row margin-t-20">
-          <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==2}"><b>网银支付方式</b></div>
+          <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==2}" ng-click="selectPay(2)"><b>网银支付方式</b></div>
           <div class="col-md-2 cursor-pointer pay-typeUMP" ng-class="{'pay-active':payment ==2}" ng-click="selectPay(2)">联动支付</div>
         </div>
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
@@ -67,7 +67,7 @@
             <p class="padding-l-15" ng-show="(rechargeForm.amount.$error.pattern || rechargeAmount < 3) && (payment ==1 || payment ==3 )">请输入大于等于3的数字(最多精确到小数点后两位)</p>
             <p class="padding-l-15" ng-show="(rechargeForm.amount.$error.pattern || rechargeAmount == 0) && payment ==2 ">请输入大于0的数字(最多精确到小数点后两位)</p>
             <p class="padding-l-15" ng-show="rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">充值金额不能为空</p>
-            <p class="padding-l-15 " ng-show="rechargeAmount > bankRemain && payment == 1">该卡本次最多充值{{bankRemain | number:2}}元</p>
+            <p class="padding-l-15 " ng-show="rechargeAmount > bankRemain && payment !== 2">该卡本次最多充值{{bankRemain | number:2}}元</p>
           </div>
           <div class="col-md-5 col-md-offset-4 padding-l-30 margin-t-10 text-left ft-13">充值后账户余额<span class="ft-red5">&nbsp;{{ balance + rechargeAmount || "0" | number:2}}&nbsp;</span>元</div>
         </div>
