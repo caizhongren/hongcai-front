@@ -46,12 +46,12 @@
         </span>
       </div>
       <!-- 日期输入框 -->
-      <div class="col-md-1 input-date margin-r-10" onClick="laydate({elem: '#start', istime: false, format: 'YYYY-MM-DD', choose: function(datas){ if($('#end').val()){start();}}})">
-        <input name="startTime" id="start" class="startTime" ng-model="startTime" ng-change="start();" value="{{startTime | date: 'yyyy-MM-dd'}}" />
+      <div class="col-md-1 input-date margin-r-10" onClick="laydate({elem: '#start', istime: false, format: 'YYYY-MM-DD'" ng-click="start()">
+        <input name="startTime" id="start" class="startTime" ng-model="startTime" value="{{startTime | date: 'yyyy-MM-dd'}}" />
         <i class="fa fa-calendar" aria-hidden="true"></i>
       </div>
-        <div class="col-md-1 input-date" onClick="laydate({elem: '#end', istime: false, format: 'YYYY-MM-DD', choose: function(datas){ if($('#start').val()){alert('得到：'+datas);}}})">
-          <input name="endTime" id="end" class="endTime" ng-model="endTime" ng-change="end();" value="{{endTime | date: 'yyyy-MM-dd'}}"  />
+        <div class="col-md-1 input-date" onClick="laydate({elem: '#end', istime: false, format: 'YYYY-MM-DD'" ng-click="end()">
+          <input name="endTime" id="end" class="endTime" ng-model="endTime" value="{{endTime | date: 'yyyy-MM-dd'}}"  />
           <i class="fa fa-calendar" aria-hidden="true"></i>
       </div>  
     </div>

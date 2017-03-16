@@ -49,15 +49,20 @@ angular.module('hongcaiApp')
     })
 
     function start() {
-      alert('开始日期');
+      laydate({
+        choose: function(datas){
+          $scope.getDeals(1);
+          start.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+      })
     }
     $scope.end = function() {
-      alert('结束日期');
-      if ($scope.startTime && $scope.endTime) {
-        alert('查询');
-      }else {
-        alert('条件不足');
-      }
+     laydate({
+        choose: function(datas){
+          $scope.getDeals(1);
+          start.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+      })
     }
 
     $scope.getDeals = function(page) {
@@ -96,6 +101,8 @@ angular.module('hongcaiApp')
     };
 
     $scope.getDeals(1);
+
+  
 
   });
 
