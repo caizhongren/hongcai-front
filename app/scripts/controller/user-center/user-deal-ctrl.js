@@ -9,6 +9,33 @@ angular.module('hongcaiApp')
     $scope.dealType = 0;
     $scope.currentPage = 1;
     $scope.pageSize = 10;
+    var date = new Date(); 
+    date.setHours(0);
+    date.setMinutes(0);
+    date.setSeconds(0);
+    date.setMilliseconds(0);
+    var nowDate = date.getTime();
+    $scope.dateIntervalList = [
+      {
+        'type': '全部',
+        'no': ''
+      },{
+        'type': '今天',  //包含：项目正常回款、债权转让回款
+        // 'no': [new Date().setHours(0).setMinutes(0).setSeconds(0).setMilliseconds(0).getTime(), new Date().getTime()]
+      },{
+        'type': '最近一周',
+        'no': '7'
+        // new Date().setDate(new Date().getDate() - 7), new Date().getTime()
+      },{
+        'type': '近一个月',
+        // 'no': '111111111,222222'
+        'no': '30'
+      },{
+        'type': '近六个月',  
+        'no': '180'
+        // 'no': new Date().setDate(new Date().getDate() - 180), new Date().getTime()
+      }
+    ]
 
     $scope.dealTypeList = [
       {
@@ -34,35 +61,32 @@ angular.module('hongcaiApp')
         'no': '8,15'
       }
     ]
-    $scope.selected = '全部';
+    $scope.selected1 = '全部';
+    $scope.selected2 = '全部';
     //选择资金流水类型
     $scope.selectDealType = function(dealType){
-      $scope.selected = dealType.type;
+      $scope.selected1 = dealType.type;
       $scope.dealType = dealType.no;
     }
-
-    $scope.$watch('startTime', function(newVal, oldVal) {
-      if (newVal) {
-        alert(11);
+    $scope.selectdateInterval = function(dateInterval){
+      $scope.selected2 = dateInterval.type;
+      $scope.dateInterval = dateInterval.no;
+      if (dateInterval.type == '今天') {
+        $scope.startTime = nowDate;
+        $scope.endTime = new Date().getTime();
       }
-      
-    })
+    }
 
-    function start() {
+    $scope.startEnd = function() {
       laydate({
         choose: function(datas){
-          $scope.getDeals(1);
-          start.max = datas; //结束日选好后，重置开始日的最大日期
+          if ($('#start').val() && $('#end').val()) {
+            $scope.startTime = new Date($('#start').val()).getTime();
+            $scope.endTime = new Date($('#end').val()).getTime();
+            $scope.getDeals(1);
+          }
         }
-      })
-    }
-    $scope.end = function() {
-     laydate({
-        choose: function(datas){
-          $scope.getDeals(1);
-          start.max = datas; //结束日选好后，重置开始日的最大日期
-        }
-      })
+      }) 
     }
 
     $scope.getDeals = function(page) {
@@ -70,6 +94,8 @@ angular.module('hongcaiApp')
       var getDealByUser = UserCenterService.getDealByUser.get({ 
         dateInterval: $scope.dateInterval,
         dealType: $scope.dealType,
+        startTime: $scope.startTime,
+        endTime: $scope.endTime,
         page: page
       },function(response) {
         if (getDealByUser.ret === 1) {
