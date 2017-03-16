@@ -10,6 +10,56 @@ angular.module('hongcaiApp')
     $scope.currentPage = 1;
     $scope.pageSize = 10;
 
+    $scope.dealTypeList = [
+      {
+        'type': '全部',
+        'no': ''
+      },{
+        'type': '回款',  //包含：项目正常回款、债权转让回款
+        'no': '4,16'
+      },{
+        'type': '投资',
+        'no': '3'
+      },{
+        'type': '充值',
+        'no': '1'
+      },{
+        'type': '提现',  
+        'no': '2'
+      },{
+        'type': '奖励',  //包含：奖金、代理人绩效
+        'no': '18,20'
+      },{
+        'type': '其他',  //包含：提现手续费、债权转让手续费
+        'no': '8,15'
+      }
+    ]
+    $scope.selected = '全部';
+    //选择资金流水类型
+    $scope.selectDealType = function(dealType){
+      $scope.selected = dealType.type;
+      $scope.dealType = dealType.no;
+    }
+
+    $scope.$watch('startTime', function(newVal, oldVal) {
+      if (newVal) {
+        alert(11);
+      }
+      
+    })
+
+    function start() {
+      alert('开始日期');
+    }
+    $scope.end = function() {
+      alert('结束日期');
+      if ($scope.startTime && $scope.endTime) {
+        alert('查询');
+      }else {
+        alert('条件不足');
+      }
+    }
+
     $scope.getDeals = function(page) {
       $scope.currentPage = page;
       var getDealByUser = UserCenterService.getDealByUser.get({ 

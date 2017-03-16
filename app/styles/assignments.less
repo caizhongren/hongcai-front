@@ -1,5 +1,5 @@
 // 个人中心-债权转让 
-.userCenter-assignments, .userCenter-credit {
+.userCenter-assignments, .userCenter-credit, .record {
 	// 数据统计
   .data-statistics {
     background-color: #fff;
@@ -191,6 +191,86 @@
 
 .line-h-0 {
   line-height: 0 !important;
+}
+
+.record {
+  font-size: 16px;
+  // 筛选条件
+  .screening-conditions {
+    padding: 54px 30px 72px;
+    background-color: #fff;
+    margin-top: 30px;
+    .ft-grey59 {
+      color: #595656;
+    }
+    .conditions-date {
+      margin-right: 12px;
+      float: left;
+      white-space: nowrap;
+    }
+    .input-date {
+      width: 170px;
+      height: 25px;
+      line-height: 25px;
+      border: 1px solid #cacaca;
+      padding: 0;
+      position: relative;
+      .startTime, .endTime {
+        width: 168px;
+        line-height: 20px;
+        padding-left: 30px !important; 
+        background: #fff !important;
+        height: 21px;
+        border: none !important;
+        color: #999 !important;
+      } 
+      .fa-calendar {
+        position: absolute;
+        top: 5px;
+        left:5px;
+        color: #999;
+      }
+    }  
+  }
+
+  .record-table {
+    thead {
+      th {
+        padding: 0 50px !important;
+        background-color: #fafafa;
+        height: 50px;
+        line-height: 50px;
+        border-bottom: none;
+      }
+    }
+    .tip-icon {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      background: url('/images/user-center/bgIcons.png') no-repeat 3px 2px;
+      background-size: cover;
+      vertical-align: middle;
+      position: absolute;
+    }
+    .icon-box {
+      height: 20px;
+      display: inline-block;
+      vertical-align: inherit;
+    }
+    .tip-500 {
+      width: 500px;
+    }
+    .tip-350 {
+      width: 350px;
+    }
+    .tip-160 {
+      width: 160px;
+    }
+    .tip-100 {
+      width: 85px;
+    }
+  }
+    
 }
 
 
