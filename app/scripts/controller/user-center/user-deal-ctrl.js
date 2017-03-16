@@ -9,12 +9,93 @@ angular.module('hongcaiApp')
     $scope.dealType = 0;
     $scope.currentPage = 1;
     $scope.pageSize = 10;
+    var date = new Date(); 
+    date.setHours(0);
+    date.setMinutes(0);
+    date.setSeconds(0);
+    date.setMilliseconds(0);
+    var nowDate = date.getTime();
+    $scope.dateIntervalList = [
+      {
+        'type': '全部',
+        'no': ''
+      },{
+        'type': '今天',  //包含：项目正常回款、债权转让回款
+        // 'no': [new Date().setHours(0).setMinutes(0).setSeconds(0).setMilliseconds(0).getTime(), new Date().getTime()]
+      },{
+        'type': '最近一周',
+        'no': '7'
+        // new Date().setDate(new Date().getDate() - 7), new Date().getTime()
+      },{
+        'type': '近一个月',
+        // 'no': '111111111,222222'
+        'no': '30'
+      },{
+        'type': '近六个月',  
+        'no': '180'
+        // 'no': new Date().setDate(new Date().getDate() - 180), new Date().getTime()
+      }
+    ]
+
+    $scope.dealTypeList = [
+      {
+        'type': '全部',
+        'no': ''
+      },{
+        'type': '回款',  //包含：项目正常回款、债权转让回款
+        'no': '4,16'
+      },{
+        'type': '投资',
+        'no': '3'
+      },{
+        'type': '充值',
+        'no': '1'
+      },{
+        'type': '提现',  
+        'no': '2'
+      },{
+        'type': '奖励',  //包含：奖金、代理人绩效
+        'no': '18,20'
+      },{
+        'type': '其他',  //包含：提现手续费、债权转让手续费
+        'no': '8,15'
+      }
+    ]
+    $scope.selected1 = '全部';
+    $scope.selected2 = '全部';
+    //选择资金流水类型
+    $scope.selectDealType = function(dealType){
+      $scope.selected1 = dealType.type;
+      $scope.dealType = dealType.no;
+    }
+    $scope.selectdateInterval = function(dateInterval){
+      $scope.selected2 = dateInterval.type;
+      $scope.dateInterval = dateInterval.no;
+      if (dateInterval.type == '今天') {
+        $scope.startTime = nowDate;
+        $scope.endTime = new Date().getTime();
+      }
+    }
+
+    $scope.startEnd = function() {
+      laydate({
+        choose: function(datas){
+          if ($('#start').val() && $('#end').val()) {
+            $scope.startTime = new Date($('#start').val()).getTime();
+            $scope.endTime = new Date($('#end').val()).getTime();
+            $scope.getDeals(1);
+          }
+        }
+      }) 
+    }
 
     $scope.getDeals = function(page) {
       $scope.currentPage = page;
       var getDealByUser = UserCenterService.getDealByUser.get({ 
         dateInterval: $scope.dateInterval,
         dealType: $scope.dealType,
+        startTime: $scope.startTime,
+        endTime: $scope.endTime,
         page: page
       },function(response) {
         if (getDealByUser.ret === 1) {
@@ -46,6 +127,8 @@ angular.module('hongcaiApp')
     };
 
     $scope.getDeals(1);
+
+  
 
   });
 

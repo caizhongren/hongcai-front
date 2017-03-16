@@ -744,17 +744,19 @@
   height: 25px;
   line-height: 25px;
   text-align: center;
-  padding:0px 10px;
-  color:#666;
+  padding:2px 15px;
+  // color:#666;  改版前
+  color:#999;
 }
 .project-yescheck{
   display: block;
-  background-color: #fd8f3f;
+  background-color: #f9721f;
   height: 25px;
   line-height: 25px;
   text-align: center;
   color: white;
-  padding:0px 10px;
+  padding:2px 15px;
+  margin-top: -2px;
 }
 .record, .investment,.reservation,.userCenter-news {
   .padd {
@@ -1989,6 +1991,43 @@
   right: 186px;
   border-style: solid dashed dashed;
   border-color: transparent transparent #fff;
+  font-size: 0;
+  line-height: 0;
+}
+.sidebar-tip-bottom{
+  height: 25px;
+  line-height: 22px;
+  width:230px;
+  font-size: 12px;
+  color: #999;
+  padding: 2px 5px;
+  border:1px solid #999; 
+  position: absolute;
+  left: -24px;
+  bottom: 26px; 
+}
+.sidebar-tip-bottom:before{
+  content: "";
+  display: block;
+  border-width: 8px;
+  position: absolute;
+  top: 23px;
+  left: 25px;
+  border-style: dashed dashed solid;
+  border-color: #fff transparent transparent;
+  font-size: 0;
+  line-height: 0;
+  z-index: 999;
+  }
+.sidebar-tip-bottom:after{
+  content: "";
+  display: block;
+  border-width: 8px;
+  position: absolute;
+  top: 24px;
+  left: 25px;
+  border-style: dashed dashed solid;
+  border-color: #999 transparent transparent;
   font-size: 0;
   line-height: 0;
 }
