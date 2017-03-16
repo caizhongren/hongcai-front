@@ -57,19 +57,39 @@ angular.module('hongcaiApp')
 
       } 
     });
+
     /**
     * 绑卡信息
     **/
+    // UserCenterService.getUserBankCard.get({}, function(response) {
+    //   if (response.ret === 1) {
+    //      $scope.card = response.data.card;
+    //     if (card) {
+    //       $scope.haveCard = (card.status === 'VERIFIED');
+    //       $scope.isVerifying = (card.status === 'VERIFYING');
+    //       $scope.unbinding = (card.status === 'INIT');
+    //       // ipCookie('resetMobile', true);
+    //     } else {
+    //       $scope.haveCard = false;
+    //     }
+    //     $scope.isAuth = response.data.isAuth;
+    //   } else {
+    //     toaster.pop('error', response.msg);
+    //   }
+    // });
     UserCenterService.getUserBankCard.get({}, function(response) {
       if (response.ret === 1) {
         var card = response.data.card;
         if (card) {
           $scope.haveCard = (card.status === 'VERIFIED');
+          $scope.bankName = card.openBank;
+          $scope.cardNo = card.cardNo;
           $scope.isVerifying = (card.status === 'VERIFYING');
           $scope.unbinding = (card.status === 'INIT');
-          // ipCookie('resetMobile', true);
         } else {
           $scope.haveCard = false;
+          $scope.isVerifying = false;
+          $scope.unbinding = false;
         }
         $scope.isAuth = response.data.isAuth;
       } else {

@@ -21,7 +21,7 @@ angular.module('hongcaiApp')
         toaster.pop('error', response.msg);
       }
     });
-
+   console.log($scope.haveCard);
 
 
     $scope.bindBankCard = function() {

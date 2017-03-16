@@ -21,6 +21,64 @@ angular.module('hongcaiApp')
         //console.log('ask security-settings, why userSecurityInfo did not load data...');
       }
     });
+    //绑卡信息
+    UserCenterService.getUserBankCard.get({}, function(response) {
+      if (response.ret === 1) {
+
+        var card = response.data.card;
+        $scope.isAuth = response.data.isAuth;
+        if (card) {
+          $scope.haveCard = (card.status === 'VERIFIED');
+          $scope.bankName = card.openBank;
+          $scope.cardNo = card.cardNo.slice(-7);
+          $scope.isVerifying = (card.status === 'VERIFYING');
+          $scope.unbinding = (card.status === 'INIT');
+        } else {
+          $scope.haveCard = false;
+          $scope.isVerifying = false;
+          $scope.unbinding = false;
+        }
+        
+      } else {
+        toaster.pop('error', response.msg);
+      }
+    });
+    console.log($scope.isAuth);
+
+    //解绑银行卡
+    $scope.confirmUnbindBankCard = function(){
+      // $rootScope.toNotice();
+      $scope.msg = '11';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+    };
+    $scope.unbindBankCard = function() {
+      // $rootScope.toNotice();
+      UserCenterService.unbindBankCard.get({}, function(response) {
+        if (response.ret === 1) {
+          $state.go('root.yeepay-callback', {
+            business: 'UNBIND_CARD',
+            status: 'SUCCESS'
+          });
+        } else {
+          toaster.pop('error', response.msg);
+        }
+      });
+    };
+    //绑定银行卡
+    $scope.bindBankCard = function() {
+      // $rootScope.toNotice();
+      $scope.msg = '5';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+      window.open('/#!/bankcard-transfer/0');
+    };
 
     $scope.changeMobile = ipCookie('changeMobile')?true:false;
     $scope.bindMobile = function(mobileNo, captcha) {
