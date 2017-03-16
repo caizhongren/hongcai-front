@@ -152,8 +152,6 @@ angular.module('hongcaiApp')
            */
           $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
 
-
-
           /**
            * 用户可用金额
            */
@@ -183,7 +181,12 @@ angular.module('hongcaiApp')
           $scope.pageSize = 10;
           $scope.data = [];
 
-          $scope.projectOrders($scope.project.id, $scope.project.type);
+          if($scope.categoryCode === '0118'){
+            $scope.projectOrders($scope.project.originProjectId, $scope.project.type);
+          }else{
+            $scope.projectOrders($scope.project.id, $scope.project.type);
+          }
+          
           $scope.projectFiles($scope.project.id);
           $scope.projectTexts($scope.project.id);
           $scope.enterpriseInfo($scope.project.enterpriseId);
