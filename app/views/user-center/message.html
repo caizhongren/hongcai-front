@@ -1,10 +1,27 @@
-<div class="right-area bg-offWhite recharge right-assets-height userMessage col-md-8 col-lg-9">
-  <div class="currency-style">
-    <div class="title">
-      <span class="tip">站内消息</span>
+<div class="right-area bg-offWhite right-assets-height userMessage fl">
+    <div class="title bg-white">
+      <span class="tip">
+        <p class="ft-16  ft-b">站内消息</p>
+        <p class="ft-orange5 ft-12 cursor-pointer" ng-click="updateAllMsgStatus()">全部已读</p>
+      </span>
+    </div>
+    <!-- tab切换 -->
+    <div class="tabs row margin-l-0 margin-r-0">
+      <div class="toggle-tab col-md-4 ft-b cursor-pointer {{status==='0,1' ? 'credit-toggle2' : ''}}" ui-sref="root.userCenter.message({status:'0,1'})">全部</div>
+      <div class="toggle-tab col-md-4 ft-b cursor-pointer {{status=== '0' ? 'credit-toggle2' : ''}}" ui-sref="root.userCenter.message({status:'0'})">已读</div>
+      <div class="toggle-tab col-md-4 ft-b cursor-pointer {{status=== '1' ? 'credit-toggle2' : ''}}" ui-sref="root.userCenter.message({status:'1'})">未读</div>
+    </div>
+    <div class="messages-wrap" ng-repeat="item in data">
+      <div class="message-item">
+        <div class="item-nav">
+          <p class="ft-black2 ft-18">账户消息</p>
+          <p class="ft-16 ft-grey4">{{item.createTime | date: "yy-MM-dd HH:mm"}}</p>
+        </div>
+        <div class="ft-16 ft-grey666">{{item.content}}</div>
+      </div>
     </div>
     <div class="main">
-      <div class="col-xs-12">
+      <div class="fl">
         <ul class="list-group margin-b-0">
           <li class="list-group-item border-none cursor-d padding-b-0">
             <div class="row">
@@ -54,5 +71,4 @@
         </div>
       </div>
     </div>
-  </div>
 </div>

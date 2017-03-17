@@ -123,8 +123,15 @@ angular.module('hongcaiApp')
       });
       window.open('/#!/bankcard-transfer/0');
     };
+    $scope.alertAvater = function() {
+      $alert({
+        scope: $scope,
+        template: 'views/modal/modal-avater.html',
+        show: true
+      });
+    };
       var image = angular.element(document.querySelector('#cropImg>img'));
-      var saveBtn = $('.avatar-btns>.avatar-save')
+      var saveBtn = $('.avatar-btns>.avatar-save');
       $scope.submit = function() {
           var type = image.attr('src').split(';')[0].split(':')[1];
           var canVas = image.cropper("getCroppedCanvas", {});
