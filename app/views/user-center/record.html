@@ -4,15 +4,15 @@
   <div class="data-statistics row">
     <div class="col-md-4">
       <p class="ft-36 ft-grey1 ft-Arial">{{rechargeTotal || 0 | number: 2}}</p>
-      <p class="ft-grey666 margin-t-20">充值总额（ 元 ）</p>
+      <p class="ft-14 ft-grey666 margin-t-20">充值总额（ 元 ）</p>
     </div>
     <div class="col-md-4">
       <p class="ft-36 ft-orange6 ft-Arial">{{withdrawTotal || 0 | number: 2}}</p>
-      <p class="ft-grey666 margin-t-20">提现总额（ 元 ）</p>
+      <p class="ft-14 ft-grey666 margin-t-20">提现总额（ 元 ）</p>
     </div>
     <div class="col-md-4">
       <p class="ft-36 ft-grey1 ft-Arial">{{capital.balance || 0 | number: 2}}</p>
-      <p class="ft-grey666 margin-t-20">账户资产（ 元 ）</p>
+      <p class="ft-14 ft-grey666 margin-t-20">账户资产（ 元 ）</p>
     </div>
   </div>
   
@@ -60,7 +60,7 @@
         <tr ng-show="count<=0">
             <td colspan="6" class="border-0">
               <div>
-                <p class="ft-18 ft-grey margin-t-20">暂无记录</p>
+                <p class="ft-18 ft-grey666 margin-t-20">暂无记录</p>
                 <p><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main" href="/">浏览项目</a></p>
               </div>
             </td>
@@ -79,7 +79,7 @@
       </tbody>
     </table>
 
-    <ul class="pager margin-r-20 ft-14 ft-white4" ng-hide="dealList.length<=0">
+    <ul class="pager margin-t-0 padding-30 ft-14 ft-white4" ng-hide="dealList.length<=0">
       <li class="display-inbl"><button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="getDeals(currentPage - 1)">上一页</button></li>
       <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div>
       <li class="display-inbl"><button class="btn btn-orange6 {{currentPage >= totalPage ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= totalPage" ng-click="getDeals(currentPage + 1)">下一页</button></li>

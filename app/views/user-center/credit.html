@@ -142,7 +142,7 @@
           </tr>
         </tbody>
       </table>
-      <ul class="pager margin-t-30 ft-14 ft-white4">
+      <ul class="pager padding-30 margin-t-0 ft-14 ft-white4">
         <li class="display-inbl"><button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage-1, pageSize, searchStatus)">上一页</button></li>
         <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div>
         <li class="display-inbl"><button class="btn btn-orange6 {{currentPage >= numberOfPages ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= numberOfPages " ng-click="loadCredits(currentPage+1, pageSize, searchStatus)">下一页</button></li>
@@ -187,7 +187,7 @@
           </tr>
         </tbody>
       </table>
-      <ul class="pager margin-t-30 ft-14 ft-white4" ng-hide="heldInCreditList.length<=0">
+      <ul class="pager padding-30 margin-t-0 ft-14 ft-white4" ng-hide="heldInCreditList.length<=0">
         <li class="display-inbl">
           <button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage - 1, pageSize, searchStatus)">上一页</button>
         </li>

@@ -1,6 +1,5 @@
 // 个人中心-债权转让 
-<<<<<<< HEAD
-.userCenter-assignments, .userCenter-credit, .uc-experience, .record {
+.userCenter-assignments, .userCenter-credit, .uc-experience, .record, .invite-rebate {
 	// 数据统计
   .data-statistics {
     background-color: #fff;
@@ -13,7 +12,10 @@
       border-right: 1px solid #eeeeee;
     }
   }
-  
+    
+  .invite-data-h118 {
+    height: 118px;
+  }
   .width-title {
     width: 25% !important;
   }
@@ -194,10 +196,15 @@
   line-height: 0 !important;
 }
 
+.pager {
+  background: #fff;
+}
+
+//资金流水
 .record {
-  font-size: 16px;
   // 筛选条件
   .screening-conditions {
+    font-size: 16px;
     padding: 54px 30px 72px;
     background-color: #fff;
     margin-top: 30px;
@@ -273,6 +280,55 @@
   }
     
 }
+
+//我的邀请
+.invite-rebate {
+  .my-channel {
+    background-color: #fff;
+    height: 229px;
+    text-align: center;
+    padding: 45px 70px 20px;
+    .invite-code-img, .invite-qrcode-img, .invite-copy-img {
+      height: 138px;
+      width: 138px;
+      line-height: 138px;
+      margin: 0 auto;
+    }
+    .invite-code-img {
+      border: 1px solid #fadf89;
+      border-radius: 5px;
+      color: #e8bf3a;
+      cursor: text;
+    }
+    .invite-qrcode-img {
+      background: url('/images/user-center/invite-qrcode-img.png') no-repeat center center;
+      background-size: cover;
+    }
+    .invite-copy-img {
+      background: url('/images/user-center/invite-copy-img.png') no-repeat center center;
+      background-size: cover;
+    }
+  }
+  .invite-table {
+    thead {
+      th {
+        padding: 28px 60px 0;
+        height: 60px;
+      }
+      .first-w {
+        width: 265px;
+      }
+      .last-padding {
+        padding-left: 140px;
+      }
+    }
+    tbody {
+      td {
+        padding: 0 60px;
+      }
+    }
+  }
+} 
 
 
 
