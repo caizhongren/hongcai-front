@@ -10,7 +10,7 @@
         <p class="ft-36 ft-orange6 ft-Arial">{{account.receivedProfit || 0 | number: 2}}</p>
         <p class="ft-grey666 margin-t-20">累计收益（ 元 ）</p>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 border-0">
         <p class="ft-36 ft-grey1 ft-Arial">5200.00</p>
         <p class="ft-grey666 margin-t-20">代收本息（ 元 ）</p>
       </div>
@@ -113,8 +113,8 @@
         <tbody>
           <tr ng-show="heldInCreditList.length<=0">
             <td colspan="6">
-              <div class="line-h-0">
-                <p class="ft-18 ft-grey666 padding-30">暂无记录</p>
+              <div class="line-h-0 padding-t-50 padding-b-30">
+                <p class="ft-18 ft-grey666">暂无记录</p>
                 <p><a class="btn btn-primary-orange ft-18 margin-t-20 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
               </div>
             </td>
@@ -142,7 +142,7 @@
           </tr>
         </tbody>
       </table>
-      <ul class="pager padding-30 margin-t-0 ft-14 ft-white4">
+      <ul class="pager padding-30 margin-t-0 ft-14 ft-white4" ng-if="heldInCreditList.length > 0">
         <li class="display-inbl"><button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage-1, pageSize, searchStatus)">上一页</button></li>
         <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div>
         <li class="display-inbl"><button class="btn btn-orange6 {{currentPage >= numberOfPages ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= numberOfPages " ng-click="loadCredits(currentPage+1, pageSize, searchStatus)">下一页</button></li>
@@ -163,8 +163,8 @@
         <tbody>
           <tr ng-show="heldInCreditList.length<=0">
             <td colspan="6">
-              <div class="line-h-0">
-                <p class="ft-18 ft-grey666 padding-30">暂无记录</p>
+              <div class="line-h-0 padding-t-50 padding-b-30">
+                <p class="ft-18 ft-grey666">暂无记录</p>
                 <p><a class="btn btn-primary-orange ft-18 margin-t-20 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
               </div>
             </td>
