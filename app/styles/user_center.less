@@ -789,8 +789,45 @@
 }
 
 // -------- message --------
+#user-center-right {
+ #readAll.readAll {
+   float: right;
+   margin: 0;
+   height: 30px;
+   line-height: 30px;
+ } 
+ .right-area.userMessage {
+  margin-top: 0;
+ }
+}
 
 .userMessage {
+  .messages-wrap {
+    border-bottom: 1px solid #eee;
+    .message-item {
+      padding: 0 78px 0 60px;
+      .item-nav {
+        display: flex;
+        justify-content: space-between;
+        line-height: 90px;
+        height: 90px;
+        .ft-black2 {
+          display: flex;
+          .msg-type {
+            flex-grow: 0;
+            width: 230px;
+          }
+        }
+      }
+      .item-discrip {
+        line-height: 40px;
+        margin: 10px 0;
+      }
+    }
+  }
+  .ft-b {
+      color: #595656;
+    }
   .border-b-none {
     border-bottom: none;
   }
@@ -1574,7 +1611,7 @@
   }
 }
 .modal-top{
-  margin-top:164px;
+  padding-top:164px;
 }
 .modal-body{
   overflow: auto;

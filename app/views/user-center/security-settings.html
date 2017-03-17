@@ -5,8 +5,8 @@
 		<div class="avater-wrapper">
 			<div class="avater-l position-re display-inbl margin-r-30">
 				<div class="avater-img"></div>
-				<img src="/images/user-center/portrait.png" class="defaut position-ab">
-				<!-- <img src="/images/logo.png" class="newAvater position-ab"> -->
+				<img src="/images/user-center/portrait.png" class="defaut position-ab" ng-show="!loginUser.headImgUrl">
+				<img ng-src="{{loginUser.headImgUrl}}" class="newAvater position-ab" ng-show="loginUser.headImgUrl">
 			</div>
 			<div class="avater-r display-inbl ft-grey666">
 				<p class="ft-26 margin-t--5px">{{ loginName || "游客"}}</p>
