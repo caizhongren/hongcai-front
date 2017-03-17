@@ -319,5 +319,12 @@ angular.module('hongcaiApp')
       orderDetail: $resource(RESTFUL_DOMAIN + '/orders/:orderNumber',{
         orderNumber: '@orderNumber'
       }),
+      //交易记录统计
+      dealData: $resource(RESTFUL_DOMAIN + '/users/0/deals/stat',{},{
+        'get': {
+          method: 'GET',
+          isArray: true
+        }
+      })
     };
   });

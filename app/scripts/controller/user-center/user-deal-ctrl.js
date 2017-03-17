@@ -18,7 +18,7 @@ angular.module('hongcaiApp')
     $scope.dateIntervalList = [
       {
         'type': '全部',
-        'no': ''
+        'no': '0'
       },{
         'type': '今天',  //包含：项目正常回款、债权转让回款
         // 'no': [new Date().setHours(0).setMinutes(0).setSeconds(0).setMilliseconds(0).getTime(), new Date().getTime()]
@@ -63,14 +63,17 @@ angular.module('hongcaiApp')
     ]
     $scope.selected1 = '全部';
     $scope.selected2 = '全部';
-    //选择资金流水类型
+    //选择交易类型
     $scope.selectDealType = function(dealType){
       $scope.selected1 = dealType.type;
       $scope.dealType = dealType.no;
     }
+    //选择起止日期
     $scope.selectdateInterval = function(dateInterval){
       $scope.selected2 = dateInterval.type;
       $scope.dateInterval = dateInterval.no;
+      $scope.startTime = '';
+      $scope.endTime = '';
       if (dateInterval.type == '今天') {
         $scope.startTime = nowDate;
         $scope.endTime = new Date().getTime();
@@ -128,7 +131,20 @@ angular.module('hongcaiApp')
 
     $scope.getDeals(1);
 
-  
+    $scope.rechargeTotal = 0;   //充值总额
+    $scope.withdrawTotal = 0;   //提现总额
 
+    //交易记录统计
+    UserCenterService.dealData.get({},function(response) {
+      if (response && response.ret !== -1) {
+        for(var i= 0; i< response.length; i++){
+          if (response[i].type == '1') {
+            $scope.rechargeTotal += response[i].amount;
+          }else if (response[i].type === '2') {
+            $scope.withdrawTotal += response[i].amount;
+          }
+        }
+      }
+    })
   });
 
