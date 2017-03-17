@@ -40,7 +40,7 @@
 
             <div class="row avatar-btns">
               <div class="col-md-3">
-                <button type="button" class="btn btn-primary btn-block avatar-save" ng-click="submit();">确定</button>
+                <button type="button" class="btn btn-primary btn-block avatar-save">确定</button>
               </div>
             </div>
           </div>
@@ -55,7 +55,7 @@
   
   <script type="text/javascript">
     var $image = $('#cropImg>img');
-    var saveBtn = $('.avatar-btns>.avatar-save')
+    var saveBtn = $('.avatar-btns>.avatar-save');
     //初始化
     $image.cropper({
       // viewMode: 1,
@@ -85,4 +85,37 @@
         };
         reader.readAsDataURL(file);
     });
+    saveBtn.click(function() {
+        var type = image.attr('src').split(';')[0].split(':')[1];
+        console.log(tyoe);
+        var canVas = image.cropper("getCroppedCanvas", {});
+        //将裁剪的图片加载到face_image
+        $('#face_image').attr('src', canVas.toDataURL());
+        canVas.toBlob(function(blob) {
+            var formData = new FormData();
+            formData.append("file", blob, fileName);
+
+            $.ajax({
+                type: "POST",
+                url: '/sys/file/uploadImage.do',
+                data: formData,
+                contentType: false, //必须
+                processData: false, //必须
+                dataType: "json",
+                success: function(retJson){
+                    //清空上传文件的值
+                    $('#avatarInput').val('');
+
+                    //上传成功
+                    console.log('retJson:', retJson);
+                },
+                error : function() {
+                    //清空上传文件的值
+                    $(_pageId + '#btn1').val('');
+                }
+            });
+        }, type);
+    });
+    /* * 上传图片 */
+     
 </script>

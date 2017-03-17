@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserCenterCtrl', function($location, $scope, $http,$state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, ipCookie, $alert) {
+  .controller('UserCenterCtrl', function($location, $scope, $http,$state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, ipCookie, $alert, toaster) {
     var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
     $checkSessionServer.error(function(response) {
         return;
@@ -94,6 +94,7 @@ angular.module('hongcaiApp')
         $scope.isAuth = response.data.isAuth;
       } else {
         toaster.pop('error', response.msg);
+        console.log('error!');
       }
     });
 
@@ -169,7 +170,37 @@ angular.module('hongcaiApp')
           $(_pageId + inputFileId).val('');
         
       }
+      saveBtn.click(function() {
+          var type = image.attr('src').split(';')[0].split(':')[1];
+          console.log(tyoe);
+          var canVas = image.cropper("getCroppedCanvas", {});
+          //将裁剪的图片加载到face_image
+          $('#face_image').attr('src', canVas.toDataURL());
+          canVas.toBlob(function(blob) {
+              var formData = new FormData();
+              formData.append("file", blob, fileName);
 
+              $.ajax({
+                  type: "POST",
+                  url: '/sys/file/uploadImage.do',
+                  data: formData,
+                  contentType: false, //必须
+                  processData: false, //必须
+                  dataType: "json",
+                  success: function(retJson){
+                      //清空上传文件的值
+                      $('#avatarInput').val('');
+
+                      //上传成功
+                      console.log('retJson:', retJson);
+                  },
+                  error : function() {
+                      //清空上传文件的值
+                      $(_pageId + '#btn1').val('');
+                  }
+              });
+          }, type);
+      });
         
 
   });
