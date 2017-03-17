@@ -3,8 +3,9 @@
 <div class="left-area ft-14" ng-if="selectSide !=='questionnaire' ">
   <div class="overview">
     <div class="user-portrait" id="crop-avatar">
-      <div class="portrait" ng-click="alertAvater();">
-        <img class="cursor-pointer" ng-src="{{loginUser.headImgUrl || headImgUrl}}" title="更换头像">
+      <div class="portrait {{loginUser.portraitUrl?'margin-b-20':''}}" ng-click="alertAvater();">
+        <img class="cursor-pointer" src="/images/user-center/portrait.png" title="更换头像" ng-if="!loginUser.portraitUrl">
+        <img ng-src="{{baseFileUrl + loginUser.portraitUrl}}" width="80" height="80" title="更换头像" ng-if="loginUser.portraitUrl">
       </div>
       <p class="user-name ft-grey666 ft-18 text-center">{{ loginUser.nickName || (loginUser.mobile || loginName) }}~ </p>
       <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 1">安全等级：低<a href="#" ui-sref="root.userCneter.security-settings">(如何提升)</a></p>
