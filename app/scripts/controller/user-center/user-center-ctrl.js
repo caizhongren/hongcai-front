@@ -78,15 +78,15 @@ angular.module('hongcaiApp')
     $scope.resetMobile = function(){
       $state.go('root.userCenter.security-settings');
       if($scope.haveTrusteeshipAccount== true){
-        ipCookie('resetMobile', true);
+        ipCookie('resetMobile', 1);
       }else{
-        ipCookie('changeMobile',true);
+        ipCookie('changeMobile',1);
       }
     }
     // 点击开通存管通
     $scope.openTrusteeshipAccount = function(){
       $state.go('');
-      ipCookie('openTrusteeshipAccount',true);
+      ipCookie('openTrusteeshipAccount',1);
     };
 
     //绑定银行卡

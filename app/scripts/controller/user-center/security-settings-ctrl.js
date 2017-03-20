@@ -88,6 +88,7 @@ angular.module('hongcaiApp')
       }, function(response) {
         if (response.ret === 1) {
           $scope.mobile = mobileNo.substr(0, 3) + '****' + mobileNo.substr(7, 11);
+          ipCookie.remove('changeMobile')
           $scope.changeMobile = false;
           $scope.mobileNo = null;
           $scope.inputCaptcha = null;
@@ -211,7 +212,8 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-
+      $scope.openTrusteeshipAccount = false;
+      ipCookie.remove('openTrusteeshipAccount');
       window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/0');
     };
 
@@ -344,6 +346,7 @@ angular.module('hongcaiApp')
     UserCenterService.autoTender.get({
       userId: 0
     }, function(response){
+      //1.开启  2. 过期 3.禁用 0已开启还未到开始日期
       $scope.openTrustReservation = response.status;
       if (response.userId !== null) {
         $scope.setAutoTender = true;

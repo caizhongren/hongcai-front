@@ -5,8 +5,8 @@
 		<div class="avater-wrapper">
 			<div class="avater-l position-re display-inbl margin-r-30">
 				<div class="avater-img"></div>
-				<img src="/images/user-center/portrait.png" class="defaut position-ab" ng-show="!loginUser.headImgUrl">
-				<img ng-src="{{loginUser.headImgUrl}}" class="newAvater position-ab" ng-show="loginUser.headImgUrl">
+				<img src="/images/user-center/portrait.png" class="defaut position-ab" ng-show="!loginUser.portraitUrl">
+				<img ng-src="{{loginUser.portraitUrl}}" class="newAvater position-ab" ng-show="loginUser.portraitUrl">
 			</div>
 			<div class="avater-r display-inbl ft-grey666">
 				<p class="ft-26 margin-t--5px">{{ loginName || "游客"}}</p>
@@ -52,10 +52,10 @@
 					</div>
 					<div class="form-group">
 						<label>新密码：</label>
-						<input type="password" class="verify-input" name="newPwd" id="newPwd" ng-model="password.newPassword" ng-focus required/>
-						<div class="user-tips-area safe-tips-area" ng-show="changePwdForm.newPwd.$dirty && changePwdForm.newPwd.$invalid && !changePwdForm.newPwd.$focused">
-				            <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>
-				         </div>
+						<input type="password" class="verify-input" name="newPwd" id="newPwd" ng-model="password.newPassword" ng-pattern="/^(?=.*\d)(?=.*[a-zA-Z]).{6,16}$/" ng-focus required/>
+				         <div class="user-tips-area" ng-show="(changePwdForm.newPwd.$error.pattern || changePwdForm.newPwd.$dirty) && changePwdForm.newPwd.$invalid &&!changePwdForm.newPwd.$focused ">
+						    <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>密码6-16位，需包含字母和数字</p>
+						 </div>
 					</div>
 					<div class="form-group">
 						<label>确认密码：</label>
@@ -190,11 +190,9 @@
 			<div class="item">
 				<span class="ft-grey666">自动投标权限</span>
 				<div class="right">
-					<span class="ft-grey4">{{openTrustReservation === 1 || openTrustReservation === 0 ? '已开启' : '未开启'}}</span>
+					<span class="ft-grey4">{{openTrustReservation === 1 || openTrustReservation === 0 ?'已开启':'未开启'}}</span>
 					<span class="ft-blue5 cursor-pointer" ng-if="openTrustReservation === null" ng-click="openReservation()">立即开启</span>
 					<span class="ft-blue5 cursor-pointer"  ng-if="openTrustReservation !== null" ng-click="openReservation();">查看</span>
-					<!-- <span class="ft-grey4">未开启</span> -->
-					<!-- <span class="ft-blue5 cursor-pointer" ng-click="openReservation()">开启</span> -->
 				</div>
 			</div>
 		</div>
