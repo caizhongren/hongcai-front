@@ -29,7 +29,8 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'bgf.paginateAnything',
   'angular-svg-round-progress',
   'seo',
-  'ng-echarts'
+  'ng-echarts',
+  'angularFileUpload'
 ]);
 
 hongcaiApp

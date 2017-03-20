@@ -43,7 +43,6 @@ angular.module('hongcaiApp')
         toaster.pop('error', response.msg);
       }
     });
-    console.log($scope.isAuth);
 
     //解绑银行卡
     $scope.confirmUnbindBankCard = function(){

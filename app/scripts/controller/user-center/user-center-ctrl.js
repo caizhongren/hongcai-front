@@ -1,14 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserCenterCtrl', function($location, $scope, $http,$state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, ipCookie, $alert, toaster) {
-    var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
-    $checkSessionServer.error(function(response) {
-        return;
-    }).success(function(response) {
-      if(response.data.securityStatus.trusteeshipAccountStatus !==1) {
-        ipCookie('openTrusteeshipAccount', true);
-      }
-    });
+  .controller('UserCenterCtrl', function($location, $scope, $http,$state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, ipCookie, $alert, toaster, $upload,  $window) {
+    
     $scope.headImgUrl = '/images/user-center/portrait.png';
     $rootScope.selectPage = $location.path().split('/')[2];
     var timestamp = new Date();
@@ -61,22 +54,6 @@ angular.module('hongcaiApp')
     /**
     * 绑卡信息
     **/
-    // UserCenterService.getUserBankCard.get({}, function(response) {
-    //   if (response.ret === 1) {
-    //      $scope.card = response.data.card;
-    //     if (card) {
-    //       $scope.haveCard = (card.status === 'VERIFIED');
-    //       $scope.isVerifying = (card.status === 'VERIFYING');
-    //       $scope.unbinding = (card.status === 'INIT');
-    //       // ipCookie('resetMobile', true);
-    //     } else {
-    //       $scope.haveCard = false;
-    //     }
-    //     $scope.isAuth = response.data.isAuth;
-    //   } else {
-    //     toaster.pop('error', response.msg);
-    //   }
-    // });
     UserCenterService.getUserBankCard.get({}, function(response) {
       if (response.ret === 1) {
         var card = response.data.card;
@@ -94,7 +71,6 @@ angular.module('hongcaiApp')
         $scope.isAuth = response.data.isAuth;
       } else {
         toaster.pop('error', response.msg);
-        console.log('error!');
       }
     });
 
@@ -131,76 +107,62 @@ angular.module('hongcaiApp')
         show: true
       });
     };
-      var image = angular.element(document.querySelector('#cropImg>img'));
-      var saveBtn = $('.avatar-btns>.avatar-save');
-      $scope.submit = function() {
-          var type = image.attr('src').split(';')[0].split(':')[1];
-          var canVas = image.cropper("getCroppedCanvas", {});
-          //将裁剪的图片加载到face_image
-          $('#face_image').attr('src', canVas.toDataURL());
-          canVas.toBlob(function(blob) {
-              var formData = new FormData();
-              formData.append("file", blob, fileName);
+    $scope.submit = function() {
+        var type = image.attr('src').split(';')[0].split(':')[1];
+        var canVas = image.cropper("getCroppedCanvas", {});
+        //将裁剪的图片加载到face_image
+        $('#face_image').attr('src', canVas.toDataURL());
+        canVas.toBlob(function(blob) {
+            var formData = new FormData();
+            formData.append("file", blob, fileName);
 
-              $.ajax({
-                  type: "POST",
-                  url: '/sys/file/uploadImage.do',
-                  data: formData,
-                  contentType: false, //必须
-                  processData: false, //必须
-                  dataType: "json",
-                  success: function(retJson){
-                      //清空上传文件的值
-                      $('#avatarInput').val('');
+            $.ajax({
+                type: "POST",
+                url: '/sys/file/uploadImage.do',
+                data: formData,
+                contentType: false, //必须
+                processData: false, //必须
+                dataType: "json",
+                success: function(retJson){
+                    //清空上传文件的值
+                    $('#avatarInput').val('');
 
-                      //上传成功
-                      console.log('retJson:', retJson);
-                  },
-                  error : function() {
-                      //清空上传文件的值
-                      $(_pageId + '#btn1').val('');
-                  }
-              });
-          }, type);
-      };
-      $scope.cancle = function(){
-        //取消
-          console.log(1);
-           //清空上传文件的值
-          $(_pageId + inputFileId).val('');
+                    //上传成功
+                    console.log('retJson:', retJson);
+                },
+                error : function() {
+                    //清空上传文件的值
+                    $(_pageId + '#btn1').val('');
+                }
+            });
+        }, type);
+    };
+
+    //上传头像
+    $scope.onFileSelect = function($files) {
+        for (var i = 0; i < $files.length; i++) {
+            var file = $files[i];
+            $scope.upload = $upload.upload({
+                url: DEFAULT_DOMAIN + '/siteUser/uploadFile' 
+                + '?categoryId='+ $rootScope.loginUser.id  
+                + '&category=7'
+                + '&fileType=0'
+                + '&archiveType=6'
+                + '&description=头像', 
+                data: {myObj: $scope.myModelObj},
+                file: file,
+            }).progress(function(evt) {
+                console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+            }).success(function(data, status, headers, config) {
+                
+            });
+        }
         
-      }
-      saveBtn.click(function() {
-          var type = image.attr('src').split(';')[0].split(':')[1];
-          console.log(tyoe);
-          var canVas = image.cropper("getCroppedCanvas", {});
-          //将裁剪的图片加载到face_image
-          $('#face_image').attr('src', canVas.toDataURL());
-          canVas.toBlob(function(blob) {
-              var formData = new FormData();
-              formData.append("file", blob, fileName);
-
-              $.ajax({
-                  type: "POST",
-                  url: '/sys/file/uploadImage.do',
-                  data: formData,
-                  contentType: false, //必须
-                  processData: false, //必须
-                  dataType: "json",
-                  success: function(retJson){
-                      //清空上传文件的值
-                      $('#avatarInput').val('');
-
-                      //上传成功
-                      console.log('retJson:', retJson);
-                  },
-                  error : function() {
-                      //清空上传文件的值
-                      $(_pageId + '#btn1').val('');
-                  }
-              });
-          }, type);
-      });
+    };
+    // 保存
+    $scope.saveAvater = function() {
+      $window.location.reload();
+    }
         
 
   });
