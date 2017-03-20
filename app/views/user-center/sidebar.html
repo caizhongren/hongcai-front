@@ -4,7 +4,7 @@
   <div class="overview">
     <div class="user-portrait" id="crop-avatar">
       <div class="portrait {{loginUser.portraitUrl?'margin-b-20':''}}" ng-click="alertAvater();">
-        <img class="cursor-pointer avater-default" src="/images/user-center/portrait.png" title="更换头像" ng-if="!loginUser.portraitUrl">
+        <div class="cursor-pointer avater-default" ng-if="!loginUser.portraitUrl"></div>
         <img class="cursor-pointer avater-own" ng-src="{{baseFileUrl + loginUser.portraitUrl}}" width="80" height="80" title="更换头像" ng-if="loginUser.portraitUrl">
       </div>
       <p class="user-name ft-grey666 ft-18 text-center">{{ loginUser.nickName || (loginUser.mobile || loginName) }}</p>
@@ -12,28 +12,23 @@
       <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 2">安全等级：高</a></p>
     </div>
     <div class="flow-icons" ng-mouseleave="showTip1=false;showTip2=false;showTip3=false;showTip4=false;">
-      <!-- ng-if="!haveTrusteeshipAccount && showTip2==true"-->
       <div class="icons position-re">
         <div class="sidebar-tip" ng-show="mobile !== undefined && showTip1==true" ng-mouseleave="showTip1=false">您已完成手机绑定：{{mobile}}&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ng-click="resetMobile();">修改</span></div>
-        <div class="position-re" ng-mouseenter="showTip1 = true;showTip2 = false;showTip3 = false;showTip4 = false;" ng-init="showTip1=false">
-          <img src="/images/user-center/mobile.png">
+        <div class="position-re icon1" ng-mouseenter="showTip1 = true;showTip2 = false;showTip3 = false;showTip4 = false;" ng-init="showTip1=false">
           <i class="fa fa-check-circle ft-green position-ab" aria-hidden="true" ng-show="mobile !== undefined"></i>
         </div>
         <div class="sidebar-tip sidebar-tip2" ng-show="!haveTrusteeshipAccount && showTip2==true" ng-mouseleave="showTip2=false">您尚未开通资金存管系统&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ng-click="openTrusteeshipAccount();">开通</span></div>
         <div class="sidebar-tip sidebar-tip2" ng-show="haveTrusteeshipAccount && showTip2==true" ng-mouseleave="showTip2=false">您已开通资金存管系统</div>
-        <div class="position-re" ng-mouseenter="showTip2 = true;showTip1 = false;showTip3 = false;showTip4 = false;">
-          <img src="/images/user-center/cgt.png">
+        <div class="position-re icon2" ng-mouseenter="showTip2 = true;showTip1 = false;showTip3 = false;showTip4 = false;">
           <i class="fa fa-check-circle ft-green position-ab i2" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>
         </div>
         <div class="sidebar-tip sidebar-tip3" ng-show="haveTrusteeshipAccount && showTip3==true" ng-mouseleave="showTip3=false">您已设置交易密码&nbsp;&nbsp;<span class="cursor-pointer ft-blue">修改</span></div>
-        <div class="position-re" ng-mouseenter="showTip3 = true;showTip2 = false;showTip1 = false;showTip4 = false;">
-          <img src="/images/user-center/password.png">
+        <div class="position-re icon3" ng-mouseenter="showTip3 = true;showTip2 = false;showTip1 = false;showTip4 = false;">
           <i class="fa fa-check-circle ft-green position-ab i3" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>
         </div>
         <div class="sidebar-tip sidebar-tip4" ng-show="!haveCard && !isVerifying && !unbinding && showTip4==true" ng-mouseleave="showTip4=false">您尚未邦定银行卡&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ng-click="bindBankCard();">绑定</span></div>
         <div class="sidebar-tip sidebar-tip4" ng-show="haveCard && !isVerifying && !unbinding && showTip4==true" ng-mouseleave="showTip4=false">您已绑定银行卡&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ui-sref="root.userCenter.bankcard-management">查看</span></div>
-        <div class="position-re" ng-mouseenter="showTip4 = true;showTip2 = false;showTip3 = false;showTip1 = false;">
-          <img src="/images/user-center/bankcard.png">
+        <div class="position-re icon4" ng-mouseenter="showTip4 = true;showTip2 = false;showTip3 = false;showTip1 = false;">
           <i class="fa fa-check-circle ft-green position-ab i4" aria-hidden="true" ng-show="isAuth && haveCard && !isVerifying && !unbinding"></i>
         </div>
       </div>
@@ -42,20 +37,20 @@
   <div class="sidebar-items">
     <div class="nav-items">
       <ul class="padding-t-15 padding-b-15">
-        <li class="side-tab ft-16 ft-grey666"><span><img src="/images/user-center/account-info.png"></span>账户信息</li>
+        <li class="side-tab ft-16 ft-grey666"><span class="icon5"></span>账户信息</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'account-overview' ? 'now' : ''}}" ui-sref="root.userCenter.account-overview">账户总览</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'security-settings' ? 'now' : ''}}" ui-sref="root.userCenter.security-settings">账户设置</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'bankcard-management' ? 'now' : ''}}" ui-sref="root.userCenter.bankcard-management">银行卡管理</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'message' ? 'now' : ''}}" ui-sref="root.userCenter.message({status:'0,1'})">站内信（{{unreadCount || 0}}）</li>
-        <li class="side-tab ft-16 ft-grey666"><span><img src="/images/user-center/funds-info.png"></span>资金信息</li>
+        <li class="side-tab ft-16 ft-grey666"><span class="icon6"></span>资金信息</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'record' ? 'now' : ''}}" ui-sref="root.userCenter.record">资金流水</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'recharge' ? 'now' : ''}}" ui-sref="root.userCenter.recharge">充值</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'withdraw' ? 'now' : ''}}" ui-sref="root.userCenter.withdraw">提现</li>
-        <li class="side-tab ft-16 ft-grey666"><span><img src="/images/user-center/invest-info.png"></span>投资信息</li>
+        <li class="side-tab ft-16 ft-grey666"><span class="icon7"></span>投资信息</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'credit' || selectPage_two == 'credit'? 'now' : ''}}" ui-sref="root.userCenter.credit">我的投资</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'assignments'  || selectPage_two == 'assignments'? 'now' : ''}}" ui-sref="root.userCenter.assignments">债权转让</li>
         <li class="ft-16 ft-grey666">自动投标</li>
-        <li class="side-tab ft-16 ft-grey666"><span><img src="/images/user-center/award-info.png"></span>奖励信息</li>
+        <li class="side-tab ft-16 ft-grey666"><span class="icon8"></span>奖励信息</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'cash-coupon' ? 'now' : ''}}" ui-sref="root.userCenter.cash-coupon">奖金</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'rate-coupon' ? 'now' : ''}}" ui-sref="root.userCenter.rate-coupon">加息券</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'experience-money' ? 'now' : ''}}" ui-sref="root.userCenter.experienceMoney">体验金</li>
