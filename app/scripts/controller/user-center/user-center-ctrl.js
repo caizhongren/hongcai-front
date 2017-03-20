@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserCenterCtrl', function($location, $scope, $http,$state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, ipCookie, $alert, toaster, $upload,  $window) {
+  .controller('UserCenterCtrl', function($location, $scope, $http,$state, $rootScope, $stateParams, UserCenterService, SecuritySettingService, DEFAULT_DOMAIN, $alert, toaster, $upload,  $window) {
     
     $scope.headImgUrl = '/images/user-center/portrait.png';
     $rootScope.selectPage = $location.path().split('/')[2];
@@ -76,22 +76,28 @@ angular.module('hongcaiApp')
 
     //修改手机号
     $scope.resetMobile = function(){
-      $state.go('root.userCenter.security-settings');
+      
       if($scope.haveTrusteeshipAccount== true){
-        ipCookie('resetMobile', 1);
+        SecuritySettingService.setter({reset:true});
+        $state.go('root.userCenter.security-settings');
       }else{
-        ipCookie('changeMobile',1);
+        $rootScope.toRealNameAuth();
+
       }
     }
     // 点击开通存管通
     $scope.openTrusteeshipAccount = function(){
-      $state.go('');
-      ipCookie('openTrusteeshipAccount',1);
+      SecuritySettingService.setter({realName:true});
+      $state.go('root.userCenter.security-settings');
     };
 
     //绑定银行卡
     $scope.bindBankCard = function() {
       // $rootScope.toNotice();
+      if($rootScope.securityStatus.realNameAuthStatus !== 1){
+        $rootScope.toRealNameAuth();
+        return;
+      }
       $scope.msg = '5';
       $alert({
         scope: $scope,

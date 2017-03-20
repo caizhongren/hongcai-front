@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
+  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, UserCenterService, SecuritySettingService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
 
     $scope.userbusiness = 2;
     UserCenterService.userSecurityInfo.get({}, function(response) {
@@ -79,7 +79,6 @@ angular.module('hongcaiApp')
       window.open('/#!/bankcard-transfer/0');
     };
 
-    $scope.changeMobile = ipCookie('changeMobile')?true:false;
     $scope.bindMobile = function(mobileNo, captcha) {
       UserCenterService.bindMobile.get({
         mobile: mobileNo,
@@ -88,7 +87,6 @@ angular.module('hongcaiApp')
       }, function(response) {
         if (response.ret === 1) {
           $scope.mobile = mobileNo.substr(0, 3) + '****' + mobileNo.substr(7, 11);
-          ipCookie.remove('changeMobile')
           $scope.changeMobile = false;
           $scope.mobileNo = null;
           $scope.inputCaptcha = null;
@@ -160,7 +158,8 @@ angular.module('hongcaiApp')
     /**
      * 修改手机号码
      */
-    $scope.resetMobile = ipCookie('resetMobile')? true:false;
+   
+    $scope.resetMobile = SecuritySettingService.getter().reset?true:false;
     $scope.resetMobilenum = function(user) {
       var regexp = new RegExp('^((13[0-9])|(15[^4,\\D])|(18[0-9])|(17[0678])|(14[0-9]))\\d{8}$');
       if(!regexp.test(user.mobile)) {
@@ -182,7 +181,6 @@ angular.module('hongcaiApp')
         $scope.user.picCaptcha = null;
         $scope.user.inputCaptcha = null;
         $scope.resetMobile = false;
-        ipCookie.remove('resetMobile');
         UserCenterService.userSecurityInfo.get({}, function(response) {
           if (response.ret === 1) {
             var user = response.data.user;
@@ -193,7 +191,7 @@ angular.module('hongcaiApp')
     };
 
 
-    $scope.openTrusteeshipAccount = ipCookie('openTrusteeshipAccount')?true:false;
+    $scope.openTrusteeshipAccount = SecuritySettingService.getter().realName?true:false;
     $scope.checkEmailAndMobile = function() {
       if (!$scope.mobile) {
         $scope.openTrusteeshipAccount = false;
@@ -213,7 +211,6 @@ angular.module('hongcaiApp')
         show: true
       });
       $scope.openTrusteeshipAccount = false;
-      ipCookie.remove('openTrusteeshipAccount');
       window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/0');
     };
 
