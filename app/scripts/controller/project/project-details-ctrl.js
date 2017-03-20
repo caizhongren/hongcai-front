@@ -152,8 +152,6 @@ angular.module('hongcaiApp')
            */
           $scope.projectInvestNum = $scope.project.currentStock * $scope.project.increaseAmount;
 
-
-
           /**
            * 用户可用金额
            */
@@ -183,7 +181,12 @@ angular.module('hongcaiApp')
           $scope.pageSize = 10;
           $scope.data = [];
 
-          $scope.projectOrders($scope.project.id, $scope.project.type);
+          if($scope.categoryCode === '0118'){
+            $scope.projectOrders($scope.project.originProjectId, $scope.project.type);
+          }else{
+            $scope.projectOrders($scope.project.id, $scope.project.type);
+          }
+          
           $scope.projectFiles($scope.project.id);
           $scope.projectTexts($scope.project.id);
           $scope.enterpriseInfo($scope.project.enterpriseId);
@@ -235,10 +238,13 @@ angular.module('hongcaiApp')
 
       if (($scope.project !== undefined && $scope.project) || $scope.selectedCoupon !== null) {
         $scope.profit = $scope.calcProfit($scope.project.annualEarnings) || 0;
-        if (coupon.type === 1) {
-          $scope.increaseProfit = $scope.calcProfit(coupon.value);
-        } else {
-          $scope.increaseProfit = amount < coupon.minInvestAmount ? 0 : coupon.value;
+        $scope.increaseProfit = 0;
+        if(coupon !== undefined){
+          if (coupon.type === 1) {
+            $scope.increaseProfit = $scope.calcProfit(coupon.value);
+          } else {
+            $scope.increaseProfit = amount < coupon.minInvestAmount ? 0 : coupon.value;
+          }
         }
       }
     }
@@ -445,15 +451,14 @@ angular.module('hongcaiApp')
         dataType: 'json',
         success: function(response) {
           if (response.ret === 1) {
-            var orderId = response.data.orderId;
-            var orderType = 1;
+            var order = response.data.order;
             $alert({
               scope: $scope,
               template: 'views/modal/alertYEEPAY.html',
               show: true
             });
 
-            $window.open('/#!/user-order-transfer/' + project.id + '/' + orderId + '/' + orderType, '_blank');
+            $window.open('/#!/user-order-transfer/' + order.projectId + '/' + order.id + '/' + order.type+ '?orderNumber=' + order.number, '_blank');
           } else if(response.code == -1037) {
                $modal({
                scope: $scope,
