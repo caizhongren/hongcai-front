@@ -2,6 +2,7 @@
 angular.module('hongcaiApp')
   .controller('RechargeCtrl',  function($location, $scope, $state, $rootScope, UserCenterService, DEFAULT_DOMAIN, $alert, $timeout, toaster, $window) {
     $scope.balance = 0;
+    $scope.showSupportBank = false;
     UserCenterService.getUserBalance.get({}, function(response) {
       if (response.ret === 1) {
         $scope.balance = response.data.balance;
