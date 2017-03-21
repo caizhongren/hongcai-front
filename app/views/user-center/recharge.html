@@ -51,7 +51,7 @@
             <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5"><img ng-src="{{ bankCodeList_UCF[userCard.bankCode].imgUrl}}">{{ bankCodeList_UCF[userCard.bankCode].name}}</div><div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div><div class="col-md-2 text-right"><span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span></div><div class="col-md-4 padding-0 text-center">单笔/单日/单月限额：{{ bankCodeList_UCF[userCard.bankCode].limit}}</div>
           </div>
           
-          <a class=" col-md-2 cursor-pt supportBank padding-l-5" ng-click="changeCard();" href="javascript:;">更换其他银行卡</a>
+          <!-- <a class=" col-md-2 cursor-pt supportBank padding-l-5" ng-click="changeCard();" href="javascript:;">更换其他银行卡</a> -->
         </div>
         <div class="row margin-t-20">
           <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==2}" ng-click="selectPay(2)"><b>网银支付方式</b></div>
