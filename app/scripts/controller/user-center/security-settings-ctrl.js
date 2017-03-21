@@ -9,7 +9,7 @@ angular.module('hongcaiApp')
         $scope.email = user.email;
         $scope.mobile = user.mobile;
         $scope.userId = user.id;
-        if (userAuth && userAuth.yeepayAccountStatus === 1) {
+        if (userAuth && userAuth.authStatus === 2) {
           $scope.haveTrusteeshipAccount = true;
           // $scope.openTrustReservation = userAuth.autoTransfer;
         } else {
