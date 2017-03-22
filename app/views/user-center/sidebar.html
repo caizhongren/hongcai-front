@@ -3,7 +3,7 @@
   <div class="overview">
     <div class="user-portrait" id="crop-avatar">
       <div class="portrait {{loginUser.portraitUrl?'margin-b-20':''}}" ng-click="alertAvater();">
-        <img id="face_image" class="cursor-pointer avater-own" ng-src="{{'images/user-center/portrait.png'}}" width="80" height="80" title="更换头像" ng-if="loginUser.portraitUrl==null">
+        <img id="face_image" class="cursor-pointer avater-own" src="images/user-center/portrait.png" width="80" height="80" title="更换头像" ng-if="loginUser.portraitUrl==null">
         <img id="face_image" class="cursor-pointer avater-own" ng-src="{{baseFileUrl + loginUser.portraitUrl}}" width="80" height="80" title="更换头像" ng-if="loginUser.portraitUrl !==null">
       </div>
       <p class="user-name ft-grey666 ft-18 text-center">{{ loginUser.nickName || (loginUser.mobile || loginName) }}</p>

@@ -23,7 +23,7 @@
               <div class="col-md-9">
                 <div class="avatar-wrapper" id="cropImg">
                   <img ng-src="{{'/images/user-center/portrait.png'}}" ng-show="loginUser.portraitUrl == null">
-                  <img ng-src="{{headerUrl || baseFileUrl + loginUser.portraitUrl || '/images/user-center/portrait.png'}}" ng-show="loginUser.portraitUrl !== null">
+                  <img ng-src="{{headerUrl || baseFileUrl + loginUser.portraitUrl}}" ng-show="loginUser.portraitUrl !== null">
                 </div>
               </div>
               <div class="col-md-3">

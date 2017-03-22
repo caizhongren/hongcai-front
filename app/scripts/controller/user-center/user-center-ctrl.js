@@ -174,6 +174,7 @@ angular.module('hongcaiApp')
             console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
         }).success(function(data, status, headers, config) {
             $('#face_image').attr('src', canVas.toDataURL());
+            // $scope.headerUrl = $rootScope.baseFileUrl + data.data.user.portraitUrl;
             toaster.pop('success','上传成功');  
             $state.go('root.userCenter.account-overview');
         });
