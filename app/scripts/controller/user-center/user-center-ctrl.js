@@ -114,7 +114,9 @@ angular.module('hongcaiApp')
       });
     };
     $scope.submit = function() {
+        var image = $('#cropImg>img');
         var type = image.attr('src').split(';')[0].split(':')[1];
+        var fileName = $('#avatarInput').prop('files')[0].name;
         var canVas = image.cropper("getCroppedCanvas", {});
         //将裁剪的图片加载到face_image
         $('#face_image').attr('src', canVas.toDataURL());
@@ -124,7 +126,12 @@ angular.module('hongcaiApp')
 
             $.ajax({
                 type: "POST",
-                url: '/sys/file/uploadImage.do',
+                url:  DEFAULT_DOMAIN + '/siteUser/uploadFile' 
+                + '?categoryId='+ $rootScope.loginUser.id  
+                + '&category=7'
+                + '&fileType=0'
+                + '&archiveType=6'
+                + '&description=头像',
                 data: formData,
                 contentType: false, //必须
                 processData: false, //必须
@@ -132,13 +139,15 @@ angular.module('hongcaiApp')
                 success: function(retJson){
                     //清空上传文件的值
                     $('#avatarInput').val('');
-
+                     $scope.headerUrl = $rootScope.baseFileUrl + retJson.data.user.portraitUrl;
+                     toaster.pop('success','上传成功');  
+                     $state.go('root.userCenter.account-overview');
                     //上传成功
                     console.log('retJson:', retJson);
                 },
                 error : function() {
                     //清空上传文件的值
-                    $(_pageId + '#btn1').val('');
+                    $('#avatarInput').val('');
                 }
             });
         }, type);
@@ -161,7 +170,10 @@ angular.module('hongcaiApp')
             console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
             
         }).success(function(data, status, headers, config) {
-            $scope.headerUrl = $rootScope.baseFileUrl + data.data.user.portraitUrl;
+            var image = $('#cropImg>img');
+            var canVas = image.cropper("getCroppedCanvas", {});
+            console.log(canVas);
+            $('#face_image').attr('src', canVas.toDataURL());
             toaster.pop('success','上传成功');  
             $state.go('root.userCenter.account-overview');
         });

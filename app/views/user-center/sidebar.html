@@ -3,9 +3,8 @@
   <div class="overview">
     <div class="user-portrait" id="crop-avatar">
       <div class="portrait {{loginUser.portraitUrl?'margin-b-20':''}}" ng-click="alertAvater();">
-        <div class="cursor-pointer avater-default" ng-show="!loginUser.portraitUrl"></div>
-        <img class="cursor-pointer avater-own" ng-src="{{headerUrl || baseFileUrl + loginUser.portraitUrl}}" width="80" height="80" title="更换头像" ng-show="loginUser.portraitUrl">
-
+        <img id="face_image" class="cursor-pointer avater-own" ng-src="{{'images/user-center/portrait.png'}}" width="80" height="80" title="更换头像" ng-if="loginUser.portraitUrl==null">
+        <img id="face_image" class="cursor-pointer avater-own" ng-src="{{baseFileUrl + loginUser.portraitUrl}}" width="80" height="80" title="更换头像" ng-if="loginUser.portraitUrl !==null">
       </div>
       <p class="user-name ft-grey666 ft-18 text-center">{{ loginUser.nickName || (loginUser.mobile || loginName) }}</p>
       <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 1">{{$parent.headerUrl}}安全等级：低<a href="#" ui-sref="root.userCenter.security-settings">(如何提升)</a></p>
