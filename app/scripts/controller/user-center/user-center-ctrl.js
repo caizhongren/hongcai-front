@@ -146,33 +146,30 @@ angular.module('hongcaiApp')
 
     //上传头像
     
-    $scope.onFileSelect = function($files) {
-        for (var i = 0; i < $files.length; i++) {
-            var file = $files[i];
-            $scope.upload = $upload.upload({
-                url: DEFAULT_DOMAIN + '/siteUser/uploadFile' 
-                + '?categoryId='+ $rootScope.loginUser.id  
-                + '&category=7'
-                + '&fileType=0'
-                + '&archiveType=6'
-                + '&description=头像', 
-                data: {myObj: $scope.myModelObj},
-                file: file,
-            }).progress(function(evt) {
-                console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-                
-            }).success(function(data, status, headers, config) {
-                $scope.headerUrl = $rootScope.baseFileUrl + data.data.user.portraitUrl;
-                toaster.pop('success','上传成功');  
-            });
-        }
-        
+    var onFileSelect = function(files) {
+        var file = files[0];
+        $scope.upload = $upload.upload({
+            url: DEFAULT_DOMAIN + '/siteUser/uploadFile' 
+            + '?categoryId='+ $rootScope.loginUser.id  
+            + '&category=7'
+            + '&fileType=0'
+            + '&archiveType=6'
+            + '&description=头像', 
+            data: {myObj: $scope.myModelObj},
+            file: file,
+        }).progress(function(evt) {
+            console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+            
+        }).success(function(data, status, headers, config) {
+            $scope.headerUrl = $rootScope.baseFileUrl + data.data.user.portraitUrl;
+            toaster.pop('success','上传成功');  
+            $state.go('root.userCenter.account-overview');
+        });
+   
     };
     // 保存
     $scope.saveAvater = function() {
-
-      $scope.onFileSelect($('#avatarInput').prop('files'));
-      $state.go('root.userCenter.account-overview');
+      onFileSelect($('#avatarInput').prop('files'));
     }
         
 

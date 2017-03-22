@@ -1,12 +1,10 @@
-
 <!--user-center-sidebar-->
-{{headerUrl}}aaa
-<div class="left-area ft-14" ng-if="selectSide !=='questionnaire' ">
+<div class="left-area ft-14" ng-show="selectSide !=='questionnaire' ">
   <div class="overview">
     <div class="user-portrait" id="crop-avatar">
       <div class="portrait {{loginUser.portraitUrl?'margin-b-20':''}}" ng-click="alertAvater();">
-        <div class="cursor-pointer avater-default" ng-if="!loginUser.portraitUrl"></div>
-        <img class="cursor-pointer avater-own" ng-src="{{$parent.headerUrl || baseFileUrl + loginUser.portraitUrl}}" width="80" height="80" title="更换头像" ng-if="loginUser.portraitUrl">
+        <div class="cursor-pointer avater-default" ng-show="!loginUser.portraitUrl"></div>
+        <img class="cursor-pointer avater-own" ng-src="{{headerUrl || baseFileUrl + loginUser.portraitUrl}}" width="80" height="80" title="更换头像" ng-show="loginUser.portraitUrl">
 
       </div>
       <p class="user-name ft-grey666 ft-18 text-center">{{ loginUser.nickName || (loginUser.mobile || loginName) }}</p>
