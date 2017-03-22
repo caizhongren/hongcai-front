@@ -113,17 +113,18 @@ angular.module('hongcaiApp')
         show: true
       });
     };
+    // 保存
     $scope.submit = function() {
         var image = $('#cropImg>img');
         var type = image.attr('src').split(';')[0].split(':')[1];
         var fileName = $('#avatarInput').prop('files')[0].name;
         var canVas = image.cropper("getCroppedCanvas", {});
+        console.log(canVas);
         //将裁剪的图片加载到face_image
         $('#face_image').attr('src', canVas.toDataURL());
         canVas.toBlob(function(blob) {
             var formData = new FormData();
             formData.append("file", blob, fileName);
-
             $.ajax({
                 type: "POST",
                 url:  DEFAULT_DOMAIN + '/siteUser/uploadFile' 
@@ -157,6 +158,9 @@ angular.module('hongcaiApp')
     
     var onFileSelect = function(files) {
         var file = files[0];
+        var image = $('#cropImg>img');
+        var canVas = image.cropper("getCroppedCanvas", {});
+        console.log(canVas);
         $scope.upload = $upload.upload({
             url: DEFAULT_DOMAIN + '/siteUser/uploadFile' 
             + '?categoryId='+ $rootScope.loginUser.id  
@@ -168,11 +172,7 @@ angular.module('hongcaiApp')
             file: file,
         }).progress(function(evt) {
             console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-            
         }).success(function(data, status, headers, config) {
-            var image = $('#cropImg>img');
-            var canVas = image.cropper("getCroppedCanvas", {});
-            console.log(canVas);
             $('#face_image').attr('src', canVas.toDataURL());
             toaster.pop('success','上传成功');  
             $state.go('root.userCenter.account-overview');

@@ -10,17 +10,17 @@
     <div class="messages-wrap bg-white" ng-repeat="item in data">
       <div class="message-item">
         <div class="item-nav cursor-pointer" ng-click="isDelete = !isDelete" ng-init="isDelete = false">
-          <p class="ft-black2 ft-18">
-            <span class="msg-type ft-grey666" ng-if="item.type == 1">系统消息</span>
-            <span class="msg-type ft-grey666" ng-if="item.type == 2">充值消息</span>
-            <span class="msg-type ft-grey666" ng-if="item.type == 3">活动消息</span>
-            <span class="msg-type ft-grey666" ng-if="item.type == 4">项目消息</span>
-            <span class="msg-title ft-grey4">{{item.title}}</span>
+          <p class="ft-black2">
+            <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 1">系统消息</span>
+            <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 2">充值消息</span>
+            <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 3">活动消息</span>
+            <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 4">项目消息</span>
+            <span class="msg-title ft-grey4 ft-16">{{item.title}}</span>
           </p>
-          <p class="ft-16 ft-grey4" ng-show="isDelete == false">{{item.createTime | date: "yy-MM-dd HH:mm"}}</p>
-          <p class="ft-16 ft-orange5" ng-click="deleteMsg(item.id)" ng-show="isDelete == true">删除此条信息<i class="fa fa-times"></i></p>
+          <p class="ft-14 ft-grey4" ng-show="isDelete == false">{{item.createTime | date: "yy-MM-dd HH:mm"}}</p>
+          <p class="ft-14 ft-orange5" ng-click="deleteMsg(item.id)" ng-show="isDelete == true">删除此条信息<i class="fa fa-times"></i></p>
         </div>
-        <div class="ft-16 ft-grey666 item-discrip" ng-show="isDelete == true">{{item.content}}<p class="text-right ft-16 ft-grey4">{{item.createTime | date: "yy-MM-dd HH:mm"}}</p></div>
+        <div class="ft-14 ft-grey666 item-discrip" ng-show="isDelete == true">{{item.content}}<p class="text-right ft-14 ft-grey4">{{item.createTime | date: "yy-MM-dd HH:mm"}}</p></div>
       </div>
     </div>
     
