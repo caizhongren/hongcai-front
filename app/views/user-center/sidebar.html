@@ -1,15 +1,17 @@
 
 <!--user-center-sidebar-->
+{{headerUrl}}aaa
 <div class="left-area ft-14" ng-if="selectSide !=='questionnaire' ">
   <div class="overview">
     <div class="user-portrait" id="crop-avatar">
       <div class="portrait {{loginUser.portraitUrl?'margin-b-20':''}}" ng-click="alertAvater();">
         <div class="cursor-pointer avater-default" ng-if="!loginUser.portraitUrl"></div>
-        <img class="cursor-pointer avater-own" ng-src="{{baseFileUrl + loginUser.portraitUrl}}" width="80" height="80" title="更换头像" ng-if="loginUser.portraitUrl">
+        <img class="cursor-pointer avater-own" ng-src="{{$parent.headerUrl || baseFileUrl + loginUser.portraitUrl}}" width="80" height="80" title="更换头像" ng-if="loginUser.portraitUrl">
+
       </div>
       <p class="user-name ft-grey666 ft-18 text-center">{{ loginUser.nickName || (loginUser.mobile || loginName) }}</p>
-      <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 1">安全等级：低<a href="#" ui-sref="root.userCenter.security-settings">(如何提升)</a></p>
-      <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 2">安全等级：高</a></p>
+      <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 1">{{$parent.headerUrl}}安全等级：低<a href="#" ui-sref="root.userCenter.security-settings">(如何提升)</a></p>
+      <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 2">{{$parent.headerUrl}}安全等级：高</a></p>
     </div>
     <div class="flow-icons" ng-mouseleave="showTip1=false;showTip2=false;showTip3=false;showTip4=false;">
       <div class="icons position-re">

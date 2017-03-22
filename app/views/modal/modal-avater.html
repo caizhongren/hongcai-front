@@ -1,4 +1,4 @@
-<div class="modal" id="avatar-modal" role="dialog" tabindex="-1">
+<div class="modal" id="avatar-modal" role="dialog" tabindex="-1" ng-controller="UserCenterCtrl">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <form class="avatar-form" enctype="multipart/form-data" method="post">
@@ -10,29 +10,30 @@
           <div class="avatar-body">
 
             <!-- Upload image and data -->
-            <div class="avatar-upload">
+            <div class="avatar-upload col-md-6">
               <input type="hidden" class="avatar-src" name="avatar_src">
               <input type="hidden" class="avatar-data" name="avatar_data">
               <label for="avatarInput">上传图片</label>
-              <input type="file" class="avatar-input" accept="image/*,camera" id="avatarInput" name="avatar_file" ng-file-select="onFileSelect($files);">
+              <input type="file" class="avatar-input" accept="image/*,camera" id="avatarInput" name="avatar_file" title="请选择2M以下的图片">
             </div>
+             <div class="col-md-4">请选择2M以下的图片</div>
 
             <!-- Crop and preview -->
             <div class="row">
               <div class="col-md-9">
                 <div class="avatar-wrapper" id="cropImg">
-                  <img ng-src="{{baseFileUrl + loginUser.portraitUrl || headImgUrl}}">
+                  <img ng-src="{{headerUrl || baseFileUrl + loginUser.portraitUrl || '/images/user-center/portrait.png'}}">
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="avatar-preview preview-lg" id="preview-lg">
-                  <img ng-src="{{baseFileUrl + loginUser.portraitUrl || headImgUrl}}">
+                  <img ng-src="{{headerUrl || baseFileUrl + loginUser.portraitUrl || '/images/user-center/portrait.png'}}">
                 </div>
                 <div class="avatar-preview preview-md">
-                  <img ng-src="{{baseFileUrl + loginUser.portraitUrl || headImgUrl}}">
+                  <img ng-src="{{headerUrl || baseFileUrl + loginUser.portraitUrl || '/images/user-center/portrait.png'}}">
                 </div>
                 <div class="avatar-preview preview-sm">
-                  <img ng-src="{{baseFileUrl + loginUser.portraitUrl || headImgUrl}}">
+                  <img ng-src="{{headerUrl || baseFileUrl + loginUser.portraitUrl || '/images/user-center/portrait.png'}}">
                 </div>
               </div>
             </div>
@@ -41,6 +42,7 @@
               <div class="col-md-3">
                 <button type="button" class="btn btn-primary btn-block avatar-save" ng-click="$hide();saveAvater();">确定</button>
               </div>
+
             </div>
           </div>
         </div>
@@ -60,10 +62,14 @@
       crop: function(data) {
       }
     });
-    var fileName; //选择上传的文件名
+    var fileSize; //选择上传的大小
     $('#avatarInput').change(function(){
         var file = this.files[0];
-        fileName = file.name;
+        fileSize = file.size;
+        if(fileSize >= 1024*1024*2) {
+          alert(fileSize);
+          return;
+        }
         var reader = new FileReader();
         //reader回调，重新初始裁剪区
         reader.onload = function(){

@@ -145,6 +145,7 @@ angular.module('hongcaiApp')
     };
 
     //上传头像
+    
     $scope.onFileSelect = function($files) {
         for (var i = 0; i < $files.length; i++) {
             var file = $files[i];
@@ -159,15 +160,19 @@ angular.module('hongcaiApp')
                 file: file,
             }).progress(function(evt) {
                 console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-            }).success(function(data, status, headers, config) {
                 
+            }).success(function(data, status, headers, config) {
+                $scope.headerUrl = $rootScope.baseFileUrl + data.data.user.portraitUrl;
+                toaster.pop('success','上传成功');  
             });
         }
         
     };
     // 保存
     $scope.saveAvater = function() {
-      $window.location.reload();
+
+      $scope.onFileSelect($('#avatarInput').prop('files'));
+      $state.go('root.userCenter.account-overview');
     }
         
 

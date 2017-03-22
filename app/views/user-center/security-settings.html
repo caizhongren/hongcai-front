@@ -6,7 +6,7 @@
 			<div class="avater-l position-re display-inbl margin-r-30">
 				<div class="avater-img"></div>
 				<div  class="defaut position-ab" ng-show="!loginUser.portraitUrl"></div>
-				<img ng-src="{{loginUser.portraitUrl}}" class="newAvater position-ab" ng-show="loginUser.portraitUrl">
+				<img ng-src="{{baseFileUrl + loginUser.portraitUrl}}" class="newAvater position-ab" ng-show="loginUser.portraitUrl">
 			</div>
 			<div class="avater-r display-inbl ft-grey666">
 				<p class="ft-26 margin-t--5px">{{ loginName || "游客"}}</p>
