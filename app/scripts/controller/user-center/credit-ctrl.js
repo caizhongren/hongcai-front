@@ -236,7 +236,7 @@ angular.module('hongcaiApp')
           x: 'left',
       },
       title: {
-        show: !0,
+        show: !25,
         text: "资产占比",
         textAlign: "middle",
         textBaseline: "middle",
@@ -260,6 +260,7 @@ angular.module('hongcaiApp')
             {value:'25', name: '其他'}
           ],
           radius: ["60%", "85%"],
+          avoidLabelOverlap: false,
           clockwise: !1,
           labelLine: {
             normal: {
@@ -268,15 +269,20 @@ angular.module('hongcaiApp')
           },
           label: {
             normal: {
-              show: !1
+              show: !1,
+               position: 'center'
             },
             emphasis: {
-              show: !1
+              show: 25,
+              textStyle: {
+                fontSize: '13',
+                fontWeight: 'normal'
+              }
             }
           },
         }
       ],
-      color : [ '#0460cd', '#2b8bf1', '#ffc435', '#ffaa25', '#ffaa25']
+      color : [ '#0460cd', '#2b8bf1', '#ffc435', '#ffaa25', '#f9721f']
     }
 
 
