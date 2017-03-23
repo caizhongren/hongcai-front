@@ -57,7 +57,8 @@
     </table>
     <ul class="pager padding-30 margin-t-0 ft-14 ft-white4" ng-if="transferablesList.length > 0">
       <li class="display-inbl"><button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadAssignments(currentPage-1, pageSize, searchStatus)">上一页</button></li>
-      <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div>
+      <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div><div class="dot">...</div>
+      <div class="display-inbl total-page">&nbsp;&nbsp;{{ numberOfPages }}&nbsp;&nbsp;</div>
       <li class="display-inbl"><button class="btn btn-orange6 {{currentPage >= numberOfPages ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= numberOfPages " ng-click="loadAssignments(currentPage+1, pageSize, searchStatus)">下一页</button></li>
     </ul>
   </div>
@@ -99,7 +100,8 @@
 
     <ul class="pager padding-30 margin-t-0 ft-14 ft-white4" ng-if="assignmentsList.length > 0">
       <li class="display-inbl"><button class="btn btn-orange6 {{page2 == 1 ? 'btn-disabled6' : ''}}" ng-disabled="page2 == 1" ng-click="getTranferingAssignmentsList(page2-1, pageSize2, '1,2,5')">上一页</button></li>
-      <div class="display-inbl current-page">&nbsp;&nbsp;{{ page2 }}&nbsp;&nbsp;</div>
+      <div class="display-inbl current-page">&nbsp;&nbsp;{{ page2 }}&nbsp;&nbsp;</div><div class="dot">...</div>
+      <div class="display-inbl total-page">&nbsp;&nbsp;{{ totalPage }}&nbsp;&nbsp;</div>
       <li class="display-inbl"><button class="btn btn-orange6 {{page2 >= totalPage ? 'btn-disabled6' : ''}}" ng-disabled="page2 >= totalPage " ng-click="getTranferingAssignmentsList(page2+1, pageSize2, '1,2,5')">下一页</button></li>
     </ul>
   </div>
@@ -136,7 +138,8 @@
 
     <ul class="pager padding-30 margin-t-0 ft-14 ft-white4" ng-if="assignmentsList.length > 0">
       <li class="display-inbl"><button class="btn btn-orange6 {{page2 == 1 ? 'btn-disabled6' : ''}}" ng-disabled="page2 == 1" ng-click="getTranferingAssignmentsList(page2-1, pageSize2, '3,4')">上一页</button></li>
-      <div class="display-inbl current-page">&nbsp;&nbsp;{{page2}}&nbsp;&nbsp;</div>
+      <div class="display-inbl current-page">&nbsp;&nbsp;{{page2}}&nbsp;&nbsp;</div><div class="dot">...</div>
+      <div class="display-inbl total-page">&nbsp;&nbsp;{{ totalPage }}&nbsp;&nbsp;</div>
       <li class="display-inbl"><button class="btn btn-orange6 {{page2 >= totalPage ? 'btn-disabled6' : ''}}" ng-disabled="page2 >= totalPage " ng-click="getTranferingAssignmentsList(page2+1, pageSize2, '3,4')">下一页</button></li>
     </ul> 
   </div>

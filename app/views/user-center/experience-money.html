@@ -76,7 +76,8 @@
   </div>  
   <ul class="pager margin-t-30 ft-14 ft-white4" ng-if="datas.length > 0">
     <li class="display-inbl"><button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadExperienceDeals(currentPage+1, pageSize, searchStatus)">上一页</button></li>
-    <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div>
+    <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div><div class="dot">...</div>
+    <div class="display-inbl total-page">&nbsp;&nbsp;{{ numberOfPages }}&nbsp;&nbsp;</div>
     <li class="display-inbl"><button class="btn btn-orange6 {{currentPage >= numberOfPages ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= numberOfPages " ng-click="loadExperienceDeals(currentPage-1, pageSize, searchStatus)">下一页</button></li>
   </ul>
 </div>

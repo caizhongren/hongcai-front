@@ -8,7 +8,7 @@ angular.module('hongcaiApp')
     $scope.dateInterval = 0;
     $scope.dealType = 0;
     $scope.currentPage = 1;
-    $scope.pageSize = 10;
+    $scope.pageSize = 7;
     var date = new Date(); 
     date.setHours(0);
     date.setMinutes(0);
@@ -99,7 +99,8 @@ angular.module('hongcaiApp')
         dealType: $scope.dealType,
         startTime: $scope.startTime,
         endTime: $scope.endTime,
-        page: page
+        page: page,
+        pageSize: $scope.pageSize
       },function(response) {
         if (getDealByUser.ret === 1) {
           $scope.dealList = getDealByUser.data.dealList;

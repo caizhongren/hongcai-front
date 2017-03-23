@@ -25,12 +25,16 @@
     </div>
     
     <div class="bg-white">
-      <p ng-if="status=== '0' && data.length ==0" class="text-center ft-16 ft-grey4 padding-t-30 padding-b-30 bg-white">暂无未读消息</p>
-      <p ng-if="status=== '1' && data.length ==0" class="text-center ft-16 ft-grey4 padding-t-30 padding-b-30 bg-white">暂无已读消息</p>
-      <p ng-if="status=== '0,1' && data.length ==0" class="text-center ft-16 ft-grey4 padding-t-30 padding-b-30 bg-white">暂无消息</p>
-      <ul class="pager margin-t-0 padding-30 ft-14 ft-white4">
+      <div ng-if="status=== '0' && data.length ==0" class="text-center ft-16 ft-grey4 padding-t-30 padding-b-30 bg-white">
+      <img src="/images/user-center/no-message.png"><p>暂无未读消息</p></div>
+      <div ng-if="status=== '1' && data.length ==0" class="text-center ft-16 ft-grey4 padding-t-30 padding-b-30 bg-white">
+      <img src="/images/user-center/no-message.png"><p>暂无已读消息</p></div>
+      <div ng-if="status=== '0,1' && data.length ==0" class="text-center ft-16 ft-grey4 padding-t-30 padding-b-30 bg-white">
+      <img src="/images/user-center/no-message.png"><p>暂无消息</p></div>
+      <ul class="pager margin-t-0 padding-30 ft-14 ft-white4" ng-if="data.length > 0">
         <li class="display-inbl"><button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadPage(currentPage-1, pageSize, status)">上一页</button></li>
-        <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div>
+        <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div><div class="dot">...</div>
+      <div class="display-inbl total-page">&nbsp;&nbsp;{{ numberOfPages() }}&nbsp;&nbsp;</div>
         <li class="display-inbl"><button class="btn btn-orange6 {{currentPage >= numberOfPages() ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= numberOfPages() " ng-click="loadPage(currentPage+1, pageSize, status)">下一页</button></li>
       </ul>
     </div>

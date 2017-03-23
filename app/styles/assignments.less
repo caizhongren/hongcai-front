@@ -72,7 +72,7 @@
     box-shadow: none;
   }
 
-  .current-page {
+  .current-page, .total-page {
     width: 36px;
     height: 36px;
     border: 1px solid #F9721B;
@@ -80,6 +80,16 @@
     color: #f9721f;
     line-height: 33px;
     margin: 0 6px;
+  }
+  .total-page {
+    border: 1px solid #666;
+    color: #666;
+  }
+  .dot {
+    display: inline-block;
+    font-size: 18px;
+    color: #666;
+    vertical-align: text-bottom;
   }
 
   //个人中心 新改版  切换tab 公用样式
@@ -260,6 +270,7 @@
       background-size:  441%;
       vertical-align: middle;
       position: absolute;
+      border-radius: 50%;
     }
     .icon-box {
       height: 20px;
