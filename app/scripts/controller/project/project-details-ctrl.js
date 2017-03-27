@@ -119,6 +119,8 @@ angular.module('hongcaiApp')
               title: '项目信息',
             }, {
               title: '相关文件',
+            }, {
+              title: '项目历程',
             }];
           } else if ($scope.categoryCode === '0112' || $scope.categoryCode === '0116') {
             $scope.tabs = [{
