@@ -117,13 +117,13 @@ angular.module('hongcaiApp')
         'card': 'ICBK',
         'name': '工商银行',
         'imgUrl': '/images/user-center/ICBK.png',
-        'limit': '5w/5w/不限'
+        'limit': '99999/20w/不限'
       },
       'BKCH':{
         'card': 'BKCH',
         'name': '中国银行',
         'imgUrl': '/images/user-center/BKCH.png',
-        'limit': '5w/50w/不限'
+        'limit': '5w/30w/不限'
       },
       'PCBC':{
         'card': 'PCBC',
@@ -141,7 +141,7 @@ angular.module('hongcaiApp')
         'card': 'COMM',
         'name': '交通银行',
         'imgUrl': '/images/user-center/COMM.png',
-        'limit': '9999/9999/不限'
+        'limit': '20w/20w/不限'
       },
       'CMBC':{
         'card': 'CMBC',
