@@ -1,4 +1,4 @@
-<div class="userCenter-credit right-area fl padding-b-30 bg-offWhite" >
+<div class="userCenter-credit right-area fl padding-b-30 bg-offWhite" ng-init="tabStatus =7">
   <div class="main" ng-show="securityStatus.realNameAuthStatus === 1">
     <!-- 数据统计 -->
     <div class="data-statistics row">
@@ -83,22 +83,22 @@
 
      <!-- tab切换 -->
     <div class="tabs row margin-l-0 margin-r-0 margin-t-30">
-      <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 1 ? 'credit-toggle2' : ''}}" ng-click="loadAssignments(currentPage, pageSize, 1)">月月宏</div>
-      <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 2 ? 'credit-toggle2' : ''}}" ng-click="getTranferingAssignmentsList(1,6,'1,2,5')">宏财精选</div>
-      <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 3 ? 'credit-toggle2' : ''}}" ng-click="getTranferingAssignmentsList(1,6,'3,4')">宏财尊贵</div>
-      <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 4 ? 'credit-toggle2' : ''}}" ng-click="getTranferingAssignmentsList(1,6,'3,4')">债权转让</div>
-      <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 5 ? 'credit-toggle2' : ''}}" ng-click="getTranferingAssignmentsList(1,6,'3,4')">其他</div>
+      <!-- <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 1 ? 'credit-toggle2' : ''}}" ng-click="loadAssignments(currentPage, pageSize, 1)">月月宏</div> -->
+      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 7 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(7)">宏财精选</div>
+      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 8 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(8)">宏财尊贵</div>
+      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 6 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(6)">债权转让</div>
+      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 3 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(3)" ng-show="showOther">其他</div>
     </div>
 
     <!-- 二级tab -->
     <div class="row tabs-two">
-      <div class="col-md-2 ft-grey666 cursor-pointer padding-r-0 {{searchStatus === 1 ? 'ft-orange6' : ''}}" ng-click="loadCredits(currentPage, pageSize, 1)">投资中 ( {{creditRightStatis.heldingCount || 0}} )</div>
-      <div class="col-md-2 ft-grey666 cursor-pointer padding-l-0 margin-l--20 {{searchStatus === 4 ? 'ft-orange6' : ''}}" ng-click="loadCredits(currentPage, pageSize, 4)">已回款 ( {{creditRightStatis.endProfitCount || 0}} )</div>
+      <div class="col-md-2 ft-grey666 cursor-pointer padding-r-0 {{searchStatus === 1 ? 'ft-orange6' : ''}}" ng-click="loadCredits(currentPage, pageSize, 1, tabStatus)">投资中 ( {{count || 0}} )</div>
+      <div class="col-md-2 ft-grey666 cursor-pointer padding-l-0 margin-l--20 {{searchStatus === 4 ? 'ft-orange6' : ''}}" ng-click="loadCredits(currentPage, pageSize, 4, tabStatus)">已回款 ( {{creditRightStatis.endProfitCount || 0}} )</div>
     </div>
 
     <!-- 列表 -->
     <!-- 投资中 -->
-    <div ng-show="tabStatus == 1 && searchStatus === 1">
+    <div ng-show="searchStatus === 1">
       <table class="table-solid border-b-d">
         <thead>
           <tr>
@@ -121,23 +121,16 @@
           </tr>
           <tr ng-repeat="item in heldInCreditList" class="assignment-left">
             <td class="padding-l-30">
-              <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" ng-if="item.project.type === 1 || item.project.type === 2 || item.project.type === 6" class="invment-blue5 special-recommend "><span class="assignmentsZhuan text-center" ng-if="item.creditRight.type === 6">转</span>{{ item.creditRight.projectName | limitTo: 15 }}{{item.project.name.length > 15 ? '...':''}}<img ng-show="item.increaseRateCoupon.type == 1" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></a>
-              <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{productsMap[item.fundsProject.productId].name + item.fundsProject.name}}" class="invment-blue5 special-recommend" ng-if="item.project.type === 3"><span class="assignmentsZhuan text-center" ng-if="item.creditRight.type === 6">转</span>{{ item.creditRight.projectName | limitTo: 15 }}<img ng-show="item.increaseRateCoupon.type == 1" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></a>
+              <a ui-sref="root.project-details({number: item.project.number})" title="{{item.project.name}}" class="invment-blue5 special-recommend "><span class="assignmentsZhuan text-center" ng-if="item.creditRight.type === 6">转</span>{{ item.creditRight.projectName | limitTo: 15 }}{{item.project.name.length > 15 ? '...':''}}<img ng-show="item.increaseRateCoupon.type == 1" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></a>
             </td>
             <td>{{ item.creditRight.amount - item.creditRight.transferedAmount || 0 | number:2 }}</td>
             <td>{{ item.creditRight.returnProfit | number:2 }}<span ng-show="item.increaseRateCoupon.type == 1" class="ft-red7">+{{(item.creditRight.baseRate + item.creditRight.riseRate + item.increaseRateCoupon.value) * item.creditRight.returnProfit / (item.creditRight.baseRate + item.creditRight.riseRate) - item.creditRight.returnProfit | number:2 || 0 }}</span></td>
             <td>{{ item.creditRight.profit - item.creditRight.returnProfit | number:2 || 0 }}<span ng-show="item.increaseRateCoupon.type == 1" class="ft-red7">+{{(item.creditRight.baseRate + item.creditRight.riseRate + item.increaseRateCoupon.value) * (item.creditRight.profit - item.creditRight.returnProfit) / (item.creditRight.baseRate + item.creditRight.riseRate) - (item.creditRight.profit - item.creditRight.returnProfit) | number:2 || 0 }}</span></td>
             <td>
-              <span ng-if="item.project.type !== 3">{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
-              <span ng-if="item.project.type === 3">{{ item.fundsProject.repaymentDate | date:'yyyy-MM-dd' }}</span>
+              <span>{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
             </td>
             <td class="th-last cursor-pointer">
-              <a type="button" class="btn btn-primary-orange btn-xs border-half bg-btn-red padding-t-0 padding-b-0" ng-click=" putCreditRightInPool(item.creditRightId);" ng-if="item.creditRight.type == 2 && item.creditRight.fundsPoolInOut == 1">转入债权池</a>
-              <a type="button" class="btn btn-default btn-xs border-half bg-btn-red padding-t-0 padding-b-0" disabled="disabled" ng-if="item.creditRight.type == 2 && item.creditRight.fundsPoolInOut == 2">已转入债权池</a>
-              <a type="button" class=" ft-blue5" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2 || item.creditRight.type === 6">查看</a>
-              <a type="button" class="yu-btn-height btn btn-primary-orange btn-xs border-half bg-btn-red padding-t-0 padding-b-0" ng-if="item.creditRight.type == 3 && item.creditRight.isRepeatInvest == 2 && item.creditRight.payAmount > 0" ng-click="autoReinvest(1,item.creditRightId);">开启自动续投</a>
-              <a type="button" class="yu-btn-height btn btn-primary-orange btn-xs border-half bg-btn-red padding-t-0 padding-b-0" ng-if="item.creditRight.type == 3 && item.creditRight.isRepeatInvest == 1" ng-click="autoReinvest(2,item.creditRightId);">取消自动续投</a>
-              <a type="button" class=" ft-blue5" ui-sref="root.userCenter.credit-profit-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看</a>
+              <a type="button" class=" ft-blue5" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})">查看</a>
             </td>
           </tr>
         </tbody>
@@ -150,7 +143,7 @@
       </ul>
     </div>
     <!-- 已回款 -->
-    <div ng-show="tabStatus == 1 && searchStatus === 4">
+    <div ng-show="searchStatus === 4">
       <table class="table-solid border-b-d">
         <thead>
           <tr>
@@ -172,18 +165,15 @@
           </tr>
           <tr ng-repeat="item in heldInCreditList" class="assignment-left">
             <td class="padding-l-30">
-             <a ui-sref="root.project-details({number: item.project.number})" title="{{item.creditRight.projectName}}" ng-if="item.project.type === 1 || item.project.type === 2 || item.project.type === 6" class="invment-blue5 special-recommend"><span class="assignmentsZhuan text-center" ng-if="item.creditRight.type === 6">转</span>{{ item.creditRight.projectName | limitTo: 15 }}{{item.creditRight.projectName.length > 15 ? '...':''}}<img ng-show="item.increaseRateCoupon.type == 1" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></a>
-              <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{item.creditRight.projectName}}" ng-if="item.project.type === 3" class="invment-blue5 special-recommend"><span class="assignmentsZhuan text-center" ng-if="item.creditRight.type === 6">转</span>{{ item.creditRight.projectName | limitTo: 15 }}{{item.creditRight.projectName.length > 15 ? '...':''}}<img ng-show="item.increaseRateCoupon.type ==1" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></a>
+              <a ui-sref="root.investmentplan-details({number: item.fundsProject.number})" title="{{item.creditRight.projectName}}" class="invment-blue5 special-recommend"><span class="assignmentsZhuan text-center" ng-if="item.creditRight.type === 6">转</span>{{ item.creditRight.projectName | limitTo: 15 }}{{item.creditRight.projectName.length > 15 ? '...':''}}<img ng-show="item.increaseRateCoupon.type ==1" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"></a>
             </td>
             <td>{{ item.creditRight.transferableAmount | number:2 }}</td>
             <td>{{ item.creditRight.returnProfit | number:2}} <span ng-show="item.increaseRateCoupon.type ==1" class="ft-red7">+{{(item.creditRight.baseRate + item.creditRight.riseRate + item.increaseRateCoupon.value) * item.creditRight.returnProfit / (item.creditRight.baseRate + item.creditRight.riseRate) - item.creditRight.returnProfit | number:2}}</span></td>
             <td>
-              <span ng-if="item.project.type !== 3">{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
-              <span ng-if="item.project.type === 3">{{ item.fundsProject.repaymentDate | date:'yyyy-MM-dd' }}</span>
+              <span>{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
             </td>
             <td>
-              <a type="button" class="ft-blue5" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 1 || item.creditRight.type == 2 || item.project.type === 6">查看</a>
-              <a type="button" class="ft-blue5" ui-sref="root.userCenter.credit-profit-details({type: 1,number: item.creditRight.number})" ng-if="item.creditRight.type == 3">查看</a>
+              <a type="button" class="ft-blue5" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})">查看</a>
             </td>
           </tr>
         </tbody>

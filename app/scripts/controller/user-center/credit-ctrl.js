@@ -1,6 +1,10 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('CreditCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
+    $scope.page = 1;
+    $scope.pageSize = 5;
+    $scope.showOther = false;
+    $scope.currentPage = 1;
     /**
      * 判断是否开通第三方托管账户
      */
@@ -47,6 +51,7 @@ angular.module('hongcaiApp')
         // toaster.pop('warning', response.msg);
       }
     });
+    
 
     /**
      * 加载债权
@@ -54,16 +59,17 @@ angular.module('hongcaiApp')
      * @param  pageSize  每页数据长度
      * @param  status   状态
      */
-    $scope.loadCredits = function(page, pageSize, status){
+    $scope.loadCredits = function(page, pageSize, status,type){
       UserCenterService.getHeldInCreditRightList.get({
         page: page,
         pageSize: pageSize,
-        status: status
+        status: status,
+        type: type
       }, function(response) {
         if (response.ret === 1) {
+          $scope.searchStatus = status;
           $scope.currentPage = page;
           $scope.pageSize = pageSize;
-          $scope.searchStatus = status;
 
           $scope.heldInCreditList = response.data.heldIdCreditList;
           $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
@@ -78,89 +84,15 @@ angular.module('hongcaiApp')
       });
 
     }
-
     
-
-    /**
-     * 获取转让中债权列表
-     */
-    $scope.getTranferingCreditRightList = function(searchStatus) {
-      UserCenterService.getTranferCreditRightList.get({
-        status: searchStatus
-      }, function(response) {
-        $scope.searchStatus = 2;
-        $scope.transferingCreditList = response.data.transferCreditList;
-        $scope.assignmentStatusMap = response.data.assignmentStatusMap;
-      });
+    $scope.tabStatus = 7;
+    $scope.searchStatus = parseInt($stateParams.searchStatus) || 1;
+    $scope.tabToggle = function(tab) {
+      $scope.tabStatus = tab;
+      $scope.searchStatus = 1;
+      $scope.loadCredits($scope.currentPage, $scope.pageSize, $scope.searchStatus, $scope.tabStatus);
     }
-
-    /**
-     * 获取已回款债权列表
-     */
-    $scope.getTranferedCreditRightList = function(searchStatus) {
-      UserCenterService.getTranferCreditRightList.get({
-        status: searchStatus
-      }, function(response) {
-        $scope.searchStatus = 3;
-        $scope.transferedCreditList = response.data.transferCreditList;
-        $scope.assignmentStatusMap = response.data.assignmentStatusMap;
-        for (var i = 0; i < $scope.transferedCreditList.length; i++) {
-          /**
-           * 步进值
-           */
-          var increaseAmount = transferedCreditList[i].project.increaseAmount;
-          /**
-           * 剩余份数
-           */
-          var currentStock = transferedCreditList[i].creditAssignment.currentStock;
-          /**
-           * 卖出份数
-           */
-          var soldStock = transferedCreditList[i].creditAssignment.soldStock;
-          /**
-           * 折让金
-           */
-          var discountAmount = transferedCreditList[i].creditAssignment.discountAmount;
-          /**
-           * 总份数
-           */
-          var totalStock = soldStock + currentStock;
-
-          /**
-           * 初始债权
-           */
-          var initAmount = soldStock * increaseAmount;
-          /**
-           * 回收的折让金
-           */
-          var returnDiscountAmount = discountAmount * soldStock / totalStock;
-          /**
-           * 回收款项
-           */
-          var backAmount = soldStock * increaseAmount + returnDiscountAmount;
-          /**
-           * 收益
-           */
-          var profit = backAmount - initAmount;
-
-          transferedCreditList[i].initAmount = initAmount;
-          transferedCreditList[i].backAmount = backAmount;
-          transferedCreditList[i].profit = profit;
-        }
-      });
-    }
-
-
-    /**
-     * 撤销债权转让
-     */
-    $scope.cancelCreditAssignment = function(creditAssignment) {
-      UserCenterService.cancelCreditAssignment.get({
-        assignmentNumber:creditAssignment.number
-      },function(response){
-        $scope.getTranferingCreditRightList(2);
-      });
-    }
+    $scope.tabToggle(7);
 
     /**
      * 自动复投/取消复投
@@ -212,14 +144,7 @@ angular.module('hongcaiApp')
       });
     }
 
-    $scope.searchStatus = parseInt($stateParams.searchStatus) || 1;
-    $scope.currentPage = 1;
-    $scope.pageSize = 5;
 
-
-    $scope.loadCredits($scope.currentPage, $scope.pageSize, $scope.searchStatus);
-
-    $scope.tabStatus = 1;
 
     //饼图设置
     $scope.lineConfig = {
