@@ -265,8 +265,22 @@ angular.module('hongcaiApp')
     //自动投标
     $scope.autoTender = [];
     $scope.dateLine = [ 30,90,120,180,360];
-    $scope.interestRate = [7,8,9,10,11,12];
-    $scope.projectType = ['宏金保','债权转让','全部',];
+    $scope.interestRate = {
+      '0': '',
+      '7': '7%',
+      '8': '8%',
+      '9': '9%',
+      '10': '10%',
+      '11': '11%',
+      '12': '12%'
+    };
+    $scope.projectType = {
+        '1': '宏财精选',
+        '5': '宏财精选', 
+        '6': '宏财尊贵', 
+        '2': '债权转让',
+        '0': '全部'
+    };
     $scope.showDateLine = false;
     $scope.showInterestRate = false;
     $scope.showProjectType = false;
@@ -283,12 +297,6 @@ angular.module('hongcaiApp')
     
     $scope.selectDateLine = function(date){
       $scope.autoTender.selectedDateLine = date;
-    };
-    $scope.selectInterestRate = function(interestRate){
-      $scope.autoTender.selectedInterestRate = interestRate;
-    };
-    $scope.selectProjectType = function(projectType){
-      $scope.autoTender.selectedProjectType = projectType;
     };
 
     //最小投标金额
@@ -348,25 +356,18 @@ angular.module('hongcaiApp')
       if (response.userId !== null) {
         $scope.setAutoTender = true;
         $scope.autoTenderDetail = response;
-        var investType = $scope.autoTenderDetail.investType;
-        if (investType ===1) {
-          $scope.autoTender.selectedProjectType = '宏金保';
-        }else if (investType ===2) {
-          $scope.autoTender.selectedProjectType = '债权转让';
-        }else {
-          $scope.autoTender.selectedProjectType = '全部';
-        }
+        $scope.autoTender.investType = $scope.autoTenderDetail.investType;
         $scope.autoTender.minInvestAmount = $scope.autoTenderDetail.minInvestAmount;
         $scope.autoTender.retentionAmount = $scope.autoTenderDetail.remainAmount;
         $scope.autoTender.selectedDateLine = $scope.autoTenderDetail.maxRemainDay;
-        $scope.autoTender.selectedInterestRate = $scope.autoTenderDetail.annualEarnings;
+        $scope.autoTender.annualEarnings = $scope.autoTenderDetail.annualEarnings;
         $scope.autoTenderDetail.startTime = $scope.autoTenderDetail.startTime;
         $scope.autoTenderDetail.endTime = $scope.autoTenderDetail.endTime;
       }else {
         $scope.setAutoTender = false;
         $scope.autoTender.selectedDateLine = '360';
-        $scope.autoTender.selectedInterestRate = '7';
-        $scope.autoTender.selectedProjectType = '全部';
+        $scope.autoTender.annualEarnings = '7';
+        $scope.autoTender.investType = '0';
         $scope.autoTender.minInvestAmount = 100;
         $scope.autoTender.retentionAmount = 0;
         $scope.currentTime = new Date();
@@ -383,14 +384,6 @@ angular.module('hongcaiApp')
       if (!$rootScope.isLogged) {
         return;
       }
-      
-      if (autoTender.selectedProjectType ==='宏金保') {
-        var projectType = 1;
-      }else if (autoTender.selectedProjectType ==='债权转让') {
-        var projectType = 2;
-      }else {
-        var projectType = 0;
-      }
 
       //开启
       UserCenterService.autoTenders.post({
@@ -398,8 +391,8 @@ angular.module('hongcaiApp')
         minInvestAmount: autoTender.minInvestAmount,
         minRemainDay: 0,
         maxRemainDay: autoTender.selectedDateLine,
-        annualEarnings: autoTender.selectedInterestRate,
-        investType: projectType,
+        annualEarnings: autoTender.annualEarnings,
+        investType: autoTender.investType ,
         remainAmount: autoTender.retentionAmount,
         startTime: startTime,
         endTime: endTime
