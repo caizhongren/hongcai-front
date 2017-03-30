@@ -141,6 +141,10 @@ angular.module('hongcaiApp')
 
       // 债权相关
       getCreditRightStatistics: $resource(DEFAULT_DOMAIN + '/siteCredit/getCreditRightStatistics'),
+      getCreditRightStat: $resource(RESTFUL_DOMAIN + '/users/0/investments/typeStat',
+        {
+        'query': {method:'GET', isArray:true},
+      }),
       getHeldInCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getHeldInCreditRightList'),
       getTranferCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getTranferCreditRightList', {
         status: '@status'
@@ -245,7 +249,7 @@ angular.module('hongcaiApp')
         {
         'get': {
           method:'GET',
-          isArray: true  
+          isArray: false  
         }
       }),
 

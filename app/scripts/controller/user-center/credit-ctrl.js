@@ -48,11 +48,40 @@ angular.module('hongcaiApp')
         $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
       } else {
         $scope.showCreditRightStatistics = false;
-        // toaster.pop('warning', response.msg);
       }
     });
     
 
+    /**
+     * //统计投资各项占比
+     */
+    $scope.investStat = {
+      selection: 0,
+      hornor:0,
+      assignment:0,
+      holdingAmount: 0,
+      totalInvestAmount: 0,
+      totalProfit:0
+    }
+    $scope.showOther = false;
+    UserCenterService.getCreditRightStat.query({}, function(response) {
+      for(var i = 0;i<response.length;i++) {
+        var stat = response[i];
+        $scope.investStat.totalInvestAmount += stat.totalInvestAmount;
+        $scope.investStat.totalProfit += stat.totalProfit;
+        if(stat.creditRightType == 7){
+           $scope.investStat.selection = stat.holdingAmount;
+        } else if(stat.creditRightType == 8) {
+          $scope.investStat.hornor = stat.holdingAmount;
+        } else if (stat.creditRightType == 6) {
+          $scope.investStat.assignment = stat.holdingAmount;
+        } else if(stat.creditRightType == 3){
+          $scope.showOther = true;
+        }
+
+      }
+      $scope.investStat.holdingAmount = $scope.investStat.selection+ $scope.investStat.hornor + $scope.investStat.assignment;
+    })
     /**
      * 加载债权
      * @param  page      第几页
@@ -84,7 +113,6 @@ angular.module('hongcaiApp')
       });
 
     }
-    
     $scope.tabStatus = 7;
     $scope.searchStatus = parseInt($stateParams.searchStatus) || 1;
     $scope.tabToggle = function(tab) {
@@ -94,121 +122,78 @@ angular.module('hongcaiApp')
     }
     $scope.tabToggle(7);
 
-    /**
-     * 自动复投/取消复投
-     */
-    $scope.autoReinvest = function(reinvestActionType,creditRightId) {
-      if ($rootScope.autoTransfer !== 1) {
-        $scope.msg = '亲~，开启自动续投功能需要先开通自动投标权限哦!';
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-openReservation.html',
-          show: true
-        });
-      } else {
-        UserCenterService.autoReinvest.get({
-          repeat:reinvestActionType,
-          creditRightId:creditRightId
-        },function(response){
-          if(response.ret === 1) {
-            $state.reload();
-          } else {
-            if (response.code == -1082) {
-              $scope.msg = '亲~，开启自动续投功能需要先开通自动投标权限哦!';
-              $alert({
-                scope: $scope,
-                template: 'views/modal/alert-openReservation.html',
-                show: true
-              });
-            } else {
-              toaster.pop('warning', response.msg);
-            }
-          }
-        });
-      }
-    }
-
-
-    /**
-     * 平台C债权转入债权池
-     */
-    $scope.putCreditRightInPool = function(creditRightId) {
-      UserCenterService.putCreditRightInPool.get({
-        creditRightId:creditRightId
-      },function(response){
-        if(response.ret === 1) {
-          $state.reload();
-        } else {
-          toaster.pop('warning', response.msg);
-        }
-      });
-    }
-
 
 
     //饼图设置
-    $scope.lineConfig = {
-      theme:'default',
-      dataLoaded:true
-    };
+    
+    $scope.$watch('investStat.holdingAmount', function(newValue, oldValue){
+      var percent1,percent2,percent3;
+      if($scope.investStat.holdingAmount == 0) {
+        percent1 = percent2 = percent3 =  3;
+      }
+      percent1 = $scope.investStat.selection;
+      percent2 = $scope.investStat.hornor;
+      percent3 = $scope.investStat.assignment;
+      $scope.lineConfig = {
+        theme:'default',
+        dataLoaded:true
+      };
 
-    $scope.lineOption = {
-      tooltip : {
-          trigger: 'item'
-      },
-      legend: {
-          orient: 'vertical',
-          x: 'left',
-      },
-      title: {
-        show: 25,
-        text: "在投金额 <br> 10000元",
-        textAlign: "middle",
-        textBaseline: "middle",
-        left: "38%",
-        top: "48%",
-        textStyle: {
-            color: "#666666",
-            fontWeight: "normal",
-            fontSize: "13"
-        }
-      },
-      series : [
-        {
-          name:'投资占比',
-          type:'pie',
-          data:[
-            {value:'25', name: '月月宏'},
-            {value:'25', name: '宏财精选'},
-            {value:'25', name: '宏财尊贵'},
-            {value:'25', name: '债权转让'},
-            {value:'25', name: '其他'}
-          ],
-          radius: ["60%", "85%"],
-          avoidLabelOverlap: false,
-          clockwise: !1,
-          labelLine: {
-            normal: {
-              show: !1
-            }
-          },
-          label: {
-            normal: {
-              show: !1,
-               position: 'center'
-            },
-            emphasis: {
-              show: 25,
-              textStyle: {
-                fontSize: '13',
-                fontWeight: 'normal'
+      $scope.lineOption = {
+        tooltip : {
+            trigger: 'item'
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'left',
+        },
+        title: {
+          show: 25,
+          text: "在投金额",
+          textAlign: "middle",
+          textBaseline: "middle",
+          left: "38%",
+          top: "38%",
+          textStyle: {
+              color: "#666666",
+              fontWeight: "normal",
+              fontSize: "13"
+          }
+        },
+        series : [
+          {
+            name:'投资占比',
+            type:'pie',
+            data:[
+              {value:percent1},
+              {value:percent2},
+              {value:percent3}
+            ],
+            radius: ["60%", "85%"],
+            avoidLabelOverlap: false,
+            clockwise: !1,
+            labelLine: {
+              normal: {
+                show: !1
               }
-            }
-          },
-        }
-      ],
-      color : [ '#0460cd', '#2b8bf1', '#ffc435', '#ffaa25', '#f9721f']
-    }
-
+            },
+            label: {
+              normal: {
+                show: !1,
+                 position: 'center'
+              },
+              emphasis: {
+                show: 25,
+                textStyle: {
+                  fontSize: '13',
+                  fontWeight: 'normal'
+                }
+              }
+            },
+          }
+        ],
+        color : [ '#2b8bf1','#0460cd','#ffaa25']
+      }
+    })
 
   });
