@@ -275,7 +275,6 @@ angular.module('hongcaiApp')
       '12': '12%'
     };
     $scope.projectType = {
-        '1': '宏财精选',
         '5': '宏财精选', 
         '6': '宏财尊贵', 
         '2': '债权转让',
