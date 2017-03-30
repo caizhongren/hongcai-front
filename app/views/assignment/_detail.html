@@ -8,7 +8,7 @@
       <div class="tab-pane" ng-class="{active: toggle.activeTab===$index}"> 
         <ul ng-if="toggle.activeTab === 0" class="margin-b-80"> 
           <li>
-            <p>预期还款日期</p><p>类型</p><p>金额</p>
+            <p>期望还款日期</p><p>类型</p><p>金额</p>
           </li>
           <li ng-repeat="item in projectBills" ng-hide="item.status === 1" >
             <p>{{item.repaymentTime | date: "yyyy-MM-dd"}}</p><p ng-if="item.type == 1">利息</p><p ng-if="item.type == 2">本金</p><p ng-if="item.type == 3">本金+利息</p><p>{{item.repaymentAmount*creditProject.amount/project.total| number:2}}</p>

@@ -29,7 +29,7 @@
               <input type="number" placeholder="请输入投资份额（元）" disabled='disabled' step="100" class="form-control margin-b-15 btn-76">
             </div>
             <div class="margin-t-0" >
-              <span class="ft-grey666">预期收益：</span>
+              <span class="ft-grey666">期望收益：</span>
               <span class="ft-orange ft-16">0</span> 元
             </div>
             <div class="margin-t-20">
@@ -68,7 +68,7 @@
                 </div>
               </div>
               <div class="margin-t-20" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
-                <span class="ft-grey666">预期收益：</span>
+                <span class="ft-grey666">期望收益：</span>
                 <span class="ft-orange ft-16">{{amount ? profit : 0 | number:2}}</span> 元
               </div>
               <div class="margin-t-20">

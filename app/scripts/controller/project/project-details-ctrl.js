@@ -641,7 +641,7 @@ angular.module('hongcaiApp')
     }
 
     /**
-     * 某宝宝的收益率
+     * 某宝宝的回报率
      */
     ProjectService.getYuebaoInterestRatesByDate.get(function(response) {
       if (response.ret === 1) {
