@@ -64,6 +64,44 @@ angular.module('hongcaiApp')
       position2+=100;
       position3+=100;
       carousel();
+    });
+
+    var p1 = 10;
+    var p2 = 56;
+    var p3 = 102;
+    var v = 0;
+    // 产品特点
+    function product_course(){
+      // if ((p1 ==102 && v >0) || (p1 ==102 && v <0)) {
+      //   $('.product-features .jingxuan').css({display: 'none'})
+      // } else {
+        $('.product-features .jingxuan').show().animate({left: p1+'%'}, 800,function(){})
+      // }
+      // if ((p2 ==102 && v >0) || (p2 ==102 && v <0)) {
+      //   $('.product-features .zungui').css({display: 'none'})
+      // } else {
+        $('.product-features .zungui').show().animate({left: p2+'%'}, 800,function(){})
+      // }
+      // if ((p3 ==102 && v >0) || (p3 ==102 && v <0)) {
+      //   $('.product-features .assignment').css({display: 'none'})
+      // } else {
+        $('.product-features .assignment').show().animate({left: p3+'%'}, 800,function(){})
+      // }
+      
+    }
+    $('.product-features .next').on('click', function(){
+      v = 1;
+      p1+= p1<=10 ? 92 : -46;
+      p2+= p2<=10 ? 92 : -46;
+      p3+= p3<=10 ? 92 : -46;
+      product_course();
+    });
+    $('.product-features .prev').on('click', function(){
+      v = -1;
+      p1+= p1>=102 ? -92 : 46;
+      p2+= p2>=102 ? -92 : 46;
+      p3+= p3>=102 ? -92 : 46;
+      product_course();
     });  
 
     //高管团队悬浮效果

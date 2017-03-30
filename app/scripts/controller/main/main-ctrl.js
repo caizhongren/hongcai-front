@@ -8,7 +8,7 @@ angular.module('hongcaiApp')
     /**
      * 宏金保列表
      */
-    $scope.jigoubaoList = function() {
+    $scope.jingxuanList = function(type) {
 
       $scope.showFlag = 1;
       ProjectService.projectList.get({
@@ -22,7 +22,8 @@ angular.module('hongcaiApp')
         sortCondition: 'release_start_time',
         sortType: false,
         pageSize: 3,
-        categoryCode: "01"
+        categoryCode: "01",
+        type: type
       }, function(response) {
         if ( !response || response.ret === -1) {
           $scope.data = [];
@@ -32,21 +33,27 @@ angular.module('hongcaiApp')
         $scope.currentPage = 0;
         $scope.pageSize = 5;
         $scope.serverTime = response.data.serverTime;
-        $scope.jigoubao = response.data.projectList;
         $scope.repaymentTypeMap = response.data.repaymentTypeMap;
         $scope.baseFileUrl = response.data.baseFileUrl;
         $scope.data = [];
+        if (type == 5) {
+          $scope.jingxuan =response.data.projectList;
+        
+        }else if (type == 6) {
+          $scope.zungui = response.data.projectList;
+        }
         $scope.numberOfPages = function() {
           return Math.ceil($scope.data.length / $scope.pageSize);
         };
-        for (var i = 0; i < $scope.jigoubao.length; i++) {
-          ProjectUtils.projectTimedown($scope.jigoubao[i], $scope.serverTime);
-          $scope.data.push($scope.jigoubao[i]);
-        }
+        // for (var i = 0; i < $scope.jigoubao.length; i++) {
+        //   ProjectUtils.projectTimedown($scope.jigoubao[i], $scope.serverTime);
+        //   $scope.data.push($scope.jigoubao[i]);
+        // }
       });
     };
 
-    $scope.jigoubaoList();
+    $scope.jingxuanList(5);
+    $scope.jingxuanList(6);
 
     /**
      * 新手标

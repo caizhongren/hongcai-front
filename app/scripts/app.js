@@ -941,7 +941,7 @@ hongcaiApp
         }
       })
       .state('root.project-details', {
-        url: '/project/:number',
+        url: '/project/:number/:type',
         views: {
           '': {
             templateUrl: 'views/project/project-details.html',

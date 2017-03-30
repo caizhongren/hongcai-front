@@ -236,8 +236,8 @@ angular.module('hongcaiApp')
           x: 'left',
       },
       title: {
-        show: !25,
-        text: "资产占比",
+        show: 25,
+        text: "在投金额 <br> 10000元",
         textAlign: "middle",
         textBaseline: "middle",
         left: "38%",

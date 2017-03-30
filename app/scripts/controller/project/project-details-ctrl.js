@@ -4,6 +4,7 @@ angular.module('hongcaiApp')
 
     MainService, DateUtils, AboutUsService, projectStatusMap, config, $window, DEFAULT_DOMAIN) {
 
+    $scope.type =  $stateParams.type;
     $scope.chk = true;
     $scope.checkFlag = true;
     $scope.check = function(val) {
