@@ -887,8 +887,9 @@ hongcaiApp
           }
         }
       })
+      // 尊贵、精选列表
       .state('root.guaranteepro-list-query', {
-        url: '/guaranteepro-list/:status/:minCycle/:maxCycle/:minEarning/:maxEarning/:minTotalAmount/:maxTotalAmount/:sortCondition/:sortType',
+        url: '/guaranteepro-list/:status/:cycle/:earning/:total/:sortCondition/:sortType/:type',
         views: {
           '': {
             templateUrl: 'views/project/guaranteepro-list.html',
@@ -898,7 +899,7 @@ hongcaiApp
         }
       })
       .state('root.guaranteepro-list-query-no', {
-        url: '/guaranteepro-list',
+        url: '/guaranteepro-list/:type',
         views: {
           '': {
             templateUrl: 'views/project/guaranteepro-list.html',
