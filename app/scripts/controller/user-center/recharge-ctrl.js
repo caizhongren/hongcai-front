@@ -20,8 +20,8 @@ angular.module('hongcaiApp')
     }
     //查询银行卡限额
     $scope.bankCodeList = [];
-    // var userCurrenBank = {bankCode:'ICBK',dayLimit:0,monthLimit:0,singleLimit:0};
-    // sessionStorage.getItem('userCurrenBank') ? angular.fromJson(sessionStorage.getItem('userCurrenBank')) : userCurrenBank;
+    var userCurrenBank = {bankCode:'ICBK',dayLimit:0,monthLimit:0,singleLimit:0};
+    sessionStorage.getItem('userCurrenBank') ? angular.fromJson(sessionStorage.getItem('userCurrenBank')) : userCurrenBank;
     $scope.userCurrenBank = [];
     $scope.getBankLimit = function(payCompany,bankCode) {
       UserCenterService.getBankCardLimit.get({
@@ -41,7 +41,7 @@ angular.module('hongcaiApp')
         for(var i = 1; i < bankLimit.length; i++) {
           if(bankLimit[i].bankCode == $scope.userCard.bankCode) {
             $scope.userCurrenBank = bankLimit[i];
-            // sessionStorage.setItem('userCurrenBank', angular.toJson($scope.userCurrenBank));
+            sessionStorage.setItem('userCurrenBank', angular.toJson($scope.userCurrenBank));
             return;
           }
         }
