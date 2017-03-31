@@ -38,7 +38,7 @@ angular.module('hongcaiApp')
         }
         //当前绑定银行卡限额
         var bankLimit = response.data.bankLimit;
-        for(var i = 1; i < bankLimit.length; i++) {
+        for(var i = 0; i < bankLimit.length; i++) {
           if(bankLimit[i].bankCode == $scope.userCard.bankCode) {
             $scope.userCurrenBank = bankLimit[i];
             sessionStorage.setItem('userCurrenBank', angular.toJson($scope.userCurrenBank));
