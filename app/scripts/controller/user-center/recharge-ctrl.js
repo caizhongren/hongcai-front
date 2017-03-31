@@ -20,7 +20,8 @@ angular.module('hongcaiApp')
     }
     //查询银行卡限额
     $scope.bankCodeList = [];
-    $scope.userCurrenBank = [];
+    var userCurrenBank = {bankCode:'ICBK',dayLimit:0,monthLimit:0,singleLimit:0};
+    sessionStorage.getItem('userCurrenBank') ? angular.fromJson(sessionStorage.getItem('userCurrenBank')) : userCurrenBank;
     $scope.getBankLimit = function(payCompany,bankCode) {
       UserCenterService.getBankCardLimit.get({
         payCompany: payCompany,
@@ -38,8 +39,9 @@ angular.module('hongcaiApp')
         var bankLimit = response.data.bankLimit;
         for(var i = 1; i < bankLimit.length; i++) {
           if(bankLimit[i].bankCode == $scope.userCard.bankCode) {
-             $scope.userCurrenBank = bankLimit[i];
-             return;
+            $scope.userCurrenBank = bankLimit[i];
+            sessionStorage.setItem('userCurrenBank', angular.toJson($scope.userCurrenBank));
+            return;
           }
         }
       })
@@ -63,6 +65,7 @@ angular.module('hongcaiApp')
             },function(response){
               $scope.bankRemain = response.data.bankRemain;
               $scope.bankRemainHolder = $scope.payment !== 2? '该卡可充值' + $scope.bankRemain + '元' : '';
+              $scope.bankStatus = response.data.bankStatus;
 
             });
             // $scope.getBankLimit(expectPayCompany,$scope.userCard.bankCode);
@@ -138,6 +141,14 @@ angular.module('hongcaiApp')
       if(amount > $scope.bankRemain){
         return;
       }
+      if($scope.bankStatus == 1 && $scope.payment !== 2){
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alert-maintenance.html',
+          show: true
+        });
+        return;
+      }
       $scope.msg = '2';
       $scope.rechargeAmount = amount;
       $alert({
@@ -145,7 +156,7 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-
+      
       window.open('/#!/recharge-transfer/' + amount +"/"+ $scope.rechargeWay +"/" + $scope.expectPayCompany);
 
     };
@@ -182,7 +193,7 @@ angular.module('hongcaiApp')
 
       }
       if(payment !== 2){
-        $scope.getUserBankCard($scope.expectPayCompany,$scope.userbankCode);
+        $scope.getUserBankCard($scope.expectPayCompany);
 
       }
        $scope.getBankLimit($scope.expectPayCompany);
