@@ -30,7 +30,7 @@
             </thead>
             <tbody>
               <tr ng-repeat="list in bankCodeList">
-                <td><img ng-src="images/user-center/{{list.bankCode}}.png" >{{list.bankName}}</td>
+                <td><img src="/images/user-center/{{list.bankCode}}.png" >{{list.bankName}}</td>
                 <td>
                   <span ng-if="list.singleLimit < 0">不限</span>
                   <span ng-if="list.singleLimit > 0">{{list.singleLimit%10000 !== 0 ? list.singleLimit : list.singleLimit/10000 + 'w'}}</span>/
@@ -47,7 +47,7 @@
         <div class="row margin-t-40 margin-b-50 margin-l-30">
           <div>
             <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5">
-              <img ng-src="images/user-center/{{userCurrenBank.bankCode}}.png">{{ userCard.openBank}}
+              <img src="/images/user-center/{{userCurrenBank.bankCode}}.png">{{ userCard.openBank}}
             </div>
             <div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div>
             <div class="col-md-2 text-right">
