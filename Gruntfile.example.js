@@ -336,7 +336,10 @@ module.exports = function(grunt) {
         assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images'],
         patterns: {
           js: [
-            [/<img[^\>]*[^\>\S]+ng\-src=['"][\{\}\:\w\s]*([^'"\)#]+)(#.+)?["']/gm, 'Update the JS to reference our revved images']
+            [/(images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update the JS to reference our revved images']
+          ],
+          html: [
+            [/<img[^\>]*[^\>\S]+ng-src=[""]([^'"\)#]+)(#.+)?["']/gm, 'Update the HTML with non standard ng-src attribute on img']
           ]
         }
       }
