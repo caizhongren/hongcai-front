@@ -42,8 +42,8 @@ angular.module('hongcaiApp')
           if(bankLimit[i].bankCode == $scope.userCard.bankCode) {
             $scope.userCurrenBank = bankLimit[i];
             sessionStorage.setItem('userCurrenBank', angular.toJson($scope.userCurrenBank));
-            return;
           }
+          $scope.bankCodeList[i].src = '/images/user-center/' + bankLimit[i].bankCode+'.png';
         }
       })
     }

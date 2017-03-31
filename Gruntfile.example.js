@@ -337,9 +337,6 @@ module.exports = function(grunt) {
         patterns: {
           js: [
             [/(images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update the JS to reference our revved images']
-          ],
-          html: [
-            [/<img[^\>]*[^\>\S]+ng-src=[""]([^'"\)#]+)(#.+)?["']/gm, 'Update the HTML with non standard ng-src attribute on img']
           ]
         }
       }
