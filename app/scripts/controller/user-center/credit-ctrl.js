@@ -45,11 +45,11 @@ angular.module('hongcaiApp')
     UserCenterService.getCreditRightStatistics.get({}, function(response) {
       if (response.ret === 1) {
         $scope.creditRightStatis = response.data.creditRightStatis;
-        $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
       } else {
-        $scope.showCreditRightStatistics = false;
       }
     });
+
+    
     
 
     /**
@@ -61,27 +61,37 @@ angular.module('hongcaiApp')
       assignment:0,
       holdingAmount: 0,
       totalInvestAmount: 0,
-      totalProfit:0
+      totalProfit:0,
+      holdingCount:0,
+      endProfitCount:0
     }
     $scope.showOther = false;
-    UserCenterService.getCreditRightStat.query({}, function(response) {
-      for(var i = 0;i<response.length;i++) {
-        var stat = response[i];
-        $scope.investStat.totalInvestAmount += stat.totalInvestAmount;
-        $scope.investStat.totalProfit += stat.totalProfit;
-        if(stat.creditRightType == 7){
-           $scope.investStat.selection = stat.holdingAmount;
-        } else if(stat.creditRightType == 8) {
-          $scope.investStat.hornor = stat.holdingAmount;
-        } else if (stat.creditRightType == 6) {
-          $scope.investStat.assignment = stat.holdingAmount;
-        } else if(stat.creditRightType == 3){
-          $scope.showOther = true;
-        }
+    $scope.getCreditRightStat =function(creditRightType) {
+      UserCenterService.getCreditRightStat.query({}, function(response) {
+        for(var i = 0;i<response.length;i++) {
+          var stat = response[i];
+          $scope.investStat.totalInvestAmount += stat.totalInvestAmount;
+          $scope.investStat.totalProfit += stat.totalProfit;
+          if(stat.creditRightType == 7){
+            $scope.investStat.selection = stat.holdingAmount;
+          } else if(stat.creditRightType == 8) {
+            $scope.investStat.hornor = stat.holdingAmount;
+          } else if (stat.creditRightType == 6) {
+            $scope.investStat.assignment = stat.holdingAmount;
+          } else if(stat.creditRightType == 3){
+            $scope.showOther = true;
+          }
 
-      }
-      $scope.investStat.holdingAmount = $scope.investStat.selection+ $scope.investStat.hornor + $scope.investStat.assignment;
-    })
+          if (stat.creditRightType == creditRightType) {
+            $scope.investStat.holdingCount = stat.holdingCount;
+            $scope.investStat.endProfitCount = stat.endProfitCount;
+          }
+
+        }
+        $scope.investStat.holdingAmount = $scope.investStat.selection+ $scope.investStat.hornor + $scope.investStat.assignment;
+      })
+    }
+    
     /**
      * 加载债权
      * @param  page      第几页
@@ -118,7 +128,10 @@ angular.module('hongcaiApp')
     $scope.tabToggle = function(tab) {
       $scope.tabStatus = tab;
       $scope.searchStatus = 1;
+      $scope.investStat.holdingCount = 0;
+      $scope.investStat.endProfitCount = 0;
       $scope.loadCredits($scope.currentPage, $scope.pageSize, $scope.searchStatus, $scope.tabStatus);
+      $scope.getCreditRightStat($scope.tabStatus);
     }
     $scope.tabToggle(7);
 
