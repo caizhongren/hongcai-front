@@ -77,6 +77,8 @@ angular.module('hongcaiApp')
 
             $scope.media.push(banner);
           }
+        }else{
+          $scope.media = $scope.defaultMedia;
         }
       }else {
         $scope.data = [];
