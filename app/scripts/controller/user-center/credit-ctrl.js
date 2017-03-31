@@ -127,13 +127,16 @@ angular.module('hongcaiApp')
     //饼图设置
     
     $scope.$watch('investStat.holdingAmount', function(newValue, oldValue){
+      // console.log($scope.investStat.holdingAmount);
       var percent1,percent2,percent3;
       if($scope.investStat.holdingAmount == 0) {
         percent1 = percent2 = percent3 =  3;
+      } else {
+        percent1 = $scope.investStat.selection;
+        percent2 = $scope.investStat.hornor;
+        percent3 = $scope.investStat.assignment;
       }
-      percent1 = $scope.investStat.selection;
-      percent2 = $scope.investStat.hornor;
-      percent3 = $scope.investStat.assignment;
+      
       $scope.lineConfig = {
         theme:'default',
         dataLoaded:true

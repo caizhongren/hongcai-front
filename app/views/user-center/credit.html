@@ -41,7 +41,7 @@
             <li class="asset-type">
               <span class="dot-2"></span><span>宏财精选</span>
             </li>
-            <li>{{investStat.selection/(investStat.hornor + investStat.selection + investStat.assignment)*100 | number:2}}%</li>
+            <li>{{investStat.selection/(investStat.hornor + investStat.selection + investStat.assignment)*100 || 0.00 | number:2}}%</li>
             <li>{{investStat.selection | number: 2}}元</li>
             <!-- <li class="totalIncome">0.00元</li> -->
           </ul>
@@ -51,7 +51,7 @@
             <li class="asset-type">
               <span class="dot-1"></span><span>宏财尊贵</span>
             </li>
-            <li>{{investStat.hornor/(investStat.hornor + investStat.selection + investStat.assignment)*100 | number:2}}%</li>
+            <li>{{investStat.hornor/(investStat.hornor + investStat.selection + investStat.assignment)*100 || 0.00 | number:2}}%</li>
             <li>{{investStat.hornor | number: 2}}元</li>
           </ul>
         </dd>
@@ -60,7 +60,7 @@
             <li class="asset-type">
               <span class="dot-4"></span><span>债权转让</span>
             </li>
-            <li>{{investStat.assignment/(investStat.hornor + investStat.selection + investStat.assignment)*100 | number:2}}%</li>
+            <li>{{investStat.assignment/(investStat.hornor + investStat.selection + investStat.assignment)*100 || 0.00 | number:2}}%</li>
             <li>{{investStat.assignment | number: 2}}元</li>
           </ul>
         </dd>
