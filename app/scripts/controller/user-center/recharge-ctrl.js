@@ -43,11 +43,31 @@ angular.module('hongcaiApp')
             $scope.userCurrenBank = bankLimit[i];
             sessionStorage.setItem('userCurrenBank', angular.toJson($scope.userCurrenBank));
           }
-          $scope.bankCodeList[i].src = '/images/user-center/' + bankLimit[i].bankCode+'.png';
+          //图片地址
+          $scope.bankCodeList[i].src = $scope.bankLimitList[bankLimit[i].bankCode];
         }
       })
     }
     
+    $scope.bankLimitList = {
+      'ICBK': '/images/user-center/ICBK.png',
+      'BKCH': '/images/user-center/BKCH.png',
+      'PCBC': '/images/user-center/PCBC.png',
+      'ABOC': '/images/user-center/ABOC.png',
+      'COMM': '/images/user-center/COMM.png',
+      'CMBC': '/images/user-center/CMBC.png',
+      'CIBK': '/images/user-center/CIBK.png',
+      'SZDB': '/images/user-center/SZDB.png',
+      'MSBC': '/images/user-center/MSBC.png',
+      'EVER': '/images/user-center/EVER.png',
+      'HXBK': '/images/user-center/HXBK.png',
+      'GDBK': '/images/user-center/GDBK.png',
+      'PSBC': '/images/user-center/PSBC.png',
+      'FJIB': '/images/user-center/FJIB.png',
+      'SPDB': '/images/user-center/SPDB.png',
+      'BOB': '/images/user-center/BOB.png'
+    }
+
     /*
      *获取用户已绑定银行卡信息
      */
