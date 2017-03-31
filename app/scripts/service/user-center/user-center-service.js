@@ -27,7 +27,10 @@ angular.module('hongcaiApp')
         'post':   {method:'POST'}
       }),
       bindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/bindBankCard', {}),
-      unbindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/unbindBankCard', {}),
+      unbindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/unbindBankCard', {
+        payCompany: '@payCompany'
+      }),
+      getBankCardLimit: $resource(DEFAULT_DOMAIN + '/bank/getBankRechargeLimit',{}),
       getUserAccount: $resource(DEFAULT_DOMAIN + '/siteAccount/userAccount'),
       userAccount: $resource(RESTFUL_DOMAIN + '/users/0/account',{}),
       getUserAvailableCash: $resource(DEFAULT_DOMAIN + '/siteAccount/getUserAvailableCash'),

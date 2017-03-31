@@ -18,198 +18,33 @@ angular.module('hongcaiApp')
         show: true
       });
     }
-
-    $scope.bankCodeList_FU = {
-      'ICBK':{
-        'card': 'ICBK',
-        'name': '工商银行',
-        'imgUrl': '/images/user-center/ICBK.png',
-        'limit': '5w/5w/20w'
-      },
-      'BKCH':{
-        'card': 'BKCH',
-        'name': '中国银行',
-        'imgUrl': '/images/user-center/BKCH.png',
-        'limit': '5w/10w/20w'
-      },
-      'PCBC':{
-        'card': 'PCBC',
-        'name': '建设银行',
-        'imgUrl': '/images/user-center/PCBC.png',
-        'limit': '5w/10w/20w'
-      },
-      'ABOC':{
-        'card': 'ABOC',
-        'name': '农业银行',
-        'imgUrl': '/images/user-center/ABOC.png',
-        'limit': '5w/10w/20w'
-      },
-      'COMM':{
-        'card': 'COMM',
-        'name': '交通银行',
-        'imgUrl': '/images/user-center/COMM.png',
-        'limit': '5w/10w/20w'
-      },
-      'CMBC':{
-        'card': 'CMBC',
-        'name': '招商银行',
-        'imgUrl': '/images/user-center/CMBC.png',
-        'limit': '5w/5w/20w'
-      },
-      'CIBK':{
-        'card': 'CIBK',
-        'name': '中信银行',
-        'imgUrl': '/images/user-center/CIBK.png',
-        'limit': '1w/1w/2w'
-      },
-      'SZDB':{
-        'card': 'SZDB',
-        'name': '平安银行',
-        'imgUrl': '/images/user-center/SZDB.png',
-        'limit': '5w/20w/20w'
-      },
-      'MSBC':{
-        'card': 'MSBC',
-        'name': '民生银行',
-        'imgUrl': '/images/user-center/MSBC.png',
-        'limit': '5w/20w/20w'
-      },
-      'EVER':{
-        'card': 'EVER',
-        'name': '光大银行',
-        'imgUrl': '/images/user-center/EVER.png',
-        'limit': '5w/20w/20w'
-      },
-      'HXBK':{
-        'card': 'HXBK',
-        'name': '华夏银行',
-        'imgUrl': '/images/user-center/HXBK.png',
-        'limit': '5w/20w/20w'
-      },
-      'GDBK':{
-        'card': 'GDBK',
-        'name': '广发银行',
-        'imgUrl': '/images/user-center/GDBK.png',
-        'limit': '5w/20w/20w'
-      },
-      'PSBC':{
-        'card': 'PSBC',
-        'name': '邮政银行',
-        'imgUrl': '/images/user-center/PSBC.png',
-        'limit': '5w/20w/20w'
-      },
-      'FJIB':{
-        'card': 'FJIB',
-        'name': '兴业银行',
-        'imgUrl': '/images/user-center/FJIB.png',
-        'limit': '5w/5w/20w'
-      },
-      'SPDB':{
-        'card': 'SPDB',
-        'name': '浦发银行',
-        'imgUrl': '/images/user-center/SPDB.png',
-        'limit': '5w/5w/20w'
-      }
+    //查询银行卡限额
+    $scope.bankCodeList = [];
+    $scope.userCurrenBank = [];
+    $scope.getBankLimit = function(payCompany,bankCode) {
+      UserCenterService.getBankCardLimit.get({
+        payCompany: payCompany,
+        bankCode: bankCode
+      }, function(response) {
+        if(!response || response.ret == -1) {
+          return;
+        }
+        if(payCompany == 'FUIOU') {
+          $scope.bankCodeList = response.data.bankLimit;
+        } else {
+          $scope.bankCodeList = response.data.bankLimit;
+        }
+        //当前绑定银行卡限额
+        var bankLimit = response.data.bankLimit;
+        for(var i = 1; i < bankLimit.length; i++) {
+          if(bankLimit[i].bankCode == $scope.userCard.bankCode) {
+             $scope.userCurrenBank = bankLimit[i];
+             return;
+          }
+        }
+      })
     }
-
-    $scope.bankCodeList_UCF = {
-      'ICBK':{
-        'card': 'ICBK',
-        'name': '工商银行',
-        'imgUrl': '/images/user-center/ICBK.png',
-        'limit': '99999/20w/不限'
-      },
-      'BKCH':{
-        'card': 'BKCH',
-        'name': '中国银行',
-        'imgUrl': '/images/user-center/BKCH.png',
-        'limit': '5w/30w/不限'
-      },
-      'PCBC':{
-        'card': 'PCBC',
-        'name': '建设银行',
-        'imgUrl': '/images/user-center/PCBC.png',
-        'limit': '20w/50w/不限'
-      },
-      'ABOC':{
-        'card': 'ABOC',
-        'name': '农业银行',
-        'imgUrl': '/images/user-center/ABOC.png',
-        'limit': '20w/50w/不限'
-      },
-      'COMM':{
-        'card': 'COMM',
-        'name': '交通银行',
-        'imgUrl': '/images/user-center/COMM.png',
-        'limit': '20w/20w/不限'
-      },
-      'CMBC':{
-        'card': 'CMBC',
-        'name': '招商银行',
-        'imgUrl': '/images/user-center/CMBC.png',
-        'limit': '5000/10w/不限'
-      },
-      'CIBK':{
-        'card': 'CIBK',
-        'name': '中信银行',
-        'imgUrl': '/images/user-center/CIBK.png',
-        'limit': '1w/1w/2w'
-      },
-      'SZDB':{
-        'card': 'SZDB',
-        'name': '平安银行',
-        'imgUrl': '/images/user-center/SZDB.png',
-        'limit': '50w/500w/不限'
-      },
-      'MSBC':{
-        'card': 'MSBC',
-        'name': '民生银行',
-        'imgUrl': '/images/user-center/MSBC.png',
-        'limit': '2000w/10000w/不限'
-      },
-      'EVER':{
-        'card': 'EVER',
-        'name': '光大银行',
-        'imgUrl': '/images/user-center/EVER.png',
-        'limit': '50w/不限/不限'
-      },
-      'HXBK1':{
-        'card': 'BOB',
-        'name': '北京银行',
-        'imgUrl': '/images/user-center/BOB.png',
-        'limit': '5000/5000/不限'
-      },
-      'GDBK':{
-        'card': 'GDBK',
-        'name': '广发银行',
-        'imgUrl': '/images/user-center/GDBK.png',
-        'limit': '不限/不限/不限'
-      },
-      'PSBC':{
-        'card': 'PSBC',
-        'name': '邮政银行',
-        'imgUrl': '/images/user-center/PSBC.png',
-        'limit': '10w/100w/不限'
-      },
-      'FJIB':{
-        'card': 'FJIB',
-        'name': '兴业银行',
-        'imgUrl': '/images/user-center/FJIB.png',
-        'limit': '5w/5w/不限'
-      },
-      'SPDB':{
-        'card': 'SPDB',
-        'name': '浦发银行',
-        'imgUrl': '/images/user-center/SPDB.png',
-        'limit': '5w/30w/不限'
-      },
-      'HXBK':{
-        'card': 'HXBK',
-        'name': '华夏银行',
-        'imgUrl': '/images/user-center/HXBK.png',
-        'limit': '50w/150w/不限'
-      }
-    }
+    
     /*
      *获取用户已绑定银行卡信息
      */
@@ -230,6 +65,8 @@ angular.module('hongcaiApp')
               $scope.bankRemainHolder = $scope.payment !== 2? '该卡可充值' + $scope.bankRemain + '元' : '';
 
             });
+            // $scope.getBankLimit(expectPayCompany,$scope.userCard.bankCode);
+            // console.log($scope.bankCodeList)
           }
         }
       });
@@ -338,15 +175,19 @@ angular.module('hongcaiApp')
       }else if (payment === 2) {
         $scope.rechargeWay = 'WEB';
         $scope.expectPayCompany = 'UMPAY';
+
       }else if (payment === 3) {
         $scope.rechargeWay = 'SWIFT';
         $scope.expectPayCompany = 'UCFPAY';
+
       }
       if(payment !== 2){
-        $scope.getUserBankCard($scope.expectPayCompany);
+        $scope.getUserBankCard($scope.expectPayCompany,$scope.userbankCode);
+
       }
-      
+       $scope.getBankLimit($scope.expectPayCompany);
     }
     $scope.selectPay(3);
+
 
   });
