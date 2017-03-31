@@ -22,6 +22,7 @@ angular.module('hongcaiApp')
     $scope.bankCodeList = [];
     var userCurrenBank = {bankCode:'ICBK',dayLimit:0,monthLimit:0,singleLimit:0};
     sessionStorage.getItem('userCurrenBank') ? angular.fromJson(sessionStorage.getItem('userCurrenBank')) : userCurrenBank;
+    $scope.userCurrenBank = [];
     $scope.getBankLimit = function(payCompany,bankCode) {
       UserCenterService.getBankCardLimit.get({
         payCompany: payCompany,
