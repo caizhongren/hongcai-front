@@ -1,6 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, UserCenterService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
+  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, UserCenterService, SecuritySettingService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
+
     $scope.userbusiness = 2;
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
@@ -20,7 +21,63 @@ angular.module('hongcaiApp')
         //console.log('ask security-settings, why userSecurityInfo did not load data...');
       }
     });
+    //绑卡信息
+    UserCenterService.getUserBankCard.get({}, function(response) {
+      if (response.ret === 1) {
 
+        var card = response.data.card;
+        $scope.isAuth = response.data.isAuth;
+        if (card) {
+          $scope.haveCard = (card.status === 'VERIFIED');
+          $scope.bankName = card.openBank;
+          $scope.cardNo = card.cardNo.slice(-7);
+          $scope.isVerifying = (card.status === 'VERIFYING');
+          $scope.unbinding = (card.status === 'INIT');
+        } else {
+          $scope.haveCard = false;
+          $scope.isVerifying = false;
+          $scope.unbinding = false;
+        }
+        
+      } else {
+        toaster.pop('error', response.msg);
+      }
+    });
+
+    //解绑银行卡
+    $scope.confirmUnbindBankCard = function(){
+      // $rootScope.toNotice();
+      $scope.msg = '11';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+    };
+    $scope.unbindBankCard = function() {
+      // $rootScope.toNotice();
+      UserCenterService.unbindBankCard.get({}, function(response) {
+        if (response.ret === 1) {
+          $state.go('root.yeepay-callback', {
+            business: 'UNBIND_CARD',
+            status: 'SUCCESS'
+          });
+        } else {
+          toaster.pop('error', response.msg);
+        }
+      });
+    };
+    //绑定银行卡
+    $scope.bindBankCard = function() {
+      // $rootScope.toNotice();
+      $scope.msg = '5';
+      $alert({
+        scope: $scope,
+        template: 'views/modal/alertYEEPAY.html',
+        show: true
+      });
+      window.open('/#!/bankcard-transfer/0');
+    };
 
     $scope.bindMobile = function(mobileNo, captcha) {
       UserCenterService.bindMobile.get({
@@ -101,6 +158,8 @@ angular.module('hongcaiApp')
     /**
      * 修改手机号码
      */
+   
+    $scope.resetMobile = SecuritySettingService.getter().reset?true:false;
     $scope.resetMobilenum = function(user) {
       var regexp = new RegExp('^((13[0-9])|(15[^4,\\D])|(18[0-9])|(17[0678])|(14[0-9]))\\d{8}$');
       if(!regexp.test(user.mobile)) {
@@ -132,7 +191,7 @@ angular.module('hongcaiApp')
     };
 
 
-
+    $scope.openTrusteeshipAccount = SecuritySettingService.getter().realName?true:false;
     $scope.checkEmailAndMobile = function() {
       if (!$scope.mobile) {
         $scope.openTrusteeshipAccount = false;
@@ -144,7 +203,6 @@ angular.module('hongcaiApp')
         });
       }
     };
-
     $scope.realNameAuth = function(user) {
       $scope.msg = '1';
       $alert({
@@ -152,7 +210,7 @@ angular.module('hongcaiApp')
         template: 'views/modal/alertYEEPAY.html',
         show: true
       });
-
+      $scope.openTrusteeshipAccount = false;
       window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/0');
     };
 
@@ -207,8 +265,21 @@ angular.module('hongcaiApp')
     //自动投标
     $scope.autoTender = [];
     $scope.dateLine = [ 30,90,120,180,360];
-    $scope.interestRate = [7,8,9,10,11,12];
-    $scope.projectType = ['宏金保','债权转让','全部',];
+    $scope.interestRate = {
+      '0': '',
+      '7': '7%',
+      '8': '8%',
+      '9': '9%',
+      '10': '10%',
+      '11': '11%',
+      '12': '12%'
+    };
+    $scope.projectType = {
+        '5': '宏财精选', 
+        '6': '宏财尊贵', 
+        '2': '债权转让',
+        '0': '全部'
+    };
     $scope.showDateLine = false;
     $scope.showInterestRate = false;
     $scope.showProjectType = false;
@@ -225,12 +296,6 @@ angular.module('hongcaiApp')
     
     $scope.selectDateLine = function(date){
       $scope.autoTender.selectedDateLine = date;
-    };
-    $scope.selectInterestRate = function(interestRate){
-      $scope.autoTender.selectedInterestRate = interestRate;
-    };
-    $scope.selectProjectType = function(projectType){
-      $scope.autoTender.selectedProjectType = projectType;
     };
 
     //最小投标金额
@@ -285,29 +350,23 @@ angular.module('hongcaiApp')
     UserCenterService.autoTender.get({
       userId: 0
     }, function(response){
+      //1.开启  2. 过期 3.禁用 0已开启还未到开始日期
       $scope.openTrustReservation = response.status;
       if (response.userId !== null) {
         $scope.setAutoTender = true;
         $scope.autoTenderDetail = response;
-        var investType = $scope.autoTenderDetail.investType;
-        if (investType ===1) {
-          $scope.autoTender.selectedProjectType = '宏金保';
-        }else if (investType ===2) {
-          $scope.autoTender.selectedProjectType = '债权转让';
-        }else {
-          $scope.autoTender.selectedProjectType = '全部';
-        }
+        $scope.autoTender.investType = $scope.autoTenderDetail.investType;
         $scope.autoTender.minInvestAmount = $scope.autoTenderDetail.minInvestAmount;
         $scope.autoTender.retentionAmount = $scope.autoTenderDetail.remainAmount;
         $scope.autoTender.selectedDateLine = $scope.autoTenderDetail.maxRemainDay;
-        $scope.autoTender.selectedInterestRate = $scope.autoTenderDetail.annualEarnings;
+        $scope.autoTender.annualEarnings = $scope.autoTenderDetail.annualEarnings;
         $scope.autoTenderDetail.startTime = $scope.autoTenderDetail.startTime;
         $scope.autoTenderDetail.endTime = $scope.autoTenderDetail.endTime;
       }else {
         $scope.setAutoTender = false;
         $scope.autoTender.selectedDateLine = '360';
-        $scope.autoTender.selectedInterestRate = '7';
-        $scope.autoTender.selectedProjectType = '全部';
+        $scope.autoTender.annualEarnings = '7';
+        $scope.autoTender.investType = '0';
         $scope.autoTender.minInvestAmount = 100;
         $scope.autoTender.retentionAmount = 0;
         $scope.currentTime = new Date();
@@ -324,14 +383,6 @@ angular.module('hongcaiApp')
       if (!$rootScope.isLogged) {
         return;
       }
-      
-      if (autoTender.selectedProjectType ==='宏金保') {
-        var projectType = 1;
-      }else if (autoTender.selectedProjectType ==='债权转让') {
-        var projectType = 2;
-      }else {
-        var projectType = 0;
-      }
 
       //开启
       UserCenterService.autoTenders.post({
@@ -339,8 +390,8 @@ angular.module('hongcaiApp')
         minInvestAmount: autoTender.minInvestAmount,
         minRemainDay: 0,
         maxRemainDay: autoTender.selectedDateLine,
-        annualEarnings: autoTender.selectedInterestRate,
-        investType: projectType,
+        annualEarnings: autoTender.annualEarnings,
+        investType: autoTender.investType ,
         remainAmount: autoTender.retentionAmount,
         startTime: startTime,
         endTime: endTime

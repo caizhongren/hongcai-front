@@ -28,27 +28,40 @@
                 <td>单笔/单日/单月</td>
               </tr>
             </thead>
-            <tbody ng-if="payment == 1">
-              <tr ng-repeat="list in bankCodeList_FU">
-                <td><i ng-class=list.card></i>{{list.name}}</td>
-                <td>{{list.limit}}</td>
-              </tr>
-            </tbody>
-            <tbody ng-if="payment == 3">
-              <tr ng-repeat="list in bankCodeList_UCF">
-                <td><i ng-class=list.card></i>{{list.name}}</td>
-                <td>{{list.limit}}</td>
+            <tbody>
+              <tr ng-repeat="list in bankCodeList">
+                <td><img ng-src="{{list.src}}" >{{list.bankName}}</td>
+                <td>
+                  <span ng-if="list.singleLimit < 0">不限</span>
+                  <span ng-if="list.singleLimit > 0">{{list.singleLimit%10000 !== 0 ? list.singleLimit : list.singleLimit/10000 + 'w'}}</span>/
+                  <span ng-if="list.dayLimit < 0">不限</span>
+                  <span ng-if="list.dayLimit > 0">{{list.dayLimit%10000 !== 0 ? list.dayLimit : list.dayLimit/10000 + 'w'}}</span>/
+                  <span ng-if="list.monthLimit < 0">不限</span>
+                  <span ng-if="list.monthLimit > 0">{{list.monthLimit%10000 !== 0 ? list.monthLimit : list.monthLimit/10000 + 'w'}}</span>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-40 margin-b-50 margin-l-30">
-          <div ng-if="payment ==1">
-            <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5"><img ng-src="{{ bankCodeList_FU[userCard.bankCode].imgUrl}}">{{ bankCodeList_FU[userCard.bankCode].name}}</div><div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div><div class="col-md-2 text-right"><span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span></div><div class="col-md-4 padding-0 text-center">单笔/单日/单月限额：{{ bankCodeList_FU[userCard.bankCode].limit}}</div>
-          </div>
-          <div ng-if="payment !==1">
-            <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5"><img ng-src="{{ bankCodeList_UCF[userCard.bankCode].imgUrl}}">{{ bankCodeList_UCF[userCard.bankCode].name}}</div><div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div><div class="col-md-2 text-right"><span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span></div><div class="col-md-4 padding-0 text-center">单笔/单日/单月限额：{{ bankCodeList_UCF[userCard.bankCode].limit}}</div>
+          <div>
+            <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5">
+              <img ng-src="{{userCurrenBank.src}}">{{ userCard.openBank}}
+            </div>
+            <div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div>
+            <div class="col-md-2 text-right">
+              <span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span>
+            </div>
+            <div class="col-md-5 padding-0 text-center">单笔/单日/单月限额：
+            <!-- {{ userCurrenBank.dayLimit}} -->
+              <span ng-if="userCurrenBank.singleLimit < 0">不限</span>
+              <span ng-if="userCurrenBank.singleLimit > 0">{{userCurrenBank.singleLimit%10000 !== 0 ? userCurrenBank.singleLimit : userCurrenBank.singleLimit/10000 + 'w'}}</span>/
+              <span ng-if="userCurrenBank.dayLimit < 0">不限</span>
+              <span ng-if="userCurrenBank.dayLimit > 0">{{userCurrenBank.dayLimit%10000 !== 0 ? userCurrenBank.dayLimit : userCurrenBank.dayLimit/10000 + 'w'}}</span>/
+              <span ng-if="userCurrenBank.monthLimit < 0">不限</span>
+              <span ng-if="userCurrenBank.monthLimit > 0">{{userCurrenBank.monthLimit%10000 !== 0 ? userCurrenBank.monthLimit : userCurrenBank.monthLimit/10000 + 'w'}}</span>
+            </div>
           </div>
           
           <!-- <a class=" col-md-2 cursor-pt supportBank padding-l-5" ng-click="changeCard();" href="javascript:;">更换其他银行卡</a> -->

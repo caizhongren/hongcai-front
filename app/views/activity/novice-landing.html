@@ -107,7 +107,7 @@
 	  		<li class="text-left">
 	  			<div class="top">
 	  				<span>{{ newbieBiaoProject.annualEarnings ||0 }}</span>
-		  			<p>预期年化收益<br>%</p>
+		  			<p>期望年均回报<br>%</p>
 	  			</div>
 	  			<p class="bottom">项目期限{{ newbieBiaoProject.projectDays}}天，可投金额{{(newbieBiaoProject.total - (newbieBiaoProject.soldStock + newbieBiaoProject.occupancyStock) * newbieBiaoProject.increaseAmount) | noFractionCurrency:"":0 || 0 }}元</p>
 	  		</li>

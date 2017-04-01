@@ -148,7 +148,7 @@
         </li>
         <li>
           <a ui-sref="root.project-list-query({status: status, minCycle: minCycle, maxCycle: maxCycle, minEarning: minEarning, maxEarning: maxEarning, minTotalAmount: minTotalAmount, maxTotalAmount: maxTotalAmount, sortCondition:'annual_earnings', sortType: sortType})" ng-click="toggleSort()">
-          年化收益 
+          年均收益 
           <i class="fa" ng-class="{'fa-angle-up': (sortCondition === 'annual_earnings' && sortType === true), 'fa-angle-down': (sortCondition === 'annual_earnings' && sortType === false)}"></i>
           </a>
         </li>
@@ -170,7 +170,7 @@
         <p>100%本息担保</p>
         <p>项目规模：<strong class="ft-18">{{item.total/10000 | number : 0}}</strong>万元</p>
         <p>可投金额：<strong class="ft-18">{{item.currentStock * item.increaseAmount || 0 | number : 0}}</strong>元</p>
-        <p>年化收益：<strong class="ft-red ft-24">{{item.annualEarnings | number : 2}}%</strong></p>
+        <p>年均收益：<strong class="ft-red ft-24">{{item.annualEarnings | number : 2}}%</strong></p>
         <p>项目期限：<strong class="ft-24">{{item.cycle}}</strong>个月</p>
         
         

@@ -27,8 +27,12 @@ angular.module('hongcaiApp')
         'post':   {method:'POST'}
       }),
       bindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/bindBankCard', {}),
-      unbindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/unbindBankCard', {}),
+      unbindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/unbindBankCard', {
+        payCompany: '@payCompany'
+      }),
+      getBankCardLimit: $resource(DEFAULT_DOMAIN + '/bank/getBankRechargeLimit',{}),
       getUserAccount: $resource(DEFAULT_DOMAIN + '/siteAccount/userAccount'),
+      userAccount: $resource(RESTFUL_DOMAIN + '/users/0/account',{}),
       getUserAvailableCash: $resource(DEFAULT_DOMAIN + '/siteAccount/getUserAvailableCash'),
       getUserOrder: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser'),
       getOrderByUser: $resource(DEFAULT_DOMAIN + '/siteOrder/getOrderByUser', {
@@ -140,6 +144,10 @@ angular.module('hongcaiApp')
 
       // 债权相关
       getCreditRightStatistics: $resource(DEFAULT_DOMAIN + '/siteCredit/getCreditRightStatistics'),
+      getCreditRightStat: $resource(RESTFUL_DOMAIN + '/users/0/investments/typeStat',
+        {
+        'query': {method:'GET', isArray:true},
+      }),
       getHeldInCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getHeldInCreditRightList'),
       getTranferCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/getTranferCreditRightList', {
         status: '@status'
@@ -244,7 +252,7 @@ angular.module('hongcaiApp')
         {
         'get': {
           method:'GET',
-          isArray: true  
+          isArray: false  
         }
       }),
 
@@ -318,5 +326,12 @@ angular.module('hongcaiApp')
       orderDetail: $resource(RESTFUL_DOMAIN + '/orders/:orderNumber',{
         orderNumber: '@orderNumber'
       }),
+      //交易记录统计
+      dealData: $resource(RESTFUL_DOMAIN + '/users/0/deals/stat',{},{
+        'get': {
+          method: 'GET',
+          isArray: true
+        }
+      })
     };
   });

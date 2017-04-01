@@ -1,6 +1,10 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('CreditCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
+    $scope.page = 1;
+    $scope.pageSize = 5;
+    $scope.showOther = false;
+    $scope.currentPage = 1;
     /**
      * 判断是否开通第三方托管账户
      */
@@ -41,29 +45,70 @@ angular.module('hongcaiApp')
     UserCenterService.getCreditRightStatistics.get({}, function(response) {
       if (response.ret === 1) {
         $scope.creditRightStatis = response.data.creditRightStatis;
-        $scope.showCreditRightStatistics = $scope.creditRightStatis.totalInvestCount;
       } else {
-        $scope.showCreditRightStatistics = false;
-        // toaster.pop('warning', response.msg);
       }
     });
 
+    
+    
+
+    /**
+     * //统计投资各项占比
+     */
+    $scope.investStat = {
+      selection: 0,
+      hornor:0,
+      assignment:0,
+      holdingAmount: 0,
+      totalInvestAmount: 0,
+      totalProfit:0,
+      holdingCount:0,
+      endProfitCount:0
+    }
+    $scope.showOther = false;
+    $scope.getCreditRightStat =function(creditRightType) {
+      UserCenterService.getCreditRightStat.query({}, function(response) {
+        for(var i = 0;i<response.length;i++) {
+          var stat = response[i];
+          $scope.investStat.totalInvestAmount += stat.totalInvestAmount;
+          $scope.investStat.totalProfit += stat.totalProfit;
+          if(stat.creditRightType == 7){
+            $scope.investStat.selection = stat.holdingAmount;
+          } else if(stat.creditRightType == 8) {
+            $scope.investStat.hornor = stat.holdingAmount;
+          } else if (stat.creditRightType == 6) {
+            $scope.investStat.assignment = stat.holdingAmount;
+          } else if(stat.creditRightType == 3){
+            $scope.showOther = true;
+          }
+
+          if (stat.creditRightType == creditRightType) {
+            $scope.investStat.holdingCount = stat.holdingCount;
+            $scope.investStat.endProfitCount = stat.endProfitCount;
+          }
+
+        }
+        $scope.investStat.holdingAmount = $scope.investStat.selection+ $scope.investStat.hornor + $scope.investStat.assignment;
+      })
+    }
+    
     /**
      * 加载债权
      * @param  page      第几页
      * @param  pageSize  每页数据长度
      * @param  status   状态
      */
-    $scope.loadCredits = function(page, pageSize, status){
+    $scope.loadCredits = function(page, pageSize, status,type){
       UserCenterService.getHeldInCreditRightList.get({
         page: page,
         pageSize: pageSize,
-        status: status
+        status: status,
+        type: type
       }, function(response) {
         if (response.ret === 1) {
+          $scope.searchStatus = status;
           $scope.currentPage = page;
           $scope.pageSize = pageSize;
-          $scope.searchStatus = status;
 
           $scope.heldInCreditList = response.data.heldIdCreditList;
           $scope.creditRightTransferStatusMap = response.data.creditRightTransferStatusMap;
@@ -78,145 +123,93 @@ angular.module('hongcaiApp')
       });
 
     }
-
-    
-
-    /**
-     * 获取转让中债权列表
-     */
-    $scope.getTranferingCreditRightList = function(searchStatus) {
-      UserCenterService.getTranferCreditRightList.get({
-        status: searchStatus
-      }, function(response) {
-        $scope.searchStatus = 2;
-        $scope.transferingCreditList = response.data.transferCreditList;
-        $scope.assignmentStatusMap = response.data.assignmentStatusMap;
-      });
-    }
-
-    /**
-     * 获取已回款债权列表
-     */
-    $scope.getTranferedCreditRightList = function(searchStatus) {
-      UserCenterService.getTranferCreditRightList.get({
-        status: searchStatus
-      }, function(response) {
-        $scope.searchStatus = 3;
-        $scope.transferedCreditList = response.data.transferCreditList;
-        $scope.assignmentStatusMap = response.data.assignmentStatusMap;
-        for (var i = 0; i < $scope.transferedCreditList.length; i++) {
-          /**
-           * 步进值
-           */
-          var increaseAmount = transferedCreditList[i].project.increaseAmount;
-          /**
-           * 剩余份数
-           */
-          var currentStock = transferedCreditList[i].creditAssignment.currentStock;
-          /**
-           * 卖出份数
-           */
-          var soldStock = transferedCreditList[i].creditAssignment.soldStock;
-          /**
-           * 折让金
-           */
-          var discountAmount = transferedCreditList[i].creditAssignment.discountAmount;
-          /**
-           * 总份数
-           */
-          var totalStock = soldStock + currentStock;
-
-          /**
-           * 初始债权
-           */
-          var initAmount = soldStock * increaseAmount;
-          /**
-           * 回收的折让金
-           */
-          var returnDiscountAmount = discountAmount * soldStock / totalStock;
-          /**
-           * 回收款项
-           */
-          var backAmount = soldStock * increaseAmount + returnDiscountAmount;
-          /**
-           * 收益
-           */
-          var profit = backAmount - initAmount;
-
-          transferedCreditList[i].initAmount = initAmount;
-          transferedCreditList[i].backAmount = backAmount;
-          transferedCreditList[i].profit = profit;
-        }
-      });
-    }
-
-
-    /**
-     * 撤销债权转让
-     */
-    $scope.cancelCreditAssignment = function(creditAssignment) {
-      UserCenterService.cancelCreditAssignment.get({
-        assignmentNumber:creditAssignment.number
-      },function(response){
-        $scope.getTranferingCreditRightList(2);
-      });
-    }
-
-    /**
-     * 自动复投/取消复投
-     */
-    $scope.autoReinvest = function(reinvestActionType,creditRightId) {
-      if ($rootScope.autoTransfer !== 1) {
-        $scope.msg = '亲~，开启自动续投功能需要先开通自动投标权限哦!';
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alert-openReservation.html',
-          show: true
-        });
-      } else {
-        UserCenterService.autoReinvest.get({
-          repeat:reinvestActionType,
-          creditRightId:creditRightId
-        },function(response){
-          if(response.ret === 1) {
-            $state.reload();
-          } else {
-            if (response.code == -1082) {
-              $scope.msg = '亲~，开启自动续投功能需要先开通自动投标权限哦!';
-              $alert({
-                scope: $scope,
-                template: 'views/modal/alert-openReservation.html',
-                show: true
-              });
-            } else {
-              toaster.pop('warning', response.msg);
-            }
-          }
-        });
-      }
-    }
-
-
-    /**
-     * 平台C债权转入债权池
-     */
-    $scope.putCreditRightInPool = function(creditRightId) {
-      UserCenterService.putCreditRightInPool.get({
-        creditRightId:creditRightId
-      },function(response){
-        if(response.ret === 1) {
-          $state.reload();
-        } else {
-          toaster.pop('warning', response.msg);
-        }
-      });
-    }
-
+    $scope.tabStatus = 7;
     $scope.searchStatus = parseInt($stateParams.searchStatus) || 1;
-    $scope.currentPage = 1;
-    $scope.pageSize = 6;
+    $scope.tabToggle = function(tab) {
+      $scope.tabStatus = tab;
+      $scope.searchStatus = 1;
+      $scope.investStat.holdingCount = 0;
+      $scope.investStat.endProfitCount = 0;
+      $scope.loadCredits($scope.currentPage, $scope.pageSize, $scope.searchStatus, $scope.tabStatus);
+      $scope.getCreditRightStat($scope.tabStatus);
+    }
+    $scope.tabToggle(7);
 
 
-    $scope.loadCredits($scope.currentPage, $scope.pageSize, $scope.searchStatus);
+
+    //饼图设置
+    
+    $scope.$watch('investStat.holdingAmount', function(newValue, oldValue){
+      // console.log($scope.investStat.holdingAmount);
+      var percent1,percent2,percent3;
+      if($scope.investStat.holdingAmount == 0) {
+        percent1 = percent2 = percent3 =  3;
+      } else {
+        percent1 = $scope.investStat.selection;
+        percent2 = $scope.investStat.hornor;
+        percent3 = $scope.investStat.assignment;
+      }
+      
+      $scope.lineConfig = {
+        theme:'default',
+        dataLoaded:true
+      };
+
+      $scope.lineOption = {
+        tooltip : {
+            trigger: 'item'
+        },
+        legend: {
+            orient: 'vertical',
+            x: 'left',
+        },
+        title: {
+          show: 25,
+          text: "在投金额",
+          textAlign: "middle",
+          textBaseline: "middle",
+          left: "38%",
+          top: "38%",
+          textStyle: {
+              color: "#666666",
+              fontWeight: "normal",
+              fontSize: "13"
+          }
+        },
+        series : [
+          {
+            name:'投资占比',
+            type:'pie',
+            data:[
+              {value:percent1},
+              {value:percent2},
+              {value:percent3}
+            ],
+            radius: ["60%", "85%"],
+            avoidLabelOverlap: false,
+            clockwise: !1,
+            labelLine: {
+              normal: {
+                show: !1
+              }
+            },
+            label: {
+              normal: {
+                show: !1,
+                 position: 'center'
+              },
+              emphasis: {
+                show: 25,
+                textStyle: {
+                  fontSize: '13',
+                  fontWeight: 'normal'
+                }
+              }
+            },
+          }
+        ],
+        color : [ '#2b8bf1','#0460cd','#ffaa25']
+      }
+    })
 
   });
