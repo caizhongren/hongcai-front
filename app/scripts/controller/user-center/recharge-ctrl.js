@@ -18,6 +18,35 @@ angular.module('hongcaiApp')
         show: true
       });
     }
+
+    /*
+     *获取用户已绑定银行卡信息
+     */
+    $scope.userCard = {bankCode:'ICBK'};
+    $scope.getUserBankCard = function(expectPayCompany){
+      UserCenterService.getUserBankCard.get({}, function(response) {
+        if (response.ret === 1 && response.data.card) {
+          var cardStatus = response.data.card.status;
+          $scope.userCard = response.data.card;
+          var userId = response.data.card.userId;
+          if (cardStatus === 'VERIFIED') {
+            $scope.bankCode = response.data.card.bankCode;
+            //获取单笔充值限额信息
+            UserCenterService.getUserRechargeRemainLimit.get({
+              userId: userId,
+              payCompany: expectPayCompany
+            },function(response){
+              $scope.bankRemain = response.data.bankRemain;
+              $scope.bankRemainHolder = $scope.payment !== 2? '该卡可充值' + $scope.bankRemain + '元' : '';
+              $scope.bankStatus = response.data.bankStatus;
+
+            });
+          }
+        }
+      });
+    }
+    $scope.getUserBankCard('UCFPAY'); 
+
     //查询银行卡限额
     $scope.bankCodeList = [];
     var userCurrenBank = {bankCode:'ICBK',dayLimit:0,monthLimit:0,singleLimit:0};
@@ -68,33 +97,7 @@ angular.module('hongcaiApp')
       'BOB': '/images/user-center/BOB.png'
     }
 
-    /*
-     *获取用户已绑定银行卡信息
-     */
-    $scope.getUserBankCard = function(expectPayCompany){
-      UserCenterService.getUserBankCard.get({}, function(response) {
-        if (response.ret === 1 && response.data.card) {
-          var cardStatus = response.data.card.status;
-          $scope.userCard = response.data.card;
-          var userId = response.data.card.userId;
-          if (cardStatus === 'VERIFIED') {
-            $scope.bankCode = response.data.card.bankCode;
-            //获取单笔充值限额信息
-            UserCenterService.getUserRechargeRemainLimit.get({
-              userId: userId,
-              payCompany: expectPayCompany
-            },function(response){
-              $scope.bankRemain = response.data.bankRemain;
-              $scope.bankRemainHolder = $scope.payment !== 2? '该卡可充值' + $scope.bankRemain + '元' : '';
-              $scope.bankStatus = response.data.bankStatus;
 
-            });
-            // $scope.getBankLimit(expectPayCompany,$scope.userCard.bankCode);
-            // console.log($scope.bankCodeList)
-          }
-        }
-      });
-    }
     
 
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
