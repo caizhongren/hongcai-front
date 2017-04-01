@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .factory('MainService', function($resource, DEFAULT_DOMAIN) {
+  .factory('MainService', function($resource, DEFAULT_DOMAIN, RESTFUL_DOMAIN) {
     return {
       projectList: $resource(DEFAULT_DOMAIN + '/siteProject/indexProjectList'),
       indexStatistics: $resource(DEFAULT_DOMAIN + '/siteOrder/indexStatistics'),
@@ -11,6 +11,15 @@ angular.module('hongcaiApp')
       // 债权转让项目
       indexCreditRightList: $resource(DEFAULT_DOMAIN + '/siteCredit/indexCreditRightList'),
 
-      monthInvest: $resource(DEFAULT_DOMAIN + '/siteUser/latestMonthInvest')
+      monthInvest: $resource(DEFAULT_DOMAIN + '/siteUser/latestMonthInvest'),
+
+      homePageBanners: $resource(RESTFUL_DOMAIN + '/banners/', {
+        type: '@type'
+      }, {
+        'get': {
+          method: 'GET',
+          isArray: true
+        }
+      })
     };
   });

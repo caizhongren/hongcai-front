@@ -54,9 +54,9 @@ angular.module('hongcaiApp')
         $scope.profitDate = DateUtils.intervalDays($scope.currentDate, lastRepaymentTime) * ($scope.currentDate > lastRepaymentTime ? 1 : -1);
         
 
-        //利差年化收益 = 认购金额 * 剩余期限 * 利率差/36500
+        //利差年均收益 = 认购金额 * 剩余期限 * 利率差/36500
       
-        //转让奖金=利差年化收益率
+        //转让奖金=利差年均回报率
         //利差
         // $scope.profitDown = $scope.transferPercent - $scope.creditBaseRate;
       }else {

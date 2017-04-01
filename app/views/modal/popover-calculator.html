@@ -35,15 +35,15 @@
 	  	<form name="popoverForm" class="ng-pristine ng-valid">
 	  		<div class="preview">
 	  			<span>投资金额：{{params.displayValue}}</span>
-	  			<span>年化收益率：{{params.displayRate ||0}}</span>
+	  			<span>年均回报率：{{params.displayRate ||0}}</span>
           <span>项目期限：{{params.selectedIcon || 0}}天</span>
 	  		</div>
 			  <div class="cal-input"><label>投资金额：</label>
           <input type="number" min="0" ng-model="params.inputValue" placeholder="输入投资金额" ng-change="capitalValueChange();">
         </div>
 			  <div class="cal-input">
-          <label>年化收益率：</label>
-          <input type="number" min="0" ng-model="params.rate" placeholder="输入年化收益率" ng-change="rateValueChange();">
+          <label>年均回报率：</label>
+          <input type="number" min="0" ng-model="params.rate" placeholder="输入年均回报率" ng-change="rateValueChange();">
         </div>
 	    	<!-- <button type="button" class="btn btn-default" ng-model="params.selectedIcon" data-html="1" ng-options="icon.value as icon.label for icon in params.icons" placeholder="选择项目期限" ng-change="colorCtrl()" bs-select><span class="caret"></span>
         </button> -->

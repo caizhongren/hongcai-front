@@ -14,7 +14,7 @@
           <div class="row">
             <div class="col-xs-12 col-sm-4 border-r under-margin">
               <h3 class="text-center text-nowrap hc-text-red">{{ creditAssignment.annualEarnings }}%</h3>
-              <p class="text-center text-nowrap gray-font">年化收益</p>
+              <p class="text-center text-nowrap gray-font">年均收益</p>
             </div>
             <div class="col-xs-12 col-sm-4 border-r under-margin">
               <h3 class="text-center text-nowrap">{{ creditAssignment.remainDay }}天</h3>
@@ -28,7 +28,7 @@
           <hr style="margin-top: 0px;margin-bottom: 15px;">
           <div class="row">
             <div class="col-xs-12" ng-class="{'under-margin1': project.status === 9 || project.status === 10}"><i class="fa fa-circle hc-text-red right-margin"></i>
-              <strong>原标年化：{{ project.annualEarnings }}%</strong>
+              <strong>原标年均：{{ project.annualEarnings }}%</strong>
             </div>
             <div class="col-xs-12"><i class="fa fa-circle hc-text-red right-margin"></i>
               <strong>还款日期：{{ project.repaymentDate | date: 'yyyy年MM月dd日'}}</strong>
@@ -65,7 +65,7 @@
             <img src="images/stamp38.png" alt="{{ creditProject.name || '项目名称'}}" style="position:absolute; top:-40%; left:20%;" ng-show="project.floattingRate">
             <div class="col-xs-12 col-sm-4 under-margin margin-t--2">
               <h3 class="text-center text-nowrap ft-orange2 ft-30">{{creditProject.annualEarnings || 0 | number : 2}}<span class="ft-16 ft-grey1">%</span></h3>
-              <p class="text-center text-nowrap ft-14 ft-grey666">预期年化收益</p>
+              <p class="text-center text-nowrap ft-14 ft-grey666">期望年均回报</p>
             </div>
 
             <div class="col-xs-12 col-sm-4 under-margin">

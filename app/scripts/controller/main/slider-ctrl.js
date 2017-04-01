@@ -4,8 +4,7 @@ angular.module('hongcaiApp')
     $rootScope.selectPage = $location.path().split('/')[1];
 
     //http://www.hongcai.com/hongcai-trends?page=0&perPage=5
-
-    $scope.media = [/*{
+    $scope.defaultMedia = [/*{
       mimeType: 'image/png',
       src: 'images/banner-new/banner02.jpg',
       href: '/#!/activity/dual-eleven-activities',
@@ -59,7 +58,35 @@ angular.module('hongcaiApp')
       src: 'images/banner-new/banner05.png',
       href: 'http://www.hongcai.com/#!/us/hongcai-trends/491',
       name: '新三板金控第一股严选项目'
-    }]
+    }];
+
+    MainService.homePageBanners.get({
+      type: 1
+    }, function(response) {
+      if(response && response.ret !== -1){
+        $scope.banners = response;
+        if($scope.banners.length > 0){
+          $scope.media = [];
+          for(var i=0; i < $scope.banners.length; i++){
+            var banner = {
+              mimeType: 'image/png',
+              src: $scope.banners[i].imageUrl,
+              href: $scope.banners[i].linkUrl,
+              name: $scope.banners[i].title
+            }
+
+            $scope.media.push(banner);
+          }
+        }else{
+          $scope.media = $scope.defaultMedia;
+        }
+      }else {
+        $scope.data = [];
+        $scope.media = $scope.defaultMedia;
+        toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+      }
+    });
+    
 
     $scope.del = function(i){
       if($rootScope.pay_company === 'yeepay'){

@@ -75,7 +75,7 @@ angular.module('hongcaiApp')
         });
       }
     };
-
+    
     $rootScope.pay_company = config.pay_company;
 
     /**

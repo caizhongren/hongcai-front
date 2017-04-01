@@ -39,7 +39,8 @@ angular.module('hongcaiApp')
         minTotalAmount: $stateParams.minTotalAmount,
         maxTotalAmount: $stateParams.maxTotalAmount,
         sortCondition: $stateParams.sortCondition,
-        sortType: $scope.sortType
+        sortType: $scope.sortType,
+        type: 5
       }, function(response) {
         if (response.ret === 1) {
           $scope.serverTime = response.data.serverTime;

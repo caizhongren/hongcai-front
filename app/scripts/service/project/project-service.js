@@ -13,6 +13,11 @@ angular.module('hongcaiApp')
       }),
       getExperienceProjectDetail: $resource(DEFAULT_DOMAIN + '/siteProject/getExperienceProjectDetail'),
       projectList: $resource(DEFAULT_DOMAIN + '/siteProject/getProjectList'),
+      main_projectList: $resource(RESTFUL_DOMAIN + '/projects', {
+        page: '@page',
+        pageSize: '@pageSize',
+        type: '@type'
+      }),
       getAccountOverviewProjects: $resource(DEFAULT_DOMAIN + '/siteProject/getAccountOverviewProjects'),
       getFundsProductTypeMap: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsProductTypeMap'),
       getFundsTotalStatisticalData: $resource(DEFAULT_DOMAIN + '/siteFunds/getFundsTotalStatisticalData'),

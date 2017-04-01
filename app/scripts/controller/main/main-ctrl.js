@@ -5,60 +5,37 @@ angular.module('hongcaiApp')
 
     $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
     $scope.projectStatusMap = projectStatusMap;
-    /**
-     * 宏金保列表
-     */
-    $scope.jigoubaoList = function() {
 
+    /**
+     * 精选、尊贵列表
+     */
+    $scope.jingxuanList = function(type) {
       $scope.showFlag = 1;
-      ProjectService.projectList.get({
-        status: '6,7,8,9,10,11,12',
-        minCycle: 0,
-        maxCycle: 100,
-        minEarning: 0,
-        maxEarning: 100,
-        minTotalAmount: 0,
-        maxTotalAmount: 200000000,
-        sortCondition: 'release_start_time',
-        sortType: false,
+      ProjectService.main_projectList.get({
         pageSize: 3,
-        categoryCode: "01"
-      }, function(response) {
+        page: 1,
+        type: type
+      }, function(response){
         if ( !response || response.ret === -1) {
-          $scope.data = [];
           toaster.pop('warning', '服务器正在努力的加载....请稍等。');
           return;
         }
         $scope.currentPage = 0;
         $scope.pageSize = 5;
-        $scope.serverTime = response.data.serverTime;
-        $scope.jigoubao = response.data.projectList;
-        $scope.repaymentTypeMap = response.data.repaymentTypeMap;
-        $scope.baseFileUrl = response.data.baseFileUrl;
-        $scope.data = [];
-        $scope.numberOfPages = function() {
-          return Math.ceil($scope.data.length / $scope.pageSize);
-        };
-        for (var i = 0; i < $scope.jigoubao.length; i++) {
-          ProjectUtils.projectTimedown($scope.jigoubao[i], $scope.serverTime);
-          $scope.data.push($scope.jigoubao[i]);
+        $scope.serverTime = response.serverTime;
+        $scope.repaymentTypeMap = response.repaymentTypeMap;
+        $scope.baseFileUrl = response.baseFileUrl;
+        if (type == 5) {
+          $scope.jingxuan =response.projectList;
+        
+        }else if (type == 6) {
+          $scope.zungui = response.projectList;
         }
       });
     };
 
-    $scope.jigoubaoList();
-
-    /**
-     * 新手标
-     */
-    ProjectService.newbieBiaoProject.get({}, function(response) {
-      if (response.ret === -1) {
-        return;
-      }
-      $scope.newbieBiaoProject = response;
-      var serverTime = response.createTime || (new Date().getTime());
-      ProjectUtils.projectTimedown($scope.newbieBiaoProject, serverTime);
-    });
+    $scope.jingxuanList(5);
+    $scope.jingxuanList(6);
 
 
     /**
@@ -118,15 +95,6 @@ angular.module('hongcaiApp')
      */
     MainService.monthInvest.get(function(response) {
       $scope.monthInvestList = response.data.investAmounts;
-    });
-
-    /**
-     * 体验金项目数据
-     */
-    ProjectService.getExperienceProjectDetail.get({}, function(projectDetails) {
-      if (projectDetails.ret === 1) {
-        $scope.experienceInvestCount = projectDetails.data.investCount;
-      }
     });
 
     /**
