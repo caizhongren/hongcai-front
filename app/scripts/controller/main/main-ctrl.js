@@ -98,15 +98,6 @@ angular.module('hongcaiApp')
     });
 
     /**
-     * 体验金项目数据
-     */
-    ProjectService.getExperienceProjectDetail.get({}, function(projectDetails) {
-      if (projectDetails.ret === 1) {
-        $scope.experienceInvestCount = projectDetails.data.investCount;
-      }
-    });
-
-    /**
      * 处理推广流量统计
      */
     if ($rootScope.channelCode) {
