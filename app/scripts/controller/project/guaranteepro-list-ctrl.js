@@ -61,9 +61,9 @@ angular.module('hongcaiApp')
       $scope.typeName = '宏财尊贵';
       $scope.searchCycle = [
         { value: '0_100', name: '全部' },
-        { value: '6_9', name: '6 - 9个月'},
-        { value: '9_12', name: '9 - 12个月'},
-        { value: '12_100', name: '12个月以上'}
+        { value: '6_9', name: '180 - 270天'},
+        { value: '9_12', name: '271 - 360天'},
+        { value: '12_100', name: '361天以上'}
       ];
 
       $scope.searchAnnualEarings = [
