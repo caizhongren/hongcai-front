@@ -1,31 +1,35 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('ExperienceMoneyCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, $aside, $window, OrderService, config, toaster, $alert) {
+  .controller('ExperienceMoneyCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, UserCenterService, toaster, $alert) {
     $scope.datas = [];
 
-    $scope.loadExperienceDeals = function(page, pageSize, status){
-      UserCenterService.userExperienceDeals.get({
+    UserCenterService.privilegedCapital.get({}, function(response){
+      if (response) {
+          $scope.privilegedCapital = response;
+        } else {
+          toaster.pop('warning', response.msg);
+        }
+    });
+
+    $scope.loadDetails = function(page, pageSize){
+      UserCenterService.privilegedCapitalDetails.get({
         page: page,
-        pageSize: pageSize,
-        status: status
+        pageSize: pageSize
       }, function(response) {
-        if (response.ret === 1) {
+        if (response) {
           $scope.currentPage = page;
-          $scope.pageSize = pageSize;
-          $scope.dealStatus = status;
-          $scope.count = response.data.count;
+          $scope.pageSize = response.pageSize;
+          $scope.count = response.total;
           $scope.numberOfPages = Math.ceil($scope.count / pageSize);
-          $scope.datas = response.data.experienceDeals;
-          $scope.receiveProfit = response.data.receiveProfit;
+          $scope.datas = response.data;
         } else {
           toaster.pop('warning', response.msg);
         }
       });
     };
 
-    $scope.dealStatus = 2;
     $scope.currentPage = 1;
     $scope.pageSize = 5;
 
-    $scope.loadExperienceDeals($scope.currentPage, $scope.pageSize, $scope.dealStatus);
+    $scope.loadDetails($scope.currentPage, $scope.pageSize);
   });
