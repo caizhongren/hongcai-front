@@ -1,58 +1,26 @@
 <!--体验金-->
-<div class="uc-experience right-area fl border-l border-r">
+<div class="uc-experience right-area bg-offWhite fl border-l border-r">
   <!-- 数据统计 -->
-  <div class="data-statistics row">
-    <div class="col-md-4">
+  <div class="data-statistics row padding-t-50">
+    <div class="col-md-6 border-r-e padding-tb-10">
       <p class="ft-36 ft-grey1 ft-Arial">{{account.experienceAmount | number : 2}}</p>
-      <p class="ft-grey666 margin-t-20">体验金金额（ 元 ）</p>
+      <p class="ft-grey666 margin-t-20">特权本金金额（ 元 ）</p>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6 padding-tb-10">
       <p class="ft-36 ft-orange6 ft-Arial">{{receiveProfit ||0 | number : 2}}</p>
       <p class="ft-grey666 margin-t-20">累计赚取收益金额（ 元 ）</p>
     </div>
-    <div class="col-md-4">
-      <div class="">
-        <button class="orange-button yu-button" ui-sref="root.experience-project">我要投资</button>
-      </div>
-    </div>
   </div>
-  <!-- tab切换 -->
-  <div class="tabs row margin-l-0 margin-r-0 margin-t-30">
-    <div class="toggle-tab col-md-6 ft-grey666 cursor-pointer {{dealStatus === 2 ? 'credit-toggle2' : ''}}" ng-click="loadExperienceDeals(1, 5, 2)">投资记录</div>
-    <div class="toggle-tab col-md-6 ft-grey666 cursor-pointer {{dealStatus === 1 ? 'credit-toggle2' : ''}}" ng-click="loadExperienceDeals(1, 5, 1)">领取记录</div>
-  </div>
-  <div>
-    <table class="table-solid" ng-show="dealStatus == 1">
+
+  <div class="margin-t-30">
+    <table class="table-solid">
       <thead>
         <tr>
-          <th>领取时间</th>
-          <th>领取方式</th>
-          <th>领取金额(元)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-show="datas.length <= 0">
-          <td colspan="5">
-            <div>
-              <p class="ft-18 ft-grey666 margin-t-20">暂无记录</p>
-            </div>
-          </td>
-        </tr>
-        <tr ng-repeat="deal in datas">
-          <td>{{deal.createTime | date:'yyyy-MM-dd'}}</td>
-          <td>{{deal.description}}</td>
-          <td>{{deal.amount | number: 2}}</td>
-        </tr>
-      </tbody>
-    </table>
-    <table class="table-solid" ng-show="dealStatus == 2">
-      <thead>
-        <tr>
-          <th>使用时间</th>
-          <th>到账时间</th>
-          <th>期望年均回报(元)</th>
-          <th>金额（元）</th>
-          <th>赚取回报（元）</th>
+          <th class="padding-t-15">金额（元）</th>
+          <th class="width-2p padding-t-15">期望年均回报率(％)</th>
+          <th class="padding-t-15">到账时间</th>
+          <th class="padding-t-15">来源</th>
+          <th class="padding-t-15">有效期</th>
         </tr>
       </thead>
       <tbody>
@@ -60,16 +28,16 @@
           <td colspan="7" class="line-h-0 padding-t-50 padding-b-30">
             <div>
               <p class="ft-18 ft-grey666">暂无记录</p>
-              <p><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main" href="/">浏览项目</a></p>
+              <p><a class="btn btn-primary-orange ft-18 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main" href="/">浏览项目</a></p>
             </div>
           </td>
         </tr>
         <tr  ng-repeat="deal in datas" class="assignment-left">
-          <td class="text-center">{{deal.usedTime | date: 'yyyy-MM-dd'}}</td>
-          <td>{{deal.createTime | date: 'yyyy-MM-dd'}}</td>
+          <td class="text-center">8888</td>
           <td>{{9.6 | number:1}}%</td>
-          <td>{{deal.amount | number:1}}</td>
-          <td>{{deal.profit | number:2}}</td>
+          <td>{{deal.createTime | date: 'yyyy-MM-dd'}}</td>
+          <td>来源</td>
+          <td>有效期</td>
         </tr>
       </tbody>
     </table>

@@ -28,6 +28,17 @@ angular.module('hongcaiApp')
           $scope.numberOfPages = Math.ceil($scope.count / pageSize);
           $scope.datas = response.data.coupons;
           $scope.currentTime = response.data.currentTime;
+          for (var i = 0; i < $scope.datas.length; i++) {
+            if ($scope.datas[i].investProductType == '5') {
+              $scope.datas[i].investProductType = '宏财精选';
+            }else if ($scope.datas[i].investProductType == '6') {
+              $scope.datas[i].investProductType = '宏财尊贵';
+            }else if ($scope.datas[i].investProductType == '5,6') {
+              $scope.datas[i].investProductType = '宏财精选、宏财尊贵';
+            }else {
+              $scope.datas[i].investProductType = '宏财精选';
+            }
+          };
         }
       });
     };
