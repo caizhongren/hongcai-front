@@ -57,7 +57,7 @@
         <div class="col-md-5 display-inbl single-coupon" ng-repeat='cashCoupon in datas | orderBy : "-value"' ng-show="usedStatus === '1' && unGotAmount > 0">
           <div class="col-md-3 single single-l text-center display-inbl font-white ft-18">￥<span class="ft-36">{{cashCoupon.value}}</span></div>
           <div class="col-md-9 single single-r display-inbl">
-             <p ng-show="cashCoupon.projectDays > 0">投资产品：{{ cashCoupon.investProductType == 5 ? '宏财精选' : '宏财尊贵'}}</p>
+             <p>投资产品：{{ cashCoupon.investProductType == 5 ? '宏财精选' : cashCoupon.investProductType == 6 ? '宏财尊贵' : '宏财精选、宏财尊贵'}}</p>
              <p>使用条件：投资&ge;{{cashCoupon.minInvestAmount}}元</p>
              <p>有效期：{{cashCoupon.createTime | date: 'yyyy.MM.dd'}}-{{cashCoupon.endTime | date: 'yyyy.MM.dd'}}</p>
               <button class="btn-carry" ng-click="toProjectList($index)">马上使用</button>
