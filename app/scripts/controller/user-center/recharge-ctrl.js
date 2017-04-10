@@ -215,10 +215,6 @@ angular.module('hongcaiApp')
         $scope.expectPayCompany = 'UCFPAY';
 
       }
-      if(payment !== 2){
-        $scope.getUserBankCard($scope.expectPayCompany);
-
-      }
        $scope.getBankLimit($scope.expectPayCompany);
     }
     $scope.selectPay(3);

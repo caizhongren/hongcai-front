@@ -36,7 +36,7 @@
           </li>
           <li ng-show="false"><a href="newbie-guide.html" target="_blank" rel="nofollow">新手引导</a>
           </li>
-          <li><a ui-sref="root.help-center.introduce" class="help margin-r-0 padding-r-0" rel="nofollow">帮助</a>
+          <li><a ui-sref="root.help-center.introduce" class="help margin-r-0 padding-r-0 {{isLogged == true ? 'margin-l-15':''}}" rel="nofollow">帮助</a>
           </li>
         </ul>
       </div>
