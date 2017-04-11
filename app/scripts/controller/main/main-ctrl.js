@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .controller('MainCtrl', function($scope, $state, $rootScope, $location, MainService, AboutUsService, ProjectService, ProjectUtils, FriendLinkService, DateUtils, toaster, projectStatusMap) {
     $scope.spCountDown = -1;
 
-    $rootScope.pageTitle = '网贷平台，投资理财平台，投资理财项目-宏财网';
+    $rootScope.pageTitle = '国资平台，网贷平台，投资平台，投资项目-宏财网';
     $scope.projectStatusMap = projectStatusMap;
 
     /**

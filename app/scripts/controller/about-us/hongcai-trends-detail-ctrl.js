@@ -6,6 +6,6 @@ angular.module('hongcaiApp')
     }, function(response) {
       $scope.text = response.data.text;
       $scope.baseFileUrl = response.data.baseFileUrl;
-      $rootScope.pageTitle = response.data.text.title + ' - 要理财，上宏财!';
+      $rootScope.pageTitle = response.data.text.title + ' - 宏财网';
     });
   });

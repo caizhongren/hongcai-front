@@ -4,7 +4,7 @@ angular.module('hongcaiApp')
     $scope.projectStatusMap = projectStatusMap;
 
     $scope.sortType = $stateParams.sortType || false;
-    $rootScope.pageTitle = '宏金宝 - 要理财，上宏财!';
+    $rootScope.pageTitle = '宏金宝 - 宏财网';
 
     var sponsor = GuaranteeService.guaranteeList.get(function() {
       $scope.guaranteeList = sponsor.data.guaranteeList;

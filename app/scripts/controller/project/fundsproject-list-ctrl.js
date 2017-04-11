@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('FundsProjectListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'MainService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, MainService, toaster) {
-    $rootScope.pageTitle = '宏金盈 - 要理财，上宏财!';
+    $rootScope.pageTitle = '宏金盈 - 宏财网';
 
     /**
      * 宏金盈列表
