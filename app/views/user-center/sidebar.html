@@ -11,7 +11,7 @@
       <p class="security-level ft-12 text-center" ng-if="securityStatus.trusteeshipAccountStatus + securityStatus.mobileStatus == 2">{{$parent.headerUrl}}安全等级：高</a></p>
     </div>
     <div class="flow-icons" ng-mouseleave="showTip1=false;showTip2=false;showTip3=false;showTip4=false;">
-      <div class="icons position-re">
+      <div class="icons flex-container position-re">
         <div class="sidebar-tip" ng-show="mobile !== undefined && showTip1==true" ng-mouseleave="showTip1=false">您已完成手机绑定：{{mobile}}&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ng-click="resetMobile();">修改</span></div>
         <div class="position-re icon1" ng-mouseenter="showTip1 = true;showTip2 = false;showTip3 = false;showTip4 = false;" ng-init="showTip1=false">
           <i class="fa fa-check-circle ft-green position-ab" aria-hidden="true" ng-show="mobile !== undefined"></i>
