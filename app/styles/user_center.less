@@ -65,25 +65,26 @@
     .flow-icons {
       padding: 0 30px;
       .icons {
-        display: flex;
-        justify-content: space-between;
+        .icon {
+          display: inline-block;
+        }
         .icon1 {
-          width: 12px;
+          width: 20%;
           height: 21px;
           background: url(/images/user-center/bgIcons.png) -7px -169px;
         }
         .icon2 {
           height: 22px;
-          width: 22px;
+          width: 24%;
           background: url(/images/user-center/bgIcons.png) -5px -133px;
         }
         .icon3 {
-          width: 22px;
+          width: 25%;
           height: 22px;
           background: url(/images/user-center/bgIcons.png) -7px 98px;
         }
         .icon4 {
-          width: 27px;
+          width: 20%;
           height: 21px;
           background: url(/images/user-center/bgIcons.png) -5px 201px;
         }
@@ -401,14 +402,16 @@
     line-height: 90px;
     border-bottom: 1px solid #eee;
     .form-group {
-      heght: 16px;
-      display: flex;
-      margin-bottom: 15px;  
+      height: 38px;
+      margin-bottom: 15px; 
+      .wid-20 {
+        width: 20%;
+      } 
       .input-tips,.security-stl {
         line-height: 16px;
       }
       .verify-input.flex-0p1 {
-        flex-grow: .1;
+        width: 17%;
       }
       .pic-verify {
         width: 11%;
@@ -422,21 +425,31 @@
         flex-grow: 0;
       }
       input {
-        flex-grow: 0.3;
+        width: 28%;
       }
       input[type="submit"] {
         height: 34px;
         line-height: 16px;
-        flex-grow: 0.2;
+        width: 15%;
+        margin-bottom: 70px;
       }
     }
+    .form-group:last-child {
+      margin-bottom: 55px;
+    }
     .item {
-      display:flex;
-      justify-content: space-between;
-      div.right {
-        display:flex;
-        justify-content: space-between;
-        width: 56%;
+      span {
+        display: inline-block;
+      }
+      span:first-child {
+        width: 44%;
+      }
+      span:first-child + span {
+        width: 34%;
+      }
+      span:last-child {
+        width: 20%;
+        text-align: right;
       }
     }
   }
@@ -864,15 +877,12 @@
     .message-item {
       padding: 0 78px 0 60px;
       .item-nav {
-        display: flex;
-        justify-content: space-between;
         line-height: 90px;
         height: 90px;
         .ft-black2 {
-          display: flex;
           .msg-type {
-            flex-grow: 0;
             width: 230px;
+            display: inline-block;
           }
         }
       }
@@ -1932,12 +1942,12 @@
     width: 9%;
     height: 30px;
     line-height: 30px;
-    float: left;
     padding: 0px !important;
     border-radius: 3px;
     text-align: center;
-    margin-left: 8px;
+    margin-left: 5px;
     font-size: 12px;
+    margin-bottom: -10px;
     background-color: #fff !important;
   }
   .getVerify-org {
