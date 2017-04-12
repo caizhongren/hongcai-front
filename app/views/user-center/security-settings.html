@@ -20,7 +20,7 @@
 			<div class="item">
 				<span class="ft-grey666">用户名</span>
 				<span class="ft-grey4">{{ loginName || "游客"}}</span>
-				<span class="ft-orange6"><i class="fa fa-check-circle ft-green00" aria-hidden="true"></i>已确定</span>
+				<span class="ft-orange6 fr"><i class="fa fa-check-circle ft-green00" aria-hidden="true"></i>已确定</span>
 			</div>
 		</div>
 		<!-- 登录密码 -->
@@ -28,8 +28,8 @@
 			<div class="item">
 				<span class="ft-grey666">登录密码</span>
 				<span class="ft-grey4">已设置</span>
-				<span class="ft-blue5 cursor-pointer" ng-click="changPwd = !changPwd;changeEmail=false;changeMobile=false">修改</span>
-				<!-- <span class="ft-blue5 cursor-pointer">设置</span> -->
+				<span class="ft-blue5 cursor-pointer fr" ng-click="changPwd = !changPwd;changeEmail=false;changeMobile=false">修改</span>
+				<!-- <span class="ft-blue5 cursor-pointer fr">设置</span> -->
 			</div>
 		</div>
 		<!-- 密码修改校验 -->
@@ -75,9 +75,9 @@
 			<div class="item">
 				<span class="ft-grey666">手机号</span>
 				<span class="ft-grey4">{{mobile || '未设置'}}</span>
-				<span class="ft-blue5 cursor-pointer" ng-if="securityStatus.realNameAuthStatus === 1 && mobile" ng-click="resetMobile=!resetMobile">修改</span>
-				<span class="ft-blue5 cursor-pointer" ng-if="isLogged && securityStatus.realNameAuthStatus !== 1 && mobile" ng-click="toRealNameAuth()">修改</span>
-				<span class="ft-blue5 cursor-pointer" ng-if="!mobile" ng-click="resetMobile=!resetMobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">设置</span>
+				<span class="ft-blue5 cursor-pointer fr" ng-show="securityStatus.realNameAuthStatus === 1 && mobile" ng-click="resetMobile=!resetMobile">修改</span>
+				<span class="ft-blue5 cursor-pointer fr" ng-show="isLogged && securityStatus.realNameAuthStatus !== 1 && mobile" ng-click="toRealNameAuth()">修改</span>
+				<span class="ft-blue5 cursor-pointer fr" ng-show="!mobile" ng-click="resetMobile=!resetMobile" ng-click="changeMobile=!changeMobile;changeEmail=false;changPwd =false">设置</span>
 			</div>
 		</div>
 		<!-- 手机号修改校验 -->
@@ -135,8 +135,8 @@
 			<div class="item">
 				<span class="ft-grey666">第三方存管账户</span>
 				<span class="ft-grey4">{{haveTrusteeshipAccount ? '已开通' : '未开通'}}</span>
-				<span class="ft-blue5 cursor-pointer" ng-if="!haveTrusteeshipAccount" ng-click="openTrusteeshipAccount = !openTrusteeshipAccount;changeMobile=false;changeEmail=false;changPwd =false;checkEmailAndMobile()">立即开通</span>
-				<span class="ft-orange6" ng-if="haveTrusteeshipAccount"><i class="fa fa-check-circle ft-green00" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>已开通</span>
+				<span class="ft-blue5 cursor-pointer fr" ng-show="!haveTrusteeshipAccount" ng-click="openTrusteeshipAccount = !openTrusteeshipAccount;changeMobile=false;changeEmail=false;changPwd =false;checkEmailAndMobile()">立即开通</span>
+				<span class="ft-orange6 fr" ng-show="haveTrusteeshipAccount"><i class="fa fa-check-circle ft-green00" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>已开通</span>
 			</div>
 		</div>
 		<!-- 开通存管通及校验 -->
@@ -170,9 +170,9 @@
 			<div class="item">
 				<span class="ft-grey666">银行卡</span>
 				<span class="ft-grey4">{{bankName || '未绑定'}}{{cardNo||''}}</span>
-				<span class="ft-blue5 cursor-pointer" ng-if="securityStatus.realNameAuthStatus == 1 && haveCard && !isVerifying && !unbinding" ng-click="confirmUnbindBankCard();">解绑</span>
-				<span class="ft-blue5 cursor-pointer" ng-if="securityStatus.realNameAuthStatus == 1 && !haveCard && !isVerifying && !unbinding" ng-click="bindBankCard();">绑定</span>
-				<span class="ft-blue5 cursor-pointer" ng-if="securityStatus.realNameAuthStatus !== 1" ng-click="toRealNameAuth()">绑定</span>
+				<span class="ft-blue5 cursor-pointer fr" ng-if="securityStatus.realNameAuthStatus == 1 && haveCard && !isVerifying && !unbinding" ng-click="confirmUnbindBankCard();">解绑</span>
+				<span class="ft-blue5 cursor-pointer fr" ng-if="securityStatus.realNameAuthStatus == 1 && !haveCard && !isVerifying && !unbinding" ng-click="bindBankCard();">绑定</span>
+				<span class="ft-blue5 cursor-pointer fr" ng-if="securityStatus.realNameAuthStatus !== 1" ng-click="toRealNameAuth()">绑定</span>
 			</div>
 		</div>
 		<!-- 自动投标 -->
