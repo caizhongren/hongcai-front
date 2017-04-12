@@ -158,9 +158,9 @@ angular.module('hongcaiApp')
 
       $rootScope.isNoviceGuide = false;
 
-      var title = '网贷平台，投资理财平台，投资理财项目-宏财网';
+      var title = '国资平台，网贷平台，投资平台，投资项目-宏财网';
       if (toState.data && toState.data.title) {
-        title = toState.data.title + ' - 要理财，上宏财!';
+        title = toState.data.title + ' - 宏财网';
       }
       $rootScope.pageTitle = title;
 

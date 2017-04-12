@@ -13,21 +13,21 @@
     <div class="flow-icons" ng-mouseleave="showTip1=false;showTip2=false;showTip3=false;showTip4=false;">
       <div class="icons flex-container position-re">
         <div class="sidebar-tip" ng-show="mobile !== undefined && showTip1==true" ng-mouseleave="showTip1=false">您已完成手机绑定：{{mobile}}&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ng-click="resetMobile();">修改</span></div>
-        <div class="position-re icon1" ng-mouseenter="showTip1 = true;showTip2 = false;showTip3 = false;showTip4 = false;" ng-init="showTip1=false">
+        <div class="position-re icon icon1" ng-mouseenter="showTip1 = true;showTip2 = false;showTip3 = false;showTip4 = false;" ng-init="showTip1=false">
           <i class="fa fa-check-circle ft-green position-ab" aria-hidden="true" ng-show="mobile !== undefined"></i>
         </div>
         <div class="sidebar-tip sidebar-tip2" ng-show="!haveTrusteeshipAccount && showTip2==true" ng-mouseleave="showTip2=false">您尚未开通资金存管系统&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ng-click="openTrusteeshipAccount();">开通</span></div>
         <div class="sidebar-tip sidebar-tip2" ng-show="haveTrusteeshipAccount && showTip2==true" ng-mouseleave="showTip2=false">您已开通资金存管系统</div>
-        <div class="position-re icon2" ng-mouseenter="showTip2 = true;showTip1 = false;showTip3 = false;showTip4 = false;">
+        <div class="position-re icon icon2" ng-mouseenter="showTip2 = true;showTip1 = false;showTip3 = false;showTip4 = false;">
           <i class="fa fa-check-circle ft-green position-ab i2" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>
         </div>
         <div class="sidebar-tip sidebar-tip3" ng-show="haveTrusteeshipAccount && showTip3==true" ng-mouseleave="showTip3=false">您已设置交易密码&nbsp;&nbsp;<span class="cursor-pointer ft-blue">修改</span></div>
-        <div class="position-re icon3" ng-mouseenter="showTip3 = true;showTip2 = false;showTip1 = false;showTip4 = false;">
+        <div class="position-re icon icon3" ng-mouseenter="showTip3 = true;showTip2 = false;showTip1 = false;showTip4 = false;">
           <i class="fa fa-check-circle ft-green position-ab i3" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>
         </div>
         <div class="sidebar-tip sidebar-tip4" ng-show="!haveCard && !isVerifying && !unbinding && showTip4==true" ng-mouseleave="showTip4=false">您尚未邦定银行卡&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ng-click="bindBankCard();">绑定</span></div>
         <div class="sidebar-tip sidebar-tip4" ng-show="haveCard && !isVerifying && !unbinding && showTip4==true" ng-mouseleave="showTip4=false">您已绑定银行卡&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ui-sref="root.userCenter.bankcard-management">查看</span></div>
-        <div class="position-re icon4" ng-mouseenter="showTip4 = true;showTip2 = false;showTip3 = false;showTip1 = false;">
+        <div class="position-re icon icon4" ng-mouseenter="showTip4 = true;showTip2 = false;showTip3 = false;showTip1 = false;">
           <i class="fa fa-check-circle ft-green position-ab i4" aria-hidden="true" ng-show="isAuth && haveCard && !isVerifying && !unbinding"></i>
         </div>
       </div>
@@ -50,9 +50,9 @@
         <li class="ft-16 ft-grey666 {{selectSide == 'assignments'  || selectPage_two == 'assignments'? 'now' : ''}}" ui-sref="root.userCenter.assignments">债权转让</li>
         <!-- <li class="ft-16 ft-grey666">自动投标</li> -->
         <li class="side-tab ft-16 ft-grey666"><span class="icon8"></span>奖励信息</li>
-        <li class="ft-16 ft-grey666 {{selectSide == 'cash-coupon' ? 'now' : ''}}" ui-sref="root.userCenter.cash-coupon">奖金</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'cash-coupon' ? 'now' : ''}}" ui-sref="root.userCenter.cash-coupon">现金券</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'rate-coupon' ? 'now' : ''}}" ui-sref="root.userCenter.rate-coupon">加息券</li>
-        <li class="ft-16 ft-grey666 {{selectSide == 'experience-money' ? 'now' : ''}}" ui-sref="root.userCenter.experienceMoney">体验金</li>
+        <li class="ft-16 ft-grey666 {{selectSide == 'experience-money' ? 'now' : ''}}" ui-sref="root.userCenter.experienceMoney">特权本金</li>
         <li class="ft-16 ft-grey666 {{selectSide == 'invite-rebate' ? 'now' : ''}}" ui-sref="root.userCenter.invite-rebate">邀请好友</li>
       </ul>
     </div>

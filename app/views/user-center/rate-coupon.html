@@ -43,8 +43,8 @@
           <tr style="background-color:#F2F2F2;">
             <th>面额</th>
             <th>过期时间</th>
-            <th>使用规则</th>
-            <th>来源</th>
+            <th>投资产品</th>
+            <th>加息天数</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -52,17 +52,18 @@
           <!-- 有加息券时  ng-show="couponStatis.coupons.length > 0" ng-repeat="coupon in couponStatis.coupons"  {{coupon.createTime | date : "yyyy-MM-dd"}} {{coupon.endTime | date : "yyyy-MM-dd"}}-->
           <tr ng-repeat="coupon in datas | orderBy:-datas.endTime " ng-show="datas.length > 0">
             <td>
-              <div ng-class="{ 'bg-coupon-orange' : coupon.endTime-currentTime >= 0 , 'bg-coupon-grey' : coupon.endTime-currentTime < 0 }" class=" ft-white">+{{coupon.value || 0}}%</div>
+              <div ng-if="coupon.type !== 5" ng-class="{ 'bg-coupon-orange' : coupon.endTime-currentTime >= 0 , 'bg-coupon-grey' : coupon.endTime-currentTime < 0 }" class=" ft-white">+{{coupon.value || 0}}%</div>
+              <div ng-if="coupon.type == 5" ng-class="{ 'bg-coupon-red' : coupon.endTime-currentTime >= 0 , 'bg-coupon-grey' : coupon.endTime-currentTime < 0 }" class=" ft-white">+{{coupon.value || 0}}%</div>
             </td>
             <td class="ft-red6" ng-show="coupon.endTime - currentTime >= 0 && (coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) <= 7 ">
               <p class="margin-b-0">{{coupon.endTime | date:"yyyy-MM-dd"}}</p>
               <p>(该加息券七日内过期)</p>
             </td>
             <td class="margin-b-0" ng-show="coupon.endTime - currentTime < 0 || (coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) > 7">{{coupon.endTime | date:"yyyy-MM-dd"}}</td>
-            <td>适用于宏金保<span ng-if="coupon.projectDays > 0">&ge;{{coupon.projectDays}}天</span>项目</td>
-            <td>活动奖励</td>
+            <td>{{ coupon.investProductType == 5 ? '宏财精选' : coupon.investProductType == 6 ? '宏财尊贵' : '宏财精选、宏财尊贵'}}</td>
+            <td>{{ coupon.investProductType == '5,6' ? '1天' : '与所投资产品时长相同'}}</td>
             <td>
-              <button ng-if="coupon.endTime-currentTime >= 0" class="orange-button" ng-click="toProjectList($index)">立即使用</button>
+              <button ng-if="coupon.endTime-currentTime >= 0 && coupon.type !==5" class="orange-button" ng-click="toProjectList($index)">立即使用</button>
               <button ng-if="coupon.endTime-currentTime < 0" class="grey-button border-0 no-boxshadow" ui-sref="root.guaranteepro-list-query-no">已过期</button>
             </td>
           </tr>

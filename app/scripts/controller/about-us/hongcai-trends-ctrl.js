@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('HongcaiTrendsCtrl', function($scope, $state, $location, $rootScope) {
-    $rootScope.pageTitle = '宏财动态' + ' - 要理财，上宏财!';
+    $rootScope.pageTitle = '宏财动态' + ' - 宏财网';
 
     $scope.perPage = parseInt($location.search().perPage, 10) || 5;
     $scope.page = parseInt($location.search().page, 10) || 0;

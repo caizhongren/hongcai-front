@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('InvestmentplanListCtrl', ['$scope', '$stateParams', '$rootScope', '$location', '$state', 'ProjectService', 'toaster', function($scope, $stateParams, $rootScope, $location, $state, ProjectService, toaster) {
-    $rootScope.pageTitle = '宏金盈 - 要理财，上宏财!';
+    $rootScope.pageTitle = '宏金盈 - 宏财网';
 
     $scope.baseFundsProductData = function() {
       ProjectService.getFundsProductTypeMap.get({}, function(response) {

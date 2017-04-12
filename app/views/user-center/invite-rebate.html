@@ -44,10 +44,10 @@
       </thead>
       <tbody>
         <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
-          <td class="text-left">{{item.userAuth.realnameAuth ? item.userAuth.realName : item.user.mobile || item.user.name}}</td>
+          <td class="text-left">{{item.user.mobile || item.user.name}}</td>
           <td>{{item.user.createTime | date:'yyyy-MM-dd'}}</td>
-          <td class="text-right padding-r-10"><span ng-class="item.userAuth.realnameAuth ? 'ft-blue5' : 'ft-orange6'">{{item.userAuth.realnameAuth ? '已认证' : '未认证'}}</span></td>
-          <td class="text-right padding-l-0"><span ng-class="item.account.investAmount > 0 ? 'ft-blue5' : 'ft-orange6'">{{item.account.investAmount > 0 ? "已投资" : "未投资"}}</span></td>
+          <td class="text-right padding-r-10"><span ng-class="item.userAuth.realnameAuth ? 'ft-blue5' : 'ft-orange6'">{{item.authStatus === 2 ? '已认证' : '未认证'}}</span></td>
+          <td class="text-right padding-l-0"><span ng-class="item.account.investAmount > 0 ? 'ft-blue5' : 'ft-orange6'">{{item.investAmount > 0 ? "已投资" : "未投资"}}</span></td>
         </tr>
         <tr ng-show="data.length <= 0">
           <td colspan="4">
