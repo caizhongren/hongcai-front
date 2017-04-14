@@ -332,6 +332,14 @@ angular.module('hongcaiApp')
           method: 'GET',
           isArray: true
         }
-      })
+      }),
+      privilegedCapital: $resource(RESTFUL_DOMAIN + '/privilegedCapitals/',{}),
+      privilegedCapitalDetails: $resource(RESTFUL_DOMAIN + '/privilegedCapitals/details', {page: '@page',pageSize: '@pageSize'},
+       {
+        'get': {
+          method: 'GET',
+          isArray: false  
+        }
+      }),
     };
   });

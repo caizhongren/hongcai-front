@@ -722,7 +722,7 @@ hongcaiApp
     })
 
     /**
-     * 体验金（个人中心）
+     * 特权本金（个人中心）
      * @type {String}
      */
     .state('root.userCenter.experienceMoney', {
@@ -735,7 +735,7 @@ hongcaiApp
         }
       },
       data: {
-        title: '体验金'
+        title: '特权本金'
       }
     })
 

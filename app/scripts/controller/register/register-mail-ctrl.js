@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('RegisterMailCtrl', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie) {
-    $rootScope.pageTitle = '邮箱注册' + ' - 要理财，上宏财!';
+    $rootScope.pageTitle = '邮箱注册' + ' - 宏财网';
     /**
      * 注册链接上是否有邀请码
      */

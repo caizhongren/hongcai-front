@@ -32,7 +32,7 @@ angular.module('hongcaiApp')
 
 
     if($scope.type == '5'){
-      $rootScope.pageTitle = '宏财精选 - 要理财，上宏财!';
+      $rootScope.pageTitle = '宏财精选 - 宏财网';
       $scope.typeName = '宏财精选';
       $scope.searchCycle = [
         { value: '0_100', name: '全部' },
@@ -57,7 +57,7 @@ angular.module('hongcaiApp')
       ];
           
     } else {
-      $rootScope.pageTitle = '宏财尊贵 - 要理财，上宏财!';
+      $rootScope.pageTitle = '宏财尊贵 - 宏财网';
       $scope.typeName = '宏财尊贵';
       $scope.searchCycle = [
         { value: '0_100', name: '全部' },

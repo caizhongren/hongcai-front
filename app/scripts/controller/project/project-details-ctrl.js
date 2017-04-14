@@ -79,7 +79,7 @@ angular.module('hongcaiApp')
         number: $stateParams.number
       }, function() {
         if (projectDetails.ret === 1) {
-          $rootScope.pageTitle = projectDetails.data.project.name + ' - 要理财，上宏财!';
+          $rootScope.pageTitle = projectDetails.data.project.name + ' - 宏财网';
           $scope.project = projectDetails.data.project;
           $scope.repaymentTypeMap = projectDetails.data.repaymentTypeMap;
           /**

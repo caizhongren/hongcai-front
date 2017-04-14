@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('RegisterMobileCtrl', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie, MainService, UserCenterService) {
-    $rootScope.pageTitle = '手机注册' + ' - 要理财，上宏财!';
+    $rootScope.pageTitle = '手机注册' + ' - 宏财网';
     $scope.userbusiness = 0;
     /**
      * 注册链接上是否有邀请码

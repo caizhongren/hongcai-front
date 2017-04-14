@@ -3,29 +3,29 @@ angular.module('hongcaiApp')
   .controller('HelpCenterCtrl', ['$scope', '$state', '$rootScope', '$location', function($scope, $state, $rootScope, $location) {
     var path = $location.path();
     if (path.indexOf('introduce') !== -1){
-        $rootScope.pageTitle = '宏财介绍' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '宏财介绍' + ' - 宏财网';
     } else if (path.indexOf('introduction-of-platform') !== -1){
-        $rootScope.pageTitle = '宏财简介' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '宏财简介' + ' - 宏财网';
     } else if (path.indexOf('consultant-team') !== -1){
-        $rootScope.pageTitle = '顾问团队' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '顾问团队' + ' - 宏财网';
     } else if (path.indexOf('hongcai-trends') !== -1){
-        $rootScope.pageTitle = '宏财动态' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '宏财动态' + ' - 宏财网';
     } else if (path.indexOf('company-profile') !== -1){
-        $rootScope.pageTitle = '加入宏财' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '加入宏财' + ' - 宏财网';
     } else if (path.indexOf('introduce') !== -1){
-        $rootScope.pageTitle = '宏财介绍' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '宏财介绍' + ' - 宏财网';
     } else if (path.indexOf('investors') !== -1){
-        $rootScope.pageTitle = '投资简介' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '投资简介' + ' - 宏财网';
     } else if (path.indexOf('product') !== -1){
-        $rootScope.pageTitle = '产品介绍' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '产品介绍' + ' - 宏财网';
     } else if (path.indexOf('account-management') !== -1){
-        $rootScope.pageTitle = '账户管理' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '账户管理' + ' - 宏财网';
     } else if (path.indexOf('safety-certification') !== -1){
-        $rootScope.pageTitle = '安全认证' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '安全认证' + ' - 宏财网';
     } else if (path.indexOf('law-and-policy-guarantee') !== -1){
-        $rootScope.pageTitle = '法律保障' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '法律保障' + ' - 宏财网';
     } else if (path.indexOf('other-question') !== -1){
-        $rootScope.pageTitle = '其他问题' + ' - 要理财，上宏财!';
+        $rootScope.pageTitle = '其他问题' + ' - 宏财网';
     }
 
     

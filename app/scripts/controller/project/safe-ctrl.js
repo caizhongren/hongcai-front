@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('SafeCtrl', function($anchorScroll, $scope, $state, $rootScope, $interval, $location, $timeout) {
-	$rootScope.pageTitle = '安全保障' + ' - 要理财，上宏财!';
+	$rootScope.pageTitle = '安全保障' + ' - 宏财网';
     $rootScope.selectPage = $location.path().split('/')[1];
 
     $scope.hsh = $location.hash();

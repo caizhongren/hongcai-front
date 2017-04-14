@@ -16,9 +16,9 @@
             <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 3">活动消息</span>
             <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 4">项目消息</span>
             <span class="msg-title ft-grey4 ft-16">{{item.title}}</span>
+            <span class="ft-14 fr ft-grey4" ng-show="isDelete == false">{{item.createTime | date: "yy-MM-dd HH:mm"}}</span>
+            <span class="ft-14 fr ft-orange5" ng-click="deleteMsg(item.id)" ng-show="isDelete == true">删除此条信息<i class="fa fa-times"></i></span>
           </p>
-          <p class="ft-14 ft-grey4" ng-show="isDelete == false">{{item.createTime | date: "yy-MM-dd HH:mm"}}</p>
-          <p class="ft-14 ft-orange5" ng-click="deleteMsg(item.id)" ng-show="isDelete == true">删除此条信息<i class="fa fa-times"></i></p>
         </div>
         <div class="ft-14 ft-grey666 item-discrip" ng-show="isDelete == true">{{item.content}}<p class="text-right ft-14 ft-grey4">{{item.createTime | date: "yy-MM-dd HH:mm"}}</p></div>
       </div>
