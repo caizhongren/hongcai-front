@@ -53,7 +53,7 @@ angular.module('hongcaiApp')
     
 
     /**
-     * //统计投资各项占比
+     * //统计投资各项占比 holdingInvestAmount 累计投资  totalInvestAmount 在投
      */
     $scope.investStat = {
       selection: 0,
@@ -73,11 +73,11 @@ angular.module('hongcaiApp')
           $scope.investStat.totalInvestAmount += stat.totalInvestAmount;
           $scope.investStat.totalProfit += stat.totalProfit;
           if(stat.creditRightType == 7){
-            $scope.investStat.selection = stat.holdingAmount;
+            $scope.investStat.selection = stat.totalInvestAmount;
           } else if(stat.creditRightType == 8) {
-            $scope.investStat.hornor = stat.holdingAmount;
+            $scope.investStat.hornor = stat.totalInvestAmount;
           } else if (stat.creditRightType == 6) {
-            $scope.investStat.assignment = stat.holdingAmount;
+            $scope.investStat.assignment = stat.totalInvestAmount;
           } else if(stat.creditRightType == 3){
             $scope.showOther = true;
           }
@@ -88,7 +88,7 @@ angular.module('hongcaiApp')
           }
 
         }
-        $scope.investStat.holdingAmount = $scope.investStat.selection+ $scope.investStat.hornor + $scope.investStat.assignment;
+        $scope.investStat.totalInvestAmount = $scope.investStat.selection+ $scope.investStat.hornor + $scope.investStat.assignment;
       })
     }
     
@@ -139,10 +139,10 @@ angular.module('hongcaiApp')
 
     //饼图设置
     
-    $scope.$watch('investStat.holdingAmount', function(newValue, oldValue){
-      // console.log($scope.investStat.holdingAmount);
+    $scope.$watch('investStat.totalInvestAmount', function(newValue, oldValue){
+      // console.log($scope.investStat.totalInvestAmount);
       var percent1,percent2,percent3;
-      if($scope.investStat.holdingAmount == 0) {
+      if($scope.investStat.totalInvestAmount == 0) {
         percent1 = percent2 = percent3 =  3;
       } else {
         percent1 = $scope.investStat.selection;
