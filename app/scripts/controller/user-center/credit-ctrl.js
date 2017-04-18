@@ -53,7 +53,7 @@ angular.module('hongcaiApp')
     
 
     /**
-     * //统计投资各项占比
+     * //统计投资各项占比 holdingInvestAmount 累计投资  totalInvestAmount 在投
      */
     $scope.investStat = {
       selection: 0,
@@ -62,6 +62,7 @@ angular.module('hongcaiApp')
       holdingAmount: 0,
       totalInvestAmount: 0,
       totalProfit:0,
+      profit: 0,
       holdingCount:0,
       endProfitCount:0
     }
@@ -70,14 +71,16 @@ angular.module('hongcaiApp')
       UserCenterService.getCreditRightStat.query({}, function(response) {
         for(var i = 0;i<response.length;i++) {
           var stat = response[i];
-          $scope.investStat.totalInvestAmount += stat.totalInvestAmount;
+          //累计总额
+          $scope.investStat.totalInvestAmount += stat.holdingAmount;
           $scope.investStat.totalProfit += stat.totalProfit;
+          $scope.investStat.profit += stat.profit;
           if(stat.creditRightType == 7){
-            $scope.investStat.selection = stat.holdingAmount;
+            $scope.investStat.selection = stat.totalInvestAmount;
           } else if(stat.creditRightType == 8) {
-            $scope.investStat.hornor = stat.holdingAmount;
+            $scope.investStat.hornor = stat.totalInvestAmount;
           } else if (stat.creditRightType == 6) {
-            $scope.investStat.assignment = stat.holdingAmount;
+            $scope.investStat.assignment = stat.totalInvestAmount;
           } else if(stat.creditRightType == 3){
             $scope.showOther = true;
           }
@@ -88,7 +91,8 @@ angular.module('hongcaiApp')
           }
 
         }
-        $scope.investStat.holdingAmount = $scope.investStat.selection+ $scope.investStat.hornor + $scope.investStat.assignment;
+        //在投总额
+        $scope.investStat.holdingAmount = $scope.investStat.selection + $scope.investStat.hornor + $scope.investStat.assignment;
       })
     }
     
@@ -140,9 +144,9 @@ angular.module('hongcaiApp')
     //饼图设置
     
     $scope.$watch('investStat.holdingAmount', function(newValue, oldValue){
-      // console.log($scope.investStat.holdingAmount);
+      // console.log($scope.investStat.totalInvestAmount);
       var percent1,percent2,percent3;
-      if($scope.investStat.holdingAmount == 0) {
+      if($scope.investStat.totalInvestAmount == 0) {
         percent1 = percent2 = percent3 =  3;
       } else {
         percent1 = $scope.investStat.selection;
