@@ -43,9 +43,54 @@ angular.module('hongcaiApp')
     		var time2 = Math.floor(timeInMills2/DAY_TIME_IN_MILLS) * DAY_TIME_IN_MILLS;
 
     		return Math.abs((time2 - time1)/DAY_TIME_IN_MILLS);
+    	},
+    	/**
+    	 * long型时间转为yyyy-MM-dd
+    	 */
+    	longTimeToDate: function(longTime) {
+    	  var date = new Date(longTime);
+    	  var month = date.getMonth() < 9 ? '0'+ (date.getMonth()+1) : date.getMonth() + 1;
+    	  var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    	  return date.getFullYear() + '-' + month + '-' + day;
+    	},
+    	/**
+    	 * 2017 提现预计到账时间 currentDate: 当前时间 Holiday：本年度法定假日除调休日 WeekendsOff：法定假日中调休
+    	 */
+    	withdrawArriveDate: function(currentDate, Holiday, WeekendsOff) {
+    		//理论上到账日期
+    		var nextDay = this.longTimeToDate(currentDate.getTime() + 24 * 3600 * 1000);
+    		var currentDay = this.longTimeToDate(currentDate.getTime());
+			//预计到账是法定节假日
+			if( Holiday.indexOf(nextDay) !== -1) {
+				//5月节假日提现
+				if(currentDate.getMonth() === 4 ) {
+				  	nextDay = new Date('2017-05-31').getTime();
+				} else if(currentDate.getMonth() === 9){
+					//10月节假日提现
+				  	nextDay = new Date('2017-10-09').getTime();
+				} else {
+					//4月节假日提现
+					nextDay = new Date('2017-05-02').getTime();
+				}
+			}else{
+				//预计到账不是法定节假日
+    		  	//提现当天是周五
+    		    if(currentDate.getDay() === 5) {
+    		  	  //默认下周一到账
+    		  	    nextDay = currentDate.getTime() + 24 * 3 * 3600 * 1000;
+    		  	  //周六调休特殊考虑 周五提现周六到账
+    		  	    for( var i = 0; i < WeekendsOff.length; i ++) {
+    		  	        if(Math.abs(new Date(WeekendsOff[i]).getTime() - currentDate.getTime() ) < 24 * 2 *3600*1000) {
+    		  	  			nextDay = currentDate.getTime() + 24 * 3600 * 1000;
+    		  	   		}
+    		  	 	}
+    		  	} else if(currentDate.getDay() === 6){
+    		  		//提现当天是周六
+    		  		nextDay =  currentDate.getTime() + 24 * 2 * 3600 * 1000;
+    		  	}
+    		}
+    		return nextDay;
     	}
-
-
 
     };
   });
