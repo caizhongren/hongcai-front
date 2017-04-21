@@ -17,28 +17,31 @@ angular.module('hongcaiApp')
      * 用户可使用的券
      */
     $scope.investCoupons = function(project) {
-        $scope.coupons = [];
-        $scope.availableAmount = project.total - project.soldStock * project.increaseAmount
-        ProjectService.investCoupons.query({
-          projectId: project.id,
-          amount: $scope.availableAmount
-        }, function(response) {
-          if (response && response.ret !== -1) {
-            $scope.coupons = response;
-            for (var i = 0; i < $scope.coupons.length; i++) {
-              if ($scope.rateType === '' && $scope.cashType === '') {
-                $scope.selectedCoupon = $scope.coupons[0];
-              }
-              if ($scope.rateNum == $scope.coupons[i].number || $scope.cashNum == $scope.coupons[i].number) {
-                $scope.selectedCoupon = $scope.coupons[i];
-              }
+      $scope.coupons = [];
+      $scope.availableAmount = project.total - project.soldStock * project.increaseAmount;
+      if (!$rootScope.isLogged || $scope.availableAmount <= 0) {
+        return;
+      }
+      ProjectService.investCoupons.get({
+        projectId: project.id,
+        amount: $scope.availableAmount
+      }, function(response) {
+        if (response && response.ret !== -1) {
+          $scope.coupons = response;
+          for (var i = 0; i < $scope.coupons.length; i++) {
+            if ($scope.rateType === '' && $scope.cashType === '') {
+              $scope.selectedCoupon = $scope.coupons[0];
+            }
+            if ($scope.rateNum == $scope.coupons[i].number || $scope.cashNum == $scope.coupons[i].number) {
+              $scope.selectedCoupon = $scope.coupons[i];
             }
           }
-        });
-      }
-      /**
-       * 展示和关闭可选择的券
-       */
+        }
+      });
+    }
+    /**
+     * 展示和关闭可选择的券
+     */
     $scope.showCoupons = false;
     $scope.checkeCoupon = function() {
         if ($scope.coupons.length > 0) {

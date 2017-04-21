@@ -118,6 +118,11 @@ angular.module('hongcaiApp')
       investCoupons: $resource(RESTFUL_DOMAIN + '/projects/investIncreaseRateCoupon', {
         projectId: '@projectId',
         amount: '@amount'
+      }, {
+        'get': {
+          method: 'GET',
+          isArray: true
+        }
       }),
 
       /**
