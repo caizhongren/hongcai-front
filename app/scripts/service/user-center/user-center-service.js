@@ -180,6 +180,8 @@ angular.module('hongcaiApp')
       }),
       getUserCashCouponsStat: $resource(RESTFUL_DOMAIN + '/cashCoupons/stat'),
       userCashCoupons: $resource(RESTFUL_DOMAIN + '/cashCoupons', {
+        page: '@page',
+        pageSize: '@pageSize',
         status : '@status'
       }),
       cgtActive: $resource(RESTFUL_DOMAIN + '/userAuths/cgtActive', {}, {
