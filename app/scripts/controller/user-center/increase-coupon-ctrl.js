@@ -41,8 +41,14 @@ angular.module('hongcaiApp')
     /**
      * 立即使用
      */
-    $scope.toProjectList = function($index){
-      $state.go('root.guaranteepro-list-query-no');
+    $scope.toProjectList = function(investProductType, $index){
+      if (investProductType == 5) {
+        $state.go('root.guaranteepro-list-query-no',{type: 5});
+      }else if (investProductType == 6) {
+        $state.go('root.guaranteepro-list-query-no',{type: 6});
+      }else {
+        $state.go('root.guaranteepro-list-query-no');
+      }
       ipCookie('rateNum',$scope.datas[$index].number);
       ipCookie('rateType',$scope.datas[$index].type);
     }
