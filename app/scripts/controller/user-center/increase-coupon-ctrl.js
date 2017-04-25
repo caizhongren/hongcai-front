@@ -34,7 +34,7 @@ angular.module('hongcaiApp')
 
     $scope.usedStatus = $stateParams.usedStatus || '1,3';
     $scope.currentPage = 1;
-    $scope.pageSize = 5;
+    $scope.pageSize = 10;
 
 
     $scope.loadCoupons($scope.currentPage, $scope.pageSize, $scope.usedStatus);
