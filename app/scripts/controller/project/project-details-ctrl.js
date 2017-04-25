@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie,
 
     MainService, DateUtils, AboutUsService, projectStatusMap, config, $window, DEFAULT_DOMAIN) {
-
+    $rootScope.toActivate();
     $scope.type =  $stateParams.type;
     $scope.chk = true;
     $scope.checkFlag = true;
@@ -530,72 +530,75 @@ angular.module('hongcaiApp')
      * 投资或者预约
      */
     $scope.toInvest = function(project) {
-      if (project.status === 11) {
-        /**
-         * 预约项目投资
-         */
-        ProjectService.reserve.get({
-          reserveAmount: project.toReserveAmount,
-          projectId: project.id,
-          inviteMobile: project.inviteMobile
-        }, function(response) {
-          if (response.ret === 1) {
-            angular.element('.alert').remove();
-            angular.element('.mask_layer').remove();
-            var balance = $rootScope.account.balance;
-            $rootScope.account.balance = balance - (project.toReserveAmount / 10);
-            $scope.getProjectDetails(); //更新投资模块
-            $scope.getReserveRecords(); //更新预约记录
-          } else {
-            $scope.msg = response.msg;
+      var invest = function () {
+        if (project.status === 11) {
+          /**
+           * 预约项目投资
+           */
+          ProjectService.reserve.get({
+            reserveAmount: project.toReserveAmount,
+            projectId: project.id,
+            inviteMobile: project.inviteMobile
+          }, function(response) {
+            if (response.ret === 1) {
+              angular.element('.alert').remove();
+              angular.element('.mask_layer').remove();
+              var balance = $rootScope.account.balance;
+              $rootScope.account.balance = balance - (project.toReserveAmount / 10);
+              $scope.getProjectDetails(); //更新投资模块
+              $scope.getReserveRecords(); //更新预约记录
+            } else {
+              $scope.msg = response.msg;
+              $alert({
+                scope: $scope,
+                template: 'views/modal/alert-dialog.html',
+                show: true
+              });
+            }
+          });
+        } else {
+          /**
+           * 非预约项目投资
+           */
+          if (!$rootScope.account || $rootScope.account.balance < project.amount) {
+            $scope.msg = '账户余额不足';
             $alert({
               scope: $scope,
               template: 'views/modal/alert-dialog.html',
               show: true
             });
           }
-        });
-      } else {
-        /**
-         * 非预约项目投资
-         */
-        if (!$rootScope.account || $rootScope.account.balance < project.amount) {
-          $scope.msg = '账户余额不足';
-          $alert({
-            scope: $scope,
-            template: 'views/modal/alert-dialog.html',
-            show: true
+
+          OrderService.investVerify.get({
+            projectId: project.id,
+            amount: project.amount
+          }, function(response) {
+            if (response.ret === 1) {
+              $state.go('root.invest-verify', {
+                projectId: project.id,
+                amount: project.amount
+              });
+            } else if (response.ret === -1) {
+              if (response.code === 1) {
+                $scope.msg = '抱歉，已经卖光了。';
+                $modal({
+                  scope: $scope,
+                  template: 'views/modal/alert-dialog.html',
+                  show: true
+                });
+              } else {
+                $scope.msg = response.msg;
+                $modal({
+                  scope: $scope,
+                  template: 'views/modal/alert-dialog.html',
+                  show: true
+                });
+              }
+            }
           });
         }
-
-        OrderService.investVerify.get({
-          projectId: project.id,
-          amount: project.amount
-        }, function(response) {
-          if (response.ret === 1) {
-            $state.go('root.invest-verify', {
-              projectId: project.id,
-              amount: project.amount
-            });
-          } else if (response.ret === -1) {
-            if (response.code === 1) {
-              $scope.msg = '抱歉，已经卖光了。';
-              $modal({
-                scope: $scope,
-                template: 'views/modal/alert-dialog.html',
-                show: true
-              });
-            } else {
-              $scope.msg = response.msg;
-              $modal({
-                scope: $scope,
-                template: 'views/modal/alert-dialog.html',
-                show: true
-              });
-            }
-          }
-        });
       }
+      $rootScope.toActivate(invest);
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 

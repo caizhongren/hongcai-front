@@ -121,10 +121,10 @@
               <span class="spangray" ng-show="coupons.length == 0">暂无可用奖励<span class="ft-white ft-16">0</span></span>
               <span class="menu-down fr"></span>
               <ul class="award-list spangray" ng-show="showCoupons">
-                <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : 'value' | limitTo : initLimit" ng-show="coupon.type === 2 && coupon.status === 1">
+                <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : 'value'" ng-show="coupon.type === 2 && coupon.status === 1">
                     <p class="padding-l-5"> 现金<span class="ft-orange">{{coupon.value}}</span>元 (需投资金额&ge;{{coupon.minInvestAmount || 0}})</p>
                 </li>
-                <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : '-value' | limitTo : initLimit" ng-show="coupon.type === 1 && coupon.status === 1">
+                <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : '-value'" ng-show="coupon.type === 1 && coupon.status === 1">
                     <p class="padding-l-3"><span class="ft-orange padding-l-5">{{coupon.value}}%</span>加息券 (有效期至{{coupon.endTime | date: "yyyy-MM-dd"}})</p>
                 </li>
                 <!-- <li class="text-center" >查看更多</li> -->
@@ -165,9 +165,11 @@
                   <span class="spangray" ng-show="coupons.length === 0">暂无可用奖励<span class="ft-white ft-16">0</span></span>
                   <span class="menu-down fr"></span>
                   <ul class="award-list spangray" ng-show="showCoupons">
-                    <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : ['-type','value'] | limitTo : initLimit">
-                        <p class="padding-l-5" ng-show="coupon.type === 2 && coupon.status === 1"> 现金<span class="ft-orange">{{coupon.value}}</span>元 (需投资金额&ge;{{coupon.minInvestAmount || 0}})</p>
-                        <p class="padding-l-3" ng-show="coupon.type === 1 && coupon.status === 1"><span class="ft-orange padding-l-5">{{coupon.value}}%</span>加息券 (有效期至{{coupon.endTime | date: "yyyy-MM-dd"}})</p>
+                    <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : 'value'" ng-show="coupon.type === 2 && coupon.status === 1">
+                        <p class="padding-l-5"> 现金<span class="ft-orange">{{coupon.value}}</span>元 (需投资金额&ge;{{coupon.minInvestAmount || 0}})</p>
+                    </li>
+                    <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : '-value'" ng-show="coupon.type === 1 && coupon.status === 1">
+                        <p class="padding-l-3"><span class="ft-orange padding-l-5">{{coupon.value}}%</span>加息券 (有效期至{{coupon.endTime | date: "yyyy-MM-dd"}})</p>
                     </li>
                     <!-- <li class="text-center" >查看更多</li> -->
                     <li class="text-center" ng-click="unUseCoupon()">暂不使用</li>
