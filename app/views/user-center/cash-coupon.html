@@ -42,8 +42,8 @@
     </div>
     <div class="main padding-t-0 padding-l-15 margin-b-80">
       <div class="fl col-md-12 ft-14 margin-l-28 padding-l-0 margin-b-30 cash-state">
-        <div class="padding-b-5 display-inbl unused-cash margin-r-5 cursor-pt uc-bgorange {{usedStatus === '1' ? 'uc-bgorange' : 'uc-bggrey'}}" ng-click="userCashCoupons('1')">未使用</div>
-        <div class="padding-b-5 display-inbl used-cash cursor-pt {{usedStatus === '2,4' ? 'uc-bgorange' :'uc-bggrey'}}"  ng-click="userCashCoupons('2,4')">已使用</div>
+        <div class="padding-b-5 display-inbl unused-cash margin-r-5 cursor-pt uc-bgorange {{usedStatus === '1' ? 'uc-bgorange' : 'uc-bggrey'}}" ng-click="userCashCoupons(1,10,'1')">未使用</div>
+        <div class="padding-b-5 display-inbl used-cash cursor-pt {{usedStatus === '2,4' ? 'uc-bgorange' :'uc-bggrey'}}"  ng-click="userCashCoupons(1,10,'2,4')">已使用</div>
       </div>
       <!-- 未使用现金券  -->
       <!-- 暂无未使用现现金券 & 还没有提取过-->
@@ -52,18 +52,19 @@
         <p ng-show="usedStatus === '1'">暂无可使用现金券噢~</p>
         <p ng-show="usedStatus === '2,4'">您还没有使用过现金券</p>
       </div>
-      <!-- 未使用 -->
+      <!-- 列表 -->
       <div class="cash-coupon-list">
+        <!-- 未使用 -->
         <div class="col-md-5 display-inbl single-coupon" ng-repeat='cashCoupon in datas | orderBy : "-value"' ng-show="usedStatus === '1' && unGotAmount > 0">
           <div class="col-md-3 single single-l text-center display-inbl font-white ft-18">￥<span class="ft-36">{{cashCoupon.value}}</span></div>
           <div class="col-md-9 single single-r display-inbl">
              <p>投资产品：{{ cashCoupon.investProductType == 5 ? '宏财精选' : cashCoupon.investProductType == 6 ? '宏财尊贵' : '宏财精选、宏财尊贵'}}</p>
              <p>使用条件：投资&ge;{{cashCoupon.minInvestAmount}}元</p>
              <p>有效期：{{cashCoupon.createTime | date: 'yyyy.MM.dd'}}-{{cashCoupon.endTime | date: 'yyyy.MM.dd'}}</p>
-              <button class="btn-carry" ng-click="toProjectList($index)">马上使用</button>
+              <button class="btn-carry" ng-click="toProjectList(cashCoupon.investProductType, $index)">马上使用</button>
           </div>
         </div>
-      <!-- 已使用 -->
+        <!-- 已使用 -->
         <div class="col-md-5 display-inbl single-coupon" ng-repeat='cashCoupon in datas' ng-show="usedStatus !== '1' && gotAmount > 0">
           <div class="col-md-3 single single-l text-center display-inbl font-white ft-18">￥<span class="ft-36">{{cashCoupon.value}}</span></div>
           <div class="col-md-9 single single-r display-inbl">
@@ -74,6 +75,16 @@
              <div class="fr used-icon"></div>
           </div>
         </div>
+
+        <ul class="pager margin-r-20" ng-hide="datas.length <= 0">
+          <li class="fr">
+            <button class="btn btn-default btn-sm" ng-disabled="currentPage >= totalPage" ng-click="userCashCoupons(currentPage+1, pageSize, usedStatus)">下一页</button>
+          </li>
+          <div class="fr height-30">&nbsp;&nbsp;{{currentPage}} / {{totalPage }} 共 {{total}} 条&nbsp;&nbsp;</div>
+          <li class="fr">
+            <button class="btn btn-default btn-sm" ng-disabled="currentPage == 1" ng-click="userCashCoupons(currentPage - 1, pageSize, usedStatus)">上一页</button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
