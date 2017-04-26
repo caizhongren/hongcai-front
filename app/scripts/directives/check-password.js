@@ -1,10 +1,13 @@
 /* 检验密码是否正确*/
 'use strict';
-angular.module('hongcaiApp').directive('checkPassword', ['$http', 'DEFAULT_DOMAIN', 'md5', function($http, DEFAULT_DOMAIN, md5) {
+angular.module('hongcaiApp').directive('checkPassword', ['$http', 'DEFAULT_DOMAIN', 'md5', '$rootScope', function($http, DEFAULT_DOMAIN, md5, $rootScope) {
 	return {
 		require: 'ngModel',
 		link: function(scope, elem, attrs, ctrl) {
 			scope.$watch(attrs.ngModel, function() {
+				if (!$rootScope.isLogged) {
+					return;
+				}
 				var password = md5.createHash(angular.element('#' + attrs.checkPassword).val());
 				if(password !== '') {
 					$http({

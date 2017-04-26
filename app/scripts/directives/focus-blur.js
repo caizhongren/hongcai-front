@@ -10,11 +10,13 @@ angular.module('hongcaiApp').directive('focusBlur', [function() {
   return {
     restrict: 'A',
     link: function(scope, element, attrs, ctrl) {
-      element.bind('focus', function() {
-        element.next().fadeIn();
-      }).bind('blur', function() {
-        element.next().fadeOut();
-      });
+      if(element) {
+        element.bind('click', function() {
+          element.next().fadeIn();
+        }).bind('blur', function() {
+          element.next().fadeOut();
+        });
+      }
     }
   };
 }]);

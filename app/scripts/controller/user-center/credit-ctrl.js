@@ -62,6 +62,7 @@ angular.module('hongcaiApp')
       holdingAmount: 0,
       totalInvestAmount: 0,
       totalProfit:0,
+      profit: 0,
       holdingCount:0,
       endProfitCount:0
     }
@@ -70,8 +71,10 @@ angular.module('hongcaiApp')
       UserCenterService.getCreditRightStat.query({}, function(response) {
         for(var i = 0;i<response.length;i++) {
           var stat = response[i];
-          $scope.investStat.totalInvestAmount += stat.totalInvestAmount;
+          //累计总额
+          $scope.investStat.totalInvestAmount += stat.holdingAmount;
           $scope.investStat.totalProfit += stat.totalProfit;
+          $scope.investStat.profit += stat.profit;
           if(stat.creditRightType == 7){
             $scope.investStat.selection = stat.totalInvestAmount;
           } else if(stat.creditRightType == 8) {
@@ -88,7 +91,8 @@ angular.module('hongcaiApp')
           }
 
         }
-        $scope.investStat.totalInvestAmount = $scope.investStat.selection+ $scope.investStat.hornor + $scope.investStat.assignment;
+        //在投总额
+        $scope.investStat.holdingAmount = $scope.investStat.selection + $scope.investStat.hornor + $scope.investStat.assignment;
       })
     }
     
@@ -139,7 +143,7 @@ angular.module('hongcaiApp')
 
     //饼图设置
     
-    $scope.$watch('investStat.totalInvestAmount', function(newValue, oldValue){
+    $scope.$watch('investStat.holdingAmount', function(newValue, oldValue){
       // console.log($scope.investStat.totalInvestAmount);
       var percent1,percent2,percent3;
       if($scope.investStat.totalInvestAmount == 0) {

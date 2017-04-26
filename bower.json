@@ -31,7 +31,8 @@
     "jquery.qrcode": "0.14.0",
     "jquery.placeholder": "~0.2.4",
     "cropper":"2.3.4",
-    "ng-file-upload": "~1.6.12"
+    "ng-file-upload": "~1.6.12",
+    "jlaydate": "0.0.1"
   },
   "devDependencies": {
     "firebug-lite": "~1.5.1",

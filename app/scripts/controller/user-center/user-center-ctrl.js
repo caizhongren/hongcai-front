@@ -119,7 +119,6 @@ angular.module('hongcaiApp')
         var type = image.attr('src').split(';')[0].split(':')[1];
         var fileName = $('#avatarInput').prop('files')[0].name;
         var canVas = image.cropper("getCroppedCanvas", {});
-        console.log(canVas);
         //将裁剪的图片加载到face_image
         $('#face_image').attr('src', canVas.toDataURL());
         canVas.toBlob(function(blob) {
@@ -144,7 +143,7 @@ angular.module('hongcaiApp')
                      toaster.pop('success','上传成功');  
                      $state.go('root.userCenter.account-overview');
                     //上传成功
-                    console.log('retJson:', retJson);
+                    // console.log('retJson:', retJson);
                 },
                 error : function() {
                     //清空上传文件的值
@@ -158,9 +157,12 @@ angular.module('hongcaiApp')
     
     var onFileSelect = function(files) {
         var file = files[0];
+        if(file == undefined) {
+          toaster.pop('error','请选择一张图片'); 
+          return;
+        }
         var image = $('#cropImg>img');
         var canVas = image.cropper("getCroppedCanvas", {});
-        console.log(canVas);
         $scope.upload = $upload.upload({
             url: DEFAULT_DOMAIN + '/siteUser/uploadFile' 
             + '?categoryId='+ $rootScope.loginUser.id  

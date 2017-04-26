@@ -1797,97 +1797,18 @@ hongcaiApp
         }
       }
     })
-
-    /*-------------  邀请活动落地页   ----------------------*/
-      // .state('root.activity.invite-landing', {
-      //   url: '/invite?act&f',
-      //   views: {
-      //     '': {
-      //       templateUrl: 'views/activity/invite-landing.html',
-      //       controller: 'InviteLandingCtrl',
-      //       controllerUrl: 'scripts/controller/activity/invite-landing-ctrl'
-      //     }
-      //   }
-      // })
-
-    /*-------------  10月新邀请活动落地页   ----------------------*/
-    // .state('root.activity.newInvite-landing', {
-    //   url: '/invite-activity',
-    //   views: {
-    //     '': {
-    //       templateUrl: 'views/activity/newInvite-landing.html',
-    //       controller: 'newInviteCtrl',
-    //       controllerUrl: 'scripts/controller/activity/newNnvite-landing-ctrl'
-    //     }
-    //   }
-    // })
-
-    /*-------------  2017.1月 市场 邀请活动落地页   ----------------------*/
-    .state('root.activity.invite-landing', {
-      url: '/invite-activity',
+    /*-------------  邀请活动-2017.4.13   ----------------------*/
+    .state('root.activity.invite-activity', {
+      url: '/invite',
       views: {
         '': {
-          templateUrl: 'views/activity/newYearInvite-landing.html',
-          controller: 'newInviteCtrl',
-          controllerUrl: 'scripts/controller/activity/newNnvite-landing-ctrl'
+          templateUrl: 'views/activity/invite.html'
         }
+      },
+      data: {
+        title: '邀请好友'
       }
-    })
-    /*-------------  送现金活动落地页   ----------------------*/
-    .state('root.activity.send-money', {
-      url: '/send-money?act&f',
-      views: {
-        '': {
-          templateUrl: 'views/activity/send-money.html',
-          controller: 'SendMoneyCtrl',
-          controllerUrl: 'scripts/controller/activity/send-money-ctrl'
-        }
-      }
-    })
-    /*-------------- 送加息券活动落地页 -----------------------*/
-    .state('root.activity.coupon-landing', {
-      url: '/send-coupon?act&f',
-      views: {
-        '': {
-          templateUrl: 'views/activity/coupon-landing.html',
-        }
-      }
-    })
-    /*-------------- 新手活动落地页 -----------------------*/
-    .state('root.activity.novice-landing', {
-      url: '/novice-activity',
-      views: {
-        '': {
-          // templateUrl: 'views/activity/novice-landing.html',
-          templateUrl: 'views/activity/novice-landing2.html',
-          controller: 'NoviceActivityCtrl',
-          controllerUrl: 'scripts/controller/activity/novice-activity-ctrl'
-        }
-      }
-    })
-
-    /*-------------- 双十一活动脱单party落地页 -----------------------*/
-    .state('root.activity.dual-eleven-activities', {
-      url: '/dual-eleven-activities',
-      views: {
-        '': {
-          templateUrl: 'views/activity/dual-eleven-activities.html'
-        }
-      }
-    })
-    /**
-     * 父亲节活动页
-     */
-      .state('root.activity.father-day', {
-        url: '/father-day',
-        views: {
-          '': {
-            templateUrl: 'views/activity/father-day.html',
-          // controller: 'FatherDayCtrl',
-          // controllerUrl: 'scripts/controller/activity/load-page-ctrl'
-        }
-      }
-    })
+    }) 
     /*-------------  激活存管通落地页   ----------------------*/
     .state('root.activate-landing', {
       url: '/activate',

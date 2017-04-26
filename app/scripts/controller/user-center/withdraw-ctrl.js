@@ -1,10 +1,14 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('WithdrawCtrl', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, $alert, $modal) {
-
+  .controller('WithdrawCtrl', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, $alert, $modal, DateUtils) {
+    //法定节假日
+    var Holiday = ['2017-04-29', '2017-04-30', '2017-05-01', '2017-05-28', '2017-05-29', '2017-05-30', '2017-10-01', '2017-10-02', '2017-10-03', '2017-10-04', '2017-10-05', '2017-10-06', '2017-10-07', '2017-10-08'];
+    //法定节假日调休
+    var WeekendsOff = ['2017-05-27', '2017-09-30'];
+    //当前时间
     var currentDate = new Date();
-    currentDate.setDate(currentDate.getDate() + 1);
-    $scope.nextDay = currentDate;
+    // var nextDay = currentDate.setDate(currentDate.getDate() + 1);
+    $scope.nextDay = DateUtils.withdrawArriveDate(currentDate,Holiday,WeekendsOff);
 
     $scope.availableCash = 0;
     UserCenterService.getUserAvailableCash.get({}, function(response) {
