@@ -17,6 +17,19 @@ angular.module('hongcaiApp')
         $scope.oriRate = $scope.creditRight.baseRate + $scope.creditRight.riseRate;
         $scope.waitProfit = $scope.creditRight.profit - $scope.creditRight.returnProfit;
 
+        // 年化收益率
+        var annualEarnings = $scope.creditRight.baseRate + $scope.creditRight.riseRate;
+        // 加息利率
+        var increaseRateCouponValue = $scope.increaseRateCoupon ? $scope.increaseRateCoupon.value : 0;
+
+        // 投资时间
+        var investTime = new Date($scope.creditRight.createTime).setHours(0, 0, 0, 0);
+        // 放款时间
+        var loanTime = $scope.project.loanTime > 0 ? new Date($scope.project.loanTime).setHours(0, 0, 0, 0) : 0;
+        var oneDay = 24 * 60 * 60 * 1000;
+        // 贴息金额
+        $scope.raiseInterestAmount = $scope.creditRight.amount * annualEarnings * parseInt(((loanTime - investTime))/oneDay) / 36500;
+
         //订单详情 
         UserCenterService.orderDetail.get({
           orderNumber: $scope.orderNum

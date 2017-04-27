@@ -75,6 +75,22 @@
               </div>
             </div>
           </li>
+          <!-- 募集期贴息 -->
+          <li class="timeline-inverted" ng-hide="project.loanTime <= 0 || raiseInterestAmount <=0">
+            <div class="timeline-badge success"><i class="fa fa-tree ft-orange buchong1"></i>
+            </div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title border-b padding-b-15">募集期贴息
+                  <small class="pull-right">{{ project.loanTime | date:'yyyy-MM-dd'}}</small>
+                </h4>
+              </div>
+              <div class="timeline-body">
+                <p>贴息 <strong>{{ raiseInterestAmount | number: 2 }}</strong>元</p>
+              </div>
+            </div>
+          </li>
+          <!-- 回款计划 -->
           <li class="timeline-inverted" ng-repeat="item in creditRightBill">
             <div class="timeline-badge success"><i class="fa fa-tree ft-orange buchong1"></i>
             </div>
