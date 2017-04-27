@@ -155,8 +155,8 @@ angular.module('hongcaiApp')
               toaster.pop('warning', '对不起，您还未登录，请先登录')
             }
           }
-          var firstPath = $location.path().split('/')[1];
-          if(firstPath == 'user-center') {
+          
+          if(toState.name.indexOf('root.userCenter') !== -1) {
             $rootScope.toActivate();
           }
       });

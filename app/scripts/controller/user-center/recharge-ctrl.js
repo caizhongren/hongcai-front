@@ -150,36 +150,39 @@ angular.module('hongcaiApp')
     };
     $scope.recharge = function(amount) {
       // $rootScope.toNotice();
-      if(amount <= 0 && $scope.payment == 2){
-        return;
-      }
-      if(amount < 3 && ($scope.payment == 1 || $scope.payment == 3)){
-        return;
-      }
-      if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
-        $rootScope.toActivate();
-        return;
-      }
-      if(amount > $scope.bankRemain){
-        return;
-      }
-      if($scope.bankStatus == 1 && $scope.payment !== 2){
+      var act = function () {
+        if(amount <= 0 && $scope.payment == 2){
+          return;
+        }
+        if(amount < 3 && ($scope.payment == 1 || $scope.payment == 3)){
+          return;
+        }
+        if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
+          $rootScope.toActivate();
+          return;
+        }
+        if(amount > $scope.bankRemain){
+          return;
+        }
+        if($scope.bankStatus == 1 && $scope.payment !== 2){
+          $alert({
+            scope: $scope,
+            template: 'views/modal/alert-maintenance.html',
+            show: true
+          });
+          return;
+        }
+        $scope.msg = '2';
+        $scope.rechargeAmount = amount;
         $alert({
           scope: $scope,
-          template: 'views/modal/alert-maintenance.html',
+          template: 'views/modal/alertYEEPAY.html',
           show: true
         });
-        return;
+        
+        window.open('/#!/recharge-transfer/' + amount +"/"+ $scope.rechargeWay +"/" + $scope.expectPayCompany);
       }
-      $scope.msg = '2';
-      $scope.rechargeAmount = amount;
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
-      
-      window.open('/#!/recharge-transfer/' + amount +"/"+ $scope.rechargeWay +"/" + $scope.expectPayCompany);
+      $rootScope.toActivate(act);
 
     };
 

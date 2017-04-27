@@ -39,22 +39,25 @@ angular.module('hongcaiApp')
 
     $scope.withdraw = function(amount, captcha) {
       // $rootScope.toNotice();
-      if($scope.checkMinAmount(amount) || $scope.checkLargestAmount(amount) || amount ===''){
-        return;
-      }
-      if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
-        $rootScope.toActivate();
-      } else {
-        $scope.msg = '3';
-        $scope.withdrawAmount = amount;
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alertYEEPAY.html',
-          show: true
-        });
+      var act = function() {
+        if($scope.checkMinAmount(amount) || $scope.checkLargestAmount(amount) || amount ===''){
+          return;
+        }
+        if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
+          $rootScope.toActivate();
+        } else {
+          $scope.msg = '3';
+          $scope.withdrawAmount = amount;
+          $alert({
+            scope: $scope,
+            template: 'views/modal/alertYEEPAY.html',
+            show: true
+          });
 
-        window.open('/#!/withdraw-transfer/' + amount + '/' + captcha);
+          window.open('/#!/withdraw-transfer/' + amount + '/' + captcha);
+        }
       }
+      $rootScope.toActivate(act);
 
     };
     
