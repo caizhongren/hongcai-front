@@ -76,7 +76,7 @@
             </div>
           </li>
           <!-- 募集期贴息 -->
-          <li class="timeline-inverted" ng-hide="project.loanTime <= 0 || raiseInterestAmount <=0">
+          <li class="timeline-inverted" ng-hide="creditRight.type === 6 || project.loanTime <= 0 || raiseInterestAmount <=0">
             <div class="timeline-badge success"><i class="fa fa-tree ft-orange buchong1"></i>
             </div>
             <div class="timeline-panel">

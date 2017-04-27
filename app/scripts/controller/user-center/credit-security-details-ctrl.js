@@ -28,7 +28,7 @@ angular.module('hongcaiApp')
         var loanTime = $scope.project.loanTime > 0 ? new Date($scope.project.loanTime).setHours(0, 0, 0, 0) : 0;
         var oneDay = 24 * 60 * 60 * 1000;
         // 贴息金额
-        $scope.raiseInterestAmount = $scope.creditRight.amount * annualEarnings * parseInt(((loanTime - investTime))/oneDay) / 36500;
+        $scope.raiseInterestAmount = $scope.creditRight.amount * (annualEarnings + increaseRateCouponValue) * parseInt((loanTime - investTime)/oneDay) / 36500;
 
         //订单详情 
         UserCenterService.orderDetail.get({
