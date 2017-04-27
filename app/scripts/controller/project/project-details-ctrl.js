@@ -444,38 +444,41 @@ angular.module('hongcaiApp')
      * 调到易宝支付
      */
     $scope.transfer = function(project, investAmount, giftCount, selectedCoupon) {
-      $scope.investAmount = investAmount;
-      $scope.msg = '4';
-      $scope.page = 'investVerify';
-      var couponNumber = selectedCoupon == null ? "" : selectedCoupon.number;
+      var invest = function() {
+        $scope.investAmount = investAmount;
+        $scope.msg = '4';
+        $scope.page = 'investVerify';
+        var couponNumber = selectedCoupon == null ? "" : selectedCoupon.number;
 
-      // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
-      $.ajax({
-        url: DEFAULT_DOMAIN + '/siteOrder/saveOrder?projectId=' + project.id + '&investAmount=' + investAmount + '&giftCount=' + giftCount + '&couponNumber=' + couponNumber,
-        'type': 'POST',
-        async: false,
-        dataType: 'json',
-        success: function(response) {
-          if (response.ret === 1) {
-            var order = response.data.order;
-            $alert({
-              scope: $scope,
-              template: 'views/modal/alertYEEPAY.html',
-              show: true
-            });
+        // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
+        $.ajax({
+          url: DEFAULT_DOMAIN + '/siteOrder/saveOrder?projectId=' + project.id + '&investAmount=' + investAmount + '&giftCount=' + giftCount + '&couponNumber=' + couponNumber,
+          'type': 'POST',
+          async: false,
+          dataType: 'json',
+          success: function(response) {
+            if (response.ret === 1) {
+              var order = response.data.order;
+              $alert({
+                scope: $scope,
+                template: 'views/modal/alertYEEPAY.html',
+                show: true
+              });
 
-            $window.open('/#!/user-order-transfer/' + order.projectId + '/' + order.id + '/' + order.type+ '?orderNumber=' + order.number, '_blank');
-          } else if(response.code == -1037) {
-               $modal({
-               scope: $scope,
-               template: 'views/modal/alert-unfinishedOrder.html',
-               show: true
-             });
-          } else {
-            toaster.pop('error', response.msg);
+              $window.open('/#!/user-order-transfer/' + order.projectId + '/' + order.id + '/' + order.type+ '?orderNumber=' + order.number, '_blank');
+            } else if(response.code == -1037) {
+                 $modal({
+                 scope: $scope,
+                 template: 'views/modal/alert-unfinishedOrder.html',
+                 show: true
+               });
+            } else {
+              toaster.pop('error', response.msg);
+            }
           }
-        }
-      });
+        });
+      }
+      $rootScope.toActivate(invest);
 
       // var getOrder = $q.defer();
       // OrderService.saveOrder.get({
