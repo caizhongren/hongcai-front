@@ -26,7 +26,7 @@ angular.module('hongcaiApp')
 
     $scope.type = $stateParams.type ? $stateParams.type : '5';
     if (!$stateParams.cycle) {
-      $location.path('/guaranteepro-list/6,7,8,9,10,11,12/0_100/0_100/0_1000/release_start_time/false/' + $scope.type);
+      $location.path('/guaranteepro-list/7,8,9,10,11,12/0_100/0_100/0_1000/release_start_time/false/' + $scope.type);
       return;
     }
 
