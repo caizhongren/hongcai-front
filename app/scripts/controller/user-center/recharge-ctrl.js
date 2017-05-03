@@ -61,7 +61,6 @@ angular.module('hongcaiApp')
                 $scope.bankRemain = response.data.bankRemain;
                 $scope.bankRemainHolder = $scope.payment !== 2? '该卡可充值' + $scope.bankRemain + '元' : '';
                 $scope.bankStatus = response.data.bankStatus;
-                console.log(bankLimit);
                 for(var i = 0; i < bankLimit.length; i++) {
                   if(bankLimit[i].bankCode == $scope.userCard.bankCode) {
                     $scope.userCurrenBank = bankLimit[i];

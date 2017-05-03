@@ -49,8 +49,8 @@
           <td>{{item.repaymentDate | date:'yyyy-MM-dd'}}</td>
           <td ng-if="item.canTransfer" class="th-last cursor-pointer ft-blue5" ui-sref="root.userCenter.assignments-transfer-details({number: item.number})">转让</td>
           <td ng-if="!item.canTransfer" class="th-last">
-            <p class="margin-b-5">{{item.createTime +  10*24*3600*1000 | date:'yyyy-MM-dd'}}</p>
-            <p>可转让</p>
+            <p class="line-h-30">{{item.createTime +  10*24*3600*1000 | date:'yyyy-MM-dd'}}</p>
+            <p class="line-h-10">可转让</p>
           </td>
         </tr>
       </tbody>

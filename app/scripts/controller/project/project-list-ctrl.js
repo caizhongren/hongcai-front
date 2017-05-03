@@ -22,7 +22,7 @@ angular.module('hongcaiApp')
       return true;
     }
     if (isEmptyObject($stateParams)) {
-      $location.path('/project-list/6,7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false/0');
+      $location.path('/project-list/7,8,9,10,11,12/0/100/0/100/0/200000000/release_start_time/false/0');
     }
 
     /**
