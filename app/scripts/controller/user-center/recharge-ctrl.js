@@ -150,6 +150,8 @@ angular.module('hongcaiApp')
     };
     $scope.recharge = function(amount) {
       // $rootScope.toNotice();
+      var curHours = new Date().getHours(); //当前小时值
+      var curMinutes = new Date().getMinutes(); //当前分钟值
       var act = function () {
         if(amount <= 0 && $scope.payment == 2){
           return;
@@ -162,6 +164,15 @@ angular.module('hongcaiApp')
           return;
         }
         if(amount > $scope.bankRemain){
+          return;
+        }
+        if((curHours === 23 && curMinutes >= 54) || (curHours === 0 && curMinutes <= 6)) {
+          $scope.msg = '尊敬的用户，23:55 — 00:05是充值系统维护期，请稍后操作。';
+          $alert({
+            scope: $scope,
+            template: 'views/modal/alert-dialog.html',
+            show: true
+          });
           return;
         }
         if($scope.bankStatus == 1 && $scope.payment !== 2){
