@@ -65,14 +65,17 @@ angular.module('hongcaiApp')
     /**
      * 激活存管通账户
      */
-    $rootScope.toActivate = function() {
-      var userCenter = $location.path().indexOf('user-center');
-      if(config.pay_company === 'cgt' && $rootScope.isLogged ===true &&  $rootScope.realNameAuthState ===1 &&  $rootScope.isActive=== false && userCenter ===1){
+    $rootScope.toActivate = function(act) {
+      if(config.pay_company === 'cgt' && $rootScope.isLogged === true &&  $rootScope.realNameAuthState === 1 &&  $rootScope.isActive=== false){
         $rootScope.activateModal = $modal({
           scope: $rootScope,
           template: 'views/modal/modal-activate.html',
           show: true
         });
+      }else{
+        if(act){
+          act();
+        }
       }
     };
     
@@ -152,8 +155,10 @@ angular.module('hongcaiApp')
               toaster.pop('warning', '对不起，您还未登录，请先登录')
             }
           }
-
-          $rootScope.toActivate();
+          
+          if(toState.name.indexOf('root.userCenter') !== -1) {
+            $rootScope.toActivate();
+          }
       });
 
       $rootScope.isNoviceGuide = false;

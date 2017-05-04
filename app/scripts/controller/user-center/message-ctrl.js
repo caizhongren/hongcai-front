@@ -17,7 +17,7 @@ angular.module('hongcaiApp')
     // $scope.changeStatus = function(status,id,$event,$index){
     $scope.changeStatus = function(status, id, $index) {
       var index = $index + 1;
-      var targetP = $('.list-group-item').eq(index).find('p');
+      var targetP = $('.message-item').eq(index).find('p');
 
       if (targetP.hasClass('unfold')) {
         targetP.removeClass('unfold');

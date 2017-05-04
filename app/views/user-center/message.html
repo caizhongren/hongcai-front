@@ -8,7 +8,7 @@
     </div>
     <!-- 1:系统消息 2:充值消息 3:活动消息 4:项目消息 * -->
     <div class="messages-wrap bg-white" ng-repeat="item in data">
-      <div class="message-item">
+      <div class="message-item" ng-click="changeStatus(item.status, item.id, $index)">
         <div class="item-nav cursor-pointer" ng-click="isDelete = !isDelete" ng-init="isDelete = false">
           <p class="ft-black2">
             <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 1">系统消息</span>
