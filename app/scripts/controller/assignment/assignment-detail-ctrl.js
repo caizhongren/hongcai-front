@@ -2,7 +2,7 @@
 angular.module('hongcaiApp')
   .controller('AssignmentDetailCtrl', function($scope, $state, $rootScope, $location, $stateParams, $window, CreditService, OrderService, $modal, $alert, toaster, $timeout, DateUtils, MainService, ProjectService, RESTFUL_DOMAIN) {
     var number = $stateParams.number;
-
+    $rootScope.toActivate();
    
     /**
      * 债券详情
@@ -114,31 +114,34 @@ angular.module('hongcaiApp')
     $scope.clicked = true;
     $scope.toInvest = function(amount) {
       $scope.clicked = false;
-      // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
-      $.ajax({
-        url: RESTFUL_DOMAIN + '/assignments/' + $scope.creditNum + '/orders' + '?amount=' + amount,
-        'type': 'POST',
-        async: false,
-        dataType: 'json',
-        success: function(response) {
-          $scope.clicked = true;
-          $scope.msg = '12';
-          $scope.investAmount = amount;
-          if (response && response.ret !== -1) {
-            $alert({
-              scope: $scope,
-              template: 'views/modal/alertYEEPAY.html',
-              show: true
-            });
+      var invest = function () {
+        // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
+        $.ajax({
+          url: RESTFUL_DOMAIN + '/assignments/' + $scope.creditNum + '/orders' + '?amount=' + amount,
+          'type': 'POST',
+          async: false,
+          dataType: 'json',
+          success: function(response) {
+            $scope.clicked = true;
+            $scope.msg = '12';
+            $scope.investAmount = amount;
+            if (response && response.ret !== -1) {
+              $alert({
+                scope: $scope,
+                template: 'views/modal/alertYEEPAY.html',
+                show: true
+              });
 
-            $window.open('/#!/user-order-transfer/' + response.projectId + '/' + response.id + '/' + response.type + '?orderNumber=' + response.number, '_blank');
-          }else if(response.code == -1037) {
-            $rootScope.toFinishOrder();
-          } else {
-            toaster.pop('error', response.msg);
+              $window.open('/#!/user-order-transfer/' + response.projectId + '/' + response.id + '/' + response.type + '?orderNumber=' + response.number, '_blank');
+            }else if(response.code == -1037) {
+              $rootScope.toFinishOrder();
+            } else {
+              toaster.pop('error', response.msg);
+            }
           }
-        }
-      });
+        });
+      }
+      $rootScope.toActivate(invest);
     };
 
     /**

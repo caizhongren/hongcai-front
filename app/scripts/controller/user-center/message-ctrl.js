@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('MessageCtrl', function($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService) {
-    $rootScope.pageTitle = '站内信-要理财，上宏财！';
+    $rootScope.pageTitle = '站内信-要投资，上宏财！';
 
     $scope.toggleMessage = function($index){
       $scope.toggleIndex = $index;
@@ -17,7 +17,7 @@ angular.module('hongcaiApp')
     // $scope.changeStatus = function(status,id,$event,$index){
     $scope.changeStatus = function(status, id, $index) {
       var index = $index + 1;
-      var targetP = $('.list-group-item').eq(index).find('p');
+      var targetP = $('.message-item').eq(index).find('p');
 
       if (targetP.hasClass('unfold')) {
         targetP.removeClass('unfold');

@@ -171,7 +171,7 @@ hongcaiApp
         url: '/register?inviteCode',
         views:{
           '':{
-            templateUrl:'views/register/register-new2.html',
+            templateUrl:'views/register/register.html',
             controller: 'RegisterMobileCtrl',
             controllerUrl: 'scripts/controller/register/register-mobile-ctrl'
           }
