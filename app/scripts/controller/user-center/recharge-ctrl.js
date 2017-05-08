@@ -160,7 +160,7 @@ angular.module('hongcaiApp')
         $rootScope.toActivate();
         return;
       }
-      if(amount > $scope.bankRemain){
+      if(amount > $scope.bankRemain && $scope.rechargeWay == 'SWIFT'){
         return;
       }
       if($scope.bankStatus == 1 && $scope.payment !== 2){
