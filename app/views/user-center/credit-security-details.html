@@ -23,7 +23,7 @@
         <td>{{ creditRight.baseRate || 0}}%<span ng-show="increaseRateCoupon.type ==1" class="ft-red7"> + {{increaseRateCoupon.value}}%</span></td>
         <td>{{ project.projectDays || 0 }}天</td>
         <td>{{ creditRight.amount - creditRight.transferedAmount || 0 | number:2 }}</td>
-        <td>{{ creditRight.returnProfit || 0 | number:2 }}<span ng-show="increaseRateCoupon.type ==1" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * creditRight.returnProfit / oriRate - creditRight.returnProfit || 0 | number:2 }}</span></td>
+        <td>{{ creditRight.returnProfit + creditRight.discountInterest || 0 | number:2 }}<span ng-show="increaseRateCoupon.type ==1" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * creditRight.returnProfit / oriRate - creditRight.returnProfit || 0 | number:2 }}</span></td>
         <td>{{ waitProfit | number:2 }}<span ng-show="increaseRateCoupon.type ==1" class="ft-red7"> + {{(oriRate + increaseRateCoupon.value) * waitProfit / oriRate - waitProfit | number:2}}</span></td>
       </tr>
     </tbody>
