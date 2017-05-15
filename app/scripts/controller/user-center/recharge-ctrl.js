@@ -163,7 +163,7 @@ angular.module('hongcaiApp')
           $rootScope.toActivate();
           return;
         }
-        if(amount > $scope.bankRemain){
+        if(amount > $scope.bankRemain && $scope.rechargeWay == 'SWIFT'){
           return;
         }
         if((curHours === 23 && curMinutes >= 54) || (curHours === 0 && curMinutes <= 6)) {
@@ -185,6 +185,7 @@ angular.module('hongcaiApp')
         }
         $scope.msg = '2';
         $scope.rechargeAmount = amount;
+
         $alert({
           scope: $scope,
           template: 'views/modal/alertYEEPAY.html',
