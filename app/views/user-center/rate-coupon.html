@@ -61,7 +61,7 @@
             </td>
             <td class="margin-b-0" ng-show="coupon.endTime - currentTime < 0 || (coupon.endTime - currentTime)/(24 * 60 * 60 * 1000) > 7">{{coupon.endTime | date:"yyyy-MM-dd"}}</td>
             <td>{{ coupon.investProductType == 5 ? '宏财精选' : coupon.investProductType == 6 ? '宏财尊贵' : '宏财精选、宏财尊贵'}}</td>
-            <td>{{ coupon.investProductType == '5,6' ? '1天' : '与所投资产品时长相同'}}</td>
+            <td>{{ coupon.type == '5' ? '1天' : '与所投资产品时长相同'}}</td>
             <td>
               <button ng-if="coupon.endTime-currentTime >= 0 && coupon.type !==5" class="orange-button" ng-click="toProjectList(coupon.investProductType, $index)">立即使用</button>
               <button ng-if="coupon.endTime-currentTime < 0" class="grey-button border-0 no-boxshadow" ui-sref="root.guaranteepro-list-query-no">已过期</button>
