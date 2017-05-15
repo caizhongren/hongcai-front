@@ -136,9 +136,7 @@ angular.module('hongcaiApp')
       $scope.investStat.holdingCount = 0;
       $scope.investStat.endProfitCount = 0;
       $scope.loadCredits($scope.currentPage, $scope.pageSize, status, tab);
-      if(status === 1){
-        $scope.getCreditRightStat(tab); 
-      }
+      $scope.getCreditRightStat(tab); 
     }
     $scope.tabToggle(7,1);
 

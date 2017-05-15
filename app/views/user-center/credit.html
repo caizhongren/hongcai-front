@@ -88,8 +88,8 @@
 
     <!-- 二级tab -->
     <div class="row tabs-two">
-      <div class="col-md-2 ft-grey666 cursor-pointer padding-r-0 {{searchStatus === 1 ? 'ft-orange6' : ''}}" ng-click="tabToggle(7,1)">投资中 ( {{investStat.holdingCount}} )</div>
-      <div class="col-md-2 ft-grey666 cursor-pointer padding-l-0 margin-l--20 {{searchStatus === 4 ? 'ft-orange6' : ''}}" ng-click="tabToggle(7,4);">已回款 ( {{investStat.endProfitCount}} )</div>
+      <div class="col-md-2 ft-grey666 cursor-pointer padding-r-0 {{searchStatus === 1 ? 'ft-orange6' : ''}}" ng-click="tabToggle(tabStatus, 1)">投资中 ( {{investStat.holdingCount}} )</div>
+      <div class="col-md-2 ft-grey666 cursor-pointer padding-l-0 margin-l--20 {{searchStatus === 4 ? 'ft-orange6' : ''}}" ng-click="tabToggle(tabStatus, 4);">已回款 ( {{investStat.endProfitCount}} )</div>
     </div>
 
     <!-- 列表 -->
@@ -132,7 +132,7 @@
         </tbody>
       </table>
       <ul class="pager padding-30 margin-t-0 ft-14 ft-white4" ng-if="heldInCreditList.length > 0">
-        <li class="display-inbl"><button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage-1, pageSize,tabStatus, searchStatus, tabStatus)">上一页</button></li>
+        <li class="display-inbl"><button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage-1, pageSize, searchStatus, tabStatus)">上一页</button></li>
         <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div><div class="dot">...</div>
       <div class="display-inbl total-page">&nbsp;&nbsp;{{ numberOfPages }}&nbsp;&nbsp;</div>
         <li class="display-inbl"><button class="btn btn-orange6 {{currentPage >= numberOfPages ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= numberOfPages " ng-click="loadCredits(currentPage+1, pageSize, searchStatus, tabStatus)">下一页</button></li>
