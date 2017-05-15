@@ -129,22 +129,24 @@ angular.module('hongcaiApp')
     }
     $scope.tabStatus = 7;
     $scope.searchStatus = parseInt($stateParams.searchStatus) || 1;
-    $scope.tabToggle = function(tab) {
+    $scope.tabToggle = function(tab, status) {
       $scope.tabStatus = tab;
-      $scope.searchStatus = 1;
+      $scope.searchStatus = status;
+      $scope.currentPage = 1;
       $scope.investStat.holdingCount = 0;
       $scope.investStat.endProfitCount = 0;
-      $scope.loadCredits($scope.currentPage, $scope.pageSize, $scope.searchStatus, $scope.tabStatus);
-      $scope.getCreditRightStat($scope.tabStatus);
+      $scope.loadCredits($scope.currentPage, $scope.pageSize, status, tab);
+      if(status === 1){
+        $scope.getCreditRightStat(tab); 
+      }
     }
-    $scope.tabToggle(7);
+    $scope.tabToggle(7,1);
 
 
 
     //饼图设置
     
     $scope.$watch('investStat.holdingAmount', function(newValue, oldValue){
-      // console.log($scope.investStat.totalInvestAmount);
       var percent1,percent2,percent3;
       if($scope.investStat.totalInvestAmount == 0) {
         percent1 = percent2 = percent3 =  3;

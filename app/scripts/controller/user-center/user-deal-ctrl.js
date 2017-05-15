@@ -65,11 +65,13 @@ angular.module('hongcaiApp')
     $scope.selected2 = '全部';
     //选择交易类型
     $scope.selectDealType = function(dealType){
+      $scope.currentPage = 1;
       $scope.selected1 = dealType.type;
       $scope.dealType = dealType.no;
     }
     //选择起止日期
     $scope.selectdateInterval = function(dateInterval){
+      $scope.currentPage = 1;
       $scope.selected2 = dateInterval.type;
       $scope.dateInterval = dateInterval.no;
       $scope.startTime = '';
