@@ -1,35 +1,39 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('InviteRebateCtrl', function($scope, $state, $rootScope, UserCenterService, $alert, ShareUtils, VouchersService, ngClipboard, toaster, config) {
-    VouchersService.getInviteList.get(function(response) {
-      if (response.ret === 1) {
-        $scope.voucher = response.data.voucher;
-        $scope.inviteCode = response.data.voucher.inviteCode;
-        $scope.inviteList = response.data.inviteList;
-        $scope.currentPage = 0;
-        $scope.pageSize = 6;
-        $scope.data = [];
-        $scope.copyUrl = 'https://www.hongcai.com/#!/register-mobile/' + $scope.inviteCode;
-        $scope.numberOfPages = function() {
-          return Math.ceil($scope.data.length / $scope.pageSize);
-        };
-        for (var i = 0; i < $scope.inviteList.length; i++) {
-          $scope.data.push($scope.inviteList[i]);
-        }
-
-        $scope.inviteUrl = "http://www.hongcai.com/register?inviteCode=" + response.data.voucher.inviteCode;
-
-      } else {
-        //console.log('ask invite-rebate, why getInviteList did not load data...');
-      }
-
-      // 生成自己的二维码
-      $('#qrcode').qrcode({
-        render:'table',
-        text:'http://m.hongcai.com/register?inviteCode=' + $scope.inviteCode,
-        size: 150
+    // $scope.pageSize = 5;
+    $scope.pageSize = 6;
+    // $scope.currentPage = 1;
+    $scope.invitList = function(page) {
+      VouchersService.getInviteList.get({
+        page: page,
+        pageSize: 6
+      },function(response) {
+        if (response && response.ret !== -1) {
+          $scope.inviteList = response.data;
+          $scope.currentPage = page;
+          $scope.numberOfPages = function() {
+            return Math.ceil(response.total/$scope.pageSize);
+          };
+        } 
+        
       });
-    });
+    }
+    $scope.invitList(1);
+    VouchersService.inviteVoucher.get(function(response){
+      if(response && response.ret !== -1) {
+        $scope.voucher = response;
+        $scope.inviteCode = response.inviteCode;
+        $scope.copyUrl = 'https://www.hongcai.com/#!/register-mobile/' + $scope.inviteCode;
+        $scope.inviteUrl = "http://www.hongcai.com/register?inviteCode=" + $scope.inviteCode;
+        // 生成自己的二维码
+        $('#qrcode').qrcode({
+          render:'table',
+          text:'http://m.hongcai.com/register?inviteCode=' + $scope.inviteCode,
+          size: 150
+        });
+      }
+    })
 
     VouchersService.inviteStat.get(function(response){
       if (response.ret === 1){

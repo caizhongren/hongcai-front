@@ -43,13 +43,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="item in data | startFrom:currentPage * pageSize | limitTo:pageSize">
+        <tr ng-repeat="item in inviteList ">
           <td class="text-left">{{item.user.mobile || item.user.name}}</td>
           <td>{{item.user.createTime | date:'yyyy-MM-dd'}}</td>
           <td class="text-right padding-r-10"><span ng-class="item.authStatus === 2 ? 'ft-blue5' : 'ft-orange6'">{{item.authStatus === 2 ? '已认证' : '未认证'}}</span></td>
           <td class="text-right padding-l-0"><span ng-class="item.investAmount > 0 ? 'ft-blue5' : 'ft-orange6'">{{item.investAmount > 0 ? "已投资" : "未投资"}}</span></td>
         </tr>
-        <tr ng-show="data.length <= 0">
+        <tr ng-show="inviteList.length <= 0">
           <td colspan="4">
             <div>
               <p class="ft-18 ft-grey666 margin-t-20">暂无邀请记录，快去邀请好友吧！</p>
@@ -58,14 +58,14 @@
         </tr>
       </tbody>
     </table>
-    <ul class="pager margin-t-0 padding-30 ft-14 ft-white4" ng-if="data.length > 0">
+    <ul class="pager margin-t-0 padding-30 ft-14 ft-white4" ng-if="inviteList.length > 0">
       <li class="display-inbl">
-        <button class="btn btn-orange6 {{currentPage == 0 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 0" ng-click="currentPage = currentPage - 1">上一页</button>
+        <button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="invitList(currentPage - 1)">上一页</button>
       </li>
-      <div class="display-inbl current-page">&nbsp;&nbsp;{{currentPage +1 }}&nbsp;&nbsp;</div><div class="dot">...</div>
+      <div class="display-inbl current-page">&nbsp;&nbsp;{{currentPage}}&nbsp;&nbsp;</div><div class="dot">...</div>
       <div class="display-inbl total-page">&nbsp;&nbsp;{{ numberOfPages() }}&nbsp;&nbsp;</div>
       <li class="display-inbl">
-        <button class="btn btn-orange6 {{currentPage >= data.length / pageSize - 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= data.length / pageSize - 1" ng-click="currentPage = currentPage + 1">下一页</button>
+        <button class="btn btn-orange6 {{currentPage >= numberOfPages() ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= numberOfPages()" ng-click="invitList(currentPage + 1)">下一页</button>
       </li>
     </ul>
   </div>
