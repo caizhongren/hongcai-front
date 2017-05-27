@@ -575,23 +575,71 @@
     outline: none;
   }
 }
-.pay-active {
-    color: #ff6600;
+.recharge {
+  .hand-tip {
+    padding-left: 0;
+    span.tip {
+      display: none;
+      padding-left: 0;
+      background: url(/images/user-center/tip.png) no-repeat;
+      background-size: 100% 100%;
+      padding: 0;
+      width: 140px;
+      height: 20px;
+      color: #db4921;
+      line-height: 21px;
+      text-align: center;
+      font-size: 13px;
+      top: 0;
+      left: 25px;
+      padding-left: 7px;
+    }
+  }
 }
 .pay-typeFU {
-  background: url(/images/user-center/pay-logo.png) no-repeat 3px -27px;
-  background-size: 29%;
   padding-left: 44px;
 }
 .pay-typeUCF {
-  background: url(/images/user-center/pay-logo.png) no-repeat 3px -48px;
-  background-size: 29%;
   padding-left: 44px;
 }
 .pay-typeUMP {
-  background: url(/images/user-center/pay-logo.png) no-repeat -2px -6px;
-  background-size: 31%;
   padding-left: 44px;
+}
+.pay-typeUCF,.pay-typeUMP, .pay-typeFU {
+  span {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: -2px;
+    margin-right: 3px;
+  }
+} 
+.pay-active {
+    color: #ff6600;
+    span {
+      width: 14px;
+      height: 14px;
+      border: 1px solid #fd8f3f;
+      border-radius: 50%;
+      position: relative;
+      background-color: #fff!important;
+      margin-bottom: -2px;
+      margin-right: 3px;
+    }
+    span:after {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      position: absolute;
+      background-color: #fd8f3f;
+      top: 17%;
+      left: 17%;
+      border-radius: 50%;
+    }
 }
 // recharge && withdraw && security-settings
 .user-tips-area {

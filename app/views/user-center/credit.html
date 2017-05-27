@@ -80,16 +80,16 @@
      <!-- tab切换 -->
     <div class="tabs row margin-l-0 margin-r-0 margin-t-30">
       <!-- <div class="toggle-tab tab-two ft-grey666 cursor-pointer {{tabStatus == 1 ? 'credit-toggle2' : ''}}" ng-click="loadAssignments(currentPage, pageSize, 1)">月月宏</div> -->
-      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 7 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(7)">宏财精选</div>
-      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 8 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(8)">宏财尊贵</div>
-      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 6 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(6)">债权转让</div>
-      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 3 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(3)" ng-show="showOther">其他</div>
+      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 7 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(7, 1)">宏财精选</div>
+      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 8 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(8, 1)">宏财尊贵</div>
+      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 6 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(6, 1)">债权转让</div>
+      <div class="toggle-tab ft-grey666 cursor-pointer fl {{tabStatus == 3 ? 'credit-toggle2' : ''}} {{showOther ? 'tab-two' : 'tab-two2'}}" ng-click="tabToggle(3, 1)" ng-show="showOther">其他</div>
     </div>
 
     <!-- 二级tab -->
     <div class="row tabs-two">
-      <div class="col-md-2 ft-grey666 cursor-pointer padding-r-0 {{searchStatus === 1 ? 'ft-orange6' : ''}}" ng-click="loadCredits(currentPage, pageSize, 1, tabStatus)">投资中 ( {{investStat.holdingCount}} )</div>
-      <div class="col-md-2 ft-grey666 cursor-pointer padding-l-0 margin-l--20 {{searchStatus === 4 ? 'ft-orange6' : ''}}" ng-click="loadCredits(currentPage, pageSize, 4, tabStatus)">已回款 ( {{investStat.endProfitCount}} )</div>
+      <div class="col-md-2 ft-grey666 cursor-pointer padding-r-0 {{searchStatus === 1 ? 'ft-orange6' : ''}}" ng-click="tabToggle(tabStatus, 1)">投资中 ( {{investStat.holdingCount}} )</div>
+      <div class="col-md-2 ft-grey666 cursor-pointer padding-l-0 margin-l--20 {{searchStatus === 4 ? 'ft-orange6' : ''}}" ng-click="tabToggle(tabStatus, 4);">已回款 ( {{investStat.endProfitCount}} )</div>
     </div>
 
     <!-- 列表 -->
@@ -132,10 +132,10 @@
         </tbody>
       </table>
       <ul class="pager padding-30 margin-t-0 ft-14 ft-white4" ng-if="heldInCreditList.length > 0">
-        <li class="display-inbl"><button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage-1, pageSize, searchStatus)">上一页</button></li>
+        <li class="display-inbl"><button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage-1, pageSize, searchStatus, tabStatus)">上一页</button></li>
         <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div><div class="dot">...</div>
       <div class="display-inbl total-page">&nbsp;&nbsp;{{ numberOfPages }}&nbsp;&nbsp;</div>
-        <li class="display-inbl"><button class="btn btn-orange6 {{currentPage >= numberOfPages ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= numberOfPages " ng-click="loadCredits(currentPage+1, pageSize, searchStatus)">下一页</button></li>
+        <li class="display-inbl"><button class="btn btn-orange6 {{currentPage >= numberOfPages ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= numberOfPages " ng-click="loadCredits(currentPage+1, pageSize, searchStatus, tabStatus)">下一页</button></li>
       </ul>
     </div>
     <!-- 已回款 -->
@@ -176,12 +176,12 @@
       </table>
       <ul class="pager padding-30 margin-t-0 ft-14 ft-white4" ng-hide="heldInCreditList.length<=0">
         <li class="display-inbl">
-          <button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage - 1, pageSize, searchStatus)">上一页</button>
+          <button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage - 1, pageSize, searchStatus, tabStatus)">上一页</button>
         </li>
         <div class="display-inbl current-page">&nbsp;&nbsp;{{currentPage}}&nbsp;&nbsp;</div><div class="dot">...</div>
         <div class="display-inbl total-page">&nbsp;&nbsp;{{ numberOfPages }}&nbsp;&nbsp;</div>
         <li class="display-inbl">
-          <button class="btn btn-orange6 {{currentPage >= numberOfPages ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= numberOfPages" ng-click="loadCredits(currentPage+1, pageSize, searchStatus)">下一页</button>
+          <button class="btn btn-orange6 {{currentPage >= numberOfPages ? 'btn-disabled6' : ''}}" ng-disabled="currentPage >= numberOfPages" ng-click="loadCredits(currentPage+1, pageSize, searchStatus, tabStatus)">下一页</button>
         </li>
       </ul>
     </div>
