@@ -15,7 +15,7 @@
             <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 2">充值消息</span>
             <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 3">活动消息</span>
             <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 4">项目消息</span> -->
-            <span class="msg-title ft-16 {{item.type === 0 ? 'ft-grey666' : 'ft-grey4'}}">{{item.title}}</span>
+            <span class="msg-title ft-16 {{item.status == 0 ? 'ft-grey666' : 'ft-grey4'}}">{{item.title}}</span>
             <span class="ft-14 fr ft-grey4" ng-show="isDelete == false">{{item.createTime | date: "yy-MM-dd HH:mm"}}</span>
             <span class="ft-14 fr ft-orange5" ng-click="deleteMsg(item.id)" ng-show="isDelete == true">删除此条信息<i class="fa fa-times"></i></span>
           </p>

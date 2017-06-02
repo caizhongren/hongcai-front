@@ -16,13 +16,14 @@ angular.module('hongcaiApp')
     }
     // $scope.changeStatus = function(status,id,$event,$index){
     $scope.changeStatus = function(status, id, $index) {
-      var index = $index + 1;
-      var targetP = $('.message-item').eq(index).find('p');
+      var index = $index;
+      var targetP = $('.message-item').eq(index).find('.msg-title');
 
-      if (targetP.hasClass('unfold')) {
-        targetP.removeClass('unfold');
+      if (targetP.hasClass('ft-grey666')) {
+        targetP.removeClass('ft-grey666');
+        targetP.addClass('ft-grey4');
       } else {
-        targetP.addClass('unfold');
+        targetP.addClass('ft-grey4');
       }
 
       if (status === 0) {
@@ -41,7 +42,7 @@ angular.module('hongcaiApp')
           }
         });
 
-        $('.list-group-item').eq(index).removeClass('unread-flag');
+        targetP.removeClass('ft-grey666');
 
       }
     };
