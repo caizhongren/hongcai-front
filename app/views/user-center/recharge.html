@@ -2,7 +2,7 @@
 <div class="right-area right-assets-height recharge col-md-8 col-lg-9">
   <div class="currency-style">
     <div class="title">
-      <span class="tip">充值<input type="radio"></span>
+      <span class="tip">充值</span>
     </div>
 
     <!--end 安全认证提示 -->
@@ -20,7 +20,7 @@
           <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==1 || payment == 3}" ng-click="selectPay(3)"><b>快捷支付方式</b></div>
           <div class="col-md-2 cursor-pointer pay-typeUCF" ng-class="{'pay-active':payment ==3}" ng-click="selectPay(3)"><span></span>先锋支付</div>
           <div class="col-md-2 cursor-pointer pay-typeFU" ng-class="{'pay-active':payment ==1}" ng-click="selectPay(1)"><span></span>富有支付</div>
-          <div class="col-md-1 position-re hand-tip"><img src="/images/user-center/hand.png" class="display-inbl margin-t--5" width="35%" toggle-fade alt=""><span class="tip position-ab">支付方式可切换哦！</span></div>
+          <div class="col-md-1 position-re hand-tip"><img src="/images/user-center/hand.png" class="display-inbl margin-t--5" width="35%" alt=""><span class="tip position-ab">支付方式可切换哦！</span></div>
           <a class=" col-md-2 col-md-offset-2 cursor-pt supportBank" href="javascript:;" focus-blur ng-click="showSupportBank = !showSupportBank;">支持银行及限额</a>
           <table class="supportList border-grey1" ng-if="payment !== 2 && showSupportBank">
             <thead>
@@ -47,14 +47,14 @@
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-40 margin-b-50 margin-l-30">
           <div>
-            <div class="col-md-2 margin-t--5 padding-l-30 margin-r-5">
+            <div class="fl margin-t--5 padding-l-30 margin-r-40">
               <img ng-src="{{userCurrenBank.src}}">{{ userCard.openBank}}
             </div>
-            <div class="col-md-1 margin-r-40 padding-0 ">{{userCard.cardNo}}</div>
-            <div class="col-md-2 text-right">
+            <div class="fl padding-0 margin-r-40">{{userCard.cardNo}}</div>
+            <div class="fl text-right margin-r-40">
               <span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span>
             </div>
-            <div class="col-md-5 padding-0 text-center">单笔/单日/单月限额：
+            <div class="fl text-center">单笔/单日/单月限额：
             <!-- {{ userCurrenBank.dayLimit}} -->
               <span ng-if="userCurrenBank.singleLimit < 0">不限</span>
               <span ng-if="userCurrenBank.singleLimit > 0">{{userCurrenBank.singleLimit%10000 !== 0 ? userCurrenBank.singleLimit : userCurrenBank.singleLimit/10000 + 'w'}}</span>/
