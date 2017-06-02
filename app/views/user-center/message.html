@@ -9,18 +9,18 @@
     <!-- 1:系统消息 2:充值消息 3:活动消息 4:项目消息 * -->
     <div class="messages-wrap bg-white" ng-repeat="item in data">
       <div class="message-item" ng-click="changeStatus(item.status, item.id, $index)">
-        <div class="item-nav cursor-pointer" ng-click="isDelete = !isDelete" ng-init="isDelete = false">
+        <div class="item-nav cursor-pointer" ng-click="openMsg($index);" >
           <p class="ft-black2">
            <!--  <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 1">系统消息</span>
             <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 2">充值消息</span>
             <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 3">活动消息</span>
             <span class="msg-type ft-grey666 ft-16" ng-if="item.type == 4">项目消息</span> -->
             <span class="msg-title ft-16 {{item.status == 0 ? 'ft-grey666' : 'ft-grey4'}}">{{item.title}}</span>
-            <span class="ft-14 fr ft-grey4" ng-show="isDelete == false">{{item.createTime | date: "yy-MM-dd HH:mm"}}</span>
-            <span class="ft-14 fr ft-orange5" ng-click="deleteMsg(item.id)" ng-show="isDelete == true">删除此条信息<i class="fa fa-times"></i></span>
+            <span class="ft-14 fr ft-grey4 msg-time">{{item.createTime | date: "yy-MM-dd HH:mm"}}</span>
+            <span class="ft-14 fr ft-orange5 msg-delete display-no" ng-click="deleteMsg(item.id);">删除此条信息<i class="fa fa-times"></i></span>
           </p>
         </div>
-        <div class="ft-14 ft-grey666 item-discrip" ng-show="isDelete == true">{{item.content}}<p class="text-right ft-14 ft-grey4">{{item.createTime | date: "yy-MM-dd HH:mm"}}</p></div>
+        <div class="ft-14 ft-grey666 item-discrip display-no" >{{item.content}}<p class="text-right ft-14 ft-grey4">{{item.createTime | date: "yy-MM-dd HH:mm"}}</p></div>
       </div>
     </div>
     
