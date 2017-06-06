@@ -2,7 +2,6 @@
 angular.module('hongcaiApp')
   .controller('MessageCtrl', function($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService) {
     $rootScope.pageTitle = '站内信-要投资，上宏财！';
-
     $scope.toggleMessage = function($index){
       $scope.toggleIndex = $index;
       var index = $index;
@@ -16,13 +15,13 @@ angular.module('hongcaiApp')
     }
     // $scope.changeStatus = function(status,id,$event,$index){
     $scope.changeStatus = function(status, id, $index) {
-      var index = $index + 1;
-      var targetP = $('.message-item').eq(index).find('p');
-
-      if (targetP.hasClass('unfold')) {
-        targetP.removeClass('unfold');
+      var index = $index;
+      var targetSpan = $('.message-item').eq(index).find('.msg-title');
+      if (targetSpan.hasClass('ft-grey666')) {
+        targetSpan.removeClass('ft-grey666');
+        targetSpan.addClass('ft-grey4');
       } else {
-        targetP.addClass('unfold');
+        targetSpan.addClass('ft-grey4');
       }
 
       if (status === 0) {
@@ -41,7 +40,7 @@ angular.module('hongcaiApp')
           }
         });
 
-        $('.list-group-item').eq(index).removeClass('unread-flag');
+        targetSpan.removeClass('ft-grey666');
 
       }
     };
@@ -49,7 +48,28 @@ angular.module('hongcaiApp')
     $scope.currentPage = 1;
     $scope.pageSize = 12;
     $scope.status = $stateParams.status;
-
+    //打开消息关闭其他
+    $scope.openMsg = function ($index) {
+      var index = $index;
+      var targetSpan = $('.message-item').eq(index).find('.item-discrip');
+      var targetTime = $('.message-item').eq(index).find('.msg-time');
+      var targetDelete = $('.message-item').eq(index).find('.msg-delete');
+      // $scope.isDelete = !$scope.isDelete;
+      if(targetSpan.hasClass('display-no')){
+        $('.message-item').find('.item-discrip').addClass('display-no');
+        $('.message-item').find('.msg-time').removeClass('display-no');
+        $('.message-item').find('.msg-delete').addClass('display-no');
+        targetSpan.removeClass('display-no');
+        targetTime.addClass('display-no');
+        targetDelete.removeClass('display-no');
+        $scope.isDelete = !$scope.isDelete;
+      } else {
+        targetDelete.addClass('display-no');
+        targetTime.removeClass('display-no');
+        targetSpan.addClass('display-no');
+        $scope.isDelete = !$scope.isDelete;
+      }
+    }
     
 
     /**

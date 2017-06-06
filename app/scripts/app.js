@@ -254,6 +254,18 @@ hongcaiApp
           }
         }
       })
+       /*----------------------  了解存管  -------------------------*/
+      .state('root.sign-bank-deposits', {
+        url: '/sign-bank-deposits',
+        views: {
+          '': {
+            templateUrl: 'views/sign-bank-deposits.html'
+          }
+        },
+        data: {
+          title: '了解存管'
+        }
+      })
 
       /**
        * 宏金盈介绍页
