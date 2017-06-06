@@ -102,7 +102,8 @@ angular.module('hongcaiApp')
       'activity',
       'novice-guide',
       'register',
-      'safe'
+      'safe',
+      'sign-bank-deposits'
     ];
 
     /**

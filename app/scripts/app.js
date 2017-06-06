@@ -261,6 +261,9 @@ hongcaiApp
           '': {
             templateUrl: 'views/sign-bank-deposits.html'
           }
+        },
+        data: {
+          title: '了解存管'
         }
       })
 
