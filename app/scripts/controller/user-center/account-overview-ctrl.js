@@ -92,7 +92,6 @@ angular.module('hongcaiApp')
     $scope.getCreditRightStatistics();
 
 
-
     /**
      * 收益走势图 累计
      */
@@ -338,8 +337,14 @@ angular.module('hongcaiApp')
     }
     //日期切换
     
-   
-
-    
+    //资产总额详情显示框
+    $scope.showPaymentBox = false;
+    $scope.selectPaymentBox = function(){
+      $scope.showPaymentBox = !$scope.showPaymentBox;
+    }
+    $('.select-payment').blur(function(){
+      $scope.showPaymentBox = false;
+      $scope.$apply();
+    })
 
   })

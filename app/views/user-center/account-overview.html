@@ -1,39 +1,257 @@
 <!--账户总览-->
-<div class="right-area account-overview fl padding-b-30" >
-	<!--资产收益走势图  -->
-	<div class="profit-chart">
-		<p class="chart-title ft-16 ft-grey666 margin-b-0">资产收益走势图</p>
-		<div class="tabs row margin-l-0 margin-r-0 position-re" ng-init = "tab = 0">
-		  	<div class="toggle-tab col-md-4 ft-b cursor-pointer margin-b-30 {{tab === 0 ? 'credit-toggle2' : ''}}" ng-click="tab = 0">累计</div>
-		  	<div class="toggle-tab col-md-4 ft-b cursor-pointer margin-b-30 {{tab === 1 ? 'credit-toggle2' : ''}}" ng-click="tab = 1">每日</div>
-		</div>
-		<!-- 累计图 -->
-		<div class="main col-md-12" style="min-height:377px;" ng-if="tab === 0">
-			 <div class="col-md-10 col-md-offset-1 text-center padding-0 ft-grey666">
-			    <canvas id="line" class="chart-line display-bl margin-auto" chart-data="yearlyData"
-			    chart-labels="labels" chart-options="options"
-			    chart-click="onClick" chart-colours="medals_colours" data-dataset="datasets" height="346" width="700">
-			    </canvas >
-			    <div class="clearfix">
-			    	<img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 cursor-pointer" ng-click="toggleYear('pre')">
-			    	<img src="/images/user-center/next.png" class="fr display-inbl margin-r--30 cursor-pointer" ng-click="toggleYear('next')">
-			    </div>
-			    <p class="text-center ft-grey666 ft-14 margin-t-20"><span class="line margin-b-5"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{chartYear}}年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="line margin-b-5"></span></p>
-			 </div>
-		</div>	
-		<!-- 每日图 -->
-		<div class="main col-md-12" style="min-height:377px;" ng-if="tab === 1">
-			 <div class="col-md-10 col-md-offset-1 text-center padding-0 ft-grey666">
-			    <canvas id="line" class="chart-line display-bl margin-auto" chart-data="dailyData"
-			    chart-labels="dailyLabels" chart-options="options"
-			    chart-click="onClick" chart-colours="medals_colours" height="346" width="700">
-			    </canvas >
-			    <div class="clearfix">
-			    	<img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 cursor-pointer">
-			    	<img src="/images/user-center/next.png" class="fr display-inbl margin-r--30 cursor-pointer">
-			    </div>
-			    <p class="text-center ft-grey666 ft-14 margin-t-20"><span class="line margin-b-5"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="line margin-b-5"></span></p>
-			 </div>
-		</div>	
-	</div>
+<div class="right-area account-overview fl padding-b-30 bg-offWhite">
+  <!-- 可用余额模块 -->
+  <div class="avails-balance margin-b-30">
+    <div class="col-md-4 clearfix">
+      <div class="balance-txt fl ft-16">可用余额 :</div>
+      <div class="balance-amount fl ft-orange6 ft-30 ft-Arial">{{account.balance| number:2}}</div>
+    </div>
+    <div class="col-md-4 shortcut-key">
+      <span class="invest" ui-sref="root.guaranteepro-list-query({status: '7,8,9,10,11,12', minCycle: '0', maxCycle: '100', minEarning: '0', maxEarning: '100', minTotalAmount: '0', maxTotalAmount: 200000000, sortCondition: 'release_start_time', sortType: false, type: 5 })">投资</span>
+      <span class="recharge" ui-sref="root.userCenter.recharge">充值</span>
+      <span class="withdraw margin-r-0" ui-sref="root.userCenter.withdraw">提现</span>
+    </div>
+    <div class="col-md-4 ft-14 coupons">
+      <div class="cash-coupon margin-l-30 margin-r-30" ui-sref="root.userCenter.cash-coupon">
+          <span class="cash-icon"></span>
+          <span class="ft-grey666 cash-txt">奖金券 <span class="ft-orange6 ft-Arial"> 2 </span>张</span>
+      </div>
+      <div class="rate-coupon" ui-sref="root.userCenter.rate-coupon">
+          <span class="rate-icon"></span>
+          <span class="ft-grey666 rate-txt">加息券 <span class="ft-orange6 ft-Arial"> 2 </span>张</span>
+      </div>
+    </div>
+  </div>
+  <!-- 昨日收益、累计收益、资产总额统计 -->
+  <div class="account-profit margin-b-30">
+    <div class="earnings-yesterday col-md-4 border-r-e">
+      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">2.00</div>
+      <div class="ft-14 ft-grey666">昨日收益 ( 元 ) </div>
+    </div>
+    <div class="accumulated-income col-md-4 border-r-e">
+      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">{{account.receivedProfit| number:2}}</div>
+      <div class="ft-14 ft-grey666">累计收益 ( 元 ) </div>
+    </div>
+    <div class="total-assets col-md-4">
+      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">300.00</div>
+      <div class="ft-14 ft-grey666">资产总额 ( 元 ) 
+        <span class="total-assets-tips" toggle-fade></span>
+        <div class="sidebar-tip-top">
+          <p><span class="fl margin-r-10">账户余额 ( 元 ) : </span><span class="fr">{{account.balance || 0 | number:2}}</span></p>
+          <p><span class="fl margin-r-10">待收本金 ( 元 ) : </span><span class="fr">{{account.waitingCapital || 0 | number:2}}</span></p>
+          <p><span class="fl margin-r-10">待收收益 ( 元 ) : </span><span class="fr">{{account.waitingProfit || 0 | number:2}}</span></p>
+          <p><span class="fl margin-r-10">冻结资金 ( 元 ) : </span><span class="fr">{{account.freezeCapital || 0 | number:2}}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--资产收益走势图  -->
+  <div class="profit-chart margin-b-30">
+    <p class="chart-title ft-16 ft-grey666 margin-b-0">资产收益走势图</p>
+    <div class="tabs row margin-l-0 margin-r-0 position-re" ng-init = "tab = 0">
+        <div class="toggle-tab col-md-4 ft-b cursor-pointer margin-b-30 {{tab === 0 ? 'credit-toggle2' : ''}}" ng-click="tab = 0">累计</div>
+        <div class="toggle-tab col-md-4 ft-b cursor-pointer margin-b-30 {{tab === 1 ? 'credit-toggle2' : ''}}" ng-click="tab = 1">每日</div>
+    </div>
+    <!-- 累计图 -->
+    <div class="main col-md-12" style="min-height:377px;" ng-if="tab === 0">
+       <div class="col-md-10 col-md-offset-1 text-center padding-0 ft-grey666">
+          <canvas id="line" class="chart-line display-bl margin-auto" chart-data="yearlyData"
+          chart-labels="labels" chart-options="options"
+          chart-click="onClick" chart-colours="medals_colours" data-dataset="datasets" height="346" width="700">
+          </canvas >
+          <div class="clearfix">
+            <img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 cursor-pointer" ng-click="toggleYear('pre')">
+            <img src="/images/user-center/next.png" class="fr display-inbl margin-r--30 cursor-pointer" ng-click="toggleYear('next')">
+          </div>
+          <p class="text-center ft-grey666 ft-14 margin-t-20"><span class="line margin-b-5"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{chartYear}}年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="line margin-b-5"></span></p>
+       </div>
+    </div>  
+    <!-- 每日图 -->
+    <div class="main col-md-12" style="min-height:377px;" ng-if="tab === 1">
+       <div class="col-md-10 col-md-offset-1 text-center padding-0 ft-grey666">
+          <canvas id="line" class="chart-line display-bl margin-auto" chart-data="dailyData"
+          chart-labels="dailyLabels" chart-options="options"
+          chart-click="onClick" chart-colours="medals_colours" height="346" width="700">
+          </canvas >
+          <div class="clearfix">
+            <img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 cursor-pointer">
+            <img src="/images/user-center/next.png" class="fr display-inbl margin-r--30 cursor-pointer">
+          </div>
+          <p class="text-center ft-grey666 ft-14 margin-t-20"><span class="line margin-b-5"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="line margin-b-5"></span></p>
+       </div>
+    </div>  
+  </div>
+  <!-- 待收回款日历 -->
+  <div class="return-calendar">
+    <h2 class="account-title">
+      <span class="fl c3">待收回款日历</span>
+    </h2>
+    <div class="profit-title">
+      <!-- <div class="f-btn-fhby fr">返回本月</div> -->
+      <a class="select-payment fl clearfix" href="javascript:;" focus-blur ng-click="selectPaymentBox();">
+        <div class="payment-type fl">待收回款</div>
+        <div class="payment-amount fr"><span class="margin-r-5">0.00元 | 1笔 </span><i class="fa fa-angle-down ft-24" aria-hidden="true" ng-show="!showPaymentBox"></i><i class="fa fa-angle-up ft-24" aria-hidden="true" ng-show="showPaymentBox"></></i></div>
+      </a>
+      <div class="payment-box" ng-show="showPaymentBox">
+        <p>项目名称 : 大型商贸公司融资项目3期</p>
+        <p>年均回报率 : 9.35%</p>
+        <p>汇款类型 : 利息2期</p>
+        <p>回款金额 : <span class="ft-orange">562.35</span>元</p>
+      </div>
+      <div class="clearfix fr">
+        <div class="f-btn-jian fl"></div><div class="fl f-riqi"><span class="f-year">2017</span>-<span class="f-month">01</span></div><div class="f-btn-jia fl"></div><!-- 一定不能换行-->
+      </div>
+    </div>
+    <div class="table-box">
+      <div class="f-rili-table">
+        <div class="f-rili-head celarfix">
+          <div class="f-rili-th">一</div>
+          <div class="f-rili-th">二</div>
+          <div class="f-rili-th">三</div>
+          <div class="f-rili-th">四</div>
+          <div class="f-rili-th">五</div>
+          <div class="f-rili-th">六</div>
+          <div class="f-rili-th">日</div>
+          <div class="clear"></div>
+        </div>
+        <div class="f-tbody clearfix">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<script type="text/javascript">
+  $(function(){
+  //页面加载初始化年月
+  var mydate = new Date();
+  $(".f-year").html( mydate.getFullYear() );
+  $(".f-month").html( mydate.getMonth()+1 <10 ? "0" + (mydate.getMonth()+1) : mydate.getMonth()+1);
+  showDate(mydate.getFullYear(),mydate.getMonth()+1);
+  //日历上一月
+  $(".f-btn-jian ").click(function(){
+    var mm = parseInt($(".f-month").html());
+    var yy = parseInt($(".f-year").html());
+    if( mm == 1){//返回12月
+      $(".f-year").html(yy-1);
+      $(".f-month").html(12);
+      showDate(yy-1,12);
+    }else{//上一月
+      $(".f-month").html(mm-1<10? "0"+(mm-1):mm-1);
+      showDate(yy,mm-1);
+    }
+  })
+  //日历下一月
+  $(".f-btn-jia").click(function(){
+    var mm = parseInt($(".f-month").html());
+    var yy = parseInt($(".f-year").html());
+    if( mm == 12){//返回12月
+      $(".f-year").html(yy+1);
+      $(".f-month").html('01');
+      showDate(yy+1,1);
+    }else{//上一月
+      $(".f-month").html(mm+1<10? "0"+(mm+1):mm+1);
+      showDate(yy,mm+1);
+    }
+  })
+  //返回本月
+  $(".f-btn-fhby").click(function(){
+    $(".f-year").html( mydate.getFullYear() );
+    $(".f-month").html(  mydate.getMonth()+1 <10 ? "0" + (mydate.getMonth()+1) : mydate.getMonth()+1 );
+    showDate(mydate.getFullYear(),mydate.getMonth()+1);
+  })
+  //读取年月写入日历  重点算法!!!!!!!!!!!
+  function showDate(yyyy,mm){
+    var dd = new Date(parseInt(yyyy),parseInt(mm), 0);   //Wed Mar 31 00:00:00 UTC+0800 2010  
+    var daysCount = dd.getDate();            //本月天数  
+    var mystr ="";//写入代码
+    var icon = "";//图标代码
+    // var week = new Date(parseInt(yyyy)+"/"+parseInt(mm)+"/"+1).getDay()-1; //今天周几
+    var week = new Date(parseInt(yyyy)+"/"+parseInt(mm)+"/"+1).getDay() == 0 ? 6 : new Date(parseInt(yyyy)+"/"+parseInt(mm)+"/"+1).getDay()-1;
+    var lastMonth; //上一月天数
+    var nextMounth//下一月天数
+    if(  parseInt(mm) ==1 ){
+      lastMonth = new Date(parseInt(yyyy)-1,parseInt(12), 0).getDate();
+    }else{
+      lastMonth = new Date(parseInt(yyyy),parseInt(mm)-1, 0).getDate();
+    }
+    if( parseInt(mm) ==12 ){
+      nextMounth = new Date(parseInt(yyyy)+1,parseInt(1), 0).getDate();
+    }else{
+      nextMounth = new Date(parseInt(yyyy),parseInt(mm)+1, 0).getDate();
+    }
+    for(var i=0;i<daysCount;i++){
+      //计算上月空格数
+      if( i%7 == 0){
+        if(i<7){//只执行一次
+          for(var j=0;j<week;j++){
+            mystr += "<div class='f-td f-null' style='color:#fff;'>"+(lastMonth+j-5+week)+"</div>";
+          }
+        }
+      }
+       //这里为一个单元格，添加内容在此
+      if (i == 2) {
+        mystr += "<div class='f-td f-number'>"
+                +"<div class='f-yuan'></div>"
+                +"<div class='f-table-msg'>回款中<span class='major'>1</span>笔。回款本息;<span class='major'>100000</span>元</div>"//这里加判断
+                +"</div>"; 
+      }else {
+        mystr += "<div class='f-td f-number'><span class='f-day'>"+(i+1)+"</span>"+"</div>"; 
+      }
+    }
+    // 计算下月空格数
+    // for(k=0; k<42-(daysCount+6-week);k++ ){//表格保持等高6行42个单元格
+    //   mystr += "<div class='f-td f-null' style='color:#ccc;'>"+(k+1)+"</div>";
+    // }
+    //表格不等高，只补充末行不足单元格
+    if(7-(daysCount+week)%7 <7){
+      for(var k=0; k<7-(daysCount+week)%7;k++ ){ // week为今天周几 daysCount为本月天数  7-week为本行空格数 7-(daysCount+6-week)%7为最后一行有几个空格
+        mystr += "<div class='f-td f-null' style='color:#fff;'>"+(k+1)+"</div>";
+      }
+    }
+    
+
+    
+    //写入日历
+    $(".f-rili-table .f-tbody").html(mystr);
+    var tr = document.getElementsByClassName('f-td');
+    for(var td=0;td<tr.length;td++){
+      if((td>=0&&td<=6)||(td>=14&&td<=20)||(td>=28&&td<=34))  {
+        $('.f-td').eq(td).addClass('bg-fa');
+      }
+    }     
+    //给今日加class
+    if( mydate.getFullYear() == yyyy){
+      if( (mydate.getMonth()+1 ) == mm){
+        var today = mydate.getDate();
+        $(".f-rili-table .f-td").eq(today-1-week+6).html('今日');
+        $(".f-rili-table .f-td").eq(today-1-week+6).addClass("f-today");
+      }
+    }
+    //绑定选择方法
+    $(".f-rili-table .f-number").off("click");
+    $(".f-rili-table .f-number").on("click",function(){
+      $(".f-rili-table .f-number").removeClass("f-on");
+      $(this).addClass("f-on");
+    });
+    //绑定查看方法
+    $(".f-yuan").off("mouseover");
+    $(".f-yuan").on("mouseover",function(){
+      $(this).parent().find(".f-table-msg").show();
+    });
+    $(".f-table-msg").off("mouseover");
+    $(".f-table-msg").on("mouseover",function(){
+      $(this).show();
+    });
+    $(".f-yuan").off("mouseleave");
+    $(".f-yuan").on("mouseleave",function(){
+      $(this).parent().find(".f-table-msg").hide();
+    });
+    $(".f-table-msg").off("mouseleave");
+    $(".f-table-msg").on("mouseleave",function(){
+      $(this).hide();
+    });
+  }
+})
+
+</script>
