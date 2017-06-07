@@ -12,11 +12,11 @@
 			 <div class="col-md-10 col-md-offset-1 text-center padding-0 ft-grey666">
 			    <canvas id="line" class="chart-line display-bl margin-auto" chart-data="yearlyData"
 			    chart-labels="labels" chart-options="options"
-			    chart-click="onClick" height="346" width="700">
+			    chart-click="onClick" chart-colours="medals_colours" data-dataset="datasets" height="346" width="700">
 			    </canvas >
 			    <div class="clearfix">
-			    	<i class="fa fa-caret-left fl ft-24 margin-l--30 cursor-pointer ft-grey4" aria-hidden="true" ng-click="toggleYear('pre')"></i>
-			    	<i class="fa fa-caret-right fr ft-24 margin-r--30 cursor-pointer ft-grey4" aria-hidden="true" ng-click="toggleYear('next')"></i>
+			    	<img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 cursor-pointer" ng-click="toggleYear('pre')">
+			    	<img src="/images/user-center/next.png" class="fr display-inbl margin-r--30 cursor-pointer" ng-click="toggleYear('next')">
 			    </div>
 			    <p class="text-center ft-grey666 ft-14 margin-t-20"><span class="line margin-b-5"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{chartYear}}年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="line margin-b-5"></span></p>
 			 </div>
@@ -25,12 +25,12 @@
 		<div class="main col-md-12" style="min-height:377px;" ng-if="tab === 1">
 			 <div class="col-md-10 col-md-offset-1 text-center padding-0 ft-grey666">
 			    <canvas id="line" class="chart-line display-bl margin-auto" chart-data="dailyData"
-			    chart-labels="dailyLabels" chart-options="dailyOptions"
-			    chart-click="onClick" height="346" width="700">
+			    chart-labels="dailyLabels" chart-options="options"
+			    chart-click="onClick" chart-colours="medals_colours" height="346" width="700">
 			    </canvas >
 			    <div class="clearfix">
-			    	<i class="fa fa-caret-left fl ft-24 margin-l--30 cursor-pointer ft-grey4" aria-hidden="true"></i>
-			    	<i class="fa fa-caret-right fr ft-24 margin-r--30 cursor-pointer ft-grey4" aria-hidden="true"></i>
+			    	<img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 cursor-pointer">
+			    	<img src="/images/user-center/next.png" class="fr display-inbl margin-r--30 cursor-pointer">
 			    </div>
 			    <p class="text-center ft-grey666 ft-14 margin-t-20"><span class="line margin-b-5"></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2017年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="line margin-b-5"></span></p>
 			 </div>

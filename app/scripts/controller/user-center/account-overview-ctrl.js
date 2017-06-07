@@ -100,86 +100,88 @@ angular.module('hongcaiApp')
       //console.log(points, evt);
     };
 
-    // $scope.series = ['Series A']; // 一条曲线
+    // $scope.medals_colours = [{
+    //   fillColor:['rgba(0,0,0,0)'], //填充色
+    //   strokeColor:['#f9721f'],//曲线颜色
+    // }];
+    $scope.medals_colours = ['#f9721f','fdcfb3','rgba(0,0,0,0)'];
     $scope.options = {
       bezierCurve: false,
-      scaleShowVerticalLines: true,
-      numberPrefix: "$"
+      scaleShowVerticalLines: true, //竖线网格是否显示
+      numberPrefix: "$",
+      tooltipFontColor:'#fff', //tip字体颜色
+      tooltipFillColor: '#f9721f',//tip背景颜色
     }
-    // $scope.labels = ["1月", "2月", "3月", "4月", "5月", "6月", "7月","8月","9月","10月","11月","12月"];//设置横坐标
-    //数据（收益）
-    // $scope.data = [[5, 4.0, 5.0, 3.3, 4.5,6.6,4.5,4.0,4.1,4.2,4.2,4.6] ]; 
-    $scope.yearlyData = [];
-    $scope.labels = [];
-    var datas = [];
-    var monthProfit = 
-            [
-              {
-                profit: 2.4,
-                createTime: 1496592000000
-              },
-              {
-                profit: 2.4,
-                createTime: 1496678400000
-              },
-              {
-                profit: 2.4,
-                createTime: 1496764800000
-              },
-              {
-                profit: 2.4,
-                createTime: 1496851200000
-              },
-              {
-                profit: 2.4,
-                createTime: 1496937600000
-              },
-              {
-                profit: 2.4,
-                createTime: 1497024000000
-              },
-              {
-                profit: 2.4,
-                createTime: 1497110400000
-              },
-              {
-                profit: 2.4,
-                createTime: 1496592000000
-              },
-              {
-                profit: 2.4,
-                createTime: 1497283200000
-              },
-              {
-                profit: 2.4,
-                createTime: 1497369600000
-              },
-              {
-                profit: 2.4,
-                createTime: 1497456000000
-              },
-              {
-                profit: 2.4,
-                createTime: 1497542400000
-              },
-            ]
-    
-    for(var i = 0; i <= monthProfit.length - 1; i++){
-      var date1 = new Date(monthProfit[i].createTime);
-      $scope.labels.push((date1.getMonth() + 1) + '月');
-      datas.push(monthProfit[i].profit);
+    //lables and data config tab=== 0 调用
+    $scope.datasConfig = function() {
+      $scope.yearlyData = [];
+      $scope.labels = [];
+      var datas = [];
+      //模拟数据
+      var monthProfit = 
+              [
+                {
+                  profit: 0.4,
+                  createTime: 1496592000000
+                },
+                {
+                  profit: 19.4,
+                  createTime: 1496678400000
+                },
+                {
+                  profit: 23.4,
+                  createTime: 1496764800000
+                },
+                {
+                  profit: 28.4,
+                  createTime: 1496851200000
+                },
+                {
+                  profit: 17.4,
+                  createTime: 1496937600000
+                },
+                {
+                  profit: 24.4,
+                  createTime: 1497024000000
+                },
+                {
+                  profit: 12.4,
+                  createTime: 1497110400000
+                },
+                {
+                  profit: 22.4,
+                  createTime: 1496592000000
+                },
+                {
+                  profit: 22.4,
+                  createTime: 1497283200000
+                },
+                {
+                  profit: 25.4,
+                  createTime: 1497369600000
+                },
+                {
+                  profit: 22.4,
+                  createTime: 1497456000000
+                },
+                {
+                  profit: 22.4,
+                  createTime: 1497542400000
+                },
+              ]
+      
+      for(var i = 0; i <= monthProfit.length - 1; i++){
+        var date1 = new Date(monthProfit[i].createTime);
+        $scope.labels.push((date1.getMonth() + 1) + '月');
+        datas.push(monthProfit[i].profit);
+      }
+      $scope.yearlyData.push(datas);
     }
-    $scope.yearlyData.push(datas);
+    $scope.datasConfig();
 
     /**
-     * 收益走势图 每日
+     * 收益走势图 每日 tab=== 1 调用
      */
-     $scope.dailyOptions = {
-       bezierCurve: false,
-       scaleShowVerticalLines: true,
-       numberPrefix: "$",
-     }
-
     UserCenterService.dayProfit.get(function(response){
       var creditRightList = response.data.creditRightList;
       $scope.dailyDatas = [];
@@ -196,19 +198,141 @@ angular.module('hongcaiApp')
       $scope.dailyData.push(dailyDatas);
     });
 
-
-
-
-    //年份切换
+    /**
+     *  年份切换
+     */
     var currentYear = new Date().getFullYear();//当前年份
     $scope.chartYear = $scope.chartYear ? $scope.chartYear : currentYear;
     $scope.firstInvestYear = 2015; //首投年份
     $scope.toggleYear = function(preOrNext,tab) {
+      //上一年
       if(preOrNext == 'pre' && $scope.chartYear > $scope.firstInvestYear){
         $scope.chartYear -= 1;
+        //update datasConfig
+        var datas = [];
+        $scope.labels = [];
+        $scope.yearlyData = [];
+        var monthProfit = [
+          {
+            profit: 19.4,
+            createTime: 1496592000000
+          },
+          {
+            profit: 18.4,
+            createTime: 1496678400000
+          },
+          {
+            profit: 29.4,
+            createTime: 1496764800000
+          },
+          {
+            profit: 2.4,
+            createTime: 1496851200000
+          },
+          {
+            profit: 7.4,
+            createTime: 1496937600000
+          },
+          {
+            profit: 4.4,
+            createTime: 1497024000000
+          },
+          {
+            profit: 2.4,
+            createTime: 1497110400000
+          },
+          {
+            profit: 22.4,
+            createTime: 1496592000000
+          },
+          {
+            profit: 22.4,
+            createTime: 1497283200000
+          },
+          {
+            profit: 5.4,
+            createTime: 1497369600000
+          },
+          {
+            profit: 22.4,
+            createTime: 1497456000000
+          },
+          {
+            profit: 12.4,
+            createTime: 1497542400000
+          },
+        ]
+        for(var i = 0; i <= monthProfit.length - 1; i++){
+          var date1 = new Date(monthProfit[i].createTime);
+          $scope.labels.push((date1.getMonth() + 1) + '月');
+          datas.push(monthProfit[i].profit);
+        }
+        $scope.yearlyData.push(datas);
       }
+      //下一年
       if(preOrNext == 'next' && $scope.chartYear < currentYear){
         $scope.chartYear += 1;
+         //update datasConfig
+        datas = [];
+        $scope.labels = [];
+        $scope.yearlyData = [];
+        monthProfit = 
+            [
+              {
+                profit: 20.4,
+                createTime: 1496592000000
+              },
+              {
+                profit: 19.4,
+                createTime: 1496678400000
+              },
+              {
+                profit: 23.4,
+                createTime: 1496764800000
+              },
+              {
+                profit: 28.4,
+                createTime: 1496851200000
+              },
+              {
+                profit: 17.4,
+                createTime: 1496937600000
+              },
+              {
+                profit: 24.4,
+                createTime: 1497024000000
+              },
+              {
+                profit: 12.4,
+                createTime: 1497110400000
+              },
+              {
+                profit: 22.4,
+                createTime: 1496592000000
+              },
+              {
+                profit: 22.4,
+                createTime: 1497283200000
+              },
+              {
+                profit: 25.4,
+                createTime: 1497369600000
+              },
+              {
+                profit: 22.4,
+                createTime: 1497456000000
+              },
+              {
+                profit: 22.4,
+                createTime: 1497542400000
+              },
+            ]
+        for(var i = 0; i <= monthProfit.length - 1; i++){
+          var date1 = new Date(monthProfit[i].createTime);
+          $scope.labels.push((date1.getMonth() + 1) + '月');
+          datas.push(monthProfit[i].profit);
+        }
+        $scope.yearlyData.push(datas);
       }
       
     }
