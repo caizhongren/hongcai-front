@@ -255,16 +255,6 @@
     $(".f-table-msg").on("mouseleave",function(){
       $(this).hide();
     });
-    //默认投资按钮显示橙色
-    $('.shortcut-key').mouseover(function (event) {
-      var e = window.event || arguments[0];
-      var invest = $('.invest'), recharge = $('.recharge'), withdraw = $('.withdraw');   // 设置目标区域
-      if(!invest.is(e.target) && invest.has(e.target).length === 0){ 
-        $('.invest').removeClass('invest-default');
-      }
-    }).mouseleave(function (event) {
-      $('.invest').addClass('invest-default');
-    })
 
   }
 })
