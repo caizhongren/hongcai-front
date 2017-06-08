@@ -87,9 +87,34 @@ angular.module('hongcaiApp')
           $scope.statistics = response.data.creditRightStatis;
         }
       });
+      
     };
 
     $scope.getCreditRightStatistics();
+
+    /*
+     * 现金券、加息券数量统计
+     */
+    $scope.getUserCoupons = function() {
+      /**
+       * 现金券统计
+       */
+      UserCenterService.getUserCashCouponsStat.get(function(response) {
+        if (!response || response.ret === -1) {
+          return;
+        }
+        $scope.unUsedCashCoupon = response.unGotAmount;
+      });
+      /**
+       * 加息券统计
+       */
+      UserCenterService.getUserIncreaseRateCouponStatis.get(function(response) {
+        if (response.ret === 1) {
+          $scope.unUsedRateCoupon = response.data.couponStatis.unUsedCoupon;
+        }
+      });
+    }
+    $scope.getUserCoupons();
 
 
     /**
@@ -342,9 +367,14 @@ angular.module('hongcaiApp')
     $scope.selectPaymentBox = function(){
       $scope.showPaymentBox = !$scope.showPaymentBox;
     }
-    $('.select-payment').blur(function(){
-      $scope.showPaymentBox = false;
-      $scope.$apply();
-    })
+    //解决 部分浏览器 元素blur失效问题
+    window.onclick = function (event) {
+      var e = window.event || arguments[0];
+      var _con = $('.select-payment');   // 设置目标区域
+      if(!_con.is(e.target) && _con.has(e.target).length === 0){ 
+        $scope.showPaymentBox = false;
+        $scope.$apply();
+      }
+    }
 
   })

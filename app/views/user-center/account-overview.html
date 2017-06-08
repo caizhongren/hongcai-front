@@ -14,11 +14,11 @@
     <div class="col-md-4 ft-14 coupons">
       <div class="cash-coupon margin-l-30 margin-r-30" ui-sref="root.userCenter.cash-coupon">
           <span class="cash-icon"></span>
-          <span class="ft-grey666 cash-txt">奖金券 <span class="ft-orange6 ft-Arial"> 2 </span>张</span>
+          <span class="ft-grey666 cash-txt">现金券 <span class="ft-orange6 ft-Arial"> {{unUsedCashCoupon || 0}} </span>张</span>
       </div>
       <div class="rate-coupon" ui-sref="root.userCenter.rate-coupon">
           <span class="rate-icon"></span>
-          <span class="ft-grey666 rate-txt">加息券 <span class="ft-orange6 ft-Arial"> 2 </span>张</span>
+          <span class="ft-grey666 rate-txt">加息券 <span class="ft-orange6 ft-Arial"> {{unUsedRateCoupon || 0}} </span>张</span>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@
       <div class="ft-14 ft-grey666">累计收益 ( 元 ) </div>
     </div>
     <div class="total-assets col-md-4">
-      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">300.00</div>
+      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">{{account.balance + account.waitingCapital + account.waitingProfit + account.freezeCapital || 0 | number:2}}</div>
       <div class="ft-14 ft-grey666">资产总额 ( 元 ) 
         <span class="total-assets-tips" toggle-fade></span>
         <div class="sidebar-tip-top">
