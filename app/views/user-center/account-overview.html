@@ -7,7 +7,7 @@
       <div class="balance-amount fl ft-orange6 ft-30 ft-Arial">{{account.balance| number:2}}</div>
     </div>
     <div class="col-md-4 shortcut-key">
-      <span class="invest" ui-sref="root.guaranteepro-list-query({status: '7,8,9,10,11,12', minCycle: '0', maxCycle: '100', minEarning: '0', maxEarning: '100', minTotalAmount: '0', maxTotalAmount: 200000000, sortCondition: 'release_start_time', sortType: false, type: 5 })">投资</span>
+      <span class="invest invest-default" ui-sref="root.guaranteepro-list-query({status: '7,8,9,10,11,12', minCycle: '0', maxCycle: '100', minEarning: '0', maxEarning: '100', minTotalAmount: '0', maxTotalAmount: 200000000, sortCondition: 'release_start_time', sortType: false, type: 5 })">投资</span>
       <span class="recharge" ui-sref="root.userCenter.recharge">充值</span>
       <span class="withdraw margin-r-0" ui-sref="root.userCenter.withdraw">提现</span>
     </div>
@@ -255,6 +255,17 @@
     $(".f-table-msg").on("mouseleave",function(){
       $(this).hide();
     });
+    //默认投资按钮显示橙色
+    $('.shortcut-key').mouseover(function (event) {
+      var e = window.event || arguments[0];
+      var invest = $('.invest'), recharge = $('.recharge'), withdraw = $('.withdraw');   // 设置目标区域
+      if(!invest.is(e.target) && invest.has(e.target).length === 0){ 
+        $('.invest').removeClass('invest-default');
+      }
+    }).mouseleave(function (event) {
+      $('.invest').addClass('invest-default');
+    })
+
   }
 })
 
