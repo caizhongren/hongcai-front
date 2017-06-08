@@ -14,11 +14,11 @@
     <div class="col-md-4 ft-14 coupons">
       <div class="cash-coupon margin-l-30 margin-r-30" ui-sref="root.userCenter.cash-coupon">
           <span class="cash-icon"></span>
-          <span class="ft-grey666 cash-txt">奖金券 <span class="ft-orange6 ft-Arial"> 2 </span>张</span>
+          <span class="ft-grey666 cash-txt">现金券 <span class="ft-orange6 ft-Arial"> {{unUsedCashCoupon || 0}} </span>张</span>
       </div>
       <div class="rate-coupon" ui-sref="root.userCenter.rate-coupon">
           <span class="rate-icon"></span>
-          <span class="ft-grey666 rate-txt">加息券 <span class="ft-orange6 ft-Arial"> 2 </span>张</span>
+          <span class="ft-grey666 rate-txt">加息券 <span class="ft-orange6 ft-Arial"> {{unUsedRateCoupon || 0}} </span>张</span>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@
       <div class="ft-14 ft-grey666">累计收益 ( 元 ) </div>
     </div>
     <div class="total-assets col-md-4">
-      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">300.00</div>
+      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">{{account.balance + account.waitingCapital + account.waitingProfit + account.freezeCapital || 0 | number:2}}</div>
       <div class="ft-14 ft-grey666">资产总额 ( 元 ) 
         <span class="total-assets-tips" toggle-fade></span>
         <div class="sidebar-tip-top">
@@ -90,7 +90,11 @@
       <!-- <div class="f-btn-fhby fr">返回本月</div> -->
       <a class="select-payment fl clearfix" href="javascript:;" focus-blur ng-click="selectPaymentBox();">
         <div class="payment-type fl">待收回款</div>
-        <div class="payment-amount fr"><span class="margin-r-5">0.00元 | 1笔 </span><i class="fa fa-angle-down ft-24" aria-hidden="true" ng-show="!showPaymentBox"></i><i class="fa fa-angle-up ft-24" aria-hidden="true" ng-show="showPaymentBox"></></i></div>
+        <div class="payment-amount fr">
+          <span class="margin-r-5">0.00元 | 1笔 </span>
+          <i class="fa fa-angle-down ft-24" aria-hidden="true" ng-show="!showPaymentBox"></i>
+          <i class="fa fa-angle-up ft-24" aria-hidden="true" ng-show="showPaymentBox"></i>
+        </div>
       </a>
       <div class="payment-box" ng-show="showPaymentBox">
         <p>项目名称 : 大型商贸公司融资项目3期</p>
