@@ -91,6 +91,7 @@ angular.module('hongcaiApp')
         show: true
       });
     };
+    // $rootScope.toNotice();
 
 
     /**

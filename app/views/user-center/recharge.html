@@ -97,14 +97,14 @@
         </div>
       </form>
       <div ng-if="bankCardStatus !== 'VERIFIED'" class="col-md-10 col-md-offset-1 bg-grey6 margin-t-20 record-w margin-l-40">
-        <p class="verify-tip col-md-9 col-md-offset-2 margin-t-20">充值需要绑定银行卡，请您前往<a ng-click="toBindBank()">【存管通资金系统】</a>完成绑卡操作</p>
+        <p class="verify-tip col-md-9 col-md-offset-2 margin-t-20">充值需要绑定银行卡，请您前往<a ng-click="toBindBank()">【银行资金存管系统】</a>完成绑卡操作</p>
       </div>
       <div  ng-hide="securityStatus.realNameAuthStatus !== 1" class="col-md-10 col-md-offset-1 border-bd-grey margin-t-15 margin-b-20 record-w margin-l-40"></div>
       <div class="col-md-10 col-md-offset-1 bg-yellow margin-t-20 record-w margin-l-40" ng-hide="securityStatus.realNameAuthStatus !== 1">
         <div class="ft-14 padding-20 padding-b-50">
           <p class="ft-red4"><i class="fa fa-tint ft-red4" style="margin-right:15px;"></i><b>温馨提示:</b></p>
           <div class="padding-l-20">
-            <p ng-if="pay_company === 'cgt'" class="ft-red4"><b>1. 您的账户资金将由北京网贷风险监控及资金存管系统进行存管；</b></p>
+            <p ng-if="pay_company === 'cgt'" class="ft-red4"><b>1. 您的账户资金将由海口联合农商银行资金存管系统进行存管；</b></p>
             <p ng-if="pay_company === 'yeepay'" class="ft-red4"> <b>1. 您的账户资金将由有银监会颁发牌照的第三方支付平台托管；</b></p>
             <p>2. 首先请注意您是否开通网上银行等功能，可能存在充值超过限额（充值限额，是银行、第三方支付平台、和用户您自己设定的</p><p>支付限额决定的，取三者最小值），以免造成充值不成功；</p>
             <p>3. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>
@@ -141,7 +141,7 @@
           </div>
         </div>
       </form>
-      <p ng-if="bankCardStatus !== 'VERIFIED'" class="verify-tip col-md-9 col-md-offset-2 margin-t-20">充值需要绑定银行卡，请您前往<a ng-click="toBindBank()">【存管通资金系统】</a>完成绑卡操作</p>
+      <p ng-if="bankCardStatus !== 'VERIFIED'" class="verify-tip col-md-9 col-md-offset-2 margin-t-20">充值需要绑定银行卡，请您前往<a ng-click="toBindBank()">【银行资金存管系统】</a>完成绑卡操作</p>
       <div class="col-md-6" style="border-left:1px dashed #dadada;padding-left:50px;">
         <div class="ft-14">
           <p><i class="fa fa-tint" style="margin-left:-20px;margin-right:15px;"></i>温馨提示:</p>
