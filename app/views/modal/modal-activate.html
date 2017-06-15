@@ -9,13 +9,13 @@
             请点击下方按钮，尽享安全投资。</br>
           </div>
           <div class="btns clearfix">
-            <button class="btn1 pull-left" ui-sref="root.activate-landing" ng-click="$hide()">了解详情</button>
+            <button class="btn1 pull-left" ui-sref="root.activate-landing" ng-click="$hide();toNotice();">了解详情</button>
             <button class="btn2 pull-left" ui-sref="root.recharge-transfer({amount:0, business: 'ACTIVE'})" ng-click="$hide()">立即开通</button>
           </div>
         </div>
       </div>
     </div>
-    <img src="/images/user-center/close.png" class="display-bl margin-47 margin-t-50" ng-click="$hide()"> 
+    <img src="/images/user-center/close.png" class="display-bl margin-47 margin-t-50 cursor-pointer" ng-click="$hide();toNotice();"> 
   </div>
 </div>
 
