@@ -66,17 +66,17 @@ angular.module('hongcaiApp')
      * 激活存管通账户
      */
     $rootScope.toActivate = function(act) {
-      // if(config.pay_company === 'cgt' && $rootScope.isLogged === true &&  $rootScope.realNameAuthState === 1 &&  $rootScope.isActive=== false){
+      if(config.pay_company === 'cgt' && $rootScope.isLogged === true &&  $rootScope.realNameAuthState === 1 &&  $rootScope.isActive=== false){
         $rootScope.activateModal = $modal({
           scope: $rootScope,
           template: 'views/modal/modal-activate.html',
           show: true
         });
-      // }else{
-      //   if(act){
-      //     act();
-      //   }
-      // }
+      }else{
+        if(act){
+          act();
+        }
+      }
     };
     
     $rootScope.pay_company = config.pay_company;
