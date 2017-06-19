@@ -14,7 +14,7 @@ angular.module('hongcaiApp')
       });
 
     } else if ($stateParams.type === '1') {
-      UserCenterService.unbindBankCard.get({}, function(response) {
+      UserCenterService.cgtUnbindBankCard.get({}, function(response) {
         if (response && response.ret !== -1) {
           $scope.dosi = true;
           PayUtils.redToTrusteeship('toBindBankCard', response);

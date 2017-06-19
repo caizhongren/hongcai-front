@@ -45,17 +45,18 @@ angular.module('hongcaiApp')
     };
 
     $scope.unbindBankCard = function() {
+       window.open('/#!/bankcard-transfer/1');
       // $rootScope.toNotice();
-      UserCenterService.unbindBankCard.get({}, function(response) {
-        if (response.ret === 1) {
-          $state.go('root.yeepay-callback', {
-            business: 'UNBIND_CARD',
-            status: 'SUCCESS'
-          });
-        } else {
-          toaster.pop('error', response.msg);
-        }
-      });
+      // UserCenterService.unbindBankCard.get({}, function(response) {
+      //   if (response.ret === 1) {
+      //     $state.go('root.yeepay-callback', {
+      //       business: 'UNBIND_CARD',
+      //       status: 'SUCCESS'
+      //     });
+      //   } else {
+      //     toaster.pop('error', response.msg);
+      //   }
+      // });
     };
 
     angular.element('.bankCard .bank-card-show-verify').hover(function(event) {
