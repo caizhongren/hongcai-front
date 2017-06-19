@@ -1,6 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('ActivateLandingCtrl', function($scope, $state, $rootScope) {
+    $rootScope.pageTitle = '银行存管介绍' + ' - 宏财网';
     //获取当天0点
     var getStartTime = function (t) {
       var start = t ? new Date(t) : new Date();  

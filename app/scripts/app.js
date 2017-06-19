@@ -1829,6 +1829,9 @@ hongcaiApp
           templateUrl: 'views/activate-landing.html',
           controller: 'ActivateLandingCtrl',
           controllerUrl: 'scripts/controller/user-center/activate-landing-ctrl'
+        },
+        data: {
+          title: '银行存管介绍'
         }
       }
     })
