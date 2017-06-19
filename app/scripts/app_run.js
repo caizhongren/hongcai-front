@@ -208,9 +208,9 @@ angular.module('hongcaiApp')
       /**
        * 跳转HTTPS的全局配置
        */
-      if ($location.protocol() === 'http' && config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
+      /*if ($location.protocol() === 'http' && config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
         $window.location.href = 'https://' + $location.absUrl().split('://')[1];
-      }
+      }*/
 
       $rootScope.firstPath = $location.path().split('/')[1];
       if($location.path().split('/')[1].slice(0,$location.path().split('/')[1].indexOf('?')) == 'assignments'){
