@@ -1822,8 +1822,8 @@ hongcaiApp
       }
     }) 
     /*-------------  激活存管通落地页   ----------------------*/
-    .state('root.activate-landing', {
-      url: '/activate',
+    .state('root.bank-custody-landing', {
+      url: '/bank-custody-landing',
       views: {
         '': {
           templateUrl: 'views/activate-landing.html',
