@@ -2,7 +2,7 @@
 angular.module('hongcaiApp')
   .controller('AssignmentDetailCtrl', function($scope, $state, $rootScope, $location, $stateParams, $window, CreditService, OrderService, $modal, $alert, toaster, $timeout, DateUtils, MainService, ProjectService, RESTFUL_DOMAIN) {
     var number = $stateParams.number;
-    $rootScope.toActivate();
+    // $rootScope.toActivate();
    
     /**
      * 债券详情
@@ -141,7 +141,7 @@ angular.module('hongcaiApp')
           }
         });
       }
-      $rootScope.toActivate(invest);
+      $rootScope.toNotice(invest);
     };
 
     /**

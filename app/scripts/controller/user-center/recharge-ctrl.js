@@ -194,7 +194,8 @@ angular.module('hongcaiApp')
         
         window.open('/#!/recharge-transfer/' + amount +"/"+ $scope.rechargeWay +"/" + $scope.expectPayCompany);
       }
-      $rootScope.toActivate(act);
+      // $rootScope.toActivate(act);
+      $rootScope.toNotice(act);
 
     };
 

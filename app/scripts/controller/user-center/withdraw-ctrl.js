@@ -57,7 +57,8 @@ angular.module('hongcaiApp')
           window.open('/#!/withdraw-transfer/' + amount + '/' + captcha);
         }
       }
-      $rootScope.toActivate(act);
+      // $rootScope.toActivate(act);
+      $rootScope.toNotice(act);
 
     };
     

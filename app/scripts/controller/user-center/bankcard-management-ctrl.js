@@ -25,23 +25,29 @@ angular.module('hongcaiApp')
 
     $scope.bindBankCard = function() {
       // $rootScope.toNotice();
-      $scope.msg = '5';
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
-      window.open('/#!/bankcard-transfer/0');
+      var act = function () {
+        $scope.msg = '5';
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alertYEEPAY.html',
+          show: true
+        });
+        window.open('/#!/bankcard-transfer/0');
+      }
+      $rootScope.toNotice(act);
     };
 
     $scope.confirmUnbindBankCard = function(){
       // $rootScope.toNotice();
-      $scope.msg = '11';
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
+      var act = function () {
+        $scope.msg = '11';
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alertYEEPAY.html',
+          show: true
+        });
+      }
+      $rootScope.toNotice(act);
     };
 
     $scope.unbindBankCard = function() {
