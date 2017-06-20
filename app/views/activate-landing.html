@@ -2,8 +2,11 @@
   <img src="../images/activate-landing/custody1.png" class="display-bl" width="100%">
   <div class="position-re part2 ft-white text-center">
     <img src="../images/activate-landing/custody2.png" class="display-bl" width="100%">
-    <div class="countdown position-ab">
-      距离正式上线还有<span>{{countDayFirst}}</span><span>{{countDaySecond}}</span>天
+    <div class="countdown position-ab" ng-show="status == 0">
+      距离开始上线还有<span>{{countDayFirst}}</span><span>{{countDaySecond + 1}}</span>天
+    </div>
+    <div class="countdown position-ab" ng-show="status === 1">
+      正在上线中···
     </div>
   </div>
   <img src="../images/activate-landing/custody3.png" class="display-bl" width="100%">
