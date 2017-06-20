@@ -214,7 +214,7 @@ angular.module('hongcaiApp')
 
 
     //记录选择支付方式 'FUIOU':富友，'ALLINPAY'：通联，'UMPAY':通联优势， 'UCFPAY': 先锋支付
-    //payment 1: 富友，2: 通联优势，3: 先锋支付
+    //payment 1: 富友，2: 通联优势，3: 先锋支付，4：易宝
     $scope.selectPay = function(payment) {
       $scope.payment = payment;
       $scope.bankRemainHolder = $scope.payment == 1? '该卡可充值' + $scope.bankRemain + '元' : '';
@@ -228,6 +228,10 @@ angular.module('hongcaiApp')
       }else if (payment === 3) {
         $scope.rechargeWay = 'SWIFT';
         $scope.expectPayCompany = 'UCFPAY';
+
+      }else if (payment === 4) {
+        $scope.rechargeWay = 'SWIFT';
+        $scope.expectPayCompany = 'YEEPAY';
 
       }
        $scope.getBankLimit($scope.expectPayCompany);

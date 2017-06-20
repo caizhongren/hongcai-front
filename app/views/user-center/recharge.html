@@ -17,9 +17,9 @@
           </div>
         </div>
         <div class="row margin-t-20 ">
-          <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==1 || payment == 3}" ng-click="selectPay(3)"><b>快捷支付方式</b></div>
+          <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==4 || payment == 3}" ng-click="selectPay(4)"><b>快捷支付方式</b></div>
           <div class="col-md-2 cursor-pointer pay-typeUCF" ng-class="{'pay-active':payment ==3}" ng-click="selectPay(3)"><span></span>先锋支付</div>
-          <div class="col-md-2 cursor-pointer pay-typeFU" ng-class="{'pay-active':payment ==1}" ng-click="selectPay(1)"><span></span>富有支付</div>
+          <div class="col-md-2 cursor-pointer pay-typeFU" ng-class="{'pay-active':payment ==4}" ng-click="selectPay(4)"><span></span>易宝支付</div>
           <div class="col-md-1 position-re hand-tip"><img src="/images/user-center/hand.png" class="display-inbl margin-t--5" width="35%" alt=""><span class="tip position-ab">支付方式可切换哦！</span></div>
           <a class=" col-md-2 col-md-offset-2 cursor-pt supportBank" href="javascript:;" focus-blur ng-click="showSupportBank = !showSupportBank;">支持银行及限额</a>
           <table class="supportList border-grey1" ng-if="payment !== 2 && showSupportBank">
