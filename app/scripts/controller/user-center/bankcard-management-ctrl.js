@@ -34,7 +34,8 @@ angular.module('hongcaiApp')
         });
         window.open('/#!/bankcard-transfer/0');
       }
-      $rootScope.toNotice(act);
+      // $rootScope.toNotice(act);
+      $rootScope.toActivate(act);
     };
 
     $scope.confirmUnbindBankCard = function(){
@@ -47,7 +48,8 @@ angular.module('hongcaiApp')
           show: true
         });
       }
-      $rootScope.toNotice(act);
+      // $rootScope.toNotice(act);
+      $rootScope.toActivate(act);
     };
 
     $scope.unbindBankCard = function() {
