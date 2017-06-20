@@ -42,13 +42,15 @@ angular.module('hongcaiApp')
     /**
      * 我的债权统计数据
      */
-    UserCenterService.getCreditRightStatistics.get({}, function(response) {
-      if (response.ret === 1) {
-        $scope.creditRightStatis = response.data.creditRightStatis;
-      } else {
+    UserCenterService.getCreditRightStat.query({}, function(response) {
+      for(var i = 0;i<response.length;i++) {
+        var stat = response[i];
+        //累计总额
+        $scope.investStat.totalInvestAmount += stat.holdingAmount;
+        $scope.investStat.totalProfit += stat.totalProfit;
+        $scope.investStat.profit += stat.profit;
       }
-    });
-
+    })
     
     
 
@@ -71,10 +73,6 @@ angular.module('hongcaiApp')
       UserCenterService.getCreditRightStat.query({}, function(response) {
         for(var i = 0;i<response.length;i++) {
           var stat = response[i];
-          //累计总额
-          $scope.investStat.totalInvestAmount += stat.holdingAmount;
-          $scope.investStat.totalProfit += stat.totalProfit;
-          $scope.investStat.profit += stat.profit;
           if(stat.creditRightType == 7){
             $scope.investStat.selection = stat.totalInvestAmount;
           } else if(stat.creditRightType == 8) {
