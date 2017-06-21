@@ -1821,14 +1821,34 @@ hongcaiApp
         title: '邀请好友'
       }
     }) 
-    /*-------------  激活存管通落地页   ----------------------*/
-    .state('root.activate-landing', {
-      url: '/activate',
+    /*-------------  激活银行存管落地页   ----------------------*/
+    .state('root.bank-custody-landing', {
+      url: '/bank-custody-landing',
       views: {
         '': {
           templateUrl: 'views/activate-landing.html',
           controller: 'ActivateLandingCtrl',
           controllerUrl: 'scripts/controller/user-center/activate-landing-ctrl'
+        },
+        data: {
+          title: '银行存管介绍'
+        }
+      }
+    })
+    /*-------------   银行存管流程  ----------------------*/
+    .state('root.old-user-process', {
+      url: '/old-user-process',
+      views: {
+        '': {
+          templateUrl: 'views/old-user-process.html',
+        }
+      }
+    })
+    .state('root.new-user-process', {
+      url: '/new-user-process',
+      views: {
+        '': {
+          templateUrl: 'views/new-user-process.html',
         }
       }
     })

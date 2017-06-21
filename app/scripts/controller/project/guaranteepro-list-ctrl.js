@@ -38,7 +38,7 @@ angular.module('hongcaiApp')
         { value: '0_100', name: '全部' },
         { value: '0_1', name: '30天以下'},
         { value: '1_3', name: '31 - 90天'},
-        { value: '3_6', name: '91 - 180天'}
+        { value: '3_100', name: '91天以上'}
       ];
 
       $scope.searchAnnualEarings = [
