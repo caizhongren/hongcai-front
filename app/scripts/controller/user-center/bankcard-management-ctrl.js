@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('BankCardManagementCtrl', ['$location', '$scope', '$state', '$rootScope', '$stateParams', 'UserCenterService', 'DEFAULT_DOMAIN', 'config', '$alert', 'toaster', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $alert, toaster) {
+  .controller('BankCardManagementCtrl', function($location, $scope, $state, $rootScope, $stateParams, UserCenterService, DEFAULT_DOMAIN, config, $alert, toaster) {
     $scope.dosi = true;
     UserCenterService.getUserBankCard.get({}, function(response) {
       if (response.ret === 1) {
@@ -39,17 +39,29 @@ angular.module('hongcaiApp')
     };
 
     $scope.confirmUnbindBankCard = function(){
-      // $rootScope.toNotice();
-      var act = function () {
-        $scope.msg = '11';
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alertYEEPAY.html',
-          show: true
+      if($rootScope.account.tTotalAssets > 2){
+        UserCenterService.unbindBankCardApply.get({}, function(response) {
+          if (response && response.ret !== 1) {
+            $scope.unbindBankCardApply = response;
+            if($scope.unbindBankCardApply.status === 1){
+              window.open('/#!/bankcard-transfer/1');
+            }else{
+              var act =  function () {
+                $scope.msg = '11';
+                $alert({
+                  scope: $scope,
+                  template: 'views/modal/alertYEEPAY.html',
+                  show: true
+                });
+              }
+            }
+            
+            $rootScope.toActivate(act);
+          }
         });
+      }else{
+        window.open('/#!/bankcard-transfer/1');
       }
-      // $rootScope.toNotice(act);
-      $rootScope.toActivate(act);
     };
 
     $scope.unbindBankCard = function() {
@@ -73,4 +85,4 @@ angular.module('hongcaiApp')
       $(event.target).parent().find('a').height('0');
     });
 
-  }]);
+  });

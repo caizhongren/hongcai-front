@@ -344,5 +344,6 @@ angular.module('hongcaiApp')
           isArray: false  
         }
       }),
+      unbindBankCardApply: $resource(RESTFUL_DOMAIN + '/users/0/unbindBankCardApply',{}),
     };
   });

@@ -46,16 +46,29 @@ angular.module('hongcaiApp')
 
     //解绑银行卡
     $scope.confirmUnbindBankCard = function(){
-      var act =  function () {
-        $scope.msg = '11';
-        $alert({
-          scope: $scope,
-          template: 'views/modal/alertYEEPAY.html',
-          show: true
+      if($rootScope.account.tTotalAssets > 2){
+        UserCenterService.unbindBankCardApply.get({}, function(response) {
+          if (response && response.ret !== 1) {
+            $scope.unbindBankCardApply = response;
+            if($scope.unbindBankCardApply.status === 1){
+              window.open('/#!/bankcard-transfer/1');
+            }else{
+              var act =  function () {
+                $scope.msg = '11';
+                $alert({
+                  scope: $scope,
+                  template: 'views/modal/alertYEEPAY.html',
+                  show: true
+                });
+              }
+
+              $rootScope.toActivate(act);
+            }
+          }
         });
+      }else{
+        window.open('/#!/bankcard-transfer/1');
       }
-      // $rootScope.toNotice(act);
-      $rootScope.toActivate(act);
     };
     $scope.unbindBankCard = function() {
       // $rootScope.toNotice();
