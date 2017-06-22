@@ -1,6 +1,6 @@
 {
-  "YEEPAY_ADDRESS": "http://220.181.25.233:8081/member/bha/",
-  "CGT_ADDRESS":"http://101.200.54.92/bha-neo-app/lanmaotech/gateway",
+  "YEEPAY_ADDRESS": "https://cg2.unitedbank.cn/bha-neo-app/lanmaotech/gateway",
+  "CGT_ADDRESS":"https://cg2.unitedbank.cn/bha-neo-app/lanmaotech/gateway",
   "viewFlAG": {
     "tuhaoIsShowedFlAG": false,
     "sponsorsIsShowedFlAG": false,
