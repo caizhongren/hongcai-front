@@ -478,8 +478,7 @@ angular.module('hongcaiApp')
           }
         });
       }
-      // $rootScope.toNotice(invest);
-      $rootScope.toActivate(invest);
+      $rootScope.migrateStatus(invest);
 
       // var getOrder = $q.defer();
       // OrderService.saveOrder.get({

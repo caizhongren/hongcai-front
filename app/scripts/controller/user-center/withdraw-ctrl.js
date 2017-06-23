@@ -44,7 +44,7 @@ angular.module('hongcaiApp')
           return;
         }
         if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
-          $rootScope.toActivate();
+          $rootScope.migrateStatus();
         } else {
           $scope.msg = '3';
           $scope.withdrawAmount = amount;
@@ -57,8 +57,7 @@ angular.module('hongcaiApp')
           window.open('/#!/withdraw-transfer/' + amount + '/' + captcha);
         }
       }
-      $rootScope.toActivate(act);
-      // $rootScope.toNotice(act);
+      $rootScope.migrateStatus(act);
 
     };
     

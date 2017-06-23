@@ -7,7 +7,7 @@
 
 'use strict';
 angular.module('hongcaiApp')
-  .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie, OrderService) {
+  .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie, OrderService, RESTFUL_DOMAIN) {
     $rootScope.baseFileUrl = config.baseFileUrl;
 
     /**
@@ -62,6 +62,12 @@ angular.module('hongcaiApp')
       });
       
     };
+    /**
+     * 获取服务器状态
+     */
+    $rootScope.migrateStatus = function(stateTo) {
+      $rootScope.ServiceStatus === 1 ? $rootScope.toNotice() : $rootScope.toActivate(stateTo);
+    }
     /**
      * 激活存管通账户
      */
@@ -121,6 +127,9 @@ angular.module('hongcaiApp')
 
 
     $rootScope.$on('$stateChangeStart', function(event, toState) {
+      $http.get(RESTFUL_DOMAIN + '/systems/migrateStatus').success(function(response){
+          $rootScope.ServiceStatus = response.status //status :1 停服
+      })
       var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
       $checkSessionServer.error(function(response) {
           $state.go('update', {'return': $location.path()});

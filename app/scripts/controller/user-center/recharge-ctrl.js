@@ -154,7 +154,7 @@ angular.module('hongcaiApp')
           return;
         }
         if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
-          $rootScope.toActivate();
+          $rootScope.migrateStatus();
           return;
         }
         if(amount > $scope.bankRemain && $scope.rechargeWay == 'SWIFT'){
@@ -188,8 +188,7 @@ angular.module('hongcaiApp')
         
         window.open('/#!/recharge-transfer/' + amount +"/"+ $scope.rechargeWay +"/" + $scope.expectPayCompany);
       }
-      $rootScope.toActivate(act);
-      // $rootScope.toNotice(act);
+      $rootScope.migrateStatus(act)
 
     };
 
@@ -228,6 +227,6 @@ angular.module('hongcaiApp')
       }
        $scope.getBankLimit($scope.expectPayCompany);
     }
-    $scope.selectPay(4);
+    $scope.selectPay(3);
 
   });

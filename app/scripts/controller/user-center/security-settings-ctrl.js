@@ -62,7 +62,7 @@ angular.module('hongcaiApp')
                 });
               }
 
-              $rootScope.toActivate(act);
+              $rootScope.migrateStatus(act);
             }
           }
         });
@@ -84,8 +84,7 @@ angular.module('hongcaiApp')
           }
         });
       }
-      // $rootScope.toNotice(act);
-      $rootScope.toActivate(act);
+      $rootScope.migrateStatus(act);
     };
     //绑定银行卡
     $scope.bindBankCard = function() {
@@ -99,8 +98,7 @@ angular.module('hongcaiApp')
         });
         window.open('/#!/bankcard-transfer/0');
       }
-      // $rootScope.toNotice(act);
-      $rootScope.toActivate(act);
+      $rootScope.migrateStatus(act);
     };
 
     $scope.bindMobile = function(mobileNo, captcha) {
@@ -238,8 +236,7 @@ angular.module('hongcaiApp')
         $scope.openTrusteeshipAccount = false;
         window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/0');
       }
-      // $rootScope.toNotice(act);
-      $rootScope.toActivate(act);
+      $rootScope.migrateStatus(act);
     };
 
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
@@ -289,8 +286,7 @@ angular.module('hongcaiApp')
           });
         }
       }
-      // $rootScope.toNotice(act);
-      $rootScope.toActivate(act);
+      $rootScope.migrateStatus(act);
     };
   
     //自动投标
