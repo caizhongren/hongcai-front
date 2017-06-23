@@ -601,7 +601,8 @@ angular.module('hongcaiApp')
           });
         }
       }
-      $rootScope.toNotice(invest);
+      $rootScope.migrateStatus(invest);
+
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 
