@@ -168,7 +168,7 @@ angular.module('hongcaiApp')
           }
           
           if(toState.name.indexOf('root.userCenter') !== -1) {
-            $rootScope.toActivate();
+            $rootScope.migrateStatus();
           }
       });
 
