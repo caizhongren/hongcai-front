@@ -136,9 +136,9 @@ angular.module('hongcaiApp')
 
       if(processId== 1 || processId ==2 ){
         $('.process-circle').find('.li1').addClass('li_activ').siblings().removeClass('li_activ');
-      }else if (processId >2 && processId < 7) {
+      }else if (processId >2 && processId < 6) {
         $('.process-circle').find('.li2').addClass('li_activ').siblings().removeClass('li_activ');
-      }else if( processId > 6 && processId < 10) {
+      }else if( processId > 5 && processId < 9) {
         $('.process-circle').find('.li3').addClass('li_activ').siblings().removeClass('li_activ');
       }else {
         $('.process-circle').find('.li4').addClass('li_activ').siblings().removeClass('li_activ');

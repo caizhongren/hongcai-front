@@ -3,7 +3,7 @@ angular.module('hongcaiApp')
   .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie,
 
     MainService, DateUtils, AboutUsService, projectStatusMap, config, $window, DEFAULT_DOMAIN) {
-    $rootScope.toActivate();
+    // $rootScope.toActivate();
     $scope.type =  $stateParams.type;
     $scope.chk = true;
     $scope.checkFlag = true;
@@ -478,7 +478,7 @@ angular.module('hongcaiApp')
           }
         });
       }
-      $rootScope.toActivate(invest);
+      $rootScope.migrateStatus(invest);
 
       // var getOrder = $q.defer();
       // OrderService.saveOrder.get({
@@ -601,7 +601,8 @@ angular.module('hongcaiApp')
           });
         }
       }
-      $rootScope.toActivate(invest);
+      $rootScope.migrateStatus(invest);
+
     };
     $rootScope.selectPage = $location.path().split('/')[1];
 

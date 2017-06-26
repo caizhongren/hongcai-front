@@ -133,7 +133,7 @@
 		<!-- 第三方存管 -->
 		<div class="set-items {{openTrusteeshipAccount==true?'border-0':''}}">
 			<div class="item">
-				<span class="ft-grey666">第三方存管账户</span>
+				<span class="ft-grey666">银行存管账户</span>
 				<span class="ft-grey4">{{haveTrusteeshipAccount ? '已开通' : '未开通'}}</span>
 				<span class="ft-blue5 cursor-pointer fr" ng-show="!haveTrusteeshipAccount" ng-click="openTrusteeshipAccount = !openTrusteeshipAccount;changeMobile=false;changeEmail=false;changPwd =false;checkEmailAndMobile()">立即开通</span>
 				<span class="ft-orange6 fr" ng-show="haveTrusteeshipAccount"><i class="fa fa-check-circle ft-green00" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>已开通</span>
