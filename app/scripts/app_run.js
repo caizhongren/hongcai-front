@@ -7,7 +7,7 @@
 
 'use strict';
 angular.module('hongcaiApp')
-  .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie, OrderService) {
+  .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie, OrderService, RESTFUL_DOMAIN) {
     $rootScope.baseFileUrl = config.baseFileUrl;
 
     /**
@@ -63,6 +63,12 @@ angular.module('hongcaiApp')
       
     };
     /**
+     * 获取服务器状态
+     */
+    $rootScope.migrateStatus = function(stateTo) {
+      $rootScope.ServiceStatus === 1 ? $rootScope.toNotice() : $rootScope.toActivate(stateTo);
+    }
+    /**
      * 激活存管通账户
      */
     $rootScope.toActivate = function(act) {
@@ -91,6 +97,7 @@ angular.module('hongcaiApp')
         show: true
       });
     };
+    // $rootScope.toNotice();
 
 
     /**
@@ -120,6 +127,9 @@ angular.module('hongcaiApp')
 
 
     $rootScope.$on('$stateChangeStart', function(event, toState) {
+      $http.get(RESTFUL_DOMAIN + '/systems/migrateStatus').success(function(response){
+          $rootScope.ServiceStatus = response.status //status :1 停服
+      })
       var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
       $checkSessionServer.error(function(response) {
           $state.go('update', {'return': $location.path()});
@@ -158,7 +168,7 @@ angular.module('hongcaiApp')
           }
           
           if(toState.name.indexOf('root.userCenter') !== -1) {
-            $rootScope.toActivate();
+            $rootScope.migrateStatus();
           }
       });
 
@@ -207,9 +217,9 @@ angular.module('hongcaiApp')
       /**
        * 跳转HTTPS的全局配置
        */
-      if ($location.protocol() === 'http' && config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
+      /*if ($location.protocol() === 'http' && config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
         $window.location.href = 'https://' + $location.absUrl().split('://')[1];
-      }
+      }*/
 
       $rootScope.firstPath = $location.path().split('/')[1];
       if($location.path().split('/')[1].slice(0,$location.path().split('/')[1].indexOf('?')) == 'assignments'){

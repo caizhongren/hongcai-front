@@ -27,6 +27,7 @@ angular.module('hongcaiApp')
         'post':   {method:'POST'}
       }),
       bindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/bindBankCard', {}),
+      cgtUnbindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/cgtUnbindBankCard', {}),
       unbindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/unbindBankCard', {
         payCompany: '@payCompany'
       }),
@@ -343,5 +344,6 @@ angular.module('hongcaiApp')
           isArray: false  
         }
       }),
+      unbindBankCardApply: $resource(RESTFUL_DOMAIN + '/users/0/unbindBankCardApply',{}),
     };
   });

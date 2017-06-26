@@ -20,7 +20,7 @@
 		1.交易密码是您投资和提现时需要输入的密码。
 		<br>2.交易密码是不同于登录密码的资金安全保护机制，是特别用来保护您的资金安全的交易密码。即使您的账户登录密码处于异常状态，有交易密码保护就可以确保您的账户资金不被他人挪用。
     <!-- <br>3.如果您遗忘了交易密码，可在登录后在投资或者提现时，点击忘记密码，通过手机获取验证码的方式进行重置。 -->
-		<br>3.在宏财网进行充值、投资、提现等操作，在跳转到存管通页面后，点击“忘记交易密码”，根据提示重置密码。
+		<br>3.在宏财网进行充值、投资、提现等操作，在跳转到银行资金存管系统页面后，点击“忘记交易密码”，根据提示重置密码。
     </p>
 	</div>
 	<div class="row">
@@ -32,11 +32,11 @@
     <br>3.邮箱验证：填写真实有效的邮箱地址，收到宏财网发送的链接后完成验证。</p>
 
 		<p ng-show="pay_company === 'cgt'" class="p-click" ng-click="changeSafeQ3 =! changeSafeQ3">&nbsp;为什么要进行安全认证？如何认证？</p>
-		<p ng-if="pay_company === 'cgt' && changeSafeQ3 == true" class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">为确保投资人的资金安全，宏财网要求所有投资人与借款企业均需完成安全认证，即开通北京网贷风险监控及资金存管系统，简称存管通。投资者和借款企业资金往来始终在存管银行体系内运作，避免了平台任意挪动资金的可能。投资人可在“我的账户--账户管理--安全设置”页面通过完成实名认证操作来开通资金存管账户。</p>
+		<p ng-if="pay_company === 'cgt' && changeSafeQ3 == true" class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">为确保投资人的资金安全，宏财网要求所有投资人与借款企业均需完成安全认证，即开通海口联合农商银行资金存管系统。投资者和借款企业资金往来始终在存管银行体系内运作，避免了平台任意挪动资金的可能。投资人可在“我的账户--账户管理--安全设置”页面通过完成实名认证操作来开通资金存管账户。</p>
 	</div>
 	<div ng-if="pay_company === 'cgt'" class="row">
 		<div class="help-ico {{changeSafeQ4 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ4 =! changeSafeQ4"></div>
-		<p class="p-click" ng-click="changeSafeQ4 =! changeSafeQ4">&nbsp;开通北京网贷风险监控及资金存管系统账户过程中，为何实名认证无法通过</p>
+		<p class="p-click" ng-click="changeSafeQ4 =! changeSafeQ4">&nbsp;开通海口联合农商银行资金存管系统账户过程中，为何实名认证无法通过</p>
 		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ4 == true">
       以下三种情况可能会导致实名认证无法通过：
       <br>1.身份证号和姓名不一致
@@ -62,14 +62,15 @@
 	<div class="row">
 		<div class="help-ico {{changeSafeQ7 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ7 =! changeSafeQ7"></div>
 		<p class="p-click" ng-click="changeSafeQ7 =! changeSafeQ7">&nbsp;宏财网有几层安全保障？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ7 == true">宏财网独创9层安全保障；实实在在的资金安全保障。
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ7 == true">宏财网独创8层安全保障；实实在在的资金安全保障。
 		<br>1，严格的项目审查；
 		<br>2，完善的风控流程；
 		<br>3，第三方支付；
-		<br>4，安全的交易系统；
-		<br>5，严谨的贷后管理；
-		<br>6，风险保障金；
-		<br>7，专业的律师团队。</p>
+		<br>4，银行存管；
+		<br>5，安全的交易系统；
+		<br>6，严谨的贷后管理；
+		<br>7，风险保障金；
+		<br>8，专业的律师团队。</p>
 	</div>
 	<!-- <div class="row">
 		<div class="help-ico {{changeSafeQ8 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ8 =! changeSafeQ8"></div>

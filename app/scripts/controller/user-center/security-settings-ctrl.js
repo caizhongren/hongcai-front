@@ -46,37 +46,59 @@ angular.module('hongcaiApp')
 
     //解绑银行卡
     $scope.confirmUnbindBankCard = function(){
-      // $rootScope.toNotice();
-      $scope.msg = '11';
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
+      if($rootScope.account.tTotalAssets > 2){
+        UserCenterService.unbindBankCardApply.get({}, function(response) {
+          if (response && response.ret !== 1) {
+            $scope.unbindBankCardApply = response;
+            if($scope.unbindBankCardApply.status === 1){
+              window.open('/#!/bankcard-transfer/1');
+            }else{
+              var act =  function () {
+                $scope.msg = '11';
+                $alert({
+                  scope: $scope,
+                  template: 'views/modal/alertYEEPAY.html',
+                  show: true
+                });
+              }
+
+              $rootScope.migrateStatus(act);
+            }
+          }
+        });
+      }else{
+        window.open('/#!/bankcard-transfer/1');
+      }
     };
     $scope.unbindBankCard = function() {
       // $rootScope.toNotice();
-      UserCenterService.unbindBankCard.get({}, function(response) {
-        if (response.ret === 1) {
-          $state.go('root.yeepay-callback', {
-            business: 'UNBIND_CARD',
-            status: 'SUCCESS'
-          });
-        } else {
-          toaster.pop('error', response.msg);
-        }
-      });
+      var act = function () {
+        UserCenterService.unbindBankCard.get({}, function(response) {
+          if (response.ret === 1) {
+            $state.go('root.yeepay-callback', {
+              business: 'UNBIND_CARD',
+              status: 'SUCCESS'
+            });
+          } else {
+            toaster.pop('error', response.msg);
+          }
+        });
+      }
+      $rootScope.migrateStatus(act);
     };
     //绑定银行卡
     $scope.bindBankCard = function() {
       // $rootScope.toNotice();
-      $scope.msg = '5';
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
-      window.open('/#!/bankcard-transfer/0');
+      var act = function () {
+        $scope.msg = '5';
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alertYEEPAY.html',
+          show: true
+        });
+        window.open('/#!/bankcard-transfer/0');
+      }
+      $rootScope.migrateStatus(act);
     };
 
     $scope.bindMobile = function(mobileNo, captcha) {
@@ -204,14 +226,17 @@ angular.module('hongcaiApp')
       }
     };
     $scope.realNameAuth = function(user) {
-      $scope.msg = '1';
-      $alert({
-        scope: $scope,
-        template: 'views/modal/alertYEEPAY.html',
-        show: true
-      });
-      $scope.openTrusteeshipAccount = false;
-      window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/0');
+      var act = function () {
+        $scope.msg = '1';
+        $alert({
+          scope: $scope,
+          template: 'views/modal/alertYEEPAY.html',
+          show: true
+        });
+        $scope.openTrusteeshipAccount = false;
+        window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/0');
+      }
+      $rootScope.migrateStatus(act);
     };
 
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
@@ -232,34 +257,36 @@ angular.module('hongcaiApp')
 
     //开通自动投标
     $scope.openReservation = function() {
-      if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
-        $modal({
-          scope: $scope,
-          template: 'views/modal/modal-realNameAuth.html',
-          show: true
-        });
-      }else if($rootScope.securityStatus.autoTransfer === 0){
-        var user = {
-          'realName': 'default',
-          'idCardNo': 'default'
-        };
+      var act = function () {
+        if ($rootScope.securityStatus.realNameAuthStatus !== 1) {
+          $modal({
+            scope: $scope,
+            template: 'views/modal/modal-realNameAuth.html',
+            show: true
+          });
+        }else if($rootScope.securityStatus.autoTransfer === 0){
+          var user = {
+            'realName': 'default',
+            'idCardNo': 'default'
+          };
 
-        window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
-        $scope.goToTender();
-        
-      }else {
-        $scope.goToTender();
-        UserCenterService.autoTender.get({
-          userId: $rootScope.loginUser.id
-        }, function(response){
-          if(response.status != null){
-            $scope.setAutoTender = true;
-          }else {
-            $scope.setAutoTender = false;
-          }
-        });
+          window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
+          $scope.goToTender();
+          
+        }else {
+          $scope.goToTender();
+          UserCenterService.autoTender.get({
+            userId: $rootScope.loginUser.id
+          }, function(response){
+            if(response.status != null){
+              $scope.setAutoTender = true;
+            }else {
+              $scope.setAutoTender = false;
+            }
+          });
+        }
       }
-
+      $rootScope.migrateStatus(act);
     };
   
     //自动投标

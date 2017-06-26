@@ -35,11 +35,8 @@ angular.module('hongcaiApp')
         if(!response || response.ret == -1) {
           return;
         }
-        if(payCompany == 'FUIOU') {
-          $scope.bankCodeList = response.data.bankLimit;
-        } else {
-          $scope.bankCodeList = response.data.bankLimit;
-        }
+        
+        $scope.bankCodeList = response.data.bankLimit;
         //当前绑定银行卡限额
         var bankLimit = response.data.bankLimit;
 
@@ -94,9 +91,6 @@ angular.module('hongcaiApp')
       'SPDB': '/images/user-center/SPDB.png',
       'BOB': '/images/user-center/BOB.png'
     }
-
-
-    
 
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
     $scope.refreshCode = function() {
@@ -160,7 +154,7 @@ angular.module('hongcaiApp')
           return;
         }
         if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
-          $rootScope.toActivate();
+          $rootScope.migrateStatus();
           return;
         }
         if(amount > $scope.bankRemain && $scope.rechargeWay == 'SWIFT'){
@@ -194,7 +188,7 @@ angular.module('hongcaiApp')
         
         window.open('/#!/recharge-transfer/' + amount +"/"+ $scope.rechargeWay +"/" + $scope.expectPayCompany);
       }
-      $rootScope.toActivate(act);
+      $rootScope.migrateStatus(act)
 
     };
 
@@ -213,25 +207,26 @@ angular.module('hongcaiApp')
 
 
     //记录选择支付方式 'FUIOU':富友，'ALLINPAY'：通联，'UMPAY':通联优势， 'UCFPAY': 先锋支付
-    //payment 1: 富友，2: 通联优势，3: 先锋支付
+    //payment 1: 富友，2: 易宝网银，3: 先锋支付，4：易宝
     $scope.selectPay = function(payment) {
       $scope.payment = payment;
-      $scope.bankRemainHolder = $scope.payment == 1? '该卡可充值' + $scope.bankRemain + '元' : '';
+      $scope.bankRemainHolder = $scope.payment !== 2 ? '该卡可充值' + $scope.bankRemain + '元' : '';
       if(payment ===1){
         $scope.rechargeWay = 'SWIFT';
         $scope.expectPayCompany = 'FUIOU';
       }else if (payment === 2) {
         $scope.rechargeWay = 'WEB';
-        $scope.expectPayCompany = 'UMPAY';
-
+        $scope.expectPayCompany = 'YEEPAY';
       }else if (payment === 3) {
         $scope.rechargeWay = 'SWIFT';
         $scope.expectPayCompany = 'UCFPAY';
 
+      }else if (payment === 4) {
+        $scope.rechargeWay = 'SWIFT';
+        $scope.expectPayCompany = 'YEEPAY';
       }
        $scope.getBankLimit($scope.expectPayCompany);
     }
     $scope.selectPay(3);
-
 
   });
