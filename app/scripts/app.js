@@ -1835,6 +1835,20 @@ hongcaiApp
         }
       }
     })
+    // 开通银行存管落地页——上线后
+    .state('root.bank-custody', {
+      url: '/bank-custody',
+      data: {
+        title: '银行存管介绍'
+      },
+      views: {
+        '': {
+          templateUrl: 'views/bank-custody.html',
+          controller: 'BankCustodyCtrl',
+          controllerUrl: 'scripts/controller/user-center/bank-custody-ctrl'
+        }
+      }
+    })
     /*-------------   银行存管流程  ----------------------*/
     .state('root.old-user-process', {
       url: '/old-user-process',
