@@ -55,7 +55,6 @@ angular.module('hongcaiApp')
 
           } else {
             $state.go('root.userCenter.account-overview');
-            $rootScope.migrateStatus();
           }
         } else {
           $scope.isPasswordError = true;

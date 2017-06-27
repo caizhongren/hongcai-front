@@ -154,7 +154,6 @@ angular.module('hongcaiApp')
           return;
         }
         if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
-          $rootScope.migrateStatus();
           return;
         }
         if(amount > $scope.bankRemain && $scope.rechargeWay == 'SWIFT'){
