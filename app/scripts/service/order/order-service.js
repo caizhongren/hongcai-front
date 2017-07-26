@@ -22,6 +22,9 @@ angular.module('hongcaiApp')
       downloadContract: $resource(DEFAULT_DOMAIN + '/siteOrder/downloadContract', {
         projectId: '@projectId', amount: '@amount', isRepeat: '@isRepeat', payAmount: '@payAmount'
       }),
+      downloadContractFdd: $resource(RESTFUL_DOMAIN + '/contracts/0/fdd', {
+        orderNumber: '@orderNumber'
+      }),
       downloadAssignmentContract: $resource(DEFAULT_DOMAIN + '/siteOrder/downloadAssignmentContract', {
         projectId: '@projectId', amount: '@amount', isRepeat: '@isRepeat', payAmount: '@payAmount'
       }),

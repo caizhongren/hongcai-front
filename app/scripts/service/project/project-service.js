@@ -103,6 +103,13 @@ angular.module('hongcaiApp')
         projectId: '@projectId'
       }),
 
+      contractTemplate: $resource(RESTFUL_DOMAIN + '/contracts/0/contractTemplate', {
+        number:'@number'
+      }),
+
+      contractTemplateFile: $resource(RESTFUL_DOMAIN + '/contracts/contractTemplate/0', {
+        templateId:'@templateId'
+      }),
 
       getYuebaoInterestRatesByDate: $resource(DEFAULT_DOMAIN + '/siteReserve/getYuebaoInterestRatesByDate', {}),
       getOneDayProfitAndNextRate: $resource(DEFAULT_DOMAIN + '/siteFunds/getOneDayProfitAndNextRate', {
