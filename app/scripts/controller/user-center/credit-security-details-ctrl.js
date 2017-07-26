@@ -43,6 +43,18 @@ angular.module('hongcaiApp')
       ProjectService.contractTemplate.get({
         number: projectNumber
       }, function(response){
+        if (type === 2 || type === 3) {
+          OrderService.downloadAssignmentContract.get({
+            orderId: orderId,
+            projectId: projectId
+          }, function(response){
+            if(response.ret !== -1){
+              $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
+            }else {
+              toaster.pop('warning', response.msg);
+            }
+          })
+        }
         if (response.ret !== -1) {
           if (status === 2) {//未放款下载模板
             ProjectService.contractTemplateFile.get({
