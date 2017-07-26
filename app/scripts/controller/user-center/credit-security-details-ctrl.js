@@ -43,27 +43,28 @@ angular.module('hongcaiApp')
       ProjectService.contractTemplate.get({
         number: projectNumber
       }, function(response){
-        if (type === 2 || type === 3) {
-          OrderService.downloadAssignmentContract.get({
-            orderId: orderId,
-            projectId: projectId
-          }, function(response){
-            if(response.ret !== -1){
-              $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
-            }else {
-              toaster.pop('warning', response.msg);
-            }
-          })
-        }
         if (response.ret !== -1) {
-          if (status === 2) {//未放款下载模板
+          if (type === 2 || type === 3) {
+            OrderService.downloadAssignmentContract.get({
+              orderId: orderId,
+              projectId: projectId
+            }, function(response){
+              if(response.ret !== -1){
+                $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
+              }else {
+                toaster.pop('warning', response.msg);
+              }
+            })
+          }
+
+          if (status === 2 && type !== 2 && type !== 3) {//未放款下载模板
             ProjectService.contractTemplateFile.get({
               templateId: response.id
             }, function(response){
               $scope.downloadPDF($scope.baseFileUrl() + response.url);
             });
           }
-          if (status >= 3 && status <= 6) {//放款下载合同
+          if (status >= 3 && status <= 6 && type !== 2 && type !== 3) {//放款下载合同
             if (response.type === 1 || response.type === 2) {//法大大直投和债转项目合同下载
               OrderService.downloadContractFdd.get({
                 orderNumber: orderNumber,
