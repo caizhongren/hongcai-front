@@ -398,7 +398,61 @@
     margin: 15px 0;
   }
 }
-
+// 平台介绍 宏财大事记时间轴
+.right-area .important-events {
+  .each-line {
+    height: 54px;
+    .column01, .column02, .column03{
+      display: inline-block;
+    }
+    .column01{
+      width: 9%;
+      text-align: left;
+      margin-top: -47px;
+      vertical-align: text-top;
+      height: 100%;
+    }
+    .column02{
+      width: 3.5%;
+      position: relative;
+      padding-left: 10px;
+      .circle {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background-color: #ff7d26;
+        box-shadow: 0 3px 16px #ff7d26, 0 0 5px #ff7d26, 0 0 5px #ff7d26;
+        display: block;
+      }
+      .circle:last-child {
+        position: absolute;
+        bottom: -10px;
+      }
+      .vertical-line {
+        height: 40px;
+        width: 1px;
+        background-color: #ff7d26;
+        display: block;
+        margin-left: 3px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+        opacity: 1;
+      }
+      .vertical-line.last-line {
+        opacity: 0;
+      }
+    }
+    .column03 {
+      padding-left: 5px;
+      width: 63%;
+      color: #666;
+      text-align: left;
+      height: 100%;
+      vertical-align: top;
+      margin-top: -5px;
+    }
+  }
+}
 
 
 
