@@ -361,7 +361,7 @@ angular.module('hongcaiApp')
       
     }
     //日期切换
-    
+                                                                                                                                               
     //资产总额详情显示框
     $scope.showPaymentBox = false;
     $scope.selectPaymentBox = function(){

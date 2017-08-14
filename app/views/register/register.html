@@ -32,7 +32,7 @@
 	          <div class="col-md-3 col-lg-3">
 	            <label for="mobile">手机号</label>
 	          </div>
-	          <div class="col-md-8 col-lg-8">
+	          <div class="col-md-8 col-lg-8 position-re">
 	            <input class="no-boxshadow" type="text" id="mobile" placeholder="请输入手机号码" name="mobile" ng-model="user.mobile" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[03678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobile" ng-class="{'borderred':registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused,'borderwhite':!registerForm.mobile.$dirty || !registerForm.mobile.$invalid || registerForm.mobile.$focused}" required ng-focus />
 	          </div>
 	        </div>
@@ -48,7 +48,10 @@
 	          <div class="col-md-3 col-lg-3">
 	            <label for="account">密码</label>
 	          </div>
-	          <div class="col-md-8 col-lg-8">
+	          <div class="col-md-8 col-lg-8 position-re padding-r-35">
+	          	<span class="position-ab strength" ng-show="strength === 1">弱</span>
+	          	<span class="position-ab strength" ng-show="strength === 2">中</span>
+	          	<span class="position-ab strength" ng-show="strength === 3">强</span>
 	            <input class="no-boxshadow" type="password" placeholder="请输入您的密码" id="password" name="password" ng-model="user.password" ng-minlength="6" ng-maxlength="22" ng-pattern="/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/" ng-class="{'borderred':registerForm.password.$dirty && registerForm.password.$invalid && !registerForm.password.$focused,'borderwhite':!registerForm.password.$dirty || !registerForm.password.$invalid || registerForm.password.$focused}" required ng-focus />
 	          </div>
 	        </div>
