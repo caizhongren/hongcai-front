@@ -4,6 +4,8 @@ angular.module('hongcaiApp')
     $rootScope.pageTitle = '手机注册' + ' - 宏财网';
     $scope.userbusiness = 0;
     $scope.strength = 1
+    $scope.errMsg = ''
+    var parttern = /^(?=.*[a-zA-Z])(?=.*[0-9])[\da-zA-Z~!@#$%^&*]{6,22}$/
     /**
      * 注册链接上是否有邀请码
      */
@@ -50,6 +52,10 @@ angular.module('hongcaiApp')
     };
     // 密码强度校验
     $scope.$watch('user.password', function (newVal, oldVal) {
+      $scope.errMsg = ''
+      if (!parttern.test(newVal)) {
+        $scope.errMsg = '长度6-22，数字或字母的组合，可以包含特殊字符'
+      }
       if (newVal && newVal.length > 21) {
         $scope.user.password = newVal.substr(0, 21);
       }

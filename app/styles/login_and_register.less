@@ -822,7 +822,7 @@ input:-webkit-autofill {
   }
 
 }
-.strength {
+.strength, .strength.ex, .strength1.ex {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -833,11 +833,14 @@ input:-webkit-autofill {
   right: 5px;
   top: 5px;
 }
-.strength1 {
+.strength1, .strength1.ex {
   width: 25px;
   height: 25px;
   line-height: 25px;
   right: 18px;
+}
+.strength.ex, .strength1.ex {
+  background-color: #999;
 }
 .strength:first-child + .strength {
   background-color: #f5b717;

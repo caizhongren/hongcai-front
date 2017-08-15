@@ -13,12 +13,15 @@ angular.module('hongcaiApp')
         var pattern6 = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[~!@#$%^&*])[\da-zA-Z~!@#$%^&*].{10,}$/ //数字字母符号11位以上
         // if (newVal && newVal.length < 6 || newVal && pattern1.test(newVal) || /^\d{6,}$/.test(newVal) || /^[a-zA-Z]{6,}$/.test(newVal) || /^[a-zA-Z~!@#$%^&*].{0,}$/.test(newVal)) {
         //   strength = 1;
-        // } 
+        // }
+        if(!newVal) {
+          strength = 0
+        }
         if (pattern2.test(newVal) || pattern3.test(newVal) || pattern4.test(newVal)) {
           strength = 2;
         }
         if (pattern5.test(newVal) || pattern6.test(newVal)) {
-          strength = 3
+          strength = 3;
         }
         return strength;
       }

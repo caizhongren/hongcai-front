@@ -4,6 +4,7 @@ angular.module('hongcaiApp')
     $scope.areaFlag = 1;
     $scope.strength = 1;
     $scope.repeatStrength = 3;
+    $scope.pwdErrMsg = ''
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?';
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
@@ -31,8 +32,13 @@ angular.module('hongcaiApp')
 
       var mobilePattern = /^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678]))\d{8}$/;
       var emailPattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      var pwdParttern = /^(?=.*[a-zA-Z])(?=.*[0-9])[\da-zA-Z~!@#$%^&*]{6,22}$/
       // 密码强度验证
       $scope.$watch('user.password', function (newVal, oldVal) {
+        $scope.pwdErrMsg = ''
+        if (!pwdParttern.test(newVal)) {
+          $scope.pwdErrMsg = '长度6-22，数字或字母的组合，可以包含特殊字符'
+        }
         if (newVal && newVal.length > 21) {
           $scope.user.password = newVal.substr(0, 21);
         }
