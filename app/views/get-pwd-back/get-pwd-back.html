@@ -183,7 +183,7 @@
               <span class="position-ab strength strength1 {{strength === 0 ? 'ex' : ''}}" ng-show="strength === 1 || strength === 0">弱</span>
               <span class="position-ab strength strength1" ng-show="strength === 2">中</span>
               <span class="position-ab strength strength1" ng-show="strength === 3">强</span>
-              <input type="text" class="form-control" name="password" id="password" ng-model="user.password" ng-class="{'borderred':Step3SetPhonePwd.password.$dirty && pwdErrMsg && !Step3SetPhonePwd.password.$focused,'borderwhite':!Step3SetPhonePwd.password.$dirty || !Step3SetPhonePwd.password.$invalid || Step3SetPhonePwd.password.$focused}" required ng-focus />
+              <input type="password" class="form-control" name="password" id="password" ng-model="user.password" ng-class="{'borderred':Step3SetPhonePwd.password.$dirty && pwdErrMsg && !Step3SetPhonePwd.password.$focused,'borderwhite':!Step3SetPhonePwd.password.$dirty || !Step3SetPhonePwd.password.$invalid || Step3SetPhonePwd.password.$focused}" required ng-focus />
               <div ng-if="Step3SetPhonePwd.password.$dirty && pwdErrMsg && !Step3SetPhonePwd.password.$focused">
                 <div class="row">
                   <p class="input-tips set-pwd-input-tips">{{pwdErrMsg}}</p>
