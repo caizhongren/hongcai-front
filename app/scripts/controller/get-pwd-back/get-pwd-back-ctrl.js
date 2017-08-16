@@ -37,7 +37,7 @@ angular.module('hongcaiApp')
       $scope.$watch('user.password', function (newVal, oldVal) {
         $scope.pwdErrMsg = ''
         if (!pwdParttern.test(newVal)) {
-          $scope.pwdErrMsg = '长度6-22，数字或字母的组合，可以包含特殊字符'
+          $scope.pwdErrMsg = '长度6-22，数字或字母的组合，可以包含特殊字符~!@#$%^&*'
         }
         if (newVal && newVal.length > 21) {
           $scope.user.password = newVal.substr(0, 21);
