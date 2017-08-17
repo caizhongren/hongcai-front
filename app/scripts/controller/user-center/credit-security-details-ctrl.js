@@ -70,7 +70,10 @@ angular.module('hongcaiApp')
                 orderNumber: orderNumber,
               }, function(response){
                 if(response.ret !== -1){
-                  window.open(response.downUrl, "_self")
+                  window.open(response.downUrl, "_self");
+                  if (response.cutInerestDownUrl != null) {
+                    window.open(response.cutInerestDownUrl, "_self");
+                  }
                 }else {
                   toaster.pop('warning', response.msg);
                 }
