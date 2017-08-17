@@ -39,74 +39,66 @@ angular.module('hongcaiApp')
     });
 
     //下载合同
-    $scope.generateContractPDF = function(projectId, orderId, status, type) {
+    $scope.generateContractPDF = function(projectId, orderId, status, type, projectNumber, orderNumber) {
+      ProjectService.contractTemplate.get({
+        number: projectNumber
+      }, function(response){
+        if (response.ret !== -1) {
+          if (type === 2 || type === 3) {
+            OrderService.downloadAssignmentContract.get({
+              orderId: orderId,
+              projectId: projectId
+            }, function(response){
+              if(response.ret !== -1){
+                $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
+              }else {
+                toaster.pop('warning', response.msg);
+              }
+            })
+          }
 
-      /**
-       * 下载模板
-       */
-      if (status === 2) {
-        if (type !== 4 && type !== 2 && type !== 3 ) {
-          ProjectService.contractPDFModel.get({
-            projectId: projectId
-          }, function(response){
-            if(response.ret !== -1){
-              $scope.downloadPDF($scope.baseFileUrl() + response.data.contractModel.url);
-            }else {
-              toaster.pop('warning', response.msg);
+          if (status === 2 && type !== 2 && type !== 3) {//未放款下载模板
+            ProjectService.contractTemplateFile.get({
+              templateId: response.id
+            }, function(response){
+              $scope.downloadPDF($scope.baseFileUrl() + response.url);
+            });
+          }
+          if (status >= 3 && status <= 6 && type !== 2 && type !== 3) {//放款下载合同
+            if (response.type === 1 || response.type === 2) {//法大大直投和债转项目合同下载
+              OrderService.downloadContractFdd.get({
+                orderNumber: orderNumber,
+              }, function(response){
+                if(response.ret !== -1){
+                  window.open(response.downUrl, "_self");
+                  if (response.cutInerestDownUrl != null) {
+                    window.open(response.cutInerestDownUrl, "_self");
+                  }
+                }else {
+                  toaster.pop('warning', response.msg);
+                }
+              });
             }
-          })
-
-          // $scope.downloadPDF('hongcai/api/v1/siteProject/generateContractPDFModel?orderId=' + orderId + '&projectId=' + projectId);
-        } else if (type === 4) {
-          $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContractModel');
-        } else if (type === 2 || type === 3) {
-          OrderService.downloadAssignmentContract.get({
-            orderId: orderId,
-            projectId: projectId
-          }, function(response){
-            if(response.ret !== -1){
-              $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
-            }else {
-              toaster.pop('warning', response.msg);
+            if (response.type === 4) {//多方协议合同下载
+              if (!$window.confirm('确定下载合同?合同查阅密码为您身份证号码后6位数字')) {
+                return;
+              }
+              OrderService.downloadContract.get({
+                orderId: orderId,
+                projectId: projectId
+              }, function(response){
+                if(response.ret !== -1){
+                  $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
+                }else {
+                  toaster.pop('warning', response.msg);
+                }
+              });
             }
-          });
+          }
+        }else {
+          toaster.pop('warning', response.msg);
         }
-
-      } else if (status >= 3 && status <= 6) {
-        if (!$window.confirm('确定下载合同?合同查阅密码为您身份证号码后6位数字')) {
-          return;
-        }
-
-        if (type !== 4 && type !== 2 && type !== 3 ) {
-          OrderService.downloadContract.get({
-            orderId: orderId,
-            projectId: projectId
-          }, function(response){
-            if(response.ret !== -1){
-              $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
-            }else {
-              toaster.pop('warning', response.msg);
-            }
-          });
-
-          // $scope.downloadPDF('hongcai/api/v1/siteOrder/downloadContract?orderId=' + orderId + '&projectId=' + projectId);
-        } else if (type === 4) {
-          $scope.downloadPDF('hongcai/api/v1/siteCredit/downloadFundsContract?orderId=' + orderId);
-        }  else if (type === 2 || type === 3) {
-          OrderService.downloadAssignmentContract.get({
-            orderId: orderId,
-            projectId: projectId
-          }, function(response){
-            if(response.ret !== -1){
-              $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
-            }else {
-              toaster.pop('warning', response.msg);
-            }
-          });
-        }
-
-      }
-
+      });
     };
     
     $scope.baseFileUrl = function(){
