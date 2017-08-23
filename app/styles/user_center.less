@@ -432,7 +432,7 @@
       }
       .payment-box {
         position: absolute;
-        display: none;
+        display: block;
         top: 44px;
         left:100px;
         width: 325px;
@@ -560,7 +560,10 @@
           background: #fafafa;
         }
         .f-number{
-          cursor: pointer;
+          cursor: no-drop;
+          .f-yuan {
+            cursor: pointer;
+          }
         }
       }
     }
