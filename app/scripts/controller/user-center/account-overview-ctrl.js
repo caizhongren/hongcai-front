@@ -359,7 +359,7 @@ angular.module('hongcaiApp')
           yuanStr = (paymentStatus.length >1  && $.inArray( 0, paymentStatus) != -1) || (paymentStatus.length ==1 && paymentStatus[0] == 0) ? "<div class='f-yuan'>"+ ((i+1) >= 10 ? (i+1) : '0' + (i+1) )+"</div>" : "<div class='f-yuan-grey'>"+ ((i+1) >= 10 ? (i+1) : '0' + (i+1) )+"</div>";
           mystr += "<div class='f-td f-number'>"
                   + yuanStr
-                  +"<div class='f-table-msg'>回款金额<span class='major'>" + paymentAmount + "</span>元；回款笔数<span class='major'>" + paymentCount + "</span>笔</div>"//这里加判断
+                  +"<div class='f-table-msg'>回款金额<span class='major'>" + paymentAmount.toFixed(2) + "</span>元；回款笔数<span class='major'>" + paymentCount + "</span>笔</div>"//这里加判断
                   +"</div>"; 
         }else {
           mystr += "<div class='f-td f-number'><span class='f-day'>"+(i+1)+"</span>"+"</div>"; 
