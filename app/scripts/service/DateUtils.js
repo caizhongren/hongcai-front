@@ -91,10 +91,10 @@ angular.module('hongcaiApp')
     		}
     		return nextDay;
     	},
-        getBeforeDate: function (n) {
-            // 获取当前时间 n 天前的日期, n < 0表示前时间前 n 天后的日期
+        getBeforeDate: function (n, date) {
+            // 获取某日 n 天前的日期, n < 0表示该日期 n 天后的日期
             var n = n;
-            var d = new Date();
+            var d = new Date(date);
             var year = d.getFullYear();
             var mon = d.getMonth() + 1;
             var day = d.getDate();  
@@ -110,9 +110,11 @@ angular.module('hongcaiApp')
             year = d.getFullYear();
             mon = d.getMonth() + 1;
             day = d.getDate();
-            var s = year + "-" + (mon < 10 ? ('0'+mon) : mon) + "-" + (day < 10 ? ('0' + day) : day);
-            return s;
+            var s = year + "-" + (mon < 10 ? ('0' + mon) : mon) + "-" + (day < 10 ? ('0' + day) : day);
+            return new Date(s).getTime();
+            // return s;
         }
+        // getYear
 
     };
   });
