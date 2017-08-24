@@ -5,6 +5,13 @@ angular.module('hongcaiApp')
     var receivedProfit = 0;
     var balance = 0;
     var reward = 0;
+    var currentDate = new Date().getTime()
+    var registerTime = $rootScope.loginUser.createTime //用户注册时间
+    console.log(new Date(registerTime))
+    $scope.currentYearCopy = new Date().getFullYear();
+    $scope.currentYear = new Date().getFullYear();//当前年份
+    $scope.registerYear = new Date(registerTime).getFullYear() //首投年份
+    $scope.registerDiff = DateUtils.intervalDays(currentDate, registerTime) //注册天数
     UserCenterService.getUserAccount.get(function(response) {
       if (response.ret === 1) {
         var account = response.data.account;
@@ -118,16 +125,12 @@ angular.module('hongcaiApp')
 
 
     /**
-     * 收益走势图 累计
+     * 折线图配置
      */
     $scope.onClick = function (points, evt) {
       //console.log(points, evt);
     };
 
-    // $scope.medals_colours = [{
-    //   fillColor:['rgba(0,0,0,0)'], //填充色
-    //   strokeColor:['#f9721f'],//曲线颜色
-    // }];
     $scope.medals_colours = ['#f9721f','fdcfb3','rgba(0,0,0,0)'];
     $scope.options = {
       bezierCurve: false,
@@ -136,232 +139,116 @@ angular.module('hongcaiApp')
       tooltipFontColor:'#fff', //tip字体颜色
       tooltipFillColor: '#f9721f',//tip背景颜色
     }
-    //lables and data config tab=== 0 调用
-    $scope.datasConfig = function() {
+    //lables and data config tab === 0， 已收收益（累计）数据
+    $scope.datasConfig = function(startTime, endTime) {
       $scope.yearlyData = [];
       $scope.labels = [];
       var datas = [];
-      //模拟数据
-      var monthProfit = 
-              [
-                {
-                  profit: 0.4,
-                  createTime: 1496592000000
-                },
-                {
-                  profit: 19.4,
-                  createTime: 1496678400000
-                },
-                {
-                  profit: 23.4,
-                  createTime: 1496764800000
-                },
-                {
-                  profit: 28.4,
-                  createTime: 1496851200000
-                },
-                {
-                  profit: 17.4,
-                  createTime: 1496937600000
-                },
-                {
-                  profit: 24.4,
-                  createTime: 1497024000000
-                },
-                {
-                  profit: 12.4,
-                  createTime: 1497110400000
-                },
-                {
-                  profit: 22.4,
-                  createTime: 1496592000000
-                },
-                {
-                  profit: 22.4,
-                  createTime: 1497283200000
-                },
-                {
-                  profit: 25.4,
-                  createTime: 1497369600000
-                },
-                {
-                  profit: 22.4,
-                  createTime: 1497456000000
-                },
-                {
-                  profit: 22.4,
-                  createTime: 1497542400000
-                },
-              ]
-      
-      for(var i = 0; i <= monthProfit.length - 1; i++){
-        var date1 = new Date(monthProfit[i].createTime);
-        $scope.labels.push((date1.getMonth() + 1) + '月');
-        datas.push(monthProfit[i].profit);
-      }
-      $scope.yearlyData.push(datas);
+      UserCenterService.getReceivedProfitGraphs.get({
+        startTime: startTime,
+        endTime: endTime
+      }, function (response) {
+        if (!response || response.ret === -1) {
+          return
+        }
+        var monthProfit = response.data
+        for(var i = 0; i <= monthProfit.length - 1; i++){
+          var date1 = new Date(monthProfit[i].searchDate);
+          if ($scope.registerDiff > 180) { //已收收益>180天横坐标按月，不到180天 横坐标按天
+            $scope.labels.push((date1.getMonth() + 1) + '月');
+          } else {
+            $scope.labels.push((date1.getMonth() + 1) + '月-' + date1.getDate() + '日');
+          }
+          datas.push(monthProfit[i].profit);
+        }
+        $scope.yearlyData.push(datas);
+      })
     }
-    $scope.datasConfig();
 
     /**
-     * 收益走势图 每日 tab=== 1 调用
+     *  日期切换
      */
-    UserCenterService.dayProfit.get(function(response){
-      var creditRightList = response.data.creditRightList;
-      $scope.dailyDatas = [];
-      $scope.dailyLabels = [];
-      var dailyDatas = [];
-
-      for(var i = 0; i <= creditRightList.length - 1; i++){
-        var date = new Date(creditRightList[i].createTime);
-        $scope.dailyLabels.push((date.getMonth() + 1) + '月-' + date.getDate() + '日');
-        dailyDatas.push(creditRightList[i].profit);
+    $scope.n = 0
+    $scope.toggleDate = function (preOrNext, tab) {
+      // preOrNext = 0 上一桢，preOrNext = 1下一桢
+      // 注册日和当前日期所在的那一帧不可以再点
+      $scope.xFrame = Math.ceil($scope.registerDiff/12)
+      if (preOrNext === 0) {
+        if ($scope.n === $scope.xFrame) {
+          return;
+        }
+        $scope.n += 1;
+      } else if (preOrNext === 1) {
+        if ($scope.n === 0) {
+          return;
+        }
+        $scope.n -= 1;
       }
+      // 当前显示横坐标第1位
+      var xFirst = DateUtils.getBeforeDate(11 + 12*$scope.n, currentDate)
+      $scope.currentYear = new Date(xFirst).getFullYear()
+      // 当前显示横坐标第12位
+      var xLast = $scope.n === 0 ? currentDate : DateUtils.getBeforeDate(-11, new Date(xFirst))
+      // 把第1位和第12位日期作为接口参数传入请求页面显示利息和日期
+      if (tab === 0) {
+        $scope.yearlyData = [];
+        $scope.labels = [];
+        $scope.datasConfig(xFirst, xLast);
+      } else {
+        /**
+         * 每日收益 tab === 1 调用
+         */
+        UserCenterService.dayProfit.get(function(response){
+          var creditRightList = response.data.creditRightList;
+          $scope.dailyDatas = [];
+          $scope.dailyLabels = [];
+          var dailyDatas = [];
 
-      $scope.dailyData = [];
-      $scope.dailyData.push(dailyDatas);
-    });
+          for(var i = 0; i <= creditRightList.length - 1; i++){
+            var date = new Date(creditRightList[i].createTime);
+            $scope.dailyLabels.push((date.getMonth() + 1) + '月-' + date.getDate() + '日');
+            dailyDatas.push(creditRightList[i].profit);
+          }
 
+          $scope.dailyData = [];
+          $scope.dailyData.push(dailyDatas);
+        });
+      }
+      
+    } 
     /**
      *  年份切换
      */
-    var currentYear = new Date().getFullYear();//当前年份
-    $scope.chartYear = $scope.chartYear ? $scope.chartYear : currentYear;
-    $scope.firstInvestYear = 2015; //首投年份
-    $scope.toggleYear = function(preOrNext,tab) {
-      //上一年
-      if(preOrNext == 'pre' && $scope.chartYear > $scope.firstInvestYear){
-        $scope.chartYear -= 1;
-        //update datasConfig
-        var datas = [];
-        $scope.labels = [];
-        $scope.yearlyData = [];
-        var monthProfit = [
-          {
-            profit: 19.4,
-            createTime: 1496592000000
-          },
-          {
-            profit: 18.4,
-            createTime: 1496678400000
-          },
-          {
-            profit: 29.4,
-            createTime: 1496764800000
-          },
-          {
-            profit: 2.4,
-            createTime: 1496851200000
-          },
-          {
-            profit: 7.4,
-            createTime: 1496937600000
-          },
-          {
-            profit: 4.4,
-            createTime: 1497024000000
-          },
-          {
-            profit: 2.4,
-            createTime: 1497110400000
-          },
-          {
-            profit: 22.4,
-            createTime: 1496592000000
-          },
-          {
-            profit: 22.4,
-            createTime: 1497283200000
-          },
-          {
-            profit: 5.4,
-            createTime: 1497369600000
-          },
-          {
-            profit: 22.4,
-            createTime: 1497456000000
-          },
-          {
-            profit: 12.4,
-            createTime: 1497542400000
-          },
-        ]
-        for(var i = 0; i <= monthProfit.length - 1; i++){
-          var date1 = new Date(monthProfit[i].createTime);
-          $scope.labels.push((date1.getMonth() + 1) + '月');
-          datas.push(monthProfit[i].profit);
+    $scope.toggleYear = function(preOrNext) {
+      if ($scope.registerDiff > 180) {
+        //上一年
+        if(preOrNext === 0){
+          if ($scope.currentYear <= $scope.registerYear) {
+            return
+          }
+          $scope.currentYear -= 1
         }
-        $scope.yearlyData.push(datas);
-      }
-      //下一年
-      if(preOrNext == 'next' && $scope.chartYear < currentYear){
-        $scope.chartYear += 1;
-         //update datasConfig
-        datas = [];
-        $scope.labels = [];
-        $scope.yearlyData = [];
-        monthProfit = 
-            [
-              {
-                profit: 20.4,
-                createTime: 1496592000000
-              },
-              {
-                profit: 19.4,
-                createTime: 1496678400000
-              },
-              {
-                profit: 23.4,
-                createTime: 1496764800000
-              },
-              {
-                profit: 28.4,
-                createTime: 1496851200000
-              },
-              {
-                profit: 17.4,
-                createTime: 1496937600000
-              },
-              {
-                profit: 24.4,
-                createTime: 1497024000000
-              },
-              {
-                profit: 12.4,
-                createTime: 1497110400000
-              },
-              {
-                profit: 22.4,
-                createTime: 1496592000000
-              },
-              {
-                profit: 22.4,
-                createTime: 1497283200000
-              },
-              {
-                profit: 25.4,
-                createTime: 1497369600000
-              },
-              {
-                profit: 22.4,
-                createTime: 1497456000000
-              },
-              {
-                profit: 22.4,
-                createTime: 1497542400000
-              },
-            ]
-        for(var i = 0; i <= monthProfit.length - 1; i++){
-          var date1 = new Date(monthProfit[i].createTime);
-          $scope.labels.push((date1.getMonth() + 1) + '月');
-          datas.push(monthProfit[i].profit);
+        //下一年
+        if(preOrNext === 1){
+          if ($scope.currentYear > new Date().getFullYear() - 1) {
+            return
+          }
+          $scope.currentYear += 1
         }
-        $scope.yearlyData.push(datas);
+        $scope.startTime = new Date($scope.currentYear + '-01-01').getTime()
+        $scope.endTime = new Date($scope.currentYear + '-12-01').getTime()
+        $scope.datasConfig($scope.startTime, $scope.endTime);  
+      } else {
+        $scope.toggleDate(preOrNext, 0)
       }
-      
     }
-    //日期切换
-                                                                                                                                               
+    if($scope.registerDiff < 180) {
+      $scope.toggleDate(2, 0)
+    } else {
+      $scope.toggleYear(2)
+    }
+
+                                                                                                                                    
     //资产总额详情显示框
     $scope.showPaymentBox = false;
     var paymentAmount = 0;

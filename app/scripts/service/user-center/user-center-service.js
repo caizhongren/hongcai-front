@@ -343,6 +343,11 @@ angular.module('hongcaiApp')
           isArray: false  
         }
       }),
-      repaymentPlan: $resource(RESTFUL_DOMAIN + '/accounts/0/repayment/plan', {})
+      repaymentPlan: $resource(RESTFUL_DOMAIN + '/accounts/0/repayment/plan', {}),
+      // 账户总览 已收收益曲线
+      getReceivedProfitGraphs: $resource(RESTFUL_DOMAIN + '/accounts/o/receivedProfitGraphs', {
+        startTime: '@startTime',
+        endTime: '@endTime'
+      }),
     };
   });
