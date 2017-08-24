@@ -345,7 +345,7 @@ angular.module('hongcaiApp')
       }),
       repaymentPlan: $resource(RESTFUL_DOMAIN + '/accounts/0/repayment/plan', {}),
       // 账户总览 已收收益曲线
-      getReceivedProfitGraphs: $resource(RESTFUL_DOMAIN + '/accounts/o/receivedProfitGraphs', {
+      getReceivedProfitGraphs: $resource(RESTFUL_DOMAIN + '/accounts/0/receivedProfitGraphs', {
         startTime: '@startTime',
         endTime: '@endTime'
       }),
