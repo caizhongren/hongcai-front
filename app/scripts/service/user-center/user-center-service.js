@@ -343,6 +343,8 @@ angular.module('hongcaiApp')
           isArray: false  
         }
       }),
-      repaymentPlan: $resource(RESTFUL_DOMAIN + '/accounts/0/repayment/plan', {})
+      repaymentPlan: $resource(RESTFUL_DOMAIN + '/accounts/0/repayment/plan', {
+        dateTime: '@dateTime'
+      })
     };
   });

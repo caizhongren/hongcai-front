@@ -367,7 +367,7 @@ angular.module('hongcaiApp')
     var paymentAmount = 0;
     var paymentCount = 0;
     $scope.selectPaymentBox = function(){
-      if ($scope.paymentCount >0) {
+      if (paymentCount >0) {
         $scope.showPaymentBox = !$scope.showPaymentBox;
       }
     }
@@ -386,21 +386,35 @@ angular.module('hongcaiApp')
      * 待收回款日历
      */
     //页面加载初始化年月
+    var mydate = new Date();
+    $scope.calendar_year = mydate.getFullYear()
+    $scope.calendar_month = mydate.getMonth()+1 <10 ? "0" + (mydate.getMonth()+1) : mydate.getMonth()+1;
+    
     var creditRightBillMap = {}
-    $scope.getRepaymentPlan = function () {
-      UserCenterService.repaymentPlan.get(function(response){
+    var numMap = {}
+    $scope.getRepaymentPlan = function (dateTime, yyyy, mm) {
+      UserCenterService.repaymentPlan.get({
+        dateTime: dateTime
+      }, function(response){
         $scope.repaymentPlan = response;
-        $scope.numMap = response.numMap;
+        numMap = response.numMap;
         creditRightBillMap = response.creditRightBillMap;
-        $scope.showDate(mydate.getFullYear(),mydate.getMonth()+1);
+        $scope.showDate(yyyy, mm);
       })
     }
-    $scope.getRepaymentPlan();
+    $scope.getRepaymentPlan($scope.calendar_year + '-' + $scope.calendar_month + '-01', mydate.getFullYear(), mydate.getMonth()+1);
     //读取年月写入日历  重点算法!!!!!!!!!!!
     $scope.showDate = function (yyyy, mm) {
-      $scope.paymentCount = 0;
-      $scope.paymentAmount = 0;
+      var m;
+      mm <10 ? m = '0' + mm : m = mm;
+      paymentCount = 0;
+      paymentAmount = 0;
+      $scope.paymentTotalCount = 0;
+      $scope.paymentTotalAmount = 0;
       $scope.credit = [];
+      $scope.creditBills = [];
+      $scope.paymentRequest = '当月';
+      var time = '';
       var dd = new Date(parseInt(yyyy),parseInt(mm), 0);   //Wed Mar 31 00:00:00 UTC+0800 2010  
       var daysCount = dd.getDate();            //本月天数  
       var mystr ="";//写入代码
@@ -419,32 +433,30 @@ angular.module('hongcaiApp')
       }else{
         nextMounth = new Date(parseInt(yyyy),parseInt(mm)+1, 0).getDate();
       }
-      
       for(var i=0;i<daysCount;i++){
         var y_mm, y_i;
-        if (mm <10) {
-          y_mm = '0' + mm;
-        } else {
-          y_mm = mm
-        }
-        if (i+1 <10) {
-          y_i = '0' + (i+1);
-        } else {
-          y_i = (i+1)
-        }
-        var time = yyyy +'-' + y_mm +'-' + y_i;
-        
-        // console.log(time + ':' +creditRightBillMap.hasOwnProperty(time));
+        mm <10 ? y_mm = '0' + mm : y_mm = mm;
+        i+1 <10 ? y_i = '0' + (i+1) : y_i = (i+1);
+        time = yyyy +'-' + y_mm +'-' + y_i;
+        var date = yyyy +'-' + y_mm;
+        var paymentStatus = [];
+        paymentAmount = 0;
         if (creditRightBillMap.hasOwnProperty(time)) {
           var credit = creditRightBillMap[time];
           $scope.credit = creditRightBillMap[time];
-          console.log($scope.credit)
+          // console.log($scope.credit)
           for (var t =0; t <credit.length;t++) {
+            paymentStatus.push(credit[t].status);
             var rate = credit[t].baseRate + credit[t].riseRate;
-            $scope.paymentAmount += (credit[t].principal + credit[t].profit + ((rate + credit[t].couponRate) * credit[t].profit/rate - credit[t].profit));
+            paymentAmount += (credit[t].principal + credit[t].profit + ((rate + credit[t].couponRate) * credit[t].profit/rate - credit[t].profit));
           }
-          $scope.paymentCount = $scope.credit.length;
-          $scope.paymentAmount = $scope.paymentAmount;
+          paymentCount = $scope.credit.length;
+          $scope.paymentTotalAmount += paymentAmount;
+          $scope.creditBills = $scope.creditBills.concat($scope.credit);
+        }
+
+        if (numMap.hasOwnProperty(date)) {
+          $scope.paymentTotalCount = numMap[date];
         }
         //计算上月空格数
         if( i%7 == 0){
@@ -454,17 +466,21 @@ angular.module('hongcaiApp')
             }
           }
         }
-         //这里为一个单元格，添加内容在此
+         //这里为一个单元格，添加内容在此 
+        var todayTimes = mydate.getTime();
+        var yuanStr = "";
         if (creditRightBillMap.hasOwnProperty(time)) {
+          yuanStr = (paymentStatus.length >1  && $.inArray( 0, paymentStatus) != -1) || (paymentStatus.length ==1 && paymentStatus[0] == 0) ? "<div class='f-yuan'>"+ ((i+1) >= 10 ? (i+1) : '0' + (i+1) )+"</div>" : "<div class='f-yuan-grey'>"+ ((i+1) >= 10 ? (i+1) : '0' + (i+1) )+"</div>";
           mystr += "<div class='f-td f-number'>"
-                  +"<div class='f-yuan'></div>"
-                  +"<div class='f-table-msg'>回款金额<span class='major'>" + $scope.paymentAmount + "</span>元；回款笔数<span class='major'>" + $scope.paymentCount + "</span>笔</div>"//这里加判断
+                  + yuanStr
+                  +"<div class='f-table-msg'>回款金额<span class='major'>" + paymentAmount + "</span>元；回款笔数<span class='major'>" + paymentCount + "</span>笔</div>"//这里加判断
                   +"</div>"; 
         }else {
           mystr += "<div class='f-td f-number'><span class='f-day'>"+(i+1)+"</span>"+"</div>"; 
         }
-        
+
       }
+      console.log($scope.creditBills);
       //表格不等高，只补充末行不足单元格
       if(7-(daysCount+week)%7 <7){
         for(var k=0; k<7-(daysCount+week)%7;k++ ){ // week为今天周几 daysCount为本月天数  7-week为本行空格数 7-(daysCount+6-week)%7为最后一行有几个空格
@@ -474,49 +490,78 @@ angular.module('hongcaiApp')
 
       //写入日历
       $(".f-rili-table .f-tbody").html(mystr);
+
       var tr = document.getElementsByClassName('f-td');
       for(var td=0;td<tr.length;td++){
         if((td>=0&&td<=6)||(td>=14&&td<=20)||(td>=28&&td<=34))  {
           $('.f-td').eq(td).addClass('bg-fa');
         }
       }
-      // console.log(yyyy)
-      // console.log(mm)
-      // console.log(mydate.getDate())
       //给今日加class
       if( mydate.getFullYear() == yyyy){
         if( (mydate.getMonth()+1 ) == mm){
           var today = mydate.getDate();
-          $(".f-rili-table .f-number").eq(today-1).html('今日');
-          $(".f-rili-table .f-number").eq(today-1).addClass("f-today");
+          console.log(yyyy + '-' + m + '-'+(today<10?'0'+today:today))
+          if (!creditRightBillMap.hasOwnProperty(yyyy + '-' + m + '-' +(today<10?'0'+today:today))) {
+            $(".f-rili-table .f-number").eq(today-1).html('今日');
+            $(".f-rili-table .f-number").eq(today-1).addClass("f-today");
+          }
+          // $(".f-rili-table .f-number").eq(today-1).html('今日');
+          // $(".f-rili-table .f-number").eq(today-1).addClass("f-today");
         }
       }
+
       //绑定查看方法
-      $(".f-yuan").off("mouseover");
-      $(".f-yuan").on("mouseover",function(){
+      $(".f-yuan").mouseover(function() {
         $(this).parent().find(".f-table-msg").show();
-      });
-      $(".f-table-msg").off("mouseover");
-      $(".f-table-msg").on("mouseover",function(){
-        $(this).show();
-      });
-      $(".f-yuan").off("mouseleave");
-      $(".f-yuan").on("mouseleave",function(){
+      }).mouseleave(function() {
         $(this).parent().find(".f-table-msg").hide();
-      });
-      $(".f-table-msg").off("mouseleave");
-      $(".f-table-msg").on("mouseleave",function(){
+      }).click(function() {
+        var activeDD = $(this).text();
+        var activeDate = yyyy + '-' + m + '-' + activeDD;
+        $scope.paymentTotalAmount = 0;
+        $scope.creditBills = creditRightBillMap[activeDate];
+        console.log($scope.creditBills)
+        $scope.paymentRequest = '当日';
+        var credit = $scope.creditBills;
+        var paymentAmount = 0;
+        for (var t =0; t <credit.length;t++) {
+          var rate = credit[t].baseRate + credit[t].riseRate;
+          paymentAmount += (credit[t].principal + credit[t].profit + ((rate + credit[t].couponRate) * credit[t].profit/rate - credit[t].profit));
+        }
+        $scope.paymentTotalCount = credit.length;
+        $scope.paymentTotalAmount += paymentAmount;
+      })
+
+      $(".f-yuan-grey").mouseover(function() {
+        $(this).parent().find(".f-table-msg").show();
+      }).mouseleave(function() {
+        $(this).parent().find(".f-table-msg").hide();
+      }).click(function() {
+        var activeDD = $(this).text();
+        var activeDate = yyyy + '-' + m + '-' + activeDD;
+        $scope.paymentTotalAmount = 0;
+        $scope.creditBills = creditRightBillMap[activeDate];
+        console.log($scope.creditBills)
+        $scope.paymentRequest = '当日';
+        var credit = $scope.creditBills;
+        var paymentAmount = 0;
+        for (var t =0; t <credit.length;t++) {
+          var rate = credit[t].baseRate + credit[t].riseRate;
+          paymentAmount += (credit[t].principal + credit[t].profit + ((rate + credit[t].couponRate) * credit[t].profit/rate - credit[t].profit));
+        }
+        $scope.paymentTotalCount = credit.length;
+        $scope.paymentTotalAmount += paymentAmount;
+      })
+
+      $(".f-table-msg").mouseover(function() {
+        $(this).show();
+      }).mouseleave(function() {
         $(this).hide();
-      });
+      })
 
     }
-    
-    var mydate = new Date();
-    $scope.calendar_year = mydate.getFullYear()
-    $scope.calendar_month = mydate.getMonth()+1 <10 ? "0" + (mydate.getMonth()+1) : mydate.getMonth()+1;
-    // $scope.showDate(mydate.getFullYear(),mydate.getMonth()+1);
 
-    
     //日历上一月
     $scope.lastMonth = function () {
       var mm = parseInt($scope.calendar_month);
@@ -524,10 +569,12 @@ angular.module('hongcaiApp')
       if( mm == 1){//返回12月
         $scope.calendar_year = yy-1;
         $scope.calendar_month = 12;
-        $scope.showDate(yy-1, 12);
+        // $scope.showDate(yy-1, 12);
+        $scope.getRepaymentPlan((yy-1)+'-12'+'-01', yy-1, 12);
       }else{//上一月
         $scope.calendar_month = mm - 1 < 10 ? "0" + (mm - 1) : mm - 1;
-        $scope.showDate(yy, mm-1);
+        // $scope.showDate(yy, mm-1);
+        $scope.getRepaymentPlan(yy+'-'+$scope.calendar_month+'-01', yy, mm-1);
       }
     }
     $scope.nextMonth = function () {
@@ -536,10 +583,12 @@ angular.module('hongcaiApp')
       if( mm == 12){//返回12月
         $scope.calendar_year = yy+1;
         $scope.calendar_month = '01';
-        $scope.showDate(yy+1, 1);
+        // $scope.showDate(yy+1, 1);
+        $scope.getRepaymentPlan($scope.calendar_year+'-01-01', yy+1, 1);
       }else{//上一月
         $scope.calendar_month = mm + 1 < 10 ? "0" + (mm + 1) : mm + 1;
-        $scope.showDate(yy, mm+1);
+        // $scope.showDate(yy, mm+1);
+        $scope.getRepaymentPlan(yy+'-'+$scope.calendar_month+'-01', yy, mm+1);
       }
     }
     
