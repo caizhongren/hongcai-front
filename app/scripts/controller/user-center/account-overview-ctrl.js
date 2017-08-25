@@ -314,7 +314,7 @@ angular.module('hongcaiApp')
         }
       })
     }
-    $scope.getRepaymentPlan(concatStr(mydate.getFullYear(), FormatStr(mydate.getMonth()+1), '01'), mydate.getFullYear(), mydate.getMonth()+1);
+
     //读取年月写入日历  重点算法!!!!!!!!!!!
     $scope.showDate = function (yyyy, mm) {
       var paymentCount = 0;
@@ -336,7 +336,7 @@ angular.module('hongcaiApp')
         var dateMonth = yyyy +'-' + FormatStr(mm);
         var paymentStatus = [];
         paymentAmount = 0;
-        if (creditRightBillMap.hasOwnProperty(dateTime)) {
+        if (creditRightBillMap && creditRightBillMap.hasOwnProperty(dateTime)) {
           credit = creditRightBillMap[dateTime];
           for (var t =0; t < credit.length; t++) {
             paymentStatus.push(credit[t].status);
@@ -350,7 +350,7 @@ angular.module('hongcaiApp')
           icon = (paymentStatus.length >1  && $.inArray( 0, paymentStatus) != -1) || (paymentStatus.length ==1 && paymentStatus[0] == 0) ? "<div class='f-yuan'>"+ FormatStr(i+1) +"</div>" : "<div class='f-yuan-grey'>"+ FormatStr(i+1) +"</div>";
         }
 
-        if (numMap.hasOwnProperty(dateMonth)) {
+        if (numMap && numMap.hasOwnProperty(dateMonth)) {
           $scope.paymentTotalCount = numMap[dateMonth];
         }
         //计算上月空格数
@@ -363,7 +363,7 @@ angular.module('hongcaiApp')
         }
         //这里为一个单元格，添加内容在此 
         var todayTimes = mydate.getTime();
-        if (creditRightBillMap.hasOwnProperty(dateTime)) {
+        if (creditRightBillMap && creditRightBillMap.hasOwnProperty(dateTime)) {
           mystr += "<div class='f-td f-number'>"
                   + icon
                   +"<div class='f-table-msg'>回款金额<span class='major'>" + paymentAmount.toFixed(2) + "</span>元；回款笔数<span class='major'>" + paymentCount + "</span>笔</div>"//这里加判断
@@ -431,6 +431,8 @@ angular.module('hongcaiApp')
       })
 
     }
+    $scope.showDate(mydate.getFullYear(), mydate.getMonth()+1);
+    $scope.getRepaymentPlan(concatStr(mydate.getFullYear(), FormatStr(mydate.getMonth()+1), '01'), mydate.getFullYear(), mydate.getMonth()+1);
     //日历上一月
     $scope.lastMonth = function () {
       var mm = parseInt($scope.calendar_month);
