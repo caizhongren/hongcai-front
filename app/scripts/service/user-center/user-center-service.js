@@ -349,5 +349,10 @@ angular.module('hongcaiApp')
         startTime: '@startTime',
         endTime: '@endTime'
       }),
+      // 账户总览 每日收益曲线
+      getDayProfitGraphs: $resource(RESTFUL_DOMAIN + '/accounts/0/dayProfitGraphs', {
+        startTime: '@startTime',
+        endTime: '@endTime'
+      }),
     };
   });
