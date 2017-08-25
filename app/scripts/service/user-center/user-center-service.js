@@ -343,6 +343,7 @@ angular.module('hongcaiApp')
           isArray: false  
         }
       }),
+      //账户总览 回款日历
       repaymentPlan: $resource(RESTFUL_DOMAIN + '/accounts/0/repayment/plan', {
         dateTime: '@dateTime'
       }),
@@ -350,6 +351,8 @@ angular.module('hongcaiApp')
       getReceivedProfitGraphs: $resource(RESTFUL_DOMAIN + '/accounts/0/receivedProfitGraphs', {
         startTime: '@startTime',
         endTime: '@endTime'
-      })
+      }),
+      //账户总览 昨日收益
+      yestodayProfit: $resource(RESTFUL_DOMAIN + '/accounts/0/yestodayProfit',{})
     };
   });

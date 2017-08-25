@@ -31,6 +31,11 @@ angular.module('hongcaiApp')
       }
     });
 
+    UserCenterService.yestodayProfit.get(function(response) {
+      if (response && response.ret !== -1) {
+        $scope.yestodayProfit = response.profit;
+      }
+    })
 
     $scope.jigoubaoList = function() {
       ProjectService.getAccountOverviewProjects.get({
