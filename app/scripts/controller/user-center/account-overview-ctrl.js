@@ -7,7 +7,6 @@ angular.module('hongcaiApp')
     var reward = 0;
     var currentDate = new Date().getTime()
     var registerTime = $rootScope.loginUser.createTime //用户注册时间
-    console.log(new Date(registerTime))
     $scope.currentYearCopy = new Date().getFullYear();
     $scope.currentYear = new Date().getFullYear();//当前年份
     $scope.registerYear = new Date(registerTime).getFullYear() //首投年份
@@ -157,10 +156,14 @@ angular.module('hongcaiApp')
         for(var i = 0; i <= monthProfit.length - 1; i++){
           var date1 = new Date(monthProfit[i].searchDate);
           if ($scope.registerDiff > 180) { //已收收益>180天横坐标按月，不到180天 横坐标按天
-            $scope.labels.push((date1.getMonth() + 1) + '月');
+            $scope.labels.push(date1.getFullYear() + '-' + (date1.getMonth() + 1));
           } else {
-            $scope.labels.push((date1.getMonth() + 1) + '月-' + date1.getDate() + '日');
+            $scope.labels.push(date1.getFullYear() + '-' + (date1.getMonth() + 1) + '-' + date1.getDate());
           }
+          // 单独处理注册月份之前的数据 置0
+          // if (monthProfit[i].searchDate < registerTime) {
+          //   monthProfit[i].profit = 0
+          // }
           datas.push(monthProfit[i].profit);
         }
         $scope.yearlyData.push(datas);
@@ -170,17 +173,25 @@ angular.module('hongcaiApp')
     /**
      * 每日收益数据 tab === 1 调用
      */
-    $scope.dailyDateCofig = function () {
-      UserCenterService.dayProfit.get(function(response){
-        var creditRightList = response.data.creditRightList;
+    $scope.dailyDateCofig = function (startTime, endTime) {
+      UserCenterService.getDayProfitGraphs.get({
+        startTime: startTime,
+        endTime: endTime
+      }, function(response){
+        var dayProfitGraphs = response.data;
         $scope.dailyDatas = [];
         $scope.dailyLabels = [];
         var dailyDatas = [];
 
-        for(var i = 0; i <= creditRightList.length - 1; i++){
-          var date = new Date(creditRightList[i].createTime);
-          $scope.dailyLabels.push((date.getMonth() + 1) + '月-' + date.getDate() + '日');
-          dailyDatas.push(creditRightList[i].profit);
+        for(var i = 0; i <= dayProfitGraphs.length - 1; i++){
+          var date = new Date(dayProfitGraphs[i].searchDate);
+          $scope.dailyLabels.push(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate());
+          // 单独处理注册日之前的数据 置0
+          // if (dayProfitGraphs[i].searchDate < registerMonthStart - 1) {
+          //   console.log(dayProfitGraphs[i].searchDate)
+          //   dayProfitGraphs[i].profit = 0
+          // }
+          dailyDatas.push(dayProfitGraphs[i].profit);
         }
         $scope.dailyData = [];
         $scope.dailyData.push(dailyDatas);
@@ -208,15 +219,19 @@ angular.module('hongcaiApp')
       }
       // 当前显示横坐标第1位
       var theNextDay = DateUtils.getBeforeDate(-1, currentDate)
-      var xFirst = $scope.n === $scope.xFrame ? registerTime : DateUtils.getBeforeDate(12 + 12*$scope.n, theNextDay)
+      // var xFirst = $scope.n === $scope.xFrame ? registerTime : DateUtils.getBeforeDate(12 + 12*$scope.n, theNextDay)
+      var xFirst = DateUtils.getBeforeDate(12 + 12*$scope.n, theNextDay)
       $scope.currentYear = new Date(xFirst).getFullYear()
       // 当前显示横坐标第12位
       var xLast = $scope.n === 0 ? theNextDay : DateUtils.getBeforeDate(-11, new Date(xFirst))
+      // 注册日期所在帧不足12天，显示剩余的
+      // xLast = $scope.n === $scope.xFrame ?  DateUtils.getBeforeDate(-$scope.registerDiff%12, new Date(xFirst)) : DateUtils.getBeforeDate(-11, new Date(xFirst))
+      xLast = DateUtils.getBeforeDate(-11, new Date(xFirst))
       // 把第1位和第12位日期作为接口参数传入请求页面显示利息和日期
       if (tab === 0) {
         $scope.datasConfig(xFirst, xLast);
       } else {
-        $scope.dailyDateCofig()
+        $scope.dailyDateCofig(xFirst, xLast)
       }  
     } 
     /**
@@ -238,8 +253,9 @@ angular.module('hongcaiApp')
           }
           $scope.currentYear += 1
         }
-        // 判断本帧开始月份是否是注册月份
-        $scope.startTime = $scope.currentYear === $scope.registerYear ? new Date($scope.currentYear + '-' + (new Date(registerTime).getMonth() + 1) + '-01').getTime() : new Date($scope.currentYear + '-01-01').getTime()
+        // 判断本帧开始月份是否是注册月份  
+        // $scope.startTime = $scope.currentYear === $scope.registerYear ? new Date($scope.currentYear + '-' + (new Date(registerTime).getMonth() + 1) + '-01').getTime() : new Date($scope.currentYear + '-01-01').getTime()
+        $scope.startTime = new Date($scope.currentYear + '-01-01').getTime()
         $scope.endTime = new Date($scope.currentYear + '-12-01').getTime()
         $scope.datasConfig($scope.startTime, $scope.endTime);  
       } else {
