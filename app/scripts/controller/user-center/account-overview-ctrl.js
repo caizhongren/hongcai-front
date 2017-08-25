@@ -262,12 +262,18 @@ angular.module('hongcaiApp')
         $scope.toggleDate(preOrNext, 0)
       }
     }
-    if($scope.registerDiff < 180) {
-      $scope.toggleDate(2, 0)
-    } else {
-      $scope.toggleYear(2)
+    
+    /*
+    * 初始化已收收益数据
+    **/
+    $scope.toReceiveTab = function () {
+      if($scope.registerDiff < 180) {
+        $scope.toggleDate(2, 0)
+      } else {
+        $scope.toggleYear(2)
+      }
     }
-
+    $scope.toReceiveTab()
                                                                                                                                     
     //资产总额详情显示框
     $scope.showPaymentBox = false;
