@@ -25,11 +25,11 @@
   <!-- 昨日收益、累计收益、资产总额统计 -->
   <div class="account-profit margin-b-30">
     <div class="earnings-yesterday col-md-4 border-r-e">
-      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">2.00</div>
+      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">{{yestodayProfit || 0 | number: 2}}</div>
       <div class="ft-14 ft-grey666">昨日收益 ( 元 ) </div>
     </div>
     <div class="accumulated-income col-md-4 border-r-e">
-      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">{{account.receivedProfit| number:2}}</div>
+      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">{{account.receivedProfit || 0 | number:2}}</div>
       <div class="ft-14 ft-grey666">已收收益 ( 元 ) </div>
     </div>
     <div class="total-assets col-md-4">
@@ -88,19 +88,19 @@
     <div class="profit-title">
       <!-- <div class="f-btn-fhby fr">返回本月</div> -->
       <a class="select-payment fl clearfix" ng-click="selectPaymentBox();">
-        <div class="payment-type fl">待收回款{{credit.length}}</div>
+        <div class="payment-type fl">{{paymentRequest || '当月'}}回款</div>
         <div class="payment-amount fr">
-          <span class="margin-r-5">{{paymentAmount | number: 2 || 0.00}}元 | {{paymentCount || 0}}笔 </span>
+          <span class="margin-r-5">{{paymentTotalAmount | number: 2 || 0.00}}元 | {{paymentTotalCount || 0}}笔 </span>
           <i class="fa fa-angle-down ft-24" aria-hidden="true" ng-show="!showPaymentBox"></i>
           <i class="fa fa-angle-up ft-24" aria-hidden="true" ng-show="showPaymentBox"></i>
         </div>
       </a>
       <div class="payment-box carousel slide" id="carousel-generic" data-interval="false" ng-show="showPaymentBox">
         <ul class="carousel-inner margin-b-0" role="listbox">
-          <li class="item active" ng-repeat="item in credit">
-            <p>{{item.projectName}}</p>
+          <li class="item " ng-class="{'active':$index==0}" ng-repeat="item in creditBills">
+            <p>项目名称：{{item.projectName}}</p>
             <p>年均回报率 : {{item.baseRate}}%</p>
-            <p>汇款类型 : {{item.principal >0 ? '本息' : '利息'}}{{item.repaymentNo}}期</p>
+            <p>回款类型 : {{item.principal >0 ? '本息' : '利息'}}{{item.repaymentNo}}期</p>
             <p>回款金额 : <span class="ft-orange">{{item.principal + item.profit + ((item.baseRate + item.riseRate + item.couponRate) * item.profit/item.baseRate + item.riseRate - item.profit) | number: 2}}</span>元</p>
           </li>
           <!-- <li class="item">
@@ -110,8 +110,8 @@
             <p>回款金额 : <span class="ft-orange">122.35</span>元</p>
           </li> -->
         </ul>
-        <a ng-if="credit.length>1">
-          <span  href="#carousel-generic"  role="button" data-slide="next" class="fr">下一页</span>
+        <a ng-if="creditBills.length>1">
+          <span  href="#carousel-generic"  role="button" data-slide="next" class="fr">下一笔</span>
           <span class="sr-only">Next</span>
         </a>
       </div>
