@@ -48,8 +48,8 @@
   <div class="profit-chart margin-b-30">
     <p class="chart-title ft-16 ft-grey666 margin-b-0">资产收益走势图</p>
     <div class="tabs row margin-l-0 margin-r-0 position-re" ng-init = "tab = 0">
-        <div class="toggle-tab col-md-4 ft-b cursor-pointer margin-b-30 {{tab === 0 ? 'credit-toggle2' : ''}}" ng-click="tab = 0;currentYear = currentYearCopy">已收收益</div>
-        <div class="toggle-tab col-md-4 ft-b cursor-pointer margin-b-30 {{tab === 1 ? 'credit-toggle2' : ''}}" ng-click="tab = 1;currentYear = currentYearCopy;toggleDate(preOrNext, 1)">每日</div>
+        <div class="toggle-tab col-md-4 ft-b cursor-pointer margin-b-30 {{tab === 0 ? 'credit-toggle2' : ''}}" ng-click="tab = 0;currentYear = currentYearCopy;toggleDate(2, 0)">已收收益</div>
+        <div class="toggle-tab col-md-4 ft-b cursor-pointer margin-b-30 {{tab === 1 ? 'credit-toggle2' : ''}}" ng-click="tab = 1;currentYear = currentYearCopy;toggleDate(2, 1)">每日</div>
     </div>
     <!-- 累计图 -->
     <div class="main col-md-12" style="min-height:377px;" ng-if="tab === 0">
@@ -59,8 +59,8 @@
           chart-click="onClick" chart-colours="medals_colours" data-dataset="datasets" height="346" width="700">
           </canvas >
           <div class="clearfix">
-            <img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 {{registerDiff > 180 && currentYear > registerYear || registerDiff <= 180 && n < xFrame ? 'cursor-pointer' : ''}}" ng-click="toggleYear(0)">
-            <img src="/images/user-center/next.png" class="fr display-inbl margin-r--30 {{registerDiff > 180 && currentYear === currentYearCopy || registerDiff <= 180 && n <= 0 ? '' : 'cursor-pointer'}}" ng-click="toggleYear(1)">
+            <img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 {{registerDiff > 180 && currentYear > registerYear || registerDiff <= 180 && n < xFrame ? 'cursor-pointer' : 'btn-disabled'}}" ng-click="toggleYear(0)">
+            <img src="/images/user-center/next.png" class="fr display-inbl margin-r--30 {{registerDiff > 180 && currentYear === currentYearCopy || registerDiff <= 180 && n <= 0 ? 'btn-disabled' : 'cursor-pointer'}}" ng-click="toggleYear(1)">
           </div>
           <p class="text-center ft-grey666 ft-14 margin-t-20"><!-- <span class="line margin-b-5"></span> -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!-- <span class="line margin-b-5"></span> --></p>
        </div>
@@ -73,8 +73,8 @@
           chart-click="onClick" chart-colours="medals_colours" height="346" width="700">
           </canvas >
           <div class="clearfix">
-            <img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 cursor-pointer" ng-click="toggleDate(0)">
-            <img src="/images/user-center/next.png" class="fr display-inbl margin-r--30 cursor-pointer" ng-click="toggleDate(1)">
+            <img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 {{n < xFrame ? 'cursor-pointer' : 'btn-disabled'}}" ng-click="toggleDate(0)">
+            <img src="/images/user-center/next.png" class="fr display-inbl margin-r--30 {{n <= 0 ? 'btn-disabled' : 'cursor-pointer'}}" ng-click="toggleDate(1)">
           </div>
           <p class="text-center ft-grey666 ft-14 margin-t-20"><!-- <span class="line margin-b-5"></span> -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!-- <span class="line margin-b-5"></span> --></p>
        </div>

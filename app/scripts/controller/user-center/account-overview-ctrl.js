@@ -173,7 +173,7 @@ angular.module('hongcaiApp')
     /**
      * 每日收益数据 tab === 1 调用
      */
-    $scope.dailyDateCofig = function (startTime, endTime) {
+    $scope.dailyDatasCofig = function (startTime, endTime) {
       UserCenterService.getDayProfitGraphs.get({
         startTime: startTime,
         endTime: endTime
@@ -203,6 +203,7 @@ angular.module('hongcaiApp')
      */
     $scope.n = 0
     $scope.toggleDate = function (preOrNext, tab) {
+      $scope.n = preOrNext === 2 ? 0 : $scope.n 
       // preOrNext = 0 上一桢，preOrNext = 1下一桢
       // 注册日和当前日期所在的那一帧不可以再点
       $scope.xFrame = Math.ceil($scope.registerDiff/12) - 1
@@ -221,7 +222,6 @@ angular.module('hongcaiApp')
       var theNextDay = DateUtils.getBeforeDate(-1, currentDate)
       // var xFirst = $scope.n === $scope.xFrame ? registerTime : DateUtils.getBeforeDate(12 + 12*$scope.n, theNextDay)
       var xFirst = DateUtils.getBeforeDate(12 + 12*$scope.n, theNextDay)
-      $scope.currentYear = new Date(xFirst).getFullYear()
       // 当前显示横坐标第12位
       var xLast = $scope.n === 0 ? theNextDay : DateUtils.getBeforeDate(-11, new Date(xFirst))
       // 注册日期所在帧不足12天，显示剩余的
@@ -231,7 +231,7 @@ angular.module('hongcaiApp')
       if (tab === 0) {
         $scope.datasConfig(xFirst, xLast);
       } else {
-        $scope.dailyDateCofig(xFirst, xLast)
+        $scope.dailyDatasCofig(xFirst, xLast)
       }  
     } 
     /**
