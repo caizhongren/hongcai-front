@@ -66,7 +66,7 @@ angular.module('hongcaiApp')
     /**
      * 我的债权统计数据
      */
-    // $scope.getCreditRightStatistics = function() {
+
     UserCenterService.getCreditRightStatistics.get({}, function(response) {
       if (response.ret === 1) {
         $scope.creditRightStatis = response.data.creditRightStatis;
@@ -75,6 +75,7 @@ angular.module('hongcaiApp')
         $scope.showCreditRightStatistics = false;
       }
     });
+
     /**
      * 加息券统计信息
      */
@@ -160,10 +161,6 @@ angular.module('hongcaiApp')
           } else {
             $scope.labels.push(date1.getFullYear() + '-' + (date1.getMonth() + 1) + '-' + date1.getDate());
           }
-          // 单独处理注册月份之前的数据 置0
-          // if (monthProfit[i].searchDate < registerTime) {
-          //   monthProfit[i].profit = 0
-          // }
           datas.push(monthProfit[i].profit);
         }
         $scope.yearlyData.push(datas);
@@ -186,11 +183,6 @@ angular.module('hongcaiApp')
         for(var i = 0; i <= dayProfitGraphs.length - 1; i++){
           var date = new Date(dayProfitGraphs[i].searchDate);
           $scope.dailyLabels.push(date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate());
-          // 单独处理注册日之前的数据 置0
-          // if (dayProfitGraphs[i].searchDate < registerMonthStart - 1) {
-          //   console.log(dayProfitGraphs[i].searchDate)
-          //   dayProfitGraphs[i].profit = 0
-          // }
           dailyDatas.push(dayProfitGraphs[i].profit);
         }
         $scope.dailyData = [];
@@ -208,7 +200,7 @@ angular.module('hongcaiApp')
       // 注册日和当前日期所在的那一帧不可以再点
       $scope.xFrame = Math.ceil($scope.registerDiff/12) - 1
       if (preOrNext === 0) {
-        if ($scope.n === $scope.xFrame || $scope.xFrame === -1) { //$scope.xFrame === -1 表述注册不到12天
+        if ($scope.n === $scope.xFrame || $scope.xFrame === -1) { //$scope.xFrame === -1 表示注册不到12天
           return;
         }
         $scope.n += 1;
@@ -219,7 +211,7 @@ angular.module('hongcaiApp')
         $scope.n -= 1;
       }
       // 当前显示横坐标第1位
-      var theNextDay = DateUtils.getBeforeDate(-1, currentDate)
+      var theNextDay = DateUtils.getBeforeDate(-1, currentDate) // 明天
       // var xFirst = $scope.n === $scope.xFrame ? registerTime : DateUtils.getBeforeDate(12 + 12*$scope.n, theNextDay)
       var xFirst = DateUtils.getBeforeDate(12 + 12*$scope.n, theNextDay)
       // 当前显示横坐标第12位
