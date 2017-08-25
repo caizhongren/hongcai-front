@@ -25,15 +25,15 @@
   <!-- 昨日收益、累计收益、资产总额统计 -->
   <div class="account-profit margin-b-30">
     <div class="earnings-yesterday col-md-4 border-r-e">
-      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">{{yestodayProfit || 0 | number: 2}}</div>
+      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50 ft-Arial">{{yestodayProfit || 0 | number: 2}}</div>
       <div class="ft-14 ft-grey666">昨日收益 ( 元 ) </div>
     </div>
     <div class="accumulated-income col-md-4 border-r-e">
-      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">{{account.receivedProfit || 0 | number:2}}</div>
+      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50 ft-Arial">{{account.receivedProfit || 0 | number:2}}</div>
       <div class="ft-14 ft-grey666">已收收益 ( 元 ) </div>
     </div>
     <div class="total-assets col-md-4">
-      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50">{{account.balance + account.waitingCapital + account.waitingProfit + account.freezeCapital || 0 | number:2}}</div>
+      <div class="ft-36 ft-grey1 margin-b-20 margin-t-50 ft-Arial">{{account.balance + account.waitingCapital + account.waitingProfit + account.freezeCapital || 0 | number:2}}</div>
       <div class="ft-14 ft-grey666">资产总额 ( 元 ) 
         <span class="total-assets-tips" toggle-fade></span>
         <div class="sidebar-tip-top">
@@ -91,8 +91,8 @@
         <div class="payment-type fl">{{paymentRequest || '当月'}}回款</div>
         <div class="payment-amount fr">
           <span class="margin-r-5">{{paymentTotalAmount | number: 2 || 0.00}}元 | {{paymentTotalCount || 0}}笔 </span>
-          <i class="fa fa-angle-down ft-24" aria-hidden="true" ng-show="!showPaymentBox"></i>
-          <i class="fa fa-angle-up ft-24" aria-hidden="true" ng-show="showPaymentBox"></i>
+          <i class="fa fa-angle-down ft-24" aria-hidden="true" ng-show="!showPaymentBox && paymentTotalCount>0"></i>
+          <i class="fa fa-angle-up ft-24" aria-hidden="true" ng-show="showPaymentBox && paymentTotalCount>0"></i>
         </div>
       </a>
       <div class="payment-box carousel slide" id="carousel-generic" data-interval="false" ng-show="showPaymentBox">
