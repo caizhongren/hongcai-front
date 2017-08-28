@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('UserCenterCtrl', function($location, $scope, $http,$state, $rootScope, $stateParams, UserCenterService, SecuritySettingService, DEFAULT_DOMAIN, $alert, toaster, $upload,  $window) {
+  .controller('UserCenterCtrl', function($location, $scope, $http,$state, $rootScope, $stateParams, UserCenterService, SecuritySettingService, DEFAULT_DOMAIN, $alert, toaster, $upload,  $window, PayUtils) {
     
     $scope.headImgUrl = '/images/user-center/portrait.png';
     $rootScope.selectPage = $location.path().split('/')[2];
@@ -187,5 +187,13 @@ angular.module('hongcaiApp')
       onFileSelect($('#avatarInput').prop('files'));
     }
         
+    //修改交易密码
+    $scope.resetPayPwd = function() {
+      UserCenterService.resetPayPassword.post({}, function(response) {
+        if (response && response.ret !== -1) {
+          PayUtils.redToTrusteeship('resetPayPassword', response);
+        }
+      })
+    }
 
   });

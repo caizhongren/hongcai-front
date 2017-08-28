@@ -358,6 +358,12 @@ angular.module('hongcaiApp')
         endTime: '@endTime'
       }),
       //账户总览 昨日收益
-      yestodayProfit: $resource(RESTFUL_DOMAIN + '/accounts/0/yestodayProfit',{})
+      yestodayProfit: $resource(RESTFUL_DOMAIN + '/accounts/0/yestodayProfit',{}),
+      //修改交易密码
+      resetPayPassword: $resource(RESTFUL_DOMAIN + '/userAuths/resetPayPassword',{
+
+      }, {
+        'post': {method:'POST'}
+      })
     };
   });
