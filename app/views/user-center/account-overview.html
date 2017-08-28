@@ -35,7 +35,7 @@
     <div class="total-assets col-md-4">
       <div class="ft-36 ft-grey1 margin-b-20 margin-t-50 ft-Arial">{{account.balance + account.waitingCapital + account.waitingProfit + account.freezeCapital || 0 | number:2}}</div>
       <div class="ft-14 ft-grey666">资产总额 ( 元 ) 
-        <span class="total-assets-tips" toggle-fade></span>
+        <span class="total-assets-tips" id="total-assets-tips"></span>
         <div class="sidebar-tip-top">
           <p><span class="fl margin-r-10">账户余额 ( 元 ) : </span><span class="fr">{{account.balance || 0 | number:2}}</span></p>
           <p><span class="fl margin-r-10">待收本金 ( 元 ) : </span><span class="fr">{{account.waitingCapital + account.freezeCapital || 0 | number:2}}</span></p>
