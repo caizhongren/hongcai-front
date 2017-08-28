@@ -389,7 +389,7 @@ angular.module('hongcaiApp')
       //给今日加class
       if( mydate.getFullYear() == yyyy && (mydate.getMonth()+1 ) == mm){
         var today = mydate.getDate();
-        if (!creditRightBillMap.hasOwnProperty(concatStr(yyyy,FormatStr(mm),FormatStr(today)))) {
+        if (creditRightBillMap && !creditRightBillMap.hasOwnProperty(concatStr(yyyy,FormatStr(mm),FormatStr(today)))) {
           $(".f-rili-table .f-number").eq(today-1).html('今日');
           $(".f-rili-table .f-number").eq(today-1).addClass("f-today");
         }

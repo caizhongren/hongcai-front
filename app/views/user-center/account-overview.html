@@ -98,7 +98,7 @@
       <div class="payment-box carousel slide" id="carousel-generic" data-interval="false" ng-show="showPaymentBox">
         <ul class="carousel-inner margin-b-0" role="listbox">
           <li class="item " ng-class="{'active':$index==0}" ng-repeat="item in creditBills">
-            <p>项目名称：{{item.projectName}}</p>
+            <p>项目名称：{{item.projectName | limitTo: 18 }}{{item.projectName.length > 18 ? '...':''}}</p>
             <p>年均回报率 : {{item.baseRate}}%</p>
             <p>回款类型 : {{item.principal >0 ? '本息' : '利息'}}{{item.repaymentNo}}期</p>
             <p>回款金额 : <span class="ft-orange">{{item.principal + item.profit + ((item.baseRate + item.riseRate + item.couponRate) * item.profit/item.baseRate + item.riseRate - item.profit) | number: 2}}</span>元</p>
