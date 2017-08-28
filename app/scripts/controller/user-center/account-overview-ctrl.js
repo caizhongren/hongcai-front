@@ -434,7 +434,7 @@ angular.module('hongcaiApp')
       })
 
     }
-    $('#total-assets-tips').mouseover(function() {
+    $('#total-assets-tips').mouseenter(function() {
       $(this).next().stop().fadeIn();
     }).mouseleave(function() {
       $(this).next().stop().fadeOut();
