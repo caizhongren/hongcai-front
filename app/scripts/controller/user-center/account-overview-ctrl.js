@@ -205,7 +205,7 @@ angular.module('hongcaiApp')
       // 注册日和当前日期所在的那一帧不可以再点
       $scope.xFrame = Math.ceil($scope.registerDiff/12) - 1
       if (preOrNext === 0) {
-        if ($scope.n > $scope.xFrame || $scope.xFrame === -1) { //$scope.xFrame === -1 表示注册不到12天
+        if ($scope.n >= $scope.xFrame || $scope.xFrame === -1) { //$scope.xFrame === -1 表示注册不到12天
           return;
         }
         $scope.n += 1;

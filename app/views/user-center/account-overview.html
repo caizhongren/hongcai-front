@@ -73,7 +73,7 @@
           chart-click="onClick" chart-colours="medals_colours" height="346" width="700">
           </canvas >
           <div class="clearfix">
-            <img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 {{n < xFrame ? 'cursor-pointer' : 'btn-disabled'}}" ng-click="toggleDate(0)">
+            <img src="/images/user-center/pre.png" class="fl display-inbl margin-l--30 {{n < xFrame && n !== -1 ? 'cursor-pointer' : 'btn-disabled'}}" ng-click="toggleDate(0)">
             <img src="/images/user-center/next.png" class="fr display-inbl margin-r--30 {{n <= 0 ? 'btn-disabled' : 'cursor-pointer'}}" ng-click="toggleDate(1)">
           </div>
           <p class="text-center ft-grey666 ft-14 margin-t-20"><!-- <span class="line margin-b-5"></span> -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!-- <span class="line margin-b-5"></span> --></p>
