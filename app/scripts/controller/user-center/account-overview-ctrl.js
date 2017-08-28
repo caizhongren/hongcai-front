@@ -6,7 +6,9 @@ angular.module('hongcaiApp')
     var balance = 0;
     var reward = 0;
     var currentDate = new Date().getTime()
-    var registerTime = $rootScope.loginUser.createTime //用户注册时间
+    var registerTime = $rootScope.loginUser ? $rootScope.loginUser.createTime : undefined //用户注册时间
+    var registerMonthStart = new Date(new Date(registerTime).getFullYear() + '-' + (new Date(registerTime).getMonth() + 1) + '-01 00:00:00').getTime() - 0.5
+    console.log(new Date(registerTime))
     $scope.currentYearCopy = new Date().getFullYear();
     $scope.currentYear = new Date().getFullYear();//当前年份
     $scope.registerYear = new Date(registerTime).getFullYear() //首投年份
@@ -54,7 +56,6 @@ angular.module('hongcaiApp')
             $scope.data.push($scope.jigoubao[i]);
             ProjectUtils.projectTimedown($scope.jigoubao[i], $scope.serverTime);
           }
-
         } else {
           $scope.data = [];
         }
@@ -161,6 +162,10 @@ angular.module('hongcaiApp')
           } else {
             $scope.labels.push(date1.getFullYear() + '-' + (date1.getMonth() + 1) + '-' + date1.getDate());
           }
+          // 单独处理注册月份之前的数据 置0
+          if (monthProfit[i].searchDate < registerMonthStart) {
+            monthProfit[i].profit = 0
+          }
           datas.push(monthProfit[i].profit);
         }
         $scope.yearlyData.push(datas);
@@ -200,7 +205,7 @@ angular.module('hongcaiApp')
       // 注册日和当前日期所在的那一帧不可以再点
       $scope.xFrame = Math.ceil($scope.registerDiff/12) - 1
       if (preOrNext === 0) {
-        if ($scope.n === $scope.xFrame || $scope.xFrame === -1) { //$scope.xFrame === -1 表示注册不到12天
+        if ($scope.n > $scope.xFrame || $scope.xFrame === -1) { //$scope.xFrame === -1 表示注册不到12天
           return;
         }
         $scope.n += 1;
