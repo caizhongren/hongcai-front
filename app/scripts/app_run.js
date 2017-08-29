@@ -130,6 +130,7 @@ angular.module('hongcaiApp')
           if (response.ret !== -1 && response.data && response.data.userDetail !== '' && response.data.userDetail.user !== undefined && response.data.userDetail.user !== null) {
             $rootScope.isLogged = true;
             $rootScope.loginUser = response.data.userDetail.user;
+            $rootScope.userRegisterTime = response.data.userDetail.user.createTime;
             $rootScope.loginName = response.data.userDetail.user.name;
             $rootScope.securityStatus = response.data.securityStatus;
             $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;

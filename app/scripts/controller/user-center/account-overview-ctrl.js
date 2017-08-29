@@ -6,13 +6,12 @@ angular.module('hongcaiApp')
     var balance = 0;
     var reward = 0;
     var currentDate = new Date().getTime()
-    var registerTime = $rootScope.loginUser ? $rootScope.loginUser.createTime : undefined //用户注册时间
-    var registerMonthStart = new Date(new Date(registerTime).getFullYear() + '-' + (new Date(registerTime).getMonth() + 1) + '-01 00:00:00').getTime() - 0.5
-    console.log(new Date(registerTime))
+    var registerMonthStart = new Date(new Date($rootScope.userRegisterTime).getFullYear() + '-' + (new Date($rootScope.userRegisterTime).getMonth() + 1) + '-01 00:00:00').getTime() - 0.5
+    console.log(new Date($rootScope.loginUser.createTime))
     $scope.currentYearCopy = new Date().getFullYear();
     $scope.currentYear = new Date().getFullYear();//当前年份
-    $scope.registerYear = new Date(registerTime).getFullYear() //首投年份
-    $scope.registerDiff = DateUtils.intervalDays(currentDate, registerTime) //注册天数
+    $scope.registerYear = new Date($rootScope.userRegisterTime).getFullYear() //首投年份
+    $scope.registerDiff = DateUtils.intervalDays(currentDate, $rootScope.userRegisterTime) //注册天数
     UserCenterService.getUserAccount.get(function(response) {
       if (response.ret === 1) {
         var account = response.data.account;
@@ -217,7 +216,7 @@ angular.module('hongcaiApp')
       }
       // 当前显示横坐标第1位
       var theNextDay = DateUtils.getBeforeDate(-1, currentDate) // 明天
-      // var xFirst = $scope.n === $scope.xFrame ? registerTime : DateUtils.getBeforeDate(12 + 12*$scope.n, theNextDay)
+      // var xFirst = $scope.n === $scope.xFrame ? $rootScope.userRegisterTime : DateUtils.getBeforeDate(12 + 12*$scope.n, theNextDay)
       var xFirst = DateUtils.getBeforeDate(12 + 12*$scope.n, theNextDay)
       // 当前显示横坐标第12位
       var xLast = $scope.n === 0 ? theNextDay : DateUtils.getBeforeDate(-11, new Date(xFirst))
@@ -251,7 +250,7 @@ angular.module('hongcaiApp')
           $scope.currentYear += 1
         }
         // 判断本帧开始月份是否是注册月份  
-        // $scope.startTime = $scope.currentYear === $scope.registerYear ? new Date($scope.currentYear + '-' + (new Date(registerTime).getMonth() + 1) + '-01').getTime() : new Date($scope.currentYear + '-01-01').getTime()
+        // $scope.startTime = $scope.currentYear === $scope.registerYear ? new Date($scope.currentYear + '-' + (new Date($rootScope.userRegisterTime).getMonth() + 1) + '-01').getTime() : new Date($scope.currentYear + '-01-01').getTime()
         $scope.startTime = new Date($scope.currentYear + '-01-01').getTime()
         $scope.endTime = new Date($scope.currentYear + '-12-01').getTime()
         $scope.datasConfig($scope.startTime, $scope.endTime);  
