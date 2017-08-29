@@ -434,11 +434,6 @@ angular.module('hongcaiApp')
       })
 
     }
-    $('#total-assets-tips').mouseenter(function() {
-      $(this).next().stop().fadeIn();
-    }).mouseleave(function() {
-      $(this).next().stop().fadeOut();
-    })
     $scope.showDate(mydate.getFullYear(), mydate.getMonth()+1);
     $scope.getRepaymentPlan(concatStr(mydate.getFullYear(), FormatStr(mydate.getMonth()+1), '01'), mydate.getFullYear(), mydate.getMonth()+1);
     //日历上一月
