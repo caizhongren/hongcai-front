@@ -6,9 +6,9 @@
     </div>
     <div class="main padding-b-30">
       <div class="padd">
-        <div class="margin-l-30 rule-icon" toggle-fade></div>
+        <div class="margin-l-30 rule-icon" ng-mouseenter="showTip = true" ng-mouseleave="showTip=false"></div>
         <!-- 现金券提现规则悬浮框 -->
-        <div class="rules-show">
+        <div class="rules-show" ng-if="showTip == true">
           <p>1、单笔投资首次达到对应额度时，提取对应现金券；</p>
           <p>2、每个账号每天只奖励1次。连续投资只对第一次满足条件的投资进行奖励；</p>
           <p>3、现金券需要在现金券有效期内提取，过期作废；</p>
