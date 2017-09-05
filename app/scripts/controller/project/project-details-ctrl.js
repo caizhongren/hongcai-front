@@ -78,10 +78,11 @@ angular.module('hongcaiApp')
      * 获取具体某项目
      */
     $scope.getProjectDetails = function() {
-      var projectDetails = ProjectService.projectDetails.get({
+      ProjectService.projectDetails.get({
         number: $stateParams.number
-      }, function() {
-        if (projectDetails.ret === 1) {
+      }, function(response) {
+        if (response && response.ret === 1) {
+          var projectDetails = response;
           $rootScope.pageTitle = projectDetails.data.project.name + ' - 宏财网';
           $scope.project = projectDetails.data.project;
           $scope.repaymentTypeMap = projectDetails.data.repaymentTypeMap;
@@ -179,7 +180,7 @@ angular.module('hongcaiApp')
           $scope.billCount = projectDetails.data.billCount;
           $scope.remainInterest = projectDetails.data.remainInterest;
           $scope.remainPrincipal = projectDetails.data.remainPrincipal;
-          $scope.baseFileUrl = projectDetails.data.baseFileUrl;
+          $scope.baseFileUrl = response.data.baseFileUrl;
           /**
            * 处理投资记录分页
            */
@@ -198,10 +199,10 @@ angular.module('hongcaiApp')
           $scope.enterpriseInfo($scope.project.enterpriseId);
           $scope.investCoupons($scope.project);
 
-        } else if (projectDetails.code === -1054) {
+        } else if (response.code === -1054) {
           // $state.go('root.project-list-query-no');
         } else {
-          toaster.pop('warning', projectDetails.msg);
+          toaster.pop('warning', response.msg);
         }
       });
     };
