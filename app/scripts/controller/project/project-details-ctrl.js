@@ -81,8 +81,9 @@ angular.module('hongcaiApp')
       var projectDetails = ProjectService.projectDetails.get({
         number: $stateParams.number
       }, function() {
-        if (projectDetails.ret === 1) {
+        if (projectDetails && projectDetails.ret === 1) {
           $rootScope.pageTitle = projectDetails.data.project.name + ' - 宏财网';
+          $scope.baseFileUrl = projectDetails.data.baseFileUrl;
           $scope.project = projectDetails.data.project;
           $scope.repaymentTypeMap = projectDetails.data.repaymentTypeMap;
           /**
