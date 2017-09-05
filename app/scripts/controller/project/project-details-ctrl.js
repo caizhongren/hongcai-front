@@ -179,7 +179,6 @@ angular.module('hongcaiApp')
           $scope.billCount = projectDetails.data.billCount;
           $scope.remainInterest = projectDetails.data.remainInterest;
           $scope.remainPrincipal = projectDetails.data.remainPrincipal;
-          $scope.baseFileUrl = projectDetails.data.baseFileUrl;
           /**
            * 处理投资记录分页
            */
