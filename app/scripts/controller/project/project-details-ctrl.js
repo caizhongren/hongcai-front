@@ -84,6 +84,7 @@ angular.module('hongcaiApp')
         if (projectDetails && projectDetails.ret === 1) {
           $rootScope.pageTitle = projectDetails.data.project.name + ' - 宏财网';
           $scope.project = projectDetails.data.project;
+          $scope.project.image = projectDetails.data.project.image;
           $scope.repaymentTypeMap = projectDetails.data.repaymentTypeMap;
           /**
            * 预发布倒计时
@@ -293,12 +294,14 @@ angular.module('hongcaiApp')
       ProjectService.projectFiles.get({
         projectId: projectId
       }, function(response) {
-        $scope.enterpriseThumbnailFileList = response.data.enterpriseThumbnailFileList;
-        $scope.enterpriseOriginalFileList = response.data.enterpriseOriginalFileList;
-        $scope.contractOriginalFileList = response.data.contractOriginalFileList;
-        $scope.contractThumbnailFileList = response.data.contractThumbnailFileList;
-        $scope.projectThumbnailFileList = response.data.projectThumbnailFileList;
-        $scope.projectOriginalFileList = response.data.projectOriginalFileList;
+        if (response && response.ret !== -1) {
+          $scope.enterpriseThumbnailFileList = response.data.enterpriseThumbnailFileList;
+          $scope.enterpriseOriginalFileList = response.data.enterpriseOriginalFileList;
+          $scope.contractOriginalFileList = response.data.contractOriginalFileList;
+          $scope.contractThumbnailFileList = response.data.contractThumbnailFileList;
+          $scope.projectThumbnailFileList = response.data.projectThumbnailFileList;
+          $scope.projectOriginalFileList = response.data.projectOriginalFileList;
+        }
       });
     }
 

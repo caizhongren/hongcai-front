@@ -82,6 +82,7 @@ angular.module('hongcaiApp')
         }, function(response) {
           if(response && response.ret !== -1) {
             $scope.project = response.data.project;
+            $scope.project.image = response.data.project.image;
             $scope.baseFileUrl = response.data.baseFileUrl;
           }
         });
