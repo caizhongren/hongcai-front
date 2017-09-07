@@ -84,7 +84,6 @@ angular.module('hongcaiApp')
         if (projectDetails && projectDetails.ret === 1) {
           $rootScope.pageTitle = projectDetails.data.project.name + ' - 宏财网';
           $scope.project = projectDetails.data.project;
-          $scope.project.image = projectDetails.data.project.image;
           $scope.repaymentTypeMap = projectDetails.data.repaymentTypeMap;
           /**
            * 预发布倒计时
