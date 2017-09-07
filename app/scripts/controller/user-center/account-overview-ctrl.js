@@ -8,7 +8,7 @@ angular.module('hongcaiApp')
     var currentDate = new Date().getTime()
     $rootScope.checkSession.promise.then(function(data) {
       var registerMonthStart = new Date(new Date(data.registerTime).getFullYear() + '-' + (new Date(data.registerTime).getMonth() + 1) + '-01 00:00:00').getTime() - 0.5
-      console.log(new Date(data.registerTime))
+      // console.log(new Date(data.registerTime))
       $scope.currentYearCopy = new Date().getFullYear();
       $scope.currentYear = new Date().getFullYear();//当前年份
       $scope.registerYear = new Date(data.registerTime).getFullYear() //首投年份
@@ -241,11 +241,11 @@ angular.module('hongcaiApp')
       /**
        * 现金券统计
        */
-      UserCenterService.getUserCashCouponsStat.get(function(response) {
+      UserCenterService.cashCouponStatis.get(function(response) {
         if (!response || response.ret === -1) {
           return;
         }
-        $scope.unUsedCashCoupon = response.unGotAmount;
+        $scope.unUsedCashCoupon = response.unUsedCoupon;
       });
       /**
        * 加息券统计

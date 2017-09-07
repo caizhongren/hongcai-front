@@ -179,6 +179,7 @@ angular.module('hongcaiApp')
         status : '@status'
       }),
       getUserCashCouponsStat: $resource(RESTFUL_DOMAIN + '/cashCoupons/stat'),
+      cashCouponStatis: $resource(RESTFUL_DOMAIN + '/users/0/cashCoupon'),
       userCashCoupons: $resource(RESTFUL_DOMAIN + '/cashCoupons', {
         page: '@page',
         pageSize: '@pageSize',
