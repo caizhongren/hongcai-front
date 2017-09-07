@@ -81,7 +81,7 @@ angular.module('hongcaiApp')
       var projectDetails = ProjectService.projectDetails.get({
         number: $stateParams.number
       }, function() {
-        if (projectDetails.ret === 1) {
+        if (projectDetails && projectDetails.ret === 1) {
           $rootScope.pageTitle = projectDetails.data.project.name + ' - 宏财网';
           $scope.project = projectDetails.data.project;
           $scope.repaymentTypeMap = projectDetails.data.repaymentTypeMap;
@@ -179,7 +179,6 @@ angular.module('hongcaiApp')
           $scope.billCount = projectDetails.data.billCount;
           $scope.remainInterest = projectDetails.data.remainInterest;
           $scope.remainPrincipal = projectDetails.data.remainPrincipal;
-          $scope.baseFileUrl = projectDetails.data.baseFileUrl;
           /**
            * 处理投资记录分页
            */
@@ -294,12 +293,14 @@ angular.module('hongcaiApp')
       ProjectService.projectFiles.get({
         projectId: projectId
       }, function(response) {
-        $scope.enterpriseThumbnailFileList = response.data.enterpriseThumbnailFileList;
-        $scope.enterpriseOriginalFileList = response.data.enterpriseOriginalFileList;
-        $scope.contractOriginalFileList = response.data.contractOriginalFileList;
-        $scope.contractThumbnailFileList = response.data.contractThumbnailFileList;
-        $scope.projectThumbnailFileList = response.data.projectThumbnailFileList;
-        $scope.projectOriginalFileList = response.data.projectOriginalFileList;
+        if (response && response.ret !== -1) {
+          $scope.enterpriseThumbnailFileList = response.data.enterpriseThumbnailFileList;
+          $scope.enterpriseOriginalFileList = response.data.enterpriseOriginalFileList;
+          $scope.contractOriginalFileList = response.data.contractOriginalFileList;
+          $scope.contractThumbnailFileList = response.data.contractThumbnailFileList;
+          $scope.projectThumbnailFileList = response.data.projectThumbnailFileList;
+          $scope.projectOriginalFileList = response.data.projectOriginalFileList;
+        }
       });
     }
 

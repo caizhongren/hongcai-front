@@ -114,7 +114,6 @@ angular.module('hongcaiApp')
         }
         $scope.serverTime = response.data.serverTime;
         $scope.projectList = response.data.projectList;
-        $scope.baseFileUrl = response.data.baseFileUrl;
         $scope.repaymentTypeMap = response.data.repaymentTypeMap;
         $scope.pageCount = response.data.pageCount;
         $scope.orderProp = 'id';

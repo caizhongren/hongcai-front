@@ -180,6 +180,7 @@ angular.module('hongcaiApp')
         status : '@status'
       }),
       getUserCashCouponsStat: $resource(RESTFUL_DOMAIN + '/cashCoupons/stat'),
+      cashCouponStatis: $resource(RESTFUL_DOMAIN + '/users/0/cashCoupon'),
       userCashCoupons: $resource(RESTFUL_DOMAIN + '/cashCoupons', {
         page: '@page',
         pageSize: '@pageSize',
@@ -345,5 +346,27 @@ angular.module('hongcaiApp')
         }
       }),
       unbindBankCardApply: $resource(RESTFUL_DOMAIN + '/users/0/unbindBankCardApply',{}),
+      //账户总览 回款日历
+      repaymentPlan: $resource(RESTFUL_DOMAIN + '/accounts/0/repayment/plan', {
+        dateTime: '@dateTime'
+      }),
+      // 账户总览 已收收益曲线
+      getReceivedProfitGraphs: $resource(RESTFUL_DOMAIN + '/accounts/0/receivedProfitGraphs', {
+        startTime: '@startTime',
+        endTime: '@endTime'
+      }),
+      // 账户总览 每日收益曲线
+      getDayProfitGraphs: $resource(RESTFUL_DOMAIN + '/accounts/0/dayProfitGraphs', {
+        startTime: '@startTime',
+        endTime: '@endTime'
+      }),
+      //账户总览 昨日收益
+      yestodayProfit: $resource(RESTFUL_DOMAIN + '/accounts/0/yestodayProfit',{}),
+      //修改交易密码
+      resetPayPassword: $resource(RESTFUL_DOMAIN + '/userAuths/resetPayPassword',{
+
+      }, {
+        'post': {method:'POST'}
+      })
     };
   });

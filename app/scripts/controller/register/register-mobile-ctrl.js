@@ -1,8 +1,11 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('RegisterMobileCtrl', function($scope, $state, $rootScope, $stateParams, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie, MainService, UserCenterService) {
+  .controller('RegisterMobileCtrl', function($scope, $state, $rootScope, $stateParams, checkPwdUtil, RegisterService, SessionService, DEFAULT_DOMAIN, toaster, md5, ipCookie, MainService, UserCenterService) {
     $rootScope.pageTitle = '手机注册' + ' - 宏财网';
     $scope.userbusiness = 0;
+    $scope.strength = 1
+    $scope.errMsg = ''
+    var parttern = /^(?=.*[a-zA-Z])(?=.*[0-9])[\da-zA-Z~!@#$%^&*]{6,22}$/
     /**
      * 注册链接上是否有邀请码
      */
@@ -47,8 +50,17 @@ angular.module('hongcaiApp')
     $scope.refreshCode = function() {
       angular.element('#checkCaptcha').attr('src', angular.element('#checkCaptcha').attr('src').substr(0, angular.element('#checkCaptcha').attr('src').indexOf('?')) + '?code=' + Math.random());
     };
-
-
+    // 密码强度校验
+    $scope.$watch('user.password', function (newVal, oldVal) {
+      $scope.errMsg = ''
+      if (!parttern.test(newVal)) {
+        $scope.errMsg = '长度6-22，数字或字母的组合，可以包含特殊字符~!@#$%^&*'
+      }
+      if (newVal && newVal.length > 21) {
+        $scope.user.password = newVal.substr(0, 21);
+      }
+      $scope.strength = checkPwdUtil.getStrength(newVal, oldVal)
+    })
 
     /**
      * 处理推广流量
