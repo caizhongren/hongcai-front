@@ -1,8 +1,9 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, UserCenterService, SecuritySettingService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
+  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, checkPwdUtil, UserCenterService, SecuritySettingService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
 
     $scope.userbusiness = 2;
+    $scope.strength = 1;
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
         var userAuth = response.data.userAuth;
@@ -176,7 +177,18 @@ angular.module('hongcaiApp')
         }
       });
     };
-
+    // 新密码强度
+    var pwdParttern = /^(?=.*[a-zA-Z])(?=.*[0-9])[\da-zA-Z~!@#$%^&*]{6,22}$/
+    $scope.$watch('password.newPassword', function (newVal, oldVal) {
+      $scope.pwdErrMsg = ''
+      if (!pwdParttern.test(newVal)) {
+        $scope.pwdErrMsg = '长度6-22，数字或字母的组合，可以包含特殊字符~!@#$%^&*'
+      }
+      if (newVal && newVal.length > 21) {
+        $scope.password.newPassword = newVal.substr(0, 21);
+      }
+      $scope.strength = checkPwdUtil.getStrength(newVal, oldVal)
+    })
     /**
      * 修改手机号码
      */

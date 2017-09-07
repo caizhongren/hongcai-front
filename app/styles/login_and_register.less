@@ -822,6 +822,36 @@ input:-webkit-autofill {
   }
 
 }
+.strength, .strength2, .strength.ex, .strength1.ex, strength2.ex {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #e92c2a;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  right: 5px;
+  top: 5px;
+}
+.strength1, .strength2, .strength1.ex, .strength2.ex {
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  right: 18px;
+}
+.strength.ex, .strength1.ex, .strength2.ex {
+  background-color: #999;
+}
+.strength2, .strength2.ex {
+  right: 31.5%;
+  top: 86%;
+}
+.strength:first-child + .strength, .strength2:nth-child(2) {
+  background-color: #f5b717;
+}
+.strength:first-child + .strength + .strength, .strength2:nth-child(3) {
+  background-color: #1ca249;
+}
 
 
 

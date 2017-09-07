@@ -65,6 +65,7 @@
     .flow-icons {
       padding: 0 30px;
       .icons {
+        height: 50px;
         .icon {
           display: inline-block;
         }
@@ -221,6 +222,351 @@
 }
 
 // -------- account-overview
+.account-overview {
+  .profit-chart {
+    background: #fff;
+    overflow: hidden;
+    p.chart-title {
+      height: 60px;
+      line-height: 60px;
+      padding-left: 60px;
+    }
+    .tabs {
+      .toggle-tab {
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        background-color: #fafafa;
+        width: 50%;
+      }
+      .credit-toggle2 {
+        border-top: 4px solid #f9721f;
+        color: #f9721f;
+        background-color: #fff !important;
+      }
+    }
+    .main {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+      padding: 0;
+      .chart-container {
+        height: 379px !important;
+      }
+    }
+  }
+  //可用余额模块
+  .avails-balance {
+    background-color: #fff;
+    height: 123px;
+    line-height: 123px;
+    color: #666;
+    .balance-txt {
+      line-height: 132px;
+      //margin: 0 10px 0 45px; 可用余额到 千万 错乱
+      margin: 0 10px 0 30px;
+    }
+    .shortcut-key {
+      height: 123px;
+      line-height: 123px;
+      text-align: center;
+      border-right: 1px solid #eee;
+      .invest, .recharge, .withdraw {
+        width: 63px;
+        height: 30px;
+        line-height: 28px;
+        font-size: 14px;
+        color: #666;
+        background-color: #fff;
+        margin-right: 24px;
+        text-align: center;
+        border: 1px solid #f9721f;
+        display: inline-block;
+        cursor: pointer;
+        vertical-align: middle;
+      }
+      .invest-default {
+        background-color: #fd8a3f;
+        color: #fff;
+      }
+      .invest:hover, .recharge:hover, .withdraw:hover {
+        background-color: #f9721f;
+        color: #fff;
+      }
+    }
+    .coupons {
+      height: 123px;
+      line-height: 123px;
+      .cash-coupon, .rate-coupon {
+        display: inline-block;
+        cursor: pointer;
+        .cash-icon, .rate-icon {
+          width: 23px;
+          height: 16px;
+          display: inline-block;
+          background: url('/images/user-center/cash-icon.png') no-repeat center center;
+          background-size: contain;
+          vertical-align: text-bottom;
+        }
+        .rate-icon {
+          background: url('/images/user-center/rate-icon.png') no-repeat center center;
+          background-size: contain;
+        }
+        .cash-txt:hover, .rate-txt:hover {
+          color: #e7110c;
+        }
+      }
+
+    }
+  }
+  //昨日收益、累计收益、资产总额
+  .account-profit {
+    background-color: #fff;
+    height: 212px;
+    line-height: 212px;
+    padding: 20px 0;
+    .col-md-4 {
+      height: 172px;
+      line-height: 40px;
+      text-align: center;
+      //font-family: ArialMT;
+    }
+    .total-assets-tips {
+      display: inline-block;
+      width: 18px;
+      height: 20px;
+      background: url(/images/user-center/tip-overview.png) no-repeat center center;
+      background-size: contain;
+      vertical-align: middle;
+      border-radius: 50%;
+    }
+    .sidebar-tip-top {
+      border: 1px solid #e2e2e2;
+      background-color: #fff;
+      z-index: 999;
+      position: absolute;
+      //display: none;
+      top: 150px;
+      right: 84px;
+      padding: 10px;
+      min-width: 150px;
+      p {
+        clear: both;
+        font-size: 12px;
+        color: #999999;
+        margin-bottom: 0;
+        height: 25px;
+        line-height: 28px;
+      }
+    }
+    .sidebar-tip-top:before {
+      content: "";
+      display: block;
+      border-width: 11px;
+      position: absolute;
+      top: -23px;
+      right: 21px;
+      border-style: solid dashed dashed;
+      border-color: transparent transparent #e2e2e2;
+      font-size: 0;
+      line-height: 0;
+    }
+    .sidebar-tip-top:after {
+      content: "";
+      display: block;
+      border-width: 10px;
+      position: absolute;
+      top: -20px;
+      right: 22px;
+      border-style: solid dashed dashed;
+      border-color: transparent transparent #fff;
+      font-size: 0;
+      line-height: 0;
+    }
+  }
+  //待收回款日历
+  .return-calendar {
+    background: #fff;
+    padding-bottom: 40px;
+    .account-title {
+      font-size: 16px;
+      color: #666;
+      padding:20px 0 40px 60px;
+      margin: 0;
+    }
+    .profit-title{
+      height: 50px;
+      margin-bottom: 5px;
+      font-size: 16px;
+      color: #666;
+      padding:0 100px;
+      position: relative;
+      .select-payment {
+        display: block;
+        height: 44px;
+        line-height: 44px;
+        color: #666;
+        font-size: 14px;
+        padding: 0 20px;
+        border: 1px solid #ddd;
+        width: 325px;
+        .payment-amount {
+          .fa-angle-down, .fa-angle-up { 
+            position: relative;
+            top: 2px;
+          }
+          .fa-angle-up {
+            //display: none;
+          }
+        }
+      }
+      .payment-box {
+        position: absolute;
+        display: block;
+        top: 44px;
+        left:100px;
+        width: 325px;
+        padding: 15px;
+        font-size: 12px;
+        color: #999;
+        text-align: left;
+        background: #fff;
+        z-index: 999;
+        border: 1px solid #ddd;
+        border-top: 0;
+        p {
+          line-height: 29px;
+          margin-bottom: 0;
+        }
+        .ft-overflow-orange {
+          color: #f8843d;
+        }
+      }
+    }
+    .f-btn-fhby{
+      height: 30px;
+      line-height: 30px;
+      color: #f77b10;
+      border: 1px solid #f77b10;
+      font-size: 14px;
+      display: block;
+      width: 85px;
+      text-align: center;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+    .f-btn-jian, .f-btn-jia{
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      width: 20px;
+      color: #666;
+      cursor: pointer;
+    }
+    .f-btn-jian {
+      background: url('/images/user-center/pre.png') no-repeat center center;
+    }
+    .f-btn-jia {
+      background: url('/images/user-center/next.png') no-repeat center center;
+    }
+    .f-riqi{
+      width: 100px;
+      color: #666;
+      font-size: 14px;
+      text-align: center;
+      height: 30px;
+      line-height: 30px;
+      display: block;
+    }
+    .table-box {
+      padding:0 100px;
+      .f-rili-table {
+        width: 100%;
+        border: 1px solid #eee;
+        border-left: 0;
+        box-sizing: border-box;
+        .f-rili-head {
+          .f-rili-th{
+            float: left;
+            width: 14.285%;
+            text-align: center;
+            line-height: 40px;
+            height: 40px;
+             background-color: #fff;
+            color: #666;
+            font-size: 14px;
+            border-left: 1px solid #eee;
+            box-sizing: border-box;
+          }
+        }
+        tbody {
+          td{
+            background: #fff;
+            position: relative;
+          }
+          tr{
+            border-bottom: 1px dashed #ccc;
+          }
+        }
+        .f-td{
+          float: left;
+          width: 14.285%;
+          text-align: center;
+          height:40px;
+          line-height: 40px;
+          position: relative;
+          color: #999;
+          font-size: 14px;
+          border-left: 1px solid #eee;
+          box-sizing: border-box;
+          .f-yuan{
+            height: 40px;
+            background: url(../images/yuan1.png) no-repeat center;
+          } 
+          .f-yuan-grey{
+            height: 40px;
+            background: url(../images/yuan2.png) no-repeat center;
+          } 
+          .f-table-msg{
+            position: absolute;
+            z-index: 222;
+            top: 34px;
+            left:50%;
+            margin-left: -140px;
+            width: 280px;
+            background: url(../images/bg-msg.png) no-repeat bottom;
+            line-height: 55px;
+            height: 46px;
+            text-align: center;
+            display: none;
+            color: #666;
+          }
+        }
+        .f-on{
+          color:#f8843d;
+        }
+        .f-today{
+          color: #f8843d;
+          font-size: 14px;
+        }
+        .bg-fa {
+          background: #fafafa;
+        }
+        .f-number{
+          cursor: no-drop;
+          .f-yuan, .f-yuan-grey {
+            cursor: pointer;
+            color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
 .account-message {
   height: 325px;
   .account-button {
@@ -427,6 +773,9 @@
       input {
         width: 28%;
       }
+      input[type='password'] {
+        padding-right: 28px !important;
+      }
       input[type="submit"] {
         height: 34px;
         line-height: 16px;
@@ -569,6 +918,7 @@
 .verify-input {
   padding: 8px 10px;
   height: 30px;
+  line-height: 1;
   border: 1px solid #dbdbdb;
   font-size: 12px;
   &:focus {
@@ -1859,7 +2209,7 @@
      background-color: #FDE4DF;
      z-index: 999;
      position: absolute;
-     display: none;
+     //display: none;
      top: 169px;
      right: 30px;
      padding: 8px 2px 10px 10px;
@@ -2119,7 +2469,7 @@
    border:1px solid #999; 
    position: absolute;
    left: -24px;
-   bottom: -31px; 
+   bottom: -9px; 
 }
 .sidebar-tip:before{
   content: "";

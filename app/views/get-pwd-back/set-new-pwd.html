@@ -55,7 +55,10 @@
       <form class="form-horizontal" role="form" name="Step3SetPwd" ng-show="areaFlag == 3">
         <div class="form-group">
           <label for="password" class="col-xs-3 col-xs-offset-1 control-label">输入新密码:</label>
-          <div class="col-xs-5">
+          <div class="col-xs-5 position-re">
+            <span class="position-ab strength" ng-show="strength === 1">弱</span>
+            <span class="position-ab strength" ng-show="strength === 2">中</span>
+            <span class="position-ab strength" ng-show="strength === 3">强</span>
             <input type="password" class="form-control" name="password" id="password" ng-model="user.password" ng-minlength="6" ng-maxlength="22" ng-pattern="/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/" ng-class="{'borderred':Step3SetPwd.password.$dirty && Step3SetPwd.password.$invalid && !Step3SetPwd.password.$focused,'borderwhite':!Step3SetPwd.password.$dirty || !Step3SetPwd.password.$invalid || Step3SetPwd.password.$focused}" required ng-focus />
             <div ng-if="Step3SetPwd.password.$dirty && Step3SetPwd.password.$invalid && !Step3SetPwd.password.$focused">
               <div ng-if="Step3SetPwd.password.$error.pattern" class="row">
@@ -66,7 +69,10 @@
         </div>
         <div class="form-group">
           <label for="repeatPassword" class="col-xs-3 col-xs-offset-1 control-label">确定新密码:</label>
-          <div class="col-xs-5">
+          <div class="col-xs-5 position-re">
+            <span class="position-ab strength" ng-show="strength === 1">弱</span>
+            <span class="position-ab strength" ng-show="strength === 2">中</span>
+            <span class="position-ab strength" ng-show="strength === 3">强</span>
             <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" ng-model="user.repeatPassword" password-match="password" ng-class="{'borderred':Step3SetPwd.repeatPassword.$dirty && Step3SetPwd.$error && Step3SetPwd.repeatPassword.$error.passwordmatch && !Step3SetPwd.password.$focused && !Step3SetPwd.repeatPassword.$focused, 'borderwhite':!Step3SetPwd.repeatPassword.$dirty || !Step3SetPwd.$error || !Step3SetPwd.repeatPassword.$error.passwordmatch ||Step3SetPwd.password.$focused || Step3SetPwd.repeatPassword.$focused}" required ng-focus />
             <div ng-if="Step3SetPwd.repeatPassword.$dirty && Step3SetPwd.$error && Step3SetPwd.repeatPassword.$error.passwordmatch && !Step3SetPwd.password.$focused && !Step3SetPwd.repeatPassword.$focused">
               <div class="row">

@@ -1,9 +1,9 @@
 'use strict';
 angular.module('hongcaiApp')
-  .factory('DateUtils', function($resource, DEFAULT_DOMAIN) {
+  .factory('DateUtils', function ($resource, DEFAULT_DOMAIN) {
     return {
 
-		toHourMinSeconds: function(intervalTimeInMills){
+		toHourMinSeconds: function (intervalTimeInMills) {
 			var date = new Date(intervalTimeInMills - 8 * 60 * 60 * 1000);
 			var dateStr = date.toTimeString().substring(0, 8);
 
@@ -20,7 +20,7 @@ angular.module('hongcaiApp')
 			return time;
     	},
 
-		toDayHourMinSeconds: function(intervalTimeInMills){
+		toDayHourMinSeconds: function (intervalTimeInMills) {
 			var date = new Date(intervalTimeInMills - 8 * 60 * 60 * 1000);
 			var dateStr = date.toTimeString().substring(0, 8);
 
@@ -36,24 +36,18 @@ angular.module('hongcaiApp')
     	/**
     	 * 两个long型时间的时间间隔
     	 */
-    	intervalDays: function(timeInMills1, timeInMills2){
-    		var t1 = new Date(timeInMills1)
-        ,t2 = new Date(timeInMills2)
-        ,DAY_TIME_IN_MILLS = 24 * 60 * 60 * 1000
-        t1.setHours(0)
-        t1.setMinutes(0)
-        t1.setSeconds(0)
-        t1.setMilliseconds(0)
-        t2.setHours(0)
-        t2.setMinutes(0)
-        t2.setSeconds(0)
-        t2.setMilliseconds(0)
-        return Math.abs((t1.getTime() - t2.getTime()) / DAY_TIME_IN_MILLS)
+    	intervalDays: function (timeInMills1, timeInMills2){
+    		var DAY_TIME_IN_MILLS = 24 * 60 * 60 * 1000;
+
+    		var time1 = Math.floor(timeInMills1/DAY_TIME_IN_MILLS) * DAY_TIME_IN_MILLS;
+    		var time2 = Math.floor(timeInMills2/DAY_TIME_IN_MILLS) * DAY_TIME_IN_MILLS;
+
+    		return Math.abs((time2 - time1)/DAY_TIME_IN_MILLS);
     	},
     	/**
     	 * long型时间转为yyyy-MM-dd
     	 */
-    	longTimeToDate: function(longTime) {
+    	longTimeToDate: function (longTime) {
     	  var date = new Date(longTime);
     	  var month = date.getMonth() < 9 ? '0'+ (date.getMonth()+1) : date.getMonth() + 1;
     	  var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
@@ -96,7 +90,31 @@ angular.module('hongcaiApp')
     		  	}
     		}
     		return nextDay;
-    	}
+    	},
+        getBeforeDate: function (n, date) {
+            // 获取某日 n 天前的日期, n < 0表示该日期 n 天后的日期
+            var n = n;
+            var d = new Date(date);
+            var year = d.getFullYear();
+            var mon = d.getMonth() + 1;
+            var day = d.getDate();  
+            if (day <= n) {
+                if (mon > 1) {
+                    mon = mon - 1;  
+                } else {
+                    year = year - 1;  
+                    mon = 12;
+                }
+            }
+            d.setDate(d.getDate() - n);
+            year = d.getFullYear();
+            mon = d.getMonth() + 1;
+            day = d.getDate();
+            var s = year + "-" + (mon < 10 ? ('0' + mon) : mon) + "-" + (day < 10 ? ('0' + day) : day);
+            return new Date(s).getTime();
+            // return s;
+        }
+        // getYear
 
     };
   });

@@ -21,7 +21,7 @@
         <div class="position-re icon icon2" ng-mouseenter="showTip2 = true;showTip1 = false;showTip3 = false;showTip4 = false;">
           <i class="fa fa-check-circle ft-green position-ab i2" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>
         </div>
-        <div class="sidebar-tip sidebar-tip3" ng-show="haveTrusteeshipAccount && showTip3==true" ng-mouseleave="showTip3=false">您已设置交易密码&nbsp;&nbsp;<span class="cursor-pointer ft-blue">修改</span></div>
+        <div class="sidebar-tip sidebar-tip3" ng-show="haveTrusteeshipAccount && showTip3==true" ng-mouseleave="showTip3=false">您已设置交易密码&nbsp;&nbsp;<span class="cursor-pointer ft-blue" ng-click="resetPayPwd();">修改</span></div>
         <div class="position-re icon icon3" ng-mouseenter="showTip3 = true;showTip2 = false;showTip1 = false;showTip4 = false;">
           <i class="fa fa-check-circle ft-green position-ab i3" aria-hidden="true" ng-show="haveTrusteeshipAccount"></i>
         </div>

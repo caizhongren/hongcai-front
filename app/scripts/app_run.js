@@ -7,7 +7,7 @@
 
 'use strict';
 angular.module('hongcaiApp')
-  .run(function($templateCache, $rootScope, $location, $window, $http, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie, OrderService, RESTFUL_DOMAIN) {
+  .run(function($templateCache, $rootScope, $location, $window, $http, $q, $state, $modal, DEFAULT_DOMAIN, toaster, config, ipCookie, OrderService, RESTFUL_DOMAIN) {
     $rootScope.baseFileUrl = config.baseFileUrl;
 
     /**
@@ -130,6 +130,7 @@ angular.module('hongcaiApp')
       $http.get(RESTFUL_DOMAIN + '/systems/migrateStatus').success(function(response){
           $rootScope.ServiceStatus = response.status //status :1 停服
       })
+      $rootScope.checkSession = $q.defer();
       var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
       $checkSessionServer.error(function(response) {
           $state.go('update', {'return': $location.path()});
@@ -140,6 +141,7 @@ angular.module('hongcaiApp')
           if (response.ret !== -1 && response.data && response.data.userDetail !== '' && response.data.userDetail.user !== undefined && response.data.userDetail.user !== null) {
             $rootScope.isLogged = true;
             $rootScope.loginUser = response.data.userDetail.user;
+            $rootScope.checkSession.resolve({'registerTime': response.data.userDetail.user.createTime})
             $rootScope.loginName = response.data.userDetail.user.name;
             $rootScope.securityStatus = response.data.securityStatus;
             $rootScope.autoTransfer = response.data.securityStatus.autoTransfer;
@@ -147,7 +149,6 @@ angular.module('hongcaiApp')
             $rootScope.bankCardStatus = response.data.userDetail.bankCardStatus;
             $rootScope.unreadCount = response.data.unreadCount;
             $rootScope.userType = response.data.userDetail.user.type;
-
             $rootScope.realNameAuthState = response.data.securityStatus.realNameAuthStatus;
             $rootScope.isActive = response.data.securityStatus.userAuth.active;
           } else {
@@ -214,12 +215,7 @@ angular.module('hongcaiApp')
       if (config.ignorePATH && config.ignorePATH.indexOf('/' + $location.path().split('/')[1]) !== -1) {
         $location.path('//');
       }
-      /**
-       * 跳转HTTPS的全局配置
-       */
-      /*if ($location.protocol() === 'http' && config.jumpHttpsPath && config.jumpHttpsPath.indexOf('/' + $location.path().split('/')[1]) !== -1) {
-        $window.location.href = 'https://' + $location.absUrl().split('://')[1];
-      }*/
+
 
       $rootScope.firstPath = $location.path().split('/')[1];
       if($location.path().split('/')[1].slice(0,$location.path().split('/')[1].indexOf('?')) == 'assignments'){

@@ -28,7 +28,6 @@
     "angular-seo": "*",
     "angular-chart.js": "~0.8.5",
     "angular-svg-round-progressbar": "~0.3.8",
-    "jquery.qrcode": "0.14.0",
     "jquery.placeholder": "~0.2.4",
     "cropper":"2.3.4",
     "ng-file-upload": "~1.6.12",
