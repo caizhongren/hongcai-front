@@ -11,16 +11,21 @@ angular.module('hongcaiApp')
     $scope.nextDay = DateUtils.withdrawArriveDate(currentDate,Holiday,WeekendsOff);
 
     $scope.availableCash = 0;
-    UserCenterService.getUserAvailableCash.get({}, function(response) {
-      // console.log(response);
-      if (response.ret === 1) {
-        $scope.availableCash = response.data.availableCash;
-        var cash = Math.floor($scope.availableCash * 100)/100;
 
-        $scope.cardStatus = response.data.cardStatus;
-        $scope.availableCashRealNo = cash >= 2 ? cash - 2 : 0;
-      } else {
-        //console.log('ask withdraw, why getUserAvailableCash did not load data...');
+    // 可提现金额查询
+    UserCenterService.availableCash.get({}, function(response) {
+      if (response && response.ret !== 1) {
+        $scope.availableCash = response.account.availableCash;
+        var cash = Math.floor($scope.availableCash * 100)/100;
+        var withdrawFee = response.withdrawFee; // 提现手续费
+        $scope.cardStatus = response.cardStatus;
+        $scope.availableCashRealNo = cash >= withdrawFee ? cash - withdrawFee : 0;
+      }
+    });
+    // 本月可免费提现次数查询
+    UserCenterService.freeWithdrawCount.get({}, function(response) {
+      if (response && response.ret !== 1) {
+        $scope.freeWithdrawCount = response.freeWithdrawCount; // 免费提现次数
       }
     });
 
