@@ -33,7 +33,7 @@
             </p>
           </div>
           <div class="row col-md-10 col-md-offset-1 text-left ft-red5 padding-t-10">
-            <p class="padding-l-45" ng-show="freeWithdrawCount <=0">手续费：{{withdrawFee || 2}}元（银行存管机构收取，前往app可查看您的当前会员等级哦）</p>
+            <p class="padding-l-45" ng-show="freeWithdrawCount <=0">手续费：2元（银行存管机构收取，前往app可查看您的当前会员等级哦）</p>
             <p class="padding-l-45" ng-show="freeWithdrawCount >0">手续费：（本次免手续费，本月还剩{{freeWithdrawCount - 1}}次免费提现，前往app可查看您的当前会员等级哦）</p>
           </div>
           <div class="col-md-5 margin-t-15 padding-b-20">
@@ -48,10 +48,10 @@
         <div class="ft-14 margin-b-30 padding-20">
           <p class="ft-red4"><i class="fa fa-tint" style="margin-right:15px;"></i><b>温馨提示:</b></p>
           <div class="padding-l-20">
-            <p ng-if="pay_company === 'yeepay'" class=" ft-red4"><b>1. 目前提现是由银行存管机构收取{{withdrawFee || 2}}元每笔的提现费用。提现金额的最小额度为1元，即额度大于或等于1元。宏财网平台不收取任何提现费用；</b></p>
+            <p ng-if="pay_company === 'yeepay'" class=" ft-red4"><b>1. 目前提现是由银行存管机构收取2元每笔的提现费用。提现金额的最小额度为1元，即额度大于或等于1元。宏财网平台不收取任何提现费用；</b></p>
             <p ng-if="pay_company === 'yeepay'" >2. 银行存管机构收到用户提现申请即对提现进行转账操作，提现资金将会在下个工作日到账（如遇双休日或法定节假日顺延）。</p>
 
-            <p ng-if="pay_company === 'cgt'" class=" ft-red4"><span class="ft-grey">1.</span> <b>目前提现是由银行存管系统收取{{withdrawFee || 2}}元每笔的提现费用。提现金额的最小额度为1元，即额度大于或等于1元。宏财网平台不收取任何提现费用；</b></p>
+            <p ng-if="pay_company === 'cgt'" class=" ft-red4"><span class="ft-grey">1.</span> <b>目前提现是由银行存管系统收取2元每笔的提现费用。提现金额的最小额度为1元，即额度大于或等于1元。宏财网平台不收取任何提现费用；</b></p>
             <p ng-if="pay_company === 'cgt'">2. 银行存管系统收到用户提现申请即对提现进行转账操作，提现资金将会在下个工作日到账（如遇双休日或法定节假日顺延）。</p>
             <p>3. 如果用户迟迟未收到提现资金，可能为银行卡信息填写有误，银行正在做退款操作，预计会在1个工作日内完成退款，请用户耐心等候。用户还可以联系客服（400-990-7626），寻求帮助；</p>
             <p>4. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>

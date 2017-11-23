@@ -17,9 +17,9 @@ angular.module('hongcaiApp')
       if (response && response.ret !== 1) {
         $scope.availableCash = response.account.availableCash;
         var cash = Math.floor($scope.availableCash * 100)/100;
-        $scope.withdrawFee = response.withdrawFee; // 提现手续费
+        var withdrawFee = response.withdrawFee; // 提现手续费
         $scope.cardStatus = response.cardStatus;
-        $scope.availableCashRealNo = cash >= $scope.withdrawFee ? cash - $scope.withdrawFee : 0;
+        $scope.availableCashRealNo = cash >= withdrawFee ? cash - withdrawFee : 0;
       }
     });
     // 本月可免费提现次数查询
