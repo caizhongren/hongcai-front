@@ -33,7 +33,8 @@
             </p>
           </div>
           <div class="row col-md-10 col-md-offset-1 text-left ft-red5 padding-t-10">
-            <p class="padding-l-45">手续费：2元（银行存管机构收取）</p>
+            <p class="padding-l-45" ng-show="freeWithdrawCount <=0">手续费：2元（银行存管机构收取，前往app可查看您的当前会员等级哦）</p>
+            <p class="padding-l-45" ng-show="freeWithdrawCount >0">手续费：（本次免手续费，本月还剩{{freeWithdrawCount - 1}}次免费提现，前往app可查看您的当前会员等级哦）</p>
           </div>
           <div class="col-md-5 margin-t-15 padding-b-20">
             <div class="form-group col-xs-12 margin-l-15">

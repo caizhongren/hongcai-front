@@ -367,6 +367,12 @@ angular.module('hongcaiApp')
 
       }, {
         'post': {method:'POST'}
+      }),
+      // 可提现金额查询
+      availableCash: $resource(RESTFUL_DOMAIN + '/users/0/availableCash',{
+      }),
+      // 本月可免费提现次数查询
+      freeWithdrawCount: $resource(RESTFUL_DOMAIN + '/users/0/freeWithdrawCount',{
       })
     };
   });
