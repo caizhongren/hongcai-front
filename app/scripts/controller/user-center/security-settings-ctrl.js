@@ -283,20 +283,19 @@ angular.module('hongcaiApp')
           };
 
           window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
+          $scope.modify();
           $scope.goToTender();
-          $scope.setAutoTender = false
-          $scope.currentTime = $scope.autoTenderDetail.startTime;
-          $scope.endTime = $scope.autoTenderDetail.endTime;
+          // $scope.setAutoTender = false
+          // $scope.currentTime = $scope.autoTenderDetail.startTime;
+          // $scope.endTime = $scope.autoTenderDetail.endTime;
           
         }else {
           if ($scope.openTrustReservation === 0 || $scope.openTrustReservation === 1) { //已开启
             $scope.goToTender();
             $scope.setAutoTender = true;
           } else { // 未开启
+            $scope.modify();
             $scope.goToTender();
-            $scope.setAutoTender = false
-            $scope.currentTime = $scope.autoTenderDetail.startTime;
-            $scope.endTime = $scope.autoTenderDetail.endTime;
           // UserCenterService.autoTender.get({
           //   userId: $rootScope.loginUser.id
           // }, function(response){
@@ -459,8 +458,16 @@ angular.module('hongcaiApp')
       $scope.currentTime = $scope.autoTenderDetail.startTime;
       $scope.endTime = $scope.autoTenderDetail.endTime;
     }
+    var busy = false;
     //禁用自动投标
     $scope.disabledAutoTender = function(){
+      if (busy) {
+        return;
+      }
+      busy = true
+      setTimeout(function() {
+        busy = false
+      }, 1000)
       $scope.disableDubble = false;
       UserCenterService.disabledAutoTender.update({
         userId: $rootScope.loginUser.id,
@@ -480,6 +487,13 @@ angular.module('hongcaiApp')
 
     //显示取消自动投标授权弹窗
     $scope.showCancelAuthorization = function() {
+      if (busy) {
+        return;
+      }
+      busy = true
+      setTimeout(function() {
+        busy = false
+      }, 1000)
       $modal({
         scope: $scope,
         template: 'views/modal/modal-cancelAuthorization.html',
@@ -489,6 +503,13 @@ angular.module('hongcaiApp')
 
     // 取消自动投标授权
     $scope.cancelAuthorization = function() {
+      if (busy) {
+        return;
+      }
+      busy = true
+      setTimeout(function() {
+        busy = false
+      }, 1000)
       UserCenterService.cancelUserAuthorization.post({
         userId: $rootScope.loginUser.id,
         device: 0
