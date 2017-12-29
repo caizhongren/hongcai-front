@@ -286,7 +286,7 @@ angular.module('hongcaiApp')
           window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
           $scope.goToTender();
           $scope.setAutoTender = false 
-          
+          return;
         }else {
           if ($scope.openTrustReservation === 0 || $scope.openTrustReservation === 1) { //已开启
             $scope.goToTender();
