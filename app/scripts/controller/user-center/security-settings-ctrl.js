@@ -283,19 +283,16 @@ angular.module('hongcaiApp')
           };
 
           window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
-          $scope.modify();
           $scope.goToTender();
-          // $scope.setAutoTender = false
-          // $scope.currentTime = $scope.autoTenderDetail.startTime;
-          // $scope.endTime = $scope.autoTenderDetail.endTime;
+          $scope.setAutoTender = false 
           
         }else {
           if ($scope.openTrustReservation === 0 || $scope.openTrustReservation === 1) { //已开启
             $scope.goToTender();
             $scope.setAutoTender = true;
           } else { // 未开启
-            $scope.modify();
             $scope.goToTender();
+            $scope.setAutoTender = false
           // UserCenterService.autoTender.get({
           //   userId: $rootScope.loginUser.id
           // }, function(response){

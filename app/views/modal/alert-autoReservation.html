@@ -93,11 +93,11 @@
       </div>
       <div ng-if="!setAutoTender">
         <div class="col-1 input-invest" onClick="laydate({elem: '#start', istime: false, format: 'YYYY-MM-DD', min: laydate.now()})">
-          <input id="start" class="ft-grey666 col-100 padding-t-5 input-invest border-none" value="{{currentTime | date: 'yyyy-MM-dd'}}" disabled/>
+          <input id="start" class="ft-grey666 col-100 padding-t-5 input-invest border-none" value="{{currentTime || autoTenderDetail.startTime | date: 'yyyy-MM-dd'}}" disabled/>
         </div><!-- <i class="icon8 cursor-pt" "></i> -->
         <div class="fl ft-grey3 margin-t-5"> &nbsp;—&nbsp; </div>
           <div class="col-1 input-invest" onClick="laydate({elem: '#end', istime: false, format: 'YYYY-MM-DD', min: laydate.now(+1)})">
-            <input id="end" class="ft-grey666 col-100 padding-t-5 input-invest border-none" value="{{endTime | date: 'yyyy-MM-dd'}}" disabled /><!-- <i class="icon9 cursor-pt""></i> -->
+            <input id="end" class="ft-grey666 col-100 padding-t-5 input-invest border-none" value="{{endTime || autoTenderDetail.endTime | date: 'yyyy-MM-dd'}}" disabled /><!-- <i class="icon9 cursor-pt""></i> -->
         </div>  
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
