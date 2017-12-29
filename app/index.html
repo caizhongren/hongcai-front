@@ -5,12 +5,7 @@
     (function(){
         var bp = document.createElement('script');
         var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://wwww.hongcai.com/scripts/push.js';        
-        }
-        else {
-            bp.src = 'http://wwww.hongcai.com/scripts/push.js';
-        }
+        bp.src = 'scripts/push.js';
         var s1 = document.getElementsByTagName("script")[0];
         s1.parentNode.insertBefore(bp, s1);
     })();
@@ -70,6 +65,7 @@
 
     <!-- endbuild -->
     <script src="scripts/util/modernizr.min.js"></script>
+    <script src="scripts/push.js"></script>
 
     <!--[if lt IE 9]>
       <script type='text/javascript'>
