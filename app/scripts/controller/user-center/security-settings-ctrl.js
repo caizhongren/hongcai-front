@@ -4,6 +4,7 @@ angular.module('hongcaiApp')
 
     $scope.userbusiness = 2;
     $scope.strength = 1;
+    $scope.setAutoTender = false;
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
         var userAuth = response.data.userAuth;
