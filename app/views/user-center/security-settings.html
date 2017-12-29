@@ -182,9 +182,11 @@
 		<div class="set-items">
 			<div class="item">
 				<span class="ft-grey666">自动投标权限</span>
-				<span class="ft-grey4">{{openTrustReservation === 1 || openTrustReservation === 0 ?'已开启':'未开启'}}</span>
+				<!-- <span class="ft-grey4">{{openTrustReservation === 1 || openTrustReservation === 0 ?'已开启':'未开启'}}</span>
 				<span class="ft-blue5 cursor-pointer" ng-if="openTrustReservation === null" ng-click="openReservation()">立即开启</span>
-				<span class="ft-blue5 cursor-pointer"  ng-if="openTrustReservation !== null" ng-click="openReservation();">查看</span>
+				<span class="ft-blue5 cursor-pointer"  ng-if="openTrustReservation !== null" ng-click="openReservation();">查看</span> -->
+				<span class="ft-grey4">{{securityStatus.autoTransfer !== 0 && (openTrustReservation === 1 || openTrustReservation === 0) ?'已开启':'未开启'}}</span>
+				<span class="ft-blue5 cursor-pointer" ng-click="openReservation();">{{securityStatus.autoTransfer !== 0 && (openTrustReservation === 1 || openTrustReservation === 0)  ? '查看' : '去开启'}}</span>
 			</div>
 		</div>
 		<!-- 风险测评 -->

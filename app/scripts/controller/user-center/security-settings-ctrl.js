@@ -284,18 +284,29 @@ angular.module('hongcaiApp')
 
           window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
           $scope.goToTender();
+          $scope.setAutoTender = false
+          $scope.currentTime = $scope.autoTenderDetail.startTime;
+          $scope.endTime = $scope.autoTenderDetail.endTime;
           
         }else {
-          $scope.goToTender();
-          UserCenterService.autoTender.get({
-            userId: $rootScope.loginUser.id
-          }, function(response){
-            if(response.status != null){
-              $scope.setAutoTender = true;
-            }else {
-              $scope.setAutoTender = false;
-            }
-          });
+          if ($scope.openTrustReservation === 0 || $scope.openTrustReservation === 1) { //已开启
+            $scope.goToTender();
+            $scope.setAutoTender = true;
+          } else { // 未开启
+            $scope.goToTender();
+            $scope.setAutoTender = false
+            $scope.currentTime = $scope.autoTenderDetail.startTime;
+            $scope.endTime = $scope.autoTenderDetail.endTime;
+          // UserCenterService.autoTender.get({
+          //   userId: $rootScope.loginUser.id
+          // }, function(response){
+          //   if(response.status != null){
+          //     $scope.setAutoTender = true;
+          //   }else {
+          //     $scope.setAutoTender = false;
+          //   }
+          // });
+          }
         }
       }
       $rootScope.migrateStatus(act);
@@ -457,7 +468,7 @@ angular.module('hongcaiApp')
       }, function(response){
         $scope.disableDubble = true;
         if (response.ret !== -1) {
-          toaster.pop('success', '已禁用自动投标');
+          toaster.pop('success', '已成功禁用自动投标功能');
           $rootScope.reload();
         }
       })
@@ -466,6 +477,31 @@ angular.module('hongcaiApp')
       $scope.goToTender();
       ipCookie.remove('modal');
     }
+
+    //显示取消自动投标授权弹窗
+    $scope.showCancelAuthorization = function() {
+      $modal({
+        scope: $scope,
+        template: 'views/modal/modal-cancelAuthorization.html',
+        show: true
+      });
+    }
+
+    // 取消自动投标授权
+    $scope.cancelAuthorization = function() {
+      UserCenterService.cancelUserAuthorization.post({
+        userId: $rootScope.loginUser.id,
+        device: 0
+      }, function(response) {
+        if (response && response.ret !== -1) {
+          toaster.pop('success', '已成功取消自动投标授权');
+          $rootScope.reload();
+        } else {
+          toaster.pop('warning', response.msg)
+        }
+      })
+    }
+
 
     //风险测评显示
    

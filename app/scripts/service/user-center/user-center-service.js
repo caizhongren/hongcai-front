@@ -290,6 +290,17 @@ angular.module('hongcaiApp')
           method: 'POST',
         }
       }),
+      //取消投资人自动投标授权
+      cancelUserAuthorization: $resource(RESTFUL_DOMAIN + '/users/:userId/userAuths/cancelUserAuthorization', 
+        {
+          userId: '@userId',
+          device: '@device'
+        },
+        {
+        'post': {
+          method: 'POST',
+        }
+      }),
       //自动投标详情:
       autoTender : $resource(RESTFUL_DOMAIN + '/users/:userId/autoTender',{
         userId: '@userId'
