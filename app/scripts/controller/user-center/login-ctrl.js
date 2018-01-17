@@ -57,6 +57,7 @@ angular.module('hongcaiApp')
             $state.go('root.userCenter.account-overview');
           }
         } else {
+          toaster.pop('error', response.msg);
           $scope.isPasswordError = true;
           if (response.code === -1009) {
             toaster.pop('error', response.msg);

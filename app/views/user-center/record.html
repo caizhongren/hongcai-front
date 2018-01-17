@@ -69,8 +69,8 @@
             <td class="padding-l-50 text-left">{{ item.createTime | date: 'yyyy-MM-dd'}} <span class="ft-grey4 margin-l-10">{{ item.createTime | date: 'HH :  mm'}}</span></td>
             <td>{{ dealTypes[item.type] }}
               <div class="icon-box position-re cursor-pointer">
-                <span class="tip-icon cursor-pointer" toggle-fade></span>
-                <i class="sidebar-tip-bottom ft-inherit dis-none" ng-class="{'tip-500': item.description.length > 30 && item.description.length <= 40, 'tip-350': item.description.length > 20 && item.description.length <= 30, 'tip-160': item.description.length <15 && item.description.length >6, 'tip-100': item.description.length <=6}">{{item.description}}</i>     
+                <span class="tip-icon cursor-pointer" ng-mouseenter="showTip = true" ng-mouseleave="showTip=false"></span>
+                <i class="sidebar-tip-bottom ft-inherit" ng-class="{'tip-500': item.description.length > 30 && item.description.length <= 40, 'tip-350': item.description.length > 20 && item.description.length <= 30, 'tip-160': item.description.length <15 && item.description.length >6, 'tip-100': item.description.length <=6}" ng-show="showTip">{{item.description}}</i>     
               </div>
             </td>
             <td ng-class="{'ft-green0': item.payAmount > 0, 'record-red': item.payAmount <= 0 }">{{item.payAmount > 0 ? '-' : '+'}}{{item.payAmount > 0 ? item.payAmount : item.getAmount | number: 2}}元</td>

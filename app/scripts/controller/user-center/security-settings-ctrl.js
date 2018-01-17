@@ -1,8 +1,10 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, UserCenterService, SecuritySettingService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
+  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, checkPwdUtil, UserCenterService, SecuritySettingService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
 
     $scope.userbusiness = 2;
+    $scope.strength = 1;
+    $scope.setAutoTender = false;
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
         var userAuth = response.data.userAuth;
@@ -176,7 +178,18 @@ angular.module('hongcaiApp')
         }
       });
     };
-
+    // 新密码强度
+    var pwdParttern = /^(?=.*[a-zA-Z])(?=.*[0-9])[\da-zA-Z~!@#$%^&*]{6,22}$/
+    $scope.$watch('password.newPassword', function (newVal, oldVal) {
+      $scope.pwdErrMsg = ''
+      if (!pwdParttern.test(newVal)) {
+        $scope.pwdErrMsg = '长度6-22，数字或字母的组合，可以包含特殊字符~!@#$%^&*'
+      }
+      if (newVal && newVal.length > 21) {
+        $scope.password.newPassword = newVal.substr(0, 21);
+      }
+      $scope.strength = checkPwdUtil.getStrength(newVal, oldVal)
+    })
     /**
      * 修改手机号码
      */
@@ -272,18 +285,25 @@ angular.module('hongcaiApp')
 
           window.open('/#!/righs-transfer/' + user.realName + '/' + user.idCardNo + '/1');
           $scope.goToTender();
-          
+          $scope.setAutoTender = false 
+          return;
         }else {
-          $scope.goToTender();
-          UserCenterService.autoTender.get({
-            userId: $rootScope.loginUser.id
-          }, function(response){
-            if(response.status != null){
-              $scope.setAutoTender = true;
-            }else {
-              $scope.setAutoTender = false;
-            }
-          });
+          if ($scope.openTrustReservation === 0 || $scope.openTrustReservation === 1) { //已开启
+            $scope.goToTender();
+            $scope.setAutoTender = true;
+          } else { // 未开启
+            $scope.goToTender();
+            $scope.setAutoTender = false
+          // UserCenterService.autoTender.get({
+          //   userId: $rootScope.loginUser.id
+          // }, function(response){
+          //   if(response.status != null){
+          //     $scope.setAutoTender = true;
+          //   }else {
+          //     $scope.setAutoTender = false;
+          //   }
+          // });
+          }
         }
       }
       $rootScope.migrateStatus(act);
@@ -436,8 +456,16 @@ angular.module('hongcaiApp')
       $scope.currentTime = $scope.autoTenderDetail.startTime;
       $scope.endTime = $scope.autoTenderDetail.endTime;
     }
+    var busy = false;
     //禁用自动投标
     $scope.disabledAutoTender = function(){
+      if (busy) {
+        return;
+      }
+      busy = true
+      setTimeout(function() {
+        busy = false
+      }, 1000)
       $scope.disableDubble = false;
       UserCenterService.disabledAutoTender.update({
         userId: $rootScope.loginUser.id,
@@ -445,7 +473,7 @@ angular.module('hongcaiApp')
       }, function(response){
         $scope.disableDubble = true;
         if (response.ret !== -1) {
-          toaster.pop('success', '已禁用自动投标');
+          toaster.pop('success', '已成功禁用自动投标功能');
           $rootScope.reload();
         }
       })
@@ -454,6 +482,45 @@ angular.module('hongcaiApp')
       $scope.goToTender();
       ipCookie.remove('modal');
     }
+
+    //显示取消自动投标授权弹窗
+    $scope.showCancelAuthorization = function() {
+      if (busy) {
+        return;
+      }
+      busy = true
+      setTimeout(function() {
+        busy = false
+      }, 1000)
+      $modal({
+        scope: $scope,
+        template: 'views/modal/modal-cancelAuthorization.html',
+        show: true
+      });
+    }
+
+    // 取消自动投标授权
+    $scope.cancelAuthorization = function() {
+      if (busy) {
+        return;
+      }
+      busy = true
+      setTimeout(function() {
+        busy = false
+      }, 1000)
+      UserCenterService.cancelUserAuthorization.post({
+        userId: $rootScope.loginUser.id,
+        device: 0
+      }, function(response) {
+        if (response && response.ret !== -1) {
+          toaster.pop('success', '已成功取消自动投标授权');
+          $rootScope.reload();
+        } else {
+          toaster.pop('warning', response.msg)
+        }
+      })
+    }
+
 
     //风险测评显示
    

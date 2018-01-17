@@ -49,6 +49,8 @@ angular.module('hongcaiApp')
     } else if(business === 'AUTHORIZATION_AUTO_TRANSFER'){
       $state.go('root.userCenter.security-settings');
       ipCookie('modal', 1);
+    } else if(business === 'RESET_PASSWORD'){
+      page = 13;
     }
 
 

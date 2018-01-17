@@ -46,11 +46,14 @@
 			              <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>密码错误</p>
 			            </div>
 					</div>
-					<div class="form-group">
+					<div class="form-group position-re">
+						<span class="position-ab strength2 {{strength === 0 ? 'ex' : ''}}" ng-show="strength === 1 || strength === 0">弱</span>
+						<span class="position-ab strength2" ng-show="strength === 2">中</span>
+						<span class="position-ab strength2" ng-show="strength === 3">强</span>
 						<label>新密码：</label>
-						<input type="password" class="verify-input" name="newPwd" id="newPwd" ng-model="password.newPassword" ng-pattern="/^(?=.*\d)(?=.*[a-zA-Z]).{6,16}$/" ng-focus required/>
-				         <div class="user-tips-area display-inbl" ng-show="(changePwdForm.newPwd.$error.pattern || changePwdForm.newPwd.$dirty) && changePwdForm.newPwd.$invalid &&!changePwdForm.newPwd.$focused ">
-						    <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>密码6-16位，需包含字母和数字</p>
+						<input type="password" class="verify-input" name="newPwd" id="newPwd" ng-model="password.newPassword" ng-focus required/>
+				         <div class="user-tips-area display-inbl" ng-show=" !changePwdForm.newPwd.$focused && pwdErrMsg && changePwdForm.newPwd.$dirty">
+						    <p class="input-tips user-input-tips security-stl position-ab with-pull"><i class="fa fa-times-circle-o login-check-img"></i>{{pwdErrMsg}}</p>
 						 </div>
 					</div>
 					<div class="form-group">
@@ -65,7 +68,7 @@
 					</div>
 					<div class="form-group">
 						<label></label>
-						<input type="submit" value="确定" class="btn-primary-orange" ng-disabled="changePwdForm.$invalid" />
+						<input type="submit" value="确定" class="btn-primary-orange" ng-disabled="changePwdForm.$invalid || pwdErrMsg" />
 					</div>
 				</form>
 			</div>
@@ -179,9 +182,11 @@
 		<div class="set-items">
 			<div class="item">
 				<span class="ft-grey666">自动投标权限</span>
-				<span class="ft-grey4">{{openTrustReservation === 1 || openTrustReservation === 0 ?'已开启':'未开启'}}</span>
+				<!-- <span class="ft-grey4">{{openTrustReservation === 1 || openTrustReservation === 0 ?'已开启':'未开启'}}</span>
 				<span class="ft-blue5 cursor-pointer" ng-if="openTrustReservation === null" ng-click="openReservation()">立即开启</span>
-				<span class="ft-blue5 cursor-pointer"  ng-if="openTrustReservation !== null" ng-click="openReservation();">查看</span>
+				<span class="ft-blue5 cursor-pointer"  ng-if="openTrustReservation !== null" ng-click="openReservation();">查看</span> -->
+				<span class="ft-grey4">{{securityStatus.autoTransfer !== 0 && (openTrustReservation === 1 || openTrustReservation === 0) ?'已开启':'未开启'}}</span>
+				<span class="ft-blue5 cursor-pointer" ng-click="openReservation();">{{securityStatus.autoTransfer !== 0 && (openTrustReservation === 1 || openTrustReservation === 0)  ? '查看' : '去开启'}}</span>
 			</div>
 		</div>
 		<!-- 风险测评 -->

@@ -179,11 +179,14 @@
         <form class="form-horizontal" role="form" name="Step3SetPhonePwd">
           <div class="form-group">
             <label for="password" class="col-xs-3 col-xs-offset-1 control-label">输入新密码:</label>
-            <div class="col-xs-5">
-              <input type="password" class="form-control" name="password" id="password" ng-model="user.password" ng-minlength="6" ng-maxlength="22" ng-pattern="/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/" ng-class="{'borderred':Step3SetPhonePwd.password.$dirty && Step3SetPhonePwd.password.$invalid && !Step3SetPhonePwd.password.$focused,'borderwhite':!Step3SetPhonePwd.password.$dirty || !Step3SetPhonePwd.password.$invalid || Step3SetPhonePwd.password.$focused}" required ng-focus />
-              <div ng-if="Step3SetPhonePwd.password.$dirty && Step3SetPhonePwd.password.$invalid && !Step3SetPhonePwd.password.$focused">
-                <div ng-if="Step3SetPhonePwd.password.$error.pattern" class="row">
-                  <p class="input-tips set-pwd-input-tips">长度6-22，数字或字母的组合，可以包含特殊字符</p>
+            <div class="col-xs-5 position-re">
+              <span class="position-ab strength strength1 {{strength === 0 ? 'ex' : ''}}" ng-show="strength === 1 || strength === 0">弱</span>
+              <span class="position-ab strength strength1" ng-show="strength === 2">中</span>
+              <span class="position-ab strength strength1" ng-show="strength === 3">强</span>
+              <input type="password" class="form-control" name="password" id="password" ng-model="user.password" ng-class="{'borderred':Step3SetPhonePwd.password.$dirty && pwdErrMsg && !Step3SetPhonePwd.password.$focused,'borderwhite':!Step3SetPhonePwd.password.$dirty || !Step3SetPhonePwd.password.$invalid || Step3SetPhonePwd.password.$focused}" required ng-focus />
+              <div ng-if="Step3SetPhonePwd.password.$dirty && pwdErrMsg && !Step3SetPhonePwd.password.$focused">
+                <div class="row">
+                  <p class="input-tips set-pwd-input-tips">{{pwdErrMsg}}</p>
                 </div>
               </div>
             </div>
@@ -191,7 +194,7 @@
           <div class="form-group">
             <label for="repeatPassword" class="col-xs-3 col-xs-offset-1 control-label">确定新密码:</label>
             <div class="col-xs-5">
-              <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" ng-model="user.repeatPassword" password-match="password" ng-class="{'borderred':Step3SetPhonePwd.repeatPassword.$dirty && Step3SetPhonePwd.$error && Step3SetPhonePwd.repeatPassword.$error.passwordmatch && !Step3SetPhonePwd.password.$focused && !Step3SetPhonePwd.repeatPassword.$focused, 'borderwhite':!Step3SetPhonePwd.repeatPassword.$dirty || !Step3SetPhonePwd.$error || !Step3SetPhonePwd.repeatPassword.$error.passwordmatch ||Step3SetPhonePwd.password.$focused || Step3SetPhonePwd.repeatPassword.$focused}" required ng-focus />
+              <input type="password" class="form-control" id="repeatPassword" name="repeatPassword" ng-model="user.repeatPassword" password-match="password" ng-class="{'borderred':Step3SetPhonePwd.repeatPassword.$dirty && Step3SetPhonePwd.$error && Step3SetPhonePwd.repeatPassword.$error.passwordmatch && !Step3SetPhonePwd.password.$focused && !Step3SetPhonePwd.repeatPassword.$focused, 'borderwhite':!Step3SetPhonePwd.repeatPassword.$dirty || !Step3SetPhonePwd.$error || !Step3SetPhonePwd.repeatPassword.$error.passwordmatch ||Step3SetPhonePwd.password.$focused || Step3SetPhonePwd.repeatPassword.$focused}" required ng-focus ng-minlength="6" ng-maxlength="22"/>
               <div ng-if="Step3SetPhonePwd.repeatPassword.$dirty && Step3SetPhonePwd.$error && Step3SetPhonePwd.repeatPassword.$error.passwordmatch && !Step3SetPhonePwd.password.$focused && !Step3SetPhonePwd.repeatPassword.$focused">
                 <div class="row">
                   <p class="input-tips set-pwd-input-tips">密码不一致</p>
@@ -201,7 +204,7 @@
           </div>
           <div class="form-group">
             <div class="col-xs-offset-4 col-xs-5">
-              <button type="submit" class="col-xs-12 btn btn-primary btn-lg" ng-disabled="Step3SetPhonePwd.$invalid" ng-click="setPhoneNewPwd(getPwd, user)">下一步</button>
+              <button type="submit" class="col-xs-12 btn btn-primary btn-lg" ng-disabled="Step3SetPhonePwd.$invalid || pwdErrMsg" ng-click="setPhoneNewPwd(getPwd, user)">下一步</button>
             </div>
           </div>
         </form>

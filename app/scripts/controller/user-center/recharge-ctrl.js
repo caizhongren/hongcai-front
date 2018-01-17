@@ -89,7 +89,7 @@ angular.module('hongcaiApp')
       'PSBC': '/images/user-center/PSBC.png',
       'FJIB': '/images/user-center/FJIB.png',
       'SPDB': '/images/user-center/SPDB.png',
-      'BOB': '/images/user-center/BOB.png'
+      'BJCN': '/images/user-center/BJCN.png'
     }
 
     $scope.getPicCaptcha = DEFAULT_DOMAIN + '/siteUser/getPicCaptcha?' + Math.random();
