@@ -9,9 +9,9 @@
     "creditIsShowedFLAG": true
   },
   "jumpHttpsPath": [],
-  "domain":"http://10.0.9.36:8100",
+  "domain":"http://192.168.1.43:8100",
   "en": "43",
-  "baseFileUrl": "http://10.0.9.36:8100/uploads/",
+  "baseFileUrl": "http://192.168.80.139:8100/uploads/",
   "pay_company": "cgt",
   "isTest": true
 
