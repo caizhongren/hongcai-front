@@ -62,31 +62,37 @@ angular.module('hongcaiApp')
     		var currentDay = this.longTimeToDate(currentDate.getTime());
 			//预计到账是法定节假日
 			if( Holiday.indexOf(nextDay) !== -1) {
-				//5月节假日提现
-				if(currentDate.getMonth() === 4 ) {
-				  	nextDay = new Date('2017-05-31').getTime();
-				} else if(currentDate.getMonth() === 9){
-					//10月节假日提现
-				  	nextDay = new Date('2017-10-09').getTime();
+                //2月节假日提现
+                if(currentDate.getMonth() === 1 ) {
+                    nextDay = new Date('2018-02-22').getTime();
+                } else if(currentDate.getMonth() === 3) {
+                    //4月节假日提现
+                    nextDay = currentDate.getDate() < 8 ? new Date('2018-04-08').getTime() : new Date('2018-05-02').getTime();
+                } else if(currentDate.getMonth() === 4 ) {
+                    //5月节假日提现
+				  	nextDay = new Date('2018-05-02').getTime();
+				} else if(currentDate.getMonth() === 5){
+                    //6月节假日提现
+                    nextDay = new Date('2018-06-19').getTime();
+                } else if(currentDate.getMonth() === 8){
+					//9月节假日提现
+				  	nextDay = new Date('2018-09-25').getTime();
 				} else {
-					//4月节假日提现
-					nextDay = new Date('2017-05-02').getTime();
+					//10月节假日提现
+					nextDay = new Date('2018-10-08').getTime();
 				}
 			}else{
 				//预计到账不是法定节假日
     		  	//提现当天是周五
-    		    if(currentDate.getDay() === 5) {
+    		    if(currentDate.getDay() === 5 || currentDate.getDay() === 6) {
     		  	  //默认下周一到账
-    		  	    nextDay = currentDate.getTime() + 24 * 3 * 3600 * 1000;
+    		  	    nextDay = currentDate.getDay() === 5 ? currentDate.getTime() + 24 * 3 * 3600 * 1000 : currentDate.getTime() + 24 * 2 * 3600 * 1000;;
     		  	  //周六调休特殊考虑 周五提现周六到账
     		  	    for( var i = 0; i < WeekendsOff.length; i ++) {
     		  	        if(Math.abs(new Date(WeekendsOff[i]).getTime() - currentDate.getTime() ) < 24 * 2 *3600*1000) {
     		  	  			nextDay = currentDate.getTime() + 24 * 3600 * 1000;
     		  	   		}
     		  	 	}
-    		  	} else if(currentDate.getDay() === 6){
-    		  		//提现当天是周六
-    		  		nextDay =  currentDate.getTime() + 24 * 2 * 3600 * 1000;
     		  	}
     		}
     		return nextDay;
