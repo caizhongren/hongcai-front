@@ -21,7 +21,7 @@
           <div class="col-md-2 cursor-pointer pay-typeUCF" ng-class="{'pay-active':payment ==3}"></div>
           <div class="col-md-2 cursor-pointer pay-typeFU" ng-class="{'pay-active':payment ==4}" ></div>
           <!-- <div class="col-md-1 position-re hand-tip"><img src="/images/user-center/hand.png" class="display-inbl margin-t--5" width="35%" alt=""><span class="tip position-ab">支付方式可切换哦！</span></div> -->
-          <a class=" col-md-2 col-md-offset-2 cursor-pt supportBank" href="javascript:;" focus-blur ng-click="showSupportBank = !showSupportBank;">支持银行及限额</a>
+          <a class=" col-md-2 col-md-offset-3 cursor-pt supportBank" href="javascript:;" focus-blur ng-click="showSupportBank = !showSupportBank;">支持银行及限额</a>
           <table class="supportList border-grey1" ng-if="payment !== 2 && showSupportBank">
             <thead>
               <tr class="ftw-b border-grey1">
@@ -47,11 +47,11 @@
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-40 margin-b-50 margin-l-30">
           <div>
-            <div class="fl margin-t--5 padding-l-30 margin-r-40">
+            <div class="fl margin-t--5 padding-l-30 margin-r-50">
               <img ng-src="{{userCurrenBank.src}}">{{ userCard.openBank}}
             </div>
-            <div class="fl padding-0 margin-r-40">{{userCard.cardNo}}</div>
-            <div class="fl text-right margin-r-40">
+            <div class="fl padding-0 margin-r-50">{{userCard.cardNo}}</div>
+            <div class="fl text-right margin-r-50">
               <span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span>
             </div>
             <div class="fl text-center">单笔/单日/单月限额：
