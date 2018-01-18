@@ -1,10 +1,22 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', function($scope, $state, $rootScope, $location, MainService, AboutUsService, ProjectService, ProjectUtils, FriendLinkService, DateUtils, toaster, projectStatusMap) {
+  .controller('MainCtrl', function($scope, $state, $rootScope, $location, $modal, MainService, AboutUsService, ProjectService, ProjectUtils, FriendLinkService, DateUtils, toaster, projectStatusMap) {
     $scope.spCountDown = -1;
 
     $rootScope.pageTitle = '国资平台，网贷平台，投资平台，投资项目-宏财网';
     $scope.projectStatusMap = projectStatusMap;
+    
+
+    /**
+     * 引导下载app弹窗
+     */
+    $scope.showQRcode = function () {
+      $rootScope.noticeModal = $modal({
+        scope: $rootScope,
+        template: 'views/modal/alert-novice.html',
+        show: true
+      }); 
+    }
 
     /**
      * 精选、尊贵列表

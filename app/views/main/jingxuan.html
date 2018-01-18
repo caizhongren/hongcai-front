@@ -15,7 +15,8 @@
       <div class="row padding-30 border-b-grey5 padding-b-25 margin-r--10">
         <div class="col-md-4 ft-16 ft-grey1 padding-r-0 margin-t-15"><a ui-sref="root.project-details({number:item.number, type: 5})">{{item.name | limitTo: 15 }}{{item.name.length > 15 ? '...':''}}</a></div>
         <div class="col-md-2 padding-l-0 margin-l--30 margin-t--8">
-          <p class="ft-30 ft-orange margin-b-0">{{item.annualEarnings | number : 2}}<span class="ft-16">%</span></p>
+          <p class="ft-30 ft-orange margin-b-0" ng-if="$index === 0">{{item.annualEarnings | number : 0}}<span class="ft-16">%</span><span class="ft-24"> + 6</span><span class="ft-16">%</span></p>
+          <p class="ft-30 ft-orange margin-b-0" ng-if="$index !== 0">{{item.annualEarnings | number : 2}}<span class="ft-16">%</span></p>
           <p class="ft-14 ft-grey666">期望年均回报</p>
         </div>
         <div class="col-md-2" >
@@ -28,7 +29,8 @@
         </div>
         <div class="col-md-2 margin-l--5">
             <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number, type: 5})" ng-show="item.status == 6">{{item._timeDown.hour}}:{{item._timeDown.min}}:{{item._timeDown.seconds}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
-            <button class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number, type: 5})" ng-show="item.status == 7">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+            <button class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number, type: 5})" ng-show="item.status == 7 && $index !== 0">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+            <button class="btn btn-primary-orange ft-18 btn-ljtz" ng-click="showQRcode()" ng-show="item.status == 7 && $index === 0">新手专享&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
             <button class="btn ft-18 btn-ljtz" ng-class="{'btn-grey-spirit2':item.status > 7&&item.status !== 11,'btn-primary-orange':item.status === 11}" ui-sref="root.project-details({number: item.number, type: 5})" ng-show="item.status > 7">{{projectStatusMap[item.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
         </div>
       </div>
