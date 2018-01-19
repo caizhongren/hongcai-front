@@ -31,7 +31,14 @@ angular.module('hongcaiApp')
       unbindBankCard: $resource(DEFAULT_DOMAIN + '/yeepay/unbindBankCard', {
         payCompany: '@payCompany'
       }),
-      getBankCardLimit: $resource(DEFAULT_DOMAIN + '/bank/getBankRechargeLimit',{}),
+      // getBankCardLimit: $resource(DEFAULT_DOMAIN + '/bank/getBankRechargeLimit',{}), // 之前获取不同支付方式银行卡限额接口
+      getBankCardLimit: $resource(RESTFUL_DOMAIN + '/bankcard/rechargeBankLimits',{},
+        {
+        'get': {
+          method:'GET',
+          isArray: true  
+        }
+      }),
       getUserAccount: $resource(DEFAULT_DOMAIN + '/siteAccount/userAccount'),
       userAccount: $resource(RESTFUL_DOMAIN + '/users/0/account',{}),
       getUserAvailableCash: $resource(DEFAULT_DOMAIN + '/siteAccount/getUserAvailableCash'),
@@ -201,9 +208,12 @@ angular.module('hongcaiApp')
         payCompany:'@payCompany'
       }),
       //获取单笔充值限额信息
-      getUserRechargeRemainLimit: $resource(DEFAULT_DOMAIN + '/bank/getUserRechargeRemainLimit', {
-        userId:'@userId',
-        payCompany:'@payCompany'
+      // getUserRechargeRemainLimit: $resource(DEFAULT_DOMAIN + '/bank/getUserRechargeRemainLimit', {
+      //   userId:'@userId',
+      //   payCompany:'@payCompany'
+      // }),/hongcai/rest/bankcard/rechargeRemainLimit
+      getUserRechargeRemainLimit: $resource(RESTFUL_DOMAIN + '/bankcard/rechargeRemainLimit', {
+        userId:'@userId'
       }),
       //个人中心-债权管理
       //可转让债权列表

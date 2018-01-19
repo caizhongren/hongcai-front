@@ -17,11 +17,11 @@
           </div>
         </div>
         <div class="row margin-t-20 ">
-          <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==4 || payment == 3}" ng-click="selectPay(4)"><b>快捷支付方式</b></div>
-          <div class="col-md-2 cursor-pointer pay-typeUCF" ng-class="{'pay-active':payment ==3}" ng-click="selectPay(3)"><span></span>先锋支付</div>
-          <div class="col-md-2 cursor-pointer pay-typeFU" ng-class="{'pay-active':payment ==4}" ng-click="selectPay(4)"><span></span>易宝支付</div>
-          <div class="col-md-1 position-re hand-tip"><img src="/images/user-center/hand.png" class="display-inbl margin-t--5" width="35%" alt=""><span class="tip position-ab">支付方式可切换哦！</span></div>
-          <a class=" col-md-2 col-md-offset-2 cursor-pt supportBank" href="javascript:;" focus-blur ng-click="showSupportBank = !showSupportBank;">支持银行及限额</a>
+          <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment === 1}" ng-click="selectPay(1)"><b>快捷支付方式</b></div>
+          <div class="col-md-2 cursor-pointer pay-typeUCF" ng-class="{'pay-active':payment ==3}"></div>
+          <div class="col-md-2 cursor-pointer pay-typeFU" ng-class="{'pay-active':payment ==4}" ></div>
+          <!-- <div class="col-md-1 position-re hand-tip"><img src="/images/user-center/hand.png" class="display-inbl margin-t--5" width="35%" alt=""><span class="tip position-ab">支付方式可切换哦！</span></div> -->
+          <a class=" col-md-2 col-md-offset-3 cursor-pt supportBank" href="javascript:;" focus-blur ng-click="showSupportBank = !showSupportBank;">支持银行及限额</a>
           <table class="supportList border-grey1" ng-if="payment !== 2 && showSupportBank">
             <thead>
               <tr class="ftw-b border-grey1">
@@ -47,21 +47,16 @@
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-40 margin-b-50 margin-l-30">
           <div>
-            <div class="fl margin-t--5 padding-l-30 margin-r-40">
+            <div class="fl margin-t--5 padding-l-30 margin-r-50">
               <img ng-src="{{userCurrenBank.src}}">{{ userCard.openBank}}
             </div>
-            <div class="fl padding-0 margin-r-40">{{userCard.cardNo}}</div>
-            <div class="fl text-right margin-r-40">
+            <div class="fl padding-0 margin-r-50">{{userCard.cardNo}}</div>
+            <div class="fl text-right margin-r-50">
               <span class="margin-r-5">借记卡</span>|<span class="margin-l-5">快捷</span>
             </div>
             <div class="fl text-center">单笔/单日/单月限额：
             <!-- {{ userCurrenBank.dayLimit}} -->
-              <span ng-if="userCurrenBank.singleLimit < 0">不限</span>
-              <span ng-if="userCurrenBank.singleLimit > 0">{{userCurrenBank.singleLimit%10000 !== 0 ? userCurrenBank.singleLimit : userCurrenBank.singleLimit/10000 + 'w'}}</span>/
-              <span ng-if="userCurrenBank.dayLimit < 0">不限</span>
-              <span ng-if="userCurrenBank.dayLimit > 0">{{userCurrenBank.dayLimit%10000 !== 0 ? userCurrenBank.dayLimit : userCurrenBank.dayLimit/10000 + 'w'}}</span>/
-              <span ng-if="userCurrenBank.monthLimit < 0">不限</span>
-              <span ng-if="userCurrenBank.monthLimit > 0">{{userCurrenBank.monthLimit%10000 !== 0 ? userCurrenBank.monthLimit : userCurrenBank.monthLimit/10000 + 'w'}}</span>
+              <span ng-if="userCurrenBank.singleLimit < 0">不限</span><span ng-if="userCurrenBank.singleLimit > 0">{{userCurrenBank.singleLimit%10000 !== 0 ? userCurrenBank.singleLimit : userCurrenBank.singleLimit/10000 + 'w'}}</span>/<span ng-if="userCurrenBank.dayLimit < 0">不限</span><span ng-if="userCurrenBank.dayLimit > 0">{{userCurrenBank.dayLimit%10000 !== 0 ? userCurrenBank.dayLimit : userCurrenBank.dayLimit/10000 + 'w'}}</span>/<span ng-if="userCurrenBank.monthLimit < 0">不限</span><span ng-if="userCurrenBank.monthLimit > 0">{{userCurrenBank.monthLimit%10000 !== 0 ? userCurrenBank.monthLimit : userCurrenBank.monthLimit/10000 + 'w'}}</span>
             </div>
           </div>
           
@@ -69,7 +64,7 @@
         </div>
         <div class="row margin-t-20">
           <div class="payment col-md-2 cursor-pt margin-l-45 margin-b-5" ng-class="{'pay-active':payment ==2}" ng-click="selectPay(2)"><b>网银支付方式</b></div>
-          <div class="col-md-2 cursor-pointer pay-typeUMP" ng-class="{'pay-active':payment ==2}" ng-click="selectPay(2)"><span></span>易宝支付</div>
+          <div class="col-md-2 cursor-pointer pay-typeUMP" ng-class="{'pay-active':payment ==2}"></div>
         </div>
         <hr color="#e5e5e6" width="90%" height="2px" class="margin-t-0 margin-auto">
         <div class="row margin-t-25">
@@ -78,7 +73,7 @@
             <input id="recharge-input" name="amount" type="number" min="0" class="verify-input fl mgn-top7" ng-model="rechargeAmount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus required placeholder="{{bankRemainHolder}}" id="amount"/>
           </div>
           <div class="row col-md-10 col-md-offset-4 text-left ft-12 ft-red4" ng-show="rechargeForm.amount.$dirty">
-            <p class="padding-l-15" ng-show="(rechargeForm.amount.$error.pattern || rechargeAmount < 3) && (payment ==1 || payment ==3 )">请输入大于等于3的数字(最多精确到小数点后两位)</p>
+            <p class="padding-l-15" ng-show="(rechargeForm.amount.$error.pattern || rechargeAmount < 3) && (payment ==1)">请输入大于等于3的数字(最多精确到小数点后两位)</p>
             <p class="padding-l-15" ng-show="(rechargeForm.amount.$error.pattern || rechargeAmount == 0) && payment ==2 ">请输入大于0的数字(最多精确到小数点后两位)</p>
             <p class="padding-l-15" ng-show="rechargeForm.amount.$error.required && !rechargeForm.amount.$focused">充值金额不能为空</p>
             <p class="padding-l-15 " ng-show="rechargeAmount > bankRemain && payment !== 2">该卡本次最多充值{{bankRemain | number:2}}元</p>

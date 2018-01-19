@@ -3,6 +3,7 @@ angular.module('hongcaiApp')
   .controller('RechargeCtrl',  function($location, $scope, $state, $rootScope, UserCenterService, DEFAULT_DOMAIN, $alert, $timeout, toaster, $window) {
     $scope.balance = 0;
     $scope.showSupportBank = false;
+    $scope.expectPayCompany = '';
     UserCenterService.getUserBalance.get({}, function(response) {
       if (response.ret === 1) {
         $scope.balance = response.data.balance;
@@ -28,17 +29,13 @@ angular.module('hongcaiApp')
     sessionStorage.getItem('userCurrenBank') ? angular.fromJson(sessionStorage.getItem('userCurrenBank')) : userCurrenBank;
     $scope.userCurrenBank = [];
     $scope.getBankLimit = function(payCompany,bankCode) {
-      UserCenterService.getBankCardLimit.get({
-        payCompany: payCompany,
-        bankCode: bankCode
-      }, function(response) {
+      UserCenterService.getBankCardLimit.get({}, function(response) {
         if(!response || response.ret == -1) {
           return;
         }
-        
-        $scope.bankCodeList = response.data.bankLimit;
+        $scope.bankCodeList = response;
         //当前绑定银行卡限额
-        var bankLimit = response.data.bankLimit;
+        var bankLimit = response;
 
         /*
          *获取用户已绑定银行卡信息
@@ -53,11 +50,9 @@ angular.module('hongcaiApp')
               //获取单笔充值限额信息
               UserCenterService.getUserRechargeRemainLimit.get({
                 userId: userId,
-                payCompany: payCompany
               },function(response){
-                $scope.bankRemain = response.data.bankRemain;
-                $scope.bankRemainHolder = $scope.payment !== 2? '该卡可充值' + $scope.bankRemain + '元' : '';
-                $scope.bankStatus = response.data.bankStatus;
+                $scope.bankRemain = response.singleRemain;
+                $scope.bankRemainHolder = $scope.payment !== 2 ? '该卡可充值' + $scope.bankRemain + '元' : '';
                 for(var i = 0; i < bankLimit.length; i++) {
                   if(bankLimit[i].bankCode == $scope.userCard.bankCode) {
                     $scope.userCurrenBank = bankLimit[i];
@@ -143,14 +138,13 @@ angular.module('hongcaiApp')
       window.open('/#!/transfer-transfer/' + amount);
     };
     $scope.recharge = function(amount) {
-      // $rootScope.toNotice();
       var curHours = new Date().getHours(); //当前小时值
       var curMinutes = new Date().getMinutes(); //当前分钟值
       var act = function () {
         if(amount <= 0 && $scope.payment == 2){
           return;
         }
-        if(amount < 3 && ($scope.payment == 1 || $scope.payment == 3)){
+        if(amount < 3 && $scope.payment == 1){
           return;
         }
         if($rootScope.pay_company == 'cgt' && $rootScope.securityStatus.userAuth.active === false) {
@@ -164,14 +158,6 @@ angular.module('hongcaiApp')
           $alert({
             scope: $scope,
             template: 'views/modal/alert-dialog.html',
-            show: true
-          });
-          return;
-        }
-        if($scope.bankStatus == 1 && $scope.payment !== 2){
-          $alert({
-            scope: $scope,
-            template: 'views/modal/alert-maintenance.html',
             show: true
           });
           return;
@@ -207,25 +193,18 @@ angular.module('hongcaiApp')
 
     //记录选择支付方式 'FUIOU':富友，'ALLINPAY'：通联，'UMPAY':通联优势， 'UCFPAY': 先锋支付
     //payment 1: 富友，2: 易宝网银，3: 先锋支付，4：易宝
+
+    $scope.getBankLimit();
     $scope.selectPay = function(payment) {
       $scope.payment = payment;
       $scope.bankRemainHolder = $scope.payment !== 2 ? '该卡可充值' + $scope.bankRemain + '元' : '';
-      if(payment ===1){
+      if(payment === 1){
         $scope.rechargeWay = 'SWIFT';
-        $scope.expectPayCompany = 'FUIOU';
       }else if (payment === 2) {
         $scope.rechargeWay = 'WEB';
         $scope.expectPayCompany = 'YEEPAY';
-      }else if (payment === 3) {
-        $scope.rechargeWay = 'SWIFT';
-        $scope.expectPayCompany = 'UCFPAY';
-
-      }else if (payment === 4) {
-        $scope.rechargeWay = 'SWIFT';
-        $scope.expectPayCompany = 'YEEPAY';
       }
-       $scope.getBankLimit($scope.expectPayCompany);
     }
-    $scope.selectPay(3);
+    $scope.selectPay(1);
 
   });
