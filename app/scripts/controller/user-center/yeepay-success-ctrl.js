@@ -38,7 +38,7 @@ angular.module('hongcaiApp')
         ProjectService.investSuccessCoupons.get({
           orderNumber: $stateParams.number
         }, function(response){
-          $scope.usedCoupon = response.coupon;
+          $scope.usedCoupon = response;
         })
   		}
 
