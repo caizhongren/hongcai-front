@@ -100,6 +100,16 @@ angular.module('hongcaiApp')
         });
       }
     };
+
+    /**
+      * 校验图形验证码只能输入数字
+      */
+    $scope.$watch('getPwd.captcha', function (newVal, oldVal) {
+      var captchaPattern = /^\d{1,4}$/
+      if (newVal && !captchaPattern.test(newVal)) {
+        $scope.getPwd.captcha = newVal.replace(/\D/g, '').toString().slice(0, 4)
+      }
+    })
     /**
      * STEP2 根据account通过手机找回
      */

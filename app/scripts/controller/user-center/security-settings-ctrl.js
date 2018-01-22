@@ -190,6 +190,17 @@ angular.module('hongcaiApp')
       }
       $scope.strength = checkPwdUtil.getStrength(newVal, oldVal)
     })
+    
+    /**
+      * 校验图形验证码只能输入数字
+      */
+    $scope.$watch('user.picCaptcha', function (newVal, oldVal) {
+      var captchaPattern = /^\d{1,4}$/
+      if (newVal && !captchaPattern.test(newVal)) {
+        $scope.user.picCaptcha = newVal.replace(/\D/g, '').toString().slice(0, 4)
+      }
+    })
+
     /**
      * 修改手机号码
      */
