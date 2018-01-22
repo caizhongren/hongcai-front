@@ -4,6 +4,7 @@ angular.module('hongcaiApp')
     $scope.spCountDown = -1;
     $scope.jingxuanLimit = 3
     $rootScope.pageTitle = '国资平台，网贷平台，投资平台，投资项目-宏财网';
+    var userId = $rootScope.loginUser ? $rootScope.loginUser.id : null
     $scope.projectStatusMap = projectStatusMap;
     
 
@@ -19,12 +20,14 @@ angular.module('hongcaiApp')
     }
 
     $scope.newbieProject = function () {
-      ProjectService.newbieProject.get({}, function (response) {
+      ProjectService.newbieProject.get({
+        userId: userId
+      }, function (response) {
         if (!response || response.ret === -1) {
           return
         }
         $scope.newbieProject = response
-        $scope.jingxuanLimit =  $scope.newbieProject ? 2 : 3
+        $scope.jingxuanLimit =  $scope.newbieProject && $scope.newbieProject !== '' ? 2 : 3
       })
     }
     $scope.newbieProject()
