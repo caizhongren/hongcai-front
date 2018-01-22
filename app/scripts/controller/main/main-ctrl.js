@@ -2,9 +2,11 @@
 angular.module('hongcaiApp')
   .controller('MainCtrl', function($scope, $state, $rootScope, $location, $modal, MainService, AboutUsService, ProjectService, ProjectUtils, FriendLinkService, DateUtils, toaster, projectStatusMap) {
     $scope.spCountDown = -1;
-    $scope.jingxuanLimit = 3
+    $scope.jingxuanLimit = 3;
+    $scope.isExist = true;
+    $scope.authorization = false;
     $rootScope.pageTitle = '国资平台，网贷平台，投资平台，投资项目-宏财网';
-    var userId = $rootScope.loginUser ? $rootScope.loginUser.id : null
+    var userId = $rootScope.loginUser ? $rootScope.loginUser.id : null;
     $scope.projectStatusMap = projectStatusMap;
     
 
@@ -19,22 +21,45 @@ angular.module('hongcaiApp')
       }); 
     }
 
-    $scope.newbieProject = function () {
-      ProjectService.newbieProject.get({
-        userId: userId
+    /**
+     * 查询新手标是否授权
+     */
+    var authorization = function (num) {
+      ProjectService.authorization.get({
+        number: num
       }, function (response) {
-        console.log(response)
-        console.log(response.number)
-        console.log(response == {})
-        console.log(response === {})
         if (!response || response.ret === -1) {
           return
         }
-        $scope.newbieProject = response
-        $scope.jingxuanLimit = response.number ? 2 : 3
+        $scope.authorization = response.authorization
       })
     }
-    $scope.newbieProject()
+    /**
+     * 查询新手标  状态码200 有新手标， 204 无新手标项目
+     */
+    var newbieProject = function () {
+      ProjectService.newbieProject.get({}, function (response) {
+        if (!response || response.ret === -1) {
+          return
+        }
+        authorization(response.number)
+        $scope.newbieProject = response
+        $scope.jingxuanLimit = !response.number ? 3 : 2
+        if ($rootScope.isLogged) {
+          // 查询用户是否投资过
+          ProjectService.isExist.get({
+            userId: userId
+          }, function (res) {
+            if (!res || res.ret === -1) {
+              return
+            }
+            $scope.isExist = res.exist
+            $scope.jingxuanLimit = !$scope.newbieProject.number || $scope.newbieProject.number && $rootScope.isLogged && res.exist ? 3 : 2
+          })
+        }
+      })
+    }
+    newbieProject()
     /**
      * 精选、尊贵列表
      */
