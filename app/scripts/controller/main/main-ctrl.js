@@ -23,6 +23,10 @@ angular.module('hongcaiApp')
       ProjectService.newbieProject.get({
         userId: userId
       }, function (response) {
+        console.log(response)
+        console.log(typeof response)
+        console.log(response === null)
+        console.log(response === '')
         if (!response || response.ret === -1) {
           return
         }
