@@ -2,7 +2,7 @@
 angular.module('hongcaiApp')
   .controller('MainCtrl', function($scope, $state, $rootScope, $location, $modal, MainService, AboutUsService, ProjectService, ProjectUtils, FriendLinkService, DateUtils, toaster, projectStatusMap) {
     $scope.spCountDown = -1;
-
+    $scope.jingxuanLimit = 3
     $rootScope.pageTitle = '国资平台，网贷平台，投资平台，投资项目-宏财网';
     $scope.projectStatusMap = projectStatusMap;
     
@@ -18,6 +18,16 @@ angular.module('hongcaiApp')
       }); 
     }
 
+    $scope.newbieBiaoProject = function () {
+      ProjectService.newbieBiaoProject.get({}, function (response) {
+        if (!response || response.ret === -1) {
+          return
+        }
+        $scope.newbieProject = response
+        $scope.jingxuanLimit =  $scope.newbieProject ? 2 : 3
+      })
+    }
+    $scope.newbieBiaoProject()
     /**
      * 精选、尊贵列表
      */
