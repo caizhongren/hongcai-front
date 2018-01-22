@@ -24,14 +24,14 @@ angular.module('hongcaiApp')
         userId: userId
       }, function (response) {
         console.log(response)
-        console.log(typeof response)
-        console.log(response === null)
-        console.log(response === '')
+        console.log(response.number)
+        console.log(response == {})
+        console.log(response === {})
         if (!response || response.ret === -1) {
           return
         }
         $scope.newbieProject = response
-        $scope.jingxuanLimit =  $scope.newbieProject && $scope.newbieProject !== '' ? 2 : 3
+        $scope.jingxuanLimit = response.number ? 2 : 3
       })
     }
     $scope.newbieProject()
