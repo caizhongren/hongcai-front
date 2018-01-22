@@ -18,8 +18,8 @@ angular.module('hongcaiApp')
       }); 
     }
 
-    $scope.newbieBiaoProject = function () {
-      ProjectService.newbieBiaoProject.get({}, function (response) {
+    $scope.newbieProject = function () {
+      ProjectService.newbieProject.get({}, function (response) {
         if (!response || response.ret === -1) {
           return
         }
@@ -27,7 +27,7 @@ angular.module('hongcaiApp')
         $scope.jingxuanLimit =  $scope.newbieProject ? 2 : 3
       })
     }
-    $scope.newbieBiaoProject()
+    $scope.newbieProject()
     /**
      * 精选、尊贵列表
      */
