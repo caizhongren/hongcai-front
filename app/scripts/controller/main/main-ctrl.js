@@ -69,7 +69,7 @@ angular.module('hongcaiApp')
                 }
                 $scope.authorization = response.authorization
                 //  没有新手标 || 有新手标 && 已登陆 && 老用户 && 未授权 || 有新手标 && 已登陆 && 老用户 && 已授权 && 新手标募集满
-                $scope.jingxuanLimit = !$scope.newbieProject.number || $scope.newbieProject.number && $rootScope.isLogged && $scope.isExist && (!$scope.authorization || $scope.authorization && $scope.newbieProject.amount === 0)? 3 : 2
+                $scope.jingxuanLimit = !$scope.newbieProject.number || $rootScope.isLogged && $scope.isExist && (!$scope.authorization || $scope.newbieProject.amount === 0)? 3 : 2
                 // 是否新手标对应的精选项目: 有新手标 && 已登陆 && 老用户 && 已授权 && 新手标未集满
                 $scope.isJinxuanNewbie = $scope.newbieProject.number && $rootScope.isLogged && $scope.isExist && $scope.authorization && $scope.newbieProject.amount !== 0 ? true : false
               })

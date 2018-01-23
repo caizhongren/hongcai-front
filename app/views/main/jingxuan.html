@@ -33,7 +33,7 @@
         <div class="col-md-2 margin-l--5">
             <button class="btn btn-primary-orange ft-18 btn-ljtz" ng-click="showQRcode()" ng-show="newbieProject.status === 7 && !isJinxuanNewbie">新手专享&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
             <button class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.project-details({number: newbieProject.number, type: 5})" ng-show="newbieProject.status == 7 && isJinxuanNewbie">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
-            <button class="btn ft-18 btn-ljtz" ng-class="{'btn-grey-spirit2':newbieProject.status > 7 && newbieProject.status !== 11,'btn-primary-orange': newbieProject.status === 11}" ng-show="newbieProject.status > 7 && newbieProject.status !== 11">{{projectStatusMap[newbieProject.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+            <button class="btn ft-18 btn-ljtz" ng-class="{'btn-grey-spirit2':newbieProject.status > 7 && newbieProject.status !== 11,'btn-primary-orange': newbieProject.status === 11}" ng-show="newbieProject.status > 7 && newbieProject.status !== 11" ng-click="showQRcode()">{{projectStatusMap[newbieProject.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
         </div>
       </div>
     </div>
