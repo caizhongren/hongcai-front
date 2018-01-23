@@ -42,9 +42,9 @@ angular.module('hongcaiApp')
         if (!response || response.ret === -1) {
           return
         }
-        authorization(response.number)
         $scope.newbieProject = response
         $scope.jingxuanLimit = !response.number ? 3 : 2
+        !response.number ? null : authorization(response.number) 
         if ($rootScope.isLogged) {
           // 查询用户是否投资过
           ProjectService.isExist.get({
@@ -53,10 +53,10 @@ angular.module('hongcaiApp')
             if (!res || res.ret === -1) {
               return
             }
-            $scope.isExist = res.exist
             $scope.jingxuanLimit = !$scope.newbieProject.number || $scope.newbieProject.number && $rootScope.isLogged && res.exist ? 3 : 2
           })
         }
+        console.log('$scope.jingxuanLimit = ' + $scope.jingxuanLimit)
       })
     }
     newbieProject()

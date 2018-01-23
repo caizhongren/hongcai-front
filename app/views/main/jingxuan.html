@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-2 padding-l-0 margin-l--30 margin-t--8">
           <p class="ft-30 ft-orange margin-b-0">{{newbieProject.annualEarnings || 0 }}<span class="ft-16">%</span><span class="ft-24"> + 6</span><span class="ft-16">%</span></p>
-          <p class="ft-14 ft-grey666">期望年均回报</p>
+          <p class="ft-14 ft-grey666">期望年均回报{{'新手'}}</p>
         </div>
         <div class="col-md-2" >
           <p class="ft-24 ft-grey1 margin-b-0">{{newbieProject.projectDays}}<span class="ft-16">天</span></p>
@@ -41,7 +41,7 @@
         <div class="col-md-4 ft-16 ft-grey1 padding-r-0 margin-t-15"><a ui-sref="root.project-details({number:item.number, type: 5})">{{item.name | limitTo: 15 }}{{item.name.length > 15 ? '...':''}}</a></div>
         <div class="col-md-2 padding-l-0 margin-l--30 margin-t--8">
           <p class="ft-30 ft-orange margin-b-0">{{item.annualEarnings | number : 2}}<span class="ft-16">%</span></p>
-          <p class="ft-14 ft-grey666">期望年均回报</p>
+          <p class="ft-14 ft-grey666">期望年均回报{{jingxuanLimit}}</p>
         </div>
         <div class="col-md-2" >
           <p class="ft-24 ft-grey1 margin-b-0">{{item.projectDays}}<span class="ft-16">天</span></p>
