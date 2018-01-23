@@ -23,10 +23,6 @@ angular.module('hongcaiApp')
         show: true
       }); 
     }
-
-    /**
-     * 查询新手标是否授权
-     */
     
     /**
      * 查询新手标  状态码200 有新手标， 204 无新手标项目
@@ -39,6 +35,7 @@ angular.module('hongcaiApp')
         $scope.newbieProject = response
         $scope.newBieNum = response.number
         $scope.jingxuanLimit = !response.number ? 3 : 2
+        // 查询精选项目列表
         ProjectService.main_projectList.get({
           pageSize: 4,
           page: 1,
@@ -71,12 +68,10 @@ angular.module('hongcaiApp')
                   return
                 }
                 $scope.authorization = response.authorization
-                // $scope.authorization = true
                 //  没有新手标 || 有新手标 && 已登陆 && 老用户 && 未授权 || 有新手标 && 已登陆 && 老用户 && 已授权 && 新手标募集满
                 $scope.jingxuanLimit = !$scope.newbieProject.number || $scope.newbieProject.number && $rootScope.isLogged && $scope.isExist && (!$scope.authorization || $scope.authorization && $scope.newbieProject.amount === 0)? 3 : 2
                 // 是否新手标对应的精选项目: 有新手标 && 已登陆 && 老用户 && 已授权 && 新手标未集满
                 $scope.isJinxuanNewbie = $scope.newbieProject.number && $rootScope.isLogged && $scope.isExist && $scope.authorization && $scope.newbieProject.amount !== 0 ? true : false
-                console.log($scope.jingxuanLimit)
               })
             }
           })
