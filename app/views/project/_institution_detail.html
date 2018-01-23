@@ -1,4 +1,4 @@
-<div class="institution-list" ng-hide="newbieProject.number !== '' && newBieNum === item.number && (!isLogged || isLogged && !isExist || isLogged && isExist && !authorization)">
+<div class="institution-list" ng-hide="newbieProject.number !== '' && newBieNum === item.number && (!isLogged || !isExist || !authorization)">
   <div class="logo-border text-center">
     <img ng-src="{{baseFileUrl+item.image}}" width="152" height="168" alt="{{item.name}}" class="cursor-pointer" ui-sref="root.project-details({number: item.number, type: type})">
   </div>

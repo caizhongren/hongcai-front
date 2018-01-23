@@ -6,6 +6,7 @@ angular.module('hongcaiApp')
     $scope.showFlag = $stateParams.showFlag || 0;
     $scope.projectStatusMap = projectStatusMap;
     $scope.pageSize = 6;
+    var userId = $rootScope.loginUser ? $rootScope.loginUser.id : null;
 
     if ($scope.sortType === 'true') {
       $scope.sortType = true;
