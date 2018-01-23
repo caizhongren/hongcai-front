@@ -15,11 +15,12 @@
     <div class="col-md-10 padding-r-0" ng-if="jingxuanLimit === 2">
       <div class="row padding-30 border-b-grey5 padding-b-25 margin-r--10">
         <div class="col-md-4 ft-16 ft-grey1 padding-r-0 margin-t-15">
-          <a ng-click="showQRcode()">{{newbieProject.name | limitTo: 15 }}{{newbieProject.name.length > 15 ? '...':''}}</a>
+          <a ng-show="!isJinxuanNewbie" ng-click="showQRcode()">{{newbieProject.name | limitTo: 15 }}{{newbieProject.name.length > 15 ? '...':''}}</a>
+          <a ng-show="isJinxuanNewbie" ui-sref="root.project-details({number:newbieProject.number, type: 5})">{{newbieProject.name | limitTo: 15 }}{{newbieProject.name.length > 15 ? '...':''}}</a>
         </div>
         <div class="col-md-2 padding-l-0 margin-l--30 margin-t--8">
-          <p class="ft-30 ft-orange margin-b-0">{{newbieProject.annualEarnings || 0 }}<span class="ft-16">%</span><span class="ft-24"> + 6</span><span class="ft-16">%</span></p>
-          <p class="ft-14 ft-grey666">期望年均回报{{'新手'}}</p>
+          <p class="ft-30 ft-orange margin-b-0">{{newbieProject.annualEarnings || 0 }}<span class="ft-16">%</span><span class="ft-24" ng-show="!isJinxuanNewbie"> + 6</span><span class="ft-16" ng-show="!isJinxuanNewbie">%</span></p>
+          <p class="ft-14 ft-grey666">期望年均回报</p>
         </div>
         <div class="col-md-2" >
           <p class="ft-24 ft-grey1 margin-b-0">{{newbieProject.projectDays}}<span class="ft-16">天</span></p>
@@ -30,13 +31,14 @@
           <p class="ft-14 ft-grey666">可投金额</p>
         </div>
         <div class="col-md-2 margin-l--5">
-            <button class="btn btn-primary-orange ft-18 btn-ljtz" ng-click="showQRcode()" ng-show="newbieProject.status === 7">新手专享&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+            <button class="btn btn-primary-orange ft-18 btn-ljtz" ng-click="showQRcode()" ng-show="newbieProject.status === 7 && !isJinxuanNewbie">新手专享&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
+            <button class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.project-details({number: newbieProject.number, type: 5})" ng-show="newbieProject.status == 7 && isJinxuanNewbie">立即投资&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
             <button class="btn ft-18 btn-ljtz" ng-class="{'btn-grey-spirit2':newbieProject.status > 7 && newbieProject.status !== 11,'btn-primary-orange': newbieProject.status === 11}" ng-show="newbieProject.status > 7 && newbieProject.status !== 11">{{projectStatusMap[newbieProject.status]}}&nbsp;<i class="fa fa-chevron-circle-right"></i></button>
         </div>
       </div>
     </div>
     <!-- 精选 -->
-    <div class="col-md-10 padding-r-0" ng-repeat="item in jingxuan | limitTo: jingxuanLimit">
+    <div class="col-md-10 padding-r-0" ng-repeat="item in jingxuan | limitTo: jingxuanLimit" v-show="item.number !== newbieNum">
       <div class="row padding-30 border-b-grey5 padding-b-25 margin-r--10">
         <div class="col-md-4 ft-16 ft-grey1 padding-r-0 margin-t-15"><a ui-sref="root.project-details({number:item.number, type: 5})">{{item.name | limitTo: 15 }}{{item.name.length > 15 ? '...':''}}</a></div>
         <div class="col-md-2 padding-l-0 margin-l--30 margin-t--8">
