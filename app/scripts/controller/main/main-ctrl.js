@@ -53,7 +53,7 @@ angular.module('hongcaiApp')
             if (!res || res.ret === -1) {
               return
             }
-            $scope.jingxuanLimit = !$scope.newbieProject.number || $scope.newbieProject.number && $rootScope.isLogged && res.exist ? 3 : 2
+            $scope.jingxuanLimit = !$scope.newbieProject.number || $scope.newbieProject.number && $rootScope.isLogged && !res.exist ? 3 : 2
           })
         }
         console.log('$scope.jingxuanLimit = ' + $scope.jingxuanLimit)
