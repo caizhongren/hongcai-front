@@ -22,9 +22,8 @@ angular.module('hongcaiApp')
         currentStocks: $scope.currentStocks
       }, function(response) {
         if(response && response.ret !== -1){
-
           $scope.currentPage = response.page;
-          $scope.data = response.assignments;
+          $scope.data = response.data;
           $scope.pageCount = response.pageCount;
           $scope.numberOfPages = function() {
             return response.pageCount;
