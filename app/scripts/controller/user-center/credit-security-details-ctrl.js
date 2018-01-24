@@ -34,7 +34,7 @@ angular.module('hongcaiApp')
       number: $scope.number
     }, function(response){
       if (response && response.ret !== -1) {
-        $scope.creditRightBill = response;
+        $scope.creditRightBill = response.data;
       }
     });
 
