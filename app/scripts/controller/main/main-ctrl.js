@@ -109,15 +109,15 @@ angular.module('hongcaiApp')
     /**
      * 债权转让列表
      */
-    ProjectService.assignmentList.get({
-      page:1, 
-      pageSize: 3
-    },function(response){
-      if (response.assignments.length <=0) {
-        return;
-      }else {
-        $scope.assignmentList = response.assignments;
-      }
-    });
+    // ProjectService.assignmentList.get({
+    //   page:1, 
+    //   pageSize: 3
+    // },function(response){
+    //   if (response.assignments.length <=0) {
+    //     return;
+    //   }else {
+    //     $scope.assignmentList = response.assignments;
+    //   }
+    // });
 
   })
