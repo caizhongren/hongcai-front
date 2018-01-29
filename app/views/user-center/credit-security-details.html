@@ -89,7 +89,6 @@
               </div>
               <div class="timeline-body" ng-if="item.type !== 6 && item.type !== 7">
                 <p>
-                  <span ng-show="item.principal > 0">本金<strong>{{ item.principal || 0 | number: 2 }}</strong>元&nbsp; + &nbsp;</span>利息 <span ng-show="item.creditAssignmentId <= 0 && increaseRateCoupon.type ==1">(</span> <strong>{{ item.profit || 0 | number: 2 }}</strong>元 <span class="ft-red7" ng-show="item.creditAssignmentId <= 0 && increaseRateCoupon.type ==1">+ <strong>{{(oriRate + increaseRateCoupon.value) * item.profit/oriRate - item.profit | number:2 || 0}}</strong>元<span class="ft-black"> )</span></span></p>
                   <span ng-show="item.type === 5">本金<strong>{{ item.amount || 0 | number: 2 }}</strong>元</span>
                   <span ng-show="item.type !== 5">利息 <span ng-show="item.couponProfit >0">(</span><strong>{{ item.amount || 0 | number: 2 }}</strong>元 
                     <span class="ft-red7" ng-show="item.couponProfit >0">+ 
