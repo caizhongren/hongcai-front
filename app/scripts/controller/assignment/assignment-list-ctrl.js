@@ -22,11 +22,11 @@ angular.module('hongcaiApp')
         currentStocks: $scope.currentStocks
       }, function(response) {
         if(response && response.ret !== -1){
-          $scope.currentPage = response.page;
+          $scope.currentPage = response.index;
           $scope.data = response.data;
-          $scope.pageCount = response.pageCount;
+          $scope.pageCount = response.totalPage;
           $scope.numberOfPages = function() {
-            return response.pageCount;
+            return response.totalPage;
           };
         }else {
           $scope.data = [];
