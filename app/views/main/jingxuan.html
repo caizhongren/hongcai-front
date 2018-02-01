@@ -19,7 +19,8 @@
           <a ng-show="isJinxuanNewbie" ui-sref="root.project-details({number:newbieProject.number, type: 5})">{{newbieProject.name | limitTo: 15 }}{{newbieProject.name.length > 15 ? '...':''}}</a>
         </div>
         <div class="col-md-2 padding-l-0 margin-l--30 margin-t--8">
-          <p class="ft-30 ft-orange margin-b-0">{{newbieProject.annualEarnings || 0 }}<span class="ft-16">%</span><span class="ft-24" ng-show="!isJinxuanNewbie"> + 6</span><span class="ft-16" ng-show="!isJinxuanNewbie">%</span></p>
+          <p class="ft-30 ft-orange margin-b-0" ng-show="!isJinxuanNewbie">{{newbieProject.annualEarnings || 0 }}<span class="ft-16">%</span><span class="ft-24"> + 6</span><span class="ft-16">%</span></p>
+          <p class="ft-30 ft-orange margin-b-0" ng-show="isJinxuanNewbie">{{newbieProject.annualEarnings || 2 }}<span class="ft-16">%</span></p>
           <p class="ft-14 ft-grey666">期望年均回报</p>
         </div>
         <div class="col-md-2" >
