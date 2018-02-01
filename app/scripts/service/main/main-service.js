@@ -17,8 +17,7 @@ angular.module('hongcaiApp')
         type: '@type'
       }, {
         'get': {
-          method: 'GET',
-          isArray: true
+          method: 'GET'
         }
       })
     };
