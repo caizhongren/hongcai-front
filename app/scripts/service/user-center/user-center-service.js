@@ -278,8 +278,7 @@ angular.module('hongcaiApp')
       getCreditRightBills: $resource(RESTFUL_DOMAIN + '/creditRights/:number/creditRightBills', {number: '@number'},
        {
         'get': {
-          method: 'GET',
-          isArray: true  
+          method: 'GET'
         }
       }),
       //自动投标开启、编辑

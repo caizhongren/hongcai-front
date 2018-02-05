@@ -64,7 +64,7 @@ angular.module('hongcaiApp')
       type: 1
     }, function(response) {
       if(response && response.ret !== -1){
-        $scope.banners = response;
+        $scope.banners = response.data;
         if($scope.banners.length > 0){
           $scope.media = [];
           for(var i=0; i < $scope.banners.length; i++){

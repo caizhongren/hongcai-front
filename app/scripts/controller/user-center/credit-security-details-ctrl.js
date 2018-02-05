@@ -34,7 +34,7 @@ angular.module('hongcaiApp')
       number: $scope.number
     }, function(response){
       if (response && response.ret !== -1) {
-        $scope.creditRightBill = response;
+        $scope.creditRightBill = response.data;
       }
     });
 
@@ -65,7 +65,7 @@ angular.module('hongcaiApp')
             });
           }
           if (status >= 3 && status <= 6 && type !== 2 && type !== 3) {//放款下载合同
-            if (response.type === 1 || response.type === 2) {//法大大直投和债转项目合同下载
+            if (response.type === 1 || response.type === 2 || response.type === 5 || response.type === 6 || response.type === 7 || response.type === 8 || response.type === 9 || response.type === 10) {//法大大直投和债转项目合同下载
               OrderService.downloadContractFdd.get({
                 orderNumber: orderNumber,
               }, function(response){
