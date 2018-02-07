@@ -1112,6 +1112,83 @@ hongcaiApp
         }
       })
 
+      /**
+       * ********************* 信息披露 ***********************
+       */
+      .state('root.disclosure', {
+        abstract: true,
+        url: '/disclosure',
+        views: {
+          'disclosure-right': {
+            templateUrl: 'views/disclosure/disclosure.html',
+            controller: 'disclosureCtrl',
+            controllerUrl: 'scripts/controller/disclosure/disclosure-ctrl'
+          },
+          'disclosure-sidebar': {
+            templateUrl: 'views/disclosure/disclosure-sidebar.html',
+            controller: 'disclosureCtrl',
+            controllerUrl: 'scripts/controller/disclosure/disclosure-ctrl'
+          }
+        },
+        data: {
+          title: '信息披露'
+        }
+      })
+      /**
+       * 备案信息
+       */
+      .state('root.disclosure.information', {
+        url: '/information',
+        views: {
+          'disclosure-right-show': {
+            templateUrl: 'views/disclosure/information.html'
+          }
+        }
+      })
+      /**
+       * 风险管理
+       */
+      .state('root.disclosure.risk-management', {
+        url: '/risk-management',
+        views: {
+          'disclosure-right-show': {
+            templateUrl: 'views/disclosure/risk-management.html'
+          }
+        }
+      })
+      /**
+       * 组织信息
+       */
+      .state('root.disclosure.organization', {
+        url: '/organization',
+        views: {
+          'disclosure-right-show': {
+            templateUrl: 'views/disclosure/organization.html'
+          }
+        }
+      })
+      /**
+       * 经营信息
+       */
+      .state('root.disclosure.business-information', {
+        url: '/business-information',
+        views: {
+          'disclosure-right-show': {
+            templateUrl: 'views/disclosure/business-information.html'
+          }
+        }
+      })
+      /**
+       * 政策法规
+       */
+      .state('root.disclosure.policies-regulations', {
+        url: '/policies-regulations',
+        views: {
+          'disclosure-right-show': {
+            templateUrl: 'views/disclosure/policies-regulations.html'
+          }
+        }
+      })
 
       /**
        * ********************* 关于我们 20160621 ***********************
