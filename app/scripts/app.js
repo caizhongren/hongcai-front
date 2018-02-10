@@ -1135,6 +1135,17 @@ hongcaiApp
         }
       })
       /**
+       * 银行存管
+       */
+      .state('root.disclosure.bank-disclosure', {
+        url: '/bank-disclosure',
+        views: {
+          'disclosure-right-show': {
+            templateUrl: 'views/disclosure/bank-disclosure.html'
+          }
+        }
+      })
+      /**
        * 备案信息
        */
       .state('root.disclosure.information', {
