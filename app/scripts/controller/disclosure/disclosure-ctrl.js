@@ -101,7 +101,7 @@ angular.module('hongcaiApp')
       },
       {
         title: '中华人民共和国反洗钱法',
-        link: 'http://www.gov.cn/flfg/2006-10/31/content_429381.html'
+        link: 'http://www.gov.cn/flfg/2006-10/31/content_429381.htm'
       },
       {
         title: '最高人民法院关于审理民间借贷案件适用法律若干问题的规定',
