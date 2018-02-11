@@ -85,19 +85,19 @@ angular.module('hongcaiApp')
     $scope.policiesList = [
       {
         title: '中华人民共和国合同法',
-        link: 'http://www.gov.cn/banshi/2005-07/11/content_13695.html'
+        link: 'http://www.gov.cn/banshi/2005-07/11/content_13695.htm'
       },
       {
         title: '中华人民共和国电子签名法',
-        link: 'http://www.gov.cn/flfg/2005-06/27/content_9785.html'
+        link: 'http://www.gov.cn/flfg/2005-06/27/content_9785.htm'
       },
       {
         title: '中华人民共和国广告法',
-        link: 'http://www.gov.cn/xinwen/2015-04/25/content_2852914.html'
+        link: 'http://www.gov.cn/xinwen/2015-04/25/content_2852914.htm'
       },
       {
         title: '中华人民共和国网络安全法',
-        link: 'http://www.gov.cn/xinwen/2016-11/07/content_5129723.html'
+        link: 'http://www.gov.cn/xinwen/2016-11/07/content_5129723.htm'
       },
       {
         title: '中华人民共和国反洗钱法',
