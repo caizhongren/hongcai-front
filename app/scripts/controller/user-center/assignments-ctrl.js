@@ -47,9 +47,9 @@ angular.module('hongcaiApp')
           $scope.pageSize = pageSize;
           $scope.searchStatus = status;
 
-          $scope.transferablesList = response.transferables;
-          $scope.count = response.count;
-          $scope.numberOfPages = Math.ceil($scope.count / pageSize);
+          $scope.transferablesList = response.data;
+          $scope.count = response.total;
+          $scope.numberOfPages = response.totalPage;
 
           // 测试环境放开限制
           var currentDate = new Date().getTime();
