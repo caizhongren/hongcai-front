@@ -180,7 +180,17 @@ angular.module('hongcaiApp')
         title = toState.data.title + ' - 宏财网';
       }
       $rootScope.pageTitle = title;
-
+      if (toState.name.indexOf("root.disclosure") !== -1) {
+        if (toState.name === "root.disclosure.bank-disclosure") {
+          $('html,body').animate({
+            scrollTop: 0
+          });
+        } else {
+          $('html,body').animate({
+            scrollTop: '461px'
+          });
+        }
+      }
 
       // 若存在登录框，则去掉
       if($rootScope.loginModal){

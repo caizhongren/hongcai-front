@@ -47,15 +47,15 @@ angular.module('hongcaiApp')
           $scope.pageSize = pageSize;
           $scope.searchStatus = status;
 
-          $scope.transferablesList = response.transferables;
-          $scope.count = response.count;
-          $scope.numberOfPages = Math.ceil($scope.count / pageSize);
+          $scope.transferablesList = response.data;
+          $scope.count = response.total;
+          $scope.numberOfPages = response.totalPage;
 
           // 测试环境放开限制
           var currentDate = new Date().getTime();
           if(status === 1){
             for (var i = $scope.transferablesList.length - 1; i >= 0; i--) {
-              $scope.transferablesList[i].canTransfer = config.isTest || (currentDate - $scope.transferablesList[i].createTime > 10*24*3600*1000);
+              $scope.transferablesList[i].canTransfer = config.isTest || (currentDate - $scope.transferablesList[i].createTime > 30*24*3600*1000);
             }
           }
 

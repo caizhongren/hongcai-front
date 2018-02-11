@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .factory('AboutUsService', function($resource, DEFAULT_DOMAIN) {
+  .factory('AboutUsService', function($resource, DEFAULT_DOMAIN, RESTFUL_DOMAIN) {
     return {
       indexTextList: $resource(DEFAULT_DOMAIN + '/siteText/indexTextList', {
         category: '@category'
@@ -11,6 +11,7 @@ angular.module('hongcaiApp')
       getLatestNotice: $resource(DEFAULT_DOMAIN + '/siteText/getLatestNotice'),
       textDetail: $resource(DEFAULT_DOMAIN + '/siteText/getTextDetail', {
         textId: '@textId'
-      })
+      }),
+      dataStat: $resource(RESTFUL_DOMAIN + '/systems/dataStat')
     };
   });
