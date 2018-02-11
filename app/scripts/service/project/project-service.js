@@ -8,6 +8,21 @@ angular.module('hongcaiApp')
       newbieBiaoProject: $resource(RESTFUL_DOMAIN + '/projects/newbieBiaoProject', {projectId: '@projectId'}, {
         get: {method:'GET'}
       }),
+      newbieProject: $resource(RESTFUL_DOMAIN + '/projects/newbieProject', {}, {
+        get: {method:'GET'}
+      }),
+      // 用户是否投资过
+      isExist: $resource(RESTFUL_DOMAIN + '/users/0/creditRights/isExist', {
+        userId: '@userId'
+      }, {
+        get: {method:'GET'}
+      }),
+      // 查询新手标是否授权
+      authorization: $resource(RESTFUL_DOMAIN + '/projects/0/authorization', {
+        number: '@number'
+      }, {
+        get: {method:'GET'}
+      }),
       investNewbieBiaoProjectVerify: $resource(RESTFUL_DOMAIN + '/projects/investNewbieBiaoProjectVerify', {number: '@number'}, {
         get: {method:'GET'}
       }),

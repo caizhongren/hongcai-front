@@ -1,13 +1,86 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('MainCtrl', function($scope, $state, $rootScope, $location, MainService, AboutUsService, ProjectService, ProjectUtils, FriendLinkService, DateUtils, toaster, projectStatusMap) {
+  .controller('MainCtrl', function($scope, $state, $rootScope, $location, $modal, MainService, AboutUsService, ProjectService, ProjectUtils, FriendLinkService, DateUtils, toaster, projectStatusMap) {
     $scope.spCountDown = -1;
-
+    $scope.jingxuanLimit = 3;
+    $scope.isExist = true;
+    $scope.authorization = false;
+    $scope.newBieNum = '';
+    $scope.jingxuan = [];
+    $scope.isJinxuanNewbie = false;
     $rootScope.pageTitle = '国资平台，网贷平台，投资平台，投资项目-宏财网';
+    var userId = $rootScope.loginUser ? $rootScope.loginUser.id : null;
     $scope.projectStatusMap = projectStatusMap;
+    
 
     /**
-     * 精选、尊贵列表
+     * 引导下载app弹窗
+     */
+    $scope.showQRcode = function () {
+      $rootScope.noticeModal = $modal({
+        scope: $rootScope,
+        template: 'views/modal/alert-novice.html',
+        show: true
+      }); 
+    }
+    
+    /**
+     * 查询新手标  状态码200 有新手标， 204 无新手标项目
+     */
+    var newbieProject = function () {
+      ProjectService.newbieProject.get({}, function (response) {
+        if (!response || response.ret === -1) {
+          return
+        }
+        $scope.newbieProject = response
+        $scope.newBieNum = response.number
+        $scope.jingxuanLimit = !response.number ? 3 : 2
+        // 查询精选项目列表
+        ProjectService.main_projectList.get({
+          pageSize: 4,
+          page: 1,
+          type: 5
+        }, function(response){
+          if ( !response || response.ret === -1) {
+            toaster.pop('warning', '服务器正在努力的加载....请稍等。');
+            return;
+          }
+          var jingxuan = response.projectList;
+          for(var i=0; i < jingxuan.length; i++) {
+            if (jingxuan[i].number !== $scope.newBieNum) {
+              $scope.jingxuan.push(jingxuan[i])
+            }
+          }
+          // 查询用户是否投资过
+          $scope.newBieNum && $rootScope.isLogged && ProjectService.isExist.get({
+              userId: userId
+            }, function (response) {
+            if (!response || response.ret === -1) {
+              return
+            }
+            $scope.isExist = response.exist;
+            if ($rootScope.isLogged) {
+              // 查询新手标是否授权
+              ProjectService.authorization.get({
+                number: $scope.newBieNum
+              }, function (response) {
+                if (!response || response.ret === -1) {
+                  return
+                }
+                $scope.authorization = response.authorization
+                //  没有新手标 || 有新手标 && 已登陆 && 老用户 && 未授权 || 有新手标 && 已登陆 && 老用户 && 已授权 && 新手标募集满
+                $scope.jingxuanLimit = !$scope.newbieProject.number || $rootScope.isLogged && $scope.isExist && (!$scope.authorization || $scope.newbieProject.amount === 0)? 3 : 2
+                // 是否新手标对应的精选项目: 有新手标 && 已登陆 && 老用户 && 已授权 && 新手标未集满
+                $scope.isJinxuanNewbie = $scope.newbieProject.number && $rootScope.isLogged && $scope.isExist && $scope.authorization && $scope.newbieProject.amount !== 0 ? true : false
+              })
+            }
+          })
+        });
+      })
+    }
+    newbieProject()
+    /**
+     * 尊贵列表
      */
     $scope.jingxuanList = function(type) {
       $scope.showFlag = 1;
@@ -20,21 +93,9 @@ angular.module('hongcaiApp')
           toaster.pop('warning', '服务器正在努力的加载....请稍等。');
           return;
         }
-        $scope.currentPage = 0;
-        $scope.pageSize = 5;
-        $scope.serverTime = response.serverTime;
-        $scope.repaymentTypeMap = response.repaymentTypeMap;
-        $scope.baseFileUrl = response.baseFileUrl;
-        if (type == 5) {
-          $scope.jingxuan =response.projectList;
-        
-        }else if (type == 6) {
-          $scope.zungui = response.projectList;
-        }
+        $scope.zungui = response.projectList;
       });
     };
-
-    $scope.jingxuanList(5);
     $scope.jingxuanList(6);
 
 

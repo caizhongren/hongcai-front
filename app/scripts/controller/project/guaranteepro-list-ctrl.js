@@ -6,6 +6,7 @@ angular.module('hongcaiApp')
     $scope.showFlag = $stateParams.showFlag || 0;
     $scope.projectStatusMap = projectStatusMap;
     $scope.pageSize = 6;
+    var userId = $rootScope.loginUser ? $rootScope.loginUser.id : null;
 
     if ($scope.sortType === 'true') {
       $scope.sortType = true;
@@ -88,7 +89,37 @@ angular.module('hongcaiApp')
     $scope.earning = $stateParams.earning;
     $scope.total = $stateParams.total;
 
-
+    var newbieProject = function (page, pageSize) {
+      ProjectService.newbieProject.get({}, function (response) {
+        if (!response || response.ret === -1) {
+          return
+        }
+        $scope.newbieProject = response
+        $scope.newBieNum = response.number
+        // 查询用户是否投资过
+        $scope.newBieNum && $rootScope.isLogged && ProjectService.isExist.get({
+          userId: userId
+        }, function (response) {
+          if (!response || response.ret === -1) {
+            return
+          }
+          $scope.isExist = response.exist;
+          if ($rootScope.isLogged) {
+            // 查询新手标是否授权
+            ProjectService.authorization.get({
+              number: $scope.newBieNum
+            }, function (response) {
+              if (!response || response.ret === -1) {
+                return
+              }
+              $scope.authorization = response.authorization
+              // $scope.authorization = true
+            })
+          }
+        })
+      })
+    }
+    newbieProject()
 
     /**
      * 宏财精选、尊贵列表
