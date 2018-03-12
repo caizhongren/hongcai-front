@@ -13,19 +13,19 @@
                                 <h4 class="page-header ft-14 ft-grey1 ftw-b">项目简介</h4>
                             </div>
                             <div class="col-xs-12">
-                                <div ta-bind ng-model="projectInfo.description" class="line-h-30"></div>
+                                <div ng-bind-html="projectInfo.description | trustHtml" class="line-h-30"></div>
                             </div>
                             <div class="col-xs-12">
                                 <h4 class="page-header ft-14 ft-grey1 ftw-b">资金用途</h4>
                             </div>
                             <div class="col-xs-12">
-                                <div ta-bind ng-model="projectInfo.financingPurpose"></div>
+                                <div ng-bind-html="projectInfo.financingPurpose | trustHtml"></div>
                             </div>
                             <div class="col-xs-12">
                                 <h4 class="page-header ft-14 ft-grey1 ftw-b">还款来源</h4>
                             </div>
                             <div class="col-xs-12">
-                                <div ta-bind ng-model="projectInfo.repaymentSource"></div>
+                                <div ng-bind-html="projectInfo.repaymentSource | trustHtml"></div>
                             </div>
                             <div class="col-xs-12" ng-hide="categoryCode === '0115'">
                                 <h4 class="page-header ft-14 ft-grey1 ftw-b">项目评级
@@ -39,7 +39,7 @@
                                 <h4 class="page-header  ft-14 ft-grey1 ftw-b">风控措施</h4>
                             </div>
                             <div class="col-xs-12" ng-show="categoryCode === '0115'">
-                                <div ta-bind ng-model="projectInfo.riskManagementInfo">
+                                <div ng-bind-html="projectInfo.riskManagementInfo | trustHtml">
                                 </div </div>
                             </div>
                 </section>
@@ -75,14 +75,14 @@
                                     <h4 class="page-header ft-14 ft-grey1 ftw-b">担保机构</h4>
                                 </div>
                                 <div class="col-xs-12">
-                                    <div class="line-h-30" ta-bind ng-model="projectInfo.guaranteeSuggestion"></div>
+                                    <div class="line-h-30" ng-bind-html="projectInfo.guaranteeSuggestion | trustHtml"></div>
                                 </div>
                             </div>
                             <div class="col-xs-12">
                                 <h4 class="page-header ft-14 ft-grey1 ftw-b">担保措施</h4>
                             </div>
                             <div class="col-xs-12">
-                                <div class="line-h-30" ta-bind ng-model="projectInfo.riskManagementInfo"></div>
+                                <div class="line-h-30" ng-bind-html="projectInfo.riskManagementInfo | trustHtml"></div>
                             </div>
                             <div class="col-xs-12" ng-show="riskControl.length > 0">
                                 <h4 class="page-header ft-14 ft-grey1 ftw-b">风控审核</h4>
