@@ -7,7 +7,7 @@
 		<div class="introduction-area col-md-12 col-lg-12">
 			<h3 class="details-title">{{text.title}}</h3>
 			<p class="p-date">{{text.createTime | date:'yyyy-MM-dd'}}</p>
-			<div class="p-introduction p-details" ta-bind ng-model="text.content"></div>
+			<div class="p-introduction p-details" ng-bind-html="text.content | trustHtml"></div>
 		</div>
 	</div>
 	<div class="row margin-t">
