@@ -11,7 +11,7 @@
         <p class="ft-grey666 margin-t-20">累计收益（ 元 ）</p>
       </div>
       <div class="col-md-4 border-0">
-        <p class="ft-36 ft-grey1 ft-Arial">{{investStat.profit - investStat.totalProfit + investStat.holdingAmount || 0 | number:2}}</p>
+        <p class="ft-36 ft-grey1 ft-Arial">{{investStat.profit + investStat.discountInterest - investStat.totalProfit + investStat.holdingAmount || 0 | number:2}}</p>
         <p class="ft-grey666 margin-t-20">待收本息（ 元 ）</p>
       </div>
     </div>
