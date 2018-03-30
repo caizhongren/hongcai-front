@@ -2,7 +2,7 @@
 angular.module('hongcaiApp')
   .controller('ProjectDetailsCtrl', function($scope, $interval, $state, $rootScope, $location, $stateParams, ProjectUtils, UserCenterService, ProjectService, OrderService, $modal, $alert, toaster, $timeout, ipCookie,
 
-    MainService, DateUtils, AboutUsService, projectStatusMap, config, $window, DEFAULT_DOMAIN) {
+    MainService, DateUtils, AboutUsService, projectStatusMap, config, $window, DEFAULT_DOMAIN, RESTFUL_DOMAIN) {
     // $rootScope.toActivate();
     $scope.type =  $stateParams.type;
     $scope.chk = true;
@@ -452,14 +452,18 @@ angular.module('hongcaiApp')
         var couponNumber = selectedCoupon == null ? "" : selectedCoupon.number;
 
         // 使用同步请求， 解决有可能弹窗被浏览器拦截的问题
+        var saveOrderUrl = RESTFUL_DOMAIN + '/projects/' + project.number + '/users/0/investment?' + 'investAmount=' + investAmount + '&couponNumber=' + couponNumber;
+        if (couponNumber === '') {
+          saveOrderUrl += '&useMemberIncreaseCoupon=true'
+        }
         $.ajax({
-          url: DEFAULT_DOMAIN + '/siteOrder/saveOrder?projectId=' + project.id + '&investAmount=' + investAmount + '&giftCount=' + giftCount + '&couponNumber=' + couponNumber,
+          url: saveOrderUrl,
           'type': 'POST',
           async: false,
           dataType: 'json',
           success: function(response) {
-            if (response.ret === 1) {
-              var order = response.data.order;
+            if (response.ret !== 1) {
+              var order = response;
               $alert({
                 scope: $scope,
                 template: 'views/modal/alertYEEPAY.html',
