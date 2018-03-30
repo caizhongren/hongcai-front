@@ -48,6 +48,7 @@ angular.module('hongcaiApp')
         //累计总额
         $scope.investStat.totalInvestAmount += stat.holdingAmount;
         $scope.investStat.totalProfit += stat.totalProfit;
+        $scope.investStat.discountInterest += stat.discountInterest;
         $scope.investStat.profit += stat.profit;
       }
     })
