@@ -959,30 +959,6 @@
     margin-bottom: -2px;
     margin-right: 3px;
   }
-} 
-.pay-active {
-    // color: #ff6600;
-    span {
-      width: 14px;
-      height: 14px;
-      border: 1px solid #fd8f3f;
-      border-radius: 50%;
-      position: relative;
-      background-color: #fff!important;
-      margin-bottom: -2px;
-      margin-right: 3px;
-    }
-    span:after {
-      content: "";
-      display: block;
-      width: 8px;
-      height: 8px;
-      position: absolute;
-      background-color: #fd8f3f;
-      top: 17%;
-      left: 17%;
-      border-radius: 50%;
-    }
 }
 // recharge && withdraw && security-settings
 .user-tips-area {
@@ -2516,10 +2492,16 @@
       color: #999;
       font-size: 14px;
     }
-    .SWIFT img {
-      vertical-align: top;
-      width: 70%;
-      margin-top: 3px;
+    .SWIFT {
+      background: url('../../images/user-center/SWIFT.png') no-repeat center 3px;
+      background-size: 70%;
+    }
+    .unionPay {
+      width: 45%;
+      height: 36px;
+      float: left;
+      background: url('../../images/user-center/unionPay.png') no-repeat right 3px;
+      background-size: contain;
     }
     .payment {
       border: 1px solid #999;
@@ -2535,7 +2517,7 @@
       border: 2px solid #f7722f;
     }
     .openBank {
-      width: 16%;
+      width: 20%;
       margin-top: -3px;
     }
     .border-dash {
@@ -2646,5 +2628,13 @@
   
       }
     }
+  }
+  .rechargeTips {
+    width: 32px;
+    height: 32px;
+    float: left;
+    background: url('../../images/user-center/tips.png') no-repeat 0px 0px;
+    background-size: 90%;
+    margin: -9px 2px 0 -4px;
   }
 }

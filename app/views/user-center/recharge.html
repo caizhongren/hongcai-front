@@ -31,8 +31,8 @@
         <div class="row text-recharge-tip margin-t-20">
           <div class="col-md-2 text-right ft-14 ft-grey666 padding-r-30"><span>支付方式</span></div>
           <div class="col-10 padding-l-0 border-dash">
-            <div class="fl payment SWIFT" ng-class="{'pay-active':payment == 1}" ng-click="selectPay(1)"><img src="../../images/user-center/SWIFT.png" alt="快捷支付" /></div>
-            <div class="fl payment margin-l-15" ng-class="{'pay-active':payment ==2}" ng-click="selectPay(2)"><img src="../../images/user-center/unionPay.png" alt="银联" class="margin-r-10" />网银支付</div>
+            <div class="fl payment SWIFT" ng-class="{'pay-active':payment == 1}" ng-click="selectPay(1)"></div>
+            <div class="fl payment margin-l-15" ng-class="{'pay-active':payment ==2}" ng-click="selectPay(2)"><span class="unionPay"></span>网银支付</div>
             <a ng-show="payment == 1" class=" col-md-2 padding-0 text-right fr padding-0 cursor-pt supportBank" href="javascript:;" focus-blur ng-click="showSupportBank = !showSupportBank;">支持银行及限额</a>
             <table class="supportList border-grey1" ng-if="payment !=2 && showSupportBank">
               <thead>
@@ -62,7 +62,7 @@
           <div class="col-md-2 text-right ft-14 ft-grey666 padding-r-40"><span>银行卡</span></div>
           <div class="col-md-10 padding-l-0">
             <div class="payment pay-active padding-0 margin-b-10">
-              <img class="openBank" ng-src="{{userCurrenBank.src}}">{{ userCard.openBank}}({{userCard.cardNo.slice(-4)}})
+              <img class="openBank" ng-src="{{userCurrenBank.src}}"> {{ userCard.openBank}}({{userCard.cardNo.slice(-4)}})
             </div>
           </div>
         </div>
@@ -93,7 +93,7 @@
     <!-- 温馨提示 -->
     <div class="row bg-white margin-t-30 ft-grey666 padding-30" ng-hide="securityStatus.realNameAuthStatus !== 1">
       <div class="ft-13 padding-l-40">
-        <p class="ft-16"><img src="../../images/user-center/tips.png" alt="" style="vertical-align: text-bottom;">  温馨提示</p>
+        <p class="ft-16"><span class="rechargeTips"></span>  温馨提示</p>
         <div class="">
           <p ng-if="pay_company === 'cgt'">1. 您的账户资金将由海口联合农商银行资金存管系统进行存管；</p>
           <p ng-if="pay_company === 'yeepay'"> 1. 您的账户资金将由有银监会颁发牌照的银行存管机构托管；</p>
