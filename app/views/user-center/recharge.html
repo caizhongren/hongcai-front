@@ -30,9 +30,9 @@
         <!-- 支付方式 -->
         <div class="row text-recharge-tip margin-t-20">
           <div class="col-md-2 text-right ft-14 ft-grey666 padding-r-30"><span>支付方式</span></div>
-          <div class="col-10 padding-l-0 border-dash">
+          <div class="col-10 padding-l-0 border-dash" ng-class="{'border-0': payment != 1}">
             <div class="fl payment SWIFT" ng-class="{'pay-active':payment == 1}" ng-click="selectPay(1)"></div>
-            <div class="fl payment margin-l-15" ng-class="{'pay-active':payment ==2}" ng-click="selectPay(2)"><span class="unionPay"></span>网银支付</div>
+            <div class="fl payment margin-l-20" ng-class="{'pay-active':payment ==2}" ng-click="selectPay(2)"><span class="unionPay"></span>网银支付</div>
             <a ng-show="payment == 1" class=" col-md-2 padding-0 text-right fr padding-0 cursor-pt supportBank" href="javascript:;" focus-blur ng-click="showSupportBank = !showSupportBank;">支持银行及限额</a>
             <table class="supportList border-grey1" ng-if="payment !=2 && showSupportBank">
               <thead>
@@ -58,28 +58,30 @@
           </div>
         </div>
         <!-- 银行卡 -->
-        <div class="row text-recharge-tip margin-t-40">
-          <div class="col-md-2 text-right ft-14 ft-grey666 padding-r-40"><span>银行卡</span></div>
-          <div class="col-md-10 padding-l-0">
-            <div class="payment pay-active padding-0 margin-b-10">
-              <img class="openBank" ng-src="{{userCurrenBank.src}}"> {{ userCard.openBank}}({{userCard.cardNo.slice(-4)}})
+        <div ng-if="payment ==1">
+          <div class="row text-recharge-tip margin-t-40">
+            <div class="col-md-2 text-right ft-14 ft-grey666 padding-r-40"><span>银行卡</span></div>
+            <div class="col-md-10 padding-l-0">
+              <div class="payment pay-active padding-0 margin-b-10">
+                <img class="openBank" ng-src="{{userCurrenBank.src}}"> {{ userCard.openBank}}({{userCard.cardNo.slice(-4)}})
+              </div>
+            </div>
+          </div>
+          <div class="row userCurrenBank">
+            <div class="fl text-left margin-r-10 col-md-2 padding-0">
+              <span class="margin-r-5">卡种：借记卡</span>|<span class="margin-l-5">快捷</span>
+            </div>
+            <div class="fl text-center">单笔 / 单日 / 单月限额：
+              <span ng-if="userCurrenBank.singleLimit < 0">不限</span><span ng-if="userCurrenBank.singleLimit > 0">{{userCurrenBank.singleLimit%10000 !== 0 ? userCurrenBank.singleLimit : userCurrenBank.singleLimit/10000 + 'w'}}</span> / <span ng-if="userCurrenBank.dayLimit < 0">不限</span><span ng-if="userCurrenBank.dayLimit > 0">{{userCurrenBank.dayLimit%10000 !== 0 ? userCurrenBank.dayLimit : userCurrenBank.dayLimit/10000 + 'w'}}</span> / <span ng-if="userCurrenBank.monthLimit < 0">不限</span><span ng-if="userCurrenBank.monthLimit > 0">{{userCurrenBank.monthLimit%10000 !== 0 ? userCurrenBank.monthLimit : userCurrenBank.monthLimit/10000 + 'w'}}</span>
             </div>
           </div>
         </div>
-        <div class="row userCurrenBank">
-          <div class="fl text-left margin-r-15 col-md-2 padding-0">
-            <span class="margin-r-5">卡种：借记卡</span>|<span class="margin-l-5">快捷</span>
-          </div>
-          <div class="fl text-center">单笔 / 单日 / 单月限额：
-            <span ng-if="userCurrenBank.singleLimit < 0">不限</span><span ng-if="userCurrenBank.singleLimit > 0">{{userCurrenBank.singleLimit%10000 !== 0 ? userCurrenBank.singleLimit : userCurrenBank.singleLimit/10000 + 'w'}}</span> / <span ng-if="userCurrenBank.dayLimit < 0">不限</span><span ng-if="userCurrenBank.dayLimit > 0">{{userCurrenBank.dayLimit%10000 !== 0 ? userCurrenBank.dayLimit : userCurrenBank.dayLimit/10000 + 'w'}}</span> / <span ng-if="userCurrenBank.monthLimit < 0">不限</span><span ng-if="userCurrenBank.monthLimit > 0">{{userCurrenBank.monthLimit%10000 !== 0 ? userCurrenBank.monthLimit : userCurrenBank.monthLimit/10000 + 'w'}}</span>
-          </div>
-        </div>
         <!-- 确认充值按钮 -->
-        <div class="col-md-4 col-md-offset-3 margin-t-35 margin-b-30">
-          <div class="form-group col-xs-12 margin-l-15" ng-if="payment !== 2">
+        <div class="col-md-4 col-md-offset-1 margin-t-35 margin-b-30">
+          <div class="form-group col-xs-12" ng-if="payment !== 2">
             <input type="button" value="确认充值" id="recharge-virify-btn" class="border-half cursor-pointer ft-16" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid || rechargeAmount > bankRemain || rechargeAmount< 3, 'btn-recharge-orange':!rechargeForm.$invalid && rechargeAmount <= bankRemain && rechargeAmount >= 3}" />
           </div>
-          <div class="form-group col-xs-12 margin-l-15" ng-if="payment == 2">
+          <div class="form-group col-xs-12" ng-if="payment == 2">
             <input type="button" value="确认充值" id="recharge-virify-btn" class="border-half cursor-pointer ft-16" ng-click="recharge(rechargeAmount)" ng-disabled="rechargeForm.$invalid" ng-class="{'btn-recharge-grey':rechargeForm.$invalid || rechargeAmount == 0, 'btn-recharge-orange':!rechargeForm.$invalid && rechargeAmount != 0}" />
           </div>
         </div>
