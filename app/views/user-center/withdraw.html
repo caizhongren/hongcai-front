@@ -36,8 +36,8 @@
             <p class="padding-l-45" ng-show="freeWithdrawCount <=0">手续费：2元（前往app可查看您的当前会员等级哦）</p>
             <p class="padding-l-45" ng-show="freeWithdrawCount >0">手续费：（本次免手续费，本月还剩{{freeWithdrawCount - 1}}次免费提现，前往app可查看您的当前会员等级哦）</p>
           </div>
-          <div class="col-md-5 margin-t-15 padding-b-20">
-            <div class="form-group col-xs-12 margin-l-15">
+          <div class="col-md-4 col-md-offset-4 margin-t-15 padding-b-20">
+            <div class="form-group col-xs-12">
               <input type="button" value="确认提现" class="border-half cursor-pointer ft-16 text-center" ng-click="withdraw(amount, captcha)" ng-disabled="withdrawForm.$invalid || checkLargestAmount(amount)" ng-class="{'btn-recharge-grey':withdrawForm.$invalid || checkLargestAmount(amount) || checkMinAmount(amount), 'btn-recharge-orange':!withdrawForm.$invalid && !checkLargestAmount(amount) && !checkMinAmount(amount)}" />
             </div>
           </div>
