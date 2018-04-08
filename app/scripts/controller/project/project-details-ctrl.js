@@ -17,6 +17,9 @@ angular.module('hongcaiApp')
      * 用户可使用的券
      */
     $scope.couponLists = function (investAmount) {
+      if (investAmount >= $scope.availableAmount) {
+        return
+      }
       ProjectService.coupons.get({
         investAmount: investAmount,
         userId: 0,
@@ -37,6 +40,14 @@ angular.module('hongcaiApp')
         5 == $scope.type ? welfares = response.data[0].welfareRules[0] : welfares = response.data[0].welfareRules[1]
       }
     })
+    // 指定排序的比较函数
+    function compare(property){
+      return function(obj1,obj2){
+          var value1 = obj1[property];
+          var value2 = obj2[property];
+          return value2 - value1;
+      }
+    }
     $scope.addWelfaresRate = function (investAmount) {
       var profit = null
           $scope.coupons.push(welfares)
@@ -51,6 +62,7 @@ angular.module('hongcaiApp')
               $scope.coupons[i].profit = profit
             }
           }
+          $scope.coupons.sort(compare("profit"))
           $scope.selectedCoupon = $scope.coupons[0];
           $scope.increaseProfit = 0;
           if($scope.selectedCoupon !== undefined){
@@ -81,9 +93,9 @@ angular.module('hongcaiApp')
             if ($scope.rateType === '' && $scope.cashType === '') {
               $scope.selectedCoupon = $scope.coupons[0];
             }
-            // if ($scope.rateNum == $scope.coupons[i].number || $scope.cashNum == $scope.coupons[i].number) {
-            //   $scope.selectedCoupon = $scope.coupons[i];
-            // }
+            if ($scope.rateNum == $scope.coupons[i].number || $scope.cashNum == $scope.coupons[i].number) {
+              $scope.selectedCoupon = $scope.coupons[i];
+            }
           }
         }
       });
@@ -225,7 +237,7 @@ angular.module('hongcaiApp')
           $scope.isAvailable = projectDetails.data.isAvailable;
 
           $scope.preRepaymentList = projectDetails.data.preRepaymentList;
-          $scope.billCount = projectDetails.data.billCount;
+          // $scope.billCount = projectDetails.data.billCount;
           $scope.remainInterest = projectDetails.data.remainInterest;
           $scope.remainPrincipal = projectDetails.data.remainPrincipal;
           /**
