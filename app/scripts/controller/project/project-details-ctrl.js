@@ -237,7 +237,7 @@ angular.module('hongcaiApp')
           $scope.isAvailable = projectDetails.data.isAvailable;
 
           $scope.preRepaymentList = projectDetails.data.preRepaymentList;
-          // $scope.billCount = projectDetails.data.billCount;
+          $scope.billCount = projectDetails.data.billCount;
           $scope.remainInterest = projectDetails.data.remainInterest;
           $scope.remainPrincipal = projectDetails.data.remainPrincipal;
           /**
