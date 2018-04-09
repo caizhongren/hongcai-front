@@ -237,6 +237,7 @@ angular.module('hongcaiApp')
           $scope.isAvailable = projectDetails.data.isAvailable;
 
           $scope.preRepaymentList = projectDetails.data.preRepaymentList;
+          $scope.projectPrepayment = projectDetails.data.projectPrepayment; // 根据是否等于null，判断是否为提前还款项目
           $scope.billCount = projectDetails.data.billCount;
           $scope.remainInterest = projectDetails.data.remainInterest;
           $scope.remainPrincipal = projectDetails.data.remainPrincipal;
