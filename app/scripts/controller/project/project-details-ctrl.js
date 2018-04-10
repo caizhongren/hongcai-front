@@ -32,14 +32,14 @@ angular.module('hongcaiApp')
       })
     }
     var welfares = null
-    ProjectService.welfares.get({
+    $rootScope.isLogged ? ProjectService.welfares.get({
       onlyUserLevel: 1,
       userId: 0
     }, function (response) {
       if (response && response.data != '') {
         5 == $scope.type ? welfares = response.data[0].welfareRules[0] : welfares = response.data[0].welfareRules[1]
       }
-    })
+    }) : null
     // 指定排序的比较函数
     function compare(property){
       return function(obj1,obj2){
