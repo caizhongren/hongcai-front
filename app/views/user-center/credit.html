@@ -124,7 +124,7 @@
             <li class="th-last cursor-pointer">
               <a type="button" class=" ft-blue5" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})">查看</a>
             </li>
-            <div class="tip" ng-show="item.projectPrepayment != null">预计于2018-04-30日前还本付息</div>
+            <div class="tip" ng-show="item.projectPrepayment != null">预计于{{projectPrepaymentTime | date: 'yyyy-MM-dd'}}日前还本付息</div>
           </ul>
         </div>
       </div>

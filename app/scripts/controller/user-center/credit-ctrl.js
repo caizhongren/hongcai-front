@@ -5,6 +5,13 @@ angular.module('hongcaiApp')
     $scope.pageSize = 5;
     $scope.showOther = false;
     $scope.currentPage = 1;
+    $scope.getProjectPrepaymentTime = function () {
+      UserCenterService.projectPrepaymentTime.get({}, function (response) {
+        if (response && response.ret !== -1) {
+          $scope.projectPrepaymentTime = response.prepaymentTime
+        }
+      })
+    }
     /**
      * 判断是否开通第三方托管账户
      */
@@ -120,6 +127,7 @@ angular.module('hongcaiApp')
           $scope.fundsPoolInOutMap = response.data.fundsPoolInOutMap;
           $scope.count = response.data.count;
           $scope.numberOfPages = Math.ceil($scope.count / pageSize);
+          $scope.heldInCreditList.length > 0 && status == 1 ? $scope.getProjectPrepaymentTime() : null
         } else {
           toaster.pop('warning', response.msg);
         }
