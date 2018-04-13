@@ -393,6 +393,7 @@ angular.module('hongcaiApp')
       }),
       // 本月可免费提现次数查询
       freeWithdrawCount: $resource(RESTFUL_DOMAIN + '/users/0/freeWithdrawCount',{
-      })
+      }),
+      projectPrepaymentTime: $resource(RESTFUL_DOMAIN + '/users/0/creditRights/projectPrepaymentTime',{})
     };
   });

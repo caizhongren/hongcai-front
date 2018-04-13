@@ -57,7 +57,7 @@
             </div>
             <div ng-if="progress >= 100 && project.status === 9 || project.status === 10">
               <div class="col-xs-12">
-              <span class="project_dot">还款日期：{{ repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</span>
+              <span class="project_dot">还款日期：{{ projectPrepayment != null && project.status == 10 && projectPrepayment.status == 1 ? projectPrepayment.realRepaymentTime : repaymentDate || 0 | amDateFormat: 'YYYY年MM月DD日'}}</span>
               </div>
             </div>
           </div>

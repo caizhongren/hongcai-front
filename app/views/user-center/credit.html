@@ -95,42 +95,39 @@
     <!-- 列表 -->
     <!-- 投资中 -->
     <div ng-show="searchStatus === 1">
-      <table class="table-solid border-b-d">
-        <thead>
-          <tr>
-            <th class="th-first">项目名称</th>
-            <th>持有债权(元)</th>
-            <th>已收收益(元)</th>
-            <th>待收收益(元)</th>
-            <th>到期时间</th>
-            <th class="th-last">操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-show="heldInCreditList.length<=0">
-            <td colspan="6">
-              <div class="line-h-0 padding-t-50 padding-b-30">
-                <p class="ft-18 ft-grey666">暂无记录</p>
-                <p><a class="btn btn-primary-orange ft-18 margin-t-20 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
-              </div>
-            </td>
-          </tr>
-          <tr ng-repeat="item in heldInCreditList" class="assignment-left">
-            <td class="padding-l-30">
+      <div class="ulTable2-solid border-b-d">
+        <ul class="table-thead overflow-hi">
+          <li class="th-first">项目名称</li>
+          <li>持有债权(元)</li>
+          <li>已收收益(元)</li>
+          <li>待收收益(元)</li>
+          <li>到期时间</li>
+          <li class="th-last">操作</li>
+        </ul>
+        <div class="table-tbody">
+          <ul ng-show="heldInCreditList.length<=0">
+            <div class="line-h-0 padding-t-50 padding-b-30">
+              <p class="ft-18 ft-grey666">暂无记录</p>
+              <p><a class="btn btn-primary-orange ft-18 margin-t-20 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
+            </div>
+          </ul>
+          <ul ng-repeat="item in heldInCreditList" class="assignment-left list-ul">
+            <li class="th-first">
               <a ui-sref="root.project-details({number: item.project.number, type: item.project.type === 5 ? 5 : 6})" title="{{item.project.name}}" class="invment-blue5 special-recommend "><span class="assignmentsZhuan text-center" ng-if="item.creditRight.type === 6">转</span>{{ item.creditRight.projectName | limitTo: 13 }}{{item.project.name.length > 13 ? '...':''}}<img ng-show="item.increaseRateCoupon.type == 1 || item.increaseRateCoupon.type == 6" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"><span ng-show="item.increaseRateCoupon.type == 7" class="xinshou">新手加息6%</span></a>
-            </td>
-            <td>{{ item.creditRight.amount - item.creditRight.transferedAmount || 0 | number:2 }}</td>
-            <td>{{ item.creditRight.returnProfit + item.creditRight.discountInterest | number:2 }}<span ng-show="item.increaseRateCoupon.type == 1 || item.increaseRateCoupon.type == 6 || item.increaseRateCoupon.type == 7" class="ft-red7">+{{(item.creditRight.baseRate + item.creditRight.riseRate + item.increaseRateCoupon.value) * item.creditRight.returnProfit / (item.creditRight.baseRate + item.creditRight.riseRate) - item.creditRight.returnProfit | number:2 || 0 }}</span></td>
-            <td>{{ item.creditRight.profit - item.creditRight.returnProfit | number:2 || 0 }}<span ng-show="item.increaseRateCoupon.type == 1 || item.increaseRateCoupon.type == 6 || item.increaseRateCoupon.type == 7" class="ft-red7">+{{(item.creditRight.baseRate + item.creditRight.riseRate + item.increaseRateCoupon.value) * (item.creditRight.profit - item.creditRight.returnProfit) / (item.creditRight.baseRate + item.creditRight.riseRate) - (item.creditRight.profit - item.creditRight.returnProfit) | number:2 || 0 }}</span></td>
-            <td>
+            </li>
+            <li>{{ item.creditRight.amount - item.creditRight.transferedAmount || 0 | number:2 }}</li>
+            <li>{{ item.creditRight.returnProfit + item.creditRight.discountInterest | number:2 }}<span ng-show="item.increaseRateCoupon.type == 1 || item.increaseRateCoupon.type == 6 || item.increaseRateCoupon.type == 7" class="ft-red7">+{{(item.creditRight.baseRate + item.creditRight.riseRate + item.increaseRateCoupon.value) * item.creditRight.returnProfit / (item.creditRight.baseRate + item.creditRight.riseRate) - item.creditRight.returnProfit | number:2 || 0 }}</span></li>
+            <li>{{ item.creditRight.profit - item.creditRight.returnProfit | number:2 || 0 }}<span ng-show="item.increaseRateCoupon.type == 1 || item.increaseRateCoupon.type == 6 || item.increaseRateCoupon.type == 7" class="ft-red7">+{{(item.creditRight.baseRate + item.creditRight.riseRate + item.increaseRateCoupon.value) * (item.creditRight.profit - item.creditRight.returnProfit) / (item.creditRight.baseRate + item.creditRight.riseRate) - (item.creditRight.profit - item.creditRight.returnProfit) | number:2 || 0 }}</span></li>
+            <li>
               <span>{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
-            </td>
-            <td class="th-last cursor-pointer">
+            </li>
+            <li class="th-last cursor-pointer">
               <a type="button" class=" ft-blue5" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})">查看</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </li>
+            <div class="tip" ng-show="item.projectPrepayment != null">预计于{{projectPrepaymentTime | date: 'yyyy-MM-dd'}}日前还本付息</div>
+          </ul>
+        </div>
+      </div>
       <ul class="pager padding-30 margin-t-0 ft-14 ft-white4" ng-if="heldInCreditList.length > 0">
         <li class="display-inbl"><button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage-1, pageSize, searchStatus, tabStatus)">上一页</button></li>
         <div class="display-inbl current-page">&nbsp;&nbsp;{{ currentPage }}&nbsp;&nbsp;</div><div class="dot">...</div>
@@ -140,40 +137,37 @@
     </div>
     <!-- 已回款 -->
     <div ng-show="searchStatus === 4">
-      <table class="table-solid border-b-d">
-        <thead>
-          <tr>
-            <th class="th-first">项目名称</th>
-            <th>债权价值</th>
-            <th>已收收益(元)</th>
-            <th>完结时间</th>
-            <th class="th-last">操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-show="heldInCreditList.length<=0">
-            <td colspan="6">
-              <div class="line-h-0 padding-t-50 padding-b-30">
-                <p class="ft-18 ft-grey666">暂无记录</p>
-                <p><a class="btn btn-primary-orange ft-18 margin-t-20 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
-              </div>
-            </td>
-          </tr>
-          <tr ng-repeat="item in heldInCreditList" class="assignment-left">
-            <td class="padding-l-30">
+      <div class="ulTable-solid border-b-d">
+        <ul class="table-thead overflow-hi">
+          <li class="th-first">项目名称</li>
+          <li>债权价值</li>
+          <li>已收收益(元)</li>
+          <li>完结时间</li>
+          <li class="th-last">操作</li>
+        </ul>
+        <div class="table-tbody">
+          <ul ng-show="heldInCreditList.length<=0">
+            <div class="line-h-0 padding-t-50 padding-b-30">
+              <p class="ft-18 ft-grey666">暂无记录</p>
+              <p><a class="btn btn-primary-orange ft-18 margin-t-20 border-half bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
+            </div>
+          </ul>
+          <ul ng-repeat="item in heldInCreditList" class="assignment-left list-ul">
+            <li class="th-first">
               <a ui-sref="root.project-details({number: item.project.number, type: item.project.type === 5 ? 5 : 6})" title="{{item.creditRight.projectName}}" class="invment-blue5 special-recommend"><span class="assignmentsZhuan text-center" ng-if="item.creditRight.type === 6">转</span>{{ item.creditRight.projectName | limitTo: 15 }}{{item.creditRight.projectName.length > 15 ? '...':''}}<img ng-show="item.increaseRateCoupon.type ==1 || item.increaseRateCoupon.type ==6" src="/images/rate-coupon.png" alt="使用加息券" class="used-rate"><span ng-show="item.increaseRateCoupon.type ==7" class="xinshou">新手加息6%</span></a>
-            </td>
-            <td>{{ item.creditRight.transferableAmount | number:2 }}</td>
-            <td>{{ item.creditRight.returnProfit + item.creditRight.discountInterest | number:2}} <span ng-show="item.increaseRateCoupon.type ==1 || item.increaseRateCoupon.type ==6 || item.increaseRateCoupon.type ==7" class="ft-red7">+{{(item.creditRight.baseRate + item.creditRight.riseRate + item.increaseRateCoupon.value) * item.creditRight.returnProfit / (item.creditRight.baseRate + item.creditRight.riseRate) - item.creditRight.returnProfit | number:2}}</span></td>
-            <td>
-              <span>{{ item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
-            </td>
-            <td>
+            </li>
+            <li>{{ item.creditRight.transferableAmount | number:2 }}</li>
+            <li>{{ item.creditRight.returnProfit + item.creditRight.discountInterest | number:2}} <span ng-show="item.increaseRateCoupon.type ==1 || item.increaseRateCoupon.type ==6 || item.increaseRateCoupon.type ==7" class="ft-red7">+{{(item.creditRight.baseRate + item.creditRight.riseRate + item.increaseRateCoupon.value) * item.creditRight.returnProfit / (item.creditRight.baseRate + item.creditRight.riseRate) - item.creditRight.returnProfit | number:2}}</span></li>
+            <li>
+              <span>{{item.projectPrepayment != null && item.projectPrepayment.status == 1 ? item.projectPrepayment.realRepaymentTime : item.project.repaymentDate | date:'yyyy-MM-dd' }}</span>
+            </li>
+            <li class="th-last">
               <a type="button" class="ft-blue5" ui-sref="root.userCenter.credit-security-details({type: 1,number: item.creditRight.number})">查看</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            </li>
+            <div class="tip" ng-show="item.projectPrepayment != null && item.projectPrepayment.status == 1">已于{{ item.projectPrepayment.realRepaymentTime | date:'yyyy-MM-dd' }}日提前还本付息</div>
+          </ul>
+        </div>
+      </div>
       <ul class="pager padding-30 margin-t-0 ft-14 ft-white4" ng-hide="heldInCreditList.length<=0">
         <li class="display-inbl">
           <button class="btn btn-orange6 {{currentPage == 1 ? 'btn-disabled6' : ''}}" ng-disabled="currentPage == 1" ng-click="loadCredits(currentPage - 1, pageSize, searchStatus, tabStatus)">上一页</button>

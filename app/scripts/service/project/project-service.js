@@ -148,6 +148,22 @@ angular.module('hongcaiApp')
       }),
 
       /**
+       * 投资项目优惠券
+       */
+      coupons: $resource(RESTFUL_DOMAIN + '/users/0/coupons/projects/:number', {
+        number: '@number',
+        investAmount: '@investAmount'
+      }, {
+        'get': {
+          method: 'GET'
+        }
+      }),
+      welfares: $resource(RESTFUL_DOMAIN + '/users/member/welfares', {
+        userId: '@userId',
+        onlyUserLevel: '@onlyUserLevel'
+      }),
+
+      /**
        * 投资成功回调页优惠券使用
        */
       investSuccessCoupons: $resource(RESTFUL_DOMAIN + '/orders/0/orderCoupon', {
