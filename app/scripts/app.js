@@ -1997,6 +1997,14 @@ hongcaiApp
         }
       }
     })
+    .state('root.investment-agree', {
+      url: '/investment-agree',
+      views: {
+        '': {
+          templateUrl: 'views/investment-agree.html'
+        }
+      }
+    })
 
     // 系统维护
     .state('update', {
