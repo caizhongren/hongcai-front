@@ -50,7 +50,11 @@
               <span class="project_dot">项目类型：羊年迎新标</span>
             </div>
             <div class="col-xs-12 under-margin1">
-              <span class="project_dot">还款方式：{{repaymentTypeMap[project.repaymentType]}}</span>
+              <div class="project_dot cursor-pt">还款方式：{{repaymentTypeMap[project.repaymentType]}} &nbsp;
+                  <span class="project_desp display-inbl position-ab cursor-pt" toggle-fade></span>
+                  <!-- <img src="../../images/project/tip.png" width="4%" alt="" toggle-fade> -->
+                  <span class="pro_des_dot_tip">还款计算方式说明：假设借款金额为X，年利率为Y，借款期限为Z天，每月实际计息天数为N天，则：每月应还款利息计算公示：X*Y*N/365；应还总利息计算公式为：X*Y*Z/365；应还本金X。</span>
+              </div>
             </div>
             <div class="col-xs-12" ng-class="{'under-margin1': project.status === 9 || project.status === 10}">
               <span class="project_dot">发布日期：{{ project.publishTime || 0 | amDateFormat: 'YYYY年MM月DD日'}}</span>

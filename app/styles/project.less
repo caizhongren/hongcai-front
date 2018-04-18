@@ -1380,8 +1380,8 @@
 .project_desp {
   background: url(/images/project/tip.png) no-repeat 0 0;
   background-size: contain;
-  width: 13px;
-  height: 13px;
+  width: 15px;
+  height: 15px;
   top: 3px;
 }
 .pro_des_date_tip {
@@ -1397,5 +1397,43 @@
   z-index: 9999999;
   padding: 5px 0px 0px;
   background-color: #fff;
+}
+.pro_des_dot_tip {
+  display: none;
+  position: absolute;
+  left: 4px;
+  top: 33px;
+  border: 1px solid #ddd;
+  width: 68%;
+  text-align: justify;
+  line-height: 1.5;
+  font-size: 12px;
+  z-index: 9999999;
+  padding: 10px;
+  background-color: #fff;
+}
+.pro_des_dot_tip:before{
+  content:"";
+  display:block;
+  border-width:15px;
+  position:absolute;
+  top:-30px;
+  right:42px;
+  border-style:solid dashed dashed;
+  border-color:transparent transparent #ddd;
+  font-size:0;
+  line-height:0;
+  }
+.pro_des_dot_tip:after{
+  content:"";
+  display:block;
+  border-width:15px;
+  position:absolute;
+  top: -28px;
+  right: 42px;
+  border-style:solid dashed dashed;
+  border-color:transparent transparent #fff;
+  font-size:0;
+  line-height:0;
 }
     
