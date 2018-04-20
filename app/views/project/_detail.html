@@ -29,18 +29,23 @@
                             </div>
                             <div class="col-xs-12" ng-hide="categoryCode === '0115'">
                                 <h4 class="page-header ft-14 ft-grey1 ftw-b">项目评级
-                            <span ng-if="projectRank.symbol !== ''" ng-class="{'a3' : projectRank.symbol==='AAA','a2' : projectRank.symbol==='AA','a1' : projectRank.symbol==='A','b3' : projectRank.symbol==='BBB','b2' : projectRank.symbol==='BB','b1' : projectRank.symbol==='B','c' : projectRank.symbol==='C'}" class="project-rate">&nbsp;</span>
-                          </h4>
+                                    <span ng-if="projectRank.symbol !== ''" ng-class="{'a3' : projectRank.symbol==='AAA','a2' : projectRank.symbol==='AA','a1' : projectRank.symbol==='A','b3' : projectRank.symbol==='BBB','b2' : projectRank.symbol==='BB','b1' : projectRank.symbol==='B','c' : projectRank.symbol==='C'}" class="project-rate">&nbsp;</span>
+                                </h4>
                             </div>
                             <div class="col-xs-12" ng-hide="categoryCode === '0115'">
                                 <p>{{projectRank.description}}</p>
                             </div>
                             <div class="col-xs-12" ng-show="categoryCode === '0115'">
-                                <h4 class="page-header  ft-14 ft-grey1 ftw-b">风控措施</h4>
+                                <h4 class="page-header  ft-14 ft-grey1 ftw-b">还款保障措施</h4>
                             </div>
                             <div class="col-xs-12" ng-show="categoryCode === '0115'">
-                                <div ng-bind-html="projectInfo.riskManagementInfo | trustHtml">
-                                </div </div>
+                                <div ng-bind-html="projectInfo.riskManagementInfo | trustHtml"></div>
+                            </div>
+                            <div class="col-xs-12">
+                                <h4 class="page-header ft-14 ft-grey1 ftw-b">风险评估</h4>
+                            </div>
+                            <div class="col-xs-12" ng-show="riskAssessment !== null">
+                                <div ng-bind-html="projectInfo.riskAssessment | trustHtml"></div>
                             </div>
                 </section>
                 <section ng-if="tab.title==='企业信息'">
