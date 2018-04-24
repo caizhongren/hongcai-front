@@ -199,4 +199,31 @@ angular.module('hongcaiApp')
       })
     }
     $scope.getPlatformData()
+    $scope.riskList = [
+      {
+        num: '01',
+        type: '还款提醒',
+        content: '还款日前3天，对借款人通过短信、邮件、电话等方式提醒还款'
+      },
+      {
+        num: '02',
+        type: '早期催收',
+        content: '还款日当天通过短信、邮件、电话等方式再次提醒还款'
+      },
+      {
+        num: '03',
+        type: '中期催收',
+        content: '对逾期未还的借款人通过短信、电话、邮件等方式进行催收'
+      },
+      {
+        num: '04',
+        type: '委外催收',
+        content: '对逾期超过7天的借款人，通过上门催收、委外催收等多种方式不断催收'
+      },
+      {
+        num: '05',
+        type: ' 日常预警管理',
+        content: '如以上方式均无效将进行法律诉讼'
+      }
+    ]
   }]);
