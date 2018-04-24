@@ -112,16 +112,8 @@ angular.module('hongcaiApp')
     ],
     $scope.policiesList = [
       {
-        title: '中华人民共和国合同法',
-        link: 'http://www.gov.cn/banshi/2005-07/11/content_13695.htm'
-      },
-      {
         title: '中华人民共和国电子签名法',
         link: 'http://www.gov.cn/flfg/2005-06/27/content_9785.htm'
-      },
-      {
-        title: '中华人民共和国广告法',
-        link: 'http://www.gov.cn/xinwen/2015-04/25/content_2852914.htm'
       },
       {
         title: '中华人民共和国网络安全法',
@@ -136,16 +128,20 @@ angular.module('hongcaiApp')
         link: 'http://www.court.gov.cn/fabu-xiangqing-15146.html'
       },
       {
-        title: '网络借贷信息中介机构业务活动管理暂行办法 ',
-        link: 'http://www.cbrc.gov.cn/govView_37D312933F1A4CECBC18F9A96293F450.html'
-      },
-      {
         title: '中国人民银行等十部委发布《关于促进互联网金融健康发展的指导意见》',
         link: 'http://www.cbrc.gov.cn/chinese/home/docDOC_ReadView/DD36A6654C7E4D0D9D658E712BFB46C5.html'
       },
       {
+        title: '网络借贷信息中介机构业务活动管理暂行办法',
+        link: 'http://www.cbrc.gov.cn/govView_37D312933F1A4CECBC18F9A96293F450.html'
+      },
+      {
         title: 'P2P网络借贷风险专项整治工作实施方案',
         link: 'http://www.cbrc.gov.cn/chinese/home/docDOC_ReadView/D81B52D3D20A49A99522C48FA8F1C752.html'
+      },
+      {
+        title: '网络借贷信息中介机构备案登记管理指引----无链接',
+        link: 'http://www.cbrc.gov.cn/govView_C8D68D4C980A4410B9F4E21BA593B4F2.html'
       },
       {
         title: '网络借贷资金存管业务指引',
@@ -226,4 +222,35 @@ angular.module('hongcaiApp')
         content: '如以上方式均无效将进行法律诉讼'
       }
     ]
+    $scope.payList = [
+      {
+        type: '业务类型',
+        txt: '收费标准'
+      },
+      {
+        type: '会员注册',
+        txt: '免费'
+      },
+      {
+        type: '开通存管账户',
+        txt: '免费'
+      },
+      {
+        type: '投标（出借）',
+        txt: '免费'
+      },
+      {
+        type: '债权转让',
+        txt: '转让收费费=转让金额*1%，最低3元'
+      },
+      {
+        type: '充值',
+        txt: '免费'
+      },
+      {
+        type: '提现',
+        txt: '2元/笔'
+      }
+    ]
+    $scope.importList = ['公司减资、合并、分立、解散或申请破产', '公司依法进入破产程序', '公司被责令停业、整顿、关闭', '公司涉及重大诉讼、仲裁，或涉嫌违法违规被有权机关调查，或受到刑事处罚、重大行政处罚', '公司法定代表人、实际控制人、主要负责人、董事、监事、高级管理人员涉及重大诉讼、仲裁，或涉嫌违法违纪被有权机关调查，或受到刑事处罚、重大行政处罚，或被采取强制措施', '公司主要或者全部业务陷入停顿', '存在欺诈、损害出借人利益等其他影响网络借贷信息中介机构经营活动的重大事项']
   }]);

@@ -743,32 +743,113 @@ p.margin {
   }
 }
 // 
-.policies-list .commonBoxShadow {
-  border-radius: 18px;
-  background-color: #ffffff;
-  box-shadow: 0 1.5px 8px 0 rgba(80, 77, 75, 0.2);
-  width: 80%;
-  margin: 30px auto;
-  text-align: left;
-  overflow: hidden;
-  padding-right: 20px;
-  border-left: 13px solid rgba(252,105,91, 0.53);
+.policies-list {
+  text-align: center;
+  .import-info, .pay-info {
+    .line-h {
+      line-height: 1.6;
+      padding-top: 17px;
+    }
+    .content {
+      margin-top: 10px;
+      li {
+        height: 70px;
+        line-height: 70px;
+        color: #666;
+        font-size: 13px;
+        overflow: hidden;
+        p:nth-child(1) {
+          width: 70%;
+          padding-left: 3%;
+        }
+        p:nth-child(2) {
+          width: 15%;
+        }
+      }
+      li:nth-child(odd) {
+        background: #fafafa;
+      }
+      li:nth-child(even) {
+        background: #fff5f1;
+      }
+    }
+  }
+  .operating-info {
+    padding-top: 20px;
+    .content {
+      width: 80%;
+      margin: 20px auto;
+      overflow: hidden;
+      clear: both;
+      p {
+        color: #666;
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .policies-info {
+    background-color: #fafafa;
+    padding: 20px 0;
+    .commonBoxShadow {
+      width: 85%;
+      margin: 10px auto;
+      text-align: left;
+      overflow: hidden;
+      color: #0865f5;
+      text-decoration: underline;
+    }
+  }
+  .pay-info {
+    padding: 20px 0 0;
+    .content li p:nth-child(1) {
+      width: 40%;
+    }
+    .content li p:nth-child(2) {
+      width: 46%;
+    }
+  }
+  .complaint-info {
+    padding: 15px 0;
+    .content {
+      overflow: hidden;
+      width: 70%;
+      margin: 20px auto;
+      li {
+        float: left;
+        width: 31.333%;
+        height: 210px;
+        text-align: center;
+        margin-right: 2%;
+        border-radius: 10px;
+        padding-top: 30px;
+        p {
+          height: 100px;
+          color: #fff;
+          font-size: 12px;
+          margin-bottom: 0;
+        }
+      }
+      li:nth-child(1) {
+        background-color: #589efe;
+      }
+      li:nth-child(2) {
+        background-color: #f18d01;
+        img {
+          margin-top: 20px;
+        }
+        p {
+          margin-top: 2px;
+        }
+      }
+      li:nth-child(3) {
+        background-color: #15dcef;
+      }
+    }
+    
+  }
 }
 .commonBoxShadow img.margin-6 {
   margin-top: 25px;
-}
-.commonBoxShadow .title {
-  width: 90%;
-  float: left;
-  font-size: 16px;
-  font-weight: bold;
-  line-height: 1.47;
-  color: #333333;
-  padding: 20px 0 18px 20px;
-  margin-bottom: 0;
-}
-.commonBoxShadow img {
-  width: 1.5%;
-  float: right;
-  margin-top: 18px;
 }
