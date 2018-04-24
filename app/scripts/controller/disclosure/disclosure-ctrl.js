@@ -5,21 +5,21 @@ angular.module('hongcaiApp')
       'left': [{
         'href': '/disclosure/bank-disclosure',
         'link': 'root.disclosure.bank-disclosure',
-        'text': '银行存管'
+        'text': '承诺函'
       },{
         'href': '/disclosure/information',
         'link': 'root.disclosure.information',
         'text': '备案信息'
       },
       {
-        'href': '/disclosure/risk-management',
-        'link': 'root.disclosure.risk-management',
-        'text': '风险管理'
-      },
-      {
         'href': '/disclosure/organization',
         'link': 'root.disclosure.organization',
         'text': '组织信息'
+      },
+      {
+        'href': '/disclosure/risk-management',
+        'link': 'root.disclosure.risk-management',
+        'text': '审核信息'
       },
       {
         'href': '/disclosure/business-information',
@@ -29,7 +29,7 @@ angular.module('hongcaiApp')
       {
         'href': '/disclosure/policies-regulations',
         'link': 'root.disclosure.policies-regulations',
-        'text': '政策法规'
+        'text': '其他信息'
       }]
     };
     $scope.businessInfo = [
