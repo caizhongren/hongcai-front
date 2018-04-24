@@ -110,6 +110,41 @@ angular.module('hongcaiApp')
         content: '投资咨询；投资管理；资产管理；财务咨询（不得开展审计、验资、查账、评估、会计咨询、代理记账等需经专项审批的业务，不得出具相应的审计报告、验资报告、查账报告、评估报告等文字材料）；项目投资；企业管理咨询；公关策划；经济信息咨询；市场调查'
       }
     ],
+    $scope.cumulative = {
+      totalTransactionAmount: 0, // 累计交易总额
+      totalTransactionCount: 0, // 累计交易笔数
+      userCount: 0, // 累计注册会员数
+      loanBalance: 0, // 借贷余额
+      loanBalanceCreditRightCount: 0, // 借贷余额笔数
+      numOfLends: 0, // 累计出借人数
+      numOfBorrows: 0, // 累计借款人数
+      currentNumOfLends: 0, // 当前出借人数
+      currentNumOfBorrows: 0, // 当前借款人数
+      topTenBorrowerRemainPrincipalPercent: 0, // 前十大借款人待还金额占比
+      topOneBorrowerRemainPrincipalPercent: 0, // 最大单一借款人待还金额占比
+      relationshipLoanBalance: 0, // 关联关系借款余额
+      relationshipLoanCount: 0, // 关联关系借款笔数
+      overdueAmount: 0, // 逾期金额
+      overdueCount: 0, // 逾期笔数
+      overdue90Amount: 0, // 逾期90天以上的金额
+      overdue90Count: 0, // 逾期90天以上的笔数
+      compensatoryAmount: 0, // 代偿金额
+      compensatoryCount: 0, // 代偿笔数
+      projectOverduePercent: 0, // 项目逾期率
+      projectOverdueIn90Percent: 0, // 项目分级逾期率（逾期90天内）
+      projectOverdueIn180Percent: 0, // 项目分级逾期率（逾期90天以上至180天）
+      projectOverdue180Percent: 0, // 项目分级逾期率（逾期180天以上)
+      overdueAmountPercent: 0, // 金额逾期率
+      overdueIn90AmountPercent: 0, // 金额分级逾期率（逾期90天内）
+      overdueIn180AmountPercent: 0, // 金额分级逾期率（逾期90天以上至180天）
+      overdue180AmountPercent: 0, // 金额分级逾期率（逾期180天以上）
+      borrowerTotalAmountPerCapital: 0, // 人均累计借款金额
+      lenderTotalAmountPerCapital: 0, // 人均累计出借金额
+      topOneLendAmountPercent: 0, // 最大单户出借余额占比
+      topOneLendAmount: 0, // 最大单户出借余额
+      topTenLendAmountPercent: 0, // 最大十户出借余额占比
+      topTenLendAmount: 0 // 最大十户出借余额
+    },
     $scope.policiesList = [
       {
         title: '中华人民共和国合同法',
@@ -160,20 +195,6 @@ angular.module('hongcaiApp')
       window.location.href = link
     }
     $rootScope.selectPage = $location.path().split('/')[1];
-    $scope.cumulative = {
-      amount: 0, // 累计交易总额
-      numOfTransactions: 0, // 累计交易笔数
-      userCount: 0, // 累计注册会员数
-      investingTotalLoanAmount: 0, // 借贷余额
-      investingNumOfTransactions: 0, // 待还借款笔数
-      numOfLends: 0, // 累计出借人数
-      numOfBorrows: 0, // 累计借款人数
-      currentNumOfLends: 0, // 当前出借人数
-      currentNumOfBorrows: 0, // 当前借款人数
-      lastMonthTotalLoanAmount: 0, // 上个月借贷余额
-      sumTenTopLoanBalance: 0, // 上个月前十大借款人待还金额
-      topLoanBalance: 0 // 上月最大单一借款人待还金额
-    }
     $scope.year = new Date().getFullYear();
     $scope.month = new Date().getMonth() + 1;
     $scope.updateDate = '2017-11-9';
@@ -192,7 +213,141 @@ angular.module('hongcaiApp')
     $scope.getPlatformData = function () {
       AboutUsService.dataStat.get({}, function (response) {
         if (response && response.ret !== -1) {
-          $scope.cumulative = response
+          $scope.cumulative = response.approveDataDetail
+          $scope.managementInfo = [
+            {
+              name: '借贷余额', 
+              content: $scope.cumulative.loanBalance + '元' 
+            },
+            {
+              name: '借贷余额笔数',
+              content: $scope.cumulative.loanBalanceCreditRightCount + '笔'
+            },
+            {
+              name: '利息余额',
+              content: $scope.cumulative.loanInterestBalance + '元'
+            },
+            {
+              name: '累计注册会员数',
+              content: $scope.cumulative.userCount + '人'
+            },
+            {
+              name: '累计借款人数',
+              content: $scope.cumulative.numOfBorrows + '人'
+            },
+            {
+              name: '累计出借人数',
+              content: $scope.cumulative.numOfLends + '人'
+            },
+            {
+              name: '当前借款人数',
+              content: $scope.cumulative.currentNumOfBorrows + '人'
+            },
+            {
+              name: '当前出借人数',
+              content: $scope.cumulative.currentNumOfLends + '人'
+            },
+            {
+              name: '前十大借款人待还金额占比',
+              content: $scope.cumulative.topTenBorrowerRemainPrincipalPercent + '%'
+            },
+            {
+              name: '最大单一借款人待还金额占比',
+              content: $scope.cumulative.topOneBorrowerRemainPrincipalPercent + '%'
+            },
+            {
+              name: '关联关系借款余额',
+              content: $scope.cumulative.relationshipLoanBalance + '元'
+            },
+            {
+              name: '关联关系借款笔数',
+              content: $scope.cumulative.relationshipLoanCount + '笔'
+            },
+            {
+              name: '逾期金额',
+              content: $scope.cumulative.overdueAmount + '元'
+            },
+            {
+              name: '逾期笔数',
+              content: $scope.cumulative.overdueCount + '笔'
+            },
+            {
+              name: '逾期90天以上的金额',
+              content: $scope.cumulative.overdue90Amount + '元'
+            },
+            {
+              name: '逾期90天以上的笔数',
+              content: $scope.cumulative.overdue90Count + '笔'
+            },
+            {
+              name: '代偿金额',
+              content: $scope.cumulative.compensatoryAmount + '元'
+            },
+            {
+              name: '代偿笔数',
+              content: $scope.cumulative.compensatoryCount + '笔'
+            },
+            {
+              name: '项目逾期率',
+              content: $scope.cumulative.projectOverduePercent + '%'
+            },
+            {
+              name: '项目分级逾期率（逾期90天内）',
+              content: $scope.cumulative.projectOverdueIn90Percent + '%'
+            },
+            {
+              name: '项目分级逾期率（逾期90天以上至180天）',
+              content: $scope.cumulative.projectOverdueIn180Percent + '%'
+            },
+            {
+              name: '项目分级逾期率（逾期180天以上)',
+              content: $scope.cumulative.projectOverdue180Percent + '%'
+            },
+            {
+              name: '金额逾期率',
+              content: $scope.cumulative.overdueAmountPercent + '%'
+            },
+            {
+              name: '金额分级逾期率（逾期90天内）',
+              content: $scope.cumulative.overdueIn90AmountPercent + '%'
+            },
+            {
+              name: '金额分级逾期率（逾期90天以上至180天）',
+              content: $scope.cumulative.overdueIn180AmountPercent + '%'
+            },
+            {
+              name: '金额分级逾期率（逾期180天以上）',
+              content: $scope.cumulative.overdue180AmountPercent + '%'
+            },
+            {
+              name: '人均累计借款金额',
+              content: $scope.cumulative.borrowerTotalAmountPerCapital + '元'
+            },
+            {
+              name: '人均累计出借金额',
+              content: $scope.cumulative.lenderTotalAmountPerCapital + '元'
+            },
+            {
+              name: '最大单户出借余额', 
+              content: $scope.cumulative.topOneLendAmount + '元' 
+            },
+            {
+              name: '最大单户出借余额占比',
+              content: $scope.cumulative.topOneLendAmountPercent + '%'
+            },
+            {
+              name: '最大十户出借余额', 
+              content: $scope.cumulative.topTenLendAmount + '元' 
+            },
+            {
+              name: '最大十户出借余额占比',
+              content: $scope.cumulative.topTenLendAmountPercent + '%'
+            },
+            {
+              name: '平台向借款人收取服务费的标准',
+              content: $scope.cumulative.loanServiceFeeStandard
+            }
+          ]
         } else {
           alert(response.msg)
         }

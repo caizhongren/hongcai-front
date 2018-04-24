@@ -12,6 +12,6 @@ angular.module('hongcaiApp')
       textDetail: $resource(DEFAULT_DOMAIN + '/siteText/getTextDetail', {
         textId: '@textId'
       }),
-      dataStat: $resource(RESTFUL_DOMAIN + '/systems/dataStat')
+      dataStat: $resource(RESTFUL_DOMAIN + '/disclosureInfo/newest')
     };
   });

@@ -29,11 +29,10 @@ p.margin {
 // 银行存管
 .bank-disclosure {
 	.contract {
-    width: 33%;
     margin: 0 6%;
-		border-radius: 12.5px;
+		border-radius: 23.5px;
 		background-color: #ffffff;
-    box-shadow: 0 0 2px 0 rgba(255, 75, 0, 0.69);
+    box-shadow: 0 0 6px 0 rgba(255, 75, 0, 0.69);
     img {
       border-radius: 12.5px;
     }
@@ -369,42 +368,40 @@ p.margin {
       background-size: contain;
       span {
         position: absolute;
-        // width: 66px;
-        height: 6px;
+        width: 112px;
+        height: 40px;
         font-size: 13px;
         line-height: 2.92;
         text-align: center;
-        color: #666666;
-        text-shadow: 0 0 28.5px rgba(255, 75, 0, 0.95);    
+        color: #ffffff;
+        background-image: linear-gradient(to top, #4f94ff, #58bcfd);   
         top: 82%;
       }
       span:nth-child(1), span:nth-child(2), span:nth-child(3){
-        top: 2.5%;
-        left: 48%;
+        top: 0%;
+        left: 43%;
       }
       span:nth-child(2){
-        left: 70%;
-      }
-      span:nth-child(3){
         top: 31.7%;
       }
+      span:nth-child(3){
+        top: 82%;
+        left: -7.6%;
+      }
       span:nth-child(4){
-        left: 9.8%;
+        left: 17.6%;
       }
       span:nth-child(5){
-        left: 24.3%;
+        left: 42.4%;
       }
       span:nth-child(6){
-        left: 38.4%;
+        left: 67.5%;
       }
       span:nth-child(7){
-        left: 54.5%;
+        left: 92.2%;
       }
       span:nth-child(8){
-        left: 68.6%;
-      }
-      span:nth-child(9){
-        left: 83%;
+        left: 92.2%;
       }
     }
   }
@@ -418,7 +415,7 @@ p.margin {
       }
       .profiles1, .profiles2 {
         width: 37%;
-        height: 300px;
+        height: 315px;
         padding: 30px 0 20px;
         margin-top: 30px;
         float: left;
@@ -434,46 +431,59 @@ p.margin {
             height: 25px;
             border-radius: 10px;
             background-color: #ffffff;
-            border: solid 1px #ffac47;
+            border: solid 1px #f18e01;
             font-size: 12px;
             span:nth-child(2){
               height: 100%;
               float: right;
-              width: 30%;
-              background-color: #ffac47;
+              width: 36%;
+              background-color: #f18e01;
               border-top-right-radius: 8px;
               border-bottom-right-radius: 8px;
               color: #fff;
             }
           }
           li:nth-child(2) {
-            border: solid 1px #6a639e;
+            border: solid 1px #4a75ff;
             span:nth-child(2){
-              background-color: #6a639e;
+              background-color: #4a75ff;
             }
           }
           li:nth-child(3) {
-            border: solid 1px #fe7074;
+            border: solid 1px #ffd301;
             span:nth-child(2){
-              background-color: #fe7074;
+              background-color: #ffd301;
             }
           }
         }
         .education {
           li {
-            width: 32%;
+            width: 23%;
             margin-top: 10px;
           }
-          li:nth-child(1), li:nth-child(2) {
+          li:nth-child(1) {
             border: solid 1px #a0dcff;
             span:nth-child(2){
               background-color: #a0dcff;
             }
           }
-          li:nth-child(3), li:nth-child(4) {
-            border: solid 1px #2272b5;;
+          li:nth-child(2) {
+            border: solid 1px #7ac3ee;
             span:nth-child(2){
-              background-color: #2272b5;;
+              background-color: #7ac3ee;
+            }
+          }
+          li:nth-child(3) {
+            border: solid 1px #338dc7;
+            span:nth-child(2){
+              background-color: #338dc7;
+            }
+          }
+          li:nth-child(4) {
+            border: solid 1px #2272b5;
+            span:nth-child(2){
+              background-color: #2272b5;
+              width: 27% !important;
             }
           }
         }
@@ -488,33 +498,42 @@ p.margin {
     }
   }
 }
-
-// 渠道信息
-.channels-info, .complaint-info {
+//分支机构信息
+.complaint-info{
   padding: 30px 0;
-  .channels, .complaint {
-    img {
-      margin-top: -10px;
-      margin-left: -7%;
-      float: left;
+}
+// 渠道信息
+.channels-info {
+  padding: 30px 0;
+  .channels-container{
+    margin-top: 30px;
+    padding: 0 60px;
+    ul li{
+      width: 23%;
+      padding: 30px 0 20px 0;
+      background: #589efe;
+      border-radius: 5px;
+      color: #ffffff;
+      margin: 0 1%;
+      .channels-container-img{
+        height: 78px;
+        img{
+          height: 100%;
+        }
+      }
     }
-    .information {
-      width: 85%;
-      display: inline-block;
-      padding-left: 20px;
-      margin-top: -6px;
-      text-align: left;
-      line-height: 6.3;
+    ul li:nth-child(2){
+      background: #f18d01;
+      .channels-container-img{
+        margin-left: 17px;
+      }
     }
-    width: 58.3%;
-    height: 75px;
-    margin: 30px auto 0;
-    border-radius: 25px;
-    background-color: #ffffff;
-    box-shadow: 0 1.5px 3.5px 0 rgba(80, 77, 75, 0.2);
-  }
-  .complaint {
-    line-height: 75px;
+    ul li:nth-child(3){
+      background: #15dcef;
+    }
+    ul li:nth-child(4){
+      background: #4a75ff;
+    }
   }
 }
 .channels-info { 
@@ -522,10 +541,10 @@ p.margin {
 }
 //经营信息
 .business-infor {
-  .jy-header {
-    width: 92.8%;
+  .jy-header{
+    width: 100%;
+    height: 260px;
     margin: 0 auto;
-    height: 180px;
     background: url('../images/disclosure/jy-banner.png') no-repeat center center;
     background-size: cover;
     p {
@@ -533,172 +552,65 @@ p.margin {
 	    text-align: center;
     }
     p:first-child {
-      font-size: 20px;
-      padding-top: 50px;
-      padding-bottom: 25px;
+      font-size: 18px;
+      padding-top: 60px;
+      padding-bottom: 14px;
+    }
+    p:nth-child(2) {
+      font-size: 40px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid #ffffff;
+      width:90%;
+      margin: 0 auto;
     }
     p:last-child {
-      font-size: 40px;
+      font-size: 30px;
+      margin-top: 30px;
     }
   }
-  .business-data {
-    width: 89.5%;
-    margin: 30px auto;
-    height: 153px;
-    border-radius: 18px;
-    background-color: #ffffff;
-    box-shadow: 0 0 8px 0 rgba(80, 77, 75, 0.21);
-    .col-xs-4 {
-      margin-top: 5.4%;
-      p:first-child {
-        font-size: 15px;
-        font-weight: bold;
-        color: #333333;
-        font-size: 29px;
-        margin-bottom: 20px;
-      }
-      p:last-child {
-        font-size: 16px;
-        color: #666666;
-      }
+  //经营信息
+ .management-info{
+    table.info {
+      background: #fff;
+      border-radius: 12px;
+      width: 80%;
+      margin: 100px auto;
+      font-size: 13px;
+      box-shadow: 0 0 3.5px 0 rgba(80, 77, 75, 0.2);
     }
-  }
-  .business-data-details {
-    width: 89.5%;
-    margin: 30px auto;
-    .detail {
-      div {
-        height: 90px;
-        line-height: 90px;
-        text-align: left;
-      }
-      .col-xs-2 {
-        padding-left: 20px;
-        font-size: 16px;
-        text-align: left;
-        color: #666666;
-        padding-right:0;
-      }
-      .col-xs-7 {
-        p {
-          width: 93%;
-          height: 100%;
-          background: url('../images/disclosure/jy-people.png') repeat-x center center;
-        }
-      }
-      .col-xs-3 {
-        font-size: 26px;
-        font-weight: 500;
-        color: #333333;
-      }
+    table.info div {
+      padding: .1rem .15rem;
     }
-    .detail:nth-child(2){
-      .col-xs-7 {
-        p {
-          width: 18%;
-        }
-      }
+    table.info tr {
+      height: 48px;
+      color: #666;
+      border-bottom: 1px solid #eee;
+      vertical-align: middle;
     }
-    .detail:nth-child(4){
-      .col-xs-7 {
-        p {
-          width: 6.5%;
-        }
-      }
+    table.info tr:nth-child(even) {
+      background-color: #f3f6f8;
     }
-    .detail:nth-child(5){
-      .col-xs-7 {
-        p {
-          width: 31%;
-        }
-      }
+    table.info tr:last-child {
+      height: 130px;
     }
-    .detail:nth-child(3) {
-      .col-xs-7 {
-        p {
-          width: 56%;
-        }
-      }
-    }
-  }
-  .business-data2 {
-    padding: 0 54px;
-    .col-xs-3 {
-      width: 28.7%;
-      height: 153px;
-      border-radius: 18px;
-      box-shadow: 0 0 8px 0 rgba(80, 77, 75, 0.21);
-      margin-bottom: 40px;
-      padding: 0;
-      p:nth-child(1) {
-        margin-top: 40px;
-        font-size: 16px;
-        color: #666;
-        margin-bottom: 20px;
-      }
-      p:nth-child(2) {
-        font-size: 30px;
-        color: #333;
-      }
-    }
-    .col-xs-3:nth-child(2), .col-xs-3:nth-child(5) {
-      margin: 0 6.8%;
-      background: url('../images/disclosure/jy-icon2.png') no-repeat bottom right;
-      background-size: 35%;
-    }
-    .col-xs-3:nth-child(4), .col-xs-3:nth-child(5), .col-xs-3:nth-child(6) {
-      p:nth-child(2) {
-        text-align: left;
-        padding-left: 20%;
-      }
-    }
-    .col-xs-3:nth-child(6) {
-      p:nth-child(1) {
-        text-align: left;
-        padding-left: 10%;
-      }
-      background: url('../images/disclosure/jy-icon3.png') no-repeat bottom right;
-      background-size: 35%;
-    }
-    .col-xs-3:nth-child(4), .col-xs-3:nth-child(5) {
-      background: url('../images/disclosure/jy-icon4.png') no-repeat bottom right;
-      background-size: 35%;
-    }
-    .col-xs-3:nth-child(1), .col-xs-3:nth-child(3) {
-      background: url('../images/disclosure/jy-icon1.png') no-repeat bottom right;
-      background-size: 35%;
-    }
-  }
-  .statement {
-    .item {
-      width: 89.5%;
-      margin: 30px auto;
-      height: 140px;
-      border-radius: 18px;
-      background-color: #ffffff;
-      box-shadow: 0 0 8px 0 rgba(80, 77, 75, 0.21);
-      p:first-child {
-        padding: 25px 0 0;
-      }
-      p:last-child {
-        line-height: 1.9;
-        color: #ff611d;
-        font-weight: bold;
-      }
-    }
-    .item.item2 {
-      line-height: 136px !important;
-      padding-left: 40px;
-      font-size: 16px;
+    table.info td:nth-child(1) {
+      width: 40%;
       text-align: left;
-      span {
-        font-size: 26px;
-        font-weight: bold;
-        color: #333333;
-        padding-left: 40px;
-      }
+      border-right: 1px solid #eee;
+      line-height: 50px;
+      padding-left: 50px;
     }
-  }
+    table.info td:nth-child(2) {
+      width: 60%;
+      text-align: left;
+      line-height: 1.6;
+      padding: 0 30px;
+    }
+    table.info li p {
+      line-height: 1.25;
+      text-align: center;
+    }
+  }  
 }
 // 
 .policies-list .commonBoxShadow {
