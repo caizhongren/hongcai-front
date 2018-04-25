@@ -1201,6 +1201,18 @@ hongcaiApp
         }
       })
 
+      // 贷后管理信息
+      .state('root.userCenter.postLoanManagementInfo', {
+        url: '/postLoanManagementInfo/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/postLoanManagementInfo.html',
+            controller: 'postLoanManagementInfoCtrl',
+            controllerUrl: 'scripts/controller/user-center/postLoanManagementInfo'
+          }
+        }
+      })
+
       /**
        * ********************* 关于我们 20160621 ***********************
        */

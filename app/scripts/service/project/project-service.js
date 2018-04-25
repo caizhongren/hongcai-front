@@ -200,7 +200,9 @@ angular.module('hongcaiApp')
           method: 'GET',
           isArray: true
         }
+      }),
+      prejectDetail: $resource(RESTFUL_DOMAIN + '/projects/:number', {
+        number: '@number'
       })
-
     };
   });
