@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('disclosureCtrl', ['$scope', '$state', '$rootScope', '$location', 'AboutUsService', function($scope, $state, $rootScope, $location, AboutUsService) {
+  .controller('disclosureCtrl', ['$scope', '$state', '$rootScope', '$location', 'AboutUsService', 'config', function($scope, $state, $rootScope, $location, AboutUsService, config) {
     $scope.menus = {
       'left': [{
         'href': '/disclosure/bank-disclosure',
@@ -176,8 +176,8 @@ angular.module('hongcaiApp')
         link: 'http://www.cbrc.gov.cn/chinese/home/docDOC_ReadView/D81B52D3D20A49A99522C48FA8F1C752.html'
       },
       {
-        title: '网络借贷信息中介机构备案登记管理指引----无链接',
-        link: 'http://www.cbrc.gov.cn/govView_C8D68D4C980A4410B9F4E21BA593B4F2.html'
+        title: '网络借贷信息中介机构备案登记管理指引',
+        link: config.domain + '/policies'
       },
       {
         title: '网络借贷资金存管业务指引',

@@ -1200,6 +1200,18 @@ hongcaiApp
           }
         }
       })
+      /**
+       * 政策法规-法律条纹（无外链的）
+       */
+      .state('root.policies', {
+        url: '/policies',
+        views: {
+          '': {
+            templateUrl: 'views/disclosure/policies.html'
+          }
+        }
+      })
+      
 
       // 贷后管理信息
       .state('root.userCenter.postLoanManagementInfo', {
