@@ -142,9 +142,7 @@ angular.module('hongcaiApp')
       borrowerTotalAmountPerCapital: 0, // 人均累计借款金额
       lenderTotalAmountPerCapital: 0, // 人均累计出借金额
       topOneLendAmountPercent: 0, // 最大单户出借余额占比
-      topOneLendAmount: 0, // 最大单户出借余额
-      topTenLendAmountPercent: 0, // 最大十户出借余额占比
-      topTenLendAmount: 0 // 最大十户出借余额
+      topTenLendAmountPercent: 0 // 最大十户出借余额占比
     },
     $scope.policiesList = [
       {
@@ -312,16 +310,8 @@ angular.module('hongcaiApp')
               content: $scope.cumulative.lenderTotalAmountPerCapital + '元'
             },
             {
-              name: '最大单户出借余额', 
-              content: $scope.cumulative.topOneLendAmount + '元' 
-            },
-            {
               name: '最大单户出借余额占比',
               content: $scope.cumulative.topOneLendAmountPercent + '%'
-            },
-            {
-              name: '最大十户出借余额', 
-              content: $scope.cumulative.topTenLendAmount + '元' 
             },
             {
               name: '最大十户出借余额占比',
