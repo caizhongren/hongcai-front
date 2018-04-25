@@ -762,38 +762,48 @@ p.margin {
 .commonBoxShadow img.margin-6 {
   margin-top: 25px;
 }
-//运营年报-2017
-#carousel-example-generic {
+
+// 运营年报2016
+.operating-2016, .operating-2017 {
+  background: #ffd4b8;
+  min-height: 600px;
+  _height: 600px;
+  .carousel-inner {
+    width: 80%;
+    margin: 0 auto;
+    padding: 65px 0;
+  }
   .carousel-indicators {
-    bottom: 30px;
+    bottom: 1%;
     li {
-      background-color: #ffebcc;
-      width: 14px;
-      height: 14px;
+      background: #e80103;
+      border: 1px solid #e80103;
+      opacity: .3;
+      width: 15px;
+      height: 15px;
       margin-right: 8px;
     }
     .active {
-      background-color: #ff9900;
-    }
-  }
-  .carousel-inner {
-    height: 600px;
-    background: url(../images/disclosure/bg.png) no-repeat 0 0;
-    .item {
-      margin-top:50px;
-      img {
-        border-radius: 10px;
-        -moz-box-shadow: 3px 3px 7px rgba(195,114,0,0.3);
-        box-shadow: 3px 3px 7px rgba(195,114,0,0.3);
-        width: 700px;
-        margin: 0 auto; 
-      }
+      background: #e80103;
+      opacity: 1;
     }
   }
   .carousel-control {
-    width: 55px;
-    span {
-      top: 35%;
+    width: 10%;
+    img {
+      background: #fff;
+      border-radius: 10px;
+      height: 65px;
+      opacity: .9;
     }
   }
+  .carousel-control.right {
+    right: .6%;
+  }
+  .carousel-control.left {
+    left: 0%;
+  }
+}
+.operating-2017 {
+  background: url(../images/disclosure/bg.png) no-repeat 0 0;
 }

@@ -17,8 +17,8 @@ angular.module('hongcaiApp').directive('disclosuresidebar', ['$location', '$root
 					pattern = $a.attr('href'),
 					regexp = new RegExp('^' + pattern + '+', ['i']);
 					if(regexp.test(newValue)) {
+						k == 7 || k == 6 ? angular.element(angular.element('.tips-area')[5]).addClass('dison-it') : null
 						$a.addClass('dison-it');
-
 						for (var i = scope.menus.left.length - 1; i >= 0; i--) {
 							if(regexp.test(scope.menus.left[i].href)){
 								$rootScope.titleName = scope.menus.left[i].text;

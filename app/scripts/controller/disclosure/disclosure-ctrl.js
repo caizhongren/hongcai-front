@@ -30,6 +30,16 @@ angular.module('hongcaiApp')
         'href': '/disclosure/policies-regulations',
         'link': 'root.disclosure.policies-regulations',
         'text': '其他信息'
+      },
+      {
+        'href': '/disclosure/operating-report-2016',
+        'link': 'root.disclosure.operating-report-2016',
+        'text': ''
+      },
+      {
+        'href': '/disclosure/operating-report-2017',
+        'link': 'root.disclosure.operating-report-2017',
+        'text': ''
       }]
     };
     // $scope.processId = 1;
