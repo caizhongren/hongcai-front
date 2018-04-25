@@ -1201,6 +1201,17 @@ hongcaiApp
         }
       })
       /**
+       * 政策法规
+       */
+      .state('root.disclosure.operating-report-2016', {
+        url: '/operating-report-2016',
+        views: {
+          'disclosure-right-show': {
+            templateUrl: 'views/disclosure/operating-report-2016.html'
+          }
+        }
+      })
+      /**
        * 政策法规-法律条纹（无外链的）
        */
       .state('root.policies', {
