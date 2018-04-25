@@ -32,6 +32,23 @@ angular.module('hongcaiApp')
         'text': '其他信息'
       }]
     };
+    // $scope.processId = 1;
+    // $('#carousel-example-generic').on('slid.bs.carousel', function (ev) {
+    //   alert(1);
+    //   var processId = ev.relatedTarget.id;
+    //   $scope.processId = processId;
+    //   $scope.$apply();
+
+    //   if(processId== 1 || processId ==2 ){
+    //     $('.process-circle').find('.li1').addClass('li_activ').siblings().removeClass('li_activ');
+    //   }else if (processId >2 && processId < 6) {
+    //     $('.process-circle').find('.li2').addClass('li_activ').siblings().removeClass('li_activ');
+    //   }else if( processId > 5 && processId < 9) {
+    //     $('.process-circle').find('.li3').addClass('li_activ').siblings().removeClass('li_activ');
+    //   }else {
+    //     $('.process-circle').find('.li4').addClass('li_activ').siblings().removeClass('li_activ');
+    //   }
+    // });
     $scope.businessInfo = [
       {
         name: '平台名称',

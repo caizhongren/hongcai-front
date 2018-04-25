@@ -1200,6 +1200,14 @@ hongcaiApp
           }
         }
       })
+      .state('root.disclosure.operating-report-2017', {
+        url: '/operating-report-2017',
+        views: {
+          'disclosure-right-show': {
+            templateUrl: 'views/disclosure/operating-report-2017.html'
+          }
+        }
+      })
       /**
        * 政策法规-法律条纹（无外链的）
        */
