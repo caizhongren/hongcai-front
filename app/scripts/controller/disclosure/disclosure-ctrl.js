@@ -116,6 +116,7 @@ angular.module('hongcaiApp')
       userCount: 0, // 累计注册会员数
       loanBalance: 0, // 借贷余额
       loanBalanceCreditRightCount: 0, // 借贷余额笔数
+      loanInterestBalance: 0,
       numOfLends: 0, // 累计出借人数
       numOfBorrows: 0, // 累计借款人数
       currentNumOfLends: 0, // 当前出借人数
@@ -191,25 +192,12 @@ angular.module('hongcaiApp')
       window.location.href = link
     }
     $rootScope.selectPage = $location.path().split('/')[1];
-    $scope.year = new Date().getFullYear();
-    $scope.month = new Date().getMonth() + 1;
     $scope.updateDate = '2017-11-9';
-    var getUpdateDate = function (year, month) {
-      var newYear = year // 取当前的年份
-      var newMonth = month - 1 // 取上一个月的第一天，方便计算（最后一天不固定
-      if (month <= 1) {
-        newMonth += 12 // 月份增
-        newYear -= 1 // 年份减
-      }
-      var newDate = new Date(newYear, newMonth, 1) // 取当年当月中的第一天
-      var day = (new Date(newDate.getTime() - 1000 * 60 * 60 * 24)).getDate() // 获取当月最后一天日期
-      $scope.updateDate = (newYear + '-' + (newMonth < 10 ? '0' + newMonth : newMonth) + '-' + day)
-    }
-    getUpdateDate($scope.year, $scope.month)
     $scope.getPlatformData = function () {
       AboutUsService.dataStat.get({}, function (response) {
         if (response && response.ret !== -1) {
-          $scope.cumulative = response.approveDataDetail
+          $scope.cumulative = response.disclosureInformationDetail
+          $scope.updateDate = response.systemDataTime
           $scope.managementInfo = [
             {
               name: '借贷余额', 
