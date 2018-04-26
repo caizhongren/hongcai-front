@@ -203,6 +203,9 @@ angular.module('hongcaiApp')
       }),
       prejectDetail: $resource(RESTFUL_DOMAIN + '/projects/:number', {
         number: '@number'
+      }),
+      downContracts: $resource(RESTFUL_DOMAIN + '/contracts/contract/:templateType/file', {
+        templateType: '@templateType'
       })
     };
   });

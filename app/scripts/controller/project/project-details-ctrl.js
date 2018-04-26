@@ -828,5 +828,14 @@ angular.module('hongcaiApp')
     $scope.loadMore = function(){
       $scope.initLimit = $scope.initLimit + 3 < $scope.list.length ? $scope.initLimit + 3 : $scope.list.length;;
     }
+    $scope.downContracts = function () {
+      ProjectService.downContracts.get({
+        templateType: 10
+      }, function (response) {
+        if (response && response.ret !== -1) {
+          window.location.href = $rootScope.baseFileUrl + response.url
+        }
+      })
+    }
 
   });
