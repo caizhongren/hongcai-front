@@ -401,7 +401,7 @@ angular.module('hongcaiApp')
       },
       {
         type: '债权转让',
-        txt: '转让收费费=转让金额*1%，最低3元'
+        txt: '转让手续费=转让金额*1%，最低3元'
       },
       {
         type: '充值',
