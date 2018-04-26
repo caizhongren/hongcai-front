@@ -1200,6 +1200,9 @@ hongcaiApp
           }
         }
       })
+      /**
+       * 运营年报2017
+       */
       .state('root.disclosure.operating-report-2017', {
         url: '/operating-report-2017',
         views: {
@@ -1209,13 +1212,24 @@ hongcaiApp
         }
       })
       /**
-       * 政策法规
+       * 运营年报2016
        */
       .state('root.disclosure.operating-report-2016', {
         url: '/operating-report-2016',
         views: {
           'disclosure-right-show': {
             templateUrl: 'views/disclosure/operating-report-2016.html'
+          }
+        }
+      })
+      /**
+       * 2017年度财务审计报告
+       */
+      .state('root.auditPDF', {
+        url: '/auditPDF',
+        views: {
+          '': {
+            templateUrl: 'views/disclosure/auditPDF.html'
           }
         }
       })

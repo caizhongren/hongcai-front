@@ -112,7 +112,8 @@ angular.module('hongcaiApp')
       'safe',
       'sign-bank-deposits',
       'policies',
-      'investment-agree'
+      'investment-agree',
+      'auditPDF'
     ];
 
     /**
@@ -125,7 +126,8 @@ angular.module('hongcaiApp')
       'dual-eleven-activities',
       'safe',
       'policies',
-      'investment-agree'
+      'investment-agree',
+      'auditPDF'
     ];
 
 
