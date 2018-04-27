@@ -6,15 +6,15 @@
   <div class="row ft-14 ft-grey555 text-center">
     <div class="jy-header">
       <p>累计交易总额(元)</p>
-      <p>{{cumulative.totalTransactionAmount | number: 0 || 0}}元</p>
-      <p>累计交易{{cumulative.totalTransactionCount | number: 0 || 0}}笔</p>
+      <p>{{cumulative.totalTransactionAmount | number}}元</p>
+      <p>累计交易{{cumulative.totalTransactionCount | number}}笔</p>
     </div>
     <div class="management-info">
       <table class="info">
         <div>
           <tr ng-repeat="info in managementInfo">
             <td>{{info.name}}</td> 
-            <td ng-if="$index != managementInfo.length - 1">{{info.content | number: 0}}{{info.type}}</td>
+            <td ng-if="$index != managementInfo.length - 1">{{info.content | number}}{{info.type}}</td>
             <td ng-if="$index == managementInfo.length - 1">{{info.content}}</td>
           </tr>
         </div>
