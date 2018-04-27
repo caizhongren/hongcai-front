@@ -226,123 +226,153 @@ angular.module('hongcaiApp')
           $scope.managementInfo = [
             {
               name: '借贷余额', 
-              content: $scope.cumulative.loanBalance + '元' 
+              content: $scope.cumulative.loanBalance,
+              type: '元' 
             },
             {
               name: '借贷余额笔数',
-              content: $scope.cumulative.loanBalanceCreditRightCount + '笔'
+              content: $scope.cumulative.loanBalanceCreditRightCount,
+              type: '笔'
             },
             {
               name: '利息余额',
-              content: $scope.cumulative.loanInterestBalance + '元'
+              content: $scope.cumulative.loanInterestBalance,
+              type: '元'
             },
             {
               name: '累计注册会员数',
-              content: $scope.cumulative.userCount + '人'
+              content: $scope.cumulative.userCount,
+              type: '人'
             },
             {
               name: '累计借款人数',
-              content: $scope.cumulative.numOfBorrows + '人'
+              content: $scope.cumulative.numOfBorrows,
+              type: '人'
             },
             {
               name: '累计出借人数',
-              content: $scope.cumulative.numOfLends + '人'
+              content: $scope.cumulative.numOfLends,
+              type: '人'
             },
             {
               name: '当前借款人数',
-              content: $scope.cumulative.currentNumOfBorrows + '人'
+              content: $scope.cumulative.currentNumOfBorrows,
+              type: '人'
             },
             {
               name: '当前出借人数',
-              content: $scope.cumulative.currentNumOfLends + '人'
+              content: $scope.cumulative.currentNumOfLends,
+              type: '人'
             },
             {
               name: '前十大借款人待还金额占比',
-              content: $scope.cumulative.topTenBorrowerRemainPrincipalPercent + '%'
+              content: $scope.cumulative.topTenBorrowerRemainPrincipalPercent,
+              type: '%'
             },
             {
               name: '最大单一借款人待还金额占比',
-              content: $scope.cumulative.topOneBorrowerRemainPrincipalPercent + '%'
+              content: $scope.cumulative.topOneBorrowerRemainPrincipalPercent,
+              type: '%'
             },
             {
               name: '关联关系借款余额',
-              content: $scope.cumulative.relationshipLoanBalance + '元'
+              content: $scope.cumulative.relationshipLoanBalance,
+              type: '元'
             },
             {
               name: '关联关系借款笔数',
-              content: $scope.cumulative.relationshipLoanCount + '笔'
+              content: $scope.cumulative.relationshipLoanCount,
+              type: '笔'
             },
             {
               name: '逾期金额',
-              content: $scope.cumulative.overdueAmount + '元'
+              content: $scope.cumulative.overdueAmount,
+              type: '元'
             },
             {
               name: '逾期笔数',
-              content: $scope.cumulative.overdueCount + '笔'
+              content: $scope.cumulative.overdueCount,
+              type: '笔'
             },
             {
               name: '逾期90天以上的金额',
-              content: $scope.cumulative.overdue90Amount + '元'
+              content: $scope.cumulative.overdue90Amount,
+              type: '元'
             },
             {
               name: '逾期90天以上的笔数',
-              content: $scope.cumulative.overdue90Count + '笔'
+              content: $scope.cumulative.overdue90Count,
+              type: '笔'
             },
             {
               name: '代偿金额',
-              content: $scope.cumulative.compensatoryAmount + '元'
+              content: $scope.cumulative.compensatoryAmount,
+              type: '元'
             },
             {
               name: '代偿笔数',
-              content: $scope.cumulative.compensatoryCount + '笔'
+              content: $scope.cumulative.compensatoryCount,
+              type: '笔'
             },
             {
               name: '项目逾期率',
-              content: $scope.cumulative.projectOverduePercent + '%'
+              content: $scope.cumulative.projectOverduePercent,
+              type: '%'
             },
             {
               name: '项目分级逾期率（逾期90天内）',
-              content: $scope.cumulative.projectOverdueIn90Percent + '%'
+              content: $scope.cumulative.projectOverdueIn90Percent,
+              type: '%'
             },
             {
               name: '项目分级逾期率（逾期90天以上至180天）',
-              content: $scope.cumulative.projectOverdueIn180Percent + '%'
+              content: $scope.cumulative.projectOverdueIn180Percent,
+              type: '%'
             },
             {
               name: '项目分级逾期率（逾期180天以上)',
-              content: $scope.cumulative.projectOverdue180Percent + '%'
+              content: $scope.cumulative.projectOverdue180Percent,
+              type: '%'
             },
             {
               name: '金额逾期率',
-              content: $scope.cumulative.overdueAmountPercent + '%'
+              content: $scope.cumulative.overdueAmountPercent,
+              type: '%'
             },
             {
               name: '金额分级逾期率（逾期90天内）',
-              content: $scope.cumulative.overdueIn90AmountPercent + '%'
+              content: $scope.cumulative.overdueIn90AmountPercent,
+              type: '%'
             },
             {
               name: '金额分级逾期率（逾期90天以上至180天）',
-              content: $scope.cumulative.overdueIn180AmountPercent + '%'
+              content: $scope.cumulative.overdueIn180AmountPercent,
+              type: '%'
             },
             {
               name: '金额分级逾期率（逾期180天以上）',
-              content: $scope.cumulative.overdue180AmountPercent + '%'
+              content: $scope.cumulative.overdue180AmountPercent,
+              type: '%'
             },
             {
               name: '人均累计借款金额',
-              content: $scope.cumulative.borrowerTotalAmountPerCapital + '元'
+              content: $scope.cumulative.borrowerTotalAmountPerCapital,
+              type: '元'
             },
             {
               name: '人均累计出借金额',
-              content: $scope.cumulative.lenderTotalAmountPerCapital + '元'
+              content: $scope.cumulative.lenderTotalAmountPerCapital,
+              type: '元'
             },
             {
               name: '最大单户出借余额占比',
-              content: $scope.cumulative.topOneLendAmountPercent + '%'
+              content: $scope.cumulative.topOneLendAmountPercent,
+              type: '%'
             },
             {
               name: '最大十户出借余额占比',
-              content: $scope.cumulative.topTenLendAmountPercent + '%'
+              content: $scope.cumulative.topTenLendAmountPercent,
+              type: '%'
             },
             {
               name: '平台向借款人收取服务费的标准',
