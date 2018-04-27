@@ -37,6 +37,28 @@ angular.module('hongcaiApp')
       userId: 0
     }, function (response) {
       if (response && response.data != '') {
+        var level = response.data[0].level;
+        $scope.welfaresLevel = '';
+        switch(level){
+          case 1:
+            $scope.welfaresLevel = '普通';
+            break;
+          case 2:
+            $scope.welfaresLevel = '青铜';
+            break;
+          case 3:
+            $scope.welfaresLevel = '白银';
+            break;
+          case 4:
+            $scope.welfaresLevel = '黄金';
+            break;
+          case 5:
+            $scope.welfaresLevel = '铂金';
+            break;
+          case 6:
+            $scope.welfaresLevel = '钻石';
+            break;
+        }
         5 == $scope.type ? welfares = response.data[0].welfareRules[0] : welfares = response.data[0].welfareRules[1]
       }
     }) : null
@@ -805,6 +827,15 @@ angular.module('hongcaiApp')
     $scope.initLimit = 8;
     $scope.loadMore = function(){
       $scope.initLimit = $scope.initLimit + 3 < $scope.list.length ? $scope.initLimit + 3 : $scope.list.length;;
+    }
+    $scope.downContracts = function () {
+      ProjectService.downContracts.get({
+        templateType: 10
+      }, function (response) {
+        if (response && response.ret !== -1) {
+          window.location.href = $rootScope.baseFileUrl + response.url
+        }
+      })
     }
 
   });

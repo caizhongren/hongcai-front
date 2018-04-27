@@ -25,8 +25,8 @@ angular.module('hongcaiApp')
       downloadContractFdd: $resource(RESTFUL_DOMAIN + '/contracts/0/fdd', {
         orderNumber: '@orderNumber'
       }),
-      downloadAssignmentContract: $resource(DEFAULT_DOMAIN + '/siteOrder/downloadAssignmentContract', {
-        projectId: '@projectId', amount: '@amount', isRepeat: '@isRepeat', payAmount: '@payAmount'
+      downloadAssignmentContract: $resource(RESTFUL_DOMAIN + '/contracts/0/assignment', {
+        orderNumber: '@orderNumber'
       }),
       getUnUsedIncreaseRateCoupons: $resource(DEFAULT_DOMAIN + '/siteOrder/getUnUsedIncreaseRateCoupons',{projectId : '@projectId', amount : '@amount'}),
       //认购下单

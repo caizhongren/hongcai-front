@@ -17,8 +17,8 @@ angular.module('hongcaiApp').directive('disclosuresidebar', ['$location', '$root
 					pattern = $a.attr('href'),
 					regexp = new RegExp('^' + pattern + '+', ['i']);
 					if(regexp.test(newValue)) {
-						$a.addClass('on-it');
-
+						k == 7 || k == 6 ? angular.element(angular.element('.tips-area')[5]).addClass('dison-it') : null
+						$a.addClass('dison-it');
 						for (var i = scope.menus.left.length - 1; i >= 0; i--) {
 							if(regexp.test(scope.menus.left[i].href)){
 								$rootScope.titleName = scope.menus.left[i].text;
@@ -27,16 +27,16 @@ angular.module('hongcaiApp').directive('disclosuresidebar', ['$location', '$root
 						//console.log($(this).context.text);
 						//$rootScope.title=$(this).context.text
 					} else {
-						$a.removeClass('on-it');
+						$a.removeClass('dison-it');
 					}
 
 				});
 			});
 		},
 		template:'<div class="col-md-2 col-lg-2 about-left-area">' +
-		'<div class="row"><a  class="tips-header" ><p>信息披露</p></a><a ng-repeat="m in menus.left" ui-sref="{{m.link}}" href="{{m.href}}" class="tips-area" >' +
+		'<div class="row"><a  class="disclosure-header" ><p>信息披露</p></a><a ng-repeat="m in menus.left" ui-sref="{{m.link}}" href="{{m.href}}" class="tips-area" >' +
 		/*'<div class="left-show-area"></div>' +*/
-		'<p>{{m.text}}  &nbsp;&nbsp; <span class="ft-14 ft-white fa fa-angle-double-right"></span></p>' +
+		'<p class="text-center padding-l-0" ng-class="{margin: $index == 0 }">{{m.text}}</p>' +
 		'</a></div></div>'
 	};
 }]);

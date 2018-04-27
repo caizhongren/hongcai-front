@@ -143,7 +143,7 @@ angular.module('hongcaiApp')
         for(var i= 0; i< response.length; i++){
           if (response[i].type == '1') {
             $scope.rechargeTotal += response[i].amount;
-          }else if (response[i].type === '2') {
+          }else if (response[i].type == '2') {
             $scope.withdrawTotal += response[i].amount;
           }
         }

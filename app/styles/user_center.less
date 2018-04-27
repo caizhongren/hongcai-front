@@ -2099,7 +2099,6 @@
   }
   .rules-show {
      width:332px;
-     height:188px;
      border:1px solid #E8A79A;
      border-radius: 5px;
      background-color: #FDE4DF;
@@ -2401,7 +2400,8 @@
   border:1px solid #999; 
   position: absolute;
   left: -24px;
-  bottom: 26px; 
+  bottom: 26px;
+  display: none;
 }
 .sidebar-tip-bottom:before{
   content: "";
@@ -2639,5 +2639,41 @@
     background: url('../images/tips.png') no-repeat 0px 0px;
     background-size: 90%;
     margin: -9px 2px 0 -4px;
+  }
+}
+.postLoanManagementInfo {
+  color: #666;
+  .currency-style {
+    // border: 1px solid transparent;
+    min-height: 866px;
+    .title 
+    .tip {
+      width: 17%;
+    }
+  }
+  table.info {
+    background: #fff;
+    border-radius: 9px;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+    font-size: 14px;
+    box-shadow: 0 1.5px 13.5px 0 rgba(80, 77, 75, 0.2);
+    color: #666;
+  }
+  table.info tr {
+    height: 50px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+  }
+  table.info td {
+    width: 50%;
+    border-right: 1px solid #eee;
+  }
+  .creatTime{
+    font-size: 13px;
+    width: 80%;
+    margin: 30px auto;
+    text-align: right;
   }
 }

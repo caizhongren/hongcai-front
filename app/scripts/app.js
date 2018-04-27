@@ -1200,6 +1200,63 @@ hongcaiApp
           }
         }
       })
+      /**
+       * 运营年报2017
+       */
+      .state('root.disclosure.operating-report-2017', {
+        url: '/operating-report-2017',
+        views: {
+          'disclosure-right-show': {
+            templateUrl: 'views/disclosure/operating-report-2017.html'
+          }
+        }
+      })
+      /**
+       * 运营年报2016
+       */
+      .state('root.disclosure.operating-report-2016', {
+        url: '/operating-report-2016',
+        views: {
+          'disclosure-right-show': {
+            templateUrl: 'views/disclosure/operating-report-2016.html'
+          }
+        }
+      })
+      /**
+       * 2017年度财务审计报告
+       */
+      .state('root.auditPDF', {
+        url: '/auditPDF',
+        views: {
+          '': {
+            templateUrl: 'views/disclosure/auditPDF.html'
+          }
+        }
+      })
+      /**
+       * 政策法规-法律条纹（无外链的）
+       */
+      .state('root.policies', {
+        url: '/policies',
+        views: {
+          '': {
+            templateUrl: 'views/disclosure/policies.html'
+          }
+        }
+      })
+      
+
+      // 贷后管理信息
+      .state('root.userCenter.postLoanManagementInfo', {
+        url: '/postLoanManagementInfo/:number',
+        views: {
+          'user-center-right': {
+            templateUrl: 'views/user-center/postLoanManagementInfo.html',
+            controller: 'postLoanManagementInfoCtrl',
+            controllerUrl: 'scripts/controller/user-center/postLoanManagementInfo'
+          }
+        }
+      })
 
       /**
        * ********************* 关于我们 20160621 ***********************
@@ -1994,6 +2051,14 @@ hongcaiApp
           templateUrl: 'views/project/project-details.html',
           controller: 'ProjectDetailsCtrl',
           controllerUrl: 'scripts/controller/project/project-details-ctrl'
+        }
+      }
+    })
+    .state('root.investment-agree', {
+      url: '/investment-agree',
+      views: {
+        '': {
+          templateUrl: 'views/investment-agree.html'
         }
       }
     })

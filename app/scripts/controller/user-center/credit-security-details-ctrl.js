@@ -40,23 +40,21 @@ angular.module('hongcaiApp')
 
     //下载合同
     $scope.generateContractPDF = function(projectId, orderId, status, type, projectNumber, orderNumber) {
+      if (type === 2 || type === 3) {
+        OrderService.downloadAssignmentContract.get({
+          orderNumber: orderNumber
+        }, function(response){
+          if(response.ret !== -1){
+            window.open(response.downUrl, "_self");
+          }else {
+            toaster.pop('warning', response.msg);
+          }
+        })
+      }
       ProjectService.contractTemplate.get({
         number: projectNumber
       }, function(response){
         if (response.ret !== -1) {
-          if (type === 2 || type === 3) {
-            OrderService.downloadAssignmentContract.get({
-              orderId: orderId,
-              projectId: projectId
-            }, function(response){
-              if(response.ret !== -1){
-                $scope.downloadPDF($scope.baseFileUrl() + response.data.contract.url);
-              }else {
-                toaster.pop('warning', response.msg);
-              }
-            })
-          }
-
           if (status === 2 && type !== 2 && type !== 3) {//未放款下载模板
             ProjectService.contractTemplateFile.get({
               templateId: response.id
