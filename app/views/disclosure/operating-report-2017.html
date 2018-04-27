@@ -36,12 +36,12 @@
 	   	</div>
 	  </div>
 	  <!-- Controls -->
-	  <a class="left carousel-control" >
-	    <span class="glyphicon glyphicon-chevron-left"><img src="/images/disclosure/btn_l.png" href="#carousel-example-generic" role="button" data-slide="prev"></span>
+	  <a class="left carousel-control" ng-show="showFirstArrow">
+	    <span class="glyphicon glyphicon-chevron-left"><img src="/images/disclosure/btn_l.png" href="#carousel-example-generic" role="button" data-slide="prev" ng-click="toggleOperating('prev', 7)"></span>
 	    <span class="sr-only">Previous</span>
 	  </a>
-	  <a class="right carousel-control">
-	    <span class="glyphicon glyphicon-chevron-right"><img src="/images/disclosure/btn_r.png" href="#carousel-example-generic"  role="button" data-slide="next"></span>
+	  <a class="right carousel-control" ng-show="showLastArrow">
+	    <span class="glyphicon glyphicon-chevron-right"><img src="/images/disclosure/btn_r.png" href="#carousel-example-generic"  role="button" data-slide="next" ng-click="toggleOperating('next', 7)"></span>
 	    <span class="sr-only">Next</span>
 	  </a>
 	</div>

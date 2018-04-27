@@ -1,6 +1,27 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('disclosureCtrl', ['$scope', '$state', '$rootScope', '$location', 'AboutUsService', 'config', function($scope, $state, $rootScope, $location, AboutUsService, config) {
+    $scope.showFirstArrow = false
+    $scope.showLastArrow = true
+    var indexActive = 1
+    $scope.toggleOperating = function (direction, opeeratingLength) {
+      if (direction == 'prev') {
+        if (indexActive === 1) {
+          $scope.showFirstArrow = false
+          return
+        }
+        indexActive -= 1
+       $scope.showFirstArrow = true
+       $scope.showLastArrow = true
+      } else {
+        if (indexActive === opeeratingLength - 1) {
+          $scope.showLastArrow = false
+          return
+        }
+        indexActive += 1
+        $scope.showFirstArrow = true
+      }
+    }
     $scope.menus = {
       'left': [{
         'href': '/disclosure/bank-disclosure',
