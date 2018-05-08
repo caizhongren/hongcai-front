@@ -29,7 +29,7 @@ angular.module('hongcaiApp')
         // 生成自己的二维码
         $('#qrcode').qrcode({
           render:'table',
-          text:'http://m.hongcai.com/register?inviteCode=' + $scope.inviteCode,
+          text: config.domain + '/activity/channel?inviteCode=' + $scope.inviteCode,
           size: 150
         });
       }
