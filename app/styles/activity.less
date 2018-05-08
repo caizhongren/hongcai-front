@@ -429,165 +429,126 @@
   }
 }
 
-// 4.13邀请活动介绍页
+// 4.13邀请二期活动介绍页
 .invite {
   filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#fb5776,endcolorstr=#f78a3e,gradientType=1);
-  background-color: #fb5776;
-  background-image: linear-gradient(to bottom, #fb5776 0%, #f78a3e 100%);
-  background:-moz-linear-gradient(top, #fb5776, #f78a3e);  
-  background:-webkit-gradient(linear, 0 0, 0 bottom, from(#fb5776), to(#f78a3e));  
-  background:-o-linear-gradient(top, #fb5776, #f78a3e); 
+  background-color: #26054e;
   padding-bottom: 20px;
-  .invite-box {
-    width: 1280px;
-    margin: 0 auto;
-    .example {
-      .yellow-ft {
-        color: #fdec34;
-      }
-      .red-ft {
-        color: #fc321c;
-      }
-      .width-90 {
-        width: 90%;
-      }
-      .expl-title1 {
-        width: 231px;
-        height: 56px;
-        line-height: 61px;
-        color: #fff;
-        background: url('/images/activity/invite-expl.png') no-repeat 0 0;
-        background-size: contain;
-        margin: 120px 0 20px 320px;
-        text-align: center;
-        font-size: 20px;
-        padding-left: 30px;
-      }
-      .days {
-        font-size: 16px;
-        color: #fc0d1b;
-        overflow: hidden;
-        width: 50%;
-        margin: 0 auto;
-        .col-md-6 {
-          padding-left: 32px;
-        }
-        .col-md-5 {
-          margin-left: -30px;
-        }
-        .col-md-1 {
-          margin-left: 15px;
-        }
-      }
-      .expl-text1 {
-        margin: 10px auto 45px;
-        overflow: hidden;
-        width: 50%;
-        .text1, .text2, .text3 {
-          border-radius: 5px;
-          border: 1px solid #b4b8b6;
-          padding: 10px;
-          color: #fff;
-          float: left;
-          font-size: 14px;
-        }
-        .text1 {
-          width: 20%;
-        }
-        .text2 {
-          width: 52%;
-          margin: 0 3%;
-          .expl1 {
-            margin-bottom: 29px;
-          }
-        }
-        .text3 {
-          width: 20%;
-          text-align: center;
-        }
-      }
-      .expl-text2 {
-        color: #fff;
-        margin: 30px auto 20px;
-        font-size: 14px;
-        width: 50%;
-      }
-      
-    }
-    .rules {
-      width: 50%;
+  .w100:nth-child(even){
+    background: #160d6d;
+  }
+  .w100{
+    .w1280-auto{
+      width: 1280px;
       margin: 0 auto;
-      .rec-act-rule {
-        padding: 5px;
-        background-color: #fdf6d9;
-        border-radius: 8px;
-        margin-bottom: 15px;
-        p {
-          margin-bottom: 0;
+      padding-top: 51px;
+      padding-bottom: 40px;
+      color: #ffffff;
+      position: relative;
+      .column-title{
+        background: url("/images/activity/column-title.png") no-repeat;
+        background-size: 100%;
+        height: 100px;
+        width: 400px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+        .yellow-ft{
+          color: #fbe756;
+          font-size: 24px;
+          width: 54px;
+          margin-left: 25px;
+          margin-top: 14px;
+          text-align: left;
+          letter-spacing: 0px;
         }
-        .rule-title {
-          font-size: 16px;
-          color:#f83b15;
-          padding: 10px 0 0 10px;
+        span:last-child{
+          margin-left: 30px;
+          line-height: 97px;
+          letter-spacing: 1px;
         }
-        .rule-content {
+      }
+      .commission .column-title .yellow-ft{
+        margin-left: 20px !important;
+      }
+      .invite-tip{
+        position: absolute;
+        color: #fad12e;
+        left: 575px;
+        top: 378px;
+      }
+      // 加成佣金
+      .commission{
+        ul{
+          width: 760px;
+          li{
+            width: 230px;
+            height:220px;
+            p{
+              font-size: 18px;
+              margin-top:165px;
+            }
+          }
+          li:first-child{
+            background: url("/images/activity/commission_1.png") no-repeat left top;
+            background-size: 100%;
+            margin-left: 4px;
+          }
+          li:nth-child(2){
+            background: url("/images/activity/commission_2.png") no-repeat left top;
+            background-size: 100%;
+            margin-right: 14px;
+          }
+          p{
+            width:100%;
+            span:first-child{
+              margin-left: 36px;
+            }
+            span:last-child{
+              margin-left: 36px;
+            }
+          }
+        }
+        ul>p:last-child{
+          margin-top: 70px;
+          color: #fad12e;
+        }
+      }
+      // 好友邀请
+      .invite-friend{
+        margin-bottom: 40px;
+        span:last-child{
+          margin-left: 70px !important;
+        }
+      }
+      // 活动规则
+      .rules-content{
+        width: 720px;
+        text-align: justify; 
+        p:nth-child(odd){
+          color: #fbe756;
+          font-size: 18px;
+          margin-left: -10px;
+        }
+        p:nth-child(even){
+          color: #afdddd;
           font-size: 14px;
-          color:#7c4618;
-          line-height: 21px;
-          .list-page {
-            display: inline-block;
-            margin-left: 30px;
-          }
-          .fa-circle {
-            color: #f83b15;
-            margin-right: 5px;
-            font-size: 12px;
-            transform: scale(0.7);
-            -webkit-transform: scale(0.7);
-            position: relative;
-            top: -2px;
-          }
+          margin-bottom: 30px;
         }
-        .rule1, .rule2 {
-          filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#e6c590,endcolorstr=#c79653,gradientType=1);
-          background-color: #e6c590;
-          background-image: linear-gradient(to bottom, #e6c590 0%, #c79653 100%);
-          background:-moz-linear-gradient(top, #e6c590, #c79653);  
-          background:-webkit-gradient(linear, 0 0, 0 bottom, from(#e6c590), to(#c79653));  
-          background:-o-linear-gradient(top, #e6c590, #c79653);
-          border-radius: 5px;
-          padding: 15px;
+      }
+      // APP邀请码
+      .invite-bottom{
+        margin-top: 40px;
+        p:first-child{
+          font-size: 34px;
+          margin-bottom: 44px;
         }
-        .rule1 {
-          .rule-content {
-            text-indent: 24px;
-          }
+        p:nth-child(2){
+          font-size: 17px;
         }
-        .rule2 {
-          .rule-content {
-            padding-left: 24px;
-          }
+        p:last-child{
+          font-size: 17px;
         }
       } 
-      .tips {
-        p  {
-          text-align: center;
-          font-size: 12px;
-          color: #feeae2;
-          margin-bottom: 0;
-        }
-        .download {
-          font-size: 20px;
-          color: #feeae2;
-          margin-bottom: 20px;
-        }
-      }
-      .rule-98 {
-        width: 96%;
-      }
-      .qrcode {
-        margin: 100px auto 50px;
-      }
     }
   }
 }
