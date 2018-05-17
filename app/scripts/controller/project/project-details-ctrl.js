@@ -201,7 +201,7 @@ angular.module('hongcaiApp')
             }, {
               title: '相关文件',
             }];
-          } else if ($scope.categoryCode === '0115') {
+          } else if ($scope.categoryCode === '0115' || $scope.categoryCode === '0119') {
             $scope.tabs = [{
               title: '项目信息',
             }, {
