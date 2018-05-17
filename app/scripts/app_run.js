@@ -131,19 +131,20 @@ angular.module('hongcaiApp')
     ];
 
 
-
     $rootScope.$on('$stateChangeStart', function(event, toState) {
       $http.get(RESTFUL_DOMAIN + '/systems/migrateStatus').success(function(response){
           $rootScope.ServiceStatus = response.status //status :1 停服
       })
       $rootScope.checkSession = $q.defer();
       var $checkSessionServer = $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession');
-      $checkSessionServer.error(function(response) {
+      $checkSessionServer.error(function(response, status) {
+          status >= 400 && status < 500 ? $rootScope.offline = true : status >= 500 ? $rootScope.offline = false : $rootScope.offline = true;
           $state.go('update', {'return': $location.path()});
           return;
       }).success(function(response) {
-
-
+          if ($location.path().indexOf('update') !== -1) {
+            $state.go('root.main')
+          }
           if (response.ret !== -1 && response.data && response.data.userDetail !== '' && response.data.userDetail.user !== undefined && response.data.userDetail.user !== null) {
             $rootScope.isLogged = true;
             $rootScope.loginUser = response.data.userDetail.user;

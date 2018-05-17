@@ -2,6 +2,9 @@
 angular.module('hongcaiApp')
   .controller('SysUpdateCtrl', function($location, $scope, $http, $rootScope, $state, $stateParams, $interval, DEFAULT_DOMAIN) {
 
+    $scope.reload = function () {
+      $state.reload();
+    }
 
    // var interval = $interval(function(){
    //    $http.post(DEFAULT_DOMAIN + '/siteUser/checkSession').success(function(response){
