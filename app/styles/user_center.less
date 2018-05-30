@@ -223,6 +223,8 @@
 
 // -------- account-overview
 .account-overview {
+  padding-bottom: 85px !important;
+  margin-bottom: 0 !important;
   .profit-chart {
     background: #fff;
     overflow: hidden;
@@ -403,7 +405,7 @@
       color: #666;
       padding:0 100px;
       position: relative;
-      .select-payment {
+      .select-payment, .subTitle {
         display: block;
         height: 44px;
         line-height: 44px;
@@ -411,14 +413,27 @@
         font-size: 14px;
         padding: 0 20px;
         border: 1px solid #ddd;
-        width: 325px;
+        width: 100%;
         .payment-amount {
           .fa-angle-down, .fa-angle-up { 
             position: relative;
             top: 2px;
           }
-          .fa-angle-up {
-            //display: none;
+        }
+      }
+      .subTitle {
+        padding: 0;
+        margin-bottom: 0;
+        li {
+          float: left;
+          width: 50%;
+          text-align: center;
+          height: 27px;
+          line-height: 27px;
+          margin: 8px 0;
+          p {
+            display: inline-block;
+            margin: 0 20px 0 20px;
           }
         }
       }
@@ -465,6 +480,8 @@
       width: 20px;
       color: #666;
       cursor: pointer;
+      display: inline-block;
+      vertical-align: bottom;
     }
     .f-btn-jian {
       background: url('/images/user-center/pre.png') no-repeat center center;
@@ -479,7 +496,7 @@
       text-align: center;
       height: 30px;
       line-height: 30px;
-      display: block;
+      display: inline-block;
     }
     .table-box {
       padding:0 100px;
@@ -533,16 +550,50 @@
           .f-table-msg{
             position: absolute;
             z-index: 222;
-            top: 34px;
+            top: 45px;
             left:50%;
             margin-left: -140px;
             width: 280px;
-            background: url(../images/bg-msg.png) no-repeat bottom;
-            line-height: 55px;
-            height: 46px;
-            text-align: center;
+            // background: url(../images/bg-msg.png) no-repeat bottom;
+            // line-height: 55px;
+            border: 1px solid #f9721f;
+            padding: 6px 10px 4px;
+            line-height: 1.85;
+            font-size: 13px;
+            background: #fff;
+            text-align: left;
             display: none;
             color: #666;
+            .tip {
+              margin: 3px auto 0;
+              color: #fe4830;
+              text-align: center;
+              font-size: 12px;
+            }
+          }
+          .f-table-msg:before {
+            content: "";
+            display: block;
+            border-width: 11px;
+            position: absolute;
+            top: -23px;
+            left: 46%;
+            border-style: solid dashed dashed;
+            border-color: transparent transparent #f9721f;
+            font-size: 0;
+            line-height: 0;
+          }
+          .f-table-msg:after {
+            content: "";
+            display: block;
+            border-width: 10px;
+            position: absolute;
+            top: -20px;
+            left: 46.2%;
+            border-style: solid dashed dashed;
+            border-color: transparent transparent #fff;
+            font-size: 0;
+            line-height: 0;
           }
         }
         .f-on{
@@ -707,9 +758,6 @@
 
 // -------- security-settings
 .security-setting .avater {
-  .col-orange {
-    color: #f921f;
-  }
   padding: 46px 0;
   width: 100%;
   text-align: center;
