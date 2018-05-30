@@ -86,34 +86,21 @@
       <span class="fl c3">回款日历</span>
     </h2>
     <div class="profit-title">
-      <!-- <div class="f-btn-fhby fr">返回本月</div> -->
-      <a class="select-payment fl clearfix" ng-click="selectPaymentBox();">
-        <div class="payment-type fl">{{paymentRequest || '当月'}}回款</div>
-        <div class="payment-amount fr">
-          <span class="margin-r-5">{{paymentTotalAmount | number: 2 || 0.00}}元 | {{paymentTotalCount || 0}}笔 </span>
-          <i class="fa fa-angle-down ft-24" aria-hidden="true" ng-show="!showPaymentBox && paymentTotalCount>0"></i>
-          <i class="fa fa-angle-up ft-24" aria-hidden="true" ng-show="showPaymentBox && paymentTotalCount>0"></i>
-        </div>
-      </a>
-      <div class="payment-box carousel slide" id="carousel-generic" data-interval="false" ng-show="showPaymentBox">
-        <ul class="carousel-inner margin-b-0" role="listbox">
-          <li class="item " ng-class="{'active':$index==0}" ng-repeat="item in creditBills">
-            <p>项目名称：{{item.projectName | limitTo: 18 }}{{item.projectName.length > 18 ? '...':''}}</p>
-            <p>年均回报率 : {{item.baseRate}}%</p>
-            <p>回款类型 : {{item.principal >0 ? '本息' : '利息'}}{{item.repaymentNo}}期</p>
-            <p>回款金额 : <span class="ft-orange">{{item.principal + item.profit + ((item.baseRate + item.riseRate + item.couponRate) * item.profit/item.baseRate + item.riseRate - item.profit) | number: 2}}</span>元</p>
-          </li>
-        </ul>
-        <a ng-if="creditBills.length>1">
-          <span  href="#carousel-generic"  role="button" data-slide="next" class="fr">下一笔</span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      <div class="clearfix fr">
-        <div class="f-btn-jian fl" ng-click="lastMonth();"></div><div class="fl f-riqi"><span class="f-year">{{calendar_year || '2017'}}</span>-<span class="f-month">{{calendar_month || '01'}}</span></div><div class="f-btn-jia fl" ng-click="nextMonth();"></div><!-- 一定不能换行-->
-      </div>
+      <ul class="subTitle">
+        <li class="border-r-3">
+          <p>本月预计回款</p>
+          <p>{{month.anticipateAmount | number: 2}}元</p>
+        </li>
+        <li>
+          <p>本月待收回款</p>
+          <p>{{month.waitingAmount | number: 2}}元</p>
+        </li>
+      </ul>
     </div>
-    <div class="table-box">
+    <div class="clearfix text-center margin-auto margin-t-10">
+      <div class="f-btn-jian" ng-click="lastMonth();"></div><div class="f-riqi"><span class="f-year">{{calendar_year || '2017'}}</span>-<span class="f-month">{{calendar_month || '01'}}</span></div><div class="f-btn-jia" ng-click="nextMonth();"></div><!-- 一定不能换行-->
+    </div>
+    <div class="table-box margin-t-10">
       <div class="f-rili-table">
         <div class="f-rili-head celarfix">
           <div class="f-rili-th">一</div>
