@@ -399,7 +399,7 @@ angular.module('hongcaiApp')
       }
       //给今日加class
       if( mydate.getFullYear() == yyyy && (mydate.getMonth()+1 ) == mm){
-        if (creditRightBillDateMap && !creditRightBillDateMap.indexOf(new Date(yyyy+'/'+mm+'/'+today).getTime())) {
+        if (creditRightBillDateMap && creditRightBillDateMap.indexOf(new Date(yyyy+'/'+mm+'/'+today).getTime()) === -1) {
           $(".f-rili-table .f-number").eq(today-1).html('今日');
           $(".f-rili-table .f-number").eq(today-1).addClass("f-today");
         }
