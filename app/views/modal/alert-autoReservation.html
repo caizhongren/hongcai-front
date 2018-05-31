@@ -59,14 +59,16 @@
     <div class="row margin-b-20">
       <div class="col-22 col-md-offset-1 padding-0"><i class="icon5"></i>标的类型</div>
       <div ng-if="setAutoTender">
-        <span class="col-4 padding-t-9 ft-grey666">{{projectType[autoTender.investType] }}</span>
+        <span class="col-4 padding-t-9 ft-grey666">{{projectTypeContent}}</span>
       </div>
-      <a ng-if="!setAutoTender" class="col-9 cursor-pt display-bl" ng-click="projectTypeFn()" href="javascript:;" focus-blur>
-        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{projectType[autoTender.investType]}}" disabled/>
+      <a ng-if="!setAutoTender" class="col-9 cursor-pt display-bl" ng-click="projectTypeFn()" href="javascript:;">
+        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{selectTypeText}}" disabled/>
         <span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>       
       </a>
-      <ul class="select" ng-if="showProjectType">
-        <li ng-click="autoTender.investType = type;" ng-repeat="(type, typeName) in projectType">{{typeName}}</li>
+      <ul class="select" ng-show="showProjectType" focus-blur>
+        <li ng-click="multiSelect(item.type,$event)" ng-repeat="item in projectTypeNo" selectedState="1" ng-class="{'selected': ($scope.autoTender.investType.indexOf(item.type) >= 0)}">{{projectType[item.type]}}</li>
+        <button class="btn-open orange-button col-1 pull-left margin-l-prcent35 ng-scope" ng-click="projectTypeFn()">确定</button>
+        <p>（债权转让项目，不可使用各类优惠券哦~）</p>
       </ul>
     </div>
     <!-- 账户保留金额 -->

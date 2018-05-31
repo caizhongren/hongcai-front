@@ -1,6 +1,6 @@
 'use strict';
 angular.module('hongcaiApp')
-  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, checkPwdUtil, UserCenterService, SecuritySettingService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster) {
+  .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, checkPwdUtil, UserCenterService, SecuritySettingService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster, ProjectService) {
 
     $scope.userbusiness = 2;
     $scope.strength = 1;
@@ -23,6 +23,38 @@ angular.module('hongcaiApp')
         //console.log('ask security-settings, why userSecurityInfo did not load data...');
       }
     });
+
+    // 判断是否第一次投资
+    ProjectService.isExist.get({userId: 0},function(response){
+      if(!response.exist){
+        $scope.projectTypeNo = [
+          {
+            type: '7'
+          },
+          {
+            type: '5'
+          },
+          {
+            type: '6'
+          },
+          {
+            type: '2'
+          }
+        ];
+      }else{
+        $scope.projectTypeNo = [
+          {
+            type: '5'
+          },
+          {
+            type: '6'
+          },
+          {
+            type: '2'
+          }
+        ];
+      }
+    })
     //绑卡信息
     UserCenterService.getUserBankCard.get({}, function(response) {
       if (response.ret === 1) {
@@ -336,11 +368,16 @@ angular.module('hongcaiApp')
         '5': '宏财精选', 
         '6': '宏财尊贵', 
         '2': '债权转让',
-        '0': '全部'
+        '0': '全部',
+        '7': '新手专享'
     };
+    // $scope.autoTender.investType
+    $scope.autoTender.investType = [];
+    $scope.selectTypeText = '';
     $scope.showDateLine = false;
     $scope.showInterestRate = false;
     $scope.showProjectType = false;
+    $scope.projectTypeContent = '';
 
     $scope.dateLineFn = function(){
       $scope.showDateLine =!$scope.showDateLine;
@@ -350,10 +387,59 @@ angular.module('hongcaiApp')
     };
     $scope.projectTypeFn = function(){
       $scope.showProjectType =!$scope.showProjectType;
+      // console.log($scope.autoTender.investType);
     };
     
     $scope.selectDateLine = function(date){
       $scope.autoTender.selectedDateLine = date;
+    };
+
+    // 标的类型
+
+    Array.prototype.indexOf = function(val) {
+      for (var i = 0; i < this.length; i++) {
+        if (this[i] == val) return i;
+      }
+      return -1;
+    };
+    Array.prototype.remove = function(val) {
+      var index = this.indexOf(val);
+      if (index > -1) {
+        this.splice(index, 1);
+      }
+    };
+    $scope.multiSelect = function(type,ev){
+      console.log(ev.target.parentElement);
+      // console.log(ev.target.getAttribute('selectedState'));
+      var num = -parseInt(ev.target.getAttribute('selectedState'));
+      ev.target.setAttribute('selectedState',num);
+      console.log(typeof($scope.autoTender.investType));
+      // if($scope.autoTender.investType.length){
+      //   $scope.autoTender.investType = [];
+      // }
+      console.log($scope.autoTender.investType);
+      if(typeof($scope.autoTender.investType) === 'string'){
+        $scope.autoTender.investType = [];
+      }
+      if(num < 0){
+        $scope.autoTender.investType.push(type);
+      }else{
+        $scope.autoTender.investType.remove(type);
+      }
+      $scope.autoTender.investType = Array.from(new Set($scope.autoTender.investType));
+      $scope.selectTypeText = '';
+      if($scope.autoTender.investType.length >= $scope.projectTypeNo.length){
+        $scope.selectTypeText = '全部';
+      }else{
+        for(var i = 0; i< $scope.autoTender.investType.length; i++){
+          $scope.selectTypeText += ',' + $scope.projectType[$scope.autoTender.investType[i]];
+        }
+        $scope.selectTypeText = $scope.selectTypeText.split('').splice(1).join('');
+      }
+      console.log($scope.autoTender.investType);
+    };
+    $scope.projectTypeEnter = function(){
+      console.log($scope.autoTender.investType);
     };
 
     //最小投标金额
@@ -413,18 +499,30 @@ angular.module('hongcaiApp')
       if (response.userId !== null) {
         $scope.setAutoTender = true;
         $scope.autoTenderDetail = response;
-        $scope.autoTender.investType = $scope.autoTenderDetail.investType;
+        $scope.autoTender.investType = $scope.autoTenderDetail.investType.split('');
         $scope.autoTender.minInvestAmount = $scope.autoTenderDetail.minInvestAmount;
         $scope.autoTender.retentionAmount = $scope.autoTenderDetail.remainAmount;
         $scope.autoTender.selectedDateLine = $scope.autoTenderDetail.maxRemainDay;
         $scope.autoTender.annualEarnings = $scope.autoTenderDetail.annualEarnings;
         $scope.autoTenderDetail.startTime = $scope.autoTenderDetail.startTime;
         $scope.autoTenderDetail.endTime = $scope.autoTenderDetail.endTime;
+        console.log($scope.autoTender.investType);
+        for(var i=0;i<$scope.autoTender.investType.length;i++){
+          if($scope.autoTender.investType[i] === ','){
+            $scope.autoTender.investType = $scope.autoTender.investType.splice(i);
+            // alert(1);
+          }
+        }
+        for(var i=0;i<$scope.autoTender.investType.length;i++){
+          $scope.projectTypeContent += (',' +  $scope.projectType[$scope.autoTender.investType[i]]);
+          // alert(1);
+        }
+        $scope.projectTypeContent = $scope.projectTypeContent.split('').splice(1).join('');
       }else {
         $scope.setAutoTender = false;
         $scope.autoTender.selectedDateLine = '360';
         $scope.autoTender.annualEarnings = '7';
-        $scope.autoTender.investType = '0';
+        $scope.autoTender.investType = [];
         $scope.autoTender.minInvestAmount = 100;
         $scope.autoTender.retentionAmount = 0;
         $scope.currentTime = new Date();
@@ -449,7 +547,7 @@ angular.module('hongcaiApp')
         minRemainDay: 0,
         maxRemainDay: autoTender.selectedDateLine,
         annualEarnings: autoTender.annualEarnings,
-        investType: autoTender.investType ,
+        investType: autoTender.investType.join(''),
         remainAmount: autoTender.retentionAmount,
         startTime: startTime,
         endTime: endTime
