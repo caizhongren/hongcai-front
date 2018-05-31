@@ -294,9 +294,11 @@ angular.module('hongcaiApp')
       return df;
     }
     function concatStr (yy,mm,dd) {  //日期格式转为 'yyyy-mm-dd'
-      return yy + '-' + mm + '-' + dd;
+      return yy + '/' + mm + '/' + dd;
     }
     var mydate = new Date();
+    var today = mydate.getDate();
+    var todayTime = new Date(mydate.getFullYear()+'/'+(mydate.getMonth()+1 )+'/'+mydate.getDate()).getTime();
     var creditRightBillDateMap = {}
     var startDate = ' 00:00:00';
     var endtDate = ' 23:59:00';
@@ -342,6 +344,7 @@ angular.module('hongcaiApp')
           element.parent().find(".totalAmount").html((selectDateDate.anticipateAmount).toFixed(2));
           element.parent().find(".principalAmount").html((selectDateDate.principalAmount).toFixed(2));
           element.parent().find(".interestAmount").html((selectDateDate.interestAmount).toFixed(2));
+          element.parent().siblings().find(".f-table-msg").hide();
           element.parent().find(".f-table-msg").show();
         }
       })
@@ -349,8 +352,6 @@ angular.module('hongcaiApp')
 
     //读取年月写入日历  重点算法!!!!!!!!!!!
     $scope.showDate = function (yyyy, mm) {
-      var today = mydate.getDate();
-      var todayTime = new Date(yyyy+'-'+(mydate.getMonth()+1 )+'-'+today).getTime();
       var daysCount = new Date(parseInt(yyyy),parseInt(mm), 0).getDate(); //本月天数  
       var mystr ="";//写入代码
       var icon = "";//图标代码
@@ -359,7 +360,7 @@ angular.module('hongcaiApp')
       parseInt(mm) ==1 ? lastMonth = new Date(parseInt(yyyy)-1,parseInt(12), 0).getDate() : lastMonth = new Date(parseInt(yyyy),parseInt(mm)-1, 0).getDate();
 
       for(var i=0;i<daysCount;i++){
-        var setTime = new Date(yyyy+'-'+mm+'-'+(i+1)).getTime();  //对应日期数据毫秒值
+        var setTime = new Date(yyyy+'/'+mm+'/'+(i+1)+startDate).getTime();  //对应日期数据毫秒值
  
         //计算上月空格数
         if( i%7 == 0){
@@ -398,7 +399,7 @@ angular.module('hongcaiApp')
       }
       //给今日加class
       if( mydate.getFullYear() == yyyy && (mydate.getMonth()+1 ) == mm){
-        if (creditRightBillDateMap && !creditRightBillDateMap.indexOf(new Date(yyyy+'-'+mm+'-'+today).getTime())) {
+        if (creditRightBillDateMap && creditRightBillDateMap.indexOf(new Date(yyyy+'/'+mm+'/'+today).getTime()) === -1) {
           $(".f-rili-table .f-number").eq(today-1).html('今日');
           $(".f-rili-table .f-number").eq(today-1).addClass("f-today");
         }
@@ -406,7 +407,7 @@ angular.module('hongcaiApp')
 
       function addMouseFn (el) {
         el.mouseover(function() {
-          $scope.getRepaymentDetails($scope.calendar_year+'-'+$scope.calendar_month+'-'+$(this).html(),$(this));
+          $scope.getRepaymentDetails($scope.calendar_year+'/'+$scope.calendar_month+'/'+$(this).html(),$(this));
         }).mouseleave(function() {
           $(this).parent().find(".f-table-msg").hide();
         }).click(function() {
@@ -416,13 +417,13 @@ angular.module('hongcaiApp')
       addMouseFn($(".f-yuan"));
       addMouseFn($(".f-yuan-grey"));
       $(".f-table-msg").mouseover(function() {
-        $(this).show();
+        $(this).hide().show();
       }).mouseleave(function() {
         $(this).hide();
       })
 
     }
-    $scope.getRepaymentDates(mydate.getFullYear()+'-'+(mydate.getMonth()+1)+'-1', mydate.getFullYear()+'-'+(mydate.getMonth()+1)+'-31', mydate.getFullYear(), mydate.getMonth()+1);
+    $scope.getRepaymentDates(mydate.getFullYear()+'/'+(mydate.getMonth()+1)+'/1', mydate.getFullYear()+'/'+(mydate.getMonth()+1)+'/31', mydate.getFullYear(), mydate.getMonth()+1);
     //日历上一月
     $scope.lastMonth = function () {
       var mm = parseInt($scope.calendar_month);
@@ -430,10 +431,10 @@ angular.module('hongcaiApp')
       if( mm == 1){//返回12月
         $scope.calendar_year = yy-1;
         $scope.calendar_month = 12;
-        $scope.getRepaymentDates((yy-1)+'-12-1', (yy-1)+'-12-'+new Date(parseInt(yy-1),parseInt(12), 0).getDate(), yy-1, 12);
+        $scope.getRepaymentDates((yy-1)+'/12/1', (yy-1)+'/12/'+new Date(parseInt(yy-1),parseInt(12), 0).getDate(), yy-1, 12);
       }else{//上一月
         $scope.calendar_month = FormatStr(mm-1);
-        $scope.getRepaymentDates(yy+'-'+$scope.calendar_month+'-1', yy+'-'+$scope.calendar_month+'-'+new Date(parseInt(yy),parseInt($scope.calendar_month), 0).getDate(), yy, mm-1);
+        $scope.getRepaymentDates(yy+'/'+$scope.calendar_month+'/1', yy+'/'+$scope.calendar_month+'/'+new Date(parseInt(yy),parseInt($scope.calendar_month), 0).getDate(), yy, mm-1);
       }
     }
     $scope.nextMonth = function () {
@@ -442,10 +443,10 @@ angular.module('hongcaiApp')
       if( mm == 12){//返回12月
         $scope.calendar_year = yy+1;
         $scope.calendar_month = '01';
-        $scope.getRepaymentDates($scope.calendar_year+'-1-1', $scope.calendar_year+'-1-'+new Date(parseInt(yyyy),parseInt(mm), 0).getDate(), yy+1, 1);
+        $scope.getRepaymentDates($scope.calendar_year+'/1/1', $scope.calendar_year+'/1/'+new Date(parseInt(yy),parseInt(mm), 0).getDate(), yy+1, 1);
       }else{//上一月
         $scope.calendar_month = FormatStr(mm+1);
-        $scope.getRepaymentDates(yy+'-'+$scope.calendar_month+'-1', yy+'-'+$scope.calendar_month+'-'+new Date(parseInt(yy),parseInt($scope.calendar_month), 0).getDate(), yy, mm+1);
+        $scope.getRepaymentDates(yy+'/'+$scope.calendar_month+'/1', yy+'/'+$scope.calendar_month+'/'+new Date(parseInt(yy),parseInt($scope.calendar_month), 0).getDate(), yy, mm+1);
       }
     }
     
