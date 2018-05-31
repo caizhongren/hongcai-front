@@ -1,10 +1,12 @@
 'use strict';
+
 angular.module('hongcaiApp')
   .controller('SecuritySettingsCtrl', function(ipCookie, $scope, $state, $http, $rootScope, $stateParams, checkPwdUtil, UserCenterService, SecuritySettingService, config, md5, $alert, DEFAULT_DOMAIN,$modal, toaster, ProjectService) {
 
     $scope.userbusiness = 2;
     $scope.strength = 1;
     $scope.setAutoTender = false;
+
     UserCenterService.userSecurityInfo.get({}, function(response) {
       if (response.ret === 1) {
         var userAuth = response.data.userAuth;
@@ -24,37 +26,7 @@ angular.module('hongcaiApp')
       }
     });
 
-    // 判断是否第一次投资
-    ProjectService.isExist.get({userId: 0},function(response){
-      if(!response.exist){
-        $scope.projectTypeNo = [
-          {
-            type: '7'
-          },
-          {
-            type: '5'
-          },
-          {
-            type: '6'
-          },
-          {
-            type: '2'
-          }
-        ];
-      }else{
-        $scope.projectTypeNo = [
-          {
-            type: '5'
-          },
-          {
-            type: '6'
-          },
-          {
-            type: '2'
-          }
-        ];
-      }
-    })
+   
     //绑卡信息
     UserCenterService.getUserBankCard.get({}, function(response) {
       if (response.ret === 1) {
@@ -301,6 +273,51 @@ angular.module('hongcaiApp')
     };
 
     // document.getElementsByTagName("html")[0].style.overflow="hidden";
+     $scope.blurUl = function($event) {
+      var _con = angular.element('#projectTypeUl');   // 设置目标区域
+      var input = angular.element('#input');   // 设置目标区域
+      if(!_con.is($event.target) && _con.has($event.target).length === 0 && !input.is($event.target) && input.has($event.target).length === 0){ 
+        $scope.showProjectType = false;
+      }
+      if (!_con.is($event.target) && _con.has($event.target).length === 0 && !input.is($event.target) && input.has($event.target).length === 0 && $scope.autoTender.investType.length == 0){
+        $scope.noType = false;
+      }
+    }
+
+    // 判断是否第一次投资
+    ProjectService.isExist.get({userId: 0},function(response){
+      if(!response.exist){
+        $scope.projectTypeNo = [
+          {
+            type: '7'
+          },
+          {
+            type: '5'
+          },
+          {
+            type: '6'
+          },
+          {
+            type: '2'
+          }
+        ];
+      }else{
+        $scope.projectTypeNo = [
+          {
+            type: '5'
+          },
+          {
+            type: '6'
+          },
+          {
+            type: '2'
+          }
+        ];
+      }
+    })
+    $scope.reload = function () {
+      $state.reload();
+    }
     //设置自动投标弹窗
     $scope.goToTender = function(){
       $scope.msg = '6';
@@ -369,15 +386,15 @@ angular.module('hongcaiApp')
         '6': '宏财尊贵', 
         '2': '债权转让',
         '0': '全部',
-        '7': '新手专享'
+        '7': '新手标'
     };
-    // $scope.autoTender.investType
+
     $scope.autoTender.investType = [];
     $scope.selectTypeText = '';
     $scope.showDateLine = false;
     $scope.showInterestRate = false;
     $scope.showProjectType = false;
-    $scope.projectTypeContent = '';
+    $scope.noType = true;
 
     $scope.dateLineFn = function(){
       $scope.showDateLine =!$scope.showDateLine;
@@ -385,48 +402,30 @@ angular.module('hongcaiApp')
     $scope.interestRateFn = function(){
       $scope.showInterestRate =!$scope.showInterestRate;
     };
-    $scope.projectTypeFn = function(){
-      $scope.showProjectType =!$scope.showProjectType;
-      // console.log($scope.autoTender.investType);
-    };
-    
+    $scope.projectTypeFn = function(enter){
+      if(enter && $scope.autoTender.investType.length == 0){
+          $scope.noType = false;
+      } else {
+        $scope.showProjectType =!$scope.showProjectType;
+      }
+    }
     $scope.selectDateLine = function(date){
       $scope.autoTender.selectedDateLine = date;
     };
 
     // 标的类型
 
-    Array.prototype.indexOf = function(val) {
-      for (var i = 0; i < this.length; i++) {
-        if (this[i] == val) return i;
-      }
-      return -1;
-    };
-    Array.prototype.remove = function(val) {
-      var index = this.indexOf(val);
-      if (index > -1) {
-        this.splice(index, 1);
-      }
-    };
     $scope.multiSelect = function(type,ev){
-      console.log(ev.target.parentElement);
-      // console.log(ev.target.getAttribute('selectedState'));
-      var num = -parseInt(ev.target.getAttribute('selectedState'));
-      ev.target.setAttribute('selectedState',num);
-      console.log(typeof($scope.autoTender.investType));
-      // if($scope.autoTender.investType.length){
-      //   $scope.autoTender.investType = [];
-      // }
-      console.log($scope.autoTender.investType);
-      if(typeof($scope.autoTender.investType) === 'string'){
-        $scope.autoTender.investType = [];
-      }
-      if(num < 0){
+      if($scope.autoTender.investType.length <= 0){
         $scope.autoTender.investType.push(type);
       }else{
-        $scope.autoTender.investType.remove(type);
+        if($scope.autoTender.investType.indexOf(type) == -1){
+          $scope.autoTender.investType.push(type);
+        }else{
+          $scope.autoTender.investType.splice($scope.autoTender.investType.indexOf(type),1);
+        }
       }
-      $scope.autoTender.investType = Array.from(new Set($scope.autoTender.investType));
+      
       $scope.selectTypeText = '';
       if($scope.autoTender.investType.length >= $scope.projectTypeNo.length){
         $scope.selectTypeText = '全部';
@@ -434,19 +433,25 @@ angular.module('hongcaiApp')
         for(var i = 0; i< $scope.autoTender.investType.length; i++){
           $scope.selectTypeText += ',' + $scope.projectType[$scope.autoTender.investType[i]];
         }
-        $scope.selectTypeText = $scope.selectTypeText.split('').splice(1).join('');
+        $scope.selectTypeText = $scope.selectTypeText.split('');
+        $scope.selectTypeText.splice(0,1);
+        $scope.selectTypeText = $scope.selectTypeText.join('');
       }
-      console.log($scope.autoTender.investType);
-    };
-    $scope.projectTypeEnter = function(){
-      console.log($scope.autoTender.investType);
+      if ($scope.autoTender.investType.length > 0) {
+        $scope.noType = true;
+      }
+      if($scope.autoTender.investType.length == 1 && $scope.autoTender.investType[0] == '7' && $scope.autoTender.minInvestAmount > 10000){
+        $scope.errorMsg1 = '最大投标金额为10000元';
+      } else if ($scope.autoTender.minInvestAmount <= 1000000){
+        $scope.errorMsg1 = '';
+      }
     };
 
     //最小投标金额
     var pattern=/^[0-9]*(\.[0-9]{1,2})?$/;
     var pattern2= /^\+?[1-9][0-9]*$/;
-    $scope.error1 = false;
     $scope.watchInvestAmount= function(newVal) {
+
       $scope.errorMsg1 = '';
       if (!$rootScope.isLogged) {
         return;
@@ -464,9 +469,11 @@ angular.module('hongcaiApp')
           $scope.errorMsg1 = '请输入100元的正整数倍';
         }else if (newVal > 1000000) {
           $scope.errorMsg1 = '最大投标金额为1000000元';
+        }else if (newVal && newVal > 10000 && $scope.autoTender.investType.length == 1 && $scope.autoTender.investType[0] == '7') {
+          $scope.errorMsg1 = '最大投标金额为10000元';
         }
-      } 
-      $scope.error1 = $scope.errorMsg1 === '' ? false : true;      
+      }
+      
     };
     //账户保留金额
     $scope.error2 = false;
@@ -506,23 +513,27 @@ angular.module('hongcaiApp')
         $scope.autoTender.annualEarnings = $scope.autoTenderDetail.annualEarnings;
         $scope.autoTenderDetail.startTime = $scope.autoTenderDetail.startTime;
         $scope.autoTenderDetail.endTime = $scope.autoTenderDetail.endTime;
-        console.log($scope.autoTender.investType);
+        
         for(var i=0;i<$scope.autoTender.investType.length;i++){
           if($scope.autoTender.investType[i] === ','){
-            $scope.autoTender.investType = $scope.autoTender.investType.splice(i);
-            // alert(1);
+            $scope.autoTender.investType.splice(i,1);
           }
         }
-        for(var i=0;i<$scope.autoTender.investType.length;i++){
-          $scope.projectTypeContent += (',' +  $scope.projectType[$scope.autoTender.investType[i]]);
-          // alert(1);
+        if($scope.autoTender.investType.length >= $scope.projectTypeNo.length){
+          $scope.selectTypeText = '全部';
+        }else{
+          for(var i=0;i<$scope.autoTender.investType.length;i++){
+            $scope.selectTypeText += (',' +  $scope.projectType[$scope.autoTender.investType[i]]);
+          }
+          $scope.selectTypeText = $scope.selectTypeText.split('').splice(1).join('');
         }
-        $scope.projectTypeContent = $scope.projectTypeContent.split('').splice(1).join('');
+        
       }else {
         $scope.setAutoTender = false;
         $scope.autoTender.selectedDateLine = '360';
         $scope.autoTender.annualEarnings = '7';
-        $scope.autoTender.investType = [];
+        $scope.autoTender.investType = ['2','5','6','7'];
+        $scope.selectTypeText = '全部';
         $scope.autoTender.minInvestAmount = 100;
         $scope.autoTender.retentionAmount = 0;
         $scope.currentTime = new Date();
@@ -539,7 +550,13 @@ angular.module('hongcaiApp')
       if (!$rootScope.isLogged) {
         return;
       }
-
+      if(autoTender.investType.length == 0){
+        return;
+      }
+      if(autoTender.investType.length == 1 && autoTender.investType[0] == '7' && autoTender.minInvestAmount > 10000){
+        $scope.errorMsg1 = '最大投标金额为10000元';
+        return;
+      }
       //开启
       UserCenterService.autoTenders.post({
         userId: 0,
@@ -547,7 +564,7 @@ angular.module('hongcaiApp')
         minRemainDay: 0,
         maxRemainDay: autoTender.selectedDateLine,
         annualEarnings: autoTender.annualEarnings,
-        investType: autoTender.investType.join(''),
+        investType: autoTender.investType.join(','),
         remainAmount: autoTender.retentionAmount,
         startTime: startTime,
         endTime: endTime

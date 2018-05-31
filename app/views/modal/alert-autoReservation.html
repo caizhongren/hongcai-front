@@ -1,6 +1,6 @@
-<div class="autoReservation alert" ng-class="[type ? 'alert-' + type : null]">
+<div class="autoReservation alert" id="autoReservation" ng-class="[type ? 'alert-' + type : null]" ng-click="blurUl($event)">
   <!--  ng-controller="autoReservationCtrl" -->
-  <button type="button" class="close" ng-if="dismissable" ng-click="$hide()">&times;</button>
+  <button type="button" class="close" ng-if="dismissable" ng-click="reload();$hide();">&times;</button>
   <div class="title">
     <strong class="ftw-n">自动投标</strong>
   </div>
@@ -19,10 +19,10 @@
       </div>
       <form ng-if="!setAutoTender" name="investForm">
         <input class="minInvestAmount col-4 padding-t-9 input-invest ft-grey666 box-shadow" type="number" ng-model="autoTender.minInvestAmount" name="minInvestAmount" ng-change="watchInvestAmount(autoTender.minInvestAmount)"/><span class="input-money ft-black4 ft-14 fl">元</span>
-        <div class="col-md-4 padding-0 ft-12 margin-t-15 ft-grey6 margin-l-5">自动投标时，每笔投资金额都将大于此数值{{retentionForm.retentionAmount.$error.pattern }}</div>
+        <div class="col-md-4 padding-0 ft-12 margin-t-15 ft-grey6 margin-l-5">自动投标时，每笔投资金额都将大于此数值{{errorMsg1 != ''}}</div>
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
-            <div class="margin-b-0 margin-l-30 text-left" ng-if="error1">{{errorMsg1}}</div>
+            <div class="margin-b-0 margin-l-30 text-left" ng-if="errorMsg1 != ''">{{errorMsg1}}</div>
           </div>
         </div>
       </form>   
@@ -59,15 +59,16 @@
     <div class="row margin-b-20">
       <div class="col-22 col-md-offset-1 padding-0"><i class="icon5"></i>标的类型</div>
       <div ng-if="setAutoTender">
-        <span class="col-4 padding-t-9 ft-grey666">{{projectTypeContent}}</span>
+        <span class="col-4 padding-t-9 ft-grey666">{{selectTypeText}}</span>
       </div>
-      <a ng-if="!setAutoTender" class="col-9 cursor-pt display-bl" ng-click="projectTypeFn()" href="javascript:;">
+      <a ng-if="!setAutoTender" class="col-9 cursor-pt display-bl" ng-click="projectTypeFn()" href="javascript:;" id="input">
         <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{selectTypeText}}" disabled/>
         <span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span>       
       </a>
-      <ul class="select" ng-show="showProjectType" focus-blur>
-        <li ng-click="multiSelect(item.type,$event)" ng-repeat="item in projectTypeNo" selectedState="1" ng-class="{'selected': ($scope.autoTender.investType.indexOf(item.type) >= 0)}">{{projectType[item.type]}}</li>
-        <button class="btn-open orange-button col-1 pull-left margin-l-prcent35 ng-scope" ng-click="projectTypeFn()">确定</button>
+      <span ng-if="!noType" class="col-md-4 padding-0 ft-12 ng-binding ft-red4" style="float: right; margin-top: -16px;margin-right: 16px;">请选择标的类型</span>
+      <ul class="select" ng-if="showProjectType" id="projectTypeUl">
+        <li ng-click="multiSelect(item.type,$event)" ng-repeat="item in projectTypeNo" ng-class="{'selected': (autoTender.investType.indexOf(item.type) >= 0)}">{{projectType[item.type]}}</li>
+        <button class="btn-open orange-button col-1 pull-left margin-l-prcent35 ng-scope" ng-click="projectTypeFn(enter)">确定</button>
         <p>（债权转让项目，不可使用各类优惠券哦~）</p>
       </ul>
     </div>
@@ -110,8 +111,8 @@
     </div>
     <!-- 提交按钮 -->
     <div class="margin-b-30 col-xs-10 col-xs-offset-1">
-      <button class="btn-open orange-button col-1 pull-left margin-l-prcent35" ng-click="openReservation2(autoTender);$hide();" ng-if="!setAutoTender && !error1 && !error2 && disableDubble">开启</button>
-      <button class="btn-disabled btn-open orange-button col-1 pull-left margin-l-prcent35" ng-if="!setAutoTender && (error1 || error2)" disabled>开启</button>
+      <button class="btn-open orange-button col-1 pull-left margin-l-prcent35" ng-click="openReservation2(autoTender);$hide();" ng-if="!setAutoTender && errorMsg1 == '' && !error2 && disableDubble && noType">开启</button>
+      <button class="btn-disabled btn-open orange-button col-1 pull-left margin-l-prcent35" ng-if="!setAutoTender && (errorMsg1 != '' || error2 || !noType)" disabled>开启</button>
       <a class="btn-open orange-button col-1 pull-left margin-l-prcent22" ng-click="modify()"  ng-if="setAutoTender">修改</a>
       <a class="btn-open orange-button col-1 pull-left margin-l-60" ng-click="showCancelAuthorization();$hide()"  ng-if="setAutoTender && disableDubble">禁用</a>  
     </div>
