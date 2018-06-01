@@ -29,7 +29,7 @@
             <li ng-click="changeMonth(month);" ng-repeat="month in monthList" ng-class="{'disabled-month': selectedYear <= startYear && month < startMonth || selectedYear >= currentYear && month > currentMonth}">{{month}}月</li>
           </ul>
         </div>
-        <div class="search">查询</div>
+        <div class="search" ng-click="search(selectedYear, selectedMonth);">查询</div>
       </div>
       <table class="info">
         <div>
