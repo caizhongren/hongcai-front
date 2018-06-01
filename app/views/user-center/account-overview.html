@@ -7,7 +7,7 @@
       <div class="balance-amount fl ft-orange6 ft-30 ft-Arial">{{account.balance| number:2}}</div>
     </div>
     <div class="col-md-4 shortcut-key">
-      <span class="invest invest-default" ui-sref="root.guaranteepro-list-query({status: '7,8,9,10,11,12', minCycle: '0', maxCycle: '100', minEarning: '0', maxEarning: '100', minTotalAmount: '0', maxTotalAmount: 200000000, sortCondition: 'release_start_time', sortType: false, type: 5 })">投资</span>
+      <span class="invest invest-default" ui-sref="root.guaranteepro-list-query({status: '7,8,9,10,11,12', minCycle: '0', maxCycle: '100', minEarning: '0', maxEarning: '100', minTotalAmount: '0', maxTotalAmount: 200000000, sortCondition: 'release_start_time', sortType: false, type: 5 })">出借</span>
       <span class="recharge" ui-sref="root.userCenter.recharge">充值</span>
       <span class="withdraw margin-r-0" ui-sref="root.userCenter.withdraw">提现</span>
     </div>
@@ -26,11 +26,11 @@
   <div class="account-profit margin-b-30">
     <div class="earnings-yesterday col-md-4 border-r-e">
       <div class="ft-36 ft-grey1 margin-b-20 margin-t-50 ft-Arial">{{yestodayProfit || 0 | number: 2}}</div>
-      <div class="ft-14 ft-grey666">昨日收益 ( 元 ) </div>
+      <div class="ft-14 ft-grey666">昨日利息（元） </div>
     </div>
     <div class="accumulated-income col-md-4 border-r-e">
       <div class="ft-36 ft-grey1 margin-b-20 margin-t-50 ft-Arial">{{account.receivedProfit || 0 | number:2}}</div>
-      <div class="ft-14 ft-grey666">已收收益 ( 元 ) </div>
+      <div class="ft-14 ft-grey666">已收利息（元） </div>
     </div>
     <div class="total-assets col-md-4">
       <div class="ft-36 ft-grey1 margin-b-20 margin-t-50 ft-Arial">{{account.balance + account.waitingCapital + account.waitingProfit + account.freezeCapital || 0 | number:2}}</div>
@@ -39,7 +39,7 @@
         <div class="sidebar-tip-top" ng-show="showTip">
           <p><span class="fl margin-r-10">账户余额 ( 元 ) : </span><span class="fr">{{account.balance || 0 | number:2}}</span></p>
           <p><span class="fl margin-r-10">待收本金 ( 元 ) : </span><span class="fr">{{account.waitingCapital + account.freezeCapital || 0 | number:2}}</span></p>
-          <p><span class="fl margin-r-10">待收收益 ( 元 ) : </span><span class="fr">{{account.waitingProfit || 0 | number:2}}</span></p>
+          <p><span class="fl margin-r-10">待收利息（元） : </span><span class="fr">{{account.waitingProfit || 0 | number:2}}</span></p>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
   <div class="profit-chart margin-b-30">
     <p class="chart-title ft-16 ft-grey666 margin-b-0">资产收益走势图</p>
     <div class="tabs row margin-l-0 margin-r-0 position-re" ng-init = "tab = 0">
-        <div class="toggle-tab col-md-4 ft-b cursor-pointer margin-b-30 {{tab === 0 ? 'credit-toggle2' : ''}}" ng-click="tab = 0;currentYear = currentYearCopy;toReceiveTab()">已收收益</div>
+        <div class="toggle-tab col-md-4 ft-b cursor-pointer margin-b-30 {{tab === 0 ? 'credit-toggle2' : ''}}" ng-click="tab = 0;currentYear = currentYearCopy;toReceiveTab()">已收利息</div>
         <div class="toggle-tab col-md-4 ft-b cursor-pointer margin-b-30 {{tab === 1 ? 'credit-toggle2' : ''}}" ng-click="tab = 1;currentYear = currentYearCopy;toggleDate(2, 1)">每日</div>
     </div>
     <!-- 累计图 -->

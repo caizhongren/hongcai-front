@@ -176,7 +176,7 @@ angular.module('hongcaiApp')
         },
         title: {
           show: 25,
-          text: "在投金额",
+          text: "出借金额",
           textAlign: "middle",
           textBaseline: "middle",
           left: "38%",

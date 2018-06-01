@@ -29,16 +29,16 @@
             <div class="col-xs-12 col-sm-4 under-margin">
               <h3 class="text-center text-nowrap ft-24 ft-grey1">{{project.projectDays || 0}}<span class="ft-16 ft-grey1">天<span></h3>
               <!-- <h3 class="text-center text-nowrap ft-24 ft-grey1" ng-if="project.repaymentType <= 2">{{project.cycle || 0}}<span class="ft-16 ft-grey1">个月<span></h3> -->
-              <p class="text-center text-nowrap ft-14 ft-grey666 margin-t-15 position-re">投资期限&nbsp;
+              <p class="text-center text-nowrap ft-14 ft-grey666 margin-t-15 position-re">项目期限&nbsp;
                 <span class="project_desp display-inbl position-ab cursor-pt" toggle-fade></span>
-                <span class="pro_des_date_tip">受募集时间影响，投资期限以实际为准</span>
+                <span class="pro_des_date_tip">受募集时间影响，项目期限以实际为准</span>
               </p>
             </div>
           </div>
           <hr style="margin-top: 3px;margin-bottom: 12px;">
           <div class="row margin-t-20">
             <div class="col-xs-12 under-margin1">
-              <span class="project_dot">计息日期：投资当日，即刻计息</span>
+              <span class="project_dot">计息日期：出借当日，即刻计息</span>
             </div>
             <div class="col-xs-12 under-margin1" ng-hide="categoryCode === '0112' || categoryCode === '0113' || categoryCode === '0114' || categoryCode === '0115' || categoryCode === '0119'">
               <span class="project_dot">担保机构：{{project.guaranteeName}}</span>
