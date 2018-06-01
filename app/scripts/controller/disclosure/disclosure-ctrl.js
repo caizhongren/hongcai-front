@@ -464,4 +464,45 @@ angular.module('hongcaiApp')
       }
     ]
     $scope.importList = ['公司减资、合并、分立、解散或申请破产', '公司依法进入破产程序', '公司被责令停业、整顿、关闭', '公司涉及重大诉讼、仲裁，或涉嫌违法违规被有权机关调查，或受到刑事处罚、重大行政处罚', '公司法定代表人、实际控制人、主要负责人、董事、监事、高级管理人员涉及重大诉讼、仲裁，或涉嫌违法违纪被有权机关调查，或受到刑事处罚、重大行政处罚，或被采取强制措施', '公司主要或者全部业务陷入停顿', '存在欺诈、损害出借人利益等其他影响网络借贷信息中介机构经营活动的重大事项']
+    // 经营信息 日期选择菜单
+    $scope.yearList = [];
+    $scope.monthList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    $scope.showYearList = false;
+    $scope.showMonthList = false;
+    $scope.startYear = 2018;
+    $scope.startMonth = 4;
+    $scope.currentYear = new Date().getFullYear();
+    $scope.currentMonth = new Date().getMonth() + 1;
+    $scope.selectedYear = $scope.currentYear;
+    $scope.selectedMonth = $scope.currentMonth;
+    for (let i = $scope.startYear; i <= $scope.currentYear; i++) {
+      $scope.yearList.push(i)
+    }
+    $scope.selectYear = function () {
+      $scope.showMonthList ? $scope.showMonthList = false : null;
+      $scope.showYearList = !$scope.showYearList;
+    }
+    $scope.selectMonth = function () {
+      $scope.showYearList ? $scope.showYearList = false : null;
+      $scope.showMonthList = !$scope.showMonthList;
+    }
+    $scope.changeYear = function (year) {
+      $scope.selectedYear = year;
+      $scope.showYearList = false;
+    }
+    $scope.changeMonth = function (month) {
+      if ($scope.selectedYear <= $scope.startYear && month < $scope.startMonth || $scope.selectedYear >= $scope.currentYear && month > $scope.currentMonth) {
+        return;
+      }
+      $scope.selectedMonth = month;
+      $scope.showMonthList = false;
+    }
+    $scope.blurUl = function($event) {
+      var years = angular.element('.years');   // 设置目标区域
+      var months = angular.element('.months');   // 设置目标区域
+      if(!years.is($event.target) && years.has($event.target).length === 0 && !months.is($event.target) && months.has($event.target).length === 0){ 
+        $scope.showYearList = false;
+        $scope.showMonthList = false;
+      }
+    }
   }]);
