@@ -452,6 +452,7 @@ angular.module('hongcaiApp')
     //最小投标金额
     var pattern=/^[0-9]*(\.[0-9]{1,2})?$/;
     var pattern2= /^\+?[1-9][0-9]*$/;
+    $scope.errorMsg1 = '';
     $scope.watchInvestAmount= function(newVal) {
 
       $scope.errorMsg1 = '';
@@ -534,8 +535,6 @@ angular.module('hongcaiApp')
           }
           $scope.selectTypeText = $scope.selectTypeText.split('').splice(1).join('');
         }
-        console.log($scope.isExist);
-        console.log($scope.autoTender.investType);
       }else {
         $scope.setAutoTender = false;
         $scope.autoTender.selectedDateLine = '360';
