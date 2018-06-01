@@ -19,7 +19,7 @@
       </div>
       <form ng-if="!setAutoTender" name="investForm">
         <input class="minInvestAmount col-4 padding-t-9 input-invest ft-grey666 box-shadow" type="number" ng-model="autoTender.minInvestAmount" name="minInvestAmount" ng-change="watchInvestAmount(autoTender.minInvestAmount)"/><span class="input-money ft-black4 ft-14 fl">元</span>
-        <div class="col-md-4 padding-0 ft-12 margin-t-15 ft-grey6 margin-l-5">自动投标时，每笔投资金额都将大于此数值{{errorMsg1 != ''}}</div>
+        <div class="col-md-4 padding-0 ft-12 margin-t-15 ft-grey6 margin-l-5">自动投标时，每笔投资金额都将大于此数值</div>
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
             <div class="margin-b-0 margin-l-30 text-left" ng-if="errorMsg1 != ''">{{errorMsg1}}</div>

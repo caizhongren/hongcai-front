@@ -285,6 +285,7 @@ angular.module('hongcaiApp')
     }
 
     // 判断是否第一次投资
+    $scope.isExist = false;
     ProjectService.isExist.get({userId: 0},function(response){
       if(!response.exist){
         $scope.projectTypeNo = [
@@ -302,6 +303,7 @@ angular.module('hongcaiApp')
           }
         ];
       }else{
+        $scope.isExist = true;
         $scope.projectTypeNo = [
           {
             type: '5'
@@ -519,6 +521,11 @@ angular.module('hongcaiApp')
             $scope.autoTender.investType.splice(i,1);
           }
         }
+        if($scope.isExist){
+          if($scope.autoTender.investType.indexOf('7') !== -1){
+            $scope.autoTender.investType.splice($scope.autoTender.investType.indexOf('7'),1);
+          }
+        }
         if($scope.autoTender.investType.length >= $scope.projectTypeNo.length){
           $scope.selectTypeText = '全部';
         }else{
@@ -527,7 +534,8 @@ angular.module('hongcaiApp')
           }
           $scope.selectTypeText = $scope.selectTypeText.split('').splice(1).join('');
         }
-        
+        console.log($scope.isExist);
+        console.log($scope.autoTender.investType);
       }else {
         $scope.setAutoTender = false;
         $scope.autoTender.selectedDateLine = '360';
