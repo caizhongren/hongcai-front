@@ -27,23 +27,23 @@ angular.module('hongcaiApp')
               $scope.errMsg = '';
             }
           if( newVal < 0) {
-              $scope.errMsg = '投资金额必须大于等于100';
+              $scope.errMsg = '出借金额必须大于等于100';
             }
           if(newVal && newVal < 100) {
-              $scope.errMsg = '投资金额必须大于等于100';
+              $scope.errMsg = '出借金额必须大于等于100';
             }
           if(newVal) {
             if(newVal == 100 && $rootScope.account.balance >=100 && $scope.creditProject.currentStock *100 >=100) {
               $scope.errMsg = '';
             }
             if(newVal % 100 !== 0) {
-              $scope.errMsg = '投资金额必须为100的整数倍';
+              $scope.errMsg = '出借金额必须为100的整数倍';
             }
             if(newVal >  $rootScope.account.balance || (newVal <= $rootScope.account.balancenewVal && $rootScope.account.balancenewVal < $scope.realPayAmount)) {
               $scope.errMsg = '账户余额不足，请先充值';
             }
             if(newVal > $scope.creditProject.currentStock *100) {
-              $scope.errMsg = '投资金额必须小于' + $scope.creditProject.currentStock *100;
+              $scope.errMsg = '出借金额必须小于' + $scope.creditProject.currentStock *100;
             }
 
             //上次还款到认购当日的天数
@@ -179,7 +179,7 @@ angular.module('hongcaiApp')
     $scope.tabs = [{
       title: '还款计划',
     }, {
-      title: '投资记录',
+      title: '出借记录',
     }];
 
 

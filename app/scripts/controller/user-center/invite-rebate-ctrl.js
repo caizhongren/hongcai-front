@@ -44,7 +44,7 @@ angular.module('hongcaiApp')
 
 
     $scope.showMessage = function() {
-      $scope.msg = '邀请链接已经复制到剪切板，赶快复制（Ctrl+V）给您的好友，一起在宏财投资吧！';
+      $scope.msg = '邀请链接已经复制到剪切板，赶快复制（Ctrl+V）给您的好友，一起在宏财出借吧！';
       $alert({
         scope: $scope,
         template: 'views/modal/alert-dialog.html',

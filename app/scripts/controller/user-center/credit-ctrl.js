@@ -189,7 +189,7 @@ angular.module('hongcaiApp')
         },
         series : [
           {
-            name:'投资占比',
+            name:'出借占比',
             type:'pie',
             data:[
               {value:percent1},

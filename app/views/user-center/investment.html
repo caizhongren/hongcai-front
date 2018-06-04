@@ -1,4 +1,4 @@
-<!-- 投资产品 -->
+<!-- 出借产品 -->
 <div class="right-area investment col-md-8 col-lg-9" >
   <div class="currency-style">
     <div class="title">
@@ -110,7 +110,7 @@
           <thead>
             <tr>
               <th>订单编号</th>
-              <th>投资金额（元）</th>
+              <th>出借金额（元）</th>
               <th>项目名称</th>
               <th>下单时间</th>
               <th>订单状态</th>
@@ -162,13 +162,13 @@
         </ul>
       </div>
       <div class="main text-center margin-t-50" ng-show="orderStatistics.allInve <= 0">
-        <p>亲，您尚未在宏财网投资，建议您浏览项目列表，购买感兴趣的债权吧~</p>
+        <p>亲，您尚未在宏财网出借，建议您浏览项目列表，购买感兴趣的债权吧~</p>
         <p><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.main">浏览项目</a></p>
       </div>
     </div>
     <!-- 未开通银行存管账户 -->
     <div class="text-center main" ng-show="securityStatus.realNameAuthStatus !== 1">
-      <p class="padding-t-50">亲，您尚未开通银行存管账户，因此无法投资购买债权，建议您尽快开通哦~</p>
+      <p class="padding-t-50">亲，您尚未开通银行存管账户，因此无法出借购买债权，建议您尽快开通哦~</p>
       <p class="padding-b-30"><a class="btn btn-primary-orange ft-18 margin-t-10 bg-btn-red padding-l-45 padding-r-45" ui-sref="root.userCenter.security-settings">开通银行存管账户</a></p>
     </div>
   </div>

@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('MessageCtrl', function($location, $scope, toaster, $state, $rootScope, $stateParams, UserCenterService) {
-    $rootScope.pageTitle = '站内信-要投资，上宏财！';
+    $rootScope.pageTitle = '站内信-要出借，上宏财！';
     $scope.toggleMessage = function($index){
       $scope.toggleIndex = $index;
       var index = $index;

@@ -161,6 +161,7 @@ angular.module('hongcaiApp')
       };
 
     $scope.getPreprPojectDetails = function(projectId){
+      alert(projectId)
       UserCenterService.getPreprPojectNumber.get({
         projectId: projectId
       }, function(response){

@@ -54,7 +54,7 @@
               <input type="number" placeholder="请输入{{project.status === 11 ? '预约' : '出借'}}总额" disabled='disabled' class="form-control margin-b-15 btn-76">
             </div>
             <div class="margin-t-0">
-              <span class="ft-grey666">期望收益：</span>
+              <span class="ft-grey666">期望利息：</span>
               <span class="ft-orange ft-16">0</span> 元
             </div>
             <div class="margin-t-20">
@@ -185,7 +185,7 @@
                   </ul>
                 </div>
                 <div class="margin-b-20 ft-grey666" ng-hide="project.status ===7 && project.currentStock === 0 || newbieBiaoErrorMsg">
-                  期望收益：
+                  期望利息：
                   <span class="spangray" ng-model="profit">
                     <span class="ft-16">{{project.amount ? profit : 0 | number:2}}</span>元
                     <span class="ft-orange" ng-show="selectedCoupon.type === 1 || selectedCoupon.amount > 0"><span class="ft-16">+{{project.amount? increaseProfit : 0 | number:2}}</span>元</span>
