@@ -246,6 +246,7 @@ angular.module('hongcaiApp')
     $scope.startYear = 2018;
     $scope.startMonth = 4;
     $scope.getPlatformData = function (dateTime) {
+      $scope.yearList = [];
       AboutUsService.dataStat.get({
         dateTime: dateTime
       }, function (response) {
@@ -508,7 +509,7 @@ angular.module('hongcaiApp')
       }
     }
     $scope.search = function (selectedYear, selectedMonth) {
-      let dateTime = selectedYear + (selectedMonth >= 10 ? String(selectedMonth) : '0' + selectedMonth);
+      let dateTime = selectedYear + '-' + (selectedMonth >= 10 ? String(selectedMonth) : '0' + selectedMonth);
       $scope.getPlatformData(dateTime);
     }
   }]);
