@@ -10,7 +10,7 @@ angular.module('hongcaiApp').directive('toggleFade', [function() {
   return {
     restrict: 'A',
     link: function(scope, element, attrs, ctrl) {
-      element.mouseover(function() {
+      element.mouseenter(function() {
         element.next().stop().fadeIn();
       }).mouseleave(function() {
           element.next().stop().fadeOut();
