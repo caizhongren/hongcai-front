@@ -63,23 +63,6 @@ angular.module('hongcaiApp')
         'text': ''
       }]
     };
-    // $scope.processId = 1;
-    // $('#carousel-example-generic').on('slid.bs.carousel', function (ev) {
-    //   alert(1);
-    //   var processId = ev.relatedTarget.id;
-    //   $scope.processId = processId;
-    //   $scope.$apply();
-
-    //   if(processId== 1 || processId ==2 ){
-    //     $('.process-circle').find('.li1').addClass('li_activ').siblings().removeClass('li_activ');
-    //   }else if (processId >2 && processId < 6) {
-    //     $('.process-circle').find('.li2').addClass('li_activ').siblings().removeClass('li_activ');
-    //   }else if( processId > 5 && processId < 9) {
-    //     $('.process-circle').find('.li3').addClass('li_activ').siblings().removeClass('li_activ');
-    //   }else {
-    //     $('.process-circle').find('.li4').addClass('li_activ').siblings().removeClass('li_activ');
-    //   }
-    // });
     $scope.businessInfo = [
       {
         name: '平台名称',
@@ -261,6 +244,8 @@ angular.module('hongcaiApp')
           }
           $scope.selectedYear = new Date(response.systemDataTime).getFullYear();
           $scope.selectedMonth = new Date(response.systemDataTime).getMonth() + 1;
+          $scope.selectedYearText = $scope.selectedYear + '年';
+          $scope.selectedMonthText = $scope.selectedMonth + '月';
           $scope.managementInfo = [
             {
               name: '借贷余额', 
@@ -493,6 +478,7 @@ angular.module('hongcaiApp')
     $scope.changeYear = function (year) {
       $scope.selectedYear = year;
       $scope.showYearList = false;
+      $scope.selectedYearText = $scope.selectedYear + '年';
     }
     $scope.changeMonth = function (month) {
       if ($scope.selectedYear <= $scope.startYear && month < $scope.startMonth || $scope.selectedYear >= $scope.currentYear && month > $scope.currentMonth) {
@@ -500,6 +486,7 @@ angular.module('hongcaiApp')
       }
       $scope.selectedMonth = month;
       $scope.showMonthList = false;
+      $scope.selectedMonthText = $scope.selectedMonth + '月';
     }
     $scope.blurUl = function($event) {
       var years = angular.element('.years');   // 设置目标区域

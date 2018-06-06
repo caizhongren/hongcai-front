@@ -13,7 +13,7 @@
       <div class="dateTime">
         <div class="years">
           <div class="yearBox" ng-click="selectYear();">
-            <input class="ft-grey666" value="{{selectedYear}}年" disabled/>
+            <input class="ft-grey666" ng-model="selectedYearText" disabled/>
             <i class="fa fa-angle-down" aria-hidden="true"></i>
           </div>
           <ul class="yearList" ng-if="showYearList">
@@ -22,7 +22,7 @@
         </div>
         <div class="months">
           <div class="monthBox" ng-click="selectMonth();">
-            <input class="ft-grey666" value="{{selectedMonth}}月" disabled/>
+            <input class="ft-grey666" ng-model="selectedMonthText" disabled/>
             <i class="fa fa-angle-down" aria-hidden="true"></i>
           </div>
           <ul class="monthList" ng-if="showMonthList">
