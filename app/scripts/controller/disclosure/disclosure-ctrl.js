@@ -256,7 +256,7 @@ angular.module('hongcaiApp')
           if (!dataTime) {
             $scope.currentYear = new Date(response.systemDataTime).getFullYear();
             $scope.currentMonth = new Date(response.systemDataTime).getMonth() + 1;
-            for (let i = $scope.startYear; i <= $scope.currentYear; i++) {
+            for (var i = $scope.startYear; i <= $scope.currentYear; i++) {
               $scope.yearList.push(i)
             }
           }
@@ -511,7 +511,7 @@ angular.module('hongcaiApp')
       }
     }
     $scope.search = function (selectedYear, selectedMonth) {
-      let dataTime = selectedYear + '-' + (selectedMonth >= 10 ? String(selectedMonth) : '0' + selectedMonth);
+      var dataTime = selectedYear + '-' + (selectedMonth >= 10 ? String(selectedMonth) : '0' + selectedMonth);
       $scope.getPlatformData(dataTime);
     }
   }]);
