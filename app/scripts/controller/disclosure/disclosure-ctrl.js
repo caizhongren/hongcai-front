@@ -245,21 +245,23 @@ angular.module('hongcaiApp')
     $scope.showMonthList = false;
     $scope.startYear = 2018;
     $scope.startMonth = 4;
-    $scope.getPlatformData = function (dateTime) {
+    $scope.getPlatformData = function (dataTime) {
       $scope.yearList = [];
       AboutUsService.dataStat.get({
-        dateTime: dateTime
+        dataTime: dataTime
       }, function (response) {
         if (response && response.ret !== -1) {
           $scope.cumulative = response.disclosureInformationDetail
           $scope.updateDate = response.systemDataTime
-          $scope.currentYear = new Date(response.systemDataTime).getFullYear();
-          $scope.currentMonth = new Date(response.systemDataTime).getMonth() + 1;
-          $scope.selectedYear = $scope.currentYear;
-          $scope.selectedMonth = $scope.currentMonth;
-          for (let i = $scope.startYear; i <= $scope.currentYear; i++) {
-            $scope.yearList.push(i)
+          if (!dataTime) {
+            $scope.currentYear = new Date(response.systemDataTime).getFullYear();
+            $scope.currentMonth = new Date(response.systemDataTime).getMonth() + 1;
+            for (let i = $scope.startYear; i <= $scope.currentYear; i++) {
+              $scope.yearList.push(i)
+            }
           }
+          $scope.selectedYear = new Date(response.systemDataTime).getFullYear();
+          $scope.selectedMonth = new Date(response.systemDataTime).getMonth() + 1;
           $scope.managementInfo = [
             {
               name: '借贷余额', 
@@ -509,7 +511,7 @@ angular.module('hongcaiApp')
       }
     }
     $scope.search = function (selectedYear, selectedMonth) {
-      let dateTime = selectedYear + '-' + (selectedMonth >= 10 ? String(selectedMonth) : '0' + selectedMonth);
-      $scope.getPlatformData(dateTime);
+      let dataTime = selectedYear + '-' + (selectedMonth >= 10 ? String(selectedMonth) : '0' + selectedMonth);
+      $scope.getPlatformData(dataTime);
     }
   }]);

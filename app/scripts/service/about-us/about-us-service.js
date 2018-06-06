@@ -13,7 +13,7 @@ angular.module('hongcaiApp')
         textId: '@textId'
       }),
       dataStat: $resource(RESTFUL_DOMAIN + '/disclosureInfo/newest', {
-        dateTime: '@dateTime'
+        dataTime: '@dataTime'
       }),
       loanInfo: $resource(RESTFUL_DOMAIN + '/disclosureInfo/loanInfo/:id', {
         id : '@id'
