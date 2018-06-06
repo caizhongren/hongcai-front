@@ -246,7 +246,6 @@ angular.module('hongcaiApp')
     $scope.startYear = 2018;
     $scope.startMonth = 4;
     $scope.getPlatformData = function (dataTime) {
-      $scope.yearList = [];
       AboutUsService.dataStat.get({
         dataTime: dataTime
       }, function (response) {
