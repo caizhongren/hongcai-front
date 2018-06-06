@@ -89,7 +89,7 @@
 				<form name="resetMobileForm" ng-submit="resetMobilenum(user);" novalidate>
 					<div class="form-group">
 						<label>新手机号码：</label>
-						<input type="mobile" class="verify-input" id="mobile" name="mobile" ng-model="user.mobile" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[03678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobile" ng-focus required autofocus/>
+						<input type="mobile" class="verify-input" id="mobile" name="mobile" ng-model="user.mobile" ng-pattern="mobilePattern" ensure-unique-mobile="mobile" ng-focus required autofocus/>
 						<div ng-if="resetMobileForm.mobile.$invalid" class="display-inbl" class="wid-20">
 						  <div class="user-tips-area display-inbl" ng-show="resetMobileForm.mobile.$dirty && resetMobileForm.mobile.$invalid && resetMobileForm.mobile.$error.required &&!resetMobileForm.mobile.$focused">
 						    <p class="input-tips user-input-tips security-stl"><i class="fa fa-times-circle-o login-check-img"></i>不能为空</p>

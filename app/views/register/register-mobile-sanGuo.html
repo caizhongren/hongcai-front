@@ -104,7 +104,7 @@
               id="mobile" 
               name="mobile" 
               ng-model="user.mobile" 
-              ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678]))\d{8}$/" 
+              ng-pattern="mobilePattern" 
               ensure-unique-mobile="mobile" 
               required 
               ng-focus 

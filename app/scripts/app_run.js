@@ -86,6 +86,7 @@ angular.module('hongcaiApp')
     };
     
     $rootScope.pay_company = config.pay_company;
+    $rootScope.mobilePattern = /^1[0-9]{10}$/;
 
     /**
      * 暂停服务弹窗
