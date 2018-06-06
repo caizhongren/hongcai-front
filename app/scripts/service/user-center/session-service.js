@@ -10,7 +10,6 @@ angular.module('hongcaiApp')
       },
       destory: function(key) {
         $http.post(DEFAULT_DOMAIN + '/siteUser/destorySession').then(function(response) {
-          console.log(response.data)
           if (response.data.ret !== -1 && response.data.msg === 'success') {
             $state.go('root.login');
             return sessionStorage.removeItem(key);
