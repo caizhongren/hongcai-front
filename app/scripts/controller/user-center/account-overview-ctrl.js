@@ -366,7 +366,7 @@ angular.module('hongcaiApp')
         if( i%7 == 0){
           if(i<7){//只执行一次
             for(var j=0;j<week;j++){
-              mystr += "<div class='f-td f-null' style='color:#fff;'>"+(lastMonth+j-5+week)+"</div>";
+              mystr += "<div class='f-td f-null' style='color:#fff;'>"+(lastMonth+j-week+1)+"</div>";
             }
           }
         }
