@@ -284,39 +284,6 @@ angular.module('hongcaiApp')
       }
     }
 
-    // 判断是否第一次投资
-    $scope.isExist = false;
-    ProjectService.isExist.get({userId: 0},function(response){
-      if(!response.exist){
-        $scope.projectTypeNo = [
-          {
-            type: '7'
-          },
-          {
-            type: '5'
-          },
-          {
-            type: '6'
-          },
-          {
-            type: '2'
-          }
-        ];
-      }else{
-        $scope.isExist = true;
-        $scope.projectTypeNo = [
-          {
-            type: '5'
-          },
-          {
-            type: '6'
-          },
-          {
-            type: '2'
-          }
-        ];
-      }
-    })
     $scope.reload = function () {
       $state.reload();
     }
@@ -500,53 +467,87 @@ angular.module('hongcaiApp')
       $scope.error2 = $scope.errorMsg2 === '' ? false : true;   
     };
     
-    //自动投标详情
-    UserCenterService.autoTender.get({
-      userId: 0
-    }, function(response){
-      //1.开启  2. 过期 3.禁用 0已开启还未到开始日期
-      $scope.openTrustReservation = response.status;
-      if (response.userId !== null) {
-        $scope.setAutoTender = true;
-        $scope.autoTenderDetail = response;
-        $scope.autoTender.investType = $scope.autoTenderDetail.investType.split('');
-        $scope.autoTender.minInvestAmount = $scope.autoTenderDetail.minInvestAmount;
-        $scope.autoTender.retentionAmount = $scope.autoTenderDetail.remainAmount;
-        $scope.autoTender.selectedDateLine = $scope.autoTenderDetail.maxRemainDay;
-        $scope.autoTender.annualEarnings = $scope.autoTenderDetail.annualEarnings;
-        $scope.autoTenderDetail.startTime = $scope.autoTenderDetail.startTime;
-        $scope.autoTenderDetail.endTime = $scope.autoTenderDetail.endTime;
-        
-        for(var i=0;i<$scope.autoTender.investType.length;i++){
-          if($scope.autoTender.investType[i] === ','){
-            $scope.autoTender.investType.splice(i,1);
+    // 判断是否第一次投资
+    $scope.isExist = false;
+    ProjectService.isExist.get({userId: 0},function(response){
+      if(!response.exist){
+        $scope.projectTypeNo = [
+          {
+            type: '7'
+          },
+          {
+            type: '5'
+          },
+          {
+            type: '6'
+          },
+          {
+            type: '2'
           }
-        }
-        if($scope.isExist){
-          if($scope.autoTender.investType.indexOf('7') !== -1){
-            $scope.autoTender.investType.splice($scope.autoTender.investType.indexOf('7'),1);
+        ];
+      }else{
+        $scope.isExist = true;
+        $scope.projectTypeNo = [
+          {
+            type: '5'
+          },
+          {
+            type: '6'
+          },
+          {
+            type: '2'
           }
-        }
-        if($scope.autoTender.investType.length >= $scope.projectTypeNo.length){
-          $scope.selectTypeText = '全部';
-        }else{
-          for(var i=0;i<$scope.autoTender.investType.length;i++){
-            $scope.selectTypeText += (',' +  $scope.projectType[$scope.autoTender.investType[i]]);
-          }
-          $scope.selectTypeText = $scope.selectTypeText.split('').splice(1).join('');
-        }
-      }else {
-        $scope.setAutoTender = false;
-        $scope.autoTender.selectedDateLine = '360';
-        $scope.autoTender.annualEarnings = '7';
-        $scope.autoTender.investType = ['2','5','6','7'];
-        $scope.selectTypeText = '全部';
-        $scope.autoTender.minInvestAmount = 100;
-        $scope.autoTender.retentionAmount = 0;
-        $scope.currentTime = new Date();
-        $scope.endTime = new Date().setFullYear(new Date().getFullYear()+1);
+        ];
       }
-    });
+      //自动投标详情
+      UserCenterService.autoTender.get({
+        userId: 0
+      }, function(response){
+        //1.开启  2. 过期 3.禁用 0已开启还未到开始日期
+        $scope.openTrustReservation = response.status;
+        if (response.userId !== null) {
+          $scope.autoTenderDetail = response;
+          $scope.autoTender.investType = $scope.autoTenderDetail.investType.split('');
+          $scope.autoTender.minInvestAmount = $scope.autoTenderDetail.minInvestAmount;
+          $scope.autoTender.retentionAmount = $scope.autoTenderDetail.remainAmount;
+          $scope.autoTender.selectedDateLine = $scope.autoTenderDetail.maxRemainDay;
+          $scope.autoTender.annualEarnings = $scope.autoTenderDetail.annualEarnings;
+          $scope.autoTenderDetail.startTime = $scope.autoTenderDetail.startTime;
+          $scope.autoTenderDetail.endTime = $scope.autoTenderDetail.endTime;
+          
+          for(var i=0;i<$scope.autoTender.investType.length;i++){
+            if($scope.autoTender.investType[i] === ','){
+              $scope.autoTender.investType.splice(i,1);
+            }
+          }
+          if($scope.isExist){
+            if($scope.autoTender.investType.indexOf('7') !== -1){
+              $scope.autoTender.investType.splice($scope.autoTender.investType.indexOf('7'),1);
+            }
+          }
+          if($scope.autoTender.investType.length >= $scope.projectTypeNo.length){
+            $scope.selectTypeText = '全部';
+          }else{
+            for(var i=0;i<$scope.autoTender.investType.length;i++){
+              $scope.selectTypeText += (',' +  $scope.projectType[$scope.autoTender.investType[i]]);
+            }
+            $scope.selectTypeText = $scope.selectTypeText.split('').splice(1).join('');
+          }
+          $scope.setAutoTender = true;
+        }else {
+          $scope.setAutoTender = false;
+          $scope.autoTender.selectedDateLine = '360';
+          $scope.autoTender.annualEarnings = '7';
+          $scope.autoTender.investType = ['2','5','6','7'];
+          $scope.selectTypeText = '全部';
+          $scope.autoTender.minInvestAmount = 100;
+          $scope.autoTender.retentionAmount = 0;
+          $scope.currentTime = new Date();
+          $scope.endTime = new Date().setFullYear(new Date().getFullYear()+1);
+        }
+      });
+    })
+      
     $scope.disableDubble = true;
     //开启自动投标
     $scope.openReservation2 = function(autoTender){
