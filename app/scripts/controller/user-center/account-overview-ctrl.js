@@ -423,7 +423,7 @@ angular.module('hongcaiApp')
       })
 
     }
-    $scope.getRepaymentDates(mydate.getFullYear()+'/'+(mydate.getMonth()+1)+'/1', mydate.getFullYear()+'/'+(mydate.getMonth()+1)+'/31', mydate.getFullYear(), mydate.getMonth()+1);
+    $rootScope.isLogged === true ? $scope.getRepaymentDates(mydate.getFullYear()+'/'+(mydate.getMonth()+1)+'/1', mydate.getFullYear()+'/'+(mydate.getMonth()+1)+'/31', mydate.getFullYear(), mydate.getMonth()+1) : null;
     //日历上一月
     $scope.lastMonth = function () {
       var mm = parseInt($scope.calendar_month);
