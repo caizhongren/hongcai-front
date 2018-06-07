@@ -121,7 +121,6 @@ angular.module('hongcaiApp')
     //确认转让
     $scope.clicked = false;
     $scope.assignmentsTransfer = function(){
-      console.log($scope.showModal);
       $scope.clicked = true;
       if ($scope.msg || $scope.errMsg || $scope.transferAmount ==undefined || $scope.showErrMsg || $scope.transferAmount <=0) {
         return;

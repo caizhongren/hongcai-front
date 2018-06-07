@@ -623,7 +623,7 @@ p.margin {
       background: #fff;
       border-radius: 12px;
       width: 80%;
-      margin: 100px auto 0;
+      margin: 20px auto 0;
       font-size: 13px;
       box-shadow: 0 0 3.5px 0 rgba(80, 77, 75, 0.2);
     }
@@ -656,7 +656,67 @@ p.margin {
       line-height: 1.25;
       text-align: center;
     }
-  }  
+  }
+  .dateTime {
+    width: 50%;
+    margin: 30px auto;
+    .years, .months {
+      position: relative;
+      width: 23%;
+      display: inline-block;
+      .yearBox, .monthBox {
+        display: inline-block;
+        border: 1px solid #eee;
+        width: 100%;
+        padding-right: 5px;
+        input {
+          border: none;
+          background: #fff;
+          width: 74%;
+          text-align: center;
+          height: 35px;
+        }
+        i {
+          font-size: 20px;
+          font-weight: bold;
+          color: #666;
+          vertical-align: middle;
+        }
+      }
+      .yearList, .monthList {
+        width: 100%;
+        position: absolute;
+        top: 36px;
+        background: #fff;
+        border: 1px solid #eee;
+        .disabled-month, .disabled-month:hover {
+          color: #999;
+          cursor: no-drop;
+          background: #fff;
+        }
+        li {
+          height: 30px;
+          line-height: 30px;
+        }
+        li:hover, li:hover {
+          background: #f8843d;
+          color: #fff;
+          cursor: pointer;
+        }
+      }
+    }
+    .search {
+      display: inline-block;
+      border: 1px solid #eee;
+      padding: 6px 10px;
+      cursor: pointer;
+      height: 37px;
+    }
+    .search:hover {
+      color: #fff;
+      background: #f8843d;
+    }
+  }
 }
 // 
 .policies-list {

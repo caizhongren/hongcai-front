@@ -29,8 +29,7 @@ angular.module('hongcaiApp')
         'CategoryId': 1,
         'Name': '邮箱找回'
       }];
-
-      var mobilePattern = /^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678]))\d{8}$/;
+      
       var emailPattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
       var pwdParttern = /^(?=.*[a-zA-Z])(?=.*[0-9])[\da-zA-Z~!@#$%^&*]{6,22}$/
       // 密码强度验证
@@ -48,7 +47,7 @@ angular.module('hongcaiApp')
       /**
        * 说明是手机号码找回
        */
-      if (mobilePattern.test(account)) { 
+      if ($rootScope.mobilePattern.test(account)) { 
         UserCenterService.sendMobileCaptcha.save({
           picCaptcha: captcha,
           mobile: account,

@@ -70,7 +70,7 @@
               <div class="loadformgrop col-md-12 col-lg-12 col-xs-11 col-sm-12">
                 <div class="col-md-7">
                   <label for="mobile" class="col-md-4 col-lg-4 col-xs-4 nospace">手机号：</label>
-                  <input type="text" class="col-md-8 col-lg-8 borderwhite borderheight" id="mobile" name="mobile" ng-model="user.mobile" ng-pattern="/^((13[0-9])|(15[^4,\D])|(18[0-9])|(17[0678])|(14[0-9]))\d{8}$/" ensure-unique-mobile="mobile" ng-class="{'borderred':registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused,'borderwhite':!registerForm.mobile.$dirty || !registerForm.mobile.$invalid || registerForm.mobile.$focused}" required ng-focus />
+                  <input type="text" class="col-md-8 col-lg-8 borderwhite borderheight" id="mobile" name="mobile" ng-model="user.mobile" ng-pattern="mobilePattern" ensure-unique-mobile="mobile" ng-class="{'borderred':registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused,'borderwhite':!registerForm.mobile.$dirty || !registerForm.mobile.$invalid || registerForm.mobile.$focused}" required ng-focus />
                 </div>
                 <div ng-if="registerForm.mobile.$dirty && registerForm.mobile.$invalid && !registerForm.mobile.$focused" class="col-lg-5 col-md-5 col-sm-5 col-xs-5 form-div1">
                   <div ng-if="registerForm.mobile.$error.unique" class="row lp-nomargin">
