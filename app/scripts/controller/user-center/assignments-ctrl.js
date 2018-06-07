@@ -160,15 +160,27 @@ angular.module('hongcaiApp')
       };
 
     $scope.getPreprPojectDetails = function(number){
-      UserCenterService.assignmentCreditDetail.get({
-        number: number
-      }, function(response){
-        if (response && response.ret !== -1) {
-          var number = response.project.number;
-          var type = response.project.type;
-          $state.go('root.project-details', {'number': number,'type': type});
-        }
-      })
+      if ($scope.searchStatus == '1') {
+        UserCenterService.assignmentCreditDetail.get({
+          number: number
+        }, function(response){
+          if (response && response.ret !== -1) {
+            var number = response.project.number;
+            var type = response.project.type;
+            $state.go('root.project-details', {'number': number,'type': type});
+          }
+        })
+      } else {
+        UserCenterService.getPreprPojectNumber.get({
+          projectId: number
+        }, function(response){
+          if (response && response.ret !== -1) {
+            var number = response.number;
+            var type = response.type;
+            $state.go('root.project-details', {'number': number,'type': type});
+          }
+        })
+      }
     }
     
 
