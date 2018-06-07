@@ -394,6 +394,38 @@ angular.module('hongcaiApp')
       // 本月可免费提现次数查询
       freeWithdrawCount: $resource(RESTFUL_DOMAIN + '/users/0/freeWithdrawCount',{
       }),
-      projectPrepaymentTime: $resource(RESTFUL_DOMAIN + '/users/0/creditRights/projectPrepaymentTime',{})
+      projectPrepaymentTime: $resource(RESTFUL_DOMAIN + '/users/0/creditRights/projectPrepaymentTime',{}),
+      // 获取本月还款日期
+      repaymentDates: $resource(RESTFUL_DOMAIN + '/projectFullBills/repaymentDates',{
+        userId:'@userId',
+        startTime:'@startTime',
+        endtTime:'@endtTime'
+      }, {
+        'get': {
+          method: 'GET',
+          isArray: true
+        }
+      }),
+      // 月度/当日数据统计
+      calendarData: $resource(RESTFUL_DOMAIN + '/projectFullBills/calendarData',{
+        userId:'@userId',
+        startTime:'@startTime',
+        endtTime:'@endtTime'
+      }, {
+        'get': {
+          method: 'GET'
+        }
+      }),
+      // 预计/待收回款详情查询 --- 1.预计回款、2.待收回款、3.已收回款
+      repaymentDetails: $resource(RESTFUL_DOMAIN + '/projectFullBills/repaymentDetails',{
+        userId:'@userId',
+        startTime:'@startTime',
+        endtTime:'@endtTime',
+        type: '@type'
+      }, {
+        'get': {
+          method: 'GET'
+        }
+      })
     };
   });

@@ -159,13 +159,14 @@ angular.module('hongcaiApp')
 
       };
 
-    $scope.getPreprPojectDetails = function(projectId){
-      UserCenterService.getPreprPojectNumber.get({
-        projectId: projectId
+    $scope.getPreprPojectDetails = function(number){
+      UserCenterService.assignmentCreditDetail.get({
+        number: number
       }, function(response){
         if (response && response.ret !== -1) {
-          var PreprojectId = response.number;
-          $state.go('root.project-details', {'number': PreprojectId});
+          var number = response.project.number;
+          var type = response.project.type;
+          $state.go('root.project-details', {'number': number,'type': type});
         }
       })
     }
