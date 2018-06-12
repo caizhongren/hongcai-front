@@ -7,8 +7,7 @@ angular.module('hongcaiApp')
     var reward = 0;
     var currentDate = new Date().getTime()
     $rootScope.checkSession.promise.then(function(data) {
-      var registerMonthStart = new Date(new Date(data.registerTime).getFullYear() + '-' + (new Date(data.registerTime).getMonth() + 1) + '-01 00:00:00').getTime() - 0.5
-      // console.log(new Date(data.registerTime))
+      var registerMonthStart = new Date(new Date(data.registerTime).getFullYear() + '/' + (new Date(data.registerTime).getMonth() + 1) + '/01 00:00:00').getTime() - 0.5;
       $scope.currentYearCopy = new Date().getFullYear();
       $scope.currentYear = new Date().getFullYear();//当前年份
       $scope.registerYear = new Date(data.registerTime).getFullYear() //首投年份
@@ -34,6 +33,7 @@ angular.module('hongcaiApp')
             if ($scope.registerDiff > 180) { //已收收益>180天横坐标按月，不到180天 横坐标按天
               $scope.labels.push(date1.getFullYear() + '-' + (date1.getMonth() + 1));
             } else {
+              registerMonthStart = data.registerTime;
               $scope.labels.push(date1.getFullYear() + '-' + (date1.getMonth() + 1) + '-' + date1.getDate());
             }
             // 单独处理注册月份之前的数据 置0
