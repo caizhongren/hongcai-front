@@ -26,8 +26,8 @@ angular.module('hongcaiApp')
     }
 
     $scope.type = $stateParams.type ? $stateParams.type : '5';
-    if (!$stateParams.cycle) {
-      $location.path('/guaranteepro-list/7,8,9,10,11,12/0_100/0_100/0_1000/release_start_time/false/' + $scope.type);
+    if (!$stateParams.projectDays) {
+      $location.path('/guaranteepro-list/7,8,9,10,11,12/0_720/0_100/0_1000/release_start_time/false/' + $scope.type);
       return;
     }
 
@@ -36,10 +36,10 @@ angular.module('hongcaiApp')
       $rootScope.pageTitle = '宏财精选 - 宏财网';
       $scope.typeName = '宏财精选';
       $scope.searchCycle = [
-        { value: '0_100', name: '全部' },
-        { value: '0_1', name: '30天以下'},
-        { value: '1_3', name: '31 - 90天'},
-        { value: '3_100', name: '91天以上'}
+        { value: '0_720', name: '全部' },
+        { value: '1_30', name: '30天以下'},
+        { value: '31_90', name: '31 - 90天'},
+        { value: '91_720', name: '91天以上'}
       ];
 
       $scope.searchAnnualEarings = [
@@ -61,10 +61,10 @@ angular.module('hongcaiApp')
       $rootScope.pageTitle = '宏财尊贵 - 宏财网';
       $scope.typeName = '宏财尊贵';
       $scope.searchCycle = [
-        { value: '0_100', name: '全部' },
-        { value: '6_9', name: '270天以下'},
-        { value: '9_12', name: '271 - 360天'},
-        { value: '12_100', name: '361天以上'}
+        { value: '0_720', name: '全部' },
+        { value: '1_270', name: '270天以下'},
+        { value: '271_360', name: '271 - 360天'},
+        { value: '361_720', name: '361天以上'}
       ];
 
       $scope.searchAnnualEarings = [
@@ -85,7 +85,7 @@ angular.module('hongcaiApp')
 
     $scope.sortCondition = $stateParams.sortCondition;
     $scope.status = $stateParams.status;
-    $scope.cycle = $stateParams.cycle;
+    $scope.projectDays = $stateParams.projectDays;
     $scope.earning = $stateParams.earning;
     $scope.total = $stateParams.total;
 
@@ -129,7 +129,7 @@ angular.module('hongcaiApp')
       $scope.showFlag = 1;
       ProjectService.projectList.get({
         status: $stateParams.status,
-        cycle: $stateParams.cycle,
+        projectDays: $stateParams.projectDays,
         earning: $stateParams.earning,
         total: $stateParams.total,
         sortCondition: $stateParams.sortCondition,
