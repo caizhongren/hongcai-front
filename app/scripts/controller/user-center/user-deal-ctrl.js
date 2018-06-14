@@ -55,7 +55,7 @@ angular.module('hongcaiApp')
         'no': '2'
       },{
         'type': '奖励',  //包含：奖金、代理人绩效
-        'no': '18,20,28,29,30'
+        'no': '18,27,28,29,30,35'
       },{
         'type': '其他',  //包含：提现手续费、债权转让手续费
         'no': '8,15'
@@ -86,8 +86,8 @@ angular.module('hongcaiApp')
       laydate({
         choose: function(datas){
           if ($('#start').val() && $('#end').val()) {
-            $scope.startTime = new Date($('#start').val()).getTime();
-            $scope.endTime = new Date($('#end').val()).getTime();
+            $scope.startTime = new Date($('#start').val().replace(/\-/g, '/') + ' 00:00:00').getTime();
+            $scope.endTime = new Date($('#end').val().replace(/\-/g, '/') + ' 23:59:59').getTime();
             $scope.getDeals(1);
           }
         }

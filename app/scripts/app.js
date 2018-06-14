@@ -901,7 +901,7 @@ hongcaiApp
       })
       // 尊贵、精选列表
       .state('root.guaranteepro-list-query', {
-        url: '/guaranteepro-list/:status/:cycle/:earning/:total/:sortCondition/:sortType/:type',
+        url: '/guaranteepro-list/:status/:projectDays/:earning/:total/:sortCondition/:sortType/:type',
         views: {
           '': {
             templateUrl: 'views/project/guaranteepro-list.html',

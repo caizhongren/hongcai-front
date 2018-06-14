@@ -335,59 +335,7 @@
       text-align: center;
       //font-family: ArialMT;
     }
-    .total-assets-tips {
-      display: inline-block;
-      width: 18px;
-      height: 20px;
-      background: url(/images/user-center/tip-overview.png) no-repeat center center;
-      background-size: contain;
-      vertical-align: middle;
-      border-radius: 50%;
-    }
-    .sidebar-tip-top {
-      border: 1px solid #e2e2e2;
-      background-color: #fff;
-      z-index: 999;
-      position: absolute;
-      //display: none;
-      top: 150px;
-      right: 80px;
-      padding: 10px;
-      min-width: 150px;
-      display: none;
-      p {
-        clear: both;
-        font-size: 12px;
-        color: #999999;
-        margin-bottom: 0;
-        height: 25px;
-        line-height: 28px;
-      }
-    }
-    .sidebar-tip-top:before {
-      content: "";
-      display: block;
-      border-width: 11px;
-      position: absolute;
-      top: -23px;
-      right: 21px;
-      border-style: solid dashed dashed;
-      border-color: transparent transparent #e2e2e2;
-      font-size: 0;
-      line-height: 0;
-    }
-    .sidebar-tip-top:after {
-      content: "";
-      display: block;
-      border-width: 10px;
-      position: absolute;
-      top: -20px;
-      right: 22px;
-      border-style: solid dashed dashed;
-      border-color: transparent transparent #fff;
-      font-size: 0;
-      line-height: 0;
-    }
+    
   }
   //待收回款日历
   .return-calendar {
@@ -616,6 +564,68 @@
         }
       }
     }
+  }
+  .total-assets-tips {
+    display: inline-block;
+    width: 18px;
+    height: 20px;
+    background: url(/images/user-center/tip-overview.png) no-repeat center center;
+    background-size: contain;
+    vertical-align: middle;
+    border-radius: 50%;
+  }
+  .sidebar-tip-top {
+    border: 1px solid #e2e2e2;
+    background-color: #fff;
+    z-index: 999;
+    position: absolute;
+    //display: none;
+    top: 150px;
+    right: 80px;
+    padding: 10px;
+    min-width: 150px;
+    display: none;
+    p {
+      clear: both;
+      font-size: 12px;
+      color: #999999;
+      margin-bottom: 0;
+      height: 25px;
+      line-height: 28px;
+    }
+  }
+  .sidebar-tip-top:before {
+    content: "";
+    display: block;
+    border-width: 11px;
+    position: absolute;
+    top: -23px;
+    right: 21px;
+    border-style: solid dashed dashed;
+    border-color: transparent transparent #e2e2e2;
+    font-size: 0;
+    line-height: 0;
+  }
+  .sidebar-tip-top:after {
+    content: "";
+    display: block;
+    border-width: 10px;
+    position: absolute;
+    top: -20px;
+    right: 22px;
+    border-style: solid dashed dashed;
+    border-color: transparent transparent #fff;
+    font-size: 0;
+    line-height: 0;
+  }
+  .toggle-tab .sidebar-tip-top {
+    width: 30%;
+    top: 52px;
+    right: 192px;
+    line-height: 21px;
+    text-align: justify;
+    font-size: 12px;
+    color: #999999;
   }
 }
 
