@@ -86,8 +86,8 @@ angular.module('hongcaiApp')
       laydate({
         choose: function(datas){
           if ($('#start').val() && $('#end').val()) {
-            $scope.startTime = new Date($('#start').val()).getTime();
-            $scope.endTime = new Date($('#end').val()).getTime();
+            $scope.startTime = new Date($('#start').val().replace(/\-/g, '/') + ' 00:00:00').getTime();
+            $scope.endTime = new Date($('#end').val().replace(/\-/g, '/') + ' 23:59:59').getTime();
             $scope.getDeals(1);
           }
         }
