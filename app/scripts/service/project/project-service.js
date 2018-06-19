@@ -206,6 +206,9 @@ angular.module('hongcaiApp')
       }),
       downContracts: $resource(RESTFUL_DOMAIN + '/contracts/contract/:templateType/file', {
         templateType: '@templateType'
+      }),
+      contractTemplate: $resource(RESTFUL_DOMAIN + '/contracts/:number/contractTemplate', {
+        number: '@number'
       })
     };
   });

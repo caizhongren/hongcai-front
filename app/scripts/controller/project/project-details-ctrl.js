@@ -7,6 +7,7 @@ angular.module('hongcaiApp')
     $scope.type =  $stateParams.type;
     $scope.chk = true;
     $scope.checkFlag = true;
+    $scope.templateType = '';
     $scope.check = function(val) {
       $scope.checkFlag = !val ? true : false;
     };
@@ -826,11 +827,19 @@ angular.module('hongcaiApp')
     //查看更多
     $scope.initLimit = 8;
     $scope.loadMore = function(){
-      $scope.initLimit = $scope.initLimit + 3 < $scope.list.length ? $scope.initLimit + 3 : $scope.list.length;;
+      $scope.initLimit = $scope.initLimit + 3 < $scope.list.length ? $scope.initLimit + 3 : $scope.list.length;
     }
+    $scope.contractTemplate = function () {
+      ProjectService.contractTemplate.get({
+        number: $stateParams.number
+      }, function (response) {
+        $scope.templateType = response.type;
+      })
+    }
+    $scope.contractTemplate();
     $scope.downContracts = function () {
       ProjectService.downContracts.get({
-        templateType: 10
+        templateType: $scope.templateType
       }, function (response) {
         if (response && response.ret !== -1) {
           window.location.href = $rootScope.baseFileUrl + response.url
