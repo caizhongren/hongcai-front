@@ -8,7 +8,7 @@ angular.module('hongcaiApp')
     $scope.newBieNum = '';
     $scope.jingxuan = [];
     $scope.isJinxuanNewbie = false;
-    $rootScope.pageTitle = '国资平台，网贷平台，投资平台，投资项目-宏财网';
+    $rootScope.pageTitle = '宏财网-值得信赖的P2P网贷平台';
     var userId = $rootScope.loginUser ? $rootScope.loginUser.id : null;
     $scope.projectStatusMap = projectStatusMap;
     

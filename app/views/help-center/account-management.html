@@ -4,49 +4,56 @@
 		<div class="right-title">账户管理</div>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeAccountQ1 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeAccountQ1 =! changeAccountQ1"></div>
-		<p class="p-click" ng-click="changeAccountQ1 =! changeAccountQ1">&nbsp;注册成功后，用户名是否可以修改？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ1 == true">注册成功后，用户名是不可以修改的哦！</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;如何绑定银行卡？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				银行卡的设置是在您完成开通银行存管系统时一并设置的。在【我的】页面，点击左上角【设置】，进入后选择【银行卡】，可进行解绑、更换银行卡操作。
+		</p>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeAccountQ2 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeAccountQ2 =! changeAccountQ2"></div>
-		<p class="p-click" ng-click="changeAccountQ2 =! changeAccountQ2">&nbsp;进行手机验证，收不到短信怎么办？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ2 == true">请确认手机是否安装短信拦截或者过滤软件；
-		<br>请确认手机是否能够正常接收短信 ( 信号问题，欠费停机，关机等 ) ，或尝试重启手机；
-		<br>短信收发过程中可能会存在延迟，请耐心等待，短信在30分钟内均有效；
-		<br>您还可以联系客服帮助，客服电话：4009007626。</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;如何更换/解绑银行卡？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				如您绑定的银行卡出现问题或需要更换，请先解绑后重新进行绑定。
+			<br>	解绑银行卡的具体操作如下：
+			<br>	1）当前绑定银行卡用于平台充值及提现，为保证出借人资金安全，目前一个账号只可同时绑定一张银行卡;
+			<br>	2）解绑银行卡：当账户总资产≤2元时，可直接解绑当前银行卡，如遇卡片丢失等不可抗拒因素时，需要联系客服，提供手持身份证等文件进行处理。
+		</p>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeAccountQ3 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeAccountQ3 =! changeAccountQ3"></div>
-		<p class="p-click" ng-click="changeAccountQ3 =! changeAccountQ3">&nbsp;忘记登录用户名,密码如何找回？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ3 == true">您可以在登录页面处点击“找回密码”按钮，然后在弹出窗口内填写注册时的手机号或绑定的电子邮箱，并点击获取验证码。在收到短信或邮件后，请将验证码填写至相应位置，或点击邮件中的重新设置密码链接，设置新的登录密码。这样就可以用新的密码登录宏财网平台了</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;一共可以绑定几张银行卡？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				为了保障您的账户安全，目前宏财网一个账户只能绑定一张银行卡，请您根据个人需要选择银行卡进行绑定，建议您提前了解各银行限额要求。
+		</p>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeAccountQ4 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeAccountQ4 =! changeAccountQ4"></div>
-		<p class="p-click" ng-click="changeAccountQ4 =! changeAccountQ4">&nbsp;通过邮箱找回登录密码时，收不到邮件怎么办？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ4 == true">首先检查邮箱绑定是否正确，其次可能是系统延迟收发的影响，也有可能是被邮箱拦截过滤掉了，可以在垃圾邮箱中寻找。如果没有请联系客服，客服电话：4009907626</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;绑定银行卡支持哪些银行？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				宏财网目前支持的银行有：
+			<br>	农业银行、中国银行、中信银行、招商银行、交通银行、光大银行、、兴业银行、广发银行、华夏银行、北京银行、工商银行、民生银行、建设银行、邮政银行、浦发银行、平安银行。
+		</p>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeAccountQ5 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeAccountQ5 =! changeAccountQ5"></div>
-		<p class="p-click" ng-click="changeAccountQ5 =! changeAccountQ5">&nbsp;为什么充值不成功？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ5 == true">首先确定是否开通网上银行等功能。
-		<br>可能存在充值超过限额：（充值限额，是银行，第三方支付平台，和用户您自己设定的支付限额决定的，取三者最小值）</p>
-	</div>	
-	<div class="row">
-		<div class="help-ico {{changeAccountQ6 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeAccountQ6 =! changeAccountQ6"></div>
-		<p class="p-click" ng-click="changeAccountQ6 =! changeAccountQ6">&nbsp;提现手续费是多少？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ6 == true">目前提现手续费是三方支付机构收取，按2元每笔进行收费。</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;绑定银行卡时遇到问题怎么办？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				1）您好，如果您在支付过程中看到提示信息“卡信息或手机号不一致”，您需要确认您在绑定银行卡的流程中输入的手机号信息。预留手机号是您在银行开卡时已校验通过的手机号:
+			<br>	a.如果您不确定手机号码，需要您联系该银行卡开户行进行确认。 <br> b.如果您已确认预留手机号码，需要您重新绑定银行卡。 
+			<br>	2）名字中含有生僻字、繁体字，改过名字、做过户籍变更、复原换的身份证，这些因素也可能会失败 ，如果您是现役军人、或者仅有护照号，则暂时无法完成开户。
+			<br>	3）收不到短信验证码
+			<br>	请先检查以下情况排除自身原因，如果依旧收不到验证码，您可以拨打宏财网客服电话： 400-990-7626进行咨询
+			<br>	a.是否安装短信拦截或者过滤软件
+			<br>	b.是否能够正常接收短信（信号问题，欠费停机，关机等）； 
+			<br>	c.短信收发过程中可能会存在延迟，请耐心等待，短信在30分钟内均有效
+		</p>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeAccountQ7 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeAccountQ7 =! changeAccountQ7"></div>
-		<p class="p-click" ng-click="changeAccountQ7 =! changeAccountQ7">&nbsp;申请提现后，多久能够到银行卡？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ7 == true">三方支付平台收到用户提现申请即对提现进行转账操作，由于不同银行处理速度不同，提现资金将会当天或下个工作日到账（如遇双休日或法定节假日顺延）。如果用户迟迟未收到提现资金，可能为银行卡信息填写有误，银行做正在退票操作，预计会在7个工作日内完成退票，请用户耐心等候。用户还可以联系客服（400-990-7626），寻求帮助。</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;如何修改平台注册手机号</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				在【我的】页面，点击左上角【设置】，进入设置页面后点击【手机号】，输入正确的图形验证码、短信验证码，按照流程提示完成操作即可更换新的注册手机号。
+		</p>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeAccountQ8 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeAccountQ8 =! changeAccountQ8"></div>
-		<p class="p-click" ng-click="changeAccountQ8 =! changeAccountQ8">&nbsp;提现不成功的几种情况？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeAccountQ8 == true">银行账号/户名错误，或者是账号与户名不符；银行账户冻结或者正在办理挂失；
-		<br>银行卡开户行信息错误；由于信息校验不正确而导致的提现失败，
-		<br>如果遇到提现不成功，请不要着急，我们在收到支付机构转账失败通知后解除您的资金冻结，请您不必担心资金安全。</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;如何更换银行预留手机号</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				在【我的】页面，点击左上角【设置】，进入设置页面后点击【银行卡】进入银行卡管理页面，点击修改银行卡预留手机号，按照流程提示完成操作即可更换银行卡预留手机号。
+		</p>
 	</div>
 </div>

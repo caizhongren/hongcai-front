@@ -1,85 +1,58 @@
-<!--安全认证-->
+<!--注册认证-->
 <div class="col-md-9 col-lg-9 right-area">
 	<div class="row">
-		<div class="right-title">安全认证</div>
+		<div class="right-title">注册认证</div>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeSafeQ1 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ1 =! changeSafeQ1"></div>
-		<p class="p-click" ng-click="changeSafeQ1 =! changeSafeQ1">&nbsp;如何增加密码的安全性？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ1 == true">
-		（1）密码要保密。并且定期修改；
-		<br>（2）请使用6-16位复杂的字母与数字组合以提高密码强度，不要用生日等容易被别人猜中的密码；
-		<br>（3）如果您使用了密码找回功能，在修改密码成功后，请您及时删除我们发送给您的找回密码短信；
-		<br>（4）请记住不要与任何人共享您的密码，如果您已经与他人共享密码，强烈建议您尽快更改密码；
-		<br>（5）您可能在不经意间使您的计算机受到病毒、木马、间谍软件和广告软件的攻击，这些软件也可能记录并盗走您的密码！所以，请您安装并使用正规的杀毒软件。</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;如何开通银行存管账户？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				当您注册成功之后，在我的页面点击提示前往开通存管账户，自动跳转至海口联合农商银行页面，按照页面提示输入正确的信息后，即可开通银行存管账户，进行后续充值、提现等操作。
+		</p>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeSafeQ2 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ2 =! changeSafeQ2"></div>
-		<p class="p-click" ng-click="changeSafeQ2 =! changeSafeQ2">&nbsp;什么是交易密码？忘记交易密码怎么办？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ2 == true">
-		1.交易密码是您投资和提现时需要输入的密码。
-		<br>2.交易密码是不同于登录密码的资金安全保护机制，是特别用来保护您的资金安全的交易密码。即使您的账户登录密码处于异常状态，有交易密码保护就可以确保您的账户资金不被他人挪用。
-    <!-- <br>3.如果您遗忘了交易密码，可在登录后在投资或者提现时，点击忘记密码，通过手机获取验证码的方式进行重置。 -->
-		<br>3.在宏财网进行充值、投资、提现等操作，在跳转到银行资金存管系统页面后，点击“忘记交易密码”，根据提示重置密码。
-    </p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;银行存管开通失败的原因有哪些？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				以下原因可能导致开通银行存管失败：
+			<br>	1）曾经改过名字；
+			<br>	2）名字中带有繁体字；
+			<br>	3）有过户籍变动；
+			<br>	4）军人转业、复员更换的身份证；
+			<br>	5）港澳台用户请联系客服协助开通；
+			<br>	6）18周岁以下用户；
+			<br>	7）银行卡非您账户同名同证件的卡片；
+			<br>	由于银行存管系统与公安系统联网，将需要您提供实名身份信息，如实名身份信息不一致会导致无法通过，非以上原因开通未通过，请您联系客服为您查询确认。
+		</p>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeSafeQ3 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ3 =! changeSafeQ3"></div>
-    <p ng-if="pay_company === 'yeepay'" class="p-click" ng-click="changeSafeQ3 =! changeSafeQ3">&nbsp;为什么要进行安全认证？</p>
-    <p ng-if="pay_company === 'yeepay' && changeSafeQ3 == true" class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">为确保投资人的资金安全，宏财网要求所有投资人与借款企业均需完成安全认证，包括手机认证，邮箱认证，实名认证等；宏财网对于所有资料信息实行严格保密。投资人在首次充值前需完成个人身份信息的验证。投资人可在“我的账户--账户管理--安全设置”页面完成实名认证操作，详情如下：
-    <br>1.手机认证：输入正确有效的手机号码，在收到验证码后输入完成认证即可。
-    <br>2.实名认证：填写真实有效的身份证号码和真实姓名可完成实名认证。
-    <br>3.邮箱验证：填写真实有效的邮箱地址，收到宏财网发送的链接后完成验证。</p>
-
-		<p ng-show="pay_company === 'cgt'" class="p-click" ng-click="changeSafeQ3 =! changeSafeQ3">&nbsp;为什么要进行安全认证？如何认证？</p>
-		<p ng-if="pay_company === 'cgt' && changeSafeQ3 == true" class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1">为确保投资人的资金安全，宏财网要求所有投资人与借款企业均需完成安全认证，即开通海口联合农商银行资金存管系统。投资者和借款企业资金往来始终在存管银行体系内运作，避免了平台任意挪动资金的可能。投资人可在“我的账户--账户管理--安全设置”页面通过完成实名认证操作来开通资金存管账户。</p>
-	</div>
-	<div ng-if="pay_company === 'cgt'" class="row">
-		<div class="help-ico {{changeSafeQ4 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ4 =! changeSafeQ4"></div>
-		<p class="p-click" ng-click="changeSafeQ4 =! changeSafeQ4">&nbsp;开通海口联合农商银行资金存管系统账户过程中，为何实名认证无法通过</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ4 == true">
-      以下三种情况可能会导致实名认证无法通过：
-      <br>1.身份证号和姓名不一致
-      <br>2.更改过户籍所在地
-      <br>3.现役军人<br>
-      <br>解决办法：
-      <br>1、如果是前两种情况，建议您可以到派出所进行查询、更改；
-      <br>2、如果您是现役军人、或者仅有护照号，则暂时无法完成开户。
-      <br>3、如在实名认证中遇到任何问题，可致电客服电话：400-900-9609
-    </p>
-	</div>
-	<div ng-if="pay_company === 'yeepay'" class="row">
-    <div class="help-ico {{changeSafeQ5 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ5 =! changeSafeQ5"></div>
-    <p class="p-click" ng-click="changeSafeQ5 =! changeSafeQ5">&nbsp;进行实名认证后，能够解绑，或者重新实名认证吗？</p>
-    <p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ5 == true">用户在网站不可以进行解绑操作，如果用户账户资金余额为0，并且没有借款和投资记录的用户，可以联系客服解绑（客服电话：4009907626）；</p>
-  </div>
-	<div class="row">
-		<div class="help-ico {{changeSafeQ6 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ6 =! changeSafeQ6"></div>
-		<p class="p-click" ng-click="changeSafeQ6 =! changeSafeQ6">&nbsp;怎么样证明宏财网作为中介平台？不接触投资资金？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ6 == true">证明宏财网作为中介平台，最关键是看有没有触碰投资人的资金，搞资金池。
-		<br>在宏财网，无论是充值、投资、提现，还是其他关于资金的操作，均需用户发起交易指令，银行按照指令进行资金划转，用户的资金从交易之初就在银行体系内运转，有效地避免了被平台任意挪用的风险，并杜绝了平台参与交易的可能。</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;如何修改支付/登录密码？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				打开【我的】页面，点击左上角【设置】，进入设置页面后选择【密码管理】
+			<br>	修改登录密码：选择【登录密码】>>【去修改】>>进行登录密码修改
+			<br>	修改支付密码：点击【支付密码】>>【修改交易密码】页面>>选择是否记得原交易密码>>按提示进行支付密码修改
+		</p>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeSafeQ7 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ7 =! changeSafeQ7"></div>
-		<p class="p-click" ng-click="changeSafeQ7 =! changeSafeQ7">&nbsp;宏财网有几层安全保障？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ7 == true">宏财网独创8层安全保障；实实在在的资金安全保障。
-		<br>1，严格的项目审查；
-		<br>2，完善的风控流程；
-		<br>3，第三方支付；
-		<br>4，银行存管；
-		<br>5，安全的交易系统；
-		<br>6，严谨的贷后管理；
-		<br>7，风险保障金；
-		<br>8，专业的律师团队。</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;如何处理登录密码输入错误次数超限？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				如您忘记登录密码或者已经连续输错5次，账号将被锁定，需要点击忘记密码重新设置新密码。
+		</p>
 	</div>
-	<!-- <div class="row">
-		<div class="help-ico {{changeSafeQ8 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeSafeQ8 =! changeSafeQ8"></div>
-		<p class="p-click" ng-click="changeSafeQ8 =! changeSafeQ8">&nbsp;风险保障准备金账户是设立在哪儿的？风险保障准备资金从哪儿来的？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeSafeQ8 == true">宏财网风险保障准备金账户是独立于平台和第三方账户，设立在民生银行。
-		<br>风险保障准备金账户资金来源主要是以下几个部分：
-		<br>第一：根据每个项目风险级别的不同，要求信贷服务商从交易金额中提取一定比例，作为风险保障准备金。
-		<br>第二：公司每年根据总交易额与收益情况，拨出一定比例的收益作为风险保障准备金
-		<br>第三：公司在有新的资本进入的时候会拨出一部分进入风险保障准备金。
-		<br>截止目前，尚未动用过风险保障准备金</p>
-	</div> -->
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;出借或提现时，忘记支付密码怎么办？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				点击出借或提现，进入海口联合农商银行存管页面，在输入安全支付密码框下，点击【忘记密码】，输入绑定的银行卡号及手机验证码即可重置密码。
+		</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;注册或登录时收不到验证码怎么办？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				如果您在注册或登录过程中，点击“获取验证码”按钮后手机一直收不到验证码，建议等待60秒，并查看是否被手机内安全软件拦截，或重启下您的手机，排除手机自身原因后，再次获取验证码。如果依旧收不到验证码，您可以拨打宏财网客服电话400-990-7626进行咨询。
+		</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;一个手机号是否可以注册多个账户？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				在宏财网平台，手机号，身份证号都具有唯一性，已注册的手机号及已实名认证的身份信息只能对应一个宏财网账户。
+		</p>
+	</div>
 </div>
