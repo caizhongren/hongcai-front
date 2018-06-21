@@ -47,16 +47,15 @@ angular.module('hongcaiApp')
     });
 
     /**
-     * 我的债权统计数据
+     * 我的债权统计数据  couponReturnProfit：加息券已收收益，holdingAmount：投资总额，profit：累计收益，包含待收收益，包含募集期贴息，totalProfit：已收收益，包含募集期贴息，discountInterest：募集期贴息
      */
     UserCenterService.getCreditRightStat.query({}, function(response) {
       for(var i = 0;i<response.length;i++) {
         var stat = response[i];
         //累计总额
         $scope.investStat.totalInvestAmount += stat.holdingAmount;
-        $scope.investStat.totalProfit += stat.totalProfit;
-        $scope.investStat.discountInterest += stat.discountInterest;
         $scope.investStat.profit += (stat.totalProfit + stat.couponReturnProfit);
+        $scope.investStat.waitingProfit += ((stat.profit - stat.totalProfit + stat.discountInterest) + (stat.couponProfit - stat.couponReturnProfit)); // 待收收益
       }
     })
     
@@ -71,10 +70,10 @@ angular.module('hongcaiApp')
       assignment:0,
       holdingAmount: 0,
       totalInvestAmount: 0,
-      totalProfit:0,
       profit: 0,
       holdingCount:0,
-      endProfitCount:0
+      endProfitCount:0,
+      waitingProfit: 0
     }
     $scope.showOther = false;
     $scope.getCreditRightStat =function(creditRightType) {
