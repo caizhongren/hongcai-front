@@ -175,7 +175,7 @@ angular.module('hongcaiApp')
         },
         title: {
           show: 25,
-          text: "在投金额",
+          text: "出借金额",
           textAlign: "middle",
           textBaseline: "middle",
           left: "38%",
@@ -188,7 +188,7 @@ angular.module('hongcaiApp')
         },
         series : [
           {
-            name:'投资占比',
+            name:'出借占比',
             type:'pie',
             data:[
               {value:percent1},

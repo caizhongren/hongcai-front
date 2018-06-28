@@ -41,7 +41,7 @@
               </div>
               <div class="col-lg-12 col-md-12 list-l">
                 <!-- <p class="success-p">您的资料已完善成功</p> -->
-                <p class="success-p">认证成功，在宏财赚取更多收益吧</p>
+                <p class="success-p">认证成功，立即出借吧</p>
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">现在充值</a>
@@ -64,13 +64,13 @@
             </div>
             <div class="success-re col-lg-9 col-md-9">
               <div class="col-lg-12 col-md-12">
-                <p><strong>投资成功，开始计息！<span ng-if="usedCoupon && usedCoupon.type === 2">额外奖励{{usedCoupon.value}}元！</span><span ng-if="usedCoupon && usedCoupon.type === 1">额外加息{{usedCoupon.value}}%！</span></strong>
+                <p><strong>出借成功，开始计息！<span ng-if="usedCoupon && usedCoupon.type === 2">额外奖励{{usedCoupon.value}}元！</span><span ng-if="usedCoupon && usedCoupon.type === 1">额外加息{{usedCoupon.value}}%！</span></strong>
                 </p>
                 <div class="border-b list-l col-lg-11 col-md-11"></div>
               </div>
               <div class="col-lg-12 col-md-12 list-l">
-                <!-- <p class="success-p">您已投资成功</p> -->
-                <p class="success-p">继续投资，通过宏财网赚取更多收益吧！</p>
+                <!-- <p class="success-p">您已出借成功</p> -->
+                <p class="success-p">继续出借，通过宏财网赚取更多利息吧！</p>
               </div>
               <!-- <div class="col-lg-12 col-md-12 list-l" ng-if="rightType === 3">
                 <p class="success-p">本项目当日计息，今日收获利息为{{oneDayProfit}}元！</p>
@@ -78,8 +78,8 @@
                 <p class="success-p" ng-if="isRepeat === 2 ">您未选择续投，<a ui-sref="root.userCenter.credit">【开启续投】</a>下期年均收益增至{{nextRate}}%！</p>
               </div> -->
               <div class="col-lg-12 col-md-12">
-                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no" href="/guaranteepro-list">继续投资</a>
-                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.credit">查看债权</a>
+                <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no" href="/guaranteepro-list">继续出借</a>
+                <a class="col-md-5 col-md-offset-1 btn btn-yellow btn-lg ft-white btn-top" ui-sref="root.userCenter.credit">我的出借</a>
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@
                 <div class="border-b list-l col-lg-12 col-md-12"></div>
               </div>
               <div class="col-lg-12 col-md-12 list-l">
-                <p class="success-p">开通银行存管账户，即可在宏财网进行投资，赚取收益。</p>
+                <p class="success-p">开通银行存管账户，即可在宏财网进行出借。</p>
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.main">逛逛首页</a>
@@ -140,7 +140,7 @@
               <div class="col-lg-12 col-md-12 list-l">
                 <p class="success-p">
                   已成功充入您的账户</p>
-                <p class="success-p">心动不如行动，快去投资吧！</p>
+                <p class="success-p">心动不如行动，快去出借吧！</p>
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no">浏览项目</a>
@@ -170,8 +170,8 @@
               </div>
               <div class="col-lg-12 col-md-12 list-l">
                 <p ng-if="pay_company === 'yeepay'" class="success-p">绑卡申请，需一定时间进行审核，请您耐心等待</p>
-                <p ng-if="pay_company === 'yeepay'" class="success-p">在此期间，您可以浏览项目，获得更多投资信息</p>
-                <p ng-if="pay_company === 'cgt'" class="success-p">绑卡成功，在宏财网赚取更多收益吧</p>
+                <p ng-if="pay_company === 'yeepay'" class="success-p">在此期间，您可以浏览项目，获得更多出借信息</p>
+                <p ng-if="pay_company === 'cgt'" class="success-p">绑卡成功，在宏财网赚取更多回报吧</p>
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">立即充值</a>
@@ -214,7 +214,7 @@
             </div>
             <div ng-if="pay_company === 'yeepay'" class="col-lg-11 col-lg-offset-1" style="margin-top:20px;">
               <p class="success-p">温馨提示：</p>
-              <p class="success-t">1. 由于宏财网平台不接触投资人资金，投资人资金完全通过第三方支付（易宝支付）来完成资金划拨。由于银行与易宝支付之间的划拨需要(T+1)日，所以当天充值金额（未投资），需要次日才能提现；</p>
+              <p class="success-t">1. 由于宏财网平台不接触出借人资金，出借人资金完全通过第三方支付（易宝支付）来完成资金划拨。由于银行与易宝支付之间的划拨需要(T+1)日，所以当天充值金额（未出借），需要次日才能提现；</p>
               <p class="success-t">2. 三方支付平台收到用户提现申请即对提现进行转账操作，提现资金将会在下个工作日到账（如遇双休日或法定节假日顺延）；</p>
               <p class="success-t">3. 如果用户迟迟未收到提现资金，可能为银行卡信息填写有误，银行正在做退款操作，预计会在1个工作日内完成退款，请用户耐心等候。用户还可以联系客服（400-990-7626），寻求帮助。</p>
             </div>
@@ -298,7 +298,7 @@
                 <div class="border-b list-l col-lg-12 col-md-12"></div>
               </div>
               <div class="col-lg-12 col-md-12 list-l">
-                <p class="success-p">充值投资，在宏财赚取更多收益吧！</p>
+                <!-- <p class="success-p">立即充值，在宏财赚取更多回报吧！</p> -->
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">现在充值</a>
@@ -321,14 +321,14 @@
             </div>
             <div class="success-re col-lg-9 col-md-9">
               <div class="col-lg-12 col-md-12">
-                <p><strong>恭喜您投资成功！</strong>
+                <p><strong>恭喜您出借成功！</strong>
                 </p>
                 <div class="border-b list-l col-lg-11 col-md-11"></div>
               </div>
               <div class="col-lg-12 col-md-12 list-l">
-                <p class="success-p">您已投资成功{{amount | number:2}}元。</p>
+                <p class="success-p">您已出借成功{{amount | number:2}}元。</p>
                 <p class="success-p">本项目当日计息，收获利息{{profit | number:2}}元！</p>
-                <p class="success-p">继续投资，通过宏财网赚取更多收益吧！</p>
+                <p class="success-p">继续出借，通过宏财网赚取更多回报吧！</p>
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" href="root.guaranteepro-list-query-no">浏览项目</a>
@@ -358,7 +358,7 @@
               </div>
               <div class="col-lg-12 col-md-12 list-l">
                 <p class="success-p">您的资料已完善成功</p>
-                <p class="success-p">充值投资，在宏财赚取更多收益吧！</p>
+                <p class="success-p">立即充值，在宏财赚取更多回报吧！</p>
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">现在充值</a>
@@ -387,7 +387,7 @@
               </div>
               <div class="col-lg-12 col-md-12 list-l">
                 <!-- <p class="success-p">您的资料已完善成功</p> -->
-                <p class="success-p">Fighting！在宏财赚取更多收益吧</p>
+                <p class="success-p">Fighting！在宏财赚取更多回报吧</p>
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.userCenter.recharge">现在充值</a>
@@ -415,7 +415,7 @@
                 <div class="border-b list-l col-lg-12 col-md-12"></div>
               </div>
               <div class="col-lg-12 col-md-12 list-l">
-                <p class="success-p">继续在宏财赚取更多收益吧！</p>
+                <p class="success-p">继续在宏财赚取更多回报吧！</p>
               </div>
               <div class="col-lg-12 col-md-12">
                 <a class="col-md-5 btn btn-primary-orange btn-lg ft-white btn-top" ui-sref="root.guaranteepro-list-query-no">浏览项目</a>

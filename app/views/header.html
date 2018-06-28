@@ -45,13 +45,13 @@
   <nav id="major-bar" class="navbar navbar-default navbar-static-top border-b-none" role="navigation" ng-hide="isNoviceGuide">
     <div class="container padding-l-10">
       <ul class="nav navbar-nav">
-        <a class="navbar-brand logo-img-2 hidden-xs position-re" href="/" style="margin-top:20px;"><span class="bg-white"><img src="/images/logo.png" class="position-ab display-inb" width="30%"></span>&nbsp;</a>
+        <a class="navbar-brand logo-img-2 hidden-xs position-re margin-t-20 margin-b-20" href="/"></a>
       </ul>
 
       <ul class="nav navbar-nav navbar-right margin-t-20">
         <li><a ui-sref="root.main" ng-class="{'toggle-navbar' : firstPath == ''}" >首页</a>
         </li>
-        <li class="dropdown border-lr-transparent" ng-class="{'toggle-navbar' : (firstPath == 'guaranteepro-list' || firstPath == 'assignments')}"><a class=" margin-r-0">我要投资<i class="fa fa-sort-desc sortselect" aria-hidden="true"></i></a>
+        <li class="dropdown border-lr-transparent" ng-class="{'toggle-navbar' : (firstPath == 'guaranteepro-list' || firstPath == 'assignments')}"><a class=" margin-r-0">我要出借<i class="fa fa-sort-desc sortselect" aria-hidden="true"></i></a>
           <div id="dropdown">
            <div>
             <a ui-sref="root.guaranteepro-list-query({status: '7,8,9,10,11,12', projectDays: '0_720', earning: '0_100', total: '0_1000', minCycle: '0', maxCycle: '100', minEarning: '0', maxEarning: '100', minTotalAmount: '0', maxTotalAmount: 200000000, sortCondition: 'release_start_time', sortType: false, type: 5 })">宏财精选</a>

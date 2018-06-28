@@ -2,7 +2,7 @@
   <div class="form-horizontal">
     <div class="panel panel-default status" style="height:334px;">
       <div class="panel-heading ft-16 padding-tAb bg-white padding-l-15">
-        <strong class="ft-grey666">投资状态</strong>
+        <strong class="ft-grey666">出借状态</strong>
         <span class="ft-14 ft-grey666">（账户余额：</span>
         <span class="ft-14 ft-grey666 cursor-pointer" ng-if="!isLogged">
           登录后查看)
@@ -26,10 +26,10 @@
           <div class="col-xs-12 padding-0">
             <div class="margin-t-10">
               <span class="ft-grey666">认购金额：</span>
-              <input type="number" placeholder="请输入投资份额（元）" disabled='disabled' step="100" class="form-control margin-b-15 btn-76">
+              <input type="number" placeholder="请输入出借份额（元）" disabled='disabled' step="100" class="form-control margin-b-15 btn-76">
             </div>
             <div class="margin-t-0" >
-              <span class="ft-grey666">期望收益：</span>
+              <span class="ft-grey666">期望利息：</span>
               <span class="ft-orange ft-16">0</span> 元
             </div>
             <div class="margin-t-20">
@@ -49,11 +49,11 @@
               <div class="margin-t-5" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
                  <p class="text-center text text-danger invest_tip error-msg error-msg1" ng-show="errMsg">
                   <span class="ft-14">{{errMsg}}</span>
-                  <span class="ft-14" ng-if= "amount == 0">'投资金额必须大于等于100'</span>
+                  <span class="ft-14" ng-if= "amount == 0">'出借金额必须大于等于100'</span>
                 </p>
                 <span class="ft-grey666">认购金额：</span>
                 <!-- 未认证，撤销中，冻结中不可输入 --> 
-                <input type="number" placeholder="请输入投资份额（元）" step="100" min="0" class="form-control margin-b-15 btn-76" name="assignmentForm" ng-model="amount" ng-change="watchInvestAmount(amount)" ng-disabled="securityStatus.realNameAuthStatus !== 1 || account.balance <= 0 || creditProject.status === 2 || creditProject.status === 3 || creditProject.status === 5 || (creditProject.status === 1 && creditProject.currentStock === 0)" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
+                <input type="number" placeholder="请输入出借份额（元）" step="100" min="0" class="form-control margin-b-15 btn-76" name="assignmentForm" ng-model="amount" ng-change="watchInvestAmount(amount)" ng-disabled="securityStatus.realNameAuthStatus !== 1 || account.balance <= 0 || creditProject.status === 2 || creditProject.status === 3 || creditProject.status === 5 || (creditProject.status === 1 && creditProject.currentStock === 0)" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
               </div>
                 <!-- 未认证，冻结中，撤销中显示0 -->
               <div class="margin-t-10" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
@@ -61,14 +61,14 @@
                 <span class="ft-orange ft-16">{{amount ? realPayAmount : 0 | number:2}}</span> 元
                 <i class="fa fa-question-circle ft-orange ft-16 margin-l-10" aria-hidden="true" toggle-fade></i>
                 <div class="ft-grey666 explain1" ng-if="exProfit > 0">
-                您需先行垫付投资人该笔债权当期已产生利息{{amount ? exProfit : 0 | number:2}}元，该部分资金会在下个还款日归还给您。
+                您需先行垫付出借人该笔债权当期已产生利息{{amount ? exProfit : 0 | number:2}}元，该部分资金会在下个还款日归还给您。
                 </div>
                 <div class="ft-grey666 text-center explain2 explain1"  ng-if="exProfit < 0">
                 该笔债权当期已产生利息{{amount ? -exProfit : 0 | number:2}}元。
                 </div>
               </div>
               <div class="margin-t-20" ng-hide="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">
-                <span class="ft-grey666">期望收益：</span>
+                <span class="ft-grey666">期望利息：</span>
                 <span class="ft-orange ft-16">{{amount ? profit : 0 | number:2}}</span> 元
               </div>
               <div class="margin-t-20">
@@ -91,7 +91,7 @@
                 </div> -->
                 <!-- 可转让，未认证 -->
                 <span class="spangray" ng-if="creditProject.status === 1 && securityStatus.realNameAuthStatus !== 1">请先<a class="ft-red" ng-click="toRealNameAuth()">完善资料</a>，再进行认购~</span>
-                <span class="spangray" ng-if="creditProject.status === 1 && creditProject.currentStock === 0">当前其他人有订单尚未支付，您仍有机会投资~</span>
+                <span class="spangray" ng-if="creditProject.status === 1 && creditProject.currentStock === 0">当前其他人有订单尚未支付，您仍有机会出借~</span>
                 <span class="spangray" ng-if="creditProject.status === 2 ">债券正在撤销中~~</span> 
                 <span class="spangray" ng-if="creditProject.status === 4 || (creditProject.status === 3 && creditProject.soldStock !== 0)">债权已转让，请浏览其他项目~</span>
               </div>

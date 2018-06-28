@@ -1741,6 +1741,16 @@ hongcaiApp
           }
         }
       })
+      .state('root.help-center.investment', {
+        url: '/investment',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/investment.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
       .state('root.help-center.account-management', {
         url: '/account-management',
         views: {
@@ -1771,11 +1781,32 @@ hongcaiApp
           }
         }
       })
-      .state('root.help-center.other-question', {
-        url: '/other-question',
+      .state('root.help-center.recharge-and-withdrawals', {
+        url: '/recharge-and-withdrawals',
         views: {
           'help-center-right-show': {
-            templateUrl: 'views/help-center/other-question.html',
+            templateUrl: 'views/help-center/recharge-and-withdrawals.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+      .state('root.help-center.user-welfare', {
+        url: '/user-welfare',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/user-welfare.html',
+            controller: 'HelpCenterCtrl',
+            controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
+          }
+        }
+      })
+      // 客户服务
+      .state('root.help-center.customer-service', {
+        url: '/customer-service',
+        views: {
+          'help-center-right-show': {
+            templateUrl: 'views/help-center/customer-service.html',
             controller: 'HelpCenterCtrl',
             controllerUrl: 'scripts/controller/help-center/help-center-ctrl'
           }

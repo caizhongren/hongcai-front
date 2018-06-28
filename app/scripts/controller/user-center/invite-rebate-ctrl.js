@@ -29,7 +29,7 @@ angular.module('hongcaiApp')
         // 生成自己的二维码
         $('#qrcode').qrcode({
           render:'table',
-          text:'http://m.hongcai.com/register?inviteCode=' + $scope.inviteCode,
+          text: config.domain + '/activity/channel?inviteCode=' + $scope.inviteCode,
           size: 150
         });
       }
@@ -44,7 +44,7 @@ angular.module('hongcaiApp')
 
 
     $scope.showMessage = function() {
-      $scope.msg = '邀请链接已经复制到剪切板，赶快复制（Ctrl+V）给您的好友，一起在宏财投资吧！';
+      $scope.msg = '邀请链接已经复制到剪切板，赶快复制（Ctrl+V）给您的好友，一起在宏财出借吧！';
       $alert({
         scope: $scope,
         template: 'views/modal/alert-dialog.html',

@@ -12,7 +12,7 @@
    			 	<table class="table table-bordered table-striped">
 		      		<tbody>
 				        <tr>
-				          <th class="" class="text-nowrap" width="40%">投资金额</th>
+				          <th class="" class="text-nowrap" width="40%">出借金额</th>
 				          <td width="60%">{{params.displayValue}}元</td>
 				        </tr>
 				        <tr>
@@ -34,12 +34,12 @@
   	<div class="popover-content">
 	  	<form name="popoverForm" class="ng-pristine ng-valid">
 	  		<div class="preview">
-	  			<span>投资金额：{{params.displayValue}}</span>
+	  			<span>出借金额：{{params.displayValue}}</span>
 	  			<span>年均回报率：{{params.displayRate ||0}}</span>
           <span>项目期限：{{params.selectedIcon || 0}}天</span>
 	  		</div>
-			  <div class="cal-input"><label>投资金额：</label>
-          <input type="number" min="0" ng-model="params.inputValue" placeholder="输入投资金额" ng-change="capitalValueChange();">
+			  <div class="cal-input"><label>出借金额：</label>
+          <input type="number" min="0" ng-model="params.inputValue" placeholder="输入出借金额" ng-change="capitalValueChange();">
         </div>
 			  <div class="cal-input">
           <label>年均回报率：</label>

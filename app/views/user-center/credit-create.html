@@ -38,12 +38,12 @@
     <div class="panel-body" style="padding-top:20px; padding-left:35px;">
       <div class="row">
         <div class="col-sm-4">期望年均回报：{{ creditRightHolding.project.annualEarnings }}%</div>
-        <div class="col-sm-4">已收收益：{{ creditRightHolding.creditRight.returnProfit | number:2 }}元</div>
-        <div class="col-sm-4">投资日期：{{ creditRightHolding.order.createTime | date:'yyyy-MM-dd' }}</div>
+        <div class="col-sm-4">已收利息：{{ creditRightHolding.creditRight.returnProfit | number:2 }}元</div>
+        <div class="col-sm-4">出借日期：{{ creditRightHolding.order.createTime | date:'yyyy-MM-dd' }}</div>
       </div>
       <div class="row">
         <div class="col-sm-4">债权总额：{{ creditRightHolding.creditRight.transferableAmount |number:2 }}元</div>
-        <div class="col-sm-4">未收收益：{{ creditRightHolding.creditRight.profit -  creditRightHolding.creditRight.returnProfit |number:2}}元</div>
+        <div class="col-sm-4">未收利息：{{ creditRightHolding.creditRight.profit -  creditRightHolding.creditRight.returnProfit |number:2}}元</div>
         <div class="col-sm-4">到期日期：{{ creditRightHolding.project.repaymentDate | date:'yyyy-MM-dd' }}</div>
       </div>
     </div>

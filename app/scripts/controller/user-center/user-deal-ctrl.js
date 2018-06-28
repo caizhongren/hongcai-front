@@ -45,7 +45,7 @@ angular.module('hongcaiApp')
         'type': '回款',  //包含：项目正常回款、债权转让回款
         'no': '4,16'
       },{
-        'type': '投资',
+        'type': '出借',
         'no': '3'
       },{
         'type': '充值',

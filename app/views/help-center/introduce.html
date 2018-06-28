@@ -1,17 +1,24 @@
 <!--宏财网介绍-->
 <div class="col-md-9 col-lg-9 right-area">
 	<div class="row">
-		<div class="right-title">宏财介绍</div>
+		<div class="right-title">了解宏财</div>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeIntroduceQ1 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeIntroduceQ1 =! changeIntroduceQ1"></div>
-		<p class="p-click" ng-click="changeIntroduceQ1 =! changeIntroduceQ1">&nbsp;宏财网是做什么的网站？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeIntroduceQ1 == true">宏财网是国内领先的P2B互联网金融交易平台，引入双重保障机制，为投资者提供资金安全保障，且超过银行同期活期收益利率40倍的高收益投资项目。通过宏财网，您可以将手中富余资金出借给盈利能力强的中小企业，并获得高额的利息回报，分享企业高速发展的红利。
-		<br><br>宏财网致力于为个人、借款企业搭建一个高效；安全的投融资桥梁，构筑更轻松自由；安全高收益的投融资环境，寻找个人与企业之间安全与效率的平衡点，解决当前形势下的中小企业融资难等困境。实现投资人、借款企业双方共赢。</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;我们是谁？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">宏财网是国内领先的专注于中小微企业贷款需求的互联网金融信息服务平台，2016年获得A轮战略投资。自2014年成立以来，宏财网始终秉承“安全第一，信息透明，回报稳健，操作便捷”的理念，不断为融资双方提供优质的互联网金融服务。</p>
 	</div>
 	<div class="row">
-		<div class="help-ico {{changeIntroduceQ2 == true ? 'open' : ''}} col-md-offset-1 col-lg-offset-1" ng-click="changeIntroduceQ2 =! changeIntroduceQ2"></div>
-		<p class="p-click" ng-click="changeIntroduceQ2 =! changeIntroduceQ2">&nbsp;宏财网的盈利方式？</p>
-		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1" ng-if="changeIntroduceQ2 == true">宏财网作为中介信息服务平台，借款企业通过宏财网平台发布借款信息，是需要向宏财网支付相应的信息服务费，每一笔企业借款，宏财网平台会向借款企业收取一定的信息服务费。</p>
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;是否对接银行资金存管？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">根据银监会正式对外公布的《网络借贷资金存管业务指引》中要求，宏财网已于2017年6月正式上线海口联合农商银行资金存管系统。由银行对平台出借人与借款人资金存管账户进行管理和监督，对两者资金进行存管、划付、核算及监督，平台作为纯粹的信息中介参与到交易之中，全程不触碰资金，所有资金流动均在银行体系内进行，从而真正做到了平台与用户资金完全隔离，有效杜绝了平台支配和挪用用户资金的风险。</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;银行资金存管之后有什么优势？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">1）资金安全隔离 <br>
+			凡在宏财网出借的用户，均在存管银行设有独立存管账户，有效实现平台资金和用户资金隔离，由存管银行对资金进行管理与监督，平台无法触碰用户资金。<br>
+			2）交易真实透明<br>
+			凡在宏财网出借的用户，需要单独设立交易密码保证账户安全，账户信息由存管银行管理。用户在宏财网进行出借时，银行划拨用户资金必须通过用户的授权操作，并对交易流程进行管理并记录资金流水，交易真实可查。<br>
+			3）监管合规标准<br>
+			与海口联合农商银行开展资金存管，符合《网络借贷资金存管业务指引》规定，做到了合法合规，对于客户资金安全也更有保障，除此之外，客户的资金操作也更加透明、高效、便捷。			
+		</p>
 	</div>
 </div>
