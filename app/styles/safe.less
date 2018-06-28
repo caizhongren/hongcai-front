@@ -331,12 +331,12 @@
     .banner-li02 {
       position: absolute;
       top: 0;
-      left: 29%;
+      left: 38%;
     }
     .banner-li03 {
       position: absolute;
       top: 0;
-      left: 48%;
+      left: 68%;
     }
     .banner-li04 {
       position: absolute;
@@ -393,12 +393,13 @@
         filter: alpha(opacity=90);
         overflow: hidden;
         ul {
-          width: 700px;
+          width: 710px;
           margin: 0px auto;
           height: 2088px;
           li {
             width: 100%;
             margin: 15px 25px;
+            text-align: left;
             .fa-circle {
               position: relative;
               top: -2px;
@@ -695,16 +696,16 @@
               display: none;
             }
           }
-          .flipper .back,.flipper .front,.flipper .front strong,.strict-content a .flipper,b,i {
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            // -ms-backface-visibility: hidden;
-            // backface-visibility: hidden;
-            -webkit-perspective: 1000;
-            -moz-perspective: 1000;
-            // -ms-perspective: 1000;
-            // perspective: 1000;
-          }
+          // .flipper .back,.flipper .front,.flipper .front strong,.strict-content a .flipper,b,i {
+          //   -webkit-backface-visibility: hidden;
+          //   -moz-backface-visibility: hidden;
+          //   // -ms-backface-visibility: hidden;
+          //   // backface-visibility: hidden;
+          //   -webkit-perspective: 1000;
+          //   -moz-perspective: 1000;
+          //   // -ms-perspective: 1000;
+          //   // perspective: 1000;
+          // }
         }
       }
       .content-top {
@@ -733,34 +734,34 @@
         right: -48px;
       } 
     }
-    .strict-content a:hover .flipper,.strict-content a.hover .flipper {
-      -webkit-transform: rotateY(180deg);
-      -moz-transform: rotateY(180deg);
-      -ms-transform: rotateY(180deg);
-      -o-transform: rotateY(180deg);
-      transform: rotateY(180deg)
-    }
-    .strict-content a .flipper {
-      -webkit-transition: .5s;
-      -moz-transition: .5s;
-      -ms-transition: .5s;
-      -o-transition: .5s;
-      transition: .5s;
-      transform-style: preserve-3d;
-      -webkit-transform-style: preserve-3d;
-      -moz-transform-style: preserve-3d;
-      -ms-transform-style: preserve-3d;
-      -o-transform-style: preserve-3d;
+    // .strict-content a:hover .flipper,.strict-content a.hover .flipper {
+    //   -webkit-transform: rotateY(180deg);
+    //   -moz-transform: rotateY(180deg);
+    //   -ms-transform: rotateY(180deg);
+    //   -o-transform: rotateY(180deg);
+    //   transform: rotateY(180deg)
+    // }
+    // .strict-content a .flipper {
+    //   -webkit-transition: .5s;
+    //   -moz-transition: .5s;
+    //   -ms-transition: .5s;
+    //   -o-transition: .5s;
+    //   transition: .5s;
+    //   transform-style: preserve-3d;
+    //   -webkit-transform-style: preserve-3d;
+    //   -moz-transform-style: preserve-3d;
+    //   -ms-transform-style: preserve-3d;
+    //   -o-transform-style: preserve-3d;
       
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      // -ms-backface-visibility: hidden;
-      // backface-visibility: hidden;
-      -webkit-perspective: 1000;
-      -moz-perspective: 1000;
-      // -ms-perspective: 1000;
-      // perspective: 1000;
-    }
+    //   -webkit-backface-visibility: hidden;
+    //   -moz-backface-visibility: hidden;
+    //   // -ms-backface-visibility: hidden;
+    //   // backface-visibility: hidden;
+    //   -webkit-perspective: 1000;
+    //   -moz-perspective: 1000;
+    //   // -ms-perspective: 1000;
+    //   // perspective: 1000;
+    // }
     .strict-content .back {
       -webkit-transform: rotateY(182deg);
       -moz-transform: rotateY(182deg);
@@ -824,8 +825,7 @@
               font-size: 14px;
               color:#fff;
               text-align: left;
-              margin-top: 30px;
-              margin-bottom: 25px;
+              margin-top: 8px;
               line-height: 22px;
             }
             p {
@@ -833,7 +833,10 @@
               color: #fff;
               text-align: justify;
               margin-bottom: 0;
-              margin-top: 15px;
+            }
+            hr {
+              margin-top: 12px;
+              margin-bottom: 15px;
             }
           }
         }

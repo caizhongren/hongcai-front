@@ -11,15 +11,15 @@
       <div class="col-22 col-md-offset-1 padding-0"><i class="icon1"></i>账户余额</div>
       <div class="col-md-6 ft-grey666 padding-t-9 padding-l-0"><span class="ft-orange ft-Arial">{{account.balance || 0 | number:2}}</span>元</div>
     </div>
-    <!-- 最小投资金额 -->
+    <!-- 最小出借金额 -->
     <div class="row margin-b-20">
-      <div class="col-22 col-md-offset-1 padding-0"><i class="icon2"></i>最小投资金额</div>
+      <div class="col-22 col-md-offset-1 padding-0"><i class="icon2"></i>最小出借金额</div>
       <div ng-show="setAutoTender">
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.minInvestAmount}}元</span>
       </div>
       <form ng-if="!setAutoTender" name="investForm">
         <input class="minInvestAmount col-4 padding-t-9 input-invest ft-grey666 box-shadow" type="number" ng-model="autoTender.minInvestAmount" name="minInvestAmount" ng-change="watchInvestAmount(autoTender.minInvestAmount)"/><span class="input-money ft-black4 ft-14 fl">元</span>
-        <div class="col-md-4 padding-0 ft-12 margin-t-15 ft-grey6 margin-l-5">自动投标时，每笔投资金额都将大于此数值</div>
+        <div class="col-md-4 padding-0 ft-12 margin-t-15 ft-grey6 margin-l-5">自动投标时，每笔出借金额都将大于此数值</div>
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
             <div class="margin-b-0 margin-l-30 text-left" ng-if="errorMsg1 != ''">{{errorMsg1}}</div>
@@ -41,9 +41,9 @@
         <li ng-click="selectDateLine(date)" ng-repeat="date in dateLine">{{date}}天</li>
       </ul>
     </div>
-    <!-- 最低期望收益 -->
+    <!-- 最低期望年均回报 -->
     <div class="row margin-b-20">
-      <div class="col-22 col-md-offset-1 padding-0"><i class="icon4"></i>最低期望收益</div>
+      <div class="col-22 col-md-offset-1 padding-0"><i class="icon4"></i>最低期望年均回报</div>
       <div ng-if="setAutoTender">
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.annualEarnings}}%</span>
       </div>

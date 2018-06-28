@@ -38,7 +38,7 @@ angular.module('hongcaiApp')
       $scope.canInvestAmount = activityDetails.data.canInvestAmount;
       $scope.project.amount = $scope.canInvestAmount;
       /**
-       * 处理投资记录分页
+       * 处理出借记录分页
        */
       $scope.currentPage = 0;
       $scope.pageSize = 10;
@@ -57,7 +57,7 @@ angular.module('hongcaiApp')
 
   $scope.isAvailableInvest = function(project) { 
     if (project.amount <= $scope.project.minInvest) {
-      $scope.msg = '投资金额必须大于最小投资金额' + $scope.project.minInvest + '！';
+      $scope.msg = '出借金额必须大于最小出借金额' + $scope.project.minInvest + '！';
       $alert({
         scope: $scope,
         template: 'views/modal/alert-dialog.html',
@@ -65,7 +65,7 @@ angular.module('hongcaiApp')
       });
       return;
     } else if (project.amount % $scope.project.increaseAmount) {
-      $scope.msg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍！';
+      $scope.msg = '出借金额必须为' + $scope.project.increaseAmount + '的整数倍！';
       $alert({
         scope: $scope,
         template: 'views/modal/alert-dialog.html',
@@ -73,7 +73,7 @@ angular.module('hongcaiApp')
       });
       return;
     } else if (project.amount > $scope.canInvestAmount) {
-      $scope.msg = '投资金额必须小于宏包总值' + $scope.canInvestAmount + '!';
+      $scope.msg = '出借金额必须小于宏包总值' + $scope.canInvestAmount + '!';
       $alert({
         scope: $scope,
         template: 'views/modal/alert-dialog.html',
@@ -104,7 +104,7 @@ angular.module('hongcaiApp')
   }];
 
   $scope.tabsRight = [{
-    title: '投资记录',
+    title: '出借记录',
   }];
 
   $scope.switchTab = function(tabIndex) {

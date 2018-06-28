@@ -189,7 +189,7 @@ angular.module('hongcaiApp')
 
               $scope.newbieBiaoInvestFlag = response.isOk;
               if (!$scope.newbieBiaoInvestFlag) {
-                $scope.newbieBiaoErrorMsg = '该项目仅限用户首次投资后一周内参与';
+                $scope.newbieBiaoErrorMsg = '该项目仅限用户首次出借后一周内参与';
               }
             });
           }
@@ -236,7 +236,7 @@ angular.module('hongcaiApp')
 
           $scope.repaymentDate = projectDetails.data.repaymentDate;
           $scope.project.progress = ($scope.project.soldStock + $scope.project.occupancyStock) * 100 / $scope.project.countInvest;
-          $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额' : '可投金额';
+          $scope.totalType = $scope.project.status === 11 && $scope.project.progress < 100 ? '可预约金额' : '剩余可出借';
           /**
            * 项目可投金额
            */
@@ -314,15 +314,15 @@ angular.module('hongcaiApp')
       if ($rootScope.account.balance <= 0) {
         $scope.errorMsg = '账户余额不足，请先充值';
       } else if (amount > $scope.availableAmount) {
-        $scope.errorMsg = '投资金额必须小于' + $scope.availableAmount;
+        $scope.errorMsg = '出借金额必须小于' + $scope.availableAmount;
       } else if (amount > $rootScope.account.balance) {
         $scope.errorMsg = '账户余额不足，请先充值';
       } else if (amount < $scope.project.minInvest) {
-        $scope.errorMsg = '投资金额必须大于等于' + $scope.project.minInvest;
+        $scope.errorMsg = '出借金额必须大于等于' + $scope.project.minInvest;
       } else if (amount % $scope.project.increaseAmount !== 0) {
-        $scope.errorMsg = '投资金额必须为' + $scope.project.increaseAmount + '的整数倍';
+        $scope.errorMsg = '出借金额必须为' + $scope.project.increaseAmount + '的整数倍';
       } else if (coupon !== undefined && coupon !== null && coupon.type === 2 && amount < coupon.minInvestAmount) {
-        $scope.errorMsg = '投资金额不满足返现条件';
+        $scope.errorMsg = '出借金额不满足返现条件';
       }
 
       if (($scope.project !== undefined && $scope.project) || $scope.selectedCoupon !== null) {
@@ -702,7 +702,7 @@ angular.module('hongcaiApp')
     $rootScope.selectPage = $location.path().split('/')[1];
 
     $scope.tabsRight = [{
-      title: '投资记录',
+      title: '出借记录',
       // url: 'one.tpl.html'
     }, {
       title: '还款计划',

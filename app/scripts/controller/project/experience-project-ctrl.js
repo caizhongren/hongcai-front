@@ -16,7 +16,7 @@ angular.module('hongcaiApp')
     $scope.getExperienceProjectDetails();
 
     /**
-     * 投资
+     * 出借
      */
     $scope.showMsg = false;
     $scope.quickInvest = function(){
@@ -57,7 +57,7 @@ angular.module('hongcaiApp')
           });
         }else{
           $scope.showMsg = true;
-          $scope.msg = '体验金小于100元，无法投资';
+          $scope.msg = '体验金小于100元，无法出借';
         }
       }else{
         $scope.toRealNameAuth();

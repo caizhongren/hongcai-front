@@ -1,0 +1,75 @@
+<!--出借相关-->
+<div class="col-md-9 col-lg-9 right-area">
+	<div class="row">
+		<div class="right-title">出借相关</div>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;项目最低出借金额是多少？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				所有项目均100元起出借，以100元为单位递增。
+		</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;利息如何计算？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				项目总利息=(出借本金×期望年均回报率) ÷365×项目期限
+		</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;出借后何时开始计息？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				用户在宏财网成功出借项目后，一般会在该项目募集满额放款后当天开始计息，并按月付息给出借用户。如项目于周五募集结束，则周日开始计息。
+			<br>	同时宏财网出借用户还可根据项目的期望年均回报率，享受募集期贴息福利，就算在项目募集期间也不失分毫！
+		</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;何时确定项目回款时间？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				在项目募集期间，会根据预估项目募集时间，显示利息及本金预计回款日期；
+			<br>	当项目募集满额后，再根据满标日重新计算，显示利息及本金的回款日期；
+			<br>	出借用户会在预计回款日当天24:00前，收到回款，具体时间由借款人还款时间决定。如借款人于还款日之前提前还款，出借用户将会提前收到项目利息及本金回款，且按预计还款日正常计息，金额不受影响。				
+		</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;如何进行债权转让？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				可进行债权转让的项目应同时满足以下条件：
+			<br>	1）该项目满标后，持有天数大于30天； 
+			<br>	2）转让当天距离该笔项目到期回款日大于3天； 
+			<br>	3）新手专享项目不可进行债权转让操作；
+			<br>	4）参与特定渠道奖励活动进行出借的项目不可进行债权转让。		
+		</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;债权转让的手续费如何收取？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+			手续费=转让本金*1%，单笔转让的手续费最低为3元。
+		</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;使用过优惠券的项目，如何进行债权转让？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				1）使用现金券的项目，会按照转让部分本金与项目本金等比例扣除已获返现；
+			<br>	2）使用加息券的项目，已经获得的额外加息奖励不进行扣除，受让人购买该笔债权转让项目时，将不再继续享受加息奖励。
+		</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;购买债权转让的实际支付金额为什么会大于认购金额？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				实际支付金额=转让金额+当期已产生的待偿利息-转让奖金
+			<br>	转让奖金=转让金额×(转让利率-原始利率)×剩余期限÷365
+		</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;购买债权转让项目后，已收利息为什么显示负值？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				您购买债权转让项目时，需要先行垫付转让人当期已产生的利息，所以显示已收利息为负数，该笔利息会在下个回款日支付给您。
+		</p>
+	</div>
+	<div class="row">
+		<div class="p-click" ng-click="showOrHide($event);"><p class="help-ico col-md-offset-1 col-lg-offset-1"></p>&nbsp;什么是自动投标功能？</div>
+		<p class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 help-content">
+				平台为避免用户资金站岗造成利息损失，推出自动投标功能，用户可自定义项目的期望年均回报率、项目期限、出借金额等信息，如果平台发布的项目中有满足用户设定的自定义项目，系统会根据自动投标金额设置的排名，按顺序自动撮合出借，无需用户再次操作。
+		</p>
+	</div>
+</div>

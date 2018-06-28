@@ -1,7 +1,7 @@
 'use strict';
 angular.module('hongcaiApp')
   .controller('WebSiteNoticeCtrl', function($scope, $state, $location, $rootScope) {
-    $rootScope.pageTitle = '网站公告' + ' - 要投资，上宏财!';
+    $rootScope.pageTitle = '网站公告' + ' - 宏财网';
 
     $scope.perPage = parseInt($location.search().perPage, 10) || 10;
     $scope.page = parseInt($location.search().page, 10) || 0;

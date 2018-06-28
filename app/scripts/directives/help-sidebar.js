@@ -30,7 +30,7 @@ angular.module('hongcaiApp').directive('helpsidebar', ['$location','$rootScope',
 		},
 		template: '<div class="col-md-2 col-lg-2 about-left-area">' +
 		'<div class="row"><a  class="tips-header" ><p>帮助</p></a><a ng-repeat="m in menus.left" ui-sref="{{m.link}}" href="{{m.href}}" class="tips-area" >' +
-		'<div class="left-show-area"></div>' +
+		// '<div class="left-show-area"></div>' +
 		'<p>{{m.text}}</p>' +
 		'</a></div></div>'
 	};

@@ -12,7 +12,7 @@
     </div>
     <div class="col-md-4 padding-0 border-0">
       <p class="ft-36 ft-grey1 ft-Arial margin-b-5 margin-t--2">{{inviteStat.investNum || 0}}</p>
-      <p class="ft-grey666 margin-b-0">投资人数</p>
+      <p class="ft-grey666 margin-b-0">出借人数</p>
     </div>
   </div>
 
@@ -47,7 +47,7 @@
           <td class="text-left">{{item.user.mobile || item.user.name}}</td>
           <td>{{item.user.createTime | date:'yyyy-MM-dd'}}</td>
           <td class="text-right padding-r-10"><span ng-class="item.authStatus === 2 ? 'ft-blue5' : 'ft-orange6'">{{item.authStatus === 2 ? '已认证' : '未认证'}}</span></td>
-          <td class="text-right padding-l-0"><span ng-class="item.investAmount > 0 ? 'ft-blue5' : 'ft-orange6'">{{item.investAmount > 0 ? "已投资" : "未投资"}}</span></td>
+          <td class="text-right padding-l-0"><span ng-class="item.investAmount > 0 ? 'ft-blue5' : 'ft-orange6'">{{item.investAmount > 0 ? "已出借" : "未出借"}}</span></td>
         </tr>
         <tr ng-show="inviteList.length <= 0">
           <td colspan="4">

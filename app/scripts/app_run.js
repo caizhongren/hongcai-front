@@ -183,7 +183,7 @@ angular.module('hongcaiApp')
 
       $rootScope.isNoviceGuide = false;
 
-      var title = '国资平台，网贷平台，投资平台，投资项目-宏财网';
+      var title = '宏财网-值得信赖的P2P网贷平台';
       if (toState.data && toState.data.title) {
         title = toState.data.title + ' - 宏财网';
       }
