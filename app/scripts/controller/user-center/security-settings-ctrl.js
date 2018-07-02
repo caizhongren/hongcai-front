@@ -340,7 +340,7 @@ angular.module('hongcaiApp')
   
     //自动投标
     $scope.autoTender = [];
-    $scope.dateLine = [ 30,90,120,180,360];
+    $scope.dateLine = [90,120,180,270,360,720];
     $scope.interestRate = {
       '0': '',
       '7': '7%',
@@ -536,7 +536,7 @@ angular.module('hongcaiApp')
           $scope.setAutoTender = true;
         }else {
           $scope.setAutoTender = false;
-          $scope.autoTender.selectedDateLine = '360';
+          $scope.autoTender.selectedDateLine = '720';
           $scope.autoTender.annualEarnings = '7';
           $scope.autoTender.investType = ['2','5','6','7'];
           $scope.selectTypeText = '全部';
