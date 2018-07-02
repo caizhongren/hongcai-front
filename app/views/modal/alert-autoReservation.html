@@ -48,11 +48,11 @@
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.annualEarnings}}%</span>
       </div>
       <a ng-if="!setAutoTender" class="col-9 cursor-pt display-bl" ng-click="interestRateFn()" href="javascript:;" focus-blur>
-        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{interestRate[autoTender.annualEarnings]}}" disabled/>
+        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.annualEarnings}}%" disabled/>
         <span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span> 
       </a>
       <ul class="select" ng-if="showInterestRate">
-        <li ng-click="autoTender.annualEarnings = rate" ng-repeat="(rate, rateName) in interestRate | orderBy:'-rate'">{{rateName}}</li>        
+        <li ng-click="autoTender.annualEarnings = rate" ng-repeat="rate in interestRate">{{rate}}%</li>        
       </ul>
     </div>
     <!-- 标的类型 -->

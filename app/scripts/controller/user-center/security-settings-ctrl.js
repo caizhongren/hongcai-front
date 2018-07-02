@@ -341,15 +341,7 @@ angular.module('hongcaiApp')
     //自动投标
     $scope.autoTender = [];
     $scope.dateLine = [90,120,180,270,360,720];
-    $scope.interestRate = {
-      '0': '',
-      '7': '7%',
-      '8': '8%',
-      '9': '9%',
-      '10': '10%',
-      '11': '11%',
-      '12': '12%'
-    };
+    $scope.interestRate = [7,8,9,10,11,12];
     $scope.projectType = {
         '5': '宏财精选', 
         '6': '宏财尊贵', 
@@ -499,6 +491,7 @@ angular.module('hongcaiApp')
           }
         ];
       }
+     
       //自动投标详情
       UserCenterService.autoTender.get({
         userId: 0
