@@ -24,7 +24,7 @@
         </div>
         <div class="col-md-2">
           <p class="ft-24 ft-grey1 margin-b-0">{{item.amount || 0 | number:0}}<span class="ft-16">元</span></p>
-          <p class="ft-14 ft-grey666">可出借金额</p>
+          <p class="ft-14 ft-grey666">剩余可出借</p>
         </div>
         <div class="col-md-2 margin-l--5">
             <a class="btn btn-primary-orange ft-18 btn-ljtz" ui-sref="root.project-details({number: item.number, type: 6})" ng-show="item.status == 6">{{item._timeDown.hour}}:{{item._timeDown.min}}:{{item._timeDown.seconds}}&nbsp;<i class="fa fa-chevron-circle-right"></i></a>
