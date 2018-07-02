@@ -10,11 +10,11 @@ angular.module('hongcaiApp')
         'href': '/consultant-team',
         'link': 'root.about-us.consultant-team',
         'text': '顾问团队'
-      }*/{
+      }{
         'href': '/us/projecter',
         'link': 'root.us.projecter',
         'text': '项目方介绍'
-      }, {
+      }, */{
         'href': '/us/platform',
         'link': 'root.us.platform',
         'text': '平台介绍'
