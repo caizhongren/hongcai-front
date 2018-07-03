@@ -325,15 +325,6 @@ angular.module('hongcaiApp')
           } else { // 未开启
             $scope.goToTender();
             $scope.setAutoTender = false
-          // UserCenterService.autoTender.get({
-          //   userId: $rootScope.loginUser.id
-          // }, function(response){
-          //   if(response.status != null){
-          //     $scope.setAutoTender = true;
-          //   }else {
-          //     $scope.setAutoTender = false;
-          //   }
-          // });
           }
         }
       }
@@ -548,12 +539,26 @@ angular.module('hongcaiApp')
       
     $scope.disableDubble = true;
     //开启自动投标
+
     $scope.openReservation2 = function(autoTender){
-      $scope.disableDubble = false;
-      var startTime = new Date($('#start').val()).getTime();
-      var endTime = new Date($('#end').val()).getTime();
-     
+      var startTime = new Date(new Date($('#start').val().split('-').join('/')).setHours(0,0,0)).getTime();
+      var endTime = new Date(new Date($('#end').val().split('-').join('/')).setHours(23,59,59)).getTime();
+      var updateTime_t = new Date(new Date().setHours(23,59,59)).getTime();
+      // return
       if (!$rootScope.isLogged) {
+        return;
+      }
+      if(startTime > endTime){
+        $scope.errorMsg3 = '结束时间要大于开始时间';
+        toaster.pop('error', '结束时间要大于开始时间');
+      } else if(endTime < updateTime_t){
+        $scope.errorMsg3 = '结束时间要大于当前时间';
+        toaster.pop('error', '结束时间要大于当前时间');
+      } else {
+        $scope.errorMsg3 = '';
+      }
+      
+      if($scope.errorMsg3 != ''){
         return;
       }
       if(autoTender.investType.length == 0){
