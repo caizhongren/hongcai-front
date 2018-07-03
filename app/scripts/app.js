@@ -30,7 +30,8 @@ var hongcaiApp = angular.module('hongcaiApp', [
   'angular-svg-round-progress',
   'seo',
   'ng-echarts',
-  'angularFileUpload'
+  'angularFileUpload',
+  'exceptionOverwrite'
 ]);
 
 hongcaiApp
