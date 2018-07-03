@@ -6,50 +6,52 @@ angular.module('hongcaiApp')
     $scope.userbusiness = 2;
     $scope.strength = 1;
     $scope.setAutoTender = false;
-
-    UserCenterService.userSecurityInfo.get({}, function(response) {
-      if (response.ret === 1) {
-        var userAuth = response.data.userAuth;
-        var user = response.data.user;
-        $scope.email = user.email;
-        $scope.mobile = user.mobile;
-        $scope.userId = user.id;
-        if (userAuth && userAuth.authStatus === 2) {
-          $scope.haveTrusteeshipAccount = true;
-          // $scope.openTrustReservation = userAuth.autoTransfer;
-        } else {
-          $scope.haveTrusteeshipAccount = false;
-        }
-
-      } else {
-        //console.log('ask security-settings, why userSecurityInfo did not load data...');
-      }
-    });
-
    
-    //绑卡信息
-    UserCenterService.getUserBankCard.get({}, function(response) {
-      if (response.ret === 1) {
-
-        var card = response.data.card;
-        $scope.isAuth = response.data.isAuth;
-        if (card) {
-          $scope.haveCard = (card.status === 'VERIFIED');
-          $scope.bankName = card.openBank;
-          $scope.cardNo = card.cardNo ? card.cardNo.slice(-7) : '';
-          $scope.isVerifying = (card.status === 'VERIFYING');
-          $scope.unbinding = (card.status === 'INIT');
+    $scope.getUserInfo = function () {
+      //认证信息
+      UserCenterService.userSecurityInfo.get({}, function(response) {
+        if (response.ret === 1) {
+          var userAuth = response.data.userAuth;
+          var user = response.data.user;
+          $scope.email = user.email;
+          $scope.mobile = user.mobile;
+          $scope.userId = user.id;
+          if (userAuth && userAuth.authStatus === 2) {
+            $scope.haveTrusteeshipAccount = true;
+            // $scope.openTrustReservation = userAuth.autoTransfer;
+          } else {
+            $scope.haveTrusteeshipAccount = false;
+          }
+  
         } else {
-          $scope.haveCard = false;
-          $scope.isVerifying = false;
-          $scope.unbinding = false;
+          //console.log('ask security-settings, why userSecurityInfo did not load data...');
         }
-        
-      } else {
-        toaster.pop('error', response.msg);
-      }
-    });
+      });
+      
+      //绑卡信息
+      UserCenterService.getUserBankCard.get({}, function(response) {
+        if (response.ret === 1) {
 
+          var card = response.data.card;
+          $scope.isAuth = response.data.isAuth;
+          if (card) {
+            $scope.haveCard = (card.status === 'VERIFIED');
+            $scope.bankName = card.openBank;
+            $scope.cardNo = card.cardNo ? card.cardNo.slice(-7) : '';
+            $scope.isVerifying = (card.status === 'VERIFYING');
+            $scope.unbinding = (card.status === 'INIT');
+          } else {
+            $scope.haveCard = false;
+            $scope.isVerifying = false;
+            $scope.unbinding = false;
+          }
+          
+        } else {
+          toaster.pop('error', response.msg);
+        }
+      });
+    }
+    $rootScope.isLogged ? $scope.getUserInfo() : null;
     //解绑银行卡
     $scope.confirmUnbindBankCard = function(){
       if($rootScope.account.tTotalAssets > 2){
@@ -491,7 +493,10 @@ angular.module('hongcaiApp')
           }
         ];
       }
-     
+      $rootScope.isLogged ? $scope.AutoTender() : null;
+      
+    })
+    $scope.AutoTender = function () {
       //自动投标详情
       UserCenterService.autoTender.get({
         userId: 0
@@ -539,7 +544,7 @@ angular.module('hongcaiApp')
           $scope.endTime = new Date().setFullYear(new Date().getFullYear()+1);
         }
       });
-    })
+    }
       
     $scope.disableDubble = true;
     //开启自动投标
