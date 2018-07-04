@@ -543,8 +543,7 @@ angular.module('hongcaiApp')
     $scope.openReservation2 = function(autoTender){
       var startTime = new Date(new Date($('#start').val().split('-').join('/')).setHours(0,0,0)).getTime();
       var endTime = new Date(new Date($('#end').val().split('-').join('/')).setHours(23,59,59)).getTime();
-      var updateTime_t = new Date(new Date().setHours(23,59,59)).getTime();
-      // return
+      var updateTime_t = new Date().getTime();
       if (!$rootScope.isLogged) {
         return;
       }
