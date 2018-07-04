@@ -27,7 +27,7 @@ angular.module('hongcaiApp')
 
     $scope.type = $stateParams.type ? $stateParams.type : '5';
     if (!$stateParams.projectDays) {
-      $location.path('/guaranteepro-list/7,8,9,10,11,12/0_720/0_100/0_1000/release_start_time/false/' + $scope.type);
+      $location.path('/guaranteepro-list/7,8,9,10,11,12/0_1000/0_100/0_1000/release_start_time/false/' + $scope.type);
       return;
     }
 
@@ -36,10 +36,10 @@ angular.module('hongcaiApp')
       $rootScope.pageTitle = '宏财精选 - 宏财网';
       $scope.typeName = '宏财精选';
       $scope.searchCycle = [
-        { value: '0_720', name: '全部' },
+        { value: '0_1000', name: '全部' },
         { value: '1_30', name: '30天以下'},
         { value: '31_90', name: '31 - 90天'},
-        { value: '91_720', name: '91天以上'}
+        { value: '91_1000', name: '91天以上'}
       ];
 
       $scope.searchAnnualEarings = [
@@ -61,10 +61,10 @@ angular.module('hongcaiApp')
       $rootScope.pageTitle = '宏财尊贵 - 宏财网';
       $scope.typeName = '宏财尊贵';
       $scope.searchCycle = [
-        { value: '0_720', name: '全部' },
+        { value: '0_1000', name: '全部' },
         { value: '1_270', name: '270天以下'},
         { value: '271_360', name: '271 - 360天'},
-        { value: '361_720', name: '361天以上'}
+        { value: '361_1000', name: '361天以上'}
       ];
 
       $scope.searchAnnualEarings = [
