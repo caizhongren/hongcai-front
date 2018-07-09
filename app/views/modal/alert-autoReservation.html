@@ -48,11 +48,11 @@
         <span class="col-4 padding-t-9 ft-grey666">{{autoTenderDetail.annualEarnings}}%</span>
       </div>
       <a ng-if="!setAutoTender" class="col-9 cursor-pt display-bl" ng-click="interestRateFn()" href="javascript:;" focus-blur>
-        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{interestRate[autoTender.annualEarnings]}}" disabled/>
+        <input class="col-8 padding-t-5 input-invest ft-grey666" value="{{autoTender.annualEarnings}}%" disabled/>
         <span class="input-money ft-grey6 ft-20"><i class="fa fa-angle-down" aria-hidden="true"></i></span> 
       </a>
       <ul class="select" ng-if="showInterestRate">
-        <li ng-click="autoTender.annualEarnings = rate" ng-repeat="(rate, rateName) in interestRate | orderBy:'-rate'">{{rateName}}</li>        
+        <li ng-click="autoTender.annualEarnings = rate" ng-repeat="rate in interestRate">{{rate}}%</li>        
       </ul>
     </div>
     <!-- 标的类型 -->
@@ -99,19 +99,19 @@
           <input id="start" class="ft-grey666 col-100 padding-t-5 input-invest border-none" value="{{currentTime || autoTenderDetail.startTime | date: 'yyyy-MM-dd'}}" disabled/>
         </div><!-- <i class="icon8 cursor-pt" "></i> -->
         <div class="fl ft-grey3 margin-t-5"> &nbsp;—&nbsp; </div>
-          <div class="col-1 input-invest" onClick="laydate({elem: '#end', istime: false, format: 'YYYY-MM-DD', min: laydate.now(+1)})">
+          <div class="col-1 input-invest" onClick="laydate({elem: '#end', istime: false, format: 'YYYY-MM-DD', min: laydate.now()})">
             <input id="end" class="ft-grey666 col-100 padding-t-5 input-invest border-none" value="{{endTime || autoTenderDetail.endTime | date: 'yyyy-MM-dd'}}" disabled /><!-- <i class="icon9 cursor-pt""></i> -->
         </div>  
         <div class="row">
           <div class="col-md-6 col-md-offset-3 ft-red4 ft-12">
-            <div class="margin-b-0 margin-l-30 text-left">{{errorMsg3}}</div>
+            <!-- <div class="margin-b-0 margin-l-30 text-left">{{errorMsg3}}</div> -->
           </div>
         </div>
       </div> 
     </div>
     <!-- 提交按钮 -->
     <div class="margin-b-30 col-xs-10 col-xs-offset-1">
-      <button class="btn-open orange-button col-1 pull-left margin-l-prcent35" ng-click="openReservation2(autoTender);$hide();" ng-if="!setAutoTender && errorMsg1 == '' && !error2 && disableDubble && noType">开启</button>
+      <button class="btn-open orange-button col-1 pull-left margin-l-prcent35" ng-click="openReservation2(autoTender);errorMsg3 == '' ? $hide() : null;" ng-if="!setAutoTender && errorMsg1 == '' && !error2 && disableDubble && noType">开启</button>
       <button class="btn-disabled btn-open orange-button col-1 pull-left margin-l-prcent35" ng-if="!setAutoTender && (errorMsg1 != '' || error2 || !noType)" disabled>开启</button>
       <a class="btn-open orange-button col-1 pull-left margin-l-prcent22" ng-click="modify()"  ng-if="setAutoTender">修改</a>
       <a class="btn-open orange-button col-1 pull-left margin-l-60" ng-click="showCancelAuthorization();$hide()"  ng-if="setAutoTender && disableDubble">禁用</a>  

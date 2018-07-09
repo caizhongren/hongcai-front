@@ -31,49 +31,51 @@ angular.module('hongcaiApp')
       $('#accountInfo').addClass('in');
     }
 
-    /**
-    * 账号信息
-    **/
-    UserCenterService.userSecurityInfo.get({}, function(response) {
-      if (response && response.ret !== -1) {
-        var userAuth = response.data.userAuth;
-        var user = response.data.user;
-        $scope.email = user.email;
-        $scope.mobile = user.mobile;
-        $scope.userId = user.id;
-        if (userAuth && userAuth.authStatus === 2) {
-          $scope.haveTrusteeshipAccount = true;
-          // $scope.openTrustReservation = userAuth.autoTransfer;
+    $scope.getUserInfo = function () {
+      /**
+      * 账号信息
+      **/
+      UserCenterService.userSecurityInfo.get({}, function(response) {
+        if (response && response.ret !== -1) {
+          var userAuth = response.data.userAuth;
+          var user = response.data.user;
+          $scope.email = user.email;
+          $scope.mobile = user.mobile;
+          $scope.userId = user.id;
+          if (userAuth && userAuth.authStatus === 2) {
+            $scope.haveTrusteeshipAccount = true;
+            // $scope.openTrustReservation = userAuth.autoTransfer;
+          } else {
+            $scope.haveTrusteeshipAccount = false;
+          }
+
+        } 
+      });
+
+      /**
+      * 绑卡信息
+      **/
+      UserCenterService.getUserBankCard.get({}, function(response) {
+        if (response.ret === 1) {
+          var card = response.data.card;
+          if (card) {
+            $scope.haveCard = (card.status === 'VERIFIED');
+            $scope.bankName = card.openBank;
+            $scope.cardNo = card.cardNo;
+            $scope.isVerifying = (card.status === 'VERIFYING');
+            $scope.unbinding = (card.status === 'INIT');
+          } else {
+            $scope.haveCard = false;
+            $scope.isVerifying = false;
+            $scope.unbinding = false;
+          }
+          $scope.isAuth = response.data.isAuth;
         } else {
-          $scope.haveTrusteeshipAccount = false;
+          toaster.pop('error', response.msg);
         }
-
-      } 
-    });
-
-    /**
-    * 绑卡信息
-    **/
-    UserCenterService.getUserBankCard.get({}, function(response) {
-      if (response.ret === 1) {
-        var card = response.data.card;
-        if (card) {
-          $scope.haveCard = (card.status === 'VERIFIED');
-          $scope.bankName = card.openBank;
-          $scope.cardNo = card.cardNo;
-          $scope.isVerifying = (card.status === 'VERIFYING');
-          $scope.unbinding = (card.status === 'INIT');
-        } else {
-          $scope.haveCard = false;
-          $scope.isVerifying = false;
-          $scope.unbinding = false;
-        }
-        $scope.isAuth = response.data.isAuth;
-      } else {
-        toaster.pop('error', response.msg);
-      }
-    });
-
+      });
+    }
+    $rootScope.isLogged ? $scope.getUserInfo() : null;
     //修改手机号
     $scope.resetMobile = function(){
       

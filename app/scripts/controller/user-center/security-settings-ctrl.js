@@ -6,50 +6,52 @@ angular.module('hongcaiApp')
     $scope.userbusiness = 2;
     $scope.strength = 1;
     $scope.setAutoTender = false;
-
-    UserCenterService.userSecurityInfo.get({}, function(response) {
-      if (response.ret === 1) {
-        var userAuth = response.data.userAuth;
-        var user = response.data.user;
-        $scope.email = user.email;
-        $scope.mobile = user.mobile;
-        $scope.userId = user.id;
-        if (userAuth && userAuth.authStatus === 2) {
-          $scope.haveTrusteeshipAccount = true;
-          // $scope.openTrustReservation = userAuth.autoTransfer;
-        } else {
-          $scope.haveTrusteeshipAccount = false;
-        }
-
-      } else {
-        //console.log('ask security-settings, why userSecurityInfo did not load data...');
-      }
-    });
-
    
-    //绑卡信息
-    UserCenterService.getUserBankCard.get({}, function(response) {
-      if (response.ret === 1) {
-
-        var card = response.data.card;
-        $scope.isAuth = response.data.isAuth;
-        if (card) {
-          $scope.haveCard = (card.status === 'VERIFIED');
-          $scope.bankName = card.openBank;
-          $scope.cardNo = card.cardNo ? card.cardNo.slice(-7) : '';
-          $scope.isVerifying = (card.status === 'VERIFYING');
-          $scope.unbinding = (card.status === 'INIT');
+    $scope.getUserInfo = function () {
+      //认证信息
+      UserCenterService.userSecurityInfo.get({}, function(response) {
+        if (response.ret === 1) {
+          var userAuth = response.data.userAuth;
+          var user = response.data.user;
+          $scope.email = user.email;
+          $scope.mobile = user.mobile;
+          $scope.userId = user.id;
+          if (userAuth && userAuth.authStatus === 2) {
+            $scope.haveTrusteeshipAccount = true;
+            // $scope.openTrustReservation = userAuth.autoTransfer;
+          } else {
+            $scope.haveTrusteeshipAccount = false;
+          }
+  
         } else {
-          $scope.haveCard = false;
-          $scope.isVerifying = false;
-          $scope.unbinding = false;
+          //console.log('ask security-settings, why userSecurityInfo did not load data...');
         }
-        
-      } else {
-        toaster.pop('error', response.msg);
-      }
-    });
+      });
+      
+      //绑卡信息
+      UserCenterService.getUserBankCard.get({}, function(response) {
+        if (response.ret === 1) {
 
+          var card = response.data.card;
+          $scope.isAuth = response.data.isAuth;
+          if (card) {
+            $scope.haveCard = (card.status === 'VERIFIED');
+            $scope.bankName = card.openBank;
+            $scope.cardNo = card.cardNo ? card.cardNo.slice(-7) : '';
+            $scope.isVerifying = (card.status === 'VERIFYING');
+            $scope.unbinding = (card.status === 'INIT');
+          } else {
+            $scope.haveCard = false;
+            $scope.isVerifying = false;
+            $scope.unbinding = false;
+          }
+          
+        } else {
+          toaster.pop('error', response.msg);
+        }
+      });
+    }
+    $rootScope.isLogged ? $scope.getUserInfo() : null;
     //解绑银行卡
     $scope.confirmUnbindBankCard = function(){
       if($rootScope.account.tTotalAssets > 2){
@@ -176,6 +178,8 @@ angular.module('hongcaiApp')
         } else if (response.ret === -1) {
           if (response.code === -1021) {
             $scope.isOldPasswordTrue = false;
+          } else {
+            toaster.pop('error', response.msg);
           }
         } else {
           //console.log('ask security-settings, why changePassword did not load data...');
@@ -323,15 +327,6 @@ angular.module('hongcaiApp')
           } else { // 未开启
             $scope.goToTender();
             $scope.setAutoTender = false
-          // UserCenterService.autoTender.get({
-          //   userId: $rootScope.loginUser.id
-          // }, function(response){
-          //   if(response.status != null){
-          //     $scope.setAutoTender = true;
-          //   }else {
-          //     $scope.setAutoTender = false;
-          //   }
-          // });
           }
         }
       }
@@ -340,16 +335,8 @@ angular.module('hongcaiApp')
   
     //自动投标
     $scope.autoTender = [];
-    $scope.dateLine = [ 30,90,120,180,360];
-    $scope.interestRate = {
-      '0': '',
-      '7': '7%',
-      '8': '8%',
-      '9': '9%',
-      '10': '10%',
-      '11': '11%',
-      '12': '12%'
-    };
+    $scope.dateLine = [90,120,180,270,360,720];
+    $scope.interestRate = [7,8,9,10,11,12];
     $scope.projectType = {
         '5': '宏财精选', 
         '6': '宏财尊贵', 
@@ -499,6 +486,10 @@ angular.module('hongcaiApp')
           }
         ];
       }
+      $rootScope.isLogged ? $scope.AutoTender() : null;
+      
+    })
+    $scope.AutoTender = function () {
       //自动投标详情
       UserCenterService.autoTender.get({
         userId: 0
@@ -536,7 +527,7 @@ angular.module('hongcaiApp')
           $scope.setAutoTender = true;
         }else {
           $scope.setAutoTender = false;
-          $scope.autoTender.selectedDateLine = '360';
+          $scope.autoTender.selectedDateLine = '720';
           $scope.autoTender.annualEarnings = '7';
           $scope.autoTender.investType = ['2','5','6','7'];
           $scope.selectTypeText = '全部';
@@ -546,16 +537,29 @@ angular.module('hongcaiApp')
           $scope.endTime = new Date().setFullYear(new Date().getFullYear()+1);
         }
       });
-    })
+    }
       
     $scope.disableDubble = true;
     //开启自动投标
+
     $scope.openReservation2 = function(autoTender){
-      $scope.disableDubble = false;
-      var startTime = new Date($('#start').val()).getTime();
-      var endTime = new Date($('#end').val()).getTime();
-     
+      var startTime = new Date(new Date($('#start').val().split('-').join('/')).setHours(0,0,0)).getTime();
+      var endTime = new Date(new Date($('#end').val().split('-').join('/')).setHours(23,59,59)).getTime();
+      var updateTime_t = new Date().getTime();
       if (!$rootScope.isLogged) {
+        return;
+      }
+      if(startTime > endTime){
+        $scope.errorMsg3 = '结束时间要大于开始时间';
+        toaster.pop('error', '结束时间要大于开始时间');
+      } else if(endTime < updateTime_t){
+        $scope.errorMsg3 = '结束时间要大于当前时间';
+        toaster.pop('error', '结束时间要大于当前时间');
+      } else {
+        $scope.errorMsg3 = '';
+      }
+      
+      if($scope.errorMsg3 != ''){
         return;
       }
       if(autoTender.investType.length == 0){

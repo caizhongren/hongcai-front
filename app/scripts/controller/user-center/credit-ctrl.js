@@ -5,6 +5,7 @@ angular.module('hongcaiApp')
     $scope.pageSize = 5;
     $scope.showOther = false;
     $scope.currentPage = 1;
+    $scope.limitTo = config.en === 'online' ? 13 : 10
     $scope.getProjectPrepaymentTime = function () {
       UserCenterService.projectPrepaymentTime.get({}, function (response) {
         if (response && response.ret !== -1) {
