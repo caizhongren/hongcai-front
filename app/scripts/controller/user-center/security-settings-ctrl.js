@@ -178,6 +178,8 @@ angular.module('hongcaiApp')
         } else if (response.ret === -1) {
           if (response.code === -1021) {
             $scope.isOldPasswordTrue = false;
+          } else {
+            toaster.pop('error', response.msg);
           }
         } else {
           //console.log('ask security-settings, why changePassword did not load data...');
