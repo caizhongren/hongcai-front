@@ -24,7 +24,7 @@
             <span>
               <a class="ft-black" ui-sref="root.userCenter.account-overview">{{loginUser.nickName ||( loginUser.mobile || loginUser.name)}}</a>
               <a ng-click="logout();" class="logout ft-black">退出 </a>
-              <a ui-sref="root.userCenter.assets-overview" class="ft-black msg"><span class="header_money"></span> 可用余额：{{account.balance | number: 2}}元</a>
+              <a ui-sref="root.userCenter.account-overview" class="ft-black msg"><span class="header_money"></span> 可用余额：{{account.balance | number: 2}}元</a>
               <a class="ft-black msg" ui-sref="root.userCenter.message({status:'0,1'})">消息(<span ng-bind="unreadCount || 0 "></span>)</a>
             </span>
           </li>
