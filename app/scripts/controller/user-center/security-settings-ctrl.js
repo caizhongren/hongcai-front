@@ -529,7 +529,7 @@ angular.module('hongcaiApp')
           $scope.setAutoTender = false;
           $scope.autoTender.selectedDateLine = '720';
           $scope.autoTender.annualEarnings = '7';
-          $scope.autoTender.investType = ['2','5','6','7'];
+          $scope.isExist ? $scope.autoTender.investType = ['2', '5', '6'] : $scope.autoTender.investType = ['2', '5', '6', '7'];
           $scope.selectTypeText = '全部';
           $scope.autoTender.minInvestAmount = 100;
           $scope.autoTender.retentionAmount = 0;
