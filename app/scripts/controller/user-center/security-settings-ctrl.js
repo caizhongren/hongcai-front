@@ -524,7 +524,7 @@ angular.module('hongcaiApp')
             }
             $scope.selectTypeText = $scope.selectTypeText.split('').splice(1).join('');
           }
-          $scope.setAutoTender = true;
+          $scope.openTrustReservation === 3 ? $scope.setAutoTender = false : $scope.setAutoTender = true;
         }else {
           $scope.setAutoTender = false;
           $scope.autoTender.selectedDateLine = '720';
