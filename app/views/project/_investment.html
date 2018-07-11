@@ -121,7 +121,7 @@
                 {{welfaresLevel}}会员加息<span class="ft-orange ft-16">{{selectedCoupon.amount}}%</span>
               </span>
               <span class="spangray" ng-show="selectedCoupon === null">暂不使用<span class="ft-white ft-16">0</span></span>
-              <span class="spangray" ng-show="coupons.length == 0">暂无可用奖励<span class="ft-white ft-16">0</span></span>
+              <span class="spangray" ng-show="!selectedCoupon && coupons.length == 0">暂无可用奖励<span class="ft-white ft-16">0</span></span>
               <span class="menu-down fr"></span>
               <ul class="award-list spangray" ng-show="showCoupons">
                 <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : '-profit'">
@@ -166,7 +166,7 @@
                     {{welfaresLevel}}会员加息<span class="ft-orange ft-16">{{selectedCoupon.amount}}%</span>
                   </span>
                   <span class="spangray" ng-show="selectedCoupon === null">暂不使用<span class="ft-white ft-16">0</span></span>
-                  <span class="spangray" ng-show="coupons.length === 0">暂无可用奖励<span class="ft-white ft-16">0</span></span>
+                  <span class="spangray" ng-show="!selectedCoupon && coupons.length === 0">暂无可用奖励<span class="ft-white ft-16">0</span></span>
                   <span class="menu-down fr"></span>
                   <ul class="award-list spangray" ng-show="showCoupons">
                     <!-- <li ng-click="selectCoupon(coupon)" ng-repeat="coupon in coupons | orderBy : 'value'" ng-show="coupon.type === 2 && coupon.status === 1">
