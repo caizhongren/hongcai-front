@@ -7,7 +7,7 @@ angular.module('hongcaiApp')
     var reward = 0;
     var currentDate = new Date().getTime()
     $rootScope.checkSession.promise.then(function(data) {
-      data.registerTime = new Date(new Date(data.registerTime).getFullYear() + '/' + (new Date(data.registerTime).getMonth() + 1) + '/' + new Date(data.registerTime).getDate() + '/00:00:00').getTime();
+      data.registerTime = new Date(data.registerTime).setHours(0, 0, 0);
       var registerMonthStart = new Date(new Date(data.registerTime).getFullYear() + '/' + (new Date(data.registerTime).getMonth() + 1) + '/01 00:00:00').getTime() - 0.5;
       $scope.currentYearCopy = new Date().getFullYear();
       $scope.currentYear = new Date().getFullYear();//当前年份
