@@ -16,6 +16,7 @@ angular.module('hongcaiApp')
     // 可提现金额查询
     UserCenterService.availableCash.get({}, function(response) {
       if (response && response.ret !== 1) {
+        $scope.realTimeAmount = response.realTimeAmount;
         $scope.availableCash = response.account.availableCash;
         var cash = Math.floor($scope.availableCash * 100)/100;
         var withdrawFee = response.withdrawFee; // 提现手续费
