@@ -18,7 +18,7 @@ angular.module('hongcaiApp')
       if (response && response.ret !== 1) {
         $scope.realTimeAmount = response.realTimeAmount;
         $scope.availableCash = response.account.availableCash;
-        var cash = Math.floor($scope.availableCash * 100)/100;
+        var cash = $scope.availableCash;
         $scope.withdrawFee = response.withdrawFee; // 提现手续费
         $scope.cardStatus = response.cardStatus;
         $scope.availableCashRealNo = cash >= $scope.withdrawFee ? cash - $scope.withdrawFee : 0;
