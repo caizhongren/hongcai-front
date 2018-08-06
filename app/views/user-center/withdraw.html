@@ -21,8 +21,7 @@
               <div class="col-md-2 text-right text-recharge-tip"><b>提现金额：</b></div>
               <input name="amount" type="text" class="verify-input fl mgn-top7" ng-model="amount" ng-pattern="/^[0-9]*(\.[0-9]{1,2})?$/" ng-focus ng-disabled="availableCashRealNo <= 0" required autofocus/>
               <span class="span-money fl">元</span>
-              <div class="col-md-7 text-recharge-tip" ng-if="realTimeAmount < 3">预计<span class="ft-red5">&nbsp;{{nextDay | date:'yyyy-MM-dd'}} 24时前&nbsp;</span>到账（具体时间以银行操作为准）</div>
-              <div class="col-md-7 text-recharge-tip" ng-if="realTimeAmount >= 3">（若提现金额{{realTimeAmount}}元，预计今日24:00前可到账）</div>
+              <div class="col-md-7 text-recharge-tip">预计<span class="ft-red5">&nbsp;{{nextDay | date:'yyyy-MM-dd'}} 24时前&nbsp;</span>到账（具体时间以银行操作为准）</div>
             </div>
           </div>
           <div class="row col-md-10 col-md-offset-1 text-left ft-12 ft-red4" ng-show="withdrawForm.amount.$dirty">
@@ -50,10 +49,10 @@
           <p class="ft-red4"><i class="fa fa-tint" style="margin-right:15px;"></i><b>温馨提示:</b></p>
           <div class="padding-l-20">
             <p ng-if="pay_company === 'yeepay'" class=" ft-red4"><b>1. 目前提现收取2元每笔的提现费用。提现金额的最小额度为1元，即额度大于或等于1元。宏财网平台不收取任何提现费用；</b></p>
-            <p ng-if="pay_company === 'yeepay'" >2. 一般情况下，提现资金将会在当日或下个工作日到账（如遇双休日或法定节假日顺延）。</p>
+            <p ng-if="pay_company === 'yeepay'" >2. 银行存管机构收到用户提现申请即对提现进行转账操作，提现资金将会在下个工作日到账（如遇双休日或法定节假日顺延）。</p>
 
             <p ng-if="pay_company === 'cgt'" class=" ft-red4"><span class="ft-grey">1.</span> <b>目前提现收取2元每笔的提现费用。提现金额的最小额度为1元，即额度大于或等于1元。宏财网平台不收取任何提现费用；</b></p>
-            <p ng-if="pay_company === 'cgt'">2. 一般情况下，提现资金将会在当日或下个工作日到账（如遇双休日或法定节假日顺延）。</p>
+            <p ng-if="pay_company === 'cgt'">2. 银行存管系统收到用户提现申请即对提现进行转账操作，提现资金将会在下个工作日到账（如遇双休日或法定节假日顺延）。</p>
             <p>3. 如果用户迟迟未收到提现资金，可能为银行卡信息填写有误，银行正在做退款操作，预计会在1个工作日内完成退款，请用户耐心等候。用户还可以联系客服（400-990-7626），寻求帮助；</p>
             <p>4. 禁止洗钱、信用卡套现、虚假交易等行为，一经发现并确认，将终止该账户的使用；</p>
           </div>
