@@ -25,12 +25,15 @@ angular.module('hongcaiApp')
     /**
      * 我的债权统计数据
      */
-    UserCenterService.assignmentsCount.get({}, function(response) {
-      if (response && response.ret !== 1) {
-        $scope.assignmentsCount = response;
-      }
-    });
+    $scope.getAssignmentsCount = function(){
+      UserCenterService.assignmentsCount.get({}, function(response) {
+        if (response && response.ret !== 1) {
+          $scope.assignmentsCount = response;
+        }
+      });
+    }
 
+    $scope.getAssignmentsCount()
     /**
      * 加载债权
      * @param  page      第几页
@@ -122,6 +125,7 @@ angular.module('hongcaiApp')
         number: assignmentNumber
       },function(response){
         if (response.status ===3 || response.status ===6) {
+          $scope.getAssignmentsCount()
           toaster.pop('success', '撤销成功');
           $scope.getTranferingAssignmentsList(1,6,'1,2,5');
         }
